@@ -22,18 +22,22 @@
  */
 package org.lwjglx.debug;
 
-import static org.lwjglx.debug.Context.*;
-import static org.lwjglx.debug.Log.*;
+import static org.lwjglx.debug.Context.CONTEXTS;
+import static org.lwjglx.debug.Context.CURRENT_CONTEXT;
+import static org.lwjglx.debug.Log.error;
+import static org.lwjglx.debug.Log.trace;
 
 import java.nio.Buffer;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
+import java.nio.CharBuffer;
 import java.nio.DoubleBuffer;
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 import java.nio.LongBuffer;
 import java.nio.ShortBuffer;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -63,6 +67,476 @@ class Param {
  * Runtime support methods for generated classes and manual validation/trace methods.
  */
 public class RT {
+
+    private static final Map<Buffer, ByteOrder> bufferEndiannessWritten = Collections.synchronizedMap(new WeakIdentityHashMap<>());
+    private static final Map<Buffer, Buffer> bufferViews = Collections.synchronizedMap(new WeakIdentityHashMap<>());
+
+    private static void throwIfNotNativeEndianness(ByteOrder order) {
+        if (order != null && order != ByteOrder.nativeOrder()) {
+            throwIAEOrLogError("buffer contains values written using non-native endianness.");
+        }
+    }
+
+    public static boolean checkNativeByteOrder(Buffer buf) {
+        if (buf == null) {
+            return true;
+        }
+        throwIfNotNativeEndianness(bufferEndiannessWritten.get(buf));
+        Buffer viewedBuffer = bufferViews.get(buf);
+        if (viewedBuffer != null) {
+            throwIfNotNativeEndianness(bufferEndiannessWritten.get(viewedBuffer));
+        }
+        return true;
+    }
+
+    private static void writeByteBuffer(ByteBuffer buf) {
+        ByteOrder order = bufferEndiannessWritten.get(buf);
+        if (order == null) {
+            Buffer viewedBuffer = bufferViews.get(buf);
+            if (viewedBuffer != null) {
+                bufferEndiannessWritten.put(viewedBuffer, buf.order());
+            } else {
+                bufferEndiannessWritten.put(buf, buf.order());
+            }
+        }
+    }
+
+    private static void writeCharBuffer(CharBuffer buf) {
+        Buffer viewedBuffer = bufferViews.get(buf);
+        if (viewedBuffer != null) {
+            bufferEndiannessWritten.put(viewedBuffer, buf.order());
+        } else {
+            /* We don't know how that typed view was created. Just assume it is correct. */
+        }
+    }
+
+    private static void writeShortBuffer(ShortBuffer buf) {
+        Buffer viewedBuffer = bufferViews.get(buf);
+        if (viewedBuffer != null) {
+            bufferEndiannessWritten.put(viewedBuffer, buf.order());
+        } else {
+            /* We don't know how that typed view was created. Just assume it is correct. */
+        }
+    }
+
+    private static void writeIntBuffer(IntBuffer buf) {
+        Buffer viewedBuffer = bufferViews.get(buf);
+        if (viewedBuffer != null) {
+            bufferEndiannessWritten.put(viewedBuffer, buf.order());
+        } else {
+            /* We don't know how that typed view was created. Just assume it is correct. */
+        }
+    }
+
+    private static void writeLongBuffer(LongBuffer buf) {
+        Buffer viewedBuffer = bufferViews.get(buf);
+        if (viewedBuffer != null) {
+            bufferEndiannessWritten.put(viewedBuffer, buf.order());
+        } else {
+            /* We don't know how that typed view was created. Just assume it is correct. */
+        }
+    }
+
+    private static void writeFloatBuffer(FloatBuffer buf) {
+        Buffer viewedBuffer = bufferViews.get(buf);
+        if (viewedBuffer != null) {
+            bufferEndiannessWritten.put(viewedBuffer, buf.order());
+        } else {
+            /* We don't know how that typed view was created. Just assume it is correct. */
+        }
+    }
+
+    private static void writeDoubleBuffer(DoubleBuffer buf) {
+        Buffer viewedBuffer = bufferViews.get(buf);
+        if (viewedBuffer != null) {
+            bufferEndiannessWritten.put(viewedBuffer, buf.order());
+        } else {
+            throw new AssertionError();
+        }
+    }
+
+    public static ByteBuffer slice(ByteBuffer buf) {
+        ByteBuffer buffer = buf.slice();
+        Buffer viewedBuffer = bufferViews.get(buf);
+        if (viewedBuffer != null) {
+            bufferViews.put(buffer, viewedBuffer);
+        } else {
+            bufferViews.put(buffer, buf);
+        }
+        return buffer;
+    }
+
+    public static CharBuffer slice(CharBuffer buf) {
+        CharBuffer buffer = buf.slice();
+        Buffer viewedBuffer = bufferViews.get(buf);
+        if (viewedBuffer != null) {
+            bufferViews.put(buffer, viewedBuffer);
+        }
+        return buffer;
+    }
+
+    public static ShortBuffer slice(ShortBuffer buf) {
+        ShortBuffer buffer = buf.slice();
+        Buffer viewedBuffer = bufferViews.get(buf);
+        if (viewedBuffer != null) {
+            bufferViews.put(buffer, viewedBuffer);
+        }
+        return buffer;
+    }
+
+    public static IntBuffer slice(IntBuffer buf) {
+        IntBuffer buffer = buf.slice();
+        Buffer viewedBuffer = bufferViews.get(buf);
+        if (viewedBuffer != null) {
+            bufferViews.put(buffer, viewedBuffer);
+        }
+        return buffer;
+    }
+
+    public static LongBuffer slice(LongBuffer buf) {
+        LongBuffer buffer = buf.slice();
+        Buffer viewedBuffer = bufferViews.get(buf);
+        if (viewedBuffer != null) {
+            bufferViews.put(buffer, viewedBuffer);
+        }
+        return buffer;
+    }
+
+    public static FloatBuffer slice(FloatBuffer buf) {
+        FloatBuffer buffer = buf.slice();
+        Buffer viewedBuffer = bufferViews.get(buf);
+        if (viewedBuffer != null) {
+            bufferViews.put(buffer, viewedBuffer);
+        }
+        return buffer;
+    }
+
+    public static DoubleBuffer slice(DoubleBuffer buf) {
+        DoubleBuffer buffer = buf.slice();
+        Buffer viewedBuffer = bufferViews.get(buf);
+        if (viewedBuffer != null) {
+            bufferViews.put(buffer, viewedBuffer);
+        }
+        return buffer;
+    }
+
+    public static CharBuffer asCharBuffer(ByteBuffer buf) {
+        CharBuffer buffer = buf.asCharBuffer();
+        Buffer viewedBuffer = bufferViews.get(buf);
+        if (viewedBuffer != null) {
+            bufferViews.put(buffer, viewedBuffer);
+        } else {
+            bufferViews.put(buffer, buf);
+        }
+        return buffer;
+    }
+
+    public static ShortBuffer asShortBuffer(ByteBuffer buf) {
+        ShortBuffer buffer = buf.asShortBuffer();
+        Buffer viewedBuffer = bufferViews.get(buf);
+        if (viewedBuffer != null) {
+            bufferViews.put(buffer, viewedBuffer);
+        } else {
+            bufferViews.put(buffer, buf);
+        }
+        return buffer;
+    }
+
+    public static IntBuffer asIntBuffer(ByteBuffer buf) {
+        IntBuffer buffer = buf.asIntBuffer();
+        Buffer viewedBuffer = bufferViews.get(buf);
+        if (viewedBuffer != null) {
+            bufferViews.put(buffer, viewedBuffer);
+        } else {
+            bufferViews.put(buffer, buf);
+        }
+        return buffer;
+    }
+
+    public static LongBuffer asLongBuffer(ByteBuffer buf) {
+        LongBuffer buffer = buf.asLongBuffer();
+        Buffer viewedBuffer = bufferViews.get(buf);
+        if (viewedBuffer != null) {
+            bufferViews.put(buffer, viewedBuffer);
+        } else {
+            bufferViews.put(buffer, buf);
+        }
+        return buffer;
+    }
+
+    public static FloatBuffer asFloatBuffer(ByteBuffer buf) {
+        FloatBuffer buffer = buf.asFloatBuffer();
+        Buffer viewedBuffer = bufferViews.get(buf);
+        if (viewedBuffer != null) {
+            bufferViews.put(buffer, viewedBuffer);
+        } else {
+            bufferViews.put(buffer, buf);
+        }
+        return buffer;
+    }
+
+    public static DoubleBuffer asDoubleBuffer(ByteBuffer buf) {
+        DoubleBuffer buffer = buf.asDoubleBuffer();
+        Buffer viewedBuffer = bufferViews.get(buf);
+        if (viewedBuffer != null) {
+            bufferViews.put(buffer, viewedBuffer);
+        } else {
+            bufferViews.put(buffer, buf);
+        }
+        return buffer;
+    }
+
+    public static ByteBuffer putChar(ByteBuffer buf, char value) {
+        buf.putChar(value);
+        writeByteBuffer(buf);
+        return buf;
+    }
+
+    public static ByteBuffer putChar(ByteBuffer buf, int index, char value) {
+        buf.putChar(index, value);
+        writeByteBuffer(buf);
+        return buf;
+    }
+
+    public static ByteBuffer putShort(ByteBuffer buf, short value) {
+        buf.putShort(value);
+        writeByteBuffer(buf);
+        return buf;
+    }
+
+    public static ByteBuffer putShort(ByteBuffer buf, int index, short value) {
+        buf.putShort(index, value);
+        writeByteBuffer(buf);
+        return buf;
+    }
+
+    public static ByteBuffer putInt(ByteBuffer buf, int value) {
+        buf.putInt(value);
+        writeByteBuffer(buf);
+        return buf;
+    }
+
+    public static ByteBuffer putInt(ByteBuffer buf, int index, int value) {
+        buf.putInt(index, value);
+        writeByteBuffer(buf);
+        return buf;
+    }
+
+    public static ByteBuffer putLong(ByteBuffer buf, long value) {
+        buf.putLong(value);
+        writeByteBuffer(buf);
+        return buf;
+    }
+
+    public static ByteBuffer putLong(ByteBuffer buf, int index, long value) {
+        buf.putLong(index, value);
+        writeByteBuffer(buf);
+        return buf;
+    }
+
+    public static ByteBuffer putFloat(ByteBuffer buf, float value) {
+        buf.putFloat(value);
+        writeByteBuffer(buf);
+        return buf;
+    }
+
+    public static ByteBuffer putFloat(ByteBuffer buf, int index, float value) {
+        buf.putFloat(index, value);
+        writeByteBuffer(buf);
+        return buf;
+    }
+
+    public static ByteBuffer putDouble(ByteBuffer buf, double value) {
+        buf.putDouble(value);
+        writeByteBuffer(buf);
+        return buf;
+    }
+
+    public static ByteBuffer putDouble(ByteBuffer buf, int index, double value) {
+        buf.putDouble(index, value);
+        writeByteBuffer(buf);
+        return buf;
+    }
+
+    public static CharBuffer put(CharBuffer buf, char s) {
+        buf.put(s);
+        writeCharBuffer(buf);
+        return buf;
+    }
+
+    public static CharBuffer put(CharBuffer buf, int index, char s) {
+        buf.put(index, s);
+        writeCharBuffer(buf);
+        return buf;
+    }
+
+    public static CharBuffer put(CharBuffer buf, CharBuffer src) {
+        buf.put(src);
+        writeCharBuffer(buf);
+        return buf;
+    }
+
+    public static CharBuffer put(CharBuffer buf, char[] src, int offset, int length) {
+        buf.put(src, offset, length);
+        writeCharBuffer(buf);
+        return buf;
+    }
+
+    public static CharBuffer put(CharBuffer buf, char[] src) {
+        buf.put(src);
+        writeCharBuffer(buf);
+        return buf;
+    }
+
+    public static ShortBuffer put(ShortBuffer buf, short s) {
+        buf.put(s);
+        writeShortBuffer(buf);
+        return buf;
+    }
+
+    public static ShortBuffer put(ShortBuffer buf, int index, short s) {
+        buf.put(index, s);
+        writeShortBuffer(buf);
+        return buf;
+    }
+
+    public static ShortBuffer put(ShortBuffer buf, ShortBuffer src) {
+        buf.put(src);
+        writeShortBuffer(buf);
+        return buf;
+    }
+
+    public static ShortBuffer put(ShortBuffer buf, short[] src, int offset, int length) {
+        buf.put(src, offset, length);
+        writeShortBuffer(buf);
+        return buf;
+    }
+
+    public static ShortBuffer put(ShortBuffer buf, short[] src) {
+        buf.put(src);
+        writeShortBuffer(buf);
+        return buf;
+    }
+
+    public static IntBuffer put(IntBuffer buf, int s) {
+        buf.put(s);
+        writeIntBuffer(buf);
+        return buf;
+    }
+
+    public static IntBuffer put(IntBuffer buf, int index, int s) {
+        buf.put(index, s);
+        writeIntBuffer(buf);
+        return buf;
+    }
+
+    public static IntBuffer put(IntBuffer buf, IntBuffer src) {
+        buf.put(src);
+        writeIntBuffer(buf);
+        return buf;
+    }
+
+    public static IntBuffer put(IntBuffer buf, int[] src, int offset, int length) {
+        buf.put(src, offset, length);
+        writeIntBuffer(buf);
+        return buf;
+    }
+
+    public static IntBuffer put(IntBuffer buf, int[] src) {
+        buf.put(src);
+        writeIntBuffer(buf);
+        return buf;
+    }
+
+    public static LongBuffer put(LongBuffer buf, long s) {
+        buf.put(s);
+        writeLongBuffer(buf);
+        return buf;
+    }
+
+    public static LongBuffer put(LongBuffer buf, int index, long s) {
+        buf.put(index, s);
+        writeLongBuffer(buf);
+        return buf;
+    }
+
+    public static LongBuffer put(LongBuffer buf, LongBuffer src) {
+        buf.put(src);
+        writeLongBuffer(buf);
+        return buf;
+    }
+
+    public static LongBuffer put(LongBuffer buf, long[] src, int offset, int length) {
+        buf.put(src, offset, length);
+        writeLongBuffer(buf);
+        return buf;
+    }
+
+    public static LongBuffer put(LongBuffer buf, long[] src) {
+        buf.put(src);
+        writeLongBuffer(buf);
+        return buf;
+    }
+
+    public static FloatBuffer put(FloatBuffer buf, float s) {
+        buf.put(s);
+        writeFloatBuffer(buf);
+        return buf;
+    }
+
+    public static FloatBuffer put(FloatBuffer buf, int index, float s) {
+        buf.put(index, s);
+        writeFloatBuffer(buf);
+        return buf;
+    }
+
+    public static FloatBuffer put(FloatBuffer buf, FloatBuffer src) {
+        buf.put(src);
+        writeFloatBuffer(buf);
+        return buf;
+    }
+
+    public static FloatBuffer put(FloatBuffer buf, float[] src, int offset, int length) {
+        buf.put(src, offset, length);
+        writeFloatBuffer(buf);
+        return buf;
+    }
+
+    public static FloatBuffer put(FloatBuffer buf, float[] src) {
+        buf.put(src);
+        writeFloatBuffer(buf);
+        return buf;
+    }
+
+    public static DoubleBuffer put(DoubleBuffer buf, double s) {
+        buf.put(s);
+        writeDoubleBuffer(buf);
+        return buf;
+    }
+
+    public static DoubleBuffer put(DoubleBuffer buf, int index, double s) {
+        buf.put(index, s);
+        writeDoubleBuffer(buf);
+        return buf;
+    }
+
+    public static DoubleBuffer put(DoubleBuffer buf, DoubleBuffer src) {
+        buf.put(src);
+        writeDoubleBuffer(buf);
+        return buf;
+    }
+
+    public static DoubleBuffer put(DoubleBuffer buf, double[] src, int offset, int length) {
+        buf.put(src, offset, length);
+        writeDoubleBuffer(buf);
+        return buf;
+    }
+
+    public static DoubleBuffer put(DoubleBuffer buf, double[] src) {
+        buf.put(src);
+        writeDoubleBuffer(buf);
+        return buf;
+    }
 
     public static MethodCall methodCall(String source, int line, String name) {
         return new MethodCall(source, line, name);
@@ -243,44 +717,32 @@ public class RT {
 
     public static void checkBuffer(ByteBuffer buffer) {
         checkBufferDirect(buffer, "ByteBuffer");
-        if (buffer != null && buffer.order() != ByteOrder.nativeOrder()) {
-            throwIAEOrLogError("buffer has wrong ByteOrder. Call buffer.order(ByteOrder.nativeOrder()) to fix it.");
-        }
+        checkNativeByteOrder(buffer);
     }
 
     public static void checkBuffer(ShortBuffer buffer) {
         checkBufferDirect(buffer, "ShortBuffer");
-        if (buffer != null && buffer.order() != ByteOrder.nativeOrder()) {
-            throwIAEOrLogError("buffer has wrong ByteOrder. Call buffer.order(ByteOrder.nativeOrder()) to fix it.");
-        }
+        checkNativeByteOrder(buffer);
     }
 
     public static void checkBuffer(FloatBuffer buffer) {
         checkBufferDirect(buffer, "FloatBuffer");
-        if (buffer != null && buffer.order() != ByteOrder.nativeOrder()) {
-            throwIAEOrLogError("buffer has wrong ByteOrder. Call buffer.order(ByteOrder.nativeOrder()) to fix it.");
-        }
+        checkNativeByteOrder(buffer);
     }
 
     public static void checkBuffer(IntBuffer buffer) {
         checkBufferDirect(buffer, "IntBuffer");
-        if (buffer != null && buffer.order() != ByteOrder.nativeOrder()) {
-            throwIAEOrLogError("buffer has wrong ByteOrder. Call buffer.order(ByteOrder.nativeOrder()) to fix it.");
-        }
+        checkNativeByteOrder(buffer);
     }
 
     public static void checkBuffer(DoubleBuffer buffer) {
         checkBufferDirect(buffer, "DoubleBuffer");
-        if (buffer != null && buffer.order() != ByteOrder.nativeOrder()) {
-            throwIAEOrLogError("buffer has wrong ByteOrder. Call buffer.order(ByteOrder.nativeOrder()) to fix it.");
-        }
+        checkNativeByteOrder(buffer);
     }
 
     public static void checkBuffer(LongBuffer buffer) {
         checkBufferDirect(buffer, "LongBuffer");
-        if (buffer.order() != ByteOrder.nativeOrder()) {
-            throwIAEOrLogError("buffer has wrong ByteOrder. Call buffer.order(ByteOrder.nativeOrder()) to fix it.");
-        }
+        checkNativeByteOrder(buffer);
     }
 
     public static String glEnumFor(Command cmd, int paramIndex, int value) {

@@ -47,6 +47,8 @@ import org.objectweb.asm.util.TraceClassVisitor;
 
 public class Agent implements ClassFileTransformer, Opcodes {
 
+    private static final String RT_InternalName = "org/lwjglx/debug/RT";
+
     static {
         LWJGLInit.touch();
     }
@@ -134,6 +136,12 @@ public class Agent implements ClassFileTransformer, Opcodes {
                             }
                             mv.visitMethodInsn(INVOKESTATIC, proxyName, call.generatedMethodName, proxyDesc, itf);
                             modified.value = true;
+                        } else if (opcode == INVOKEVIRTUAL && Util.isBuffer(owner) && Util.isMultiByteWrite(owner, name)) {
+                            mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, name, "(L" + owner + ";" + desc.substring(1), itf);
+                        } else if (opcode == INVOKEVIRTUAL && owner.equals("java/nio/ByteBuffer") && Util.isTypedViewMethod(name)) {
+                            mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, name, "(L" + owner + ";" + desc.substring(1), itf);
+                        } else if (opcode == INVOKEVIRTUAL && Util.isBuffer(owner) && name.equals("slice")) {
+                            mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, name, "(L" + owner + ";" + desc.substring(1), itf);
                         } else {
                             super.visitMethodInsn(opcode, owner, name, desc, itf);
                         }

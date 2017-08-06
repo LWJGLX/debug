@@ -9,6 +9,7 @@ import static org.lwjgl.opengl.GL20.*;
 import static org.lwjgl.opengl.GL30.*;
 
 import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
 
 import org.junit.After;
@@ -243,16 +244,87 @@ public class DebugIT {
     }
 
     @Test
-    public void testBufferWrongByteOrder() {
+    public void testWriteFloatBufferWithWrongByteOrder() {
         window = glfwCreateWindow(800, 600, "", 0L, 0L);
         glfwMakeContextCurrent(window);
         createCapabilities();
+        FloatBuffer bb = ByteBuffer.allocateDirect(16 * 4).asFloatBuffer();
+        bb.put(0, 1.0f);
         try {
-            glUniformMatrix4fv(0, false, ByteBuffer.allocateDirect(16 * 4).asFloatBuffer());
-            fail("glUniformMatrix4fv should have thrown");
+            glLoadMatrixf(bb);
+            fail("glLoadMatrixf should have thrown");
         } catch (IllegalArgumentException e) {
-            assertEquals("buffer has wrong ByteOrder. Call buffer.order(ByteOrder.nativeOrder()) to fix it.", e.getMessage());
+            assertEquals("buffer contains values written using non-native endianness.", e.getMessage());
         }
+    }
+
+    @Test
+    public void testUseFloatBufferViewOfByteBufferWithWrongByteOrder() {
+        window = glfwCreateWindow(800, 600, "", 0L, 0L);
+        glfwMakeContextCurrent(window);
+        createCapabilities();
+        ByteBuffer bb = ByteBuffer.allocateDirect(16 * 4);
+        bb.putFloat(0, 1.0f);
+        FloatBuffer fb = bb.asFloatBuffer();
+        try {
+            glLoadMatrixf(fb);
+            fail("glLoadMatrixf should have thrown");
+        } catch (IllegalArgumentException e) {
+            assertEquals("buffer contains values written using non-native endianness.", e.getMessage());
+        }
+    }
+
+    @Test
+    public void testUseSliceOfByteBufferWithWrongByteOrder() {
+        window = glfwCreateWindow(800, 600, "", 0L, 0L);
+        glfwMakeContextCurrent(window);
+        createCapabilities();
+        ByteBuffer bb = ByteBuffer.allocateDirect(16 * 4);
+        bb.putFloat(0, 1.0f);
+        FloatBuffer fb = bb.slice().asFloatBuffer();
+        try {
+            glLoadMatrixf(fb);
+            fail("glLoadMatrixf should have thrown");
+        } catch (IllegalArgumentException e) {
+            assertEquals("buffer contains values written using non-native endianness.", e.getMessage());
+        }
+    }
+
+    @Test
+    public void testWriteSliceOfByteBufferWithWrongByteOrder() {
+        window = glfwCreateWindow(800, 600, "", 0L, 0L);
+        glfwMakeContextCurrent(window);
+        createCapabilities();
+        ByteBuffer bb = ByteBuffer.allocateDirect(16 * 4);
+        FloatBuffer fb = bb.asFloatBuffer().slice();
+        fb.put(0, 1.0f);
+        try {
+            glLoadMatrixf(fb);
+            fail("glLoadMatrixf should have thrown");
+        } catch (IllegalArgumentException e) {
+            assertEquals("buffer contains values written using non-native endianness.", e.getMessage());
+        }
+    }
+
+    @Test
+    public void testFloatBufferWithWrongByteOrderNotWrittenTo() {
+        window = glfwCreateWindow(800, 600, "", 0L, 0L);
+        glfwMakeContextCurrent(window);
+        createCapabilities();
+        FloatBuffer bb = ByteBuffer.allocateDirect(16 * 4).asFloatBuffer();
+        glLoadMatrixf(bb); // <- should NOT throw
+    }
+
+    @Test
+    public void testFloatBufferViewOfByteBufferSlice() {
+        window = glfwCreateWindow(800, 600, "", 0L, 0L);
+        glfwMakeContextCurrent(window);
+        createCapabilities();
+        ByteBuffer bb = ByteBuffer.allocateDirect(16 * 4);
+        ByteBuffer bb2 = bb.slice().order(ByteOrder.nativeOrder());
+        FloatBuffer fb = bb2.asFloatBuffer().slice();
+        fb.put(0, 1.0f);
+        glLoadMatrixf(fb); // <- should NOT throw
     }
 
     @Test

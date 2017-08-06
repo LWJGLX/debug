@@ -60,12 +60,8 @@ class InterceptedCall {
 class InterceptClassGenerator implements Opcodes {
 
     private static final String MethodCall_InternalName = "org/lwjglx/debug/MethodCall";
+    private static final String MethodCall_Desc = "L" + MethodCall_InternalName + ";";
     private static final String RT_InternalName = "org/lwjglx/debug/RT";
-
-    private static boolean isBuffer(String internalName) {
-        return internalName.equals("java/nio/Buffer") || internalName.equals("java/nio/ByteBuffer") || internalName.equals("java/nio/ShortBuffer") || internalName.equals("java/nio/IntBuffer")
-                || internalName.equals("java/nio/LongBuffer") || internalName.equals("java/nio/FloatBuffer") || internalName.equals("java/nio/DoubleBuffer");
-    }
 
     private static boolean isGLcall(InterceptedCall call) {
         return (call.name.startsWith("gl") || call.name.startsWith("ngl")) && call.receiverInternalName.startsWith("org/lwjgl/opengl/");
@@ -173,7 +169,7 @@ class InterceptClassGenerator implements Opcodes {
                 for (int i = 0; i < paramTypes.length; i++) {
                     Type paramType = paramTypes[i];
                     mv.visitVarInsn(paramType.getOpcode(ILOAD), var);
-                    if (paramType.getSort() == Type.OBJECT && isBuffer(paramType.getInternalName())) {
+                    if (paramType.getSort() == Type.OBJECT && Util.isBuffer(paramType.getInternalName())) {
                         mv.visitInsn(DUP);
                         mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, "checkBuffer", "(" + paramType.getDescriptor() + ")V", false);
                     }
@@ -321,7 +317,7 @@ class InterceptClassGenerator implements Opcodes {
         ldcI(mv, glEnumIndex);
         mv.visitVarInsn(ILOAD, var);
         mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, helperMethod, "(Lorg/lwjglx/debug/Command;II)Ljava/lang/String;", false);
-        mv.visitMethodInsn(INVOKEVIRTUAL, MethodCall_InternalName, "paramEnum", "(Ljava/lang/String;)L" + MethodCall_InternalName + ";", false);
+        mv.visitMethodInsn(INVOKEVIRTUAL, MethodCall_InternalName, "paramEnum", "(Ljava/lang/String;)" + MethodCall_Desc, false);
         glEnumIndex++;
         return glEnumIndex;
     }
@@ -334,7 +330,7 @@ class InterceptClassGenerator implements Opcodes {
             fieldName += "v";
         }
         mv.visitFieldInsn(GETSTATIC, "org/lwjglx/debug/GLmetadata", fieldName, "Lorg/lwjglx/debug/Command;");
-        mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, helperMethod, "(IL" + MethodCall_InternalName + ";Lorg/lwjglx/debug/Command;)I", false);
+        mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, helperMethod, "(I" + MethodCall_Desc + "Lorg/lwjglx/debug/Command;)I", false);
     }
 
     private static void generateDefaultTraceBefore(ClassLoader cl, MethodInfo minfo, MethodVisitor mv, Type[] paramTypes, InterceptedCall call) {
@@ -349,16 +345,16 @@ class InterceptClassGenerator implements Opcodes {
                 glEnumIndex = loadGLenum(call.glName, "decodeBitField", mv, var, glEnumIndex);
             } else if ("GLFWwindow *".equals(nativeType)) {
                 mv.visitVarInsn(paramType.getOpcode(ILOAD), var);
-                mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, "paramGlfwWindow", "(L" + MethodCall_InternalName + ";" + paramType.getDescriptor() + ")L" + MethodCall_InternalName + ";", false);
+                mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, "paramGlfwWindow", "(" + MethodCall_Desc + paramType.getDescriptor() + ")" + MethodCall_Desc, false);
             } else if ("GLFWmonitor *".equals(nativeType)) {
                 mv.visitVarInsn(paramType.getOpcode(ILOAD), var);
-                mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, "paramGlfwMonitor", "(L" + MethodCall_InternalName + ";" + paramType.getDescriptor() + ")L" + MethodCall_InternalName + ";", false);
+                mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, "paramGlfwMonitor", "(" + MethodCall_Desc + paramType.getDescriptor() + ")" + MethodCall_Desc, false);
             } else {
                 mv.visitVarInsn(paramType.getOpcode(ILOAD), var);
                 if (paramType.getSort() == Type.ARRAY || paramType.getSort() == Type.OBJECT) {
-                    mv.visitMethodInsn(INVOKEVIRTUAL, MethodCall_InternalName, "param", "(Ljava/lang/Object;)L" + MethodCall_InternalName + ";", false);
+                    mv.visitMethodInsn(INVOKEVIRTUAL, MethodCall_InternalName, "param", "(Ljava/lang/Object;)" + MethodCall_Desc, false);
                 } else {
-                    mv.visitMethodInsn(INVOKEVIRTUAL, MethodCall_InternalName, "param", "(" + paramType.getDescriptor() + ")L" + MethodCall_InternalName + ";", false);
+                    mv.visitMethodInsn(INVOKEVIRTUAL, MethodCall_InternalName, "param", "(" + paramType.getDescriptor() + ")" + MethodCall_Desc, false);
                 }
             }
             var += paramType.getSize();
@@ -371,7 +367,7 @@ class InterceptClassGenerator implements Opcodes {
             // Do nothing
         } else if (retType.getSort() == Type.ARRAY || retType.getSort() == Type.OBJECT) {
             mv.visitVarInsn(ALOAD, mcvar);
-            mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, "returnValue", "(Ljava/lang/Object;L" + MethodCall_InternalName + ";)Ljava/lang/Object;", false);
+            mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, "returnValue", "(Ljava/lang/Object;" + MethodCall_Desc + ")Ljava/lang/Object;", false);
             if (!"java/lang/Object".equals(retType.getInternalName()))
                 mv.visitTypeInsn(CHECKCAST, retType.getInternalName());
         } else {
@@ -380,11 +376,11 @@ class InterceptClassGenerator implements Opcodes {
             if ("GLenum".equals(returnNativeType) || "GLboolean".equals(returnNativeType)) {
                 loadGLenumReturn(call.glName, "glEnumReturn", mv);
             } else if ("GLFWwindow *".equals(returnNativeType)) {
-                mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, "returnValueGlfwWindow", "(" + retType.getDescriptor() + "L" + MethodCall_InternalName + ";)" + retType.getDescriptor(), false);
+                mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, "returnValueGlfwWindow", "(" + retType.getDescriptor() + MethodCall_Desc + ")" + retType.getDescriptor(), false);
             } else if ("GLFWmonitor *".equals(returnNativeType)) {
-                mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, "returnValueGlfwMonitor", "(" + retType.getDescriptor() + "L" + MethodCall_InternalName + ";)" + retType.getDescriptor(), false);
+                mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, "returnValueGlfwMonitor", "(" + retType.getDescriptor() + MethodCall_Desc + ")" + retType.getDescriptor(), false);
             } else {
-                mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, "returnValue", "(" + retType.getDescriptor() + "L" + MethodCall_InternalName + ";)" + retType.getDescriptor(), false);
+                mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, "returnValue", "(" + retType.getDescriptor() + MethodCall_Desc + ")" + retType.getDescriptor(), false);
             }
         }
         mv.visitVarInsn(ALOAD, mcvar);
