@@ -11870,6 +11870,13 @@ public class GLmetadata {
     GL_EXT_index_array_formats.put(GL_IUI_N3F_V3F_EXT, "GL_IUI_N3F_V3F_EXT");
     GL_EXT_index_array_formats.put(GL_T2F_IUI_V3F_EXT, "GL_T2F_IUI_V3F_EXT");
   }
+  private static final Map<Integer, String> GL_EXT_texture_compression_s3tc_srgb = new HashMap<Integer, String>();
+  private static void GL_EXT_texture_compression_s3tc_srgb() {
+    GL_EXT_texture_compression_s3tc_srgb.put(GL_COMPRESSED_SRGB_ALPHA_S3TC_DXT3_EXT, "GL_COMPRESSED_SRGB_ALPHA_S3TC_DXT3_EXT");
+    GL_EXT_texture_compression_s3tc_srgb.put(GL_COMPRESSED_SRGB_S3TC_DXT1_EXT, "GL_COMPRESSED_SRGB_S3TC_DXT1_EXT");
+    GL_EXT_texture_compression_s3tc_srgb.put(GL_COMPRESSED_SRGB_ALPHA_S3TC_DXT1_EXT, "GL_COMPRESSED_SRGB_ALPHA_S3TC_DXT1_EXT");
+    GL_EXT_texture_compression_s3tc_srgb.put(GL_COMPRESSED_SRGB_ALPHA_S3TC_DXT5_EXT, "GL_COMPRESSED_SRGB_ALPHA_S3TC_DXT5_EXT");
+  }
   private static final Map<Integer, String> GL_ARB_buffer_storage = new HashMap<Integer, String>();
   private static void GL_ARB_buffer_storage() {
     GL_ARB_buffer_storage.put(GL_MAP_COHERENT_BIT, "GL_MAP_COHERENT_BIT");
@@ -30097,6 +30104,7 @@ public class GLmetadata {
     GL_EXT_separate_specular_color();
     GL_NV_deep_texture3D();
     GL_EXT_index_array_formats();
+    GL_EXT_texture_compression_s3tc_srgb();
     GL_ARB_buffer_storage();
     GL_ARB_instanced_arrays();
     GL_ARB_sample_locations();

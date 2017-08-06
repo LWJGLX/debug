@@ -3,5 +3,4 @@
 /target/
 /.classpath
 /.project
-/src/org/lwjglx/debug/support/GLmetadata.java
 /*.iml
