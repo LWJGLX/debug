@@ -30,9 +30,9 @@ import java.lang.instrument.ClassFileTransformer;
 import java.lang.instrument.IllegalClassFormatException;
 import java.lang.instrument.Instrumentation;
 import java.security.ProtectionDomain;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.regex.Pattern;
@@ -88,7 +88,7 @@ public class Agent implements ClassFileTransformer, Opcodes {
             boolean value;
         }
         BooleanHolder modified = new BooleanHolder();
-        List<InterceptedCall> calls = new ArrayList<InterceptedCall>();
+        Map<String, InterceptedCall> calls = new LinkedHashMap<String, InterceptedCall>();
         String callerName = className.replace('.', '/');
         String proxyName = "org/lwjglx/debug/$Proxy$" + counter.incrementAndGet();
         ClassVisitor cv = new ClassVisitor(ASM5, cw) {
@@ -112,17 +112,27 @@ public class Agent implements ClassFileTransformer, Opcodes {
 
                     public void visitMethodInsn(int opcode, String owner, String name, String desc, boolean itf) {
                         if (opcode == INVOKESTATIC && owner.startsWith("org/lwjgl/") && !excluded(owner, name)) {
-                            InterceptedCall call = new InterceptedCall(source, lastLineNumber, owner, name, desc);
-                            Log.maxLineNumberLength = Math.max(Log.maxLineNumberLength, (int) (Math.log10(lastLineNumber) + 1));
-                            String methodName;
-                            if (DEBUG) {
-                                methodName = name + call.index;
-                            } else {
-                                methodName = Integer.toString(call.index);
+                            String key = owner + "." + name + desc;
+                            InterceptedCall call = calls.get(key);
+                            if (call == null) {
+                                call = new InterceptedCall(source, lastLineNumber, owner, name, desc);
+                                String methodName;
+                                if (DEBUG) {
+                                    methodName = name + call.index;
+                                } else {
+                                    methodName = Integer.toString(call.index);
+                                }
+                                call.generatedMethodName = methodName;
+                                calls.put(key, call);
                             }
-                            call.generatedMethodName = methodName;
-                            calls.add(call);
-                            mv.visitMethodInsn(INVOKESTATIC, proxyName, call.generatedMethodName, desc, itf);
+                            Log.maxLineNumberLength = Math.max(Log.maxLineNumberLength, (int) (Math.log10(lastLineNumber) + 1));
+                            String proxyDesc = call.desc;
+                            if (Properties.TRACE) {
+                                mv.visitLdcInsn(source);
+                                mv.visitLdcInsn(lastLineNumber);
+                                proxyDesc = call.desc.substring(0, call.desc.lastIndexOf(')')) + "Ljava/lang/String;I" + call.desc.substring(call.desc.lastIndexOf(')'));
+                            }
+                            mv.visitMethodInsn(INVOKESTATIC, proxyName, call.generatedMethodName, proxyDesc, itf);
                             modified.value = true;
                         } else {
                             super.visitMethodInsn(opcode, owner, name, desc, itf);
@@ -141,7 +151,7 @@ public class Agent implements ClassFileTransformer, Opcodes {
             debug("Modified [" + className + "] (" + calls.size() + " calls into LWJGL)");
         }
         /* Generate proxy class */
-        InterceptClassGenerator.generate(loader, proxyName, callerName, calls);
+        InterceptClassGenerator.generate(loader, proxyName, callerName, calls.values());
         byte[] arr = cw.toByteArray();
         if (DEBUG) {
             TraceClassVisitor tcv = new TraceClassVisitor(new PrintWriter(System.err));

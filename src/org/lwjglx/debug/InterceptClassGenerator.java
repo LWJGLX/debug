@@ -43,8 +43,6 @@ class InterceptedCall {
     private static final AtomicInteger counter = new AtomicInteger();
 
     int index;
-    String source;
-    int line;
     String receiverInternalName;
     String name;
     String glName;
@@ -53,13 +51,10 @@ class InterceptedCall {
 
     InterceptedCall(String source, int line, String receiverInternalName, String name, String desc) {
         this.index = counter.incrementAndGet();
-        this.source = source;
-        this.line = line;
         this.receiverInternalName = receiverInternalName;
         this.name = name;
         this.desc = desc;
     }
-
 }
 
 class InterceptClassGenerator implements Opcodes {
@@ -164,7 +159,11 @@ class InterceptClassGenerator implements Opcodes {
         ctor.visitEnd();
         /* Generate a new method for each intercepted call */
         for (InterceptedCall call : calls) {
-            MethodVisitor mv = cw.visitMethod(ACC_PUBLIC | ACC_STATIC | ACC_SYNTHETIC, call.generatedMethodName, call.desc, null, null);
+            String effectiveDesc = call.desc;
+            if (TRACE) {
+                effectiveDesc = call.desc.substring(0, call.desc.lastIndexOf(')')) + "Ljava/lang/String;I" + call.desc.substring(call.desc.lastIndexOf(')'));
+            }
+            MethodVisitor mv = cw.visitMethod(ACC_PUBLIC | ACC_STATIC | ACC_SYNTHETIC, call.generatedMethodName, effectiveDesc, null, null);
             mv.visitCode();
             {
                 /* Validate buffer arguments and also load all arguments onto stack */
@@ -180,6 +179,9 @@ class InterceptClassGenerator implements Opcodes {
                     }
                     var += paramType.getSize();
                 }
+                /* Allocate locals for the source/line parameters (only available when TRACE) */
+                int sourceVar = var++;
+                int lineVar = var++;
                 /* check if GL call */
                 call.glName = glCall(call);
                 if (call.glName != null) {
@@ -202,8 +204,8 @@ class InterceptClassGenerator implements Opcodes {
                     traceMethodDesc += "Lorg/lwjglx/debug/MethodCall;";
                     traceMethodDesc += ")V";
                     /* push a new MethodCall object on the stack */
-                    mv.visitLdcInsn(call.source);
-                    ldcI(mv, call.line);
+                    mv.visitVarInsn(ALOAD, sourceVar);
+                    mv.visitVarInsn(ILOAD, lineVar);
                     mv.visitLdcInsn(call.name);
                     mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, "methodCall", "(Ljava/lang/String;ILjava/lang/String;)Lorg/lwjglx/debug/MethodCall;", false);
                     int methodCallVar = var++;
@@ -245,6 +247,10 @@ class InterceptClassGenerator implements Opcodes {
                         mv.visitMethodInsn(INVOKESTATIC, traceMethodOwnerName, call.name, traceMethodDesc, false);
                         mv.visitVarInsn(ALOAD, methodCallVar);
                         mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, "methodCall", "(Lorg/lwjglx/debug/MethodCall;)V", false);
+                        if (retType.getSort() != Type.VOID) {
+                            /* Load return value on stack for final return from proxy method */
+                            mv.visitVarInsn(retType.getOpcode(ILOAD), retVar);
+                        }
                     } else {
                         mv.visitInsn(DUP);
                         mv.visitVarInsn(ASTORE, methodCallVar); // <- store in local
