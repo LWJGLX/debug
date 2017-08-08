@@ -105,8 +105,11 @@ public class GLXMLReader extends DefaultHandler {
         Map<String, Command> commands = new HashMap<>();
     }
 
-    private String path = "";
+    private String path;
     private Stack<String> paths = new Stack<String>();
+    {
+        paths.add("");
+    }
     private Group currentGroup;
     private Map<String, Group> groups = new HashMap<>();
     private Map<String, Command> commands = new HashMap<>();
@@ -145,8 +148,8 @@ public class GLXMLReader extends DefaultHandler {
 
     @Override
     public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
-        paths.push(localName);
-        path += "/" + localName;
+        path = paths.peek() + "/" + localName;
+        paths.push(path);
         if ("/registry/groups/group".equals(path)) {
             currentGroup = new Group();
             currentGroup.name = attributes.getValue("name");
@@ -368,11 +371,7 @@ public class GLXMLReader extends DefaultHandler {
     @Override
     public void endElement(String uri, String localName, String qName) throws SAXException {
         paths.pop();
-        StringBuilder pb = new StringBuilder();
-        for (String s : paths) {
-            pb.append("/").append(s);
-        }
-        path = pb.toString();
+        path = paths.peek();
     }
 
     /**
