@@ -623,7 +623,7 @@ public class RT {
 
     public static void checkError(String glCall) {
         Context context = CURRENT_CONTEXT.get();
-        if (context != null && context.debugCallback == null) {
+        if (context != null && context.debugCallback == null && !context.inImmediateMode) {
             // No OpenGL debugging callback available, we have to resort to glGetError()
             int err = org.lwjgl.opengl.GL11.glGetError();
             if (err != 0) {

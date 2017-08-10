@@ -198,4 +198,16 @@ public class GL11 {
         glTexParameter_trace(target, pname, param, mc);
     }
 
+    public static void glBegin(int mode) {
+        org.lwjgl.opengl.GL11.glBegin(mode);
+        Context ctx = CURRENT_CONTEXT.get();
+        ctx.inImmediateMode = true;
+    }
+
+    public static void glEnd() {
+        org.lwjgl.opengl.GL11.glEnd();
+        Context ctx = CURRENT_CONTEXT.get();
+        ctx.inImmediateMode = false;
+    }
+
 }

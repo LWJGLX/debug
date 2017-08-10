@@ -76,6 +76,7 @@ public class Context implements Comparable<Context> {
     public Map<Integer, FBO> fbos = new HashMap<Integer, FBO>();
     public Map<Integer, ProgramPipeline> programPipelines = new HashMap<Integer, ProgramPipeline>();
     public ShareGroup shareGroup;
+    public boolean inImmediateMode;
 
     public static void create(long window, long share) {
         Context ctx = new Context();
