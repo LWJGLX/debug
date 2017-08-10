@@ -124,7 +124,7 @@ public class GLFW {
     /*
      * Custom/manual trace method for glfwWindowHint
      */
-    public static void glfwWindowHint(int hint, int value, MethodCall mc) {
+    public static void glfwWindowHint(int hint, int value, Void ret, MethodCall mc) {
         switch (hint) {
         case org.lwjgl.glfw.GLFW.GLFW_RESIZABLE:
             mc.paramEnum("GLFW_RESIZABLE");
@@ -392,7 +392,7 @@ public class GLFW {
         }
     }
 
-    public static void glfwSwapInterval(int interval, MethodCall mc) {
+    public static void glfwSwapInterval(int interval, Void ret, MethodCall mc) {
         Context ctx = CURRENT_CONTEXT.get();
         if (ctx != null && interval != 0) { // != 0 for EXT_swap_control_tear
             long monitor = org.lwjgl.glfw.GLFW.glfwGetWindowMonitor(ctx.window);

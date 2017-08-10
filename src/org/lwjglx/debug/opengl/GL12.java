@@ -82,23 +82,23 @@ public class GL12 {
         mc.param(pixels);
     }
 
-    public static void glTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, ByteBuffer pixels, MethodCall mc) {
+    public static void glTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, ByteBuffer pixels, Void ret, MethodCall mc) {
         glTexImage3D_trace(target, level, internalformat, width, height, depth, border, format, type, pixels, mc);
     }
 
-    public static void glTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, ShortBuffer pixels, MethodCall mc) {
+    public static void glTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, ShortBuffer pixels, Void ret, MethodCall mc) {
         glTexImage3D_trace(target, level, internalformat, width, height, depth, border, format, type, pixels, mc);
     }
 
-    public static void glTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, IntBuffer pixels, MethodCall mc) {
+    public static void glTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, IntBuffer pixels, Void ret, MethodCall mc) {
         glTexImage3D_trace(target, level, internalformat, width, height, depth, border, format, type, pixels, mc);
     }
 
-    public static void glTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, FloatBuffer pixels, MethodCall mc) {
+    public static void glTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, FloatBuffer pixels, Void ret, MethodCall mc) {
         glTexImage3D_trace(target, level, internalformat, width, height, depth, border, format, type, pixels, mc);
     }
 
-    public static void glTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, DoubleBuffer pixels, MethodCall mc) {
+    public static void glTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, DoubleBuffer pixels, Void ret, MethodCall mc) {
         glTexImage3D_trace(target, level, internalformat, width, height, depth, border, format, type, pixels, mc);
     }
 

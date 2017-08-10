@@ -135,8 +135,7 @@ public class GL20 {
         }
     }
 
-    public static int glGetShaderi(int shader, int pname, MethodCall mc) {
-        int ret = org.lwjgl.opengl.GL20.glGetShaderi(shader, pname);
+    public static void glGetShaderi(int shader, int pname, int ret, MethodCall mc) {
         mc.param(shader);
         mc.paramEnum(GLmetadata._null_.get(pname));
         switch (pname) {
@@ -147,11 +146,9 @@ public class GL20 {
             mc.param(pname);
             break;
         }
-        return ret;
     }
 
-    public static int glGetProgrami(int program, int pname, MethodCall mc) {
-        int ret = org.lwjgl.opengl.GL20.glGetProgrami(program, pname);
+    public static void glGetProgrami(int program, int pname, int ret, MethodCall mc) {
         mc.param(program);
         mc.paramEnum(GLmetadata._null_.get(pname));
         switch (pname) {
@@ -162,7 +159,6 @@ public class GL20 {
             mc.param(pname);
             break;
         }
-        return ret;
     }
 
 }

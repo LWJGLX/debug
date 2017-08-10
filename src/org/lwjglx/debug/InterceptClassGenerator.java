@@ -196,6 +196,8 @@ class InterceptClassGenerator implements Opcodes {
                     String traceMethodDesc = call.desc.substring(0, call.desc.lastIndexOf(')'));
                     if (retType.getSort() != Type.VOID) {
                         traceMethodDesc += retType.getDescriptor();
+                    } else {
+                        traceMethodDesc += "Ljava/lang/Void;";
                     }
                     traceMethodDesc += "Lorg/lwjglx/debug/MethodCall;";
                     traceMethodDesc += ")V";
@@ -237,6 +239,8 @@ class InterceptClassGenerator implements Opcodes {
                         }
                         if (retType.getSort() != Type.VOID) {
                             mv.visitVarInsn(retType.getOpcode(ILOAD), retVar);
+                        } else {
+                            mv.visitInsn(ACONST_NULL);
                         }
                         /* Call the trace method */
                         mv.visitVarInsn(ALOAD, methodCallVar);

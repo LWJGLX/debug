@@ -27,7 +27,7 @@ import org.lwjglx.debug.RT;
 
 public class Callbacks {
 
-    public static void glfwFreeCallbacks(long window, MethodCall mc) {
+    public static void glfwFreeCallbacks(long window, Void ret, MethodCall mc) {
         RT.paramGlfwWindow(mc, window);
     }
 
