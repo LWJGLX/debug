@@ -187,7 +187,7 @@ class InterceptClassGenerator implements Opcodes {
                     checkFunctionSupported(mv, call.glName);
                 }
                 /* Optionally delay the call */
-                if (Properties.DELAY > 0L) {
+                if (Properties.SLEEP > 0L) {
                     mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, "delay", "()V", false);
                 }
                 /* Do we want to output a call trace? */

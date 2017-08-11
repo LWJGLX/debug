@@ -810,7 +810,7 @@ public class RT {
 
     public static void delay() {
         try {
-            Thread.sleep(Properties.DELAY);
+            Thread.sleep(Properties.SLEEP);
         } catch (InterruptedException e) {
         }
     }

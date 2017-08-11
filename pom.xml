@@ -269,6 +269,11 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
+			<groupId>net.sf.jopt-simple</groupId>
+			<artifactId>jopt-simple</artifactId>
+			<version>5.0.4</version>
+		</dependency>
+		<dependency>
 			<groupId>org.ow2.asm</groupId>
 			<artifactId>asm</artifactId>
 			<version>${asm.version}</version>

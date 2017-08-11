@@ -262,7 +262,6 @@ public class MethodCall {
         StringBuilder sb = new StringBuilder();
         if (source != null) {
             String sourceLine = "(" + source + ":" + line + ")";
-            // expect at most 999 lines = hence 3 additional padding spaces
             int pad = Log.maxSourceLength;
             pad += 3; // <- account for parenthese and colon
             pad += Log.maxLineNumberLength;

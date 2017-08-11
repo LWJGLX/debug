@@ -22,8 +22,8 @@
  */
 package org.lwjglx.debug;
 
-import static org.lwjglx.debug.Log.debug;
-import static org.lwjglx.debug.Properties.DEBUG;
+import static org.lwjglx.debug.Log.*;
+import static org.lwjglx.debug.Properties.*;
 
 import java.io.PrintWriter;
 import java.lang.instrument.ClassFileTransformer;
@@ -32,6 +32,7 @@ import java.lang.instrument.Instrumentation;
 import java.security.ProtectionDomain;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -44,6 +45,10 @@ import org.objectweb.asm.Label;
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.util.TraceClassVisitor;
+
+import joptsimple.OptionParser;
+import joptsimple.OptionSet;
+import joptsimple.OptionSpec;
 
 public class Agent implements ClassFileTransformer, Opcodes {
 
@@ -264,11 +269,37 @@ public class Agent implements ClassFileTransformer, Opcodes {
         /* Add standard excludes */
         excludes.add(Pattern.compile(convertGlobToRegEx("org/lwjgl/system/*")));
         if (agentArguments != null) {
-            /* It is a comma-separated list of GLOB patterns for packages/classes/method names to exclude */
-            String[] excluded = agentArguments.split(",");
-            for (String e : excluded) {
-                excludes.add(Pattern.compile(convertGlobToRegEx(e)));
+            /* Parse command line arguments */
+            String[] args = agentArguments.split(";");
+            for (int i = 0; i < args.length; i++) {
+                if (!args[i].startsWith("-")) {
+                    args[i] = "-" + args[i];
+                }
             }
+            OptionParser parser = new OptionParser();
+            OptionSpec<String> path = parser.accepts("exclude").withRequiredArg().ofType(String.class).withValuesSeparatedBy(",");
+            parser.accepts("debug");
+            parser.accepts("trace");
+            parser.accepts("nothrow");
+            OptionSpec<Long> sleep = parser.accepts("sleep").withRequiredArg().ofType(Long.class);
+            OptionSpec<String> output = parser.accepts("output").withRequiredArg().ofType(String.class);
+            OptionSet options = parser.parse(args);
+            if (options.has("exclude")) {
+                List<String> excluded = options.valuesOf(path);
+                for (String e : excluded) {
+                    excludes.add(Pattern.compile(convertGlobToRegEx(e)));
+                }
+            }
+            if (options.has("debug"))
+                Properties.DEBUG = true;
+            if (options.has("trace"))
+                Properties.TRACE = true;
+            if (options.has("nothrow"))
+                Properties.NO_THROW_ON_ERROR = true;
+            if (options.has("sleep"))
+                Properties.SLEEP = options.valueOf(sleep);
+            if (options.has("output"))
+                Properties.OUTPUT = options.valueOf(output);
         }
         Agent t = new Agent(excludes);
         instrumentation.addTransformer(t);
