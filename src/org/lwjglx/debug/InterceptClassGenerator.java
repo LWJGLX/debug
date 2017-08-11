@@ -165,19 +165,9 @@ class InterceptClassGenerator implements Opcodes {
                 /* Validate buffer arguments and also load all arguments onto stack */
                 Type[] paramTypes = Type.getArgumentTypes(call.desc);
                 Type retType = Type.getReturnType(call.desc);
-                int var = 0; // <- counts the used local variables
-                for (int i = 0; i < paramTypes.length; i++) {
-                    Type paramType = paramTypes[i];
-                    mv.visitVarInsn(paramType.getOpcode(ILOAD), var);
-                    if (paramType.getSort() == Type.OBJECT && Util.isBuffer(paramType.getInternalName())) {
-                        mv.visitInsn(DUP);
-                        mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, "checkBuffer", "(" + paramType.getDescriptor() + ")V", false);
-                    }
-                    var += paramType.getSize();
-                }
+                int var = loadArgumentsAndValidateBuffers(mv, paramTypes);
                 /* Allocate locals for the source/line parameters (only available when TRACE) */
-                int sourceVar = var++;
-                int lineVar = var++;
+                int sourceVar = var++, lineVar = var++;
                 /* check if GL call */
                 call.glName = glCall(call);
                 if (call.glName != null) {
@@ -187,56 +177,31 @@ class InterceptClassGenerator implements Opcodes {
                     checkFunctionSupported(mv, call.glName);
                 }
                 /* Optionally delay the call */
-                if (Properties.SLEEP > 0L) {
-                    mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, "delay", "()V", false);
-                }
+                sleep(mv);
                 /* Do we want to output a call trace? */
                 if (Properties.TRACE) {
                     /* What is the expected descriptor of the trace method? */
-                    String traceMethodDesc = call.desc.substring(0, call.desc.lastIndexOf(')'));
-                    if (retType.getSort() != Type.VOID) {
-                        traceMethodDesc += retType.getDescriptor();
-                    } else {
-                        traceMethodDesc += "Ljava/lang/Void;";
-                    }
-                    traceMethodDesc += "Lorg/lwjglx/debug/MethodCall;";
-                    traceMethodDesc += ")V";
+                    String traceMethodDesc = buildTraceMethodDesc(call, retType);
                     /* push a new MethodCall object on the stack */
                     mv.visitVarInsn(ALOAD, sourceVar);
                     mv.visitVarInsn(ILOAD, lineVar);
                     mv.visitLdcInsn(call.name);
-                    mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, "methodCall", "(Ljava/lang/String;ILjava/lang/String;)Lorg/lwjglx/debug/MethodCall;", false);
-                    int methodCallVar = var++;
+                    mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, "methodCall", "(Ljava/lang/String;ILjava/lang/String;)" + MethodCall_Desc, false);
+                    int methodCallVar = var++; // <- local to hold the created MethodCall
                     /* check if we have a user-provided trace method */
                     String traceMethodOwnerName = traceMethod(classLoader, traceMethodDesc, call);
                     if (traceMethodOwnerName != null) {
                         mv.visitVarInsn(ASTORE, methodCallVar); // <- store in local
-                        /* Check if we have a user-provided validation method */
-                        String validationMethodOwnerName = validationMethod(classLoader, call);
-                        if (validationMethodOwnerName != null) {
-                            /* we have, so call it... */
-                            mv.visitMethodInsn(INVOKESTATIC, validationMethodOwnerName, call.name, call.desc, false);
-                        } else {
-                            /* we don't have a user-defined validation method yet, so just call the target method directly */
-                            mv.visitMethodInsn(INVOKESTATIC, call.receiverInternalName, call.name, call.desc, false);
-                        }
-                        /* Check GL error if it was a GL call */
-                        if (call.glName != null && !call.glName.equals("glGetError")) {
-                            mv.visitLdcInsn(call.name);
-                            mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, "checkError", "(Ljava/lang/String;)V", false);
-                        }
+                        /* Call a user-provided intercept method or the target method */
+                        callUserMethodOrDirect(classLoader, call, mv);
                         /* Store the return value in a local */
                         int retVar = var++;
                         if (retType.getSort() != Type.VOID) {
                             mv.visitVarInsn(retType.getOpcode(ISTORE), retVar);
                         }
                         /* Repeat the arguments onto stack */
-                        var = 0;
-                        for (int i = 0; i < paramTypes.length; i++) {
-                            Type paramType = paramTypes[i];
-                            mv.visitVarInsn(paramType.getOpcode(ILOAD), var);
-                            var += paramType.getSize();
-                        }
+                        loadArguments(mv, paramTypes);
+                        /* and load the return value (if any) */
                         if (retType.getSort() != Type.VOID) {
                             mv.visitVarInsn(retType.getOpcode(ILOAD), retVar);
                         } else {
@@ -252,45 +217,21 @@ class InterceptClassGenerator implements Opcodes {
                             mv.visitVarInsn(retType.getOpcode(ILOAD), retVar);
                         }
                     } else {
-                        mv.visitInsn(DUP);
+                        mv.visitInsn(DUP); // <- duplicate MethodCall to be reused in generateDefaultTraceBefore()
                         mv.visitVarInsn(ASTORE, methodCallVar); // <- store in local
                         /* No user-provided trace method -> generate default trace prolog */
                         ClassMetadata classMetadata = ClassMetadata.create(call.receiverInternalName, classLoader);
                         MethodInfo minfo = classMetadata.methods.get(call.name + call.desc);
+                        /* Generate trace prolog */
                         generateDefaultTraceBefore(classLoader, minfo, mv, paramTypes, call);
-                        /* Check if we have a user-provided validation method */
-                        String validationMethodOwnerName = validationMethod(classLoader, call);
-                        if (validationMethodOwnerName != null) {
-                            /* we have, so call it... */
-                            mv.visitMethodInsn(INVOKESTATIC, validationMethodOwnerName, call.name, call.desc, false);
-                        } else {
-                            /* we don't have a user-defined validation method yet, so just call the target method directly */
-                            mv.visitMethodInsn(INVOKESTATIC, call.receiverInternalName, call.name, call.desc, false);
-                        }
-                        /* Check GL error if it was a GL call */
-                        if (call.glName != null && !call.glName.equals("glGetError")) {
-                            mv.visitLdcInsn(call.name);
-                            mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, "checkError", "(Ljava/lang/String;)V", false);
-                        }
+                        /* Call a user-provided intercept method or the target method */
+                        callUserMethodOrDirect(classLoader, call, mv);
                         /* Generate default trace epilog */
                         generateDefaultTraceAfter(call, mv, methodCallVar, retType, minfo);
                     }
                 } else {
-                    /* -- NO TRACE -- */
-                    /* check if we have a user-provided validation method */
-                    String validationMethodOwnerName = validationMethod(classLoader, call);
-                    if (validationMethodOwnerName != null) {
-                        /* we have, so call it... */
-                        mv.visitMethodInsn(INVOKESTATIC, validationMethodOwnerName, call.name, call.desc, false);
-                    } else {
-                        /* we don't have a user-defined validation method yet, so just call the target method directly */
-                        mv.visitMethodInsn(INVOKESTATIC, call.receiverInternalName, call.name, call.desc, false);
-                    }
-                    /* Check GL error if it was a GL call */
-                    if (call.glName != null && !call.glName.equals("glGetError")) {
-                        mv.visitLdcInsn(call.name);
-                        mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, "checkError", "(Ljava/lang/String;)V", false);
-                    }
+                    /* Call a user-provided intercept method or the target method */
+                    callUserMethodOrDirect(classLoader, call, mv);
                 }
                 /* and finally return the return value */
                 mv.visitInsn(retType.getOpcode(IRETURN));
@@ -310,6 +251,64 @@ class InterceptClassGenerator implements Opcodes {
         return generatedClass;
     }
 
+    private static String buildTraceMethodDesc(InterceptedCall call, Type retType) {
+        String traceMethodDesc = call.desc.substring(0, call.desc.lastIndexOf(')'));
+        if (retType.getSort() != Type.VOID) {
+            traceMethodDesc += retType.getDescriptor();
+        } else {
+            traceMethodDesc += "Ljava/lang/Void;";
+        }
+        traceMethodDesc += "Lorg/lwjglx/debug/MethodCall;";
+        traceMethodDesc += ")V";
+        return traceMethodDesc;
+    }
+
+    private static void sleep(MethodVisitor mv) {
+        if (Properties.SLEEP > 0L) {
+            mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, "delay", "()V", false);
+        }
+    }
+
+    private static int loadArgumentsAndValidateBuffers(MethodVisitor mv, Type[] paramTypes) {
+        int var = 0; // <- counts the used local variables
+        for (int i = 0; i < paramTypes.length; i++) {
+            Type paramType = paramTypes[i];
+            mv.visitVarInsn(paramType.getOpcode(ILOAD), var);
+            if (paramType.getSort() == Type.OBJECT && Util.isBuffer(paramType.getInternalName())) {
+                mv.visitInsn(DUP);
+                mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, "checkBuffer", "(" + paramType.getDescriptor() + ")V", false);
+            }
+            var += paramType.getSize();
+        }
+        return var;
+    }
+
+    private static void loadArguments(MethodVisitor mv, Type[] paramTypes) {
+        int var = 0;
+        for (int i = 0; i < paramTypes.length; i++) {
+            Type paramType = paramTypes[i];
+            mv.visitVarInsn(paramType.getOpcode(ILOAD), var);
+            var += paramType.getSize();
+        }
+    }
+
+    private static void callUserMethodOrDirect(ClassLoader classLoader, InterceptedCall call, MethodVisitor mv) {
+        /* Check if we have a user-provided validation method */
+        String validationMethodOwnerName = validationMethod(classLoader, call);
+        if (validationMethodOwnerName != null) {
+            /* we have, so call it... */
+            mv.visitMethodInsn(INVOKESTATIC, validationMethodOwnerName, call.name, call.desc, false);
+        } else {
+            /* we don't have a user-defined validation method yet, so just call the target method directly */
+            mv.visitMethodInsn(INVOKESTATIC, call.receiverInternalName, call.name, call.desc, false);
+        }
+        /* Check GL error if it was a GL call */
+        if (call.glName != null && !call.glName.equals("glGetError")) {
+            mv.visitLdcInsn(call.name);
+            mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, "checkError", "(Ljava/lang/String;)V", false);
+        }
+    }
+
     private static int loadGLenum(String name, String helperMethod, MethodVisitor mv, int var, int glEnumIndex) {
         String fieldName = name;
         try {
@@ -318,7 +317,7 @@ class InterceptClassGenerator implements Opcodes {
             fieldName += "v";
         }
         mv.visitFieldInsn(GETSTATIC, "org/lwjglx/debug/GLmetadata", fieldName, "Lorg/lwjglx/debug/Command;");
-        ldcI(mv, glEnumIndex);
+        Util.ldcI(mv, glEnumIndex);
         mv.visitVarInsn(ILOAD, var);
         mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, helperMethod, "(Lorg/lwjglx/debug/Command;II)Ljava/lang/String;", false);
         mv.visitMethodInsn(INVOKEVIRTUAL, MethodCall_InternalName, "paramEnum", "(Ljava/lang/String;)" + MethodCall_Desc, false);
@@ -389,23 +388,6 @@ class InterceptClassGenerator implements Opcodes {
         }
         mv.visitVarInsn(ALOAD, mcvar);
         mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, "methodCall", "(Lorg/lwjglx/debug/MethodCall;)V", false);
-    }
-
-    private static void ldcI(MethodVisitor mv, int i) {
-        /* Special opcodes for some integer constants */
-        if (i >= -1 && i <= 5) {
-            mv.visitInsn(ICONST_0 + i);
-        } else {
-            /* BIPUSH or SIPUSH if integer constant within certain limits */
-            if (i >= Byte.MIN_VALUE && i <= Byte.MAX_VALUE) {
-                mv.visitIntInsn(BIPUSH, i);
-            } else if (i >= Short.MIN_VALUE && i <= Short.MAX_VALUE) {
-                mv.visitIntInsn(SIPUSH, i);
-            } else {
-                /* Fallback to LDC */
-                mv.visitLdcInsn(Integer.valueOf(i));
-            }
-        }
     }
 
 }

@@ -136,7 +136,7 @@ public class Agent implements ClassFileTransformer, Opcodes {
                             String proxyDesc = call.desc;
                             if (Properties.TRACE) {
                                 mv.visitLdcInsn(source);
-                                mv.visitLdcInsn(lastLineNumber);
+                                Util.ldcI(mv, lastLineNumber);
                                 proxyDesc = call.desc.substring(0, call.desc.lastIndexOf(')')) + "Ljava/lang/String;I" + call.desc.substring(call.desc.lastIndexOf(')'));
                             }
                             mv.visitMethodInsn(INVOKESTATIC, proxyName, call.generatedMethodName, proxyDesc, itf);

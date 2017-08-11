@@ -28,10 +28,10 @@ The following configuration properties are available to configure the library:
 
 Examples:
 
-* `java -javaagent:lwjglx-debug.jar=t ...` (generate a trace on syserr)
+* `java -javaagent:lwjglx-debug.jar=t ...` (generate a trace on stderr)
 * `java -javaagent:lwjglx-debug.jar=t;o=trace.log` (generate a trace written to file `trace.log`)
 * `java -javaagent:lwjglx-debug.jar=tn;o=trace.log` (generate a trace written to file `trace.log` and do not throw on GL errors)
-* `java -javaagent:lwjglx-debug.jar=t;e=*GL20*,*GL11.glVertex3f` (generate a trace on syserr and exclude all methods from any class having `GL20` in its name, as well as exclude `glVertex3f` from any class ending with `GL11`)
+* `java -javaagent:lwjglx-debug.jar=t;e=*GL20*,*GL11.glVertex3f` (generate a trace on stderr and exclude all methods from any class having `GL20` in its name, as well as exclude `glVertex3f` from any class ending with `GL11`)
 
 # Build
 
