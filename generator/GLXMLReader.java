@@ -194,11 +194,13 @@ public class GLXMLReader extends DefaultHandler {
             if (e == null) {
                 e = new GLenum();
                 e.name = enumName;
-                // currenGroup here is always the null-group
-                currentGroup.enums.put(e.name, e);
-                /* Also add to null group */
-                enums.put(e.name, e);
+            } else if (!e.name.equals(enumName)) {
+                throw new AssertionError("Duplicate enum [" + e.name + "] and [" + enumName + "] = " + value);
             }
+            // currenGroup here is always the null-group
+            currentGroup.enums.put(e.name, e);
+            /* Also add to null group */
+            enums.put(e.name, e);
             e.value = value;
             e.hasValue = true;
         } else if ("/registry/commands/command".equals(path)) {
