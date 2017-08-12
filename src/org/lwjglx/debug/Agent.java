@@ -135,7 +135,11 @@ public class Agent implements ClassFileTransformer, Opcodes {
                             Log.maxLineNumberLength = Math.max(Log.maxLineNumberLength, (int) (Math.log10(lastLineNumber) + 1));
                             String proxyDesc = call.desc;
                             if (Properties.TRACE) {
-                                mv.visitLdcInsn(source);
+                                if (source == null) {
+                                    mv.visitInsn(ACONST_NULL);
+                                } else {
+                                    mv.visitLdcInsn(source);
+                                }
                                 Util.ldcI(mv, lastLineNumber);
                                 proxyDesc = call.desc.substring(0, call.desc.lastIndexOf(')')) + "Ljava/lang/String;I" + call.desc.substring(call.desc.lastIndexOf(')'));
                             }
