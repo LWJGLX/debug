@@ -293,9 +293,20 @@ public class GLXMLReader extends DefaultHandler {
             if (gname == null) {
                 gname = "_null_";
             }
-            sb.append("  public static final Map<Integer, String> ").append(gname).append(" = new HashMap<Integer, String>();\n");
-            int i = 0;
+            int numEnums = 0;
             Iterator<GLenum> it = group.enums.values().iterator();
+            while (it.hasNext()) {
+                GLenum e = it.next();
+                if (!e.hasValue)
+                    continue;
+                if ((e.name.endsWith("_ARB") || e.name.endsWith("_EXT") || e.name.endsWith("_NV") || e.name.endsWith("_OES")) && group.enums.containsValue(new GLenum(e.value))) {
+                    continue;
+                }
+                numEnums++;
+            }
+            sb.append("  public static final Map<Integer, String> ").append(gname).append(" = new HashMap<Integer, String>(").append(numEnums).append(");\n");
+            int i = 0;
+            it = group.enums.values().iterator();
             do {
                 clinit.append("    ").append(gname).append(i).append("();\n");
                 sb.append("  private static void ").append(gname).append(i).append("() {\n");
@@ -338,7 +349,17 @@ public class GLXMLReader extends DefaultHandler {
             }
             if (!found)
                 continue;
-            sb.append("  public static final Command ").append(cmd.name).append(" = new Command();\n");
+            int numParams = 0;
+            for (Param param : cmd.params) {
+                if ("GLboolean".equals(param.type) || "GLenum".equals(param.type) || "GLbitfield".equals(param.type)) {
+                    if (param.group == null || param.group.name == null) {
+                        numParams++;
+                    } else {
+                        numParams++;
+                    }
+                }
+            }
+            sb.append("  public static final Command ").append(cmd.name).append(" = new Command(").append(numParams).append(");\n");
             sb.append("  private static void ").append(cmd.name).append("() {\n");
             sb.append("    Command cmd = ").append(cmd.name).append(";\n");
             if (cmd.returnType.group != null && cmd.returnType.group.name != null) {

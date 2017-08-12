@@ -44,9 +44,13 @@ import java.util.Map;
 import org.lwjgl.PointerBuffer;
 
 class Command {
-    List<Param> params = new ArrayList<>();
+    final List<Param> params;
     Map<Integer, String> returnGroup;
     Map<Integer, String> extension;
+
+    Command(int numParams) {
+        params = new ArrayList<>(numParams);
+    }
 
     void addParam(String name, int type, Map<Integer, String> group) {
         Param p = new Param();

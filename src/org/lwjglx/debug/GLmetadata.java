@@ -5737,7 +5737,7 @@ public class GLmetadata {
   private static final int GL_GLYPH_WIDTH_BIT_NV = 1;
   private static final int GL_REG_30_ATI = 35135;
   private static final int GL_OFFSET_TEXTURE_2D_SCALE_NV = 34530;
-  public static final Map<Integer, String> _null_ = new HashMap<Integer, String>();
+  public static final Map<Integer, String> _null_ = new HashMap<Integer, String>(2996);
   private static void _null_0() {
     _null_.put(GL_FOG_COORDINATE_ARRAY_BUFFER_BINDING, "GL_FOG_COORDINATE_ARRAY_BUFFER_BINDING");
     _null_.put(GL_TRANSFORM_FEEDBACK_BINDING, "GL_TRANSFORM_FEEDBACK_BINDING");
@@ -8850,13 +8850,13 @@ public class GLmetadata {
     _null_.put(GL_ADD_SIGNED, "GL_ADD_SIGNED");
     _null_.put(GL_REG_30_ATI, "GL_REG_30_ATI");
   }
-  public static final Map<Integer, String> CullFaceMode = new HashMap<Integer, String>();
+  public static final Map<Integer, String> CullFaceMode = new HashMap<Integer, String>(3);
   private static void CullFaceMode0() {
     CullFaceMode.put(GL_BACK, "GL_BACK");
     CullFaceMode.put(GL_FRONT, "GL_FRONT");
     CullFaceMode.put(GL_FRONT_AND_BACK, "GL_FRONT_AND_BACK");
   }
-  public static final Map<Integer, String> AlphaFunction = new HashMap<Integer, String>();
+  public static final Map<Integer, String> AlphaFunction = new HashMap<Integer, String>(8);
   private static void AlphaFunction0() {
     AlphaFunction.put(GL_EQUAL, "GL_EQUAL");
     AlphaFunction.put(GL_GREATER, "GL_GREATER");
@@ -8867,25 +8867,25 @@ public class GLmetadata {
     AlphaFunction.put(GL_NOTEQUAL, "GL_NOTEQUAL");
     AlphaFunction.put(GL_ALWAYS, "GL_ALWAYS");
   }
-  public static final Map<Integer, String> PolygonMode = new HashMap<Integer, String>();
+  public static final Map<Integer, String> PolygonMode = new HashMap<Integer, String>(3);
   private static void PolygonMode0() {
     PolygonMode.put(GL_POINT, "GL_POINT");
     PolygonMode.put(GL_LINE, "GL_LINE");
     PolygonMode.put(GL_FILL, "GL_FILL");
   }
-  public static final Map<Integer, String> GetMapQuery = new HashMap<Integer, String>();
+  public static final Map<Integer, String> GetMapQuery = new HashMap<Integer, String>(3);
   private static void GetMapQuery0() {
     GetMapQuery.put(GL_COEFF, "GL_COEFF");
     GetMapQuery.put(GL_DOMAIN, "GL_DOMAIN");
     GetMapQuery.put(GL_ORDER, "GL_ORDER");
   }
-  public static final Map<Integer, String> PixelStoreResampleMode = new HashMap<Integer, String>();
+  public static final Map<Integer, String> PixelStoreResampleMode = new HashMap<Integer, String>(3);
   private static void PixelStoreResampleMode0() {
     PixelStoreResampleMode.put(GL_RESAMPLE_DECIMATE_SGIX, "GL_RESAMPLE_DECIMATE_SGIX");
     PixelStoreResampleMode.put(GL_RESAMPLE_REPLICATE_SGIX, "GL_RESAMPLE_REPLICATE_SGIX");
     PixelStoreResampleMode.put(GL_RESAMPLE_ZERO_FILL_SGIX, "GL_RESAMPLE_ZERO_FILL_SGIX");
   }
-  public static final Map<Integer, String> FeedBackToken = new HashMap<Integer, String>();
+  public static final Map<Integer, String> FeedBackToken = new HashMap<Integer, String>(8);
   private static void FeedBackToken0() {
     FeedBackToken.put(GL_BITMAP_TOKEN, "GL_BITMAP_TOKEN");
     FeedBackToken.put(GL_COPY_PIXEL_TOKEN, "GL_COPY_PIXEL_TOKEN");
@@ -8896,12 +8896,12 @@ public class GLmetadata {
     FeedBackToken.put(GL_POLYGON_TOKEN, "GL_POLYGON_TOKEN");
     FeedBackToken.put(GL_PASS_THROUGH_TOKEN, "GL_PASS_THROUGH_TOKEN");
   }
-  public static final Map<Integer, String> TextureEnvParameter = new HashMap<Integer, String>();
+  public static final Map<Integer, String> TextureEnvParameter = new HashMap<Integer, String>(2);
   private static void TextureEnvParameter0() {
     TextureEnvParameter.put(GL_TEXTURE_ENV_MODE, "GL_TEXTURE_ENV_MODE");
     TextureEnvParameter.put(GL_TEXTURE_ENV_COLOR, "GL_TEXTURE_ENV_COLOR");
   }
-  public static final Map<Integer, String> GetPointervPName = new HashMap<Integer, String>();
+  public static final Map<Integer, String> GetPointervPName = new HashMap<Integer, String>(9);
   private static void GetPointervPName0() {
     GetPointervPName.put(GL_COLOR_ARRAY_POINTER, "GL_COLOR_ARRAY_POINTER");
     GetPointervPName.put(GL_INDEX_ARRAY_POINTER, "GL_INDEX_ARRAY_POINTER");
@@ -8913,16 +8913,16 @@ public class GLmetadata {
     GetPointervPName.put(GL_NORMAL_ARRAY_POINTER, "GL_NORMAL_ARRAY_POINTER");
     GetPointervPName.put(GL_INSTRUMENT_BUFFER_POINTER_SGIX, "GL_INSTRUMENT_BUFFER_POINTER_SGIX");
   }
-  public static final Map<Integer, String> MapTextureFormatINTEL = new HashMap<Integer, String>();
+  public static final Map<Integer, String> MapTextureFormatINTEL = new HashMap<Integer, String>(3);
   private static void MapTextureFormatINTEL0() {
     MapTextureFormatINTEL.put(GL_LAYOUT_LINEAR_CPU_CACHED_INTEL, "GL_LAYOUT_LINEAR_CPU_CACHED_INTEL");
     MapTextureFormatINTEL.put(GL_LAYOUT_LINEAR_INTEL, "GL_LAYOUT_LINEAR_INTEL");
     MapTextureFormatINTEL.put(GL_LAYOUT_DEFAULT_INTEL, "GL_LAYOUT_DEFAULT_INTEL");
   }
-  public static final Map<Integer, String> ExternalHandleType = new HashMap<Integer, String>();
+  public static final Map<Integer, String> ExternalHandleType = new HashMap<Integer, String>(0);
   private static void ExternalHandleType0() {
   }
-  public static final Map<Integer, String> TextureEnvMode = new HashMap<Integer, String>();
+  public static final Map<Integer, String> TextureEnvMode = new HashMap<Integer, String>(5);
   private static void TextureEnvMode0() {
     TextureEnvMode.put(GL_MODULATE, "GL_MODULATE");
     TextureEnvMode.put(GL_ADD, "GL_ADD");
@@ -8930,13 +8930,13 @@ public class GLmetadata {
     TextureEnvMode.put(GL_DECAL, "GL_DECAL");
     TextureEnvMode.put(GL_TEXTURE_ENV_BIAS_SGIX, "GL_TEXTURE_ENV_BIAS_SGIX");
   }
-  public static final Map<Integer, String> RenderingMode = new HashMap<Integer, String>();
+  public static final Map<Integer, String> RenderingMode = new HashMap<Integer, String>(3);
   private static void RenderingMode0() {
     RenderingMode.put(GL_SELECT, "GL_SELECT");
     RenderingMode.put(GL_RENDER, "GL_RENDER");
     RenderingMode.put(GL_FEEDBACK, "GL_FEEDBACK");
   }
-  public static final Map<Integer, String> ColorTableTargetSGI = new HashMap<Integer, String>();
+  public static final Map<Integer, String> ColorTableTargetSGI = new HashMap<Integer, String>(14);
   private static void ColorTableTargetSGI0() {
     ColorTableTargetSGI.put(GL_PROXY_COLOR_TABLE, "GL_PROXY_COLOR_TABLE");
     ColorTableTargetSGI.put(GL_PROXY_POST_CONVOLUTION_COLOR_TABLE, "GL_PROXY_POST_CONVOLUTION_COLOR_TABLE");
@@ -8953,18 +8953,18 @@ public class GLmetadata {
     ColorTableTargetSGI.put(GL_POST_CONVOLUTION_COLOR_TABLE, "GL_POST_CONVOLUTION_COLOR_TABLE");
     ColorTableTargetSGI.put(GL_PROXY_POST_COLOR_MATRIX_COLOR_TABLE_SGI, "GL_PROXY_POST_COLOR_MATRIX_COLOR_TABLE_SGI");
   }
-  public static final Map<Integer, String> ConvolutionTargetEXT = new HashMap<Integer, String>();
+  public static final Map<Integer, String> ConvolutionTargetEXT = new HashMap<Integer, String>(2);
   private static void ConvolutionTargetEXT0() {
     ConvolutionTargetEXT.put(GL_CONVOLUTION_2D, "GL_CONVOLUTION_2D");
     ConvolutionTargetEXT.put(GL_CONVOLUTION_1D, "GL_CONVOLUTION_1D");
   }
-  public static final Map<Integer, String> HintMode = new HashMap<Integer, String>();
+  public static final Map<Integer, String> HintMode = new HashMap<Integer, String>(3);
   private static void HintMode0() {
     HintMode.put(GL_FASTEST, "GL_FASTEST");
     HintMode.put(GL_DONT_CARE, "GL_DONT_CARE");
     HintMode.put(GL_NICEST, "GL_NICEST");
   }
-  public static final Map<Integer, String> TextureParameterName = new HashMap<Integer, String>();
+  public static final Map<Integer, String> TextureParameterName = new HashMap<Integer, String>(43);
   private static void TextureParameterName0() {
     TextureParameterName.put(GL_SHADOW_AMBIENT_SGIX, "GL_SHADOW_AMBIENT_SGIX");
     TextureParameterName.put(GL_GENERATE_MIPMAP_SGIS, "GL_GENERATE_MIPMAP_SGIS");
@@ -9010,11 +9010,11 @@ public class GLmetadata {
     TextureParameterName.put(GL_TEXTURE_SWIZZLE_G, "GL_TEXTURE_SWIZZLE_G");
     TextureParameterName.put(GL_TEXTURE_BORDER_COLOR, "GL_TEXTURE_BORDER_COLOR");
   }
-  public static final Map<Integer, String> TextureFilterFuncSGIS = new HashMap<Integer, String>();
+  public static final Map<Integer, String> TextureFilterFuncSGIS = new HashMap<Integer, String>(1);
   private static void TextureFilterFuncSGIS0() {
     TextureFilterFuncSGIS.put(GL_FILTER4_SGIS, "GL_FILTER4_SGIS");
   }
-  public static final Map<Integer, String> PrimitiveType = new HashMap<Integer, String>();
+  public static final Map<Integer, String> PrimitiveType = new HashMap<Integer, String>(15);
   private static void PrimitiveType0() {
     PrimitiveType.put(GL_LINE_LOOP, "GL_LINE_LOOP");
     PrimitiveType.put(GL_LINE_STRIP, "GL_LINE_STRIP");
@@ -9032,7 +9032,7 @@ public class GLmetadata {
     PrimitiveType.put(GL_POINTS, "GL_POINTS");
     PrimitiveType.put(GL_LINES, "GL_LINES");
   }
-  public static final Map<Integer, String> AttribMask = new HashMap<Integer, String>();
+  public static final Map<Integer, String> AttribMask = new HashMap<Integer, String>(23);
   private static void AttribMask0() {
     AttribMask.put(GL_TRANSFORM_BIT, "GL_TRANSFORM_BIT");
     AttribMask.put(GL_ENABLE_BIT, "GL_ENABLE_BIT");
@@ -9058,19 +9058,19 @@ public class GLmetadata {
     AttribMask.put(GL_LIST_BIT, "GL_LIST_BIT");
     AttribMask.put(GL_CURRENT_BIT, "GL_CURRENT_BIT");
   }
-  public static final Map<Integer, String> Boolean = new HashMap<Integer, String>();
+  public static final Map<Integer, String> Boolean = new HashMap<Integer, String>(2);
   private static void Boolean0() {
     Boolean.put(GL_TRUE, "GL_TRUE");
     Boolean.put(GL_FALSE, "GL_FALSE");
   }
-  public static final Map<Integer, String> ClearBufferMask = new HashMap<Integer, String>();
+  public static final Map<Integer, String> ClearBufferMask = new HashMap<Integer, String>(4);
   private static void ClearBufferMask0() {
     ClearBufferMask.put(GL_COLOR_BUFFER_BIT, "GL_COLOR_BUFFER_BIT");
     ClearBufferMask.put(GL_ACCUM_BUFFER_BIT, "GL_ACCUM_BUFFER_BIT");
     ClearBufferMask.put(GL_STENCIL_BUFFER_BIT, "GL_STENCIL_BUFFER_BIT");
     ClearBufferMask.put(GL_DEPTH_BUFFER_BIT, "GL_DEPTH_BUFFER_BIT");
   }
-  public static final Map<Integer, String> LogicOp = new HashMap<Integer, String>();
+  public static final Map<Integer, String> LogicOp = new HashMap<Integer, String>(16);
   private static void LogicOp0() {
     LogicOp.put(GL_XOR, "GL_XOR");
     LogicOp.put(GL_AND_INVERTED, "GL_AND_INVERTED");
@@ -9089,18 +9089,18 @@ public class GLmetadata {
     LogicOp.put(GL_AND, "GL_AND");
     LogicOp.put(GL_AND_REVERSE, "GL_AND_REVERSE");
   }
-  public static final Map<Integer, String> MeshMode1 = new HashMap<Integer, String>();
+  public static final Map<Integer, String> MeshMode1 = new HashMap<Integer, String>(2);
   private static void MeshMode10() {
     MeshMode1.put(GL_POINT, "GL_POINT");
     MeshMode1.put(GL_LINE, "GL_LINE");
   }
-  public static final Map<Integer, String> MeshMode2 = new HashMap<Integer, String>();
+  public static final Map<Integer, String> MeshMode2 = new HashMap<Integer, String>(3);
   private static void MeshMode20() {
     MeshMode2.put(GL_POINT, "GL_POINT");
     MeshMode2.put(GL_LINE, "GL_LINE");
     MeshMode2.put(GL_FILL, "GL_FILL");
   }
-  public static final Map<Integer, String> MemoryBarrierMask = new HashMap<Integer, String>();
+  public static final Map<Integer, String> MemoryBarrierMask = new HashMap<Integer, String>(16);
   private static void MemoryBarrierMask0() {
     MemoryBarrierMask.put(GL_TEXTURE_UPDATE_BARRIER_BIT, "GL_TEXTURE_UPDATE_BARRIER_BIT");
     MemoryBarrierMask.put(GL_PIXEL_BUFFER_BARRIER_BIT, "GL_PIXEL_BUFFER_BARRIER_BIT");
@@ -9119,12 +9119,12 @@ public class GLmetadata {
     MemoryBarrierMask.put(GL_VERTEX_ATTRIB_ARRAY_BARRIER_BIT, "GL_VERTEX_ATTRIB_ARRAY_BARRIER_BIT");
     MemoryBarrierMask.put(GL_ELEMENT_ARRAY_BARRIER_BIT, "GL_ELEMENT_ARRAY_BARRIER_BIT");
   }
-  public static final Map<Integer, String> PixelTexGenParameterNameSGIS = new HashMap<Integer, String>();
+  public static final Map<Integer, String> PixelTexGenParameterNameSGIS = new HashMap<Integer, String>(2);
   private static void PixelTexGenParameterNameSGIS0() {
     PixelTexGenParameterNameSGIS.put(GL_PIXEL_FRAGMENT_RGB_SOURCE_SGIS, "GL_PIXEL_FRAGMENT_RGB_SOURCE_SGIS");
     PixelTexGenParameterNameSGIS.put(GL_PIXEL_FRAGMENT_ALPHA_SOURCE_SGIS, "GL_PIXEL_FRAGMENT_ALPHA_SOURCE_SGIS");
   }
-  public static final Map<Integer, String> UseProgramStageMask = new HashMap<Integer, String>();
+  public static final Map<Integer, String> UseProgramStageMask = new HashMap<Integer, String>(7);
   private static void UseProgramStageMask0() {
     UseProgramStageMask.put(GL_GEOMETRY_SHADER_BIT, "GL_GEOMETRY_SHADER_BIT");
     UseProgramStageMask.put(GL_FRAGMENT_SHADER_BIT, "GL_FRAGMENT_SHADER_BIT");
@@ -9134,7 +9134,7 @@ public class GLmetadata {
     UseProgramStageMask.put(GL_TESS_CONTROL_SHADER_BIT, "GL_TESS_CONTROL_SHADER_BIT");
     UseProgramStageMask.put(GL_COMPUTE_SHADER_BIT, "GL_COMPUTE_SHADER_BIT");
   }
-  public static final Map<Integer, String> BufferTargetARB = new HashMap<Integer, String>();
+  public static final Map<Integer, String> BufferTargetARB = new HashMap<Integer, String>(14);
   private static void BufferTargetARB0() {
     BufferTargetARB.put(GL_UNIFORM_BUFFER, "GL_UNIFORM_BUFFER");
     BufferTargetARB.put(GL_COPY_WRITE_BUFFER, "GL_COPY_WRITE_BUFFER");
@@ -9151,18 +9151,18 @@ public class GLmetadata {
     BufferTargetARB.put(GL_ARRAY_BUFFER, "GL_ARRAY_BUFFER");
     BufferTargetARB.put(GL_SHADER_STORAGE_BUFFER, "GL_SHADER_STORAGE_BUFFER");
   }
-  public static final Map<Integer, String> ColorTableParameterPNameSGI = new HashMap<Integer, String>();
+  public static final Map<Integer, String> ColorTableParameterPNameSGI = new HashMap<Integer, String>(4);
   private static void ColorTableParameterPNameSGI0() {
     ColorTableParameterPNameSGI.put(GL_COLOR_TABLE_BIAS, "GL_COLOR_TABLE_BIAS");
     ColorTableParameterPNameSGI.put(GL_COLOR_TABLE_SCALE_SGI, "GL_COLOR_TABLE_SCALE_SGI");
     ColorTableParameterPNameSGI.put(GL_COLOR_TABLE_BIAS_SGI, "GL_COLOR_TABLE_BIAS_SGI");
     ColorTableParameterPNameSGI.put(GL_COLOR_TABLE_SCALE, "GL_COLOR_TABLE_SCALE");
   }
-  public static final Map<Integer, String> MinmaxTargetEXT = new HashMap<Integer, String>();
+  public static final Map<Integer, String> MinmaxTargetEXT = new HashMap<Integer, String>(1);
   private static void MinmaxTargetEXT0() {
     MinmaxTargetEXT.put(GL_MINMAX, "GL_MINMAX");
   }
-  public static final Map<Integer, String> PixelStoreParameter = new HashMap<Integer, String>();
+  public static final Map<Integer, String> PixelStoreParameter = new HashMap<Integer, String>(32);
   private static void PixelStoreParameter0() {
     PixelStoreParameter.put(GL_PACK_ROW_LENGTH, "GL_PACK_ROW_LENGTH");
     PixelStoreParameter.put(GL_PACK_SKIP_IMAGES, "GL_PACK_SKIP_IMAGES");
@@ -9197,13 +9197,13 @@ public class GLmetadata {
     PixelStoreParameter.put(GL_PIXEL_TILE_HEIGHT_SGIX, "GL_PIXEL_TILE_HEIGHT_SGIX");
     PixelStoreParameter.put(GL_UNPACK_SUBSAMPLE_RATE_SGIX, "GL_UNPACK_SUBSAMPLE_RATE_SGIX");
   }
-  public static final Map<Integer, String> ContextFlagMask = new HashMap<Integer, String>();
+  public static final Map<Integer, String> ContextFlagMask = new HashMap<Integer, String>(3);
   private static void ContextFlagMask0() {
     ContextFlagMask.put(GL_CONTEXT_FLAG_DEBUG_BIT, "GL_CONTEXT_FLAG_DEBUG_BIT");
     ContextFlagMask.put(GL_CONTEXT_FLAG_DEBUG_BIT_KHR, "GL_CONTEXT_FLAG_DEBUG_BIT_KHR");
     ContextFlagMask.put(GL_CONTEXT_FLAG_FORWARD_COMPATIBLE_BIT, "GL_CONTEXT_FLAG_FORWARD_COMPATIBLE_BIT");
   }
-  public static final Map<Integer, String> MaterialParameter = new HashMap<Integer, String>();
+  public static final Map<Integer, String> MaterialParameter = new HashMap<Integer, String>(7);
   private static void MaterialParameter0() {
     MaterialParameter.put(GL_AMBIENT_AND_DIFFUSE, "GL_AMBIENT_AND_DIFFUSE");
     MaterialParameter.put(GL_AMBIENT, "GL_AMBIENT");
@@ -9213,38 +9213,38 @@ public class GLmetadata {
     MaterialParameter.put(GL_EMISSION, "GL_EMISSION");
     MaterialParameter.put(GL_DIFFUSE, "GL_DIFFUSE");
   }
-  public static final Map<Integer, String> ShadingModel = new HashMap<Integer, String>();
+  public static final Map<Integer, String> ShadingModel = new HashMap<Integer, String>(2);
   private static void ShadingModel0() {
     ShadingModel.put(GL_SMOOTH, "GL_SMOOTH");
     ShadingModel.put(GL_FLAT, "GL_FLAT");
   }
-  public static final Map<Integer, String> TextureLayout = new HashMap<Integer, String>();
+  public static final Map<Integer, String> TextureLayout = new HashMap<Integer, String>(0);
   private static void TextureLayout0() {
   }
-  public static final Map<Integer, String> LightEnvModeSGIX = new HashMap<Integer, String>();
+  public static final Map<Integer, String> LightEnvModeSGIX = new HashMap<Integer, String>(3);
   private static void LightEnvModeSGIX0() {
     LightEnvModeSGIX.put(GL_MODULATE, "GL_MODULATE");
     LightEnvModeSGIX.put(GL_ADD, "GL_ADD");
     LightEnvModeSGIX.put(GL_REPLACE, "GL_REPLACE");
   }
-  public static final Map<Integer, String> FrontFaceDirection = new HashMap<Integer, String>();
+  public static final Map<Integer, String> FrontFaceDirection = new HashMap<Integer, String>(2);
   private static void FrontFaceDirection0() {
     FrontFaceDirection.put(GL_CW, "GL_CW");
     FrontFaceDirection.put(GL_CCW, "GL_CCW");
   }
-  public static final Map<Integer, String> TextureCoordName = new HashMap<Integer, String>();
+  public static final Map<Integer, String> TextureCoordName = new HashMap<Integer, String>(4);
   private static void TextureCoordName0() {
     TextureCoordName.put(GL_Q, "GL_Q");
     TextureCoordName.put(GL_S, "GL_S");
     TextureCoordName.put(GL_R, "GL_R");
     TextureCoordName.put(GL_T, "GL_T");
   }
-  public static final Map<Integer, String> FogPointerTypeIBM = new HashMap<Integer, String>();
+  public static final Map<Integer, String> FogPointerTypeIBM = new HashMap<Integer, String>(2);
   private static void FogPointerTypeIBM0() {
     FogPointerTypeIBM.put(GL_FLOAT, "GL_FLOAT");
     FogPointerTypeIBM.put(GL_DOUBLE, "GL_DOUBLE");
   }
-  public static final Map<Integer, String> TextureGenMode = new HashMap<Integer, String>();
+  public static final Map<Integer, String> TextureGenMode = new HashMap<Integer, String>(7);
   private static void TextureGenMode0() {
     TextureGenMode.put(GL_OBJECT_DISTANCE_TO_LINE_SGIS, "GL_OBJECT_DISTANCE_TO_LINE_SGIS");
     TextureGenMode.put(GL_EYE_DISTANCE_TO_LINE_SGIS, "GL_EYE_DISTANCE_TO_LINE_SGIS");
@@ -9254,7 +9254,7 @@ public class GLmetadata {
     TextureGenMode.put(GL_EYE_DISTANCE_TO_POINT_SGIS, "GL_EYE_DISTANCE_TO_POINT_SGIS");
     TextureGenMode.put(GL_EYE_LINEAR, "GL_EYE_LINEAR");
   }
-  public static final Map<Integer, String> TextureGenParameter = new HashMap<Integer, String>();
+  public static final Map<Integer, String> TextureGenParameter = new HashMap<Integer, String>(7);
   private static void TextureGenParameter0() {
     TextureGenParameter.put(GL_OBJECT_LINE_SGIS, "GL_OBJECT_LINE_SGIS");
     TextureGenParameter.put(GL_OBJECT_PLANE, "GL_OBJECT_PLANE");
@@ -9264,7 +9264,7 @@ public class GLmetadata {
     TextureGenParameter.put(GL_TEXTURE_GEN_MODE, "GL_TEXTURE_GEN_MODE");
     TextureGenParameter.put(GL_EYE_PLANE, "GL_EYE_PLANE");
   }
-  public static final Map<Integer, String> GetPName = new HashMap<Integer, String>();
+  public static final Map<Integer, String> GetPName = new HashMap<Integer, String>(349);
   private static void GetPName0() {
     GetPName.put(GL_SCISSOR_TEST, "GL_SCISSOR_TEST");
     GetPName.put(GL_PACK_LSB_FIRST, "GL_PACK_LSB_FIRST");
@@ -9622,7 +9622,7 @@ public class GLmetadata {
     GetPName.put(GL_PIXEL_MAP_G_TO_G_SIZE, "GL_PIXEL_MAP_G_TO_G_SIZE");
     GetPName.put(GL_RED_SCALE, "GL_RED_SCALE");
   }
-  public static final Map<Integer, String> ClipPlaneName = new HashMap<Integer, String>();
+  public static final Map<Integer, String> ClipPlaneName = new HashMap<Integer, String>(14);
   private static void ClipPlaneName0() {
     ClipPlaneName.put(GL_CLIP_DISTANCE1, "GL_CLIP_DISTANCE1");
     ClipPlaneName.put(GL_CLIP_DISTANCE0, "GL_CLIP_DISTANCE0");
@@ -9639,7 +9639,7 @@ public class GLmetadata {
     ClipPlaneName.put(GL_CLIP_PLANE4, "GL_CLIP_PLANE4");
     ClipPlaneName.put(GL_CLIP_PLANE5, "GL_CLIP_PLANE5");
   }
-  public static final Map<Integer, String> PixelMap = new HashMap<Integer, String>();
+  public static final Map<Integer, String> PixelMap = new HashMap<Integer, String>(10);
   private static void PixelMap0() {
     PixelMap.put(GL_PIXEL_MAP_B_TO_B, "GL_PIXEL_MAP_B_TO_B");
     PixelMap.put(GL_PIXEL_MAP_S_TO_S, "GL_PIXEL_MAP_S_TO_S");
@@ -9652,13 +9652,13 @@ public class GLmetadata {
     PixelMap.put(GL_PIXEL_MAP_I_TO_G, "GL_PIXEL_MAP_I_TO_G");
     PixelMap.put(GL_PIXEL_MAP_R_TO_R, "GL_PIXEL_MAP_R_TO_R");
   }
-  public static final Map<Integer, String> DrawElementsType = new HashMap<Integer, String>();
+  public static final Map<Integer, String> DrawElementsType = new HashMap<Integer, String>(3);
   private static void DrawElementsType0() {
     DrawElementsType.put(GL_UNSIGNED_SHORT, "GL_UNSIGNED_SHORT");
     DrawElementsType.put(GL_UNSIGNED_BYTE, "GL_UNSIGNED_BYTE");
     DrawElementsType.put(GL_UNSIGNED_INT, "GL_UNSIGNED_INT");
   }
-  public static final Map<Integer, String> TextureMagFilter = new HashMap<Integer, String>();
+  public static final Map<Integer, String> TextureMagFilter = new HashMap<Integer, String>(12);
   private static void TextureMagFilter0() {
     TextureMagFilter.put(GL_FILTER4_SGIS, "GL_FILTER4_SGIS");
     TextureMagFilter.put(GL_LINEAR, "GL_LINEAR");
@@ -9673,20 +9673,20 @@ public class GLmetadata {
     TextureMagFilter.put(GL_LINEAR_DETAIL_ALPHA_SGIS, "GL_LINEAR_DETAIL_ALPHA_SGIS");
     TextureMagFilter.put(GL_PIXEL_TEX_GEN_Q_ROUND_SGIX, "GL_PIXEL_TEX_GEN_Q_ROUND_SGIX");
   }
-  public static final Map<Integer, String> ConvolutionParameterEXT = new HashMap<Integer, String>();
+  public static final Map<Integer, String> ConvolutionParameterEXT = new HashMap<Integer, String>(3);
   private static void ConvolutionParameterEXT0() {
     ConvolutionParameterEXT.put(GL_CONVOLUTION_FILTER_BIAS, "GL_CONVOLUTION_FILTER_BIAS");
     ConvolutionParameterEXT.put(GL_CONVOLUTION_BORDER_MODE, "GL_CONVOLUTION_BORDER_MODE");
     ConvolutionParameterEXT.put(GL_CONVOLUTION_FILTER_SCALE, "GL_CONVOLUTION_FILTER_SCALE");
   }
-  public static final Map<Integer, String> FogMode = new HashMap<Integer, String>();
+  public static final Map<Integer, String> FogMode = new HashMap<Integer, String>(4);
   private static void FogMode0() {
     FogMode.put(GL_EXP, "GL_EXP");
     FogMode.put(GL_LINEAR, "GL_LINEAR");
     FogMode.put(GL_EXP2, "GL_EXP2");
     FogMode.put(GL_FOG_FUNC_SGIS, "GL_FOG_FUNC_SGIS");
   }
-  public static final Map<Integer, String> StringName = new HashMap<Integer, String>();
+  public static final Map<Integer, String> StringName = new HashMap<Integer, String>(5);
   private static void StringName0() {
     StringName.put(GL_VERSION, "GL_VERSION");
     StringName.put(GL_SHADING_LANGUAGE_VERSION, "GL_SHADING_LANGUAGE_VERSION");
@@ -9694,16 +9694,16 @@ public class GLmetadata {
     StringName.put(GL_RENDERER, "GL_RENDERER");
     StringName.put(GL_EXTENSIONS, "GL_EXTENSIONS");
   }
-  public static final Map<Integer, String> PixelCopyType = new HashMap<Integer, String>();
+  public static final Map<Integer, String> PixelCopyType = new HashMap<Integer, String>(3);
   private static void PixelCopyType0() {
     PixelCopyType.put(GL_DEPTH, "GL_DEPTH");
     PixelCopyType.put(GL_COLOR, "GL_COLOR");
     PixelCopyType.put(GL_STENCIL, "GL_STENCIL");
   }
-  public static final Map<Integer, String> DataType = new HashMap<Integer, String>();
+  public static final Map<Integer, String> DataType = new HashMap<Integer, String>(0);
   private static void DataType0() {
   }
-  public static final Map<Integer, String> GetTextureParameter = new HashMap<Integer, String>();
+  public static final Map<Integer, String> GetTextureParameter = new HashMap<Integer, String>(51);
   private static void GetTextureParameter0() {
     GetTextureParameter.put(GL_SHADOW_AMBIENT_SGIX, "GL_SHADOW_AMBIENT_SGIX");
     GetTextureParameter.put(GL_TEXTURE_BASE_LEVEL_SGIS, "GL_TEXTURE_BASE_LEVEL_SGIS");
@@ -9757,7 +9757,7 @@ public class GLmetadata {
     GetTextureParameter.put(GL_TEXTURE_ALPHA_SIZE, "GL_TEXTURE_ALPHA_SIZE");
     GetTextureParameter.put(GL_TEXTURE_BORDER_COLOR, "GL_TEXTURE_BORDER_COLOR");
   }
-  public static final Map<Integer, String> ListNameType = new HashMap<Integer, String>();
+  public static final Map<Integer, String> ListNameType = new HashMap<Integer, String>(10);
   private static void ListNameType0() {
     ListNameType.put(GL_3_BYTES, "GL_3_BYTES");
     ListNameType.put(GL_FLOAT, "GL_FLOAT");
@@ -9770,10 +9770,10 @@ public class GLmetadata {
     ListNameType.put(GL_UNSIGNED_BYTE, "GL_UNSIGNED_BYTE");
     ListNameType.put(GL_UNSIGNED_INT, "GL_UNSIGNED_INT");
   }
-  public static final Map<Integer, String> GetConvolutionParameter = new HashMap<Integer, String>();
+  public static final Map<Integer, String> GetConvolutionParameter = new HashMap<Integer, String>(0);
   private static void GetConvolutionParameter0() {
   }
-  public static final Map<Integer, String> PixelTexGenMode = new HashMap<Integer, String>();
+  public static final Map<Integer, String> PixelTexGenMode = new HashMap<Integer, String>(9);
   private static void PixelTexGenMode0() {
     PixelTexGenMode.put(GL_RGB, "GL_RGB");
     PixelTexGenMode.put(GL_LUMINANCE_ALPHA, "GL_LUMINANCE_ALPHA");
@@ -9785,10 +9785,10 @@ public class GLmetadata {
     PixelTexGenMode.put(GL_PIXEL_TEX_GEN_ALPHA_NO_REPLACE_SGIX, "GL_PIXEL_TEX_GEN_ALPHA_NO_REPLACE_SGIX");
     PixelTexGenMode.put(GL_PIXEL_TEX_GEN_ALPHA_REPLACE_SGIX, "GL_PIXEL_TEX_GEN_ALPHA_REPLACE_SGIX");
   }
-  public static final Map<Integer, String> SemaphoreParameterName = new HashMap<Integer, String>();
+  public static final Map<Integer, String> SemaphoreParameterName = new HashMap<Integer, String>(0);
   private static void SemaphoreParameterName0() {
   }
-  public static final Map<Integer, String> BlendingFactorSrc = new HashMap<Integer, String>();
+  public static final Map<Integer, String> BlendingFactorSrc = new HashMap<Integer, String>(9);
   private static void BlendingFactorSrc0() {
     BlendingFactorSrc.put(GL_ZERO, "GL_ZERO");
     BlendingFactorSrc.put(GL_ONE, "GL_ONE");
@@ -9800,7 +9800,7 @@ public class GLmetadata {
     BlendingFactorSrc.put(GL_SRC_ALPHA, "GL_SRC_ALPHA");
     BlendingFactorSrc.put(GL_SRC_ALPHA_SATURATE, "GL_SRC_ALPHA_SATURATE");
   }
-  public static final Map<Integer, String> MapTarget = new HashMap<Integer, String>();
+  public static final Map<Integer, String> MapTarget = new HashMap<Integer, String>(20);
   private static void MapTarget0() {
     MapTarget.put(GL_MAP2_INDEX, "GL_MAP2_INDEX");
     MapTarget.put(GL_MAP1_TEXTURE_COORD_3, "GL_MAP1_TEXTURE_COORD_3");
@@ -9823,7 +9823,7 @@ public class GLmetadata {
     MapTarget.put(GL_MAP2_COLOR_4, "GL_MAP2_COLOR_4");
     MapTarget.put(GL_MAP1_VERTEX_4, "GL_MAP1_VERTEX_4");
   }
-  public static final Map<Integer, String> NormalPointerType = new HashMap<Integer, String>();
+  public static final Map<Integer, String> NormalPointerType = new HashMap<Integer, String>(5);
   private static void NormalPointerType0() {
     NormalPointerType.put(GL_DOUBLE, "GL_DOUBLE");
     NormalPointerType.put(GL_FLOAT, "GL_FLOAT");
@@ -9831,25 +9831,25 @@ public class GLmetadata {
     NormalPointerType.put(GL_INT, "GL_INT");
     NormalPointerType.put(GL_SHORT, "GL_SHORT");
   }
-  public static final Map<Integer, String> ClientAttribMask = new HashMap<Integer, String>();
+  public static final Map<Integer, String> ClientAttribMask = new HashMap<Integer, String>(3);
   private static void ClientAttribMask0() {
     ClientAttribMask.put(GL_CLIENT_VERTEX_ARRAY_BIT, "GL_CLIENT_VERTEX_ARRAY_BIT");
     ClientAttribMask.put(GL_CLIENT_PIXEL_STORE_BIT, "GL_CLIENT_PIXEL_STORE_BIT");
     ClientAttribMask.put(GL_CLIENT_ALL_ATTRIB_BITS, "GL_CLIENT_ALL_ATTRIB_BITS");
   }
-  public static final Map<Integer, String> FragmentLightModelParameterSGIX = new HashMap<Integer, String>();
+  public static final Map<Integer, String> FragmentLightModelParameterSGIX = new HashMap<Integer, String>(4);
   private static void FragmentLightModelParameterSGIX0() {
     FragmentLightModelParameterSGIX.put(GL_FRAGMENT_LIGHT_MODEL_LOCAL_VIEWER_SGIX, "GL_FRAGMENT_LIGHT_MODEL_LOCAL_VIEWER_SGIX");
     FragmentLightModelParameterSGIX.put(GL_FRAGMENT_LIGHT_MODEL_NORMAL_INTERPOLATION_SGIX, "GL_FRAGMENT_LIGHT_MODEL_NORMAL_INTERPOLATION_SGIX");
     FragmentLightModelParameterSGIX.put(GL_FRAGMENT_LIGHT_MODEL_AMBIENT_SGIX, "GL_FRAGMENT_LIGHT_MODEL_AMBIENT_SGIX");
     FragmentLightModelParameterSGIX.put(GL_FRAGMENT_LIGHT_MODEL_TWO_SIDE_SGIX, "GL_FRAGMENT_LIGHT_MODEL_TWO_SIDE_SGIX");
   }
-  public static final Map<Integer, String> ContextProfileMask = new HashMap<Integer, String>();
+  public static final Map<Integer, String> ContextProfileMask = new HashMap<Integer, String>(2);
   private static void ContextProfileMask0() {
     ContextProfileMask.put(GL_CONTEXT_CORE_PROFILE_BIT, "GL_CONTEXT_CORE_PROFILE_BIT");
     ContextProfileMask.put(GL_CONTEXT_COMPATIBILITY_PROFILE_BIT, "GL_CONTEXT_COMPATIBILITY_PROFILE_BIT");
   }
-  public static final Map<Integer, String> AccumOp = new HashMap<Integer, String>();
+  public static final Map<Integer, String> AccumOp = new HashMap<Integer, String>(5);
   private static void AccumOp0() {
     AccumOp.put(GL_ACCUM, "GL_ACCUM");
     AccumOp.put(GL_MULT, "GL_MULT");
@@ -9857,13 +9857,13 @@ public class GLmetadata {
     AccumOp.put(GL_LOAD, "GL_LOAD");
     AccumOp.put(GL_RETURN, "GL_RETURN");
   }
-  public static final Map<Integer, String> ColorMaterialFace = new HashMap<Integer, String>();
+  public static final Map<Integer, String> ColorMaterialFace = new HashMap<Integer, String>(3);
   private static void ColorMaterialFace0() {
     ColorMaterialFace.put(GL_BACK, "GL_BACK");
     ColorMaterialFace.put(GL_FRONT, "GL_FRONT");
     ColorMaterialFace.put(GL_FRONT_AND_BACK, "GL_FRONT_AND_BACK");
   }
-  public static final Map<Integer, String> GetColorTableParameterPNameSGI = new HashMap<Integer, String>();
+  public static final Map<Integer, String> GetColorTableParameterPNameSGI = new HashMap<Integer, String>(10);
   private static void GetColorTableParameterPNameSGI0() {
     GetColorTableParameterPNameSGI.put(GL_COLOR_TABLE_LUMINANCE_SIZE_SGI, "GL_COLOR_TABLE_LUMINANCE_SIZE_SGI");
     GetColorTableParameterPNameSGI.put(GL_COLOR_TABLE_SCALE_SGI, "GL_COLOR_TABLE_SCALE_SGI");
@@ -9876,15 +9876,15 @@ public class GLmetadata {
     GetColorTableParameterPNameSGI.put(GL_COLOR_TABLE_FORMAT_SGI, "GL_COLOR_TABLE_FORMAT_SGI");
     GetColorTableParameterPNameSGI.put(GL_COLOR_TABLE_INTENSITY_SIZE_SGI, "GL_COLOR_TABLE_INTENSITY_SIZE_SGI");
   }
-  public static final Map<Integer, String> MemoryObjectParameterName = new HashMap<Integer, String>();
+  public static final Map<Integer, String> MemoryObjectParameterName = new HashMap<Integer, String>(0);
   private static void MemoryObjectParameterName0() {
   }
-  public static final Map<Integer, String> FogCoordinatePointerType = new HashMap<Integer, String>();
+  public static final Map<Integer, String> FogCoordinatePointerType = new HashMap<Integer, String>(2);
   private static void FogCoordinatePointerType0() {
     FogCoordinatePointerType.put(GL_FLOAT, "GL_FLOAT");
     FogCoordinatePointerType.put(GL_DOUBLE, "GL_DOUBLE");
   }
-  public static final Map<Integer, String> LightParameter = new HashMap<Integer, String>();
+  public static final Map<Integer, String> LightParameter = new HashMap<Integer, String>(10);
   private static void LightParameter0() {
     LightParameter.put(GL_CONSTANT_ATTENUATION, "GL_CONSTANT_ATTENUATION");
     LightParameter.put(GL_LINEAR_ATTENUATION, "GL_LINEAR_ATTENUATION");
@@ -9897,19 +9897,19 @@ public class GLmetadata {
     LightParameter.put(GL_DIFFUSE, "GL_DIFFUSE");
     LightParameter.put(GL_SPOT_EXPONENT, "GL_SPOT_EXPONENT");
   }
-  public static final Map<Integer, String> TexCoordPointerType = new HashMap<Integer, String>();
+  public static final Map<Integer, String> TexCoordPointerType = new HashMap<Integer, String>(4);
   private static void TexCoordPointerType0() {
     TexCoordPointerType.put(GL_DOUBLE, "GL_DOUBLE");
     TexCoordPointerType.put(GL_FLOAT, "GL_FLOAT");
     TexCoordPointerType.put(GL_INT, "GL_INT");
     TexCoordPointerType.put(GL_SHORT, "GL_SHORT");
   }
-  public static final Map<Integer, String> HistogramTargetEXT = new HashMap<Integer, String>();
+  public static final Map<Integer, String> HistogramTargetEXT = new HashMap<Integer, String>(2);
   private static void HistogramTargetEXT0() {
     HistogramTargetEXT.put(GL_PROXY_HISTOGRAM, "GL_PROXY_HISTOGRAM");
     HistogramTargetEXT.put(GL_HISTOGRAM, "GL_HISTOGRAM");
   }
-  public static final Map<Integer, String> BufferUsageARB = new HashMap<Integer, String>();
+  public static final Map<Integer, String> BufferUsageARB = new HashMap<Integer, String>(9);
   private static void BufferUsageARB0() {
     BufferUsageARB.put(GL_STATIC_COPY, "GL_STATIC_COPY");
     BufferUsageARB.put(GL_STATIC_DRAW, "GL_STATIC_DRAW");
@@ -9921,7 +9921,7 @@ public class GLmetadata {
     BufferUsageARB.put(GL_STREAM_DRAW, "GL_STREAM_DRAW");
     BufferUsageARB.put(GL_STREAM_COPY, "GL_STREAM_COPY");
   }
-  public static final Map<Integer, String> BlendingFactorDest = new HashMap<Integer, String>();
+  public static final Map<Integer, String> BlendingFactorDest = new HashMap<Integer, String>(8);
   private static void BlendingFactorDest0() {
     BlendingFactorDest.put(GL_ONE_MINUS_SRC_ALPHA, "GL_ONE_MINUS_SRC_ALPHA");
     BlendingFactorDest.put(GL_SRC_COLOR, "GL_SRC_COLOR");
@@ -9932,12 +9932,12 @@ public class GLmetadata {
     BlendingFactorDest.put(GL_ZERO, "GL_ZERO");
     BlendingFactorDest.put(GL_ONE, "GL_ONE");
   }
-  public static final Map<Integer, String> ListMode = new HashMap<Integer, String>();
+  public static final Map<Integer, String> ListMode = new HashMap<Integer, String>(2);
   private static void ListMode0() {
     ListMode.put(GL_COMPILE_AND_EXECUTE, "GL_COMPILE_AND_EXECUTE");
     ListMode.put(GL_COMPILE, "GL_COMPILE");
   }
-  public static final Map<Integer, String> MapBufferUsageMask = new HashMap<Integer, String>();
+  public static final Map<Integer, String> MapBufferUsageMask = new HashMap<Integer, String>(10);
   private static void MapBufferUsageMask0() {
     MapBufferUsageMask.put(GL_MAP_FLUSH_EXPLICIT_BIT, "GL_MAP_FLUSH_EXPLICIT_BIT");
     MapBufferUsageMask.put(GL_MAP_WRITE_BIT, "GL_MAP_WRITE_BIT");
@@ -9950,7 +9950,7 @@ public class GLmetadata {
     MapBufferUsageMask.put(GL_MAP_INVALIDATE_RANGE_BIT, "GL_MAP_INVALIDATE_RANGE_BIT");
     MapBufferUsageMask.put(GL_MAP_INVALIDATE_BUFFER_BIT, "GL_MAP_INVALIDATE_BUFFER_BIT");
   }
-  public static final Map<Integer, String> FogParameter = new HashMap<Integer, String>();
+  public static final Map<Integer, String> FogParameter = new HashMap<Integer, String>(7);
   private static void FogParameter0() {
     FogParameter.put(GL_FOG_COLOR, "GL_FOG_COLOR");
     FogParameter.put(GL_FOG_OFFSET_VALUE_SGIX, "GL_FOG_OFFSET_VALUE_SGIX");
@@ -9960,7 +9960,7 @@ public class GLmetadata {
     FogParameter.put(GL_FOG_START, "GL_FOG_START");
     FogParameter.put(GL_FOG_MODE, "GL_FOG_MODE");
   }
-  public static final Map<Integer, String> FeedbackType = new HashMap<Integer, String>();
+  public static final Map<Integer, String> FeedbackType = new HashMap<Integer, String>(5);
   private static void FeedbackType0() {
     FeedbackType.put(GL_2D, "GL_2D");
     FeedbackType.put(GL_3D_COLOR_TEXTURE, "GL_3D_COLOR_TEXTURE");
@@ -9968,14 +9968,14 @@ public class GLmetadata {
     FeedbackType.put(GL_3D_COLOR, "GL_3D_COLOR");
     FeedbackType.put(GL_4D_COLOR_TEXTURE, "GL_4D_COLOR_TEXTURE");
   }
-  public static final Map<Integer, String> LightModelParameter = new HashMap<Integer, String>();
+  public static final Map<Integer, String> LightModelParameter = new HashMap<Integer, String>(4);
   private static void LightModelParameter0() {
     LightModelParameter.put(GL_LIGHT_MODEL_LOCAL_VIEWER, "GL_LIGHT_MODEL_LOCAL_VIEWER");
     LightModelParameter.put(GL_LIGHT_MODEL_TWO_SIDE, "GL_LIGHT_MODEL_TWO_SIDE");
     LightModelParameter.put(GL_LIGHT_MODEL_COLOR_CONTROL, "GL_LIGHT_MODEL_COLOR_CONTROL");
     LightModelParameter.put(GL_LIGHT_MODEL_AMBIENT, "GL_LIGHT_MODEL_AMBIENT");
   }
-  public static final Map<Integer, String> InterleavedArrayFormat = new HashMap<Integer, String>();
+  public static final Map<Integer, String> InterleavedArrayFormat = new HashMap<Integer, String>(14);
   private static void InterleavedArrayFormat0() {
     InterleavedArrayFormat.put(GL_N3F_V3F, "GL_N3F_V3F");
     InterleavedArrayFormat.put(GL_T2F_C3F_V3F, "GL_T2F_C3F_V3F");
@@ -9992,7 +9992,7 @@ public class GLmetadata {
     InterleavedArrayFormat.put(GL_T2F_V3F, "GL_T2F_V3F");
     InterleavedArrayFormat.put(GL_T4F_C4F_N3F_V4F, "GL_T4F_C4F_N3F_V4F");
   }
-  public static final Map<Integer, String> OcclusionQueryEventMaskAMD = new HashMap<Integer, String>();
+  public static final Map<Integer, String> OcclusionQueryEventMaskAMD = new HashMap<Integer, String>(5);
   private static void OcclusionQueryEventMaskAMD0() {
     OcclusionQueryEventMaskAMD.put(GL_QUERY_DEPTH_FAIL_EVENT_BIT_AMD, "GL_QUERY_DEPTH_FAIL_EVENT_BIT_AMD");
     OcclusionQueryEventMaskAMD.put(GL_QUERY_STENCIL_FAIL_EVENT_BIT_AMD, "GL_QUERY_STENCIL_FAIL_EVENT_BIT_AMD");
@@ -10000,7 +10000,7 @@ public class GLmetadata {
     OcclusionQueryEventMaskAMD.put(GL_QUERY_DEPTH_BOUNDS_FAIL_EVENT_BIT_AMD, "GL_QUERY_DEPTH_BOUNDS_FAIL_EVENT_BIT_AMD");
     OcclusionQueryEventMaskAMD.put(GL_QUERY_ALL_EVENT_BITS_AMD, "GL_QUERY_ALL_EVENT_BITS_AMD");
   }
-  public static final Map<Integer, String> ReadBufferMode = new HashMap<Integer, String>();
+  public static final Map<Integer, String> ReadBufferMode = new HashMap<Integer, String>(12);
   private static void ReadBufferMode0() {
     ReadBufferMode.put(GL_AUX0, "GL_AUX0");
     ReadBufferMode.put(GL_BACK_LEFT, "GL_BACK_LEFT");
@@ -10015,7 +10015,7 @@ public class GLmetadata {
     ReadBufferMode.put(GL_AUX3, "GL_AUX3");
     ReadBufferMode.put(GL_RIGHT, "GL_RIGHT");
   }
-  public static final Map<Integer, String> PixelFormat = new HashMap<Integer, String>();
+  public static final Map<Integer, String> PixelFormat = new HashMap<Integer, String>(15);
   private static void PixelFormat0() {
     PixelFormat.put(GL_LUMINANCE_ALPHA, "GL_LUMINANCE_ALPHA");
     PixelFormat.put(GL_ALPHA, "GL_ALPHA");
@@ -10033,21 +10033,21 @@ public class GLmetadata {
     PixelFormat.put(GL_UNSIGNED_SHORT, "GL_UNSIGNED_SHORT");
     PixelFormat.put(GL_YCRCB_422_SGIX, "GL_YCRCB_422_SGIX");
   }
-  public static final Map<Integer, String> GetMinmaxParameterPNameEXT = new HashMap<Integer, String>();
+  public static final Map<Integer, String> GetMinmaxParameterPNameEXT = new HashMap<Integer, String>(2);
   private static void GetMinmaxParameterPNameEXT0() {
     GetMinmaxParameterPNameEXT.put(GL_MINMAX_SINK, "GL_MINMAX_SINK");
     GetMinmaxParameterPNameEXT.put(GL_MINMAX_FORMAT, "GL_MINMAX_FORMAT");
   }
-  public static final Map<Integer, String> GetHistogramParameterPNameEXT = new HashMap<Integer, String>();
+  public static final Map<Integer, String> GetHistogramParameterPNameEXT = new HashMap<Integer, String>(0);
   private static void GetHistogramParameterPNameEXT0() {
   }
-  public static final Map<Integer, String> MatrixMode = new HashMap<Integer, String>();
+  public static final Map<Integer, String> MatrixMode = new HashMap<Integer, String>(3);
   private static void MatrixMode0() {
     MatrixMode.put(GL_PROJECTION, "GL_PROJECTION");
     MatrixMode.put(GL_TEXTURE, "GL_TEXTURE");
     MatrixMode.put(GL_MODELVIEW, "GL_MODELVIEW");
   }
-  public static final Map<Integer, String> HintTarget = new HashMap<Integer, String>();
+  public static final Map<Integer, String> HintTarget = new HashMap<Integer, String>(44);
   private static void HintTarget0() {
     HintTarget.put(GL_NATIVE_GRAPHICS_BEGIN_HINT_PGI, "GL_NATIVE_GRAPHICS_BEGIN_HINT_PGI");
     HintTarget.put(GL_NATIVE_GRAPHICS_END_HINT_PGI, "GL_NATIVE_GRAPHICS_END_HINT_PGI");
@@ -10094,7 +10094,7 @@ public class GLmetadata {
     HintTarget.put(GL_VERTEX_ARRAY_STORAGE_HINT_APPLE, "GL_VERTEX_ARRAY_STORAGE_HINT_APPLE");
     HintTarget.put(GL_FULL_STIPPLE_HINT_PGI, "GL_FULL_STIPPLE_HINT_PGI");
   }
-  public static final Map<Integer, String> DepthFunction = new HashMap<Integer, String>();
+  public static final Map<Integer, String> DepthFunction = new HashMap<Integer, String>(8);
   private static void DepthFunction0() {
     DepthFunction.put(GL_EQUAL, "GL_EQUAL");
     DepthFunction.put(GL_GREATER, "GL_GREATER");
@@ -10105,7 +10105,7 @@ public class GLmetadata {
     DepthFunction.put(GL_NOTEQUAL, "GL_NOTEQUAL");
     DepthFunction.put(GL_ALWAYS, "GL_ALWAYS");
   }
-  public static final Map<Integer, String> PointParameterNameSGIS = new HashMap<Integer, String>();
+  public static final Map<Integer, String> PointParameterNameSGIS = new HashMap<Integer, String>(8);
   private static void PointParameterNameSGIS0() {
     PointParameterNameSGIS.put(GL_POINT_SIZE_MIN, "GL_POINT_SIZE_MIN");
     PointParameterNameSGIS.put(GL_DISTANCE_ATTENUATION_SGIS, "GL_DISTANCE_ATTENUATION_SGIS");
@@ -10116,7 +10116,7 @@ public class GLmetadata {
     PointParameterNameSGIS.put(GL_POINT_FADE_THRESHOLD_SIZE_SGIS, "GL_POINT_FADE_THRESHOLD_SIZE_SGIS");
     PointParameterNameSGIS.put(GL_POINT_DISTANCE_ATTENUATION, "GL_POINT_DISTANCE_ATTENUATION");
   }
-  public static final Map<Integer, String> InternalFormat = new HashMap<Integer, String>();
+  public static final Map<Integer, String> InternalFormat = new HashMap<Integer, String>(56);
   private static void InternalFormat0() {
     InternalFormat.put(GL_DUAL_LUMINANCE8_SGIS, "GL_DUAL_LUMINANCE8_SGIS");
     InternalFormat.put(GL_DUAL_INTENSITY8_SGIS, "GL_DUAL_INTENSITY8_SGIS");
@@ -10175,7 +10175,7 @@ public class GLmetadata {
     InternalFormat.put(GL_INTENSITY, "GL_INTENSITY");
     InternalFormat.put(GL_LUMINANCE16_ALPHA16, "GL_LUMINANCE16_ALPHA16");
   }
-  public static final Map<Integer, String> TextureWrapMode = new HashMap<Integer, String>();
+  public static final Map<Integer, String> TextureWrapMode = new HashMap<Integer, String>(6);
   private static void TextureWrapMode0() {
     TextureWrapMode.put(GL_CLAMP_TO_BORDER, "GL_CLAMP_TO_BORDER");
     TextureWrapMode.put(GL_CLAMP_TO_EDGE_SGIS, "GL_CLAMP_TO_EDGE_SGIS");
@@ -10184,31 +10184,31 @@ public class GLmetadata {
     TextureWrapMode.put(GL_CLAMP_TO_BORDER_SGIS, "GL_CLAMP_TO_BORDER_SGIS");
     TextureWrapMode.put(GL_CLAMP_TO_EDGE, "GL_CLAMP_TO_EDGE");
   }
-  public static final Map<Integer, String> IndexPointerType = new HashMap<Integer, String>();
+  public static final Map<Integer, String> IndexPointerType = new HashMap<Integer, String>(4);
   private static void IndexPointerType0() {
     IndexPointerType.put(GL_DOUBLE, "GL_DOUBLE");
     IndexPointerType.put(GL_FLOAT, "GL_FLOAT");
     IndexPointerType.put(GL_INT, "GL_INT");
     IndexPointerType.put(GL_SHORT, "GL_SHORT");
   }
-  public static final Map<Integer, String> LightEnvParameterSGIX = new HashMap<Integer, String>();
+  public static final Map<Integer, String> LightEnvParameterSGIX = new HashMap<Integer, String>(1);
   private static void LightEnvParameterSGIX0() {
     LightEnvParameterSGIX.put(GL_LIGHT_ENV_MODE_SGIX, "GL_LIGHT_ENV_MODE_SGIX");
   }
-  public static final Map<Integer, String> VertexPointerType = new HashMap<Integer, String>();
+  public static final Map<Integer, String> VertexPointerType = new HashMap<Integer, String>(4);
   private static void VertexPointerType0() {
     VertexPointerType.put(GL_DOUBLE, "GL_DOUBLE");
     VertexPointerType.put(GL_FLOAT, "GL_FLOAT");
     VertexPointerType.put(GL_INT, "GL_INT");
     VertexPointerType.put(GL_SHORT, "GL_SHORT");
   }
-  public static final Map<Integer, String> StencilFaceDirection = new HashMap<Integer, String>();
+  public static final Map<Integer, String> StencilFaceDirection = new HashMap<Integer, String>(3);
   private static void StencilFaceDirection0() {
     StencilFaceDirection.put(GL_FRONT, "GL_FRONT");
     StencilFaceDirection.put(GL_BACK, "GL_BACK");
     StencilFaceDirection.put(GL_FRONT_AND_BACK, "GL_FRONT_AND_BACK");
   }
-  public static final Map<Integer, String> TextureTarget = new HashMap<Integer, String>();
+  public static final Map<Integer, String> TextureTarget = new HashMap<Integer, String>(29);
   private static void TextureTarget0() {
     TextureTarget.put(GL_PROXY_TEXTURE_2D, "GL_PROXY_TEXTURE_2D");
     TextureTarget.put(GL_PROXY_TEXTURE_2D_MULTISAMPLE, "GL_PROXY_TEXTURE_2D_MULTISAMPLE");
@@ -10240,7 +10240,7 @@ public class GLmetadata {
     TextureTarget.put(GL_PROXY_TEXTURE_CUBE_MAP_ARRAY, "GL_PROXY_TEXTURE_CUBE_MAP_ARRAY");
     TextureTarget.put(GL_PROXY_TEXTURE_2D_MULTISAMPLE_ARRAY, "GL_PROXY_TEXTURE_2D_MULTISAMPLE_ARRAY");
   }
-  public static final Map<Integer, String> ColorMaterialParameter = new HashMap<Integer, String>();
+  public static final Map<Integer, String> ColorMaterialParameter = new HashMap<Integer, String>(5);
   private static void ColorMaterialParameter0() {
     ColorMaterialParameter.put(GL_AMBIENT_AND_DIFFUSE, "GL_AMBIENT_AND_DIFFUSE");
     ColorMaterialParameter.put(GL_AMBIENT, "GL_AMBIENT");
@@ -10248,7 +10248,7 @@ public class GLmetadata {
     ColorMaterialParameter.put(GL_EMISSION, "GL_EMISSION");
     ColorMaterialParameter.put(GL_DIFFUSE, "GL_DIFFUSE");
   }
-  public static final Map<Integer, String> TextureMinFilter = new HashMap<Integer, String>();
+  public static final Map<Integer, String> TextureMinFilter = new HashMap<Integer, String>(14);
   private static void TextureMinFilter0() {
     TextureMinFilter.put(GL_LINEAR_MIPMAP_LINEAR, "GL_LINEAR_MIPMAP_LINEAR");
     TextureMinFilter.put(GL_NEAREST_CLIPMAP_LINEAR_SGIX, "GL_NEAREST_CLIPMAP_LINEAR_SGIX");
@@ -10265,17 +10265,17 @@ public class GLmetadata {
     TextureMinFilter.put(GL_NEAREST, "GL_NEAREST");
     TextureMinFilter.put(GL_PIXEL_TEX_GEN_Q_ROUND_SGIX, "GL_PIXEL_TEX_GEN_Q_ROUND_SGIX");
   }
-  public static final Map<Integer, String> BlendEquationModeEXT = new HashMap<Integer, String>();
+  public static final Map<Integer, String> BlendEquationModeEXT = new HashMap<Integer, String>(3);
   private static void BlendEquationModeEXT0() {
     BlendEquationModeEXT.put(GL_ALPHA_MAX_SGIX, "GL_ALPHA_MAX_SGIX");
     BlendEquationModeEXT.put(GL_ALPHA_MIN_SGIX, "GL_ALPHA_MIN_SGIX");
     BlendEquationModeEXT.put(GL_LOGIC_OP, "GL_LOGIC_OP");
   }
-  public static final Map<Integer, String> FramebufferFetchNoncoherent = new HashMap<Integer, String>();
+  public static final Map<Integer, String> FramebufferFetchNoncoherent = new HashMap<Integer, String>(1);
   private static void FramebufferFetchNoncoherent0() {
     FramebufferFetchNoncoherent.put(GL_FRAMEBUFFER_FETCH_NONCOHERENT_QCOM, "GL_FRAMEBUFFER_FETCH_NONCOHERENT_QCOM");
   }
-  public static final Map<Integer, String> DrawBufferMode = new HashMap<Integer, String>();
+  public static final Map<Integer, String> DrawBufferMode = new HashMap<Integer, String>(14);
   private static void DrawBufferMode0() {
     DrawBufferMode.put(GL_AUX0, "GL_AUX0");
     DrawBufferMode.put(GL_AUX1, "GL_AUX1");
@@ -10292,25 +10292,25 @@ public class GLmetadata {
     DrawBufferMode.put(GL_BACK_RIGHT, "GL_BACK_RIGHT");
     DrawBufferMode.put(GL_FRONT_LEFT, "GL_FRONT_LEFT");
   }
-  public static final Map<Integer, String> PixelStoreSubsampleRate = new HashMap<Integer, String>();
+  public static final Map<Integer, String> PixelStoreSubsampleRate = new HashMap<Integer, String>(3);
   private static void PixelStoreSubsampleRate0() {
     PixelStoreSubsampleRate.put(GL_PIXEL_SUBSAMPLE_4242_SGIX, "GL_PIXEL_SUBSAMPLE_4242_SGIX");
     PixelStoreSubsampleRate.put(GL_PIXEL_SUBSAMPLE_4444_SGIX, "GL_PIXEL_SUBSAMPLE_4444_SGIX");
     PixelStoreSubsampleRate.put(GL_PIXEL_SUBSAMPLE_2424_SGIX, "GL_PIXEL_SUBSAMPLE_2424_SGIX");
   }
-  public static final Map<Integer, String> FfdMaskSGIX = new HashMap<Integer, String>();
+  public static final Map<Integer, String> FfdMaskSGIX = new HashMap<Integer, String>(0);
   private static void FfdMaskSGIX0() {
   }
-  public static final Map<Integer, String> LightModelColorControl = new HashMap<Integer, String>();
+  public static final Map<Integer, String> LightModelColorControl = new HashMap<Integer, String>(2);
   private static void LightModelColorControl0() {
     LightModelColorControl.put(GL_SINGLE_COLOR, "GL_SINGLE_COLOR");
     LightModelColorControl.put(GL_SEPARATE_SPECULAR_COLOR, "GL_SEPARATE_SPECULAR_COLOR");
   }
-  public static final Map<Integer, String> ConvolutionBorderModeEXT = new HashMap<Integer, String>();
+  public static final Map<Integer, String> ConvolutionBorderModeEXT = new HashMap<Integer, String>(1);
   private static void ConvolutionBorderModeEXT0() {
     ConvolutionBorderModeEXT.put(GL_REDUCE, "GL_REDUCE");
   }
-  public static final Map<Integer, String> StencilFunction = new HashMap<Integer, String>();
+  public static final Map<Integer, String> StencilFunction = new HashMap<Integer, String>(8);
   private static void StencilFunction0() {
     StencilFunction.put(GL_EQUAL, "GL_EQUAL");
     StencilFunction.put(GL_GREATER, "GL_GREATER");
@@ -10321,11 +10321,11 @@ public class GLmetadata {
     StencilFunction.put(GL_NOTEQUAL, "GL_NOTEQUAL");
     StencilFunction.put(GL_ALWAYS, "GL_ALWAYS");
   }
-  public static final Map<Integer, String> TextureEnvTarget = new HashMap<Integer, String>();
+  public static final Map<Integer, String> TextureEnvTarget = new HashMap<Integer, String>(1);
   private static void TextureEnvTarget0() {
     TextureEnvTarget.put(GL_TEXTURE_ENV, "GL_TEXTURE_ENV");
   }
-  public static final Map<Integer, String> PixelType = new HashMap<Integer, String>();
+  public static final Map<Integer, String> PixelType = new HashMap<Integer, String>(13);
   private static void PixelType0() {
     PixelType.put(GL_UNSIGNED_INT_8_8_8_8, "GL_UNSIGNED_INT_8_8_8_8");
     PixelType.put(GL_FLOAT, "GL_FLOAT");
@@ -10341,7 +10341,7 @@ public class GLmetadata {
     PixelType.put(GL_UNSIGNED_BYTE_3_3_2, "GL_UNSIGNED_BYTE_3_3_2");
     PixelType.put(GL_UNSIGNED_SHORT_5_5_5_1, "GL_UNSIGNED_SHORT_5_5_5_1");
   }
-  public static final Map<Integer, String> ColorPointerType = new HashMap<Integer, String>();
+  public static final Map<Integer, String> ColorPointerType = new HashMap<Integer, String>(8);
   private static void ColorPointerType0() {
     ColorPointerType.put(GL_DOUBLE, "GL_DOUBLE");
     ColorPointerType.put(GL_FLOAT, "GL_FLOAT");
@@ -10352,7 +10352,7 @@ public class GLmetadata {
     ColorPointerType.put(GL_UNSIGNED_BYTE, "GL_UNSIGNED_BYTE");
     ColorPointerType.put(GL_UNSIGNED_INT, "GL_UNSIGNED_INT");
   }
-  public static final Map<Integer, String> EnableCap = new HashMap<Integer, String>();
+  public static final Map<Integer, String> EnableCap = new HashMap<Integer, String>(98);
   private static void EnableCap0() {
     EnableCap.put(GL_SCISSOR_TEST, "GL_SCISSOR_TEST");
     EnableCap.put(GL_FRAGMENT_LIGHT7_SGIX, "GL_FRAGMENT_LIGHT7_SGIX");
@@ -10455,11 +10455,11 @@ public class GLmetadata {
     EnableCap.put(GL_POINT_SMOOTH, "GL_POINT_SMOOTH");
     EnableCap.put(GL_FRAGMENT_LIGHT3_SGIX, "GL_FRAGMENT_LIGHT3_SGIX");
   }
-  public static final Map<Integer, String> ListParameterName = new HashMap<Integer, String>();
+  public static final Map<Integer, String> ListParameterName = new HashMap<Integer, String>(1);
   private static void ListParameterName0() {
     ListParameterName.put(GL_LIST_PRIORITY_SGIX, "GL_LIST_PRIORITY_SGIX");
   }
-  public static final Map<Integer, String> LightName = new HashMap<Integer, String>();
+  public static final Map<Integer, String> LightName = new HashMap<Integer, String>(16);
   private static void LightName0() {
     LightName.put(GL_LIGHT6, "GL_LIGHT6");
     LightName.put(GL_FRAGMENT_LIGHT6_SGIX, "GL_FRAGMENT_LIGHT6_SGIX");
@@ -10478,18 +10478,18 @@ public class GLmetadata {
     LightName.put(GL_FRAGMENT_LIGHT0_SGIX, "GL_FRAGMENT_LIGHT0_SGIX");
     LightName.put(GL_FRAGMENT_LIGHT3_SGIX, "GL_FRAGMENT_LIGHT3_SGIX");
   }
-  public static final Map<Integer, String> FogPointerTypeEXT = new HashMap<Integer, String>();
+  public static final Map<Integer, String> FogPointerTypeEXT = new HashMap<Integer, String>(2);
   private static void FogPointerTypeEXT0() {
     FogPointerTypeEXT.put(GL_FLOAT, "GL_FLOAT");
     FogPointerTypeEXT.put(GL_DOUBLE, "GL_DOUBLE");
   }
-  public static final Map<Integer, String> MaterialFace = new HashMap<Integer, String>();
+  public static final Map<Integer, String> MaterialFace = new HashMap<Integer, String>(3);
   private static void MaterialFace0() {
     MaterialFace.put(GL_BACK, "GL_BACK");
     MaterialFace.put(GL_FRONT, "GL_FRONT");
     MaterialFace.put(GL_FRONT_AND_BACK, "GL_FRONT_AND_BACK");
   }
-  public static final Map<Integer, String> GetPixelMap = new HashMap<Integer, String>();
+  public static final Map<Integer, String> GetPixelMap = new HashMap<Integer, String>(10);
   private static void GetPixelMap0() {
     GetPixelMap.put(GL_PIXEL_MAP_B_TO_B, "GL_PIXEL_MAP_B_TO_B");
     GetPixelMap.put(GL_PIXEL_MAP_S_TO_S, "GL_PIXEL_MAP_S_TO_S");
@@ -10502,7 +10502,7 @@ public class GLmetadata {
     GetPixelMap.put(GL_PIXEL_MAP_I_TO_G, "GL_PIXEL_MAP_I_TO_G");
     GetPixelMap.put(GL_PIXEL_MAP_R_TO_R, "GL_PIXEL_MAP_R_TO_R");
   }
-  public static final Map<Integer, String> PixelTransferParameter = new HashMap<Integer, String>();
+  public static final Map<Integer, String> PixelTransferParameter = new HashMap<Integer, String>(38);
   private static void PixelTransferParameter0() {
     PixelTransferParameter.put(GL_GREEN_BIAS, "GL_GREEN_BIAS");
     PixelTransferParameter.put(GL_POST_COLOR_MATRIX_RED_BIAS, "GL_POST_COLOR_MATRIX_RED_BIAS");
@@ -10543,7 +10543,7 @@ public class GLmetadata {
     PixelTransferParameter.put(GL_POST_COLOR_MATRIX_ALPHA_SCALE, "GL_POST_COLOR_MATRIX_ALPHA_SCALE");
     PixelTransferParameter.put(GL_RED_SCALE, "GL_RED_SCALE");
   }
-  public static final Map<Integer, String> SamplePatternSGIS = new HashMap<Integer, String>();
+  public static final Map<Integer, String> SamplePatternSGIS = new HashMap<Integer, String>(7);
   private static void SamplePatternSGIS0() {
     SamplePatternSGIS.put(GL_2PASS_1_SGIS, "GL_2PASS_1_SGIS");
     SamplePatternSGIS.put(GL_4PASS_1_SGIS, "GL_4PASS_1_SGIS");
@@ -10553,13 +10553,13 @@ public class GLmetadata {
     SamplePatternSGIS.put(GL_4PASS_0_SGIS, "GL_4PASS_0_SGIS");
     SamplePatternSGIS.put(GL_4PASS_3_SGIS, "GL_4PASS_3_SGIS");
   }
-  public static final Map<Integer, String> BufferAccessARB = new HashMap<Integer, String>();
+  public static final Map<Integer, String> BufferAccessARB = new HashMap<Integer, String>(3);
   private static void BufferAccessARB0() {
     BufferAccessARB.put(GL_WRITE_ONLY, "GL_WRITE_ONLY");
     BufferAccessARB.put(GL_READ_WRITE, "GL_READ_WRITE");
     BufferAccessARB.put(GL_READ_ONLY, "GL_READ_ONLY");
   }
-  public static final Map<Integer, String> StencilOp = new HashMap<Integer, String>();
+  public static final Map<Integer, String> StencilOp = new HashMap<Integer, String>(6);
   private static void StencilOp0() {
     StencilOp.put(GL_KEEP, "GL_KEEP");
     StencilOp.put(GL_INCR, "GL_INCR");
@@ -10568,7 +10568,7 @@ public class GLmetadata {
     StencilOp.put(GL_ZERO, "GL_ZERO");
     StencilOp.put(GL_DECR, "GL_DECR");
   }
-  public static final Map<Integer, String> ErrorCode = new HashMap<Integer, String>();
+  public static final Map<Integer, String> ErrorCode = new HashMap<Integer, String>(9);
   private static void ErrorCode0() {
     ErrorCode.put(GL_TABLE_TOO_LARGE, "GL_TABLE_TOO_LARGE");
     ErrorCode.put(GL_STACK_UNDERFLOW, "GL_STACK_UNDERFLOW");
@@ -10580,12 +10580,12 @@ public class GLmetadata {
     ErrorCode.put(GL_INVALID_FRAMEBUFFER_OPERATION, "GL_INVALID_FRAMEBUFFER_OPERATION");
     ErrorCode.put(GL_INVALID_ENUM, "GL_INVALID_ENUM");
   }
-  public static final Map<Integer, String> FfdTargetSGIX = new HashMap<Integer, String>();
+  public static final Map<Integer, String> FfdTargetSGIX = new HashMap<Integer, String>(2);
   private static void FfdTargetSGIX0() {
     FfdTargetSGIX.put(GL_TEXTURE_DEFORMATION_SGIX, "GL_TEXTURE_DEFORMATION_SGIX");
     FfdTargetSGIX.put(GL_GEOMETRY_DEFORMATION_SGIX, "GL_GEOMETRY_DEFORMATION_SGIX");
   }
-  public static final Map<Integer, String> SeparableTargetEXT = new HashMap<Integer, String>();
+  public static final Map<Integer, String> SeparableTargetEXT = new HashMap<Integer, String>(1);
   private static void SeparableTargetEXT0() {
     SeparableTargetEXT.put(GL_SEPARABLE_2D, "GL_SEPARABLE_2D");
   }
@@ -17487,7 +17487,7 @@ public class GLmetadata {
   private static void GL_SGIS_texture_border_clamp() {
     GL_SGIS_texture_border_clamp.put(GL_CLAMP_TO_BORDER_SGIS, "GL_CLAMP_TO_BORDER_SGIS");
   }
-  public static final Command glMultiTexImage3DEXT = new Command();
+  public static final Command glMultiTexImage3DEXT = new Command(4);
   private static void glMultiTexImage3DEXT() {
     Command cmd = glMultiTexImage3DEXT;
     cmd.returnGroup = _null_;
@@ -17497,14 +17497,14 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, PixelType);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glCheckFramebufferStatusOES = new Command();
+  public static final Command glCheckFramebufferStatusOES = new Command(1);
   private static void glCheckFramebufferStatusOES() {
     Command cmd = glCheckFramebufferStatusOES;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_OES_framebuffer_object;
   }
-  public static final Command glTextureMaterialEXT = new Command();
+  public static final Command glTextureMaterialEXT = new Command(2);
   private static void glTextureMaterialEXT() {
     Command cmd = glTextureMaterialEXT;
     cmd.returnGroup = _null_;
@@ -17512,41 +17512,41 @@ public class GLmetadata {
     cmd.addParam("mode", GLenum, MaterialParameter);
     cmd.extension = GL_EXT_light_texture;
   }
-  public static final Command glBufferAddressRangeNV = new Command();
+  public static final Command glBufferAddressRangeNV = new Command(1);
   private static void glBufferAddressRangeNV() {
     Command cmd = glBufferAddressRangeNV;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_NV_vertex_buffer_unified_memory;
   }
-  public static final Command glNamedFramebufferParameteri = new Command();
+  public static final Command glNamedFramebufferParameteri = new Command(1);
   private static void glNamedFramebufferParameteri() {
     Command cmd = glNamedFramebufferParameteri;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_direct_state_access;
   }
-  public static final Command glClipPlanex = new Command();
+  public static final Command glClipPlanex = new Command(1);
   private static void glClipPlanex() {
     Command cmd = glClipPlanex;
     cmd.returnGroup = _null_;
     cmd.addParam("plane", GLenum, _null_);
   }
-  public static final Command glCopyColorSubTable = new Command();
+  public static final Command glCopyColorSubTable = new Command(1);
   private static void glCopyColorSubTable() {
     Command cmd = glCopyColorSubTable;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_ARB_imaging;
   }
-  public static final Command glNamedBufferData = new Command();
+  public static final Command glNamedBufferData = new Command(1);
   private static void glNamedBufferData() {
     Command cmd = glNamedBufferData;
     cmd.returnGroup = _null_;
     cmd.addParam("usage", GLenum, _null_);
     cmd.extension = GL_ARB_direct_state_access;
   }
-  public static final Command glPixelTransformParameteriEXT = new Command();
+  public static final Command glPixelTransformParameteriEXT = new Command(2);
   private static void glPixelTransformParameteriEXT() {
     Command cmd = glPixelTransformParameteriEXT;
     cmd.returnGroup = _null_;
@@ -17554,14 +17554,14 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_EXT_pixel_transform;
   }
-  public static final Command glProgramEnvParameterI4ivNV = new Command();
+  public static final Command glProgramEnvParameterI4ivNV = new Command(1);
   private static void glProgramEnvParameterI4ivNV() {
     Command cmd = glProgramEnvParameterI4ivNV;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_NV_gpu_program4;
   }
-  public static final Command glTexBufferRangeEXT = new Command();
+  public static final Command glTexBufferRangeEXT = new Command(2);
   private static void glTexBufferRangeEXT() {
     Command cmd = glTexBufferRangeEXT;
     cmd.returnGroup = _null_;
@@ -17569,7 +17569,7 @@ public class GLmetadata {
     cmd.addParam("internalformat", GLenum, _null_);
     cmd.extension = GL_EXT_texture_buffer;
   }
-  public static final Command glGetTextureLevelParameterivEXT = new Command();
+  public static final Command glGetTextureLevelParameterivEXT = new Command(2);
   private static void glGetTextureLevelParameterivEXT() {
     Command cmd = glGetTextureLevelParameterivEXT;
     cmd.returnGroup = _null_;
@@ -17577,14 +17577,14 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, GetTextureParameter);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glGetQueryBufferObjectiv = new Command();
+  public static final Command glGetQueryBufferObjectiv = new Command(1);
   private static void glGetQueryBufferObjectiv() {
     Command cmd = glGetQueryBufferObjectiv;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_direct_state_access;
   }
-  public static final Command glGetImageTransformParameterivHP = new Command();
+  public static final Command glGetImageTransformParameterivHP = new Command(2);
   private static void glGetImageTransformParameterivHP() {
     Command cmd = glGetImageTransformParameterivHP;
     cmd.returnGroup = _null_;
@@ -17592,48 +17592,48 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_HP_image_transform;
   }
-  public static final Command glFragmentLightModeliSGIX = new Command();
+  public static final Command glFragmentLightModeliSGIX = new Command(1);
   private static void glFragmentLightModeliSGIX() {
     Command cmd = glFragmentLightModeliSGIX;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, FragmentLightModelParameterSGIX);
     cmd.extension = GL_SGIX_fragment_lighting;
   }
-  public static final Command glMultiTexCoord2hNV = new Command();
+  public static final Command glMultiTexCoord2hNV = new Command(1);
   private static void glMultiTexCoord2hNV() {
     Command cmd = glMultiTexCoord2hNV;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_NV_half_float;
   }
-  public static final Command glVertexStream1svATI = new Command();
+  public static final Command glVertexStream1svATI = new Command(1);
   private static void glVertexStream1svATI() {
     Command cmd = glVertexStream1svATI;
     cmd.returnGroup = _null_;
     cmd.addParam("stream", GLenum, _null_);
     cmd.extension = GL_ATI_vertex_streams;
   }
-  public static final Command glImportSemaphoreWin32NameEXT = new Command();
+  public static final Command glImportSemaphoreWin32NameEXT = new Command(1);
   private static void glImportSemaphoreWin32NameEXT() {
     Command cmd = glImportSemaphoreWin32NameEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("handleType", GLenum, ExternalHandleType);
     cmd.extension = GL_EXT_semaphore_win32;
   }
-  public static final Command glGetStringi = new Command();
+  public static final Command glGetStringi = new Command(1);
   private static void glGetStringi() {
     Command cmd = glGetStringi;
     cmd.returnGroup = _null_;
     cmd.addParam("name", GLenum, _null_);
   }
-  public static final Command glGetPixelTexGenParameterfvSGIS = new Command();
+  public static final Command glGetPixelTexGenParameterfvSGIS = new Command(1);
   private static void glGetPixelTexGenParameterfvSGIS() {
     Command cmd = glGetPixelTexGenParameterfvSGIS;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, PixelTexGenParameterNameSGIS);
     cmd.extension = GL_SGIS_pixel_texture;
   }
-  public static final Command glClipControlEXT = new Command();
+  public static final Command glClipControlEXT = new Command(2);
   private static void glClipControlEXT() {
     Command cmd = glClipControlEXT;
     cmd.returnGroup = _null_;
@@ -17641,13 +17641,13 @@ public class GLmetadata {
     cmd.addParam("depth", GLenum, _null_);
     cmd.extension = GL_EXT_clip_control;
   }
-  public static final Command glClipPlanef = new Command();
+  public static final Command glClipPlanef = new Command(1);
   private static void glClipPlanef() {
     Command cmd = glClipPlanef;
     cmd.returnGroup = _null_;
     cmd.addParam("p", GLenum, _null_);
   }
-  public static final Command glGetPathSpacingNV = new Command();
+  public static final Command glGetPathSpacingNV = new Command(3);
   private static void glGetPathSpacingNV() {
     Command cmd = glGetPathSpacingNV;
     cmd.returnGroup = _null_;
@@ -17656,7 +17656,7 @@ public class GLmetadata {
     cmd.addParam("transformType", GLenum, _null_);
     cmd.extension = GL_NV_path_rendering;
   }
-  public static final Command glClearNamedBufferDataEXT = new Command();
+  public static final Command glClearNamedBufferDataEXT = new Command(3);
   private static void glClearNamedBufferDataEXT() {
     Command cmd = glClearNamedBufferDataEXT;
     cmd.returnGroup = _null_;
@@ -17665,14 +17665,14 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, PixelType);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glGetnMapfv = new Command();
+  public static final Command glGetnMapfv = new Command(2);
   private static void glGetnMapfv() {
     Command cmd = glGetnMapfv;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.addParam("query", GLenum, _null_);
   }
-  public static final Command glMultiTexGenfEXT = new Command();
+  public static final Command glMultiTexGenfEXT = new Command(3);
   private static void glMultiTexGenfEXT() {
     Command cmd = glMultiTexGenfEXT;
     cmd.returnGroup = _null_;
@@ -17681,14 +17681,14 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, TextureGenParameter);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glClearTexImageEXT = new Command();
+  public static final Command glClearTexImageEXT = new Command(2);
   private static void glClearTexImageEXT() {
     Command cmd = glClearTexImageEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("format", GLenum, _null_);
     cmd.addParam("type", GLenum, _null_);
   }
-  public static final Command glGetTextureParameterIivEXT = new Command();
+  public static final Command glGetTextureParameterIivEXT = new Command(2);
   private static void glGetTextureParameterIivEXT() {
     Command cmd = glGetTextureParameterIivEXT;
     cmd.returnGroup = _null_;
@@ -17696,7 +17696,7 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, GetTextureParameter);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glGetMapParameterivNV = new Command();
+  public static final Command glGetMapParameterivNV = new Command(2);
   private static void glGetMapParameterivNV() {
     Command cmd = glGetMapParameterivNV;
     cmd.returnGroup = _null_;
@@ -17704,28 +17704,28 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_NV_evaluators;
   }
-  public static final Command glImportMemoryWin32HandleEXT = new Command();
+  public static final Command glImportMemoryWin32HandleEXT = new Command(1);
   private static void glImportMemoryWin32HandleEXT() {
     Command cmd = glImportMemoryWin32HandleEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("handleType", GLenum, ExternalHandleType);
     cmd.extension = GL_EXT_memory_object_win32;
   }
-  public static final Command glCoverFillPathNV = new Command();
+  public static final Command glCoverFillPathNV = new Command(1);
   private static void glCoverFillPathNV() {
     Command cmd = glCoverFillPathNV;
     cmd.returnGroup = _null_;
     cmd.addParam("coverMode", GLenum, _null_);
     cmd.extension = GL_NV_path_rendering;
   }
-  public static final Command glDrawCommandsAddressNV = new Command();
+  public static final Command glDrawCommandsAddressNV = new Command(1);
   private static void glDrawCommandsAddressNV() {
     Command cmd = glDrawCommandsAddressNV;
     cmd.returnGroup = _null_;
     cmd.addParam("primitiveMode", GLenum, _null_);
     cmd.extension = GL_NV_command_list;
   }
-  public static final Command glMapBufferARB = new Command();
+  public static final Command glMapBufferARB = new Command(2);
   private static void glMapBufferARB() {
     Command cmd = glMapBufferARB;
     cmd.returnGroup = _null_;
@@ -17733,13 +17733,13 @@ public class GLmetadata {
     cmd.addParam("access", GLenum, BufferAccessARB);
     cmd.extension = GL_ARB_vertex_buffer_object;
   }
-  public static final Command glInterleavedArrays = new Command();
+  public static final Command glInterleavedArrays = new Command(1);
   private static void glInterleavedArrays() {
     Command cmd = glInterleavedArrays;
     cmd.returnGroup = _null_;
     cmd.addParam("format", GLenum, InterleavedArrayFormat);
   }
-  public static final Command glGetProgramResourceiv = new Command();
+  public static final Command glGetProgramResourceiv = new Command(2);
   private static void glGetProgramResourceiv() {
     Command cmd = glGetProgramResourceiv;
     cmd.returnGroup = _null_;
@@ -17747,20 +17747,20 @@ public class GLmetadata {
     cmd.addParam("props", GLenum, _null_);
     cmd.extension = GL_ARB_program_interface_query;
   }
-  public static final Command glMemoryObjectParameterivEXT = new Command();
+  public static final Command glMemoryObjectParameterivEXT = new Command(1);
   private static void glMemoryObjectParameterivEXT() {
     Command cmd = glMemoryObjectParameterivEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, MemoryObjectParameterName);
     cmd.extension = GL_EXT_memory_object;
   }
-  public static final Command glMatrixMode = new Command();
+  public static final Command glMatrixMode = new Command(1);
   private static void glMatrixMode() {
     Command cmd = glMatrixMode;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, MatrixMode);
   }
-  public static final Command glGetColorTableSGI = new Command();
+  public static final Command glGetColorTableSGI = new Command(3);
   private static void glGetColorTableSGI() {
     Command cmd = glGetColorTableSGI;
     cmd.returnGroup = _null_;
@@ -17769,14 +17769,14 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, PixelType);
     cmd.extension = GL_SGI_color_table;
   }
-  public static final Command glGetObjectBufferivATI = new Command();
+  public static final Command glGetObjectBufferivATI = new Command(1);
   private static void glGetObjectBufferivATI() {
     Command cmd = glGetObjectBufferivATI;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ATI_vertex_array_object;
   }
-  public static final Command glNamedFramebufferTexture3DEXT = new Command();
+  public static final Command glNamedFramebufferTexture3DEXT = new Command(2);
   private static void glNamedFramebufferTexture3DEXT() {
     Command cmd = glNamedFramebufferTexture3DEXT;
     cmd.returnGroup = _null_;
@@ -17784,14 +17784,14 @@ public class GLmetadata {
     cmd.addParam("textarget", GLenum, TextureTarget);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glGetnMapdv = new Command();
+  public static final Command glGetnMapdv = new Command(2);
   private static void glGetnMapdv() {
     Command cmd = glGetnMapdv;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.addParam("query", GLenum, _null_);
   }
-  public static final Command glConvolutionFilter1DEXT = new Command();
+  public static final Command glConvolutionFilter1DEXT = new Command(4);
   private static void glConvolutionFilter1DEXT() {
     Command cmd = glConvolutionFilter1DEXT;
     cmd.returnGroup = _null_;
@@ -17801,21 +17801,21 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, PixelType);
     cmd.extension = GL_EXT_convolution;
   }
-  public static final Command glCopyImageSubDataEXT = new Command();
+  public static final Command glCopyImageSubDataEXT = new Command(2);
   private static void glCopyImageSubDataEXT() {
     Command cmd = glCopyImageSubDataEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("srcTarget", GLenum, _null_);
     cmd.addParam("dstTarget", GLenum, _null_);
   }
-  public static final Command glGetUniformSubroutineuiv = new Command();
+  public static final Command glGetUniformSubroutineuiv = new Command(1);
   private static void glGetUniformSubroutineuiv() {
     Command cmd = glGetUniformSubroutineuiv;
     cmd.returnGroup = _null_;
     cmd.addParam("shadertype", GLenum, _null_);
     cmd.extension = GL_ARB_shader_subroutine;
   }
-  public static final Command glCompressedTextureImage3DEXT = new Command();
+  public static final Command glCompressedTextureImage3DEXT = new Command(2);
   private static void glCompressedTextureImage3DEXT() {
     Command cmd = glCompressedTextureImage3DEXT;
     cmd.returnGroup = _null_;
@@ -17823,47 +17823,47 @@ public class GLmetadata {
     cmd.addParam("internalformat", GLenum, _null_);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glIsStateNV = new Command();
+  public static final Command glIsStateNV = new Command(0);
   private static void glIsStateNV() {
     Command cmd = glIsStateNV;
     cmd.returnGroup = Boolean;
     cmd.extension = GL_NV_command_list;
   }
-  public static final Command glSamplerParameterIiv = new Command();
+  public static final Command glSamplerParameterIiv = new Command(1);
   private static void glSamplerParameterIiv() {
     Command cmd = glSamplerParameterIiv;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_sampler_objects;
   }
-  public static final Command glGetShaderiv = new Command();
+  public static final Command glGetShaderiv = new Command(1);
   private static void glGetShaderiv() {
     Command cmd = glGetShaderiv;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
   }
-  public static final Command glVariantPointerEXT = new Command();
+  public static final Command glVariantPointerEXT = new Command(1);
   private static void glVariantPointerEXT() {
     Command cmd = glVariantPointerEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_EXT_vertex_shader;
   }
-  public static final Command glProgramUniformMatrix3x2fvEXT = new Command();
+  public static final Command glProgramUniformMatrix3x2fvEXT = new Command(1);
   private static void glProgramUniformMatrix3x2fvEXT() {
     Command cmd = glProgramUniformMatrix3x2fvEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("transpose", GLboolean, Boolean);
     cmd.extension = GL_EXT_separate_shader_objects;
   }
-  public static final Command glGetIntegerui64vNV = new Command();
+  public static final Command glGetIntegerui64vNV = new Command(1);
   private static void glGetIntegerui64vNV() {
     Command cmd = glGetIntegerui64vNV;
     cmd.returnGroup = _null_;
     cmd.addParam("value", GLenum, _null_);
     cmd.extension = GL_NV_shader_buffer_load;
   }
-  public static final Command glColorMask = new Command();
+  public static final Command glColorMask = new Command(4);
   private static void glColorMask() {
     Command cmd = glColorMask;
     cmd.returnGroup = _null_;
@@ -17872,14 +17872,14 @@ public class GLmetadata {
     cmd.addParam("blue", GLboolean, Boolean);
     cmd.addParam("alpha", GLboolean, Boolean);
   }
-  public static final Command glMultiDrawElementsIndirect = new Command();
+  public static final Command glMultiDrawElementsIndirect = new Command(2);
   private static void glMultiDrawElementsIndirect() {
     Command cmd = glMultiDrawElementsIndirect;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, PrimitiveType);
     cmd.addParam("type", GLenum, _null_);
   }
-  public static final Command glBufferStorageEXT = new Command();
+  public static final Command glBufferStorageEXT = new Command(2);
   private static void glBufferStorageEXT() {
     Command cmd = glBufferStorageEXT;
     cmd.returnGroup = _null_;
@@ -17887,7 +17887,7 @@ public class GLmetadata {
     cmd.addParam("flags", GLbitfield, _null_);
     cmd.extension = GL_EXT_buffer_storage;
   }
-  public static final Command glMultiTexCoordP3ui = new Command();
+  public static final Command glMultiTexCoordP3ui = new Command(2);
   private static void glMultiTexCoordP3ui() {
     Command cmd = glMultiTexCoordP3ui;
     cmd.returnGroup = _null_;
@@ -17895,20 +17895,20 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_ARB_vertex_type_2_10_10_10_rev;
   }
-  public static final Command glTexEnviv = new Command();
+  public static final Command glTexEnviv = new Command(2);
   private static void glTexEnviv() {
     Command cmd = glTexEnviv;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, TextureEnvTarget);
     cmd.addParam("pname", GLenum, TextureEnvParameter);
   }
-  public static final Command glGetCompressedTexImage = new Command();
+  public static final Command glGetCompressedTexImage = new Command(1);
   private static void glGetCompressedTexImage() {
     Command cmd = glGetCompressedTexImage;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, TextureTarget);
   }
-  public static final Command glPathGlyphIndexRangeNV = new Command();
+  public static final Command glPathGlyphIndexRangeNV = new Command(2);
   private static void glPathGlyphIndexRangeNV() {
     Command cmd = glPathGlyphIndexRangeNV;
     cmd.returnGroup = _null_;
@@ -17916,66 +17916,66 @@ public class GLmetadata {
     cmd.addParam("fontStyle", GLbitfield, _null_);
     cmd.extension = GL_NV_path_rendering;
   }
-  public static final Command glProgramParameter4fvNV = new Command();
+  public static final Command glProgramParameter4fvNV = new Command(1);
   private static void glProgramParameter4fvNV() {
     Command cmd = glProgramParameter4fvNV;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_NV_vertex_program;
   }
-  public static final Command glResetMinmaxEXT = new Command();
+  public static final Command glResetMinmaxEXT = new Command(1);
   private static void glResetMinmaxEXT() {
     Command cmd = glResetMinmaxEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, MinmaxTargetEXT);
     cmd.extension = GL_EXT_histogram;
   }
-  public static final Command glBindTransformFeedbackNV = new Command();
+  public static final Command glBindTransformFeedbackNV = new Command(1);
   private static void glBindTransformFeedbackNV() {
     Command cmd = glBindTransformFeedbackNV;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, BufferTargetARB);
     cmd.extension = GL_NV_transform_feedback2;
   }
-  public static final Command glMultiTexCoord3sv = new Command();
+  public static final Command glMultiTexCoord3sv = new Command(1);
   private static void glMultiTexCoord3sv() {
     Command cmd = glMultiTexCoord3sv;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
   }
-  public static final Command glPixelTexGenParameteriSGIS = new Command();
+  public static final Command glPixelTexGenParameteriSGIS = new Command(1);
   private static void glPixelTexGenParameteriSGIS() {
     Command cmd = glPixelTexGenParameteriSGIS;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, PixelTexGenParameterNameSGIS);
     cmd.extension = GL_SGIS_pixel_texture;
   }
-  public static final Command glBeginQuery = new Command();
+  public static final Command glBeginQuery = new Command(1);
   private static void glBeginQuery() {
     Command cmd = glBeginQuery;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
   }
-  public static final Command glGetFloati_v = new Command();
+  public static final Command glGetFloati_v = new Command(1);
   private static void glGetFloati_v() {
     Command cmd = glGetFloati_v;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_ARB_viewport_array;
   }
-  public static final Command glBindTexture = new Command();
+  public static final Command glBindTexture = new Command(1);
   private static void glBindTexture() {
     Command cmd = glBindTexture;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, TextureTarget);
   }
-  public static final Command glIsEnabledi = new Command();
+  public static final Command glIsEnabledi = new Command(1);
   private static void glIsEnabledi() {
     Command cmd = glIsEnabledi;
     cmd.returnGroup = Boolean;
     cmd.addParam("target", GLenum, _null_);
   }
-  public static final Command glGetDebugMessageLog = new Command();
+  public static final Command glGetDebugMessageLog = new Command(3);
   private static void glGetDebugMessageLog() {
     Command cmd = glGetDebugMessageLog;
     cmd.returnGroup = _null_;
@@ -17984,41 +17984,41 @@ public class GLmetadata {
     cmd.addParam("severities", GLenum, _null_);
     cmd.extension = GL_KHR_debug;
   }
-  public static final Command glPointParameterxvOES = new Command();
+  public static final Command glPointParameterxvOES = new Command(1);
   private static void glPointParameterxvOES() {
     Command cmd = glPointParameterxvOES;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_OES_fixed_point;
   }
-  public static final Command glPixelTexGenParameterfvSGIS = new Command();
+  public static final Command glPixelTexGenParameterfvSGIS = new Command(1);
   private static void glPixelTexGenParameterfvSGIS() {
     Command cmd = glPixelTexGenParameterfvSGIS;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, PixelTexGenParameterNameSGIS);
     cmd.extension = GL_SGIS_pixel_texture;
   }
-  public static final Command glPathCoordsNV = new Command();
+  public static final Command glPathCoordsNV = new Command(1);
   private static void glPathCoordsNV() {
     Command cmd = glPathCoordsNV;
     cmd.returnGroup = _null_;
     cmd.addParam("coordType", GLenum, _null_);
     cmd.extension = GL_NV_path_rendering;
   }
-  public static final Command glGetIntegerIndexedvEXT = new Command();
+  public static final Command glGetIntegerIndexedvEXT = new Command(1);
   private static void glGetIntegerIndexedvEXT() {
     Command cmd = glGetIntegerIndexedvEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
   }
-  public static final Command glCheckNamedFramebufferStatus = new Command();
+  public static final Command glCheckNamedFramebufferStatus = new Command(1);
   private static void glCheckNamedFramebufferStatus() {
     Command cmd = glCheckNamedFramebufferStatus;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_ARB_direct_state_access;
   }
-  public static final Command glMultiTexEnvivEXT = new Command();
+  public static final Command glMultiTexEnvivEXT = new Command(3);
   private static void glMultiTexEnvivEXT() {
     Command cmd = glMultiTexEnvivEXT;
     cmd.returnGroup = _null_;
@@ -18027,20 +18027,20 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, TextureEnvParameter);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glTestFenceNV = new Command();
+  public static final Command glTestFenceNV = new Command(0);
   private static void glTestFenceNV() {
     Command cmd = glTestFenceNV;
     cmd.returnGroup = Boolean;
     cmd.extension = GL_NV_fence;
   }
-  public static final Command glTextureBuffer = new Command();
+  public static final Command glTextureBuffer = new Command(1);
   private static void glTextureBuffer() {
     Command cmd = glTextureBuffer;
     cmd.returnGroup = _null_;
     cmd.addParam("internalformat", GLenum, _null_);
     cmd.extension = GL_ARB_direct_state_access;
   }
-  public static final Command glObjectUnpurgeableAPPLE = new Command();
+  public static final Command glObjectUnpurgeableAPPLE = new Command(2);
   private static void glObjectUnpurgeableAPPLE() {
     Command cmd = glObjectUnpurgeableAPPLE;
     cmd.returnGroup = _null_;
@@ -18048,7 +18048,7 @@ public class GLmetadata {
     cmd.addParam("option", GLenum, _null_);
     cmd.extension = GL_APPLE_object_purgeable;
   }
-  public static final Command glBindVideoCaptureStreamTextureNV = new Command();
+  public static final Command glBindVideoCaptureStreamTextureNV = new Command(2);
   private static void glBindVideoCaptureStreamTextureNV() {
     Command cmd = glBindVideoCaptureStreamTextureNV;
     cmd.returnGroup = _null_;
@@ -18056,7 +18056,7 @@ public class GLmetadata {
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_NV_video_capture;
   }
-  public static final Command glBlendFuncSeparateINGR = new Command();
+  public static final Command glBlendFuncSeparateINGR = new Command(4);
   private static void glBlendFuncSeparateINGR() {
     Command cmd = glBlendFuncSeparateINGR;
     cmd.returnGroup = _null_;
@@ -18065,62 +18065,62 @@ public class GLmetadata {
     cmd.addParam("sfactorAlpha", GLenum, _null_);
     cmd.addParam("dfactorAlpha", GLenum, _null_);
   }
-  public static final Command glIsPathNV = new Command();
+  public static final Command glIsPathNV = new Command(0);
   private static void glIsPathNV() {
     Command cmd = glIsPathNV;
     cmd.returnGroup = Boolean;
     cmd.extension = GL_NV_path_rendering;
   }
-  public static final Command glGetMemoryObjectParameterivEXT = new Command();
+  public static final Command glGetMemoryObjectParameterivEXT = new Command(1);
   private static void glGetMemoryObjectParameterivEXT() {
     Command cmd = glGetMemoryObjectParameterivEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, MemoryObjectParameterName);
     cmd.extension = GL_EXT_memory_object;
   }
-  public static final Command glMatrixOrthoEXT = new Command();
+  public static final Command glMatrixOrthoEXT = new Command(1);
   private static void glMatrixOrthoEXT() {
     Command cmd = glMatrixOrthoEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, MatrixMode);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glMultiDrawElementsBaseVertexEXT = new Command();
+  public static final Command glMultiDrawElementsBaseVertexEXT = new Command(2);
   private static void glMultiDrawElementsBaseVertexEXT() {
     Command cmd = glMultiDrawElementsBaseVertexEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, PrimitiveType);
     cmd.addParam("type", GLenum, DrawElementsType);
   }
-  public static final Command glGetnMapiv = new Command();
+  public static final Command glGetnMapiv = new Command(2);
   private static void glGetnMapiv() {
     Command cmd = glGetnMapiv;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.addParam("query", GLenum, _null_);
   }
-  public static final Command glTexEnvfv = new Command();
+  public static final Command glTexEnvfv = new Command(2);
   private static void glTexEnvfv() {
     Command cmd = glTexEnvfv;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, TextureEnvTarget);
     cmd.addParam("pname", GLenum, TextureEnvParameter);
   }
-  public static final Command glUniformMatrix3dv = new Command();
+  public static final Command glUniformMatrix3dv = new Command(1);
   private static void glUniformMatrix3dv() {
     Command cmd = glUniformMatrix3dv;
     cmd.returnGroup = _null_;
     cmd.addParam("transpose", GLboolean, Boolean);
     cmd.extension = GL_ARB_gpu_shader_fp64;
   }
-  public static final Command glCoverStrokePathNV = new Command();
+  public static final Command glCoverStrokePathNV = new Command(1);
   private static void glCoverStrokePathNV() {
     Command cmd = glCoverStrokePathNV;
     cmd.returnGroup = _null_;
     cmd.addParam("coverMode", GLenum, _null_);
     cmd.extension = GL_NV_path_rendering;
   }
-  public static final Command glNamedFramebufferRenderbuffer = new Command();
+  public static final Command glNamedFramebufferRenderbuffer = new Command(2);
   private static void glNamedFramebufferRenderbuffer() {
     Command cmd = glNamedFramebufferRenderbuffer;
     cmd.returnGroup = _null_;
@@ -18128,21 +18128,21 @@ public class GLmetadata {
     cmd.addParam("renderbuffertarget", GLenum, _null_);
     cmd.extension = GL_ARB_direct_state_access;
   }
-  public static final Command glNamedFramebufferTextureLayerEXT = new Command();
+  public static final Command glNamedFramebufferTextureLayerEXT = new Command(1);
   private static void glNamedFramebufferTextureLayerEXT() {
     Command cmd = glNamedFramebufferTextureLayerEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("attachment", GLenum, _null_);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glSecondaryColorP3uiv = new Command();
+  public static final Command glSecondaryColorP3uiv = new Command(1);
   private static void glSecondaryColorP3uiv() {
     Command cmd = glSecondaryColorP3uiv;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_ARB_vertex_type_2_10_10_10_rev;
   }
-  public static final Command glTexStorage1D = new Command();
+  public static final Command glTexStorage1D = new Command(2);
   private static void glTexStorage1D() {
     Command cmd = glTexStorage1D;
     cmd.returnGroup = _null_;
@@ -18150,7 +18150,7 @@ public class GLmetadata {
     cmd.addParam("internalformat", GLenum, _null_);
     cmd.extension = GL_ARB_texture_storage;
   }
-  public static final Command glTextureStorageMem3DMultisampleEXT = new Command();
+  public static final Command glTextureStorageMem3DMultisampleEXT = new Command(2);
   private static void glTextureStorageMem3DMultisampleEXT() {
     Command cmd = glTextureStorageMem3DMultisampleEXT;
     cmd.returnGroup = _null_;
@@ -18158,14 +18158,14 @@ public class GLmetadata {
     cmd.addParam("fixedSampleLocations", GLboolean, Boolean);
     cmd.extension = GL_EXT_memory_object;
   }
-  public static final Command glGetPointerv = new Command();
+  public static final Command glGetPointerv = new Command(1);
   private static void glGetPointerv() {
     Command cmd = glGetPointerv;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, GetPointervPName);
     cmd.extension = GL_KHR_debug;
   }
-  public static final Command glCompressedMultiTexSubImage3DEXT = new Command();
+  public static final Command glCompressedMultiTexSubImage3DEXT = new Command(3);
   private static void glCompressedMultiTexSubImage3DEXT() {
     Command cmd = glCompressedMultiTexSubImage3DEXT;
     cmd.returnGroup = _null_;
@@ -18174,7 +18174,7 @@ public class GLmetadata {
     cmd.addParam("format", GLenum, PixelFormat);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glTexGenxOES = new Command();
+  public static final Command glTexGenxOES = new Command(2);
   private static void glTexGenxOES() {
     Command cmd = glTexGenxOES;
     cmd.returnGroup = _null_;
@@ -18182,7 +18182,7 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_OES_texture_cube_map;
   }
-  public static final Command glMultiTexSubImage1DEXT = new Command();
+  public static final Command glMultiTexSubImage1DEXT = new Command(4);
   private static void glMultiTexSubImage1DEXT() {
     Command cmd = glMultiTexSubImage1DEXT;
     cmd.returnGroup = _null_;
@@ -18192,13 +18192,13 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, PixelType);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glUniformMatrix3fv = new Command();
+  public static final Command glUniformMatrix3fv = new Command(1);
   private static void glUniformMatrix3fv() {
     Command cmd = glUniformMatrix3fv;
     cmd.returnGroup = _null_;
     cmd.addParam("transpose", GLboolean, Boolean);
   }
-  public static final Command glTexStorage2D = new Command();
+  public static final Command glTexStorage2D = new Command(2);
   private static void glTexStorage2D() {
     Command cmd = glTexStorage2D;
     cmd.returnGroup = _null_;
@@ -18206,21 +18206,21 @@ public class GLmetadata {
     cmd.addParam("internalformat", GLenum, _null_);
     cmd.extension = GL_ARB_texture_storage;
   }
-  public static final Command glEnableClientStateiEXT = new Command();
+  public static final Command glEnableClientStateiEXT = new Command(1);
   private static void glEnableClientStateiEXT() {
     Command cmd = glEnableClientStateiEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("array", GLenum, EnableCap);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glMultiTexCoord1bvOES = new Command();
+  public static final Command glMultiTexCoord1bvOES = new Command(1);
   private static void glMultiTexCoord1bvOES() {
     Command cmd = glMultiTexCoord1bvOES;
     cmd.returnGroup = _null_;
     cmd.addParam("texture", GLenum, _null_);
     cmd.extension = GL_OES_byte_coordinates;
   }
-  public static final Command glTexStorage3D = new Command();
+  public static final Command glTexStorage3D = new Command(2);
   private static void glTexStorage3D() {
     Command cmd = glTexStorage3D;
     cmd.returnGroup = _null_;
@@ -18228,27 +18228,27 @@ public class GLmetadata {
     cmd.addParam("internalformat", GLenum, _null_);
     cmd.extension = GL_ARB_texture_storage;
   }
-  public static final Command glVDPAUSurfaceAccessNV = new Command();
+  public static final Command glVDPAUSurfaceAccessNV = new Command(1);
   private static void glVDPAUSurfaceAccessNV() {
     Command cmd = glVDPAUSurfaceAccessNV;
     cmd.returnGroup = _null_;
     cmd.addParam("access", GLenum, _null_);
     cmd.extension = GL_NV_vdpau_interop;
   }
-  public static final Command glIsMemoryObjectEXT = new Command();
+  public static final Command glIsMemoryObjectEXT = new Command(0);
   private static void glIsMemoryObjectEXT() {
     Command cmd = glIsMemoryObjectEXT;
     cmd.returnGroup = Boolean;
     cmd.extension = GL_EXT_memory_object;
   }
-  public static final Command glGetProgramResourceLocationIndexEXT = new Command();
+  public static final Command glGetProgramResourceLocationIndexEXT = new Command(1);
   private static void glGetProgramResourceLocationIndexEXT() {
     Command cmd = glGetProgramResourceLocationIndexEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("programInterface", GLenum, _null_);
     cmd.extension = GL_EXT_blend_func_extended;
   }
-  public static final Command glGetActiveSubroutineUniformiv = new Command();
+  public static final Command glGetActiveSubroutineUniformiv = new Command(2);
   private static void glGetActiveSubroutineUniformiv() {
     Command cmd = glGetActiveSubroutineUniformiv;
     cmd.returnGroup = _null_;
@@ -18256,69 +18256,69 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_shader_subroutine;
   }
-  public static final Command glEnableVertexArrayEXT = new Command();
+  public static final Command glEnableVertexArrayEXT = new Command(1);
   private static void glEnableVertexArrayEXT() {
     Command cmd = glEnableVertexArrayEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("array", GLenum, EnableCap);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glFlushPixelDataRangeNV = new Command();
+  public static final Command glFlushPixelDataRangeNV = new Command(1);
   private static void glFlushPixelDataRangeNV() {
     Command cmd = glFlushPixelDataRangeNV;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_NV_pixel_data_range;
   }
-  public static final Command glMultiTexCoord3iARB = new Command();
+  public static final Command glMultiTexCoord3iARB = new Command(1);
   private static void glMultiTexCoord3iARB() {
     Command cmd = glMultiTexCoord3iARB;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_ARB_multitexture;
   }
-  public static final Command glResetMinmax = new Command();
+  public static final Command glResetMinmax = new Command(1);
   private static void glResetMinmax() {
     Command cmd = glResetMinmax;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_ARB_imaging;
   }
-  public static final Command glGetTransformFeedbacki64_v = new Command();
+  public static final Command glGetTransformFeedbacki64_v = new Command(1);
   private static void glGetTransformFeedbacki64_v() {
     Command cmd = glGetTransformFeedbacki64_v;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_direct_state_access;
   }
-  public static final Command glMultiDrawElementsBaseVertex = new Command();
+  public static final Command glMultiDrawElementsBaseVertex = new Command(2);
   private static void glMultiDrawElementsBaseVertex() {
     Command cmd = glMultiDrawElementsBaseVertex;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, PrimitiveType);
     cmd.addParam("type", GLenum, DrawElementsType);
   }
-  public static final Command glUniformMatrix3x2fv = new Command();
+  public static final Command glUniformMatrix3x2fv = new Command(1);
   private static void glUniformMatrix3x2fv() {
     Command cmd = glUniformMatrix3x2fv;
     cmd.returnGroup = _null_;
     cmd.addParam("transpose", GLboolean, Boolean);
   }
-  public static final Command glUseShaderProgramEXT = new Command();
+  public static final Command glUseShaderProgramEXT = new Command(1);
   private static void glUseShaderProgramEXT() {
     Command cmd = glUseShaderProgramEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_EXT_separate_shader_objects;
   }
-  public static final Command glLightxv = new Command();
+  public static final Command glLightxv = new Command(2);
   private static void glLightxv() {
     Command cmd = glLightxv;
     cmd.returnGroup = _null_;
     cmd.addParam("light", GLenum, _null_);
     cmd.addParam("pname", GLenum, _null_);
   }
-  public static final Command glGetColorTableParameteriv = new Command();
+  public static final Command glGetColorTableParameteriv = new Command(2);
   private static void glGetColorTableParameteriv() {
     Command cmd = glGetColorTableParameteriv;
     cmd.returnGroup = _null_;
@@ -18326,21 +18326,21 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_imaging;
   }
-  public static final Command glTexCoordP4ui = new Command();
+  public static final Command glTexCoordP4ui = new Command(1);
   private static void glTexCoordP4ui() {
     Command cmd = glTexCoordP4ui;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_ARB_vertex_type_2_10_10_10_rev;
   }
-  public static final Command glGetMaterialfv = new Command();
+  public static final Command glGetMaterialfv = new Command(2);
   private static void glGetMaterialfv() {
     Command cmd = glGetMaterialfv;
     cmd.returnGroup = _null_;
     cmd.addParam("face", GLenum, MaterialFace);
     cmd.addParam("pname", GLenum, MaterialParameter);
   }
-  public static final Command glNamedFramebufferRenderbufferEXT = new Command();
+  public static final Command glNamedFramebufferRenderbufferEXT = new Command(2);
   private static void glNamedFramebufferRenderbufferEXT() {
     Command cmd = glNamedFramebufferRenderbufferEXT;
     cmd.returnGroup = _null_;
@@ -18348,28 +18348,28 @@ public class GLmetadata {
     cmd.addParam("renderbuffertarget", GLenum, _null_);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glGetActiveUniformBlockiv = new Command();
+  public static final Command glGetActiveUniformBlockiv = new Command(1);
   private static void glGetActiveUniformBlockiv() {
     Command cmd = glGetActiveUniformBlockiv;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_uniform_buffer_object;
   }
-  public static final Command glGetStageIndexNV = new Command();
+  public static final Command glGetStageIndexNV = new Command(1);
   private static void glGetStageIndexNV() {
     Command cmd = glGetStageIndexNV;
     cmd.returnGroup = _null_;
     cmd.addParam("shadertype", GLenum, _null_);
     cmd.extension = GL_NV_command_list;
   }
-  public static final Command glProgramUniformMatrix2fv = new Command();
+  public static final Command glProgramUniformMatrix2fv = new Command(1);
   private static void glProgramUniformMatrix2fv() {
     Command cmd = glProgramUniformMatrix2fv;
     cmd.returnGroup = _null_;
     cmd.addParam("transpose", GLboolean, Boolean);
     cmd.extension = GL_ARB_separate_shader_objects;
   }
-  public static final Command glFramebufferTexture1DEXT = new Command();
+  public static final Command glFramebufferTexture1DEXT = new Command(3);
   private static void glFramebufferTexture1DEXT() {
     Command cmd = glFramebufferTexture1DEXT;
     cmd.returnGroup = _null_;
@@ -18378,28 +18378,28 @@ public class GLmetadata {
     cmd.addParam("textarget", GLenum, TextureTarget);
     cmd.extension = GL_EXT_framebuffer_object;
   }
-  public static final Command glUseProgramStagesEXT = new Command();
+  public static final Command glUseProgramStagesEXT = new Command(1);
   private static void glUseProgramStagesEXT() {
     Command cmd = glUseProgramStagesEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("stages", GLbitfield, _null_);
     cmd.extension = GL_EXT_separate_shader_objects;
   }
-  public static final Command glMultiTexCoord4svARB = new Command();
+  public static final Command glMultiTexCoord4svARB = new Command(1);
   private static void glMultiTexCoord4svARB() {
     Command cmd = glMultiTexCoord4svARB;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_ARB_multitexture;
   }
-  public static final Command glGetMapdv = new Command();
+  public static final Command glGetMapdv = new Command(2);
   private static void glGetMapdv() {
     Command cmd = glGetMapdv;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, MapTarget);
     cmd.addParam("query", GLenum, GetMapQuery);
   }
-  public static final Command glTexStorageSparseAMD = new Command();
+  public static final Command glTexStorageSparseAMD = new Command(3);
   private static void glTexStorageSparseAMD() {
     Command cmd = glTexStorageSparseAMD;
     cmd.returnGroup = _null_;
@@ -18408,27 +18408,27 @@ public class GLmetadata {
     cmd.addParam("flags", GLbitfield, _null_);
     cmd.extension = GL_AMD_sparse_texture;
   }
-  public static final Command glDrawArraysInstancedNV = new Command();
+  public static final Command glDrawArraysInstancedNV = new Command(1);
   private static void glDrawArraysInstancedNV() {
     Command cmd = glDrawArraysInstancedNV;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, PrimitiveType);
   }
-  public static final Command glTexParameterf = new Command();
+  public static final Command glTexParameterf = new Command(2);
   private static void glTexParameterf() {
     Command cmd = glTexParameterf;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, TextureTarget);
     cmd.addParam("pname", GLenum, TextureParameterName);
   }
-  public static final Command glGetInteger64vAPPLE = new Command();
+  public static final Command glGetInteger64vAPPLE = new Command(1);
   private static void glGetInteger64vAPPLE() {
     Command cmd = glGetInteger64vAPPLE;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_APPLE_sync;
   }
-  public static final Command glMultiTexParameterivEXT = new Command();
+  public static final Command glMultiTexParameterivEXT = new Command(3);
   private static void glMultiTexParameterivEXT() {
     Command cmd = glMultiTexParameterivEXT;
     cmd.returnGroup = _null_;
@@ -18437,14 +18437,14 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, TextureParameterName);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glProgramUniformMatrix2x3dvEXT = new Command();
+  public static final Command glProgramUniformMatrix2x3dvEXT = new Command(1);
   private static void glProgramUniformMatrix2x3dvEXT() {
     Command cmd = glProgramUniformMatrix2x3dvEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("transpose", GLboolean, Boolean);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glGetCombinerOutputParameterfvNV = new Command();
+  public static final Command glGetCombinerOutputParameterfvNV = new Command(3);
   private static void glGetCombinerOutputParameterfvNV() {
     Command cmd = glGetCombinerOutputParameterfvNV;
     cmd.returnGroup = _null_;
@@ -18453,7 +18453,7 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_NV_register_combiners;
   }
-  public static final Command glStencilOpSeparateATI = new Command();
+  public static final Command glStencilOpSeparateATI = new Command(4);
   private static void glStencilOpSeparateATI() {
     Command cmd = glStencilOpSeparateATI;
     cmd.returnGroup = _null_;
@@ -18463,49 +18463,49 @@ public class GLmetadata {
     cmd.addParam("dppass", GLenum, StencilOp);
     cmd.extension = GL_ATI_separate_stencil;
   }
-  public static final Command glProgramUniformMatrix2dv = new Command();
+  public static final Command glProgramUniformMatrix2dv = new Command(1);
   private static void glProgramUniformMatrix2dv() {
     Command cmd = glProgramUniformMatrix2dv;
     cmd.returnGroup = _null_;
     cmd.addParam("transpose", GLboolean, Boolean);
     cmd.extension = GL_ARB_separate_shader_objects;
   }
-  public static final Command glGetMapfv = new Command();
+  public static final Command glGetMapfv = new Command(2);
   private static void glGetMapfv() {
     Command cmd = glGetMapfv;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, MapTarget);
     cmd.addParam("query", GLenum, GetMapQuery);
   }
-  public static final Command glVertexStream3sATI = new Command();
+  public static final Command glVertexStream3sATI = new Command(1);
   private static void glVertexStream3sATI() {
     Command cmd = glVertexStream3sATI;
     cmd.returnGroup = _null_;
     cmd.addParam("stream", GLenum, _null_);
     cmd.extension = GL_ATI_vertex_streams;
   }
-  public static final Command glTextureStorageMem3DEXT = new Command();
+  public static final Command glTextureStorageMem3DEXT = new Command(1);
   private static void glTextureStorageMem3DEXT() {
     Command cmd = glTextureStorageMem3DEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("internalFormat", GLenum, _null_);
     cmd.extension = GL_EXT_memory_object;
   }
-  public static final Command glProgramUniformMatrix3x4dvEXT = new Command();
+  public static final Command glProgramUniformMatrix3x4dvEXT = new Command(1);
   private static void glProgramUniformMatrix3x4dvEXT() {
     Command cmd = glProgramUniformMatrix3x4dvEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("transpose", GLboolean, Boolean);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glNamedFramebufferTextureLayer = new Command();
+  public static final Command glNamedFramebufferTextureLayer = new Command(1);
   private static void glNamedFramebufferTextureLayer() {
     Command cmd = glNamedFramebufferTextureLayer;
     cmd.returnGroup = _null_;
     cmd.addParam("attachment", GLenum, _null_);
     cmd.extension = GL_ARB_direct_state_access;
   }
-  public static final Command glGetTexFilterFuncSGIS = new Command();
+  public static final Command glGetTexFilterFuncSGIS = new Command(2);
   private static void glGetTexFilterFuncSGIS() {
     Command cmd = glGetTexFilterFuncSGIS;
     cmd.returnGroup = _null_;
@@ -18513,14 +18513,14 @@ public class GLmetadata {
     cmd.addParam("filter", GLenum, _null_);
     cmd.extension = GL_SGIS_texture_filter4;
   }
-  public static final Command glProgramLocalParameter4fvARB = new Command();
+  public static final Command glProgramLocalParameter4fvARB = new Command(1);
   private static void glProgramLocalParameter4fvARB() {
     Command cmd = glProgramLocalParameter4fvARB;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_ARB_vertex_program;
   }
-  public static final Command glGetLocalConstantBooleanvEXT = new Command();
+  public static final Command glGetLocalConstantBooleanvEXT = new Command(2);
   private static void glGetLocalConstantBooleanvEXT() {
     Command cmd = glGetLocalConstantBooleanvEXT;
     cmd.returnGroup = _null_;
@@ -18528,35 +18528,35 @@ public class GLmetadata {
     cmd.addParam("data", GLboolean, Boolean);
     cmd.extension = GL_EXT_vertex_shader;
   }
-  public static final Command glTestObjectAPPLE = new Command();
+  public static final Command glTestObjectAPPLE = new Command(1);
   private static void glTestObjectAPPLE() {
     Command cmd = glTestObjectAPPLE;
     cmd.returnGroup = Boolean;
     cmd.addParam("object", GLenum, _null_);
     cmd.extension = GL_APPLE_fence;
   }
-  public static final Command glCopyTexImage2DEXT = new Command();
+  public static final Command glCopyTexImage2DEXT = new Command(2);
   private static void glCopyTexImage2DEXT() {
     Command cmd = glCopyTexImage2DEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, TextureTarget);
     cmd.addParam("internalformat", GLenum, InternalFormat);
   }
-  public static final Command glVertexStream2fATI = new Command();
+  public static final Command glVertexStream2fATI = new Command(1);
   private static void glVertexStream2fATI() {
     Command cmd = glVertexStream2fATI;
     cmd.returnGroup = _null_;
     cmd.addParam("stream", GLenum, _null_);
     cmd.extension = GL_ATI_vertex_streams;
   }
-  public static final Command glDrawElementsInstancedBaseVertexBaseInstanceEXT = new Command();
+  public static final Command glDrawElementsInstancedBaseVertexBaseInstanceEXT = new Command(2);
   private static void glDrawElementsInstancedBaseVertexBaseInstanceEXT() {
     Command cmd = glDrawElementsInstancedBaseVertexBaseInstanceEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, PrimitiveType);
     cmd.addParam("type", GLenum, _null_);
   }
-  public static final Command glGetArrayObjectfvATI = new Command();
+  public static final Command glGetArrayObjectfvATI = new Command(2);
   private static void glGetArrayObjectfvATI() {
     Command cmd = glGetArrayObjectfvATI;
     cmd.returnGroup = _null_;
@@ -18564,49 +18564,49 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ATI_vertex_array_object;
   }
-  public static final Command glMultiDrawElementsIndirectEXT = new Command();
+  public static final Command glMultiDrawElementsIndirectEXT = new Command(2);
   private static void glMultiDrawElementsIndirectEXT() {
     Command cmd = glMultiDrawElementsIndirectEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, PrimitiveType);
     cmd.addParam("type", GLenum, _null_);
   }
-  public static final Command glProgramParameters4fvNV = new Command();
+  public static final Command glProgramParameters4fvNV = new Command(1);
   private static void glProgramParameters4fvNV() {
     Command cmd = glProgramParameters4fvNV;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_NV_vertex_program;
   }
-  public static final Command glVertexStream1dATI = new Command();
+  public static final Command glVertexStream1dATI = new Command(1);
   private static void glVertexStream1dATI() {
     Command cmd = glVertexStream1dATI;
     cmd.returnGroup = _null_;
     cmd.addParam("stream", GLenum, _null_);
     cmd.extension = GL_ATI_vertex_streams;
   }
-  public static final Command glMultiTexCoord1svARB = new Command();
+  public static final Command glMultiTexCoord1svARB = new Command(1);
   private static void glMultiTexCoord1svARB() {
     Command cmd = glMultiTexCoord1svARB;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_ARB_multitexture;
   }
-  public static final Command glProgramParameteri = new Command();
+  public static final Command glProgramParameteri = new Command(1);
   private static void glProgramParameteri() {
     Command cmd = glProgramParameteri;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_separate_shader_objects;
   }
-  public static final Command glBindFramebufferEXT = new Command();
+  public static final Command glBindFramebufferEXT = new Command(1);
   private static void glBindFramebufferEXT() {
     Command cmd = glBindFramebufferEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_EXT_framebuffer_object;
   }
-  public static final Command glGetTexParameterIivOES = new Command();
+  public static final Command glGetTexParameterIivOES = new Command(2);
   private static void glGetTexParameterIivOES() {
     Command cmd = glGetTexParameterIivOES;
     cmd.returnGroup = _null_;
@@ -18614,7 +18614,7 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, GetTextureParameter);
     cmd.extension = GL_OES_texture_border_clamp;
   }
-  public static final Command glMultiTexCoordP3uiv = new Command();
+  public static final Command glMultiTexCoordP3uiv = new Command(2);
   private static void glMultiTexCoordP3uiv() {
     Command cmd = glMultiTexCoordP3uiv;
     cmd.returnGroup = _null_;
@@ -18622,13 +18622,13 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_ARB_vertex_type_2_10_10_10_rev;
   }
-  public static final Command glClearBufferuiv = new Command();
+  public static final Command glClearBufferuiv = new Command(1);
   private static void glClearBufferuiv() {
     Command cmd = glClearBufferuiv;
     cmd.returnGroup = _null_;
     cmd.addParam("buffer", GLenum, _null_);
   }
-  public static final Command glGetBufferPointervARB = new Command();
+  public static final Command glGetBufferPointervARB = new Command(2);
   private static void glGetBufferPointervARB() {
     Command cmd = glGetBufferPointervARB;
     cmd.returnGroup = _null_;
@@ -18636,14 +18636,14 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_vertex_buffer_object;
   }
-  public static final Command glSampleMaskSGIS = new Command();
+  public static final Command glSampleMaskSGIS = new Command(1);
   private static void glSampleMaskSGIS() {
     Command cmd = glSampleMaskSGIS;
     cmd.returnGroup = _null_;
     cmd.addParam("invert", GLboolean, Boolean);
     cmd.extension = GL_SGIS_multisample;
   }
-  public static final Command glTexEnvxOES = new Command();
+  public static final Command glTexEnvxOES = new Command(2);
   private static void glTexEnvxOES() {
     Command cmd = glTexEnvxOES;
     cmd.returnGroup = _null_;
@@ -18651,7 +18651,7 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_OES_fixed_point;
   }
-  public static final Command glDebugMessageInsertARB = new Command();
+  public static final Command glDebugMessageInsertARB = new Command(3);
   private static void glDebugMessageInsertARB() {
     Command cmd = glDebugMessageInsertARB;
     cmd.returnGroup = _null_;
@@ -18660,14 +18660,14 @@ public class GLmetadata {
     cmd.addParam("severity", GLenum, _null_);
     cmd.extension = GL_ARB_debug_output;
   }
-  public static final Command glGetTexBumpParameterivATI = new Command();
+  public static final Command glGetTexBumpParameterivATI = new Command(1);
   private static void glGetTexBumpParameterivATI() {
     Command cmd = glGetTexBumpParameterivATI;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ATI_envmap_bumpmap;
   }
-  public static final Command glFragmentColorMaterialSGIX = new Command();
+  public static final Command glFragmentColorMaterialSGIX = new Command(2);
   private static void glFragmentColorMaterialSGIX() {
     Command cmd = glFragmentColorMaterialSGIX;
     cmd.returnGroup = _null_;
@@ -18675,89 +18675,89 @@ public class GLmetadata {
     cmd.addParam("mode", GLenum, MaterialParameter);
     cmd.extension = GL_SGIX_fragment_lighting;
   }
-  public static final Command glTexParameteri = new Command();
+  public static final Command glTexParameteri = new Command(2);
   private static void glTexParameteri() {
     Command cmd = glTexParameteri;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, TextureTarget);
     cmd.addParam("pname", GLenum, TextureParameterName);
   }
-  public static final Command glGetDetailTexFuncSGIS = new Command();
+  public static final Command glGetDetailTexFuncSGIS = new Command(1);
   private static void glGetDetailTexFuncSGIS() {
     Command cmd = glGetDetailTexFuncSGIS;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, TextureTarget);
     cmd.extension = GL_SGIS_detail_texture;
   }
-  public static final Command glGetMapiv = new Command();
+  public static final Command glGetMapiv = new Command(2);
   private static void glGetMapiv() {
     Command cmd = glGetMapiv;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, MapTarget);
     cmd.addParam("query", GLenum, GetMapQuery);
   }
-  public static final Command glQueryCounterEXT = new Command();
+  public static final Command glQueryCounterEXT = new Command(1);
   private static void glQueryCounterEXT() {
     Command cmd = glQueryCounterEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_EXT_disjoint_timer_query;
   }
-  public static final Command glMulticastCopyBufferSubDataNV = new Command();
+  public static final Command glMulticastCopyBufferSubDataNV = new Command(1);
   private static void glMulticastCopyBufferSubDataNV() {
     Command cmd = glMulticastCopyBufferSubDataNV;
     cmd.returnGroup = _null_;
     cmd.addParam("writeGpuMask", GLbitfield, _null_);
     cmd.extension = GL_NV_gpu_multicast;
   }
-  public static final Command glGetPointervEXT = new Command();
+  public static final Command glGetPointervEXT = new Command(1);
   private static void glGetPointervEXT() {
     Command cmd = glGetPointervEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, GetPointervPName);
     cmd.extension = GL_EXT_vertex_array;
   }
-  public static final Command glGetDoublev = new Command();
+  public static final Command glGetDoublev = new Command(1);
   private static void glGetDoublev() {
     Command cmd = glGetDoublev;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, GetPName);
   }
-  public static final Command glTexParameterx = new Command();
+  public static final Command glTexParameterx = new Command(2);
   private static void glTexParameterx() {
     Command cmd = glTexParameterx;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.addParam("pname", GLenum, _null_);
   }
-  public static final Command glMultiTexCoord4sv = new Command();
+  public static final Command glMultiTexCoord4sv = new Command(1);
   private static void glMultiTexCoord4sv() {
     Command cmd = glMultiTexCoord4sv;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
   }
-  public static final Command glGetMaterialiv = new Command();
+  public static final Command glGetMaterialiv = new Command(2);
   private static void glGetMaterialiv() {
     Command cmd = glGetMaterialiv;
     cmd.returnGroup = _null_;
     cmd.addParam("face", GLenum, MaterialFace);
     cmd.addParam("pname", GLenum, MaterialParameter);
   }
-  public static final Command glVideoCaptureStreamParameterdvNV = new Command();
+  public static final Command glVideoCaptureStreamParameterdvNV = new Command(1);
   private static void glVideoCaptureStreamParameterdvNV() {
     Command cmd = glVideoCaptureStreamParameterdvNV;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_NV_video_capture;
   }
-  public static final Command glGetSharpenTexFuncSGIS = new Command();
+  public static final Command glGetSharpenTexFuncSGIS = new Command(1);
   private static void glGetSharpenTexFuncSGIS() {
     Command cmd = glGetSharpenTexFuncSGIS;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, TextureTarget);
     cmd.extension = GL_SGIS_sharpen_texture;
   }
-  public static final Command glTextureViewOES = new Command();
+  public static final Command glTextureViewOES = new Command(2);
   private static void glTextureViewOES() {
     Command cmd = glTextureViewOES;
     cmd.returnGroup = _null_;
@@ -18765,7 +18765,7 @@ public class GLmetadata {
     cmd.addParam("internalformat", GLenum, _null_);
     cmd.extension = GL_OES_texture_view;
   }
-  public static final Command glPixelTransformParameterivEXT = new Command();
+  public static final Command glPixelTransformParameterivEXT = new Command(2);
   private static void glPixelTransformParameterivEXT() {
     Command cmd = glPixelTransformParameterivEXT;
     cmd.returnGroup = _null_;
@@ -18773,7 +18773,7 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_EXT_pixel_transform;
   }
-  public static final Command glGetColorTableParameterfv = new Command();
+  public static final Command glGetColorTableParameterfv = new Command(2);
   private static void glGetColorTableParameterfv() {
     Command cmd = glGetColorTableParameterfv;
     cmd.returnGroup = _null_;
@@ -18781,28 +18781,28 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_imaging;
   }
-  public static final Command glGetBufferPointerv = new Command();
+  public static final Command glGetBufferPointerv = new Command(2);
   private static void glGetBufferPointerv() {
     Command cmd = glGetBufferPointerv;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, BufferTargetARB);
     cmd.addParam("pname", GLenum, _null_);
   }
-  public static final Command glProgramLocalParameter4dARB = new Command();
+  public static final Command glProgramLocalParameter4dARB = new Command(1);
   private static void glProgramLocalParameter4dARB() {
     Command cmd = glProgramLocalParameter4dARB;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_ARB_vertex_program;
   }
-  public static final Command glSignalSemaphoreEXT = new Command();
+  public static final Command glSignalSemaphoreEXT = new Command(1);
   private static void glSignalSemaphoreEXT() {
     Command cmd = glSignalSemaphoreEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("dstLayouts", GLenum, TextureLayout);
     cmd.extension = GL_EXT_semaphore;
   }
-  public static final Command glGetTexGenivOES = new Command();
+  public static final Command glGetTexGenivOES = new Command(2);
   private static void glGetTexGenivOES() {
     Command cmd = glGetTexGenivOES;
     cmd.returnGroup = _null_;
@@ -18810,7 +18810,7 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_OES_texture_cube_map;
   }
-  public static final Command glTextureParameterfvEXT = new Command();
+  public static final Command glTextureParameterfvEXT = new Command(2);
   private static void glTextureParameterfvEXT() {
     Command cmd = glTextureParameterfvEXT;
     cmd.returnGroup = _null_;
@@ -18818,20 +18818,20 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, TextureParameterName);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glLightx = new Command();
+  public static final Command glLightx = new Command(2);
   private static void glLightx() {
     Command cmd = glLightx;
     cmd.returnGroup = _null_;
     cmd.addParam("light", GLenum, _null_);
     cmd.addParam("pname", GLenum, _null_);
   }
-  public static final Command glMultiTexCoord4dv = new Command();
+  public static final Command glMultiTexCoord4dv = new Command(1);
   private static void glMultiTexCoord4dv() {
     Command cmd = glMultiTexCoord4dv;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
   }
-  public static final Command glPresentFrameDualFillNV = new Command();
+  public static final Command glPresentFrameDualFillNV = new Command(5);
   private static void glPresentFrameDualFillNV() {
     Command cmd = glPresentFrameDualFillNV;
     cmd.returnGroup = _null_;
@@ -18842,7 +18842,7 @@ public class GLmetadata {
     cmd.addParam("target3", GLenum, _null_);
     cmd.extension = GL_NV_present_video;
   }
-  public static final Command glGetMinmaxParameterivEXT = new Command();
+  public static final Command glGetMinmaxParameterivEXT = new Command(2);
   private static void glGetMinmaxParameterivEXT() {
     Command cmd = glGetMinmaxParameterivEXT;
     cmd.returnGroup = _null_;
@@ -18850,42 +18850,42 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, GetMinmaxParameterPNameEXT);
     cmd.extension = GL_EXT_histogram;
   }
-  public static final Command glBindBufferRange = new Command();
+  public static final Command glBindBufferRange = new Command(1);
   private static void glBindBufferRange() {
     Command cmd = glBindBufferRange;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_ARB_uniform_buffer_object;
   }
-  public static final Command glCombinerParameterfvNV = new Command();
+  public static final Command glCombinerParameterfvNV = new Command(1);
   private static void glCombinerParameterfvNV() {
     Command cmd = glCombinerParameterfvNV;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_NV_register_combiners;
   }
-  public static final Command glPathSubCoordsNV = new Command();
+  public static final Command glPathSubCoordsNV = new Command(1);
   private static void glPathSubCoordsNV() {
     Command cmd = glPathSubCoordsNV;
     cmd.returnGroup = _null_;
     cmd.addParam("coordType", GLenum, _null_);
     cmd.extension = GL_NV_path_rendering;
   }
-  public static final Command glVertexStream3fvATI = new Command();
+  public static final Command glVertexStream3fvATI = new Command(1);
   private static void glVertexStream3fvATI() {
     Command cmd = glVertexStream3fvATI;
     cmd.returnGroup = _null_;
     cmd.addParam("stream", GLenum, _null_);
     cmd.extension = GL_ATI_vertex_streams;
   }
-  public static final Command glLightf = new Command();
+  public static final Command glLightf = new Command(2);
   private static void glLightf() {
     Command cmd = glLightf;
     cmd.returnGroup = _null_;
     cmd.addParam("light", GLenum, LightName);
     cmd.addParam("pname", GLenum, LightParameter);
   }
-  public static final Command glGetPixelTransformParameterivEXT = new Command();
+  public static final Command glGetPixelTransformParameterivEXT = new Command(2);
   private static void glGetPixelTransformParameterivEXT() {
     Command cmd = glGetPixelTransformParameterivEXT;
     cmd.returnGroup = _null_;
@@ -18893,14 +18893,14 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_EXT_pixel_transform;
   }
-  public static final Command glLighti = new Command();
+  public static final Command glLighti = new Command(2);
   private static void glLighti() {
     Command cmd = glLighti;
     cmd.returnGroup = _null_;
     cmd.addParam("light", GLenum, LightName);
     cmd.addParam("pname", GLenum, LightParameter);
   }
-  public static final Command glQueryObjectParameteruiAMD = new Command();
+  public static final Command glQueryObjectParameteruiAMD = new Command(2);
   private static void glQueryObjectParameteruiAMD() {
     Command cmd = glQueryObjectParameteruiAMD;
     cmd.returnGroup = _null_;
@@ -18908,14 +18908,14 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_AMD_occlusion_query_event;
   }
-  public static final Command glBlendEquationiEXT = new Command();
+  public static final Command glBlendEquationiEXT = new Command(1);
   private static void glBlendEquationiEXT() {
     Command cmd = glBlendEquationiEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, _null_);
     cmd.extension = GL_EXT_draw_buffers_indexed;
   }
-  public static final Command glDebugMessageControlKHR = new Command();
+  public static final Command glDebugMessageControlKHR = new Command(4);
   private static void glDebugMessageControlKHR() {
     Command cmd = glDebugMessageControlKHR;
     cmd.returnGroup = _null_;
@@ -18925,14 +18925,14 @@ public class GLmetadata {
     cmd.addParam("enabled", GLboolean, Boolean);
     cmd.extension = GL_KHR_debug;
   }
-  public static final Command glVertexArrayVertexAttribIFormatEXT = new Command();
+  public static final Command glVertexArrayVertexAttribIFormatEXT = new Command(1);
   private static void glVertexArrayVertexAttribIFormatEXT() {
     Command cmd = glVertexArrayVertexAttribIFormatEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glTextureImage3DMultisampleCoverageNV = new Command();
+  public static final Command glTextureImage3DMultisampleCoverageNV = new Command(2);
   private static void glTextureImage3DMultisampleCoverageNV() {
     Command cmd = glTextureImage3DMultisampleCoverageNV;
     cmd.returnGroup = _null_;
@@ -18940,27 +18940,27 @@ public class GLmetadata {
     cmd.addParam("fixedSampleLocations", GLboolean, Boolean);
     cmd.extension = GL_NV_texture_multisample;
   }
-  public static final Command glMultiTexCoord3ivARB = new Command();
+  public static final Command glMultiTexCoord3ivARB = new Command(1);
   private static void glMultiTexCoord3ivARB() {
     Command cmd = glMultiTexCoord3ivARB;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_ARB_multitexture;
   }
-  public static final Command glMultiTexCoord4fv = new Command();
+  public static final Command glMultiTexCoord4fv = new Command(1);
   private static void glMultiTexCoord4fv() {
     Command cmd = glMultiTexCoord4fv;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
   }
-  public static final Command glGetBufferParameteri64v = new Command();
+  public static final Command glGetBufferParameteri64v = new Command(2);
   private static void glGetBufferParameteri64v() {
     Command cmd = glGetBufferParameteri64v;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, BufferTargetARB);
     cmd.addParam("pname", GLenum, _null_);
   }
-  public static final Command glTextureColorMaskSGIS = new Command();
+  public static final Command glTextureColorMaskSGIS = new Command(4);
   private static void glTextureColorMaskSGIS() {
     Command cmd = glTextureColorMaskSGIS;
     cmd.returnGroup = _null_;
@@ -18970,21 +18970,21 @@ public class GLmetadata {
     cmd.addParam("alpha", GLboolean, Boolean);
     cmd.extension = GL_SGIS_texture_color_mask;
   }
-  public static final Command glGetListParameterivSGIX = new Command();
+  public static final Command glGetListParameterivSGIX = new Command(1);
   private static void glGetListParameterivSGIX() {
     Command cmd = glGetListParameterivSGIX;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, ListParameterName);
     cmd.extension = GL_SGIX_list_priority;
   }
-  public static final Command glVertexArrayColorOffsetEXT = new Command();
+  public static final Command glVertexArrayColorOffsetEXT = new Command(1);
   private static void glVertexArrayColorOffsetEXT() {
     Command cmd = glVertexArrayColorOffsetEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, ColorPointerType);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glBlendFuncSeparateEXT = new Command();
+  public static final Command glBlendFuncSeparateEXT = new Command(4);
   private static void glBlendFuncSeparateEXT() {
     Command cmd = glBlendFuncSeparateEXT;
     cmd.returnGroup = _null_;
@@ -18994,7 +18994,7 @@ public class GLmetadata {
     cmd.addParam("dfactorAlpha", GLenum, _null_);
     cmd.extension = GL_EXT_blend_func_separate;
   }
-  public static final Command glDebugMessageInsertAMD = new Command();
+  public static final Command glDebugMessageInsertAMD = new Command(2);
   private static void glDebugMessageInsertAMD() {
     Command cmd = glDebugMessageInsertAMD;
     cmd.returnGroup = _null_;
@@ -19002,40 +19002,40 @@ public class GLmetadata {
     cmd.addParam("severity", GLenum, _null_);
     cmd.extension = GL_AMD_debug_output;
   }
-  public static final Command glBeginConditionalRenderNV = new Command();
+  public static final Command glBeginConditionalRenderNV = new Command(1);
   private static void glBeginConditionalRenderNV() {
     Command cmd = glBeginConditionalRenderNV;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, _null_);
     cmd.extension = GL_NV_conditional_render;
   }
-  public static final Command glMultiDrawArraysIndirectCount = new Command();
+  public static final Command glMultiDrawArraysIndirectCount = new Command(1);
   private static void glMultiDrawArraysIndirectCount() {
     Command cmd = glMultiDrawArraysIndirectCount;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, PrimitiveType);
   }
-  public static final Command glPushClientAttrib = new Command();
+  public static final Command glPushClientAttrib = new Command(1);
   private static void glPushClientAttrib() {
     Command cmd = glPushClientAttrib;
     cmd.returnGroup = _null_;
     cmd.addParam("mask", GLbitfield, ClientAttribMask);
   }
-  public static final Command glStencilOpValueAMD = new Command();
+  public static final Command glStencilOpValueAMD = new Command(1);
   private static void glStencilOpValueAMD() {
     Command cmd = glStencilOpValueAMD;
     cmd.returnGroup = _null_;
     cmd.addParam("face", GLenum, StencilFaceDirection);
     cmd.extension = GL_AMD_stencil_operation_extended;
   }
-  public static final Command glNamedBufferPageCommitmentARB = new Command();
+  public static final Command glNamedBufferPageCommitmentARB = new Command(1);
   private static void glNamedBufferPageCommitmentARB() {
     Command cmd = glNamedBufferPageCommitmentARB;
     cmd.returnGroup = _null_;
     cmd.addParam("commit", GLboolean, Boolean);
     cmd.extension = GL_ARB_sparse_buffer;
   }
-  public static final Command glMultiTexGeniEXT = new Command();
+  public static final Command glMultiTexGeniEXT = new Command(3);
   private static void glMultiTexGeniEXT() {
     Command cmd = glMultiTexGeniEXT;
     cmd.returnGroup = _null_;
@@ -19044,7 +19044,7 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, TextureGenParameter);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glTexBufferOES = new Command();
+  public static final Command glTexBufferOES = new Command(2);
   private static void glTexBufferOES() {
     Command cmd = glTexBufferOES;
     cmd.returnGroup = _null_;
@@ -19052,7 +19052,7 @@ public class GLmetadata {
     cmd.addParam("internalformat", GLenum, _null_);
     cmd.extension = GL_OES_texture_buffer;
   }
-  public static final Command glEvalMapsNV = new Command();
+  public static final Command glEvalMapsNV = new Command(2);
   private static void glEvalMapsNV() {
     Command cmd = glEvalMapsNV;
     cmd.returnGroup = _null_;
@@ -19060,27 +19060,27 @@ public class GLmetadata {
     cmd.addParam("mode", GLenum, _null_);
     cmd.extension = GL_NV_evaluators;
   }
-  public static final Command glMulticastBufferSubDataNV = new Command();
+  public static final Command glMulticastBufferSubDataNV = new Command(1);
   private static void glMulticastBufferSubDataNV() {
     Command cmd = glMulticastBufferSubDataNV;
     cmd.returnGroup = _null_;
     cmd.addParam("gpuMask", GLbitfield, _null_);
     cmd.extension = GL_NV_gpu_multicast;
   }
-  public static final Command glMatrixScalefEXT = new Command();
+  public static final Command glMatrixScalefEXT = new Command(1);
   private static void glMatrixScalefEXT() {
     Command cmd = glMatrixScalefEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, MatrixMode);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glMultiTexCoord4iv = new Command();
+  public static final Command glMultiTexCoord4iv = new Command(1);
   private static void glMultiTexCoord4iv() {
     Command cmd = glMultiTexCoord4iv;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
   }
-  public static final Command glGetProgramStageiv = new Command();
+  public static final Command glGetProgramStageiv = new Command(2);
   private static void glGetProgramStageiv() {
     Command cmd = glGetProgramStageiv;
     cmd.returnGroup = _null_;
@@ -19088,28 +19088,28 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_shader_subroutine;
   }
-  public static final Command glGetnCompressedTexImageARB = new Command();
+  public static final Command glGetnCompressedTexImageARB = new Command(1);
   private static void glGetnCompressedTexImageARB() {
     Command cmd = glGetnCompressedTexImageARB;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_ARB_robustness;
   }
-  public static final Command glLGPUNamedBufferSubDataNVX = new Command();
+  public static final Command glLGPUNamedBufferSubDataNVX = new Command(1);
   private static void glLGPUNamedBufferSubDataNVX() {
     Command cmd = glLGPUNamedBufferSubDataNVX;
     cmd.returnGroup = _null_;
     cmd.addParam("gpuMask", GLbitfield, _null_);
     cmd.extension = GL_NVX_linked_gpu_multicast;
   }
-  public static final Command glGetLocalConstantIntegervEXT = new Command();
+  public static final Command glGetLocalConstantIntegervEXT = new Command(1);
   private static void glGetLocalConstantIntegervEXT() {
     Command cmd = glGetLocalConstantIntegervEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("value", GLenum, _null_);
     cmd.extension = GL_EXT_vertex_shader;
   }
-  public static final Command glTextureSubImage3D = new Command();
+  public static final Command glTextureSubImage3D = new Command(2);
   private static void glTextureSubImage3D() {
     Command cmd = glTextureSubImage3D;
     cmd.returnGroup = _null_;
@@ -19117,7 +19117,7 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_ARB_direct_state_access;
   }
-  public static final Command glClearTexImage = new Command();
+  public static final Command glClearTexImage = new Command(2);
   private static void glClearTexImage() {
     Command cmd = glClearTexImage;
     cmd.returnGroup = _null_;
@@ -19125,13 +19125,13 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_ARB_clear_texture;
   }
-  public static final Command glEdgeFlag = new Command();
+  public static final Command glEdgeFlag = new Command(1);
   private static void glEdgeFlag() {
     Command cmd = glEdgeFlag;
     cmd.returnGroup = _null_;
     cmd.addParam("flag", GLboolean, Boolean);
   }
-  public static final Command glGetMultiTexParameterivEXT = new Command();
+  public static final Command glGetMultiTexParameterivEXT = new Command(3);
   private static void glGetMultiTexParameterivEXT() {
     Command cmd = glGetMultiTexParameterivEXT;
     cmd.returnGroup = _null_;
@@ -19140,7 +19140,7 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, GetTextureParameter);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glMaterialxOES = new Command();
+  public static final Command glMaterialxOES = new Command(2);
   private static void glMaterialxOES() {
     Command cmd = glMaterialxOES;
     cmd.returnGroup = _null_;
@@ -19148,7 +19148,7 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_OES_fixed_point;
   }
-  public static final Command glTextureSubImage2D = new Command();
+  public static final Command glTextureSubImage2D = new Command(2);
   private static void glTextureSubImage2D() {
     Command cmd = glTextureSubImage2D;
     cmd.returnGroup = _null_;
@@ -19156,7 +19156,7 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_ARB_direct_state_access;
   }
-  public static final Command glDebugMessageControl = new Command();
+  public static final Command glDebugMessageControl = new Command(4);
   private static void glDebugMessageControl() {
     Command cmd = glDebugMessageControl;
     cmd.returnGroup = _null_;
@@ -19166,7 +19166,7 @@ public class GLmetadata {
     cmd.addParam("enabled", GLboolean, Boolean);
     cmd.extension = GL_KHR_debug;
   }
-  public static final Command glArrayObjectATI = new Command();
+  public static final Command glArrayObjectATI = new Command(2);
   private static void glArrayObjectATI() {
     Command cmd = glArrayObjectATI;
     cmd.returnGroup = _null_;
@@ -19174,7 +19174,7 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_ATI_vertex_array_object;
   }
-  public static final Command glGetColorTable = new Command();
+  public static final Command glGetColorTable = new Command(3);
   private static void glGetColorTable() {
     Command cmd = glGetColorTable;
     cmd.returnGroup = _null_;
@@ -19183,7 +19183,7 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, PixelType);
     cmd.extension = GL_ARB_imaging;
   }
-  public static final Command glRenderbufferStorageMultisampleAPPLE = new Command();
+  public static final Command glRenderbufferStorageMultisampleAPPLE = new Command(2);
   private static void glRenderbufferStorageMultisampleAPPLE() {
     Command cmd = glRenderbufferStorageMultisampleAPPLE;
     cmd.returnGroup = _null_;
@@ -19191,13 +19191,13 @@ public class GLmetadata {
     cmd.addParam("internalformat", GLenum, _null_);
     cmd.extension = GL_APPLE_framebuffer_multisample;
   }
-  public static final Command glIsProgramARB = new Command();
+  public static final Command glIsProgramARB = new Command(0);
   private static void glIsProgramARB() {
     Command cmd = glIsProgramARB;
     cmd.returnGroup = Boolean;
     cmd.extension = GL_ARB_vertex_program;
   }
-  public static final Command glBlitFramebufferEXT = new Command();
+  public static final Command glBlitFramebufferEXT = new Command(2);
   private static void glBlitFramebufferEXT() {
     Command cmd = glBlitFramebufferEXT;
     cmd.returnGroup = _null_;
@@ -19205,14 +19205,14 @@ public class GLmetadata {
     cmd.addParam("filter", GLenum, _null_);
     cmd.extension = GL_EXT_framebuffer_blit;
   }
-  public static final Command glProgramEnvParameterI4iNV = new Command();
+  public static final Command glProgramEnvParameterI4iNV = new Command(1);
   private static void glProgramEnvParameterI4iNV() {
     Command cmd = glProgramEnvParameterI4iNV;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_NV_gpu_program4;
   }
-  public static final Command glTexSubImage4DSGIS = new Command();
+  public static final Command glTexSubImage4DSGIS = new Command(3);
   private static void glTexSubImage4DSGIS() {
     Command cmd = glTexSubImage4DSGIS;
     cmd.returnGroup = _null_;
@@ -19221,14 +19221,14 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, PixelType);
     cmd.extension = GL_SGIS_texture4D;
   }
-  public static final Command glGetProgramivNV = new Command();
+  public static final Command glGetProgramivNV = new Command(1);
   private static void glGetProgramivNV() {
     Command cmd = glGetProgramivNV;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_NV_vertex_program;
   }
-  public static final Command glTextureSubImage1D = new Command();
+  public static final Command glTextureSubImage1D = new Command(2);
   private static void glTextureSubImage1D() {
     Command cmd = glTextureSubImage1D;
     cmd.returnGroup = _null_;
@@ -19236,14 +19236,14 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_ARB_direct_state_access;
   }
-  public static final Command glLightiv = new Command();
+  public static final Command glLightiv = new Command(2);
   private static void glLightiv() {
     Command cmd = glLightiv;
     cmd.returnGroup = _null_;
     cmd.addParam("light", GLenum, LightName);
     cmd.addParam("pname", GLenum, LightParameter);
   }
-  public static final Command glGetMultiTexGenfvEXT = new Command();
+  public static final Command glGetMultiTexGenfvEXT = new Command(3);
   private static void glGetMultiTexGenfvEXT() {
     Command cmd = glGetMultiTexGenfvEXT;
     cmd.returnGroup = _null_;
@@ -19252,7 +19252,7 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, TextureGenParameter);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glCompressedTexImage2DARB = new Command();
+  public static final Command glCompressedTexImage2DARB = new Command(2);
   private static void glCompressedTexImage2DARB() {
     Command cmd = glCompressedTexImage2DARB;
     cmd.returnGroup = _null_;
@@ -19260,14 +19260,14 @@ public class GLmetadata {
     cmd.addParam("internalformat", GLenum, InternalFormat);
     cmd.extension = GL_ARB_texture_compression;
   }
-  public static final Command glPathStringNV = new Command();
+  public static final Command glPathStringNV = new Command(1);
   private static void glPathStringNV() {
     Command cmd = glPathStringNV;
     cmd.returnGroup = _null_;
     cmd.addParam("format", GLenum, _null_);
     cmd.extension = GL_NV_path_rendering;
   }
-  public static final Command glGetMapControlPointsNV = new Command();
+  public static final Command glGetMapControlPointsNV = new Command(3);
   private static void glGetMapControlPointsNV() {
     Command cmd = glGetMapControlPointsNV;
     cmd.returnGroup = _null_;
@@ -19276,55 +19276,55 @@ public class GLmetadata {
     cmd.addParam("packed", GLboolean, Boolean);
     cmd.extension = GL_NV_evaluators;
   }
-  public static final Command glDeformationMap3dSGIX = new Command();
+  public static final Command glDeformationMap3dSGIX = new Command(1);
   private static void glDeformationMap3dSGIX() {
     Command cmd = glDeformationMap3dSGIX;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, FfdTargetSGIX);
     cmd.extension = GL_SGIX_polynomial_ffd;
   }
-  public static final Command glGetPointerIndexedvEXT = new Command();
+  public static final Command glGetPointerIndexedvEXT = new Command(1);
   private static void glGetPointerIndexedvEXT() {
     Command cmd = glGetPointerIndexedvEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glGetVertexAttribivNV = new Command();
+  public static final Command glGetVertexAttribivNV = new Command(1);
   private static void glGetVertexAttribivNV() {
     Command cmd = glGetVertexAttribivNV;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_NV_vertex_program;
   }
-  public static final Command glSetLocalConstantEXT = new Command();
+  public static final Command glSetLocalConstantEXT = new Command(1);
   private static void glSetLocalConstantEXT() {
     Command cmd = glSetLocalConstantEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_EXT_vertex_shader;
   }
-  public static final Command glIsVertexArray = new Command();
+  public static final Command glIsVertexArray = new Command(0);
   private static void glIsVertexArray() {
     Command cmd = glIsVertexArray;
     cmd.returnGroup = Boolean;
     cmd.extension = GL_ARB_vertex_array_object;
   }
-  public static final Command glTexEnvf = new Command();
+  public static final Command glTexEnvf = new Command(2);
   private static void glTexEnvf() {
     Command cmd = glTexEnvf;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, TextureEnvTarget);
     cmd.addParam("pname", GLenum, TextureEnvParameter);
   }
-  public static final Command glTexEnvi = new Command();
+  public static final Command glTexEnvi = new Command(2);
   private static void glTexEnvi() {
     Command cmd = glTexEnvi;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, TextureEnvTarget);
     cmd.addParam("pname", GLenum, TextureEnvParameter);
   }
-  public static final Command glFramebufferTexture2DMultisampleEXT = new Command();
+  public static final Command glFramebufferTexture2DMultisampleEXT = new Command(3);
   private static void glFramebufferTexture2DMultisampleEXT() {
     Command cmd = glFramebufferTexture2DMultisampleEXT;
     cmd.returnGroup = _null_;
@@ -19333,26 +19333,26 @@ public class GLmetadata {
     cmd.addParam("textarget", GLenum, TextureTarget);
     cmd.extension = GL_EXT_multisampled_render_to_texture;
   }
-  public static final Command glMultiTexCoord1sARB = new Command();
+  public static final Command glMultiTexCoord1sARB = new Command(1);
   private static void glMultiTexCoord1sARB() {
     Command cmd = glMultiTexCoord1sARB;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_ARB_multitexture;
   }
-  public static final Command glVideoCaptureNV = new Command();
+  public static final Command glVideoCaptureNV = new Command(0);
   private static void glVideoCaptureNV() {
     Command cmd = glVideoCaptureNV;
     cmd.returnGroup = _null_;
     cmd.extension = GL_NV_video_capture;
   }
-  public static final Command glFogi = new Command();
+  public static final Command glFogi = new Command(1);
   private static void glFogi() {
     Command cmd = glFogi;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, FogParameter);
   }
-  public static final Command glGetnMinmax = new Command();
+  public static final Command glGetnMinmax = new Command(4);
   private static void glGetnMinmax() {
     Command cmd = glGetnMinmax;
     cmd.returnGroup = _null_;
@@ -19361,7 +19361,7 @@ public class GLmetadata {
     cmd.addParam("format", GLenum, _null_);
     cmd.addParam("type", GLenum, _null_);
   }
-  public static final Command glFenceSync = new Command();
+  public static final Command glFenceSync = new Command(2);
   private static void glFenceSync() {
     Command cmd = glFenceSync;
     cmd.returnGroup = _null_;
@@ -19369,82 +19369,82 @@ public class GLmetadata {
     cmd.addParam("flags", GLbitfield, _null_);
     cmd.extension = GL_ARB_sync;
   }
-  public static final Command glFramebufferDrawBufferEXT = new Command();
+  public static final Command glFramebufferDrawBufferEXT = new Command(1);
   private static void glFramebufferDrawBufferEXT() {
     Command cmd = glFramebufferDrawBufferEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, DrawBufferMode);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glFogx = new Command();
+  public static final Command glFogx = new Command(1);
   private static void glFogx() {
     Command cmd = glFogx;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
   }
-  public static final Command glLightfv = new Command();
+  public static final Command glLightfv = new Command(2);
   private static void glLightfv() {
     Command cmd = glLightfv;
     cmd.returnGroup = _null_;
     cmd.addParam("light", GLenum, LightName);
     cmd.addParam("pname", GLenum, LightParameter);
   }
-  public static final Command glGetProgramPipelineivEXT = new Command();
+  public static final Command glGetProgramPipelineivEXT = new Command(1);
   private static void glGetProgramPipelineivEXT() {
     Command cmd = glGetProgramPipelineivEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_EXT_separate_shader_objects;
   }
-  public static final Command glProgramUniformMatrix3fvEXT = new Command();
+  public static final Command glProgramUniformMatrix3fvEXT = new Command(1);
   private static void glProgramUniformMatrix3fvEXT() {
     Command cmd = glProgramUniformMatrix3fvEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("transpose", GLboolean, Boolean);
     cmd.extension = GL_EXT_separate_shader_objects;
   }
-  public static final Command glGetMaterialxv = new Command();
+  public static final Command glGetMaterialxv = new Command(2);
   private static void glGetMaterialxv() {
     Command cmd = glGetMaterialxv;
     cmd.returnGroup = _null_;
     cmd.addParam("face", GLenum, _null_);
     cmd.addParam("pname", GLenum, _null_);
   }
-  public static final Command glFogf = new Command();
+  public static final Command glFogf = new Command(1);
   private static void glFogf() {
     Command cmd = glFogf;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, FogParameter);
   }
-  public static final Command glProgramUniformMatrix4x2fvEXT = new Command();
+  public static final Command glProgramUniformMatrix4x2fvEXT = new Command(1);
   private static void glProgramUniformMatrix4x2fvEXT() {
     Command cmd = glProgramUniformMatrix4x2fvEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("transpose", GLboolean, Boolean);
     cmd.extension = GL_EXT_separate_shader_objects;
   }
-  public static final Command glDeformSGIX = new Command();
+  public static final Command glDeformSGIX = new Command(1);
   private static void glDeformSGIX() {
     Command cmd = glDeformSGIX;
     cmd.returnGroup = _null_;
     cmd.addParam("mask", GLbitfield, FfdMaskSGIX);
     cmd.extension = GL_SGIX_polynomial_ffd;
   }
-  public static final Command glStartTilingQCOM = new Command();
+  public static final Command glStartTilingQCOM = new Command(1);
   private static void glStartTilingQCOM() {
     Command cmd = glStartTilingQCOM;
     cmd.returnGroup = _null_;
     cmd.addParam("preserveMask", GLbitfield, _null_);
     cmd.extension = GL_QCOM_tiled_rendering;
   }
-  public static final Command glTexCoordPointerListIBM = new Command();
+  public static final Command glTexCoordPointerListIBM = new Command(1);
   private static void glTexCoordPointerListIBM() {
     Command cmd = glTexCoordPointerListIBM;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, TexCoordPointerType);
     cmd.extension = GL_IBM_vertex_array_lists;
   }
-  public static final Command glLightxvOES = new Command();
+  public static final Command glLightxvOES = new Command(2);
   private static void glLightxvOES() {
     Command cmd = glLightxvOES;
     cmd.returnGroup = _null_;
@@ -19452,7 +19452,7 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_OES_fixed_point;
   }
-  public static final Command glGetHistogramEXT = new Command();
+  public static final Command glGetHistogramEXT = new Command(4);
   private static void glGetHistogramEXT() {
     Command cmd = glGetHistogramEXT;
     cmd.returnGroup = _null_;
@@ -19462,34 +19462,34 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, PixelType);
     cmd.extension = GL_EXT_histogram;
   }
-  public static final Command glFramebufferSampleLocationsfvNV = new Command();
+  public static final Command glFramebufferSampleLocationsfvNV = new Command(1);
   private static void glFramebufferSampleLocationsfvNV() {
     Command cmd = glFramebufferSampleLocationsfvNV;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_NV_sample_locations;
   }
-  public static final Command glPolygonMode = new Command();
+  public static final Command glPolygonMode = new Command(2);
   private static void glPolygonMode() {
     Command cmd = glPolygonMode;
     cmd.returnGroup = _null_;
     cmd.addParam("face", GLenum, MaterialFace);
     cmd.addParam("mode", GLenum, PolygonMode);
   }
-  public static final Command glNamedBufferStorageExternalEXT = new Command();
+  public static final Command glNamedBufferStorageExternalEXT = new Command(1);
   private static void glNamedBufferStorageExternalEXT() {
     Command cmd = glNamedBufferStorageExternalEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("flags", GLbitfield, _null_);
   }
-  public static final Command glTexEnvx = new Command();
+  public static final Command glTexEnvx = new Command(2);
   private static void glTexEnvx() {
     Command cmd = glTexEnvx;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.addParam("pname", GLenum, _null_);
   }
-  public static final Command glVertexAttribP4uiv = new Command();
+  public static final Command glVertexAttribP4uiv = new Command(2);
   private static void glVertexAttribP4uiv() {
     Command cmd = glVertexAttribP4uiv;
     cmd.returnGroup = _null_;
@@ -19497,7 +19497,7 @@ public class GLmetadata {
     cmd.addParam("normalized", GLboolean, Boolean);
     cmd.extension = GL_ARB_vertex_type_2_10_10_10_rev;
   }
-  public static final Command glGetQueryivARB = new Command();
+  public static final Command glGetQueryivARB = new Command(2);
   private static void glGetQueryivARB() {
     Command cmd = glGetQueryivARB;
     cmd.returnGroup = _null_;
@@ -19505,48 +19505,48 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_occlusion_query;
   }
-  public static final Command glInvalidateSubFramebuffer = new Command();
+  public static final Command glInvalidateSubFramebuffer = new Command(2);
   private static void glInvalidateSubFramebuffer() {
     Command cmd = glInvalidateSubFramebuffer;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.addParam("attachments", GLenum, _null_);
   }
-  public static final Command glMultiTexCoord2fvARB = new Command();
+  public static final Command glMultiTexCoord2fvARB = new Command(1);
   private static void glMultiTexCoord2fvARB() {
     Command cmd = glMultiTexCoord2fvARB;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_ARB_multitexture;
   }
-  public static final Command glDrawArraysEXT = new Command();
+  public static final Command glDrawArraysEXT = new Command(1);
   private static void glDrawArraysEXT() {
     Command cmd = glDrawArraysEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, PrimitiveType);
     cmd.extension = GL_EXT_vertex_array;
   }
-  public static final Command glPointParameteriNV = new Command();
+  public static final Command glPointParameteriNV = new Command(1);
   private static void glPointParameteriNV() {
     Command cmd = glPointParameteriNV;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_NV_point_sprite;
   }
-  public static final Command glEGLImageTargetTexture2DOES = new Command();
+  public static final Command glEGLImageTargetTexture2DOES = new Command(1);
   private static void glEGLImageTargetTexture2DOES() {
     Command cmd = glEGLImageTargetTexture2DOES;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
   }
-  public static final Command glFeedbackBufferxOES = new Command();
+  public static final Command glFeedbackBufferxOES = new Command(1);
   private static void glFeedbackBufferxOES() {
     Command cmd = glFeedbackBufferxOES;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_OES_fixed_point;
   }
-  public static final Command glBufferParameteriAPPLE = new Command();
+  public static final Command glBufferParameteriAPPLE = new Command(2);
   private static void glBufferParameteriAPPLE() {
     Command cmd = glBufferParameteriAPPLE;
     cmd.returnGroup = _null_;
@@ -19554,14 +19554,14 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_APPLE_flush_buffer_range;
   }
-  public static final Command glPatchParameteriOES = new Command();
+  public static final Command glPatchParameteriOES = new Command(1);
   private static void glPatchParameteriOES() {
     Command cmd = glPatchParameteriOES;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_OES_tessellation_shader;
   }
-  public static final Command glBufferDataARB = new Command();
+  public static final Command glBufferDataARB = new Command(2);
   private static void glBufferDataARB() {
     Command cmd = glBufferDataARB;
     cmd.returnGroup = _null_;
@@ -19569,27 +19569,27 @@ public class GLmetadata {
     cmd.addParam("usage", GLenum, BufferUsageARB);
     cmd.extension = GL_ARB_vertex_buffer_object;
   }
-  public static final Command glGetLocalConstantFloatvEXT = new Command();
+  public static final Command glGetLocalConstantFloatvEXT = new Command(1);
   private static void glGetLocalConstantFloatvEXT() {
     Command cmd = glGetLocalConstantFloatvEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("value", GLenum, _null_);
     cmd.extension = GL_EXT_vertex_shader;
   }
-  public static final Command glClear = new Command();
+  public static final Command glClear = new Command(1);
   private static void glClear() {
     Command cmd = glClear;
     cmd.returnGroup = _null_;
     cmd.addParam("mask", GLbitfield, ClearBufferMask);
   }
-  public static final Command glEndTilingQCOM = new Command();
+  public static final Command glEndTilingQCOM = new Command(1);
   private static void glEndTilingQCOM() {
     Command cmd = glEndTilingQCOM;
     cmd.returnGroup = _null_;
     cmd.addParam("preserveMask", GLbitfield, _null_);
     cmd.extension = GL_QCOM_tiled_rendering;
   }
-  public static final Command glWriteMaskEXT = new Command();
+  public static final Command glWriteMaskEXT = new Command(4);
   private static void glWriteMaskEXT() {
     Command cmd = glWriteMaskEXT;
     cmd.returnGroup = _null_;
@@ -19599,7 +19599,7 @@ public class GLmetadata {
     cmd.addParam("outW", GLenum, _null_);
     cmd.extension = GL_EXT_vertex_shader;
   }
-  public static final Command glGetFramebufferAttachmentParameteriv = new Command();
+  public static final Command glGetFramebufferAttachmentParameteriv = new Command(3);
   private static void glGetFramebufferAttachmentParameteriv() {
     Command cmd = glGetFramebufferAttachmentParameteriv;
     cmd.returnGroup = _null_;
@@ -19608,13 +19608,13 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_framebuffer_object;
   }
-  public static final Command glReadBuffer = new Command();
+  public static final Command glReadBuffer = new Command(1);
   private static void glReadBuffer() {
     Command cmd = glReadBuffer;
     cmd.returnGroup = _null_;
     cmd.addParam("src", GLenum, ReadBufferMode);
   }
-  public static final Command glTextureImage3DEXT = new Command();
+  public static final Command glTextureImage3DEXT = new Command(3);
   private static void glTextureImage3DEXT() {
     Command cmd = glTextureImage3DEXT;
     cmd.returnGroup = _null_;
@@ -19623,20 +19623,20 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, PixelType);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glPixelTransferxOES = new Command();
+  public static final Command glPixelTransferxOES = new Command(1);
   private static void glPixelTransferxOES() {
     Command cmd = glPixelTransferxOES;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_OES_fixed_point;
   }
-  public static final Command glDrawArraysInstanced = new Command();
+  public static final Command glDrawArraysInstanced = new Command(1);
   private static void glDrawArraysInstanced() {
     Command cmd = glDrawArraysInstanced;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, PrimitiveType);
   }
-  public static final Command glTextureParameterIivEXT = new Command();
+  public static final Command glTextureParameterIivEXT = new Command(2);
   private static void glTextureParameterIivEXT() {
     Command cmd = glTextureParameterIivEXT;
     cmd.returnGroup = _null_;
@@ -19644,20 +19644,20 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, TextureParameterName);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glDrawBuffer = new Command();
+  public static final Command glDrawBuffer = new Command(1);
   private static void glDrawBuffer() {
     Command cmd = glDrawBuffer;
     cmd.returnGroup = _null_;
     cmd.addParam("buf", GLenum, DrawBufferMode);
   }
-  public static final Command glProgramEnvParameterI4uiNV = new Command();
+  public static final Command glProgramEnvParameterI4uiNV = new Command(1);
   private static void glProgramEnvParameterI4uiNV() {
     Command cmd = glProgramEnvParameterI4uiNV;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_NV_gpu_program4;
   }
-  public static final Command glMultiTexRenderbufferEXT = new Command();
+  public static final Command glMultiTexRenderbufferEXT = new Command(2);
   private static void glMultiTexRenderbufferEXT() {
     Command cmd = glMultiTexRenderbufferEXT;
     cmd.returnGroup = _null_;
@@ -19665,14 +19665,14 @@ public class GLmetadata {
     cmd.addParam("target", GLenum, TextureTarget);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glSamplerParameterIuivEXT = new Command();
+  public static final Command glSamplerParameterIuivEXT = new Command(1);
   private static void glSamplerParameterIuivEXT() {
     Command cmd = glSamplerParameterIuivEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_EXT_texture_border_clamp;
   }
-  public static final Command glRenderbufferStorageMultisampleEXT = new Command();
+  public static final Command glRenderbufferStorageMultisampleEXT = new Command(2);
   private static void glRenderbufferStorageMultisampleEXT() {
     Command cmd = glRenderbufferStorageMultisampleEXT;
     cmd.returnGroup = _null_;
@@ -19680,34 +19680,34 @@ public class GLmetadata {
     cmd.addParam("internalformat", GLenum, _null_);
     cmd.extension = GL_EXT_multisampled_render_to_texture;
   }
-  public static final Command glShaderOp3EXT = new Command();
+  public static final Command glShaderOp3EXT = new Command(1);
   private static void glShaderOp3EXT() {
     Command cmd = glShaderOp3EXT;
     cmd.returnGroup = _null_;
     cmd.addParam("op", GLenum, _null_);
     cmd.extension = GL_EXT_vertex_shader;
   }
-  public static final Command glIsRenderbuffer = new Command();
+  public static final Command glIsRenderbuffer = new Command(0);
   private static void glIsRenderbuffer() {
     Command cmd = glIsRenderbuffer;
     cmd.returnGroup = Boolean;
     cmd.extension = GL_ARB_framebuffer_object;
   }
-  public static final Command glMatrixMult3x3fNV = new Command();
+  public static final Command glMatrixMult3x3fNV = new Command(1);
   private static void glMatrixMult3x3fNV() {
     Command cmd = glMatrixMult3x3fNV;
     cmd.returnGroup = _null_;
     cmd.addParam("matrixMode", GLenum, _null_);
     cmd.extension = GL_NV_path_rendering;
   }
-  public static final Command glGetProgramResourceName = new Command();
+  public static final Command glGetProgramResourceName = new Command(1);
   private static void glGetProgramResourceName() {
     Command cmd = glGetProgramResourceName;
     cmd.returnGroup = _null_;
     cmd.addParam("programInterface", GLenum, _null_);
     cmd.extension = GL_ARB_program_interface_query;
   }
-  public static final Command glMultiTexGendvEXT = new Command();
+  public static final Command glMultiTexGendvEXT = new Command(3);
   private static void glMultiTexGendvEXT() {
     Command cmd = glMultiTexGendvEXT;
     cmd.returnGroup = _null_;
@@ -19716,14 +19716,14 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, TextureGenParameter);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glNamedRenderbufferStorageMultisampleEXT = new Command();
+  public static final Command glNamedRenderbufferStorageMultisampleEXT = new Command(1);
   private static void glNamedRenderbufferStorageMultisampleEXT() {
     Command cmd = glNamedRenderbufferStorageMultisampleEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("internalformat", GLenum, InternalFormat);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glColorMaskIndexedEXT = new Command();
+  public static final Command glColorMaskIndexedEXT = new Command(4);
   private static void glColorMaskIndexedEXT() {
     Command cmd = glColorMaskIndexedEXT;
     cmd.returnGroup = _null_;
@@ -19732,7 +19732,7 @@ public class GLmetadata {
     cmd.addParam("b", GLboolean, Boolean);
     cmd.addParam("a", GLboolean, Boolean);
   }
-  public static final Command glCopyTextureImage1DEXT = new Command();
+  public static final Command glCopyTextureImage1DEXT = new Command(2);
   private static void glCopyTextureImage1DEXT() {
     Command cmd = glCopyTextureImage1DEXT;
     cmd.returnGroup = _null_;
@@ -19740,14 +19740,14 @@ public class GLmetadata {
     cmd.addParam("internalformat", GLenum, _null_);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glUniformMatrix4dv = new Command();
+  public static final Command glUniformMatrix4dv = new Command(1);
   private static void glUniformMatrix4dv() {
     Command cmd = glUniformMatrix4dv;
     cmd.returnGroup = _null_;
     cmd.addParam("transpose", GLboolean, Boolean);
     cmd.extension = GL_ARB_gpu_shader_fp64;
   }
-  public static final Command glGetCombinerOutputParameterivNV = new Command();
+  public static final Command glGetCombinerOutputParameterivNV = new Command(3);
   private static void glGetCombinerOutputParameterivNV() {
     Command cmd = glGetCombinerOutputParameterivNV;
     cmd.returnGroup = _null_;
@@ -19756,35 +19756,35 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_NV_register_combiners;
   }
-  public static final Command glMatrixTranslatedEXT = new Command();
+  public static final Command glMatrixTranslatedEXT = new Command(1);
   private static void glMatrixTranslatedEXT() {
     Command cmd = glMatrixTranslatedEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, MatrixMode);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glGetSemaphoreParameterui64vEXT = new Command();
+  public static final Command glGetSemaphoreParameterui64vEXT = new Command(1);
   private static void glGetSemaphoreParameterui64vEXT() {
     Command cmd = glGetSemaphoreParameterui64vEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, SemaphoreParameterName);
     cmd.extension = GL_EXT_semaphore;
   }
-  public static final Command glVertexStream3ivATI = new Command();
+  public static final Command glVertexStream3ivATI = new Command(1);
   private static void glVertexStream3ivATI() {
     Command cmd = glVertexStream3ivATI;
     cmd.returnGroup = _null_;
     cmd.addParam("stream", GLenum, _null_);
     cmd.extension = GL_ATI_vertex_streams;
   }
-  public static final Command glUniformMatrix2x3fvNV = new Command();
+  public static final Command glUniformMatrix2x3fvNV = new Command(1);
   private static void glUniformMatrix2x3fvNV() {
     Command cmd = glUniformMatrix2x3fvNV;
     cmd.returnGroup = _null_;
     cmd.addParam("transpose", GLboolean, Boolean);
     cmd.extension = GL_NV_non_square_matrices;
   }
-  public static final Command glVertexAttribP4ui = new Command();
+  public static final Command glVertexAttribP4ui = new Command(2);
   private static void glVertexAttribP4ui() {
     Command cmd = glVertexAttribP4ui;
     cmd.returnGroup = _null_;
@@ -19792,14 +19792,14 @@ public class GLmetadata {
     cmd.addParam("normalized", GLboolean, Boolean);
     cmd.extension = GL_ARB_vertex_type_2_10_10_10_rev;
   }
-  public static final Command glGetVideoi64vNV = new Command();
+  public static final Command glGetVideoi64vNV = new Command(1);
   private static void glGetVideoi64vNV() {
     Command cmd = glGetVideoi64vNV;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_NV_present_video;
   }
-  public static final Command glMultiTexCoordP2ui = new Command();
+  public static final Command glMultiTexCoordP2ui = new Command(2);
   private static void glMultiTexCoordP2ui() {
     Command cmd = glMultiTexCoordP2ui;
     cmd.returnGroup = _null_;
@@ -19807,7 +19807,7 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_ARB_vertex_type_2_10_10_10_rev;
   }
-  public static final Command glTextureImage3DMultisampleNV = new Command();
+  public static final Command glTextureImage3DMultisampleNV = new Command(2);
   private static void glTextureImage3DMultisampleNV() {
     Command cmd = glTextureImage3DMultisampleNV;
     cmd.returnGroup = _null_;
@@ -19815,7 +19815,7 @@ public class GLmetadata {
     cmd.addParam("fixedSampleLocations", GLboolean, Boolean);
     cmd.extension = GL_NV_texture_multisample;
   }
-  public static final Command glGetTexGenxvOES = new Command();
+  public static final Command glGetTexGenxvOES = new Command(2);
   private static void glGetTexGenxvOES() {
     Command cmd = glGetTexGenxvOES;
     cmd.returnGroup = _null_;
@@ -19823,20 +19823,20 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_OES_texture_cube_map;
   }
-  public static final Command glMultiTexCoord2sv = new Command();
+  public static final Command glMultiTexCoord2sv = new Command(1);
   private static void glMultiTexCoord2sv() {
     Command cmd = glMultiTexCoord2sv;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
   }
-  public static final Command glWaitSyncAPPLE = new Command();
+  public static final Command glWaitSyncAPPLE = new Command(1);
   private static void glWaitSyncAPPLE() {
     Command cmd = glWaitSyncAPPLE;
     cmd.returnGroup = _null_;
     cmd.addParam("flags", GLbitfield, _null_);
     cmd.extension = GL_APPLE_sync;
   }
-  public static final Command glCopyMultiTexImage2DEXT = new Command();
+  public static final Command glCopyMultiTexImage2DEXT = new Command(3);
   private static void glCopyMultiTexImage2DEXT() {
     Command cmd = glCopyMultiTexImage2DEXT;
     cmd.returnGroup = _null_;
@@ -19845,14 +19845,14 @@ public class GLmetadata {
     cmd.addParam("internalformat", GLenum, _null_);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glBlendEquationSeparateiARB = new Command();
+  public static final Command glBlendEquationSeparateiARB = new Command(2);
   private static void glBlendEquationSeparateiARB() {
     Command cmd = glBlendEquationSeparateiARB;
     cmd.returnGroup = _null_;
     cmd.addParam("modeRGB", GLenum, _null_);
     cmd.addParam("modeAlpha", GLenum, _null_);
   }
-  public static final Command glGetProgramInterfaceiv = new Command();
+  public static final Command glGetProgramInterfaceiv = new Command(2);
   private static void glGetProgramInterfaceiv() {
     Command cmd = glGetProgramInterfaceiv;
     cmd.returnGroup = _null_;
@@ -19860,48 +19860,48 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_program_interface_query;
   }
-  public static final Command glVariantArrayObjectATI = new Command();
+  public static final Command glVariantArrayObjectATI = new Command(1);
   private static void glVariantArrayObjectATI() {
     Command cmd = glVariantArrayObjectATI;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_ATI_vertex_array_object;
   }
-  public static final Command glUniformMatrix4fv = new Command();
+  public static final Command glUniformMatrix4fv = new Command(1);
   private static void glUniformMatrix4fv() {
     Command cmd = glUniformMatrix4fv;
     cmd.returnGroup = _null_;
     cmd.addParam("transpose", GLboolean, Boolean);
   }
-  public static final Command glMultiTexCoord2xvOES = new Command();
+  public static final Command glMultiTexCoord2xvOES = new Command(1);
   private static void glMultiTexCoord2xvOES() {
     Command cmd = glMultiTexCoord2xvOES;
     cmd.returnGroup = _null_;
     cmd.addParam("texture", GLenum, _null_);
     cmd.extension = GL_OES_fixed_point;
   }
-  public static final Command glGetPixelTexGenParameterivSGIS = new Command();
+  public static final Command glGetPixelTexGenParameterivSGIS = new Command(1);
   private static void glGetPixelTexGenParameterivSGIS() {
     Command cmd = glGetPixelTexGenParameterivSGIS;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, PixelTexGenParameterNameSGIS);
     cmd.extension = GL_SGIS_pixel_texture;
   }
-  public static final Command glSemaphoreParameterui64vEXT = new Command();
+  public static final Command glSemaphoreParameterui64vEXT = new Command(1);
   private static void glSemaphoreParameterui64vEXT() {
     Command cmd = glSemaphoreParameterui64vEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, SemaphoreParameterName);
     cmd.extension = GL_EXT_semaphore;
   }
-  public static final Command glImportMemoryWin32NameEXT = new Command();
+  public static final Command glImportMemoryWin32NameEXT = new Command(1);
   private static void glImportMemoryWin32NameEXT() {
     Command cmd = glImportMemoryWin32NameEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("handleType", GLenum, ExternalHandleType);
     cmd.extension = GL_EXT_memory_object_win32;
   }
-  public static final Command glGenSymbolsEXT = new Command();
+  public static final Command glGenSymbolsEXT = new Command(3);
   private static void glGenSymbolsEXT() {
     Command cmd = glGenSymbolsEXT;
     cmd.returnGroup = _null_;
@@ -19910,14 +19910,14 @@ public class GLmetadata {
     cmd.addParam("range", GLenum, _null_);
     cmd.extension = GL_EXT_vertex_shader;
   }
-  public static final Command glTexCoordP4uiv = new Command();
+  public static final Command glTexCoordP4uiv = new Command(1);
   private static void glTexCoordP4uiv() {
     Command cmd = glTexCoordP4uiv;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_ARB_vertex_type_2_10_10_10_rev;
   }
-  public static final Command glGetFragmentMaterialfvSGIX = new Command();
+  public static final Command glGetFragmentMaterialfvSGIX = new Command(2);
   private static void glGetFragmentMaterialfvSGIX() {
     Command cmd = glGetFragmentMaterialfvSGIX;
     cmd.returnGroup = _null_;
@@ -19925,20 +19925,20 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, MaterialParameter);
     cmd.extension = GL_SGIX_fragment_lighting;
   }
-  public static final Command glGetTexBumpParameterfvATI = new Command();
+  public static final Command glGetTexBumpParameterfvATI = new Command(1);
   private static void glGetTexBumpParameterfvATI() {
     Command cmd = glGetTexBumpParameterfvATI;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ATI_envmap_bumpmap;
   }
-  public static final Command glSampleCoverage = new Command();
+  public static final Command glSampleCoverage = new Command(1);
   private static void glSampleCoverage() {
     Command cmd = glSampleCoverage;
     cmd.returnGroup = _null_;
     cmd.addParam("invert", GLboolean, Boolean);
   }
-  public static final Command glGetTexParameterxvOES = new Command();
+  public static final Command glGetTexParameterxvOES = new Command(2);
   private static void glGetTexParameterxvOES() {
     Command cmd = glGetTexParameterxvOES;
     cmd.returnGroup = _null_;
@@ -19946,158 +19946,158 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_OES_fixed_point;
   }
-  public static final Command glGetBooleanIndexedvEXT = new Command();
+  public static final Command glGetBooleanIndexedvEXT = new Command(2);
   private static void glGetBooleanIndexedvEXT() {
     Command cmd = glGetBooleanIndexedvEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.addParam("data", GLboolean, Boolean);
   }
-  public static final Command glMultiTexCoord3fvARB = new Command();
+  public static final Command glMultiTexCoord3fvARB = new Command(1);
   private static void glMultiTexCoord3fvARB() {
     Command cmd = glMultiTexCoord3fvARB;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_ARB_multitexture;
   }
-  public static final Command glVertexStream2iATI = new Command();
+  public static final Command glVertexStream2iATI = new Command(1);
   private static void glVertexStream2iATI() {
     Command cmd = glVertexStream2iATI;
     cmd.returnGroup = _null_;
     cmd.addParam("stream", GLenum, _null_);
     cmd.extension = GL_ATI_vertex_streams;
   }
-  public static final Command glMultiTexCoord4xOES = new Command();
+  public static final Command glMultiTexCoord4xOES = new Command(1);
   private static void glMultiTexCoord4xOES() {
     Command cmd = glMultiTexCoord4xOES;
     cmd.returnGroup = _null_;
     cmd.addParam("texture", GLenum, _null_);
     cmd.extension = GL_OES_fixed_point;
   }
-  public static final Command glDrawArrays = new Command();
+  public static final Command glDrawArrays = new Command(1);
   private static void glDrawArrays() {
     Command cmd = glDrawArrays;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, PrimitiveType);
   }
-  public static final Command glNamedFramebufferParameteriEXT = new Command();
+  public static final Command glNamedFramebufferParameteriEXT = new Command(1);
   private static void glNamedFramebufferParameteriEXT() {
     Command cmd = glNamedFramebufferParameteriEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glMatrixLoadIdentityEXT = new Command();
+  public static final Command glMatrixLoadIdentityEXT = new Command(1);
   private static void glMatrixLoadIdentityEXT() {
     Command cmd = glMatrixLoadIdentityEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, MatrixMode);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glSamplerParameteri = new Command();
+  public static final Command glSamplerParameteri = new Command(1);
   private static void glSamplerParameteri() {
     Command cmd = glSamplerParameteri;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_sampler_objects;
   }
-  public static final Command glSamplerParameterf = new Command();
+  public static final Command glSamplerParameterf = new Command(1);
   private static void glSamplerParameterf() {
     Command cmd = glSamplerParameterf;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_sampler_objects;
   }
-  public static final Command glSampleCoverageARB = new Command();
+  public static final Command glSampleCoverageARB = new Command(1);
   private static void glSampleCoverageARB() {
     Command cmd = glSampleCoverageARB;
     cmd.returnGroup = _null_;
     cmd.addParam("invert", GLboolean, Boolean);
     cmd.extension = GL_ARB_multisample;
   }
-  public static final Command glWeightPointerARB = new Command();
+  public static final Command glWeightPointerARB = new Command(1);
   private static void glWeightPointerARB() {
     Command cmd = glWeightPointerARB;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_ARB_vertex_blend;
   }
-  public static final Command glDrawTransformFeedbackStream = new Command();
+  public static final Command glDrawTransformFeedbackStream = new Command(1);
   private static void glDrawTransformFeedbackStream() {
     Command cmd = glDrawTransformFeedbackStream;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, PrimitiveType);
     cmd.extension = GL_ARB_transform_feedback3;
   }
-  public static final Command glRenderMode = new Command();
+  public static final Command glRenderMode = new Command(1);
   private static void glRenderMode() {
     Command cmd = glRenderMode;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, RenderingMode);
   }
-  public static final Command glTextureRangeAPPLE = new Command();
+  public static final Command glTextureRangeAPPLE = new Command(1);
   private static void glTextureRangeAPPLE() {
     Command cmd = glTextureRangeAPPLE;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_APPLE_texture_range;
   }
-  public static final Command glNormalStream3fvATI = new Command();
+  public static final Command glNormalStream3fvATI = new Command(1);
   private static void glNormalStream3fvATI() {
     Command cmd = glNormalStream3fvATI;
     cmd.returnGroup = _null_;
     cmd.addParam("stream", GLenum, _null_);
     cmd.extension = GL_ATI_vertex_streams;
   }
-  public static final Command glEndQueryIndexed = new Command();
+  public static final Command glEndQueryIndexed = new Command(1);
   private static void glEndQueryIndexed() {
     Command cmd = glEndQueryIndexed;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_ARB_transform_feedback3;
   }
-  public static final Command glMultiTexCoord4bOES = new Command();
+  public static final Command glMultiTexCoord4bOES = new Command(1);
   private static void glMultiTexCoord4bOES() {
     Command cmd = glMultiTexCoord4bOES;
     cmd.returnGroup = _null_;
     cmd.addParam("texture", GLenum, _null_);
     cmd.extension = GL_OES_byte_coordinates;
   }
-  public static final Command glNewList = new Command();
+  public static final Command glNewList = new Command(1);
   private static void glNewList() {
     Command cmd = glNewList;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, ListMode);
   }
-  public static final Command glVertexStream2fvATI = new Command();
+  public static final Command glVertexStream2fvATI = new Command(1);
   private static void glVertexStream2fvATI() {
     Command cmd = glVertexStream2fvATI;
     cmd.returnGroup = _null_;
     cmd.addParam("stream", GLenum, _null_);
     cmd.extension = GL_ATI_vertex_streams;
   }
-  public static final Command glProgramLocalParameterI4uivNV = new Command();
+  public static final Command glProgramLocalParameterI4uivNV = new Command(1);
   private static void glProgramLocalParameterI4uivNV() {
     Command cmd = glProgramLocalParameterI4uivNV;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_NV_gpu_program4;
   }
-  public static final Command glBufferSubDataARB = new Command();
+  public static final Command glBufferSubDataARB = new Command(1);
   private static void glBufferSubDataARB() {
     Command cmd = glBufferSubDataARB;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, BufferTargetARB);
     cmd.extension = GL_ARB_vertex_buffer_object;
   }
-  public static final Command glProgramUniformMatrix2x4dv = new Command();
+  public static final Command glProgramUniformMatrix2x4dv = new Command(1);
   private static void glProgramUniformMatrix2x4dv() {
     Command cmd = glProgramUniformMatrix2x4dv;
     cmd.returnGroup = _null_;
     cmd.addParam("transpose", GLboolean, Boolean);
     cmd.extension = GL_ARB_separate_shader_objects;
   }
-  public static final Command glBlitFramebufferNV = new Command();
+  public static final Command glBlitFramebufferNV = new Command(2);
   private static void glBlitFramebufferNV() {
     Command cmd = glBlitFramebufferNV;
     cmd.returnGroup = _null_;
@@ -20105,62 +20105,62 @@ public class GLmetadata {
     cmd.addParam("filter", GLenum, _null_);
     cmd.extension = GL_NV_framebuffer_blit;
   }
-  public static final Command glFlushMappedBufferRangeAPPLE = new Command();
+  public static final Command glFlushMappedBufferRangeAPPLE = new Command(1);
   private static void glFlushMappedBufferRangeAPPLE() {
     Command cmd = glFlushMappedBufferRangeAPPLE;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_APPLE_flush_buffer_range;
   }
-  public static final Command glPixelMapfv = new Command();
+  public static final Command glPixelMapfv = new Command(1);
   private static void glPixelMapfv() {
     Command cmd = glPixelMapfv;
     cmd.returnGroup = _null_;
     cmd.addParam("map", GLenum, PixelMap);
   }
-  public static final Command glGetObjectLabelKHR = new Command();
+  public static final Command glGetObjectLabelKHR = new Command(1);
   private static void glGetObjectLabelKHR() {
     Command cmd = glGetObjectLabelKHR;
     cmd.returnGroup = _null_;
     cmd.addParam("identifier", GLenum, _null_);
     cmd.extension = GL_KHR_debug;
   }
-  public static final Command glPushClientAttribDefaultEXT = new Command();
+  public static final Command glPushClientAttribDefaultEXT = new Command(1);
   private static void glPushClientAttribDefaultEXT() {
     Command cmd = glPushClientAttribDefaultEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("mask", GLbitfield, ClientAttribMask);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glMultiTexCoord2hvNV = new Command();
+  public static final Command glMultiTexCoord2hvNV = new Command(1);
   private static void glMultiTexCoord2hvNV() {
     Command cmd = glMultiTexCoord2hvNV;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_NV_half_float;
   }
-  public static final Command glVDPAURegisterVideoSurfaceNV = new Command();
+  public static final Command glVDPAURegisterVideoSurfaceNV = new Command(1);
   private static void glVDPAURegisterVideoSurfaceNV() {
     Command cmd = glVDPAURegisterVideoSurfaceNV;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_NV_vdpau_interop;
   }
-  public static final Command glGetVertexAttribdvARB = new Command();
+  public static final Command glGetVertexAttribdvARB = new Command(1);
   private static void glGetVertexAttribdvARB() {
     Command cmd = glGetVertexAttribdvARB;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_vertex_shader;
   }
-  public static final Command glUniformMatrix3x2dv = new Command();
+  public static final Command glUniformMatrix3x2dv = new Command(1);
   private static void glUniformMatrix3x2dv() {
     Command cmd = glUniformMatrix3x2dv;
     cmd.returnGroup = _null_;
     cmd.addParam("transpose", GLboolean, Boolean);
     cmd.extension = GL_ARB_gpu_shader_fp64;
   }
-  public static final Command glStencilOp = new Command();
+  public static final Command glStencilOp = new Command(3);
   private static void glStencilOp() {
     Command cmd = glStencilOp;
     cmd.returnGroup = _null_;
@@ -20168,7 +20168,7 @@ public class GLmetadata {
     cmd.addParam("zfail", GLenum, StencilOp);
     cmd.addParam("zpass", GLenum, StencilOp);
   }
-  public static final Command glGetnMapivARB = new Command();
+  public static final Command glGetnMapivARB = new Command(2);
   private static void glGetnMapivARB() {
     Command cmd = glGetnMapivARB;
     cmd.returnGroup = _null_;
@@ -20176,47 +20176,47 @@ public class GLmetadata {
     cmd.addParam("query", GLenum, _null_);
     cmd.extension = GL_ARB_robustness;
   }
-  public static final Command glBindBuffer = new Command();
+  public static final Command glBindBuffer = new Command(1);
   private static void glBindBuffer() {
     Command cmd = glBindBuffer;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, BufferTargetARB);
   }
-  public static final Command glTexCoordP3ui = new Command();
+  public static final Command glTexCoordP3ui = new Command(1);
   private static void glTexCoordP3ui() {
     Command cmd = glTexCoordP3ui;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_ARB_vertex_type_2_10_10_10_rev;
   }
-  public static final Command glVertexAttribIPointerEXT = new Command();
+  public static final Command glVertexAttribIPointerEXT = new Command(1);
   private static void glVertexAttribIPointerEXT() {
     Command cmd = glVertexAttribIPointerEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_NV_vertex_program4;
   }
-  public static final Command glVertexArrayParameteriAPPLE = new Command();
+  public static final Command glVertexArrayParameteriAPPLE = new Command(1);
   private static void glVertexArrayParameteriAPPLE() {
     Command cmd = glVertexArrayParameteriAPPLE;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_APPLE_vertex_array_range;
   }
-  public static final Command glProgramUniformMatrix3fv = new Command();
+  public static final Command glProgramUniformMatrix3fv = new Command(1);
   private static void glProgramUniformMatrix3fv() {
     Command cmd = glProgramUniformMatrix3fv;
     cmd.returnGroup = _null_;
     cmd.addParam("transpose", GLboolean, Boolean);
     cmd.extension = GL_ARB_separate_shader_objects;
   }
-  public static final Command glNormalPointer = new Command();
+  public static final Command glNormalPointer = new Command(1);
   private static void glNormalPointer() {
     Command cmd = glNormalPointer;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, NormalPointerType);
   }
-  public static final Command glCompressedTexSubImage2DARB = new Command();
+  public static final Command glCompressedTexSubImage2DARB = new Command(2);
   private static void glCompressedTexSubImage2DARB() {
     Command cmd = glCompressedTexSubImage2DARB;
     cmd.returnGroup = _null_;
@@ -20224,47 +20224,47 @@ public class GLmetadata {
     cmd.addParam("format", GLenum, PixelFormat);
     cmd.extension = GL_ARB_texture_compression;
   }
-  public static final Command glGetNamedBufferParameteri64v = new Command();
+  public static final Command glGetNamedBufferParameteri64v = new Command(1);
   private static void glGetNamedBufferParameteri64v() {
     Command cmd = glGetNamedBufferParameteri64v;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_direct_state_access;
   }
-  public static final Command glGetActiveUniformARB = new Command();
+  public static final Command glGetActiveUniformARB = new Command(1);
   private static void glGetActiveUniformARB() {
     Command cmd = glGetActiveUniformARB;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_ARB_shader_objects;
   }
-  public static final Command glBegin = new Command();
+  public static final Command glBegin = new Command(1);
   private static void glBegin() {
     Command cmd = glBegin;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, PrimitiveType);
   }
-  public static final Command glEnable = new Command();
+  public static final Command glEnable = new Command(1);
   private static void glEnable() {
     Command cmd = glEnable;
     cmd.returnGroup = _null_;
     cmd.addParam("cap", GLenum, EnableCap);
   }
-  public static final Command glApplyTextureEXT = new Command();
+  public static final Command glApplyTextureEXT = new Command(1);
   private static void glApplyTextureEXT() {
     Command cmd = glApplyTextureEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, _null_);
     cmd.extension = GL_EXT_light_texture;
   }
-  public static final Command glMulticastGetQueryObjecti64vNV = new Command();
+  public static final Command glMulticastGetQueryObjecti64vNV = new Command(1);
   private static void glMulticastGetQueryObjecti64vNV() {
     Command cmd = glMulticastGetQueryObjecti64vNV;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_NV_gpu_multicast;
   }
-  public static final Command glTexParameterIuivEXT = new Command();
+  public static final Command glTexParameterIuivEXT = new Command(2);
   private static void glTexParameterIuivEXT() {
     Command cmd = glTexParameterIuivEXT;
     cmd.returnGroup = _null_;
@@ -20272,82 +20272,82 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, TextureParameterName);
     cmd.extension = GL_EXT_texture_integer;
   }
-  public static final Command glTexturePageCommitmentEXT = new Command();
+  public static final Command glTexturePageCommitmentEXT = new Command(1);
   private static void glTexturePageCommitmentEXT() {
     Command cmd = glTexturePageCommitmentEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("commit", GLboolean, Boolean);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glDrawArraysInstancedBaseInstanceEXT = new Command();
+  public static final Command glDrawArraysInstancedBaseInstanceEXT = new Command(1);
   private static void glDrawArraysInstancedBaseInstanceEXT() {
     Command cmd = glDrawArraysInstancedBaseInstanceEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, PrimitiveType);
   }
-  public static final Command glIsProgramNV = new Command();
+  public static final Command glIsProgramNV = new Command(0);
   private static void glIsProgramNV() {
     Command cmd = glIsProgramNV;
     cmd.returnGroup = Boolean;
     cmd.extension = GL_NV_vertex_program;
   }
-  public static final Command glTextureBufferRange = new Command();
+  public static final Command glTextureBufferRange = new Command(1);
   private static void glTextureBufferRange() {
     Command cmd = glTextureBufferRange;
     cmd.returnGroup = _null_;
     cmd.addParam("internalformat", GLenum, _null_);
     cmd.extension = GL_ARB_direct_state_access;
   }
-  public static final Command glBeginQueryEXT = new Command();
+  public static final Command glBeginQueryEXT = new Command(1);
   private static void glBeginQueryEXT() {
     Command cmd = glBeginQueryEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_EXT_occlusion_query_boolean;
   }
-  public static final Command glGetQueryObjectivEXT = new Command();
+  public static final Command glGetQueryObjectivEXT = new Command(1);
   private static void glGetQueryObjectivEXT() {
     Command cmd = glGetQueryObjectivEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_EXT_disjoint_timer_query;
   }
-  public static final Command glPixelTexGenParameterivSGIS = new Command();
+  public static final Command glPixelTexGenParameterivSGIS = new Command(1);
   private static void glPixelTexGenParameterivSGIS() {
     Command cmd = glPixelTexGenParameterivSGIS;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, PixelTexGenParameterNameSGIS);
     cmd.extension = GL_SGIS_pixel_texture;
   }
-  public static final Command glGetVertexAttribLui64vARB = new Command();
+  public static final Command glGetVertexAttribLui64vARB = new Command(1);
   private static void glGetVertexAttribLui64vARB() {
     Command cmd = glGetVertexAttribLui64vARB;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_bindless_texture;
   }
-  public static final Command glProgramUniformMatrix3dv = new Command();
+  public static final Command glProgramUniformMatrix3dv = new Command(1);
   private static void glProgramUniformMatrix3dv() {
     Command cmd = glProgramUniformMatrix3dv;
     cmd.returnGroup = _null_;
     cmd.addParam("transpose", GLboolean, Boolean);
     cmd.extension = GL_ARB_separate_shader_objects;
   }
-  public static final Command glGetLightxv = new Command();
+  public static final Command glGetLightxv = new Command(2);
   private static void glGetLightxv() {
     Command cmd = glGetLightxv;
     cmd.returnGroup = _null_;
     cmd.addParam("light", GLenum, _null_);
     cmd.addParam("pname", GLenum, _null_);
   }
-  public static final Command glGetVertexAttribIuivEXT = new Command();
+  public static final Command glGetVertexAttribIuivEXT = new Command(1);
   private static void glGetVertexAttribIuivEXT() {
     Command cmd = glGetVertexAttribIuivEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_NV_vertex_program4;
   }
-  public static final Command glBlendFuncSeparateiARB = new Command();
+  public static final Command glBlendFuncSeparateiARB = new Command(4);
   private static void glBlendFuncSeparateiARB() {
     Command cmd = glBlendFuncSeparateiARB;
     cmd.returnGroup = _null_;
@@ -20356,14 +20356,14 @@ public class GLmetadata {
     cmd.addParam("srcAlpha", GLenum, _null_);
     cmd.addParam("dstAlpha", GLenum, _null_);
   }
-  public static final Command glNamedProgramLocalParametersI4ivEXT = new Command();
+  public static final Command glNamedProgramLocalParametersI4ivEXT = new Command(1);
   private static void glNamedProgramLocalParametersI4ivEXT() {
     Command cmd = glNamedProgramLocalParametersI4ivEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glTextureSubImage1DEXT = new Command();
+  public static final Command glTextureSubImage1DEXT = new Command(3);
   private static void glTextureSubImage1DEXT() {
     Command cmd = glTextureSubImage1DEXT;
     cmd.returnGroup = _null_;
@@ -20372,7 +20372,7 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, PixelType);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glCompressedTextureSubImage3DEXT = new Command();
+  public static final Command glCompressedTextureSubImage3DEXT = new Command(2);
   private static void glCompressedTextureSubImage3DEXT() {
     Command cmd = glCompressedTextureSubImage3DEXT;
     cmd.returnGroup = _null_;
@@ -20380,47 +20380,47 @@ public class GLmetadata {
     cmd.addParam("format", GLenum, PixelFormat);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glDrawElementsInstancedBaseInstance = new Command();
+  public static final Command glDrawElementsInstancedBaseInstance = new Command(2);
   private static void glDrawElementsInstancedBaseInstance() {
     Command cmd = glDrawElementsInstancedBaseInstance;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, PrimitiveType);
     cmd.addParam("type", GLenum, _null_);
   }
-  public static final Command glMatrixPopEXT = new Command();
+  public static final Command glMatrixPopEXT = new Command(1);
   private static void glMatrixPopEXT() {
     Command cmd = glMatrixPopEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, MatrixMode);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glFrontFace = new Command();
+  public static final Command glFrontFace = new Command(1);
   private static void glFrontFace() {
     Command cmd = glFrontFace;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, FrontFaceDirection);
   }
-  public static final Command glProgramUniformMatrix2x4fv = new Command();
+  public static final Command glProgramUniformMatrix2x4fv = new Command(1);
   private static void glProgramUniformMatrix2x4fv() {
     Command cmd = glProgramUniformMatrix2x4fv;
     cmd.returnGroup = _null_;
     cmd.addParam("transpose", GLboolean, Boolean);
     cmd.extension = GL_ARB_separate_shader_objects;
   }
-  public static final Command glUpdateObjectBufferATI = new Command();
+  public static final Command glUpdateObjectBufferATI = new Command(1);
   private static void glUpdateObjectBufferATI() {
     Command cmd = glUpdateObjectBufferATI;
     cmd.returnGroup = _null_;
     cmd.addParam("preserve", GLenum, _null_);
     cmd.extension = GL_ATI_vertex_array_object;
   }
-  public static final Command glAlphaFunc = new Command();
+  public static final Command glAlphaFunc = new Command(1);
   private static void glAlphaFunc() {
     Command cmd = glAlphaFunc;
     cmd.returnGroup = _null_;
     cmd.addParam("func", GLenum, AlphaFunction);
   }
-  public static final Command glTextureBufferEXT = new Command();
+  public static final Command glTextureBufferEXT = new Command(2);
   private static void glTextureBufferEXT() {
     Command cmd = glTextureBufferEXT;
     cmd.returnGroup = _null_;
@@ -20428,14 +20428,14 @@ public class GLmetadata {
     cmd.addParam("internalformat", GLenum, _null_);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glDrawElementsInstancedARB = new Command();
+  public static final Command glDrawElementsInstancedARB = new Command(2);
   private static void glDrawElementsInstancedARB() {
     Command cmd = glDrawElementsInstancedARB;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, PrimitiveType);
     cmd.addParam("type", GLenum, DrawElementsType);
   }
-  public static final Command glMulticastBlitFramebufferNV = new Command();
+  public static final Command glMulticastBlitFramebufferNV = new Command(2);
   private static void glMulticastBlitFramebufferNV() {
     Command cmd = glMulticastBlitFramebufferNV;
     cmd.returnGroup = _null_;
@@ -20443,7 +20443,7 @@ public class GLmetadata {
     cmd.addParam("filter", GLenum, _null_);
     cmd.extension = GL_NV_gpu_multicast;
   }
-  public static final Command glClearNamedBufferSubData = new Command();
+  public static final Command glClearNamedBufferSubData = new Command(3);
   private static void glClearNamedBufferSubData() {
     Command cmd = glClearNamedBufferSubData;
     cmd.returnGroup = _null_;
@@ -20452,7 +20452,7 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_ARB_direct_state_access;
   }
-  public static final Command glMinmaxEXT = new Command();
+  public static final Command glMinmaxEXT = new Command(3);
   private static void glMinmaxEXT() {
     Command cmd = glMinmaxEXT;
     cmd.returnGroup = _null_;
@@ -20461,49 +20461,49 @@ public class GLmetadata {
     cmd.addParam("sink", GLboolean, Boolean);
     cmd.extension = GL_EXT_histogram;
   }
-  public static final Command glNormalStream3bATI = new Command();
+  public static final Command glNormalStream3bATI = new Command(1);
   private static void glNormalStream3bATI() {
     Command cmd = glNormalStream3bATI;
     cmd.returnGroup = _null_;
     cmd.addParam("stream", GLenum, _null_);
     cmd.extension = GL_ATI_vertex_streams;
   }
-  public static final Command glTessellationModeAMD = new Command();
+  public static final Command glTessellationModeAMD = new Command(1);
   private static void glTessellationModeAMD() {
     Command cmd = glTessellationModeAMD;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, _null_);
     cmd.extension = GL_AMD_vertex_shader_tessellator;
   }
-  public static final Command glGetTexParameterIuiv = new Command();
+  public static final Command glGetTexParameterIuiv = new Command(2);
   private static void glGetTexParameterIuiv() {
     Command cmd = glGetTexParameterIuiv;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, TextureTarget);
     cmd.addParam("pname", GLenum, GetTextureParameter);
   }
-  public static final Command glSamplerParameterfv = new Command();
+  public static final Command glSamplerParameterfv = new Command(1);
   private static void glSamplerParameterfv() {
     Command cmd = glSamplerParameterfv;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_sampler_objects;
   }
-  public static final Command glTexCoordP1uiv = new Command();
+  public static final Command glTexCoordP1uiv = new Command(1);
   private static void glTexCoordP1uiv() {
     Command cmd = glTexCoordP1uiv;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_ARB_vertex_type_2_10_10_10_rev;
   }
-  public static final Command glNamedBufferStorageEXT = new Command();
+  public static final Command glNamedBufferStorageEXT = new Command(1);
   private static void glNamedBufferStorageEXT() {
     Command cmd = glNamedBufferStorageEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("flags", GLbitfield, _null_);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glVertexAttribP1uiv = new Command();
+  public static final Command glVertexAttribP1uiv = new Command(2);
   private static void glVertexAttribP1uiv() {
     Command cmd = glVertexAttribP1uiv;
     cmd.returnGroup = _null_;
@@ -20511,49 +20511,49 @@ public class GLmetadata {
     cmd.addParam("normalized", GLboolean, Boolean);
     cmd.extension = GL_ARB_vertex_type_2_10_10_10_rev;
   }
-  public static final Command glTexParameterIiv = new Command();
+  public static final Command glTexParameterIiv = new Command(2);
   private static void glTexParameterIiv() {
     Command cmd = glTexParameterIiv;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, TextureTarget);
     cmd.addParam("pname", GLenum, TextureParameterName);
   }
-  public static final Command glMatrixLoadTransposedEXT = new Command();
+  public static final Command glMatrixLoadTransposedEXT = new Command(1);
   private static void glMatrixLoadTransposedEXT() {
     Command cmd = glMatrixLoadTransposedEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, MatrixMode);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glGetVertexAttribLdvEXT = new Command();
+  public static final Command glGetVertexAttribLdvEXT = new Command(1);
   private static void glGetVertexAttribLdvEXT() {
     Command cmd = glGetVertexAttribLdvEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_EXT_vertex_attrib_64bit;
   }
-  public static final Command glSamplerParameteriv = new Command();
+  public static final Command glSamplerParameteriv = new Command(1);
   private static void glSamplerParameteriv() {
     Command cmd = glSamplerParameteriv;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_sampler_objects;
   }
-  public static final Command glTexEnvxv = new Command();
+  public static final Command glTexEnvxv = new Command(2);
   private static void glTexEnvxv() {
     Command cmd = glTexEnvxv;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.addParam("pname", GLenum, _null_);
   }
-  public static final Command glGetVariantArrayObjectivATI = new Command();
+  public static final Command glGetVariantArrayObjectivATI = new Command(1);
   private static void glGetVariantArrayObjectivATI() {
     Command cmd = glGetVariantArrayObjectivATI;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ATI_vertex_array_object;
   }
-  public static final Command glFramebufferTextureLayerDownsampleIMG = new Command();
+  public static final Command glFramebufferTextureLayerDownsampleIMG = new Command(2);
   private static void glFramebufferTextureLayerDownsampleIMG() {
     Command cmd = glFramebufferTextureLayerDownsampleIMG;
     cmd.returnGroup = _null_;
@@ -20561,7 +20561,7 @@ public class GLmetadata {
     cmd.addParam("attachment", GLenum, _null_);
     cmd.extension = GL_IMG_framebuffer_downsample;
   }
-  public static final Command glGetConvolutionParameterivEXT = new Command();
+  public static final Command glGetConvolutionParameterivEXT = new Command(2);
   private static void glGetConvolutionParameterivEXT() {
     Command cmd = glGetConvolutionParameterivEXT;
     cmd.returnGroup = _null_;
@@ -20569,55 +20569,55 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, ConvolutionParameterEXT);
     cmd.extension = GL_EXT_convolution;
   }
-  public static final Command glGetActiveUniformsiv = new Command();
+  public static final Command glGetActiveUniformsiv = new Command(1);
   private static void glGetActiveUniformsiv() {
     Command cmd = glGetActiveUniformsiv;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_uniform_buffer_object;
   }
-  public static final Command glNamedFramebufferTexture = new Command();
+  public static final Command glNamedFramebufferTexture = new Command(1);
   private static void glNamedFramebufferTexture() {
     Command cmd = glNamedFramebufferTexture;
     cmd.returnGroup = _null_;
     cmd.addParam("attachment", GLenum, _null_);
     cmd.extension = GL_ARB_direct_state_access;
   }
-  public static final Command glUniformMatrix3fvARB = new Command();
+  public static final Command glUniformMatrix3fvARB = new Command(1);
   private static void glUniformMatrix3fvARB() {
     Command cmd = glUniformMatrix3fvARB;
     cmd.returnGroup = _null_;
     cmd.addParam("transpose", GLboolean, Boolean);
     cmd.extension = GL_ARB_shader_objects;
   }
-  public static final Command glTransformPathNV = new Command();
+  public static final Command glTransformPathNV = new Command(1);
   private static void glTransformPathNV() {
     Command cmd = glTransformPathNV;
     cmd.returnGroup = _null_;
     cmd.addParam("transformType", GLenum, _null_);
     cmd.extension = GL_NV_path_rendering;
   }
-  public static final Command glMultiTexCoord3dv = new Command();
+  public static final Command glMultiTexCoord3dv = new Command(1);
   private static void glMultiTexCoord3dv() {
     Command cmd = glMultiTexCoord3dv;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
   }
-  public static final Command glMap2xOES = new Command();
+  public static final Command glMap2xOES = new Command(1);
   private static void glMap2xOES() {
     Command cmd = glMap2xOES;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_OES_fixed_point;
   }
-  public static final Command glIsVariantEnabledEXT = new Command();
+  public static final Command glIsVariantEnabledEXT = new Command(1);
   private static void glIsVariantEnabledEXT() {
     Command cmd = glIsVariantEnabledEXT;
     cmd.returnGroup = Boolean;
     cmd.addParam("cap", GLenum, _null_);
     cmd.extension = GL_EXT_vertex_shader;
   }
-  public static final Command glGetFramebufferParameterfvAMD = new Command();
+  public static final Command glGetFramebufferParameterfvAMD = new Command(2);
   private static void glGetFramebufferParameterfvAMD() {
     Command cmd = glGetFramebufferParameterfvAMD;
     cmd.returnGroup = _null_;
@@ -20625,14 +20625,14 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_AMD_framebuffer_sample_positions;
   }
-  public static final Command glExecuteProgramNV = new Command();
+  public static final Command glExecuteProgramNV = new Command(1);
   private static void glExecuteProgramNV() {
     Command cmd = glExecuteProgramNV;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_NV_vertex_program;
   }
-  public static final Command glFragmentMaterialfSGIX = new Command();
+  public static final Command glFragmentMaterialfSGIX = new Command(2);
   private static void glFragmentMaterialfSGIX() {
     Command cmd = glFragmentMaterialfSGIX;
     cmd.returnGroup = _null_;
@@ -20640,26 +20640,26 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, MaterialParameter);
     cmd.extension = GL_SGIX_fragment_lighting;
   }
-  public static final Command glEnablei = new Command();
+  public static final Command glEnablei = new Command(1);
   private static void glEnablei() {
     Command cmd = glEnablei;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
   }
-  public static final Command glReplacementCodePointerSUN = new Command();
+  public static final Command glReplacementCodePointerSUN = new Command(1);
   private static void glReplacementCodePointerSUN() {
     Command cmd = glReplacementCodePointerSUN;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_SUN_triangle_list;
   }
-  public static final Command glCallLists = new Command();
+  public static final Command glCallLists = new Command(1);
   private static void glCallLists() {
     Command cmd = glCallLists;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, ListNameType);
   }
-  public static final Command glColorMaski = new Command();
+  public static final Command glColorMaski = new Command(4);
   private static void glColorMaski() {
     Command cmd = glColorMaski;
     cmd.returnGroup = _null_;
@@ -20668,7 +20668,7 @@ public class GLmetadata {
     cmd.addParam("b", GLboolean, Boolean);
     cmd.addParam("a", GLboolean, Boolean);
   }
-  public static final Command glCopyConvolutionFilter1D = new Command();
+  public static final Command glCopyConvolutionFilter1D = new Command(2);
   private static void glCopyConvolutionFilter1D() {
     Command cmd = glCopyConvolutionFilter1D;
     cmd.returnGroup = _null_;
@@ -20676,41 +20676,41 @@ public class GLmetadata {
     cmd.addParam("internalformat", GLenum, InternalFormat);
     cmd.extension = GL_ARB_imaging;
   }
-  public static final Command glMultiTexCoord3fv = new Command();
+  public static final Command glMultiTexCoord3fv = new Command(1);
   private static void glMultiTexCoord3fv() {
     Command cmd = glMultiTexCoord3fv;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
   }
-  public static final Command glMultiTexCoord4fARB = new Command();
+  public static final Command glMultiTexCoord4fARB = new Command(1);
   private static void glMultiTexCoord4fARB() {
     Command cmd = glMultiTexCoord4fARB;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_ARB_multitexture;
   }
-  public static final Command glNamedProgramLocalParametersI4uivEXT = new Command();
+  public static final Command glNamedProgramLocalParametersI4uivEXT = new Command(1);
   private static void glNamedProgramLocalParametersI4uivEXT() {
     Command cmd = glNamedProgramLocalParametersI4uivEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glGenNamesAMD = new Command();
+  public static final Command glGenNamesAMD = new Command(1);
   private static void glGenNamesAMD() {
     Command cmd = glGenNamesAMD;
     cmd.returnGroup = _null_;
     cmd.addParam("identifier", GLenum, _null_);
     cmd.extension = GL_AMD_name_gen_delete;
   }
-  public static final Command glGetIntegeri_v = new Command();
+  public static final Command glGetIntegeri_v = new Command(1);
   private static void glGetIntegeri_v() {
     Command cmd = glGetIntegeri_v;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_ARB_uniform_buffer_object;
   }
-  public static final Command glGetMultiTexParameterIivEXT = new Command();
+  public static final Command glGetMultiTexParameterIivEXT = new Command(3);
   private static void glGetMultiTexParameterIivEXT() {
     Command cmd = glGetMultiTexParameterIivEXT;
     cmd.returnGroup = _null_;
@@ -20719,7 +20719,7 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, GetTextureParameter);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glImportSyncEXT = new Command();
+  public static final Command glImportSyncEXT = new Command(2);
   private static void glImportSyncEXT() {
     Command cmd = glImportSyncEXT;
     cmd.returnGroup = _null_;
@@ -20727,7 +20727,7 @@ public class GLmetadata {
     cmd.addParam("flags", GLbitfield, _null_);
     cmd.extension = GL_EXT_x11_sync_object;
   }
-  public static final Command glCopyConvolutionFilter2D = new Command();
+  public static final Command glCopyConvolutionFilter2D = new Command(2);
   private static void glCopyConvolutionFilter2D() {
     Command cmd = glCopyConvolutionFilter2D;
     cmd.returnGroup = _null_;
@@ -20735,48 +20735,48 @@ public class GLmetadata {
     cmd.addParam("internalformat", GLenum, InternalFormat);
     cmd.extension = GL_ARB_imaging;
   }
-  public static final Command glDisableVertexAttribAPPLE = new Command();
+  public static final Command glDisableVertexAttribAPPLE = new Command(1);
   private static void glDisableVertexAttribAPPLE() {
     Command cmd = glDisableVertexAttribAPPLE;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_APPLE_vertex_program_evaluators;
   }
-  public static final Command glMatrixMultTransposedEXT = new Command();
+  public static final Command glMatrixMultTransposedEXT = new Command(1);
   private static void glMatrixMultTransposedEXT() {
     Command cmd = glMatrixMultTransposedEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, MatrixMode);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glGetBufferParameteriv = new Command();
+  public static final Command glGetBufferParameteriv = new Command(2);
   private static void glGetBufferParameteriv() {
     Command cmd = glGetBufferParameteriv;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, BufferTargetARB);
     cmd.addParam("pname", GLenum, _null_);
   }
-  public static final Command glDrawBuffers = new Command();
+  public static final Command glDrawBuffers = new Command(1);
   private static void glDrawBuffers() {
     Command cmd = glDrawBuffers;
     cmd.returnGroup = _null_;
     cmd.addParam("bufs", GLenum, _null_);
   }
-  public static final Command glSharpenTexFuncSGIS = new Command();
+  public static final Command glSharpenTexFuncSGIS = new Command(1);
   private static void glSharpenTexFuncSGIS() {
     Command cmd = glSharpenTexFuncSGIS;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, TextureTarget);
     cmd.extension = GL_SGIS_sharpen_texture;
   }
-  public static final Command glSamplePatternSGIS = new Command();
+  public static final Command glSamplePatternSGIS = new Command(1);
   private static void glSamplePatternSGIS() {
     Command cmd = glSamplePatternSGIS;
     cmd.returnGroup = _null_;
     cmd.addParam("pattern", GLenum, SamplePatternSGIS);
     cmd.extension = GL_SGIS_multisample;
   }
-  public static final Command glGetInternalformatSampleivNV = new Command();
+  public static final Command glGetInternalformatSampleivNV = new Command(3);
   private static void glGetInternalformatSampleivNV() {
     Command cmd = glGetInternalformatSampleivNV;
     cmd.returnGroup = _null_;
@@ -20785,7 +20785,7 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_NV_internalformat_sample_query;
   }
-  public static final Command glDebugMessageControlARB = new Command();
+  public static final Command glDebugMessageControlARB = new Command(4);
   private static void glDebugMessageControlARB() {
     Command cmd = glDebugMessageControlARB;
     cmd.returnGroup = _null_;
@@ -20795,61 +20795,61 @@ public class GLmetadata {
     cmd.addParam("enabled", GLboolean, Boolean);
     cmd.extension = GL_ARB_debug_output;
   }
-  public static final Command glGetNamedProgramLocalParameterfvEXT = new Command();
+  public static final Command glGetNamedProgramLocalParameterfvEXT = new Command(1);
   private static void glGetNamedProgramLocalParameterfvEXT() {
     Command cmd = glGetNamedProgramLocalParameterfvEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glStencilMaskSeparate = new Command();
+  public static final Command glStencilMaskSeparate = new Command(1);
   private static void glStencilMaskSeparate() {
     Command cmd = glStencilMaskSeparate;
     cmd.returnGroup = _null_;
     cmd.addParam("face", GLenum, StencilFaceDirection);
   }
-  public static final Command glGetVideoui64vNV = new Command();
+  public static final Command glGetVideoui64vNV = new Command(1);
   private static void glGetVideoui64vNV() {
     Command cmd = glGetVideoui64vNV;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_NV_present_video;
   }
-  public static final Command glDrawElementsInstancedBaseVertexEXT = new Command();
+  public static final Command glDrawElementsInstancedBaseVertexEXT = new Command(2);
   private static void glDrawElementsInstancedBaseVertexEXT() {
     Command cmd = glDrawElementsInstancedBaseVertexEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, PrimitiveType);
     cmd.addParam("type", GLenum, DrawElementsType);
   }
-  public static final Command glGetDoublei_v = new Command();
+  public static final Command glGetDoublei_v = new Command(1);
   private static void glGetDoublei_v() {
     Command cmd = glGetDoublei_v;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_ARB_viewport_array;
   }
-  public static final Command glBlendFuncIndexedAMD = new Command();
+  public static final Command glBlendFuncIndexedAMD = new Command(2);
   private static void glBlendFuncIndexedAMD() {
     Command cmd = glBlendFuncIndexedAMD;
     cmd.returnGroup = _null_;
     cmd.addParam("src", GLenum, _null_);
     cmd.addParam("dst", GLenum, _null_);
   }
-  public static final Command glMultiTexCoord3iv = new Command();
+  public static final Command glMultiTexCoord3iv = new Command(1);
   private static void glMultiTexCoord3iv() {
     Command cmd = glMultiTexCoord3iv;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
   }
-  public static final Command glMultiTexCoord3dARB = new Command();
+  public static final Command glMultiTexCoord3dARB = new Command(1);
   private static void glMultiTexCoord3dARB() {
     Command cmd = glMultiTexCoord3dARB;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_ARB_multitexture;
   }
-  public static final Command glGetColorTableParameterivEXT = new Command();
+  public static final Command glGetColorTableParameterivEXT = new Command(2);
   private static void glGetColorTableParameterivEXT() {
     Command cmd = glGetColorTableParameterivEXT;
     cmd.returnGroup = _null_;
@@ -20857,21 +20857,21 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_EXT_paletted_texture;
   }
-  public static final Command glGetVertexAttribfvNV = new Command();
+  public static final Command glGetVertexAttribfvNV = new Command(1);
   private static void glGetVertexAttribfvNV() {
     Command cmd = glGetVertexAttribfvNV;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_NV_vertex_program;
   }
-  public static final Command glDisableVertexArrayEXT = new Command();
+  public static final Command glDisableVertexArrayEXT = new Command(1);
   private static void glDisableVertexArrayEXT() {
     Command cmd = glDisableVertexArrayEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("array", GLenum, EnableCap);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glGetNamedProgramStringEXT = new Command();
+  public static final Command glGetNamedProgramStringEXT = new Command(2);
   private static void glGetNamedProgramStringEXT() {
     Command cmd = glGetNamedProgramStringEXT;
     cmd.returnGroup = _null_;
@@ -20879,26 +20879,26 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glTexGendv = new Command();
+  public static final Command glTexGendv = new Command(2);
   private static void glTexGendv() {
     Command cmd = glTexGendv;
     cmd.returnGroup = _null_;
     cmd.addParam("coord", GLenum, TextureCoordName);
     cmd.addParam("pname", GLenum, TextureGenParameter);
   }
-  public static final Command glNamedProgramLocalParameter4dEXT = new Command();
+  public static final Command glNamedProgramLocalParameter4dEXT = new Command(1);
   private static void glNamedProgramLocalParameter4dEXT() {
     Command cmd = glNamedProgramLocalParameter4dEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glAcquireKeyedMutexWin32EXT = new Command();
+  public static final Command glAcquireKeyedMutexWin32EXT = new Command(0);
   private static void glAcquireKeyedMutexWin32EXT() {
     Command cmd = glAcquireKeyedMutexWin32EXT;
     cmd.returnGroup = Boolean;
   }
-  public static final Command glGetMultiTexParameterfvEXT = new Command();
+  public static final Command glGetMultiTexParameterfvEXT = new Command(3);
   private static void glGetMultiTexParameterfvEXT() {
     Command cmd = glGetMultiTexParameterfvEXT;
     cmd.returnGroup = _null_;
@@ -20907,27 +20907,27 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, GetTextureParameter);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glProgramUniformMatrix2x4fvEXT = new Command();
+  public static final Command glProgramUniformMatrix2x4fvEXT = new Command(1);
   private static void glProgramUniformMatrix2x4fvEXT() {
     Command cmd = glProgramUniformMatrix2x4fvEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("transpose", GLboolean, Boolean);
     cmd.extension = GL_EXT_separate_shader_objects;
   }
-  public static final Command glIsRenderbufferOES = new Command();
+  public static final Command glIsRenderbufferOES = new Command(0);
   private static void glIsRenderbufferOES() {
     Command cmd = glIsRenderbufferOES;
     cmd.returnGroup = Boolean;
     cmd.extension = GL_OES_framebuffer_object;
   }
-  public static final Command glGetClipPlanexOES = new Command();
+  public static final Command glGetClipPlanexOES = new Command(1);
   private static void glGetClipPlanexOES() {
     Command cmd = glGetClipPlanexOES;
     cmd.returnGroup = _null_;
     cmd.addParam("plane", GLenum, _null_);
     cmd.extension = GL_OES_fixed_point;
   }
-  public static final Command glTextureParameterivEXT = new Command();
+  public static final Command glTextureParameterivEXT = new Command(2);
   private static void glTextureParameterivEXT() {
     Command cmd = glTextureParameterivEXT;
     cmd.returnGroup = _null_;
@@ -20935,14 +20935,14 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, TextureParameterName);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glUniformMatrix4x3fvNV = new Command();
+  public static final Command glUniformMatrix4x3fvNV = new Command(1);
   private static void glUniformMatrix4x3fvNV() {
     Command cmd = glUniformMatrix4x3fvNV;
     cmd.returnGroup = _null_;
     cmd.addParam("transpose", GLboolean, Boolean);
     cmd.extension = GL_NV_non_square_matrices;
   }
-  public static final Command glColorSubTable = new Command();
+  public static final Command glColorSubTable = new Command(3);
   private static void glColorSubTable() {
     Command cmd = glColorSubTable;
     cmd.returnGroup = _null_;
@@ -20951,14 +20951,14 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, PixelType);
     cmd.extension = GL_ARB_imaging;
   }
-  public static final Command glAreTexturesResidentEXT = new Command();
+  public static final Command glAreTexturesResidentEXT = new Command(1);
   private static void glAreTexturesResidentEXT() {
     Command cmd = glAreTexturesResidentEXT;
     cmd.returnGroup = Boolean;
     cmd.addParam("residences", GLboolean, Boolean);
     cmd.extension = GL_EXT_texture_object;
   }
-  public static final Command glGetConvolutionParameteriv = new Command();
+  public static final Command glGetConvolutionParameteriv = new Command(2);
   private static void glGetConvolutionParameteriv() {
     Command cmd = glGetConvolutionParameteriv;
     cmd.returnGroup = _null_;
@@ -20966,13 +20966,13 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_imaging;
   }
-  public static final Command glTestFenceAPPLE = new Command();
+  public static final Command glTestFenceAPPLE = new Command(0);
   private static void glTestFenceAPPLE() {
     Command cmd = glTestFenceAPPLE;
     cmd.returnGroup = Boolean;
     cmd.extension = GL_APPLE_fence;
   }
-  public static final Command glMultiTexSubImage2DEXT = new Command();
+  public static final Command glMultiTexSubImage2DEXT = new Command(4);
   private static void glMultiTexSubImage2DEXT() {
     Command cmd = glMultiTexSubImage2DEXT;
     cmd.returnGroup = _null_;
@@ -20982,14 +20982,14 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, PixelType);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glTexGenfv = new Command();
+  public static final Command glTexGenfv = new Command(2);
   private static void glTexGenfv() {
     Command cmd = glTexGenfv;
     cmd.returnGroup = _null_;
     cmd.addParam("coord", GLenum, TextureCoordName);
     cmd.addParam("pname", GLenum, TextureGenParameter);
   }
-  public static final Command glGetConvolutionParameterfv = new Command();
+  public static final Command glGetConvolutionParameterfv = new Command(2);
   private static void glGetConvolutionParameterfv() {
     Command cmd = glGetConvolutionParameterfv;
     cmd.returnGroup = _null_;
@@ -20997,14 +20997,14 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_imaging;
   }
-  public static final Command glClampColor = new Command();
+  public static final Command glClampColor = new Command(2);
   private static void glClampColor() {
     Command cmd = glClampColor;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.addParam("clamp", GLenum, _null_);
   }
-  public static final Command glCompressedTextureImage2DEXT = new Command();
+  public static final Command glCompressedTextureImage2DEXT = new Command(2);
   private static void glCompressedTextureImage2DEXT() {
     Command cmd = glCompressedTextureImage2DEXT;
     cmd.returnGroup = _null_;
@@ -21012,7 +21012,7 @@ public class GLmetadata {
     cmd.addParam("internalformat", GLenum, _null_);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glGetProgramStringARB = new Command();
+  public static final Command glGetProgramStringARB = new Command(2);
   private static void glGetProgramStringARB() {
     Command cmd = glGetProgramStringARB;
     cmd.returnGroup = _null_;
@@ -21020,14 +21020,14 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_vertex_program;
   }
-  public static final Command glVertexPointerListIBM = new Command();
+  public static final Command glVertexPointerListIBM = new Command(1);
   private static void glVertexPointerListIBM() {
     Command cmd = glVertexPointerListIBM;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, VertexPointerType);
     cmd.extension = GL_IBM_vertex_array_lists;
   }
-  public static final Command glImageTransformParameteriHP = new Command();
+  public static final Command glImageTransformParameteriHP = new Command(2);
   private static void glImageTransformParameteriHP() {
     Command cmd = glImageTransformParameteriHP;
     cmd.returnGroup = _null_;
@@ -21035,21 +21035,21 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_HP_image_transform;
   }
-  public static final Command glDrawElements = new Command();
+  public static final Command glDrawElements = new Command(2);
   private static void glDrawElements() {
     Command cmd = glDrawElements;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, PrimitiveType);
     cmd.addParam("type", GLenum, DrawElementsType);
   }
-  public static final Command glSamplerParameterIuivOES = new Command();
+  public static final Command glSamplerParameterIuivOES = new Command(1);
   private static void glSamplerParameterIuivOES() {
     Command cmd = glSamplerParameterIuivOES;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_OES_texture_border_clamp;
   }
-  public static final Command glMulticastCopyImageSubDataNV = new Command();
+  public static final Command glMulticastCopyImageSubDataNV = new Command(3);
   private static void glMulticastCopyImageSubDataNV() {
     Command cmd = glMulticastCopyImageSubDataNV;
     cmd.returnGroup = _null_;
@@ -21058,7 +21058,7 @@ public class GLmetadata {
     cmd.addParam("dstTarget", GLenum, _null_);
     cmd.extension = GL_NV_gpu_multicast;
   }
-  public static final Command glBlendFunciEXT = new Command();
+  public static final Command glBlendFunciEXT = new Command(2);
   private static void glBlendFunciEXT() {
     Command cmd = glBlendFunciEXT;
     cmd.returnGroup = _null_;
@@ -21066,7 +21066,7 @@ public class GLmetadata {
     cmd.addParam("dst", GLenum, _null_);
     cmd.extension = GL_EXT_draw_buffers_indexed;
   }
-  public static final Command glGetMultiTexEnvfvEXT = new Command();
+  public static final Command glGetMultiTexEnvfvEXT = new Command(3);
   private static void glGetMultiTexEnvfvEXT() {
     Command cmd = glGetMultiTexEnvfvEXT;
     cmd.returnGroup = _null_;
@@ -21075,54 +21075,54 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, TextureEnvParameter);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glDisableiEXT = new Command();
+  public static final Command glDisableiEXT = new Command(1);
   private static void glDisableiEXT() {
     Command cmd = glDisableiEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_EXT_draw_buffers_indexed;
   }
-  public static final Command glFogiv = new Command();
+  public static final Command glFogiv = new Command(1);
   private static void glFogiv() {
     Command cmd = glFogiv;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, FogParameter);
   }
-  public static final Command glBlendFunc = new Command();
+  public static final Command glBlendFunc = new Command(2);
   private static void glBlendFunc() {
     Command cmd = glBlendFunc;
     cmd.returnGroup = _null_;
     cmd.addParam("sfactor", GLenum, BlendingFactorSrc);
     cmd.addParam("dfactor", GLenum, BlendingFactorDest);
   }
-  public static final Command glGetFixedv = new Command();
+  public static final Command glGetFixedv = new Command(1);
   private static void glGetFixedv() {
     Command cmd = glGetFixedv;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
   }
-  public static final Command glTexGeniv = new Command();
+  public static final Command glTexGeniv = new Command(2);
   private static void glTexGeniv() {
     Command cmd = glTexGeniv;
     cmd.returnGroup = _null_;
     cmd.addParam("coord", GLenum, TextureCoordName);
     cmd.addParam("pname", GLenum, TextureGenParameter);
   }
-  public static final Command glMulticastGetQueryObjectivNV = new Command();
+  public static final Command glMulticastGetQueryObjectivNV = new Command(1);
   private static void glMulticastGetQueryObjectivNV() {
     Command cmd = glMulticastGetQueryObjectivNV;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_NV_gpu_multicast;
   }
-  public static final Command glGetImageHandleNV = new Command();
+  public static final Command glGetImageHandleNV = new Command(2);
   private static void glGetImageHandleNV() {
     Command cmd = glGetImageHandleNV;
     cmd.returnGroup = _null_;
     cmd.addParam("layered", GLboolean, Boolean);
     cmd.addParam("format", GLenum, _null_);
   }
-  public static final Command glNamedFramebufferTexture2DEXT = new Command();
+  public static final Command glNamedFramebufferTexture2DEXT = new Command(2);
   private static void glNamedFramebufferTexture2DEXT() {
     Command cmd = glNamedFramebufferTexture2DEXT;
     cmd.returnGroup = _null_;
@@ -21130,14 +21130,14 @@ public class GLmetadata {
     cmd.addParam("textarget", GLenum, TextureTarget);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glMultiTexCoord4ivARB = new Command();
+  public static final Command glMultiTexCoord4ivARB = new Command(1);
   private static void glMultiTexCoord4ivARB() {
     Command cmd = glMultiTexCoord4ivARB;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_ARB_multitexture;
   }
-  public static final Command glFramebufferTextureLayerARB = new Command();
+  public static final Command glFramebufferTextureLayerARB = new Command(2);
   private static void glFramebufferTextureLayerARB() {
     Command cmd = glFramebufferTextureLayerARB;
     cmd.returnGroup = _null_;
@@ -21145,14 +21145,14 @@ public class GLmetadata {
     cmd.addParam("attachment", GLenum, _null_);
     cmd.extension = GL_ARB_geometry_shader4;
   }
-  public static final Command glGetTextureParameterIiv = new Command();
+  public static final Command glGetTextureParameterIiv = new Command(1);
   private static void glGetTextureParameterIiv() {
     Command cmd = glGetTextureParameterIiv;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_direct_state_access;
   }
-  public static final Command glVertexAttribP3uiv = new Command();
+  public static final Command glVertexAttribP3uiv = new Command(2);
   private static void glVertexAttribP3uiv() {
     Command cmd = glVertexAttribP3uiv;
     cmd.returnGroup = _null_;
@@ -21160,20 +21160,20 @@ public class GLmetadata {
     cmd.addParam("normalized", GLboolean, Boolean);
     cmd.extension = GL_ARB_vertex_type_2_10_10_10_rev;
   }
-  public static final Command glTransformFeedbackVaryingsEXT = new Command();
+  public static final Command glTransformFeedbackVaryingsEXT = new Command(1);
   private static void glTransformFeedbackVaryingsEXT() {
     Command cmd = glTransformFeedbackVaryingsEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("bufferMode", GLenum, _null_);
     cmd.extension = GL_EXT_transform_feedback;
   }
-  public static final Command glFogfv = new Command();
+  public static final Command glFogfv = new Command(1);
   private static void glFogfv() {
     Command cmd = glFogfv;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, FogParameter);
   }
-  public static final Command glMultiTexGenivEXT = new Command();
+  public static final Command glMultiTexGenivEXT = new Command(3);
   private static void glMultiTexGenivEXT() {
     Command cmd = glMultiTexGenivEXT;
     cmd.returnGroup = _null_;
@@ -21182,48 +21182,48 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, TextureGenParameter);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glEnableiNV = new Command();
+  public static final Command glEnableiNV = new Command(1);
   private static void glEnableiNV() {
     Command cmd = glEnableiNV;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_NV_viewport_array;
   }
-  public static final Command glMultiTexCoord4hNV = new Command();
+  public static final Command glMultiTexCoord4hNV = new Command(1);
   private static void glMultiTexCoord4hNV() {
     Command cmd = glMultiTexCoord4hNV;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_NV_half_float;
   }
-  public static final Command glGetCommandHeaderNV = new Command();
+  public static final Command glGetCommandHeaderNV = new Command(1);
   private static void glGetCommandHeaderNV() {
     Command cmd = glGetCommandHeaderNV;
     cmd.returnGroup = _null_;
     cmd.addParam("tokenID", GLenum, _null_);
     cmd.extension = GL_NV_command_list;
   }
-  public static final Command glUnmapBufferARB = new Command();
+  public static final Command glUnmapBufferARB = new Command(1);
   private static void glUnmapBufferARB() {
     Command cmd = glUnmapBufferARB;
     cmd.returnGroup = Boolean;
     cmd.addParam("target", GLenum, BufferTargetARB);
     cmd.extension = GL_ARB_vertex_buffer_object;
   }
-  public static final Command glUnmapNamedBufferEXT = new Command();
+  public static final Command glUnmapNamedBufferEXT = new Command(0);
   private static void glUnmapNamedBufferEXT() {
     Command cmd = glUnmapNamedBufferEXT;
     cmd.returnGroup = Boolean;
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glGetNamedProgramLocalParameterdvEXT = new Command();
+  public static final Command glGetNamedProgramLocalParameterdvEXT = new Command(1);
   private static void glGetNamedProgramLocalParameterdvEXT() {
     Command cmd = glGetNamedProgramLocalParameterdvEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glGetBufferParameterivARB = new Command();
+  public static final Command glGetBufferParameterivARB = new Command(2);
   private static void glGetBufferParameterivARB() {
     Command cmd = glGetBufferParameterivARB;
     cmd.returnGroup = _null_;
@@ -21231,25 +21231,25 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_vertex_buffer_object;
   }
-  public static final Command glMultiTexCoord2f = new Command();
+  public static final Command glMultiTexCoord2f = new Command(1);
   private static void glMultiTexCoord2f() {
     Command cmd = glMultiTexCoord2f;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
   }
-  public static final Command glMultiTexCoord2d = new Command();
+  public static final Command glMultiTexCoord2d = new Command(1);
   private static void glMultiTexCoord2d() {
     Command cmd = glMultiTexCoord2d;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
   }
-  public static final Command glMultiTexCoord2i = new Command();
+  public static final Command glMultiTexCoord2i = new Command(1);
   private static void glMultiTexCoord2i() {
     Command cmd = glMultiTexCoord2i;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
   }
-  public static final Command glReadnPixelsKHR = new Command();
+  public static final Command glReadnPixelsKHR = new Command(2);
   private static void glReadnPixelsKHR() {
     Command cmd = glReadnPixelsKHR;
     cmd.returnGroup = _null_;
@@ -21257,47 +21257,47 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, PixelType);
     cmd.extension = GL_KHR_robustness;
   }
-  public static final Command glUniformMatrix4x3dv = new Command();
+  public static final Command glUniformMatrix4x3dv = new Command(1);
   private static void glUniformMatrix4x3dv() {
     Command cmd = glUniformMatrix4x3dv;
     cmd.returnGroup = _null_;
     cmd.addParam("transpose", GLboolean, Boolean);
     cmd.extension = GL_ARB_gpu_shader_fp64;
   }
-  public static final Command glMultiTexCoord1s = new Command();
+  public static final Command glMultiTexCoord1s = new Command(1);
   private static void glMultiTexCoord1s() {
     Command cmd = glMultiTexCoord1s;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
   }
-  public static final Command glDrawTransformFeedbackInstancedEXT = new Command();
+  public static final Command glDrawTransformFeedbackInstancedEXT = new Command(1);
   private static void glDrawTransformFeedbackInstancedEXT() {
     Command cmd = glDrawTransformFeedbackInstancedEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, PrimitiveType);
   }
-  public static final Command glNormalPointervINTEL = new Command();
+  public static final Command glNormalPointervINTEL = new Command(1);
   private static void glNormalPointervINTEL() {
     Command cmd = glNormalPointervINTEL;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, NormalPointerType);
     cmd.extension = GL_INTEL_parallel_arrays;
   }
-  public static final Command glUniformMatrix3x4fvNV = new Command();
+  public static final Command glUniformMatrix3x4fvNV = new Command(1);
   private static void glUniformMatrix3x4fvNV() {
     Command cmd = glUniformMatrix3x4fvNV;
     cmd.returnGroup = _null_;
     cmd.addParam("transpose", GLboolean, Boolean);
     cmd.extension = GL_NV_non_square_matrices;
   }
-  public static final Command glGetPathParameterfvNV = new Command();
+  public static final Command glGetPathParameterfvNV = new Command(1);
   private static void glGetPathParameterfvNV() {
     Command cmd = glGetPathParameterfvNV;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_NV_path_rendering;
   }
-  public static final Command glFenceSyncAPPLE = new Command();
+  public static final Command glFenceSyncAPPLE = new Command(2);
   private static void glFenceSyncAPPLE() {
     Command cmd = glFenceSyncAPPLE;
     cmd.returnGroup = _null_;
@@ -21305,51 +21305,51 @@ public class GLmetadata {
     cmd.addParam("flags", GLbitfield, _null_);
     cmd.extension = GL_APPLE_sync;
   }
-  public static final Command glGetTexGenfv = new Command();
+  public static final Command glGetTexGenfv = new Command(2);
   private static void glGetTexGenfv() {
     Command cmd = glGetTexGenfv;
     cmd.returnGroup = _null_;
     cmd.addParam("coord", GLenum, TextureCoordName);
     cmd.addParam("pname", GLenum, TextureGenParameter);
   }
-  public static final Command glIsShader = new Command();
+  public static final Command glIsShader = new Command(0);
   private static void glIsShader() {
     Command cmd = glIsShader;
     cmd.returnGroup = Boolean;
   }
-  public static final Command glMultiTexCoord1f = new Command();
+  public static final Command glMultiTexCoord1f = new Command(1);
   private static void glMultiTexCoord1f() {
     Command cmd = glMultiTexCoord1f;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
   }
-  public static final Command glBlendFunci = new Command();
+  public static final Command glBlendFunci = new Command(2);
   private static void glBlendFunci() {
     Command cmd = glBlendFunci;
     cmd.returnGroup = _null_;
     cmd.addParam("src", GLenum, _null_);
     cmd.addParam("dst", GLenum, _null_);
   }
-  public static final Command glMultiTexCoord1d = new Command();
+  public static final Command glMultiTexCoord1d = new Command(1);
   private static void glMultiTexCoord1d() {
     Command cmd = glMultiTexCoord1d;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
   }
-  public static final Command glMultiTexCoord1i = new Command();
+  public static final Command glMultiTexCoord1i = new Command(1);
   private static void glMultiTexCoord1i() {
     Command cmd = glMultiTexCoord1i;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
   }
-  public static final Command glClipPlanexIMG = new Command();
+  public static final Command glClipPlanexIMG = new Command(1);
   private static void glClipPlanexIMG() {
     Command cmd = glClipPlanexIMG;
     cmd.returnGroup = _null_;
     cmd.addParam("p", GLenum, _null_);
     cmd.extension = GL_IMG_user_clip_plane;
   }
-  public static final Command glGetProgramParameterdvNV = new Command();
+  public static final Command glGetProgramParameterdvNV = new Command(2);
   private static void glGetProgramParameterdvNV() {
     Command cmd = glGetProgramParameterdvNV;
     cmd.returnGroup = _null_;
@@ -21357,7 +21357,7 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_NV_vertex_program;
   }
-  public static final Command glGetInternalformati64v = new Command();
+  public static final Command glGetInternalformati64v = new Command(3);
   private static void glGetInternalformati64v() {
     Command cmd = glGetInternalformati64v;
     cmd.returnGroup = _null_;
@@ -21366,14 +21366,14 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_internalformat_query2;
   }
-  public static final Command glGetNamedBufferParameteriv = new Command();
+  public static final Command glGetNamedBufferParameteriv = new Command(1);
   private static void glGetNamedBufferParameteriv() {
     Command cmd = glGetNamedBufferParameteriv;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_direct_state_access;
   }
-  public static final Command glPathGlyphIndexArrayNV = new Command();
+  public static final Command glPathGlyphIndexArrayNV = new Command(2);
   private static void glPathGlyphIndexArrayNV() {
     Command cmd = glPathGlyphIndexArrayNV;
     cmd.returnGroup = _null_;
@@ -21381,33 +21381,33 @@ public class GLmetadata {
     cmd.addParam("fontStyle", GLbitfield, _null_);
     cmd.extension = GL_NV_path_rendering;
   }
-  public static final Command glGetVariantIntegervEXT = new Command();
+  public static final Command glGetVariantIntegervEXT = new Command(1);
   private static void glGetVariantIntegervEXT() {
     Command cmd = glGetVariantIntegervEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("value", GLenum, _null_);
     cmd.extension = GL_EXT_vertex_shader;
   }
-  public static final Command glDepthFunc = new Command();
+  public static final Command glDepthFunc = new Command(1);
   private static void glDepthFunc() {
     Command cmd = glDepthFunc;
     cmd.returnGroup = _null_;
     cmd.addParam("func", GLenum, DepthFunction);
   }
-  public static final Command glGetTexGeniv = new Command();
+  public static final Command glGetTexGeniv = new Command(2);
   private static void glGetTexGeniv() {
     Command cmd = glGetTexGeniv;
     cmd.returnGroup = _null_;
     cmd.addParam("coord", GLenum, TextureCoordName);
     cmd.addParam("pname", GLenum, TextureGenParameter);
   }
-  public static final Command glUniformMatrix4x3fv = new Command();
+  public static final Command glUniformMatrix4x3fv = new Command(1);
   private static void glUniformMatrix4x3fv() {
     Command cmd = glUniformMatrix4x3fv;
     cmd.returnGroup = _null_;
     cmd.addParam("transpose", GLboolean, Boolean);
   }
-  public static final Command glConvolutionFilter2DEXT = new Command();
+  public static final Command glConvolutionFilter2DEXT = new Command(4);
   private static void glConvolutionFilter2DEXT() {
     Command cmd = glConvolutionFilter2DEXT;
     cmd.returnGroup = _null_;
@@ -21417,28 +21417,28 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, PixelType);
     cmd.extension = GL_EXT_convolution;
   }
-  public static final Command glDrawBuffersARB = new Command();
+  public static final Command glDrawBuffersARB = new Command(1);
   private static void glDrawBuffersARB() {
     Command cmd = glDrawBuffersARB;
     cmd.returnGroup = _null_;
     cmd.addParam("bufs", GLenum, _null_);
     cmd.extension = GL_ARB_draw_buffers;
   }
-  public static final Command glMultiTexCoord4iARB = new Command();
+  public static final Command glMultiTexCoord4iARB = new Command(1);
   private static void glMultiTexCoord4iARB() {
     Command cmd = glMultiTexCoord4iARB;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_ARB_multitexture;
   }
-  public static final Command glSecondaryColorFormatNV = new Command();
+  public static final Command glSecondaryColorFormatNV = new Command(1);
   private static void glSecondaryColorFormatNV() {
     Command cmd = glSecondaryColorFormatNV;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_NV_vertex_buffer_unified_memory;
   }
-  public static final Command glMakeBufferResidentNV = new Command();
+  public static final Command glMakeBufferResidentNV = new Command(2);
   private static void glMakeBufferResidentNV() {
     Command cmd = glMakeBufferResidentNV;
     cmd.returnGroup = _null_;
@@ -21446,41 +21446,41 @@ public class GLmetadata {
     cmd.addParam("access", GLenum, _null_);
     cmd.extension = GL_NV_shader_buffer_load;
   }
-  public static final Command glCopyTexImage1D = new Command();
+  public static final Command glCopyTexImage1D = new Command(2);
   private static void glCopyTexImage1D() {
     Command cmd = glCopyTexImage1D;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, TextureTarget);
     cmd.addParam("internalformat", GLenum, InternalFormat);
   }
-  public static final Command glGetPixelMapxv = new Command();
+  public static final Command glGetPixelMapxv = new Command(1);
   private static void glGetPixelMapxv() {
     Command cmd = glGetPixelMapxv;
     cmd.returnGroup = _null_;
     cmd.addParam("map", GLenum, _null_);
     cmd.extension = GL_OES_fixed_point;
   }
-  public static final Command glDisableiNV = new Command();
+  public static final Command glDisableiNV = new Command(1);
   private static void glDisableiNV() {
     Command cmd = glDisableiNV;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_NV_viewport_array;
   }
-  public static final Command glVDPAUIsSurfaceNV = new Command();
+  public static final Command glVDPAUIsSurfaceNV = new Command(0);
   private static void glVDPAUIsSurfaceNV() {
     Command cmd = glVDPAUIsSurfaceNV;
     cmd.returnGroup = Boolean;
     cmd.extension = GL_NV_vdpau_interop;
   }
-  public static final Command glBlendEquationSeparate = new Command();
+  public static final Command glBlendEquationSeparate = new Command(2);
   private static void glBlendEquationSeparate() {
     Command cmd = glBlendEquationSeparate;
     cmd.returnGroup = _null_;
     cmd.addParam("modeRGB", GLenum, BlendEquationModeEXT);
     cmd.addParam("modeAlpha", GLenum, BlendEquationModeEXT);
   }
-  public static final Command glGetTextureLevelParameterfvEXT = new Command();
+  public static final Command glGetTextureLevelParameterfvEXT = new Command(2);
   private static void glGetTextureLevelParameterfvEXT() {
     Command cmd = glGetTextureLevelParameterfvEXT;
     cmd.returnGroup = _null_;
@@ -21488,7 +21488,7 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, GetTextureParameter);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glImageTransformParameterivHP = new Command();
+  public static final Command glImageTransformParameterivHP = new Command(2);
   private static void glImageTransformParameterivHP() {
     Command cmd = glImageTransformParameterivHP;
     cmd.returnGroup = _null_;
@@ -21496,27 +21496,27 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_HP_image_transform;
   }
-  public static final Command glColorFormatNV = new Command();
+  public static final Command glColorFormatNV = new Command(1);
   private static void glColorFormatNV() {
     Command cmd = glColorFormatNV;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_NV_vertex_buffer_unified_memory;
   }
-  public static final Command glMultiTexCoord1sv = new Command();
+  public static final Command glMultiTexCoord1sv = new Command(1);
   private static void glMultiTexCoord1sv() {
     Command cmd = glMultiTexCoord1sv;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
   }
-  public static final Command glTransformFeedbackVaryingsNV = new Command();
+  public static final Command glTransformFeedbackVaryingsNV = new Command(1);
   private static void glTransformFeedbackVaryingsNV() {
     Command cmd = glTransformFeedbackVaryingsNV;
     cmd.returnGroup = _null_;
     cmd.addParam("bufferMode", GLenum, _null_);
     cmd.extension = GL_NV_transform_feedback;
   }
-  public static final Command glSeparableFilter2D = new Command();
+  public static final Command glSeparableFilter2D = new Command(4);
   private static void glSeparableFilter2D() {
     Command cmd = glSeparableFilter2D;
     cmd.returnGroup = _null_;
@@ -21526,14 +21526,14 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, PixelType);
     cmd.extension = GL_ARB_imaging;
   }
-  public static final Command glCopyTexImage2D = new Command();
+  public static final Command glCopyTexImage2D = new Command(2);
   private static void glCopyTexImage2D() {
     Command cmd = glCopyTexImage2D;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, TextureTarget);
     cmd.addParam("internalformat", GLenum, InternalFormat);
   }
-  public static final Command glGetPathMetricsNV = new Command();
+  public static final Command glGetPathMetricsNV = new Command(2);
   private static void glGetPathMetricsNV() {
     Command cmd = glGetPathMetricsNV;
     cmd.returnGroup = _null_;
@@ -21541,27 +21541,27 @@ public class GLmetadata {
     cmd.addParam("pathNameType", GLenum, _null_);
     cmd.extension = GL_NV_path_rendering;
   }
-  public static final Command glProgramUniformMatrix4x3fv = new Command();
+  public static final Command glProgramUniformMatrix4x3fv = new Command(1);
   private static void glProgramUniformMatrix4x3fv() {
     Command cmd = glProgramUniformMatrix4x3fv;
     cmd.returnGroup = _null_;
     cmd.addParam("transpose", GLboolean, Boolean);
     cmd.extension = GL_ARB_separate_shader_objects;
   }
-  public static final Command glMultiTexCoord4s = new Command();
+  public static final Command glMultiTexCoord4s = new Command(1);
   private static void glMultiTexCoord4s() {
     Command cmd = glMultiTexCoord4s;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
   }
-  public static final Command glDisableClientStateIndexedEXT = new Command();
+  public static final Command glDisableClientStateIndexedEXT = new Command(1);
   private static void glDisableClientStateIndexedEXT() {
     Command cmd = glDisableClientStateIndexedEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("array", GLenum, EnableCap);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glGetMultiTexLevelParameterivEXT = new Command();
+  public static final Command glGetMultiTexLevelParameterivEXT = new Command(3);
   private static void glGetMultiTexLevelParameterivEXT() {
     Command cmd = glGetMultiTexLevelParameterivEXT;
     cmd.returnGroup = _null_;
@@ -21570,13 +21570,13 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, GetTextureParameter);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glMultiTexCoord4x = new Command();
+  public static final Command glMultiTexCoord4x = new Command(1);
   private static void glMultiTexCoord4x() {
     Command cmd = glMultiTexCoord4x;
     cmd.returnGroup = _null_;
     cmd.addParam("texture", GLenum, _null_);
   }
-  public static final Command glPathGlyphsNV = new Command();
+  public static final Command glPathGlyphsNV = new Command(4);
   private static void glPathGlyphsNV() {
     Command cmd = glPathGlyphsNV;
     cmd.returnGroup = _null_;
@@ -21586,34 +21586,34 @@ public class GLmetadata {
     cmd.addParam("handleMissingGlyphs", GLenum, _null_);
     cmd.extension = GL_NV_path_rendering;
   }
-  public static final Command glNamedFramebufferDrawBuffers = new Command();
+  public static final Command glNamedFramebufferDrawBuffers = new Command(1);
   private static void glNamedFramebufferDrawBuffers() {
     Command cmd = glNamedFramebufferDrawBuffers;
     cmd.returnGroup = _null_;
     cmd.addParam("bufs", GLenum, _null_);
     cmd.extension = GL_ARB_direct_state_access;
   }
-  public static final Command glMultiDrawElementsIndirectBindlessCountNV = new Command();
+  public static final Command glMultiDrawElementsIndirectBindlessCountNV = new Command(2);
   private static void glMultiDrawElementsIndirectBindlessCountNV() {
     Command cmd = glMultiDrawElementsIndirectBindlessCountNV;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, PrimitiveType);
     cmd.addParam("type", GLenum, _null_);
   }
-  public static final Command glBindBufferARB = new Command();
+  public static final Command glBindBufferARB = new Command(1);
   private static void glBindBufferARB() {
     Command cmd = glBindBufferARB;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, BufferTargetARB);
     cmd.extension = GL_ARB_vertex_buffer_object;
   }
-  public static final Command glMultiTexCoord4d = new Command();
+  public static final Command glMultiTexCoord4d = new Command(1);
   private static void glMultiTexCoord4d() {
     Command cmd = glMultiTexCoord4d;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
   }
-  public static final Command glTextureParameterfEXT = new Command();
+  public static final Command glTextureParameterfEXT = new Command(2);
   private static void glTextureParameterfEXT() {
     Command cmd = glTextureParameterfEXT;
     cmd.returnGroup = _null_;
@@ -21621,51 +21621,51 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, TextureParameterName);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glMultiTexCoord4i = new Command();
+  public static final Command glMultiTexCoord4i = new Command(1);
   private static void glMultiTexCoord4i() {
     Command cmd = glMultiTexCoord4i;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
   }
-  public static final Command glDrawElementsBaseVertex = new Command();
+  public static final Command glDrawElementsBaseVertex = new Command(2);
   private static void glDrawElementsBaseVertex() {
     Command cmd = glDrawElementsBaseVertex;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, PrimitiveType);
     cmd.addParam("type", GLenum, DrawElementsType);
   }
-  public static final Command glMultiTexCoord4f = new Command();
+  public static final Command glMultiTexCoord4f = new Command(1);
   private static void glMultiTexCoord4f() {
     Command cmd = glMultiTexCoord4f;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
   }
-  public static final Command glMultiTexCoord3s = new Command();
+  public static final Command glMultiTexCoord3s = new Command(1);
   private static void glMultiTexCoord3s() {
     Command cmd = glMultiTexCoord3s;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
   }
-  public static final Command glFlushMappedBufferRangeEXT = new Command();
+  public static final Command glFlushMappedBufferRangeEXT = new Command(1);
   private static void glFlushMappedBufferRangeEXT() {
     Command cmd = glFlushMappedBufferRangeEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_EXT_map_buffer_range;
   }
-  public static final Command glGetnPixelMapfv = new Command();
+  public static final Command glGetnPixelMapfv = new Command(1);
   private static void glGetnPixelMapfv() {
     Command cmd = glGetnPixelMapfv;
     cmd.returnGroup = _null_;
     cmd.addParam("map", GLenum, _null_);
   }
-  public static final Command glMultiTexCoord3d = new Command();
+  public static final Command glMultiTexCoord3d = new Command(1);
   private static void glMultiTexCoord3d() {
     Command cmd = glMultiTexCoord3d;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
   }
-  public static final Command glDiscardFramebufferEXT = new Command();
+  public static final Command glDiscardFramebufferEXT = new Command(2);
   private static void glDiscardFramebufferEXT() {
     Command cmd = glDiscardFramebufferEXT;
     cmd.returnGroup = _null_;
@@ -21673,67 +21673,67 @@ public class GLmetadata {
     cmd.addParam("attachments", GLenum, _null_);
     cmd.extension = GL_EXT_discard_framebuffer;
   }
-  public static final Command glGetTexGendv = new Command();
+  public static final Command glGetTexGendv = new Command(2);
   private static void glGetTexGendv() {
     Command cmd = glGetTexGendv;
     cmd.returnGroup = _null_;
     cmd.addParam("coord", GLenum, TextureCoordName);
     cmd.addParam("pname", GLenum, TextureGenParameter);
   }
-  public static final Command glMultiTexCoord3f = new Command();
+  public static final Command glMultiTexCoord3f = new Command(1);
   private static void glMultiTexCoord3f() {
     Command cmd = glMultiTexCoord3f;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
   }
-  public static final Command glProgramUniformMatrix4x3dv = new Command();
+  public static final Command glProgramUniformMatrix4x3dv = new Command(1);
   private static void glProgramUniformMatrix4x3dv() {
     Command cmd = glProgramUniformMatrix4x3dv;
     cmd.returnGroup = _null_;
     cmd.addParam("transpose", GLboolean, Boolean);
     cmd.extension = GL_ARB_separate_shader_objects;
   }
-  public static final Command glMultiTexCoord3i = new Command();
+  public static final Command glMultiTexCoord3i = new Command(1);
   private static void glMultiTexCoord3i() {
     Command cmd = glMultiTexCoord3i;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
   }
-  public static final Command glCreateShaderObjectARB = new Command();
+  public static final Command glCreateShaderObjectARB = new Command(1);
   private static void glCreateShaderObjectARB() {
     Command cmd = glCreateShaderObjectARB;
     cmd.returnGroup = _null_;
     cmd.addParam("shaderType", GLenum, _null_);
     cmd.extension = GL_ARB_shader_objects;
   }
-  public static final Command glMultiTexCoord2s = new Command();
+  public static final Command glMultiTexCoord2s = new Command(1);
   private static void glMultiTexCoord2s() {
     Command cmd = glMultiTexCoord2s;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
   }
-  public static final Command glCullParameterdvEXT = new Command();
+  public static final Command glCullParameterdvEXT = new Command(1);
   private static void glCullParameterdvEXT() {
     Command cmd = glCullParameterdvEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_EXT_cull_vertex;
   }
-  public static final Command glVertexStream2sATI = new Command();
+  public static final Command glVertexStream2sATI = new Command(1);
   private static void glVertexStream2sATI() {
     Command cmd = glVertexStream2sATI;
     cmd.returnGroup = _null_;
     cmd.addParam("stream", GLenum, _null_);
     cmd.extension = GL_ATI_vertex_streams;
   }
-  public static final Command glListParameterivSGIX = new Command();
+  public static final Command glListParameterivSGIX = new Command(1);
   private static void glListParameterivSGIX() {
     Command cmd = glListParameterivSGIX;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, ListParameterName);
     cmd.extension = GL_SGIX_list_priority;
   }
-  public static final Command glRenderbufferStorage = new Command();
+  public static final Command glRenderbufferStorage = new Command(2);
   private static void glRenderbufferStorage() {
     Command cmd = glRenderbufferStorage;
     cmd.returnGroup = _null_;
@@ -21741,7 +21741,7 @@ public class GLmetadata {
     cmd.addParam("internalformat", GLenum, _null_);
     cmd.extension = GL_ARB_framebuffer_object;
   }
-  public static final Command glGetHistogramParameteriv = new Command();
+  public static final Command glGetHistogramParameteriv = new Command(2);
   private static void glGetHistogramParameteriv() {
     Command cmd = glGetHistogramParameteriv;
     cmd.returnGroup = _null_;
@@ -21749,47 +21749,47 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_imaging;
   }
-  public static final Command glMultiTexCoord2iv = new Command();
+  public static final Command glMultiTexCoord2iv = new Command(1);
   private static void glMultiTexCoord2iv() {
     Command cmd = glMultiTexCoord2iv;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
   }
-  public static final Command glTextureStorageMem2DEXT = new Command();
+  public static final Command glTextureStorageMem2DEXT = new Command(1);
   private static void glTextureStorageMem2DEXT() {
     Command cmd = glTextureStorageMem2DEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("internalFormat", GLenum, _null_);
     cmd.extension = GL_EXT_memory_object;
   }
-  public static final Command glGetListParameterfvSGIX = new Command();
+  public static final Command glGetListParameterfvSGIX = new Command(1);
   private static void glGetListParameterfvSGIX() {
     Command cmd = glGetListParameterfvSGIX;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, ListParameterName);
     cmd.extension = GL_SGIX_list_priority;
   }
-  public static final Command glPathStencilFuncNV = new Command();
+  public static final Command glPathStencilFuncNV = new Command(1);
   private static void glPathStencilFuncNV() {
     Command cmd = glPathStencilFuncNV;
     cmd.returnGroup = _null_;
     cmd.addParam("func", GLenum, StencilFunction);
     cmd.extension = GL_NV_path_rendering;
   }
-  public static final Command glAlphaFragmentOp3ATI = new Command();
+  public static final Command glAlphaFragmentOp3ATI = new Command(1);
   private static void glAlphaFragmentOp3ATI() {
     Command cmd = glAlphaFragmentOp3ATI;
     cmd.returnGroup = _null_;
     cmd.addParam("op", GLenum, _null_);
     cmd.extension = GL_ATI_fragment_shader;
   }
-  public static final Command glSampleCoveragex = new Command();
+  public static final Command glSampleCoveragex = new Command(1);
   private static void glSampleCoveragex() {
     Command cmd = glSampleCoveragex;
     cmd.returnGroup = _null_;
     cmd.addParam("invert", GLboolean, Boolean);
   }
-  public static final Command glGetInvariantBooleanvEXT = new Command();
+  public static final Command glGetInvariantBooleanvEXT = new Command(2);
   private static void glGetInvariantBooleanvEXT() {
     Command cmd = glGetInvariantBooleanvEXT;
     cmd.returnGroup = _null_;
@@ -21797,7 +21797,7 @@ public class GLmetadata {
     cmd.addParam("data", GLboolean, Boolean);
     cmd.extension = GL_EXT_vertex_shader;
   }
-  public static final Command glGetMultiTexParameterIuivEXT = new Command();
+  public static final Command glGetMultiTexParameterIuivEXT = new Command(3);
   private static void glGetMultiTexParameterIuivEXT() {
     Command cmd = glGetMultiTexParameterIuivEXT;
     cmd.returnGroup = _null_;
@@ -21806,27 +21806,27 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, GetTextureParameter);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glGetInteger64v = new Command();
+  public static final Command glGetInteger64v = new Command(1);
   private static void glGetInteger64v() {
     Command cmd = glGetInteger64v;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_sync;
   }
-  public static final Command glSamplerParameterIivOES = new Command();
+  public static final Command glSamplerParameterIivOES = new Command(1);
   private static void glSamplerParameterIivOES() {
     Command cmd = glSamplerParameterIivOES;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_OES_texture_border_clamp;
   }
-  public static final Command glGetPixelMapuiv = new Command();
+  public static final Command glGetPixelMapuiv = new Command(1);
   private static void glGetPixelMapuiv() {
     Command cmd = glGetPixelMapuiv;
     cmd.returnGroup = _null_;
     cmd.addParam("map", GLenum, PixelMap);
   }
-  public static final Command glGetTexParameterIuivEXT = new Command();
+  public static final Command glGetTexParameterIuivEXT = new Command(2);
   private static void glGetTexParameterIuivEXT() {
     Command cmd = glGetTexParameterIuivEXT;
     cmd.returnGroup = _null_;
@@ -21834,35 +21834,35 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, GetTextureParameter);
     cmd.extension = GL_EXT_texture_integer;
   }
-  public static final Command glAlphaFuncQCOM = new Command();
+  public static final Command glAlphaFuncQCOM = new Command(1);
   private static void glAlphaFuncQCOM() {
     Command cmd = glAlphaFuncQCOM;
     cmd.returnGroup = _null_;
     cmd.addParam("func", GLenum, _null_);
     cmd.extension = GL_QCOM_alpha_test;
   }
-  public static final Command glGetSynciv = new Command();
+  public static final Command glGetSynciv = new Command(1);
   private static void glGetSynciv() {
     Command cmd = glGetSynciv;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_sync;
   }
-  public static final Command glVertexArraySecondaryColorOffsetEXT = new Command();
+  public static final Command glVertexArraySecondaryColorOffsetEXT = new Command(1);
   private static void glVertexArraySecondaryColorOffsetEXT() {
     Command cmd = glVertexArraySecondaryColorOffsetEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, ColorPointerType);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glProgramParameter4dvNV = new Command();
+  public static final Command glProgramParameter4dvNV = new Command(1);
   private static void glProgramParameter4dvNV() {
     Command cmd = glProgramParameter4dvNV;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_NV_vertex_program;
   }
-  public static final Command glMultiTexEnviEXT = new Command();
+  public static final Command glMultiTexEnviEXT = new Command(3);
   private static void glMultiTexEnviEXT() {
     Command cmd = glMultiTexEnviEXT;
     cmd.returnGroup = _null_;
@@ -21871,14 +21871,14 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, TextureEnvParameter);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glConservativeRasterParameterfNV = new Command();
+  public static final Command glConservativeRasterParameterfNV = new Command(1);
   private static void glConservativeRasterParameterfNV() {
     Command cmd = glConservativeRasterParameterfNV;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_NV_conservative_raster_dilate;
   }
-  public static final Command glBindImageTextureEXT = new Command();
+  public static final Command glBindImageTextureEXT = new Command(2);
   private static void glBindImageTextureEXT() {
     Command cmd = glBindImageTextureEXT;
     cmd.returnGroup = _null_;
@@ -21886,27 +21886,27 @@ public class GLmetadata {
     cmd.addParam("access", GLenum, _null_);
     cmd.extension = GL_EXT_shader_image_load_store;
   }
-  public static final Command glVertexStream1fATI = new Command();
+  public static final Command glVertexStream1fATI = new Command(1);
   private static void glVertexStream1fATI() {
     Command cmd = glVertexStream1fATI;
     cmd.returnGroup = _null_;
     cmd.addParam("stream", GLenum, _null_);
     cmd.extension = GL_ATI_vertex_streams;
   }
-  public static final Command glExtGetProgramBinarySourceQCOM = new Command();
+  public static final Command glExtGetProgramBinarySourceQCOM = new Command(1);
   private static void glExtGetProgramBinarySourceQCOM() {
     Command cmd = glExtGetProgramBinarySourceQCOM;
     cmd.returnGroup = _null_;
     cmd.addParam("shadertype", GLenum, _null_);
   }
-  public static final Command glImportSemaphoreFdEXT = new Command();
+  public static final Command glImportSemaphoreFdEXT = new Command(1);
   private static void glImportSemaphoreFdEXT() {
     Command cmd = glImportSemaphoreFdEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("handleType", GLenum, ExternalHandleType);
     cmd.extension = GL_EXT_semaphore_fd;
   }
-  public static final Command glGetHistogramParameterfv = new Command();
+  public static final Command glGetHistogramParameterfv = new Command(2);
   private static void glGetHistogramParameterfv() {
     Command cmd = glGetHistogramParameterfv;
     cmd.returnGroup = _null_;
@@ -21914,34 +21914,34 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_imaging;
   }
-  public static final Command glMultiDrawArraysIndirectBindlessNV = new Command();
+  public static final Command glMultiDrawArraysIndirectBindlessNV = new Command(1);
   private static void glMultiDrawArraysIndirectBindlessNV() {
     Command cmd = glMultiDrawArraysIndirectBindlessNV;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, PrimitiveType);
   }
-  public static final Command glMulticastGetQueryObjectuivNV = new Command();
+  public static final Command glMulticastGetQueryObjectuivNV = new Command(1);
   private static void glMulticastGetQueryObjectuivNV() {
     Command cmd = glMulticastGetQueryObjectuivNV;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_NV_gpu_multicast;
   }
-  public static final Command glNamedRenderbufferStorageEXT = new Command();
+  public static final Command glNamedRenderbufferStorageEXT = new Command(1);
   private static void glNamedRenderbufferStorageEXT() {
     Command cmd = glNamedRenderbufferStorageEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("internalformat", GLenum, InternalFormat);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glVertexAttribIFormatNV = new Command();
+  public static final Command glVertexAttribIFormatNV = new Command(1);
   private static void glVertexAttribIFormatNV() {
     Command cmd = glVertexAttribIFormatNV;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_NV_vertex_buffer_unified_memory;
   }
-  public static final Command glFramebufferTextureOES = new Command();
+  public static final Command glFramebufferTextureOES = new Command(2);
   private static void glFramebufferTextureOES() {
     Command cmd = glFramebufferTextureOES;
     cmd.returnGroup = _null_;
@@ -21949,21 +21949,21 @@ public class GLmetadata {
     cmd.addParam("attachment", GLenum, _null_);
     cmd.extension = GL_OES_geometry_shader;
   }
-  public static final Command glMultiTexCoord4xvOES = new Command();
+  public static final Command glMultiTexCoord4xvOES = new Command(1);
   private static void glMultiTexCoord4xvOES() {
     Command cmd = glMultiTexCoord4xvOES;
     cmd.returnGroup = _null_;
     cmd.addParam("texture", GLenum, _null_);
     cmd.extension = GL_OES_fixed_point;
   }
-  public static final Command glCreateShaderProgramv = new Command();
+  public static final Command glCreateShaderProgramv = new Command(1);
   private static void glCreateShaderProgramv() {
     Command cmd = glCreateShaderProgramv;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_ARB_separate_shader_objects;
   }
-  public static final Command glGetnSeparableFilterARB = new Command();
+  public static final Command glGetnSeparableFilterARB = new Command(3);
   private static void glGetnSeparableFilterARB() {
     Command cmd = glGetnSeparableFilterARB;
     cmd.returnGroup = _null_;
@@ -21972,52 +21972,52 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_ARB_robustness;
   }
-  public static final Command glProgramUniformMatrix4fv = new Command();
+  public static final Command glProgramUniformMatrix4fv = new Command(1);
   private static void glProgramUniformMatrix4fv() {
     Command cmd = glProgramUniformMatrix4fv;
     cmd.returnGroup = _null_;
     cmd.addParam("transpose", GLboolean, Boolean);
     cmd.extension = GL_ARB_separate_shader_objects;
   }
-  public static final Command glGetTransformFeedbackVarying = new Command();
+  public static final Command glGetTransformFeedbackVarying = new Command(1);
   private static void glGetTransformFeedbackVarying() {
     Command cmd = glGetTransformFeedbackVarying;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
   }
-  public static final Command glDrawBuffersATI = new Command();
+  public static final Command glDrawBuffersATI = new Command(1);
   private static void glDrawBuffersATI() {
     Command cmd = glDrawBuffersATI;
     cmd.returnGroup = _null_;
     cmd.addParam("bufs", GLenum, _null_);
     cmd.extension = GL_ATI_draw_buffers;
   }
-  public static final Command glFogxv = new Command();
+  public static final Command glFogxv = new Command(1);
   private static void glFogxv() {
     Command cmd = glFogxv;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
   }
-  public static final Command glVertexAttribLFormat = new Command();
+  public static final Command glVertexAttribLFormat = new Command(1);
   private static void glVertexAttribLFormat() {
     Command cmd = glVertexAttribLFormat;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_ARB_vertex_attrib_binding;
   }
-  public static final Command glColorPointer = new Command();
+  public static final Command glColorPointer = new Command(1);
   private static void glColorPointer() {
     Command cmd = glColorPointer;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, ColorPointerType);
   }
-  public static final Command glDisableIndexedEXT = new Command();
+  public static final Command glDisableIndexedEXT = new Command(1);
   private static void glDisableIndexedEXT() {
     Command cmd = glDisableIndexedEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
   }
-  public static final Command glGetDebugMessageLogKHR = new Command();
+  public static final Command glGetDebugMessageLogKHR = new Command(3);
   private static void glGetDebugMessageLogKHR() {
     Command cmd = glGetDebugMessageLogKHR;
     cmd.returnGroup = _null_;
@@ -22026,7 +22026,7 @@ public class GLmetadata {
     cmd.addParam("severities", GLenum, _null_);
     cmd.extension = GL_KHR_debug;
   }
-  public static final Command glTexImage4DSGIS = new Command();
+  public static final Command glTexImage4DSGIS = new Command(4);
   private static void glTexImage4DSGIS() {
     Command cmd = glTexImage4DSGIS;
     cmd.returnGroup = _null_;
@@ -22036,42 +22036,42 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, PixelType);
     cmd.extension = GL_SGIS_texture4D;
   }
-  public static final Command glProgramUniformMatrix4dv = new Command();
+  public static final Command glProgramUniformMatrix4dv = new Command(1);
   private static void glProgramUniformMatrix4dv() {
     Command cmd = glProgramUniformMatrix4dv;
     cmd.returnGroup = _null_;
     cmd.addParam("transpose", GLboolean, Boolean);
     cmd.extension = GL_ARB_separate_shader_objects;
   }
-  public static final Command glNamedFramebufferReadBuffer = new Command();
+  public static final Command glNamedFramebufferReadBuffer = new Command(1);
   private static void glNamedFramebufferReadBuffer() {
     Command cmd = glNamedFramebufferReadBuffer;
     cmd.returnGroup = _null_;
     cmd.addParam("src", GLenum, _null_);
     cmd.extension = GL_ARB_direct_state_access;
   }
-  public static final Command glGetVideoCaptureivNV = new Command();
+  public static final Command glGetVideoCaptureivNV = new Command(1);
   private static void glGetVideoCaptureivNV() {
     Command cmd = glGetVideoCaptureivNV;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_NV_video_capture;
   }
-  public static final Command glNormalStream3dvATI = new Command();
+  public static final Command glNormalStream3dvATI = new Command(1);
   private static void glNormalStream3dvATI() {
     Command cmd = glNormalStream3dvATI;
     cmd.returnGroup = _null_;
     cmd.addParam("stream", GLenum, _null_);
     cmd.extension = GL_ATI_vertex_streams;
   }
-  public static final Command glVertexArrayAttribLFormat = new Command();
+  public static final Command glVertexArrayAttribLFormat = new Command(1);
   private static void glVertexArrayAttribLFormat() {
     Command cmd = glVertexArrayAttribLFormat;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_ARB_direct_state_access;
   }
-  public static final Command glTexSubImage1DEXT = new Command();
+  public static final Command glTexSubImage1DEXT = new Command(3);
   private static void glTexSubImage1DEXT() {
     Command cmd = glTexSubImage1DEXT;
     cmd.returnGroup = _null_;
@@ -22079,14 +22079,14 @@ public class GLmetadata {
     cmd.addParam("format", GLenum, PixelFormat);
     cmd.addParam("type", GLenum, PixelType);
   }
-  public static final Command glGetProgramSubroutineParameteruivNV = new Command();
+  public static final Command glGetProgramSubroutineParameteruivNV = new Command(1);
   private static void glGetProgramSubroutineParameteruivNV() {
     Command cmd = glGetProgramSubroutineParameteruivNV;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_NV_gpu_program5;
   }
-  public static final Command glGetMinmaxParameterfv = new Command();
+  public static final Command glGetMinmaxParameterfv = new Command(2);
   private static void glGetMinmaxParameterfv() {
     Command cmd = glGetMinmaxParameterfv;
     cmd.returnGroup = _null_;
@@ -22094,14 +22094,14 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_imaging;
   }
-  public static final Command glMulticastGetQueryObjectui64vNV = new Command();
+  public static final Command glMulticastGetQueryObjectui64vNV = new Command(1);
   private static void glMulticastGetQueryObjectui64vNV() {
     Command cmd = glMulticastGetQueryObjectui64vNV;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_NV_gpu_multicast;
   }
-  public static final Command glTextureBufferRangeEXT = new Command();
+  public static final Command glTextureBufferRangeEXT = new Command(2);
   private static void glTextureBufferRangeEXT() {
     Command cmd = glTextureBufferRangeEXT;
     cmd.returnGroup = _null_;
@@ -22109,14 +22109,14 @@ public class GLmetadata {
     cmd.addParam("internalformat", GLenum, _null_);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glProgramBinaryOES = new Command();
+  public static final Command glProgramBinaryOES = new Command(1);
   private static void glProgramBinaryOES() {
     Command cmd = glProgramBinaryOES;
     cmd.returnGroup = _null_;
     cmd.addParam("binaryFormat", GLenum, _null_);
     cmd.extension = GL_OES_get_program_binary;
   }
-  public static final Command glGetLightxOES = new Command();
+  public static final Command glGetLightxOES = new Command(2);
   private static void glGetLightxOES() {
     Command cmd = glGetLightxOES;
     cmd.returnGroup = _null_;
@@ -22124,21 +22124,21 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_OES_fixed_point;
   }
-  public static final Command glPatchParameteri = new Command();
+  public static final Command glPatchParameteri = new Command(1);
   private static void glPatchParameteri() {
     Command cmd = glPatchParameteri;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_tessellation_shader;
   }
-  public static final Command glMultiDrawElementsIndirectBindlessNV = new Command();
+  public static final Command glMultiDrawElementsIndirectBindlessNV = new Command(2);
   private static void glMultiDrawElementsIndirectBindlessNV() {
     Command cmd = glMultiDrawElementsIndirectBindlessNV;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, PrimitiveType);
     cmd.addParam("type", GLenum, _null_);
   }
-  public static final Command glGetArrayObjectivATI = new Command();
+  public static final Command glGetArrayObjectivATI = new Command(2);
   private static void glGetArrayObjectivATI() {
     Command cmd = glGetArrayObjectivATI;
     cmd.returnGroup = _null_;
@@ -22146,14 +22146,14 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ATI_vertex_array_object;
   }
-  public static final Command glNormalStream3svATI = new Command();
+  public static final Command glNormalStream3svATI = new Command(1);
   private static void glNormalStream3svATI() {
     Command cmd = glNormalStream3svATI;
     cmd.returnGroup = _null_;
     cmd.addParam("stream", GLenum, _null_);
     cmd.extension = GL_ATI_vertex_streams;
   }
-  public static final Command glGetMinmaxParameteriv = new Command();
+  public static final Command glGetMinmaxParameteriv = new Command(2);
   private static void glGetMinmaxParameteriv() {
     Command cmd = glGetMinmaxParameteriv;
     cmd.returnGroup = _null_;
@@ -22161,7 +22161,7 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_imaging;
   }
-  public static final Command glLightxOES = new Command();
+  public static final Command glLightxOES = new Command(2);
   private static void glLightxOES() {
     Command cmd = glLightxOES;
     cmd.returnGroup = _null_;
@@ -22169,14 +22169,14 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_OES_fixed_point;
   }
-  public static final Command glGetVertexArrayPointervEXT = new Command();
+  public static final Command glGetVertexArrayPointervEXT = new Command(1);
   private static void glGetVertexArrayPointervEXT() {
     Command cmd = glGetVertexArrayPointervEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glTexPageCommitmentARB = new Command();
+  public static final Command glTexPageCommitmentARB = new Command(2);
   private static void glTexPageCommitmentARB() {
     Command cmd = glTexPageCommitmentARB;
     cmd.returnGroup = _null_;
@@ -22184,7 +22184,7 @@ public class GLmetadata {
     cmd.addParam("commit", GLboolean, Boolean);
     cmd.extension = GL_ARB_sparse_texture;
   }
-  public static final Command glCompressedMultiTexImage1DEXT = new Command();
+  public static final Command glCompressedMultiTexImage1DEXT = new Command(3);
   private static void glCompressedMultiTexImage1DEXT() {
     Command cmd = glCompressedMultiTexImage1DEXT;
     cmd.returnGroup = _null_;
@@ -22193,7 +22193,7 @@ public class GLmetadata {
     cmd.addParam("internalformat", GLenum, _null_);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glClearNamedBufferSubDataEXT = new Command();
+  public static final Command glClearNamedBufferSubDataEXT = new Command(3);
   private static void glClearNamedBufferSubDataEXT() {
     Command cmd = glClearNamedBufferSubDataEXT;
     cmd.returnGroup = _null_;
@@ -22202,21 +22202,21 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, PixelType);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glGetInvariantIntegervEXT = new Command();
+  public static final Command glGetInvariantIntegervEXT = new Command(1);
   private static void glGetInvariantIntegervEXT() {
     Command cmd = glGetInvariantIntegervEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("value", GLenum, _null_);
     cmd.extension = GL_EXT_vertex_shader;
   }
-  public static final Command glMultiTexCoord1bOES = new Command();
+  public static final Command glMultiTexCoord1bOES = new Command(1);
   private static void glMultiTexCoord1bOES() {
     Command cmd = glMultiTexCoord1bOES;
     cmd.returnGroup = _null_;
     cmd.addParam("texture", GLenum, _null_);
     cmd.extension = GL_OES_byte_coordinates;
   }
-  public static final Command glConvolutionParameterxvOES = new Command();
+  public static final Command glConvolutionParameterxvOES = new Command(2);
   private static void glConvolutionParameterxvOES() {
     Command cmd = glConvolutionParameterxvOES;
     cmd.returnGroup = _null_;
@@ -22224,20 +22224,20 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_OES_fixed_point;
   }
-  public static final Command glIsTransformFeedbackNV = new Command();
+  public static final Command glIsTransformFeedbackNV = new Command(0);
   private static void glIsTransformFeedbackNV() {
     Command cmd = glIsTransformFeedbackNV;
     cmd.returnGroup = Boolean;
     cmd.extension = GL_NV_transform_feedback2;
   }
-  public static final Command glBindRenderbufferEXT = new Command();
+  public static final Command glBindRenderbufferEXT = new Command(1);
   private static void glBindRenderbufferEXT() {
     Command cmd = glBindRenderbufferEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_EXT_framebuffer_object;
   }
-  public static final Command glFramebufferTextureFaceEXT = new Command();
+  public static final Command glFramebufferTextureFaceEXT = new Command(3);
   private static void glFramebufferTextureFaceEXT() {
     Command cmd = glFramebufferTextureFaceEXT;
     cmd.returnGroup = _null_;
@@ -22246,7 +22246,7 @@ public class GLmetadata {
     cmd.addParam("face", GLenum, TextureTarget);
     cmd.extension = GL_NV_geometry_program4;
   }
-  public static final Command glGetMaterialxOES = new Command();
+  public static final Command glGetMaterialxOES = new Command(2);
   private static void glGetMaterialxOES() {
     Command cmd = glGetMaterialxOES;
     cmd.returnGroup = _null_;
@@ -22254,68 +22254,68 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_OES_fixed_point;
   }
-  public static final Command glMultiTexCoord1xOES = new Command();
+  public static final Command glMultiTexCoord1xOES = new Command(1);
   private static void glMultiTexCoord1xOES() {
     Command cmd = glMultiTexCoord1xOES;
     cmd.returnGroup = _null_;
     cmd.addParam("texture", GLenum, _null_);
     cmd.extension = GL_OES_fixed_point;
   }
-  public static final Command glDrawArraysInstancedARB = new Command();
+  public static final Command glDrawArraysInstancedARB = new Command(1);
   private static void glDrawArraysInstancedARB() {
     Command cmd = glDrawArraysInstancedARB;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, PrimitiveType);
   }
-  public static final Command glProgramParameters4dvNV = new Command();
+  public static final Command glProgramParameters4dvNV = new Command(1);
   private static void glProgramParameters4dvNV() {
     Command cmd = glProgramParameters4dvNV;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_NV_vertex_program;
   }
-  public static final Command glBlendEquationSeparatei = new Command();
+  public static final Command glBlendEquationSeparatei = new Command(2);
   private static void glBlendEquationSeparatei() {
     Command cmd = glBlendEquationSeparatei;
     cmd.returnGroup = _null_;
     cmd.addParam("modeRGB", GLenum, _null_);
     cmd.addParam("modeAlpha", GLenum, _null_);
   }
-  public static final Command glTransformFeedbackStreamAttribsNV = new Command();
+  public static final Command glTransformFeedbackStreamAttribsNV = new Command(1);
   private static void glTransformFeedbackStreamAttribsNV() {
     Command cmd = glTransformFeedbackStreamAttribsNV;
     cmd.returnGroup = _null_;
     cmd.addParam("bufferMode", GLenum, _null_);
     cmd.extension = GL_NV_transform_feedback;
   }
-  public static final Command glProgramUniformMatrix2fvEXT = new Command();
+  public static final Command glProgramUniformMatrix2fvEXT = new Command(1);
   private static void glProgramUniformMatrix2fvEXT() {
     Command cmd = glProgramUniformMatrix2fvEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("transpose", GLboolean, Boolean);
     cmd.extension = GL_EXT_separate_shader_objects;
   }
-  public static final Command glGetPixelMapusv = new Command();
+  public static final Command glGetPixelMapusv = new Command(1);
   private static void glGetPixelMapusv() {
     Command cmd = glGetPixelMapusv;
     cmd.returnGroup = _null_;
     cmd.addParam("map", GLenum, PixelMap);
   }
-  public static final Command glPixelTexGenParameterfSGIS = new Command();
+  public static final Command glPixelTexGenParameterfSGIS = new Command(1);
   private static void glPixelTexGenParameterfSGIS() {
     Command cmd = glPixelTexGenParameterfSGIS;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, PixelTexGenParameterNameSGIS);
     cmd.extension = GL_SGIS_pixel_texture;
   }
-  public static final Command glProgramEnvParameter4dvARB = new Command();
+  public static final Command glProgramEnvParameter4dvARB = new Command(1);
   private static void glProgramEnvParameter4dvARB() {
     Command cmd = glProgramEnvParameter4dvARB;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_ARB_vertex_program;
   }
-  public static final Command glGetnMapdvARB = new Command();
+  public static final Command glGetnMapdvARB = new Command(2);
   private static void glGetnMapdvARB() {
     Command cmd = glGetnMapdvARB;
     cmd.returnGroup = _null_;
@@ -22323,35 +22323,35 @@ public class GLmetadata {
     cmd.addParam("query", GLenum, _null_);
     cmd.extension = GL_ARB_robustness;
   }
-  public static final Command glTangentPointerEXT = new Command();
+  public static final Command glTangentPointerEXT = new Command(1);
   private static void glTangentPointerEXT() {
     Command cmd = glTangentPointerEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_EXT_coordinate_frame;
   }
-  public static final Command glMatrixMultdEXT = new Command();
+  public static final Command glMatrixMultdEXT = new Command(1);
   private static void glMatrixMultdEXT() {
     Command cmd = glMatrixMultdEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, MatrixMode);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glDrawArraysInstancedANGLE = new Command();
+  public static final Command glDrawArraysInstancedANGLE = new Command(1);
   private static void glDrawArraysInstancedANGLE() {
     Command cmd = glDrawArraysInstancedANGLE;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, PrimitiveType);
     cmd.extension = GL_ANGLE_instanced_arrays;
   }
-  public static final Command glNamedProgramLocalParameter4dvEXT = new Command();
+  public static final Command glNamedProgramLocalParameter4dvEXT = new Command(1);
   private static void glNamedProgramLocalParameter4dvEXT() {
     Command cmd = glNamedProgramLocalParameter4dvEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glCompressedTexImage3DARB = new Command();
+  public static final Command glCompressedTexImage3DARB = new Command(2);
   private static void glCompressedTexImage3DARB() {
     Command cmd = glCompressedTexImage3DARB;
     cmd.returnGroup = _null_;
@@ -22359,13 +22359,13 @@ public class GLmetadata {
     cmd.addParam("internalformat", GLenum, InternalFormat);
     cmd.extension = GL_ARB_texture_compression;
   }
-  public static final Command glMultiTexCoord2dv = new Command();
+  public static final Command glMultiTexCoord2dv = new Command(1);
   private static void glMultiTexCoord2dv() {
     Command cmd = glMultiTexCoord2dv;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
   }
-  public static final Command glStencilStrokePathInstancedNV = new Command();
+  public static final Command glStencilStrokePathInstancedNV = new Command(2);
   private static void glStencilStrokePathInstancedNV() {
     Command cmd = glStencilStrokePathInstancedNV;
     cmd.returnGroup = _null_;
@@ -22373,58 +22373,58 @@ public class GLmetadata {
     cmd.addParam("transformType", GLenum, _null_);
     cmd.extension = GL_NV_path_rendering;
   }
-  public static final Command glMap1d = new Command();
+  public static final Command glMap1d = new Command(1);
   private static void glMap1d() {
     Command cmd = glMap1d;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, MapTarget);
   }
-  public static final Command glGetVertexArrayPointeri_vEXT = new Command();
+  public static final Command glGetVertexArrayPointeri_vEXT = new Command(1);
   private static void glGetVertexArrayPointeri_vEXT() {
     Command cmd = glGetVertexArrayPointeri_vEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glMap1f = new Command();
+  public static final Command glMap1f = new Command(1);
   private static void glMap1f() {
     Command cmd = glMap1f;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, MapTarget);
   }
-  public static final Command glMap2d = new Command();
+  public static final Command glMap2d = new Command(1);
   private static void glMap2d() {
     Command cmd = glMap2d;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, MapTarget);
   }
-  public static final Command glMap2f = new Command();
+  public static final Command glMap2f = new Command(1);
   private static void glMap2f() {
     Command cmd = glMap2f;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, MapTarget);
   }
-  public static final Command glGetProgramResourceLocation = new Command();
+  public static final Command glGetProgramResourceLocation = new Command(1);
   private static void glGetProgramResourceLocation() {
     Command cmd = glGetProgramResourceLocation;
     cmd.returnGroup = _null_;
     cmd.addParam("programInterface", GLenum, _null_);
     cmd.extension = GL_ARB_program_interface_query;
   }
-  public static final Command glMultiTexCoord2dvARB = new Command();
+  public static final Command glMultiTexCoord2dvARB = new Command(1);
   private static void glMultiTexCoord2dvARB() {
     Command cmd = glMultiTexCoord2dvARB;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_ARB_multitexture;
   }
-  public static final Command glTexCoordPointer = new Command();
+  public static final Command glTexCoordPointer = new Command(1);
   private static void glTexCoordPointer() {
     Command cmd = glTexCoordPointer;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, TexCoordPointerType);
   }
-  public static final Command glGetHistogram = new Command();
+  public static final Command glGetHistogram = new Command(4);
   private static void glGetHistogram() {
     Command cmd = glGetHistogram;
     cmd.returnGroup = _null_;
@@ -22434,7 +22434,7 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, PixelType);
     cmd.extension = GL_ARB_imaging;
   }
-  public static final Command glBlendFunciOES = new Command();
+  public static final Command glBlendFunciOES = new Command(2);
   private static void glBlendFunciOES() {
     Command cmd = glBlendFunciOES;
     cmd.returnGroup = _null_;
@@ -22442,7 +22442,7 @@ public class GLmetadata {
     cmd.addParam("dst", GLenum, _null_);
     cmd.extension = GL_OES_draw_buffers_indexed;
   }
-  public static final Command glGetHistogramParameterxvOES = new Command();
+  public static final Command glGetHistogramParameterxvOES = new Command(2);
   private static void glGetHistogramParameterxvOES() {
     Command cmd = glGetHistogramParameterxvOES;
     cmd.returnGroup = _null_;
@@ -22450,34 +22450,34 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_OES_fixed_point;
   }
-  public static final Command glMultiTexCoord2fv = new Command();
+  public static final Command glMultiTexCoord2fv = new Command(1);
   private static void glMultiTexCoord2fv() {
     Command cmd = glMultiTexCoord2fv;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
   }
-  public static final Command glVertexArrayVertexAttribLFormatEXT = new Command();
+  public static final Command glVertexArrayVertexAttribLFormatEXT = new Command(1);
   private static void glVertexArrayVertexAttribLFormatEXT() {
     Command cmd = glVertexArrayVertexAttribLFormatEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glEdgeFlagPointerEXT = new Command();
+  public static final Command glEdgeFlagPointerEXT = new Command(1);
   private static void glEdgeFlagPointerEXT() {
     Command cmd = glEdgeFlagPointerEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("pointer", GLboolean, Boolean);
     cmd.extension = GL_EXT_vertex_array;
   }
-  public static final Command glEndQueryARB = new Command();
+  public static final Command glEndQueryARB = new Command(1);
   private static void glEndQueryARB() {
     Command cmd = glEndQueryARB;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_ARB_occlusion_query;
   }
-  public static final Command glNamedFramebufferTextureFaceEXT = new Command();
+  public static final Command glNamedFramebufferTextureFaceEXT = new Command(2);
   private static void glNamedFramebufferTextureFaceEXT() {
     Command cmd = glNamedFramebufferTextureFaceEXT;
     cmd.returnGroup = _null_;
@@ -22485,7 +22485,7 @@ public class GLmetadata {
     cmd.addParam("face", GLenum, TextureTarget);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glVertexAttribPointerARB = new Command();
+  public static final Command glVertexAttribPointerARB = new Command(2);
   private static void glVertexAttribPointerARB() {
     Command cmd = glVertexAttribPointerARB;
     cmd.returnGroup = _null_;
@@ -22493,33 +22493,33 @@ public class GLmetadata {
     cmd.addParam("normalized", GLboolean, Boolean);
     cmd.extension = GL_ARB_vertex_shader;
   }
-  public static final Command glFogxvOES = new Command();
+  public static final Command glFogxvOES = new Command(1);
   private static void glFogxvOES() {
     Command cmd = glFogxvOES;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_OES_fixed_point;
   }
-  public static final Command glDrawRangeElementsBaseVertex = new Command();
+  public static final Command glDrawRangeElementsBaseVertex = new Command(2);
   private static void glDrawRangeElementsBaseVertex() {
     Command cmd = glDrawRangeElementsBaseVertex;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, PrimitiveType);
     cmd.addParam("type", GLenum, DrawElementsType);
   }
-  public static final Command glGetGraphicsResetStatusEXT = new Command();
+  public static final Command glGetGraphicsResetStatusEXT = new Command(0);
   private static void glGetGraphicsResetStatusEXT() {
     Command cmd = glGetGraphicsResetStatusEXT;
     cmd.returnGroup = _null_;
     cmd.extension = GL_EXT_robustness;
   }
-  public static final Command glBeginTransformFeedback = new Command();
+  public static final Command glBeginTransformFeedback = new Command(1);
   private static void glBeginTransformFeedback() {
     Command cmd = glBeginTransformFeedback;
     cmd.returnGroup = _null_;
     cmd.addParam("primitiveMode", GLenum, _null_);
   }
-  public static final Command glGetFinalCombinerInputParameterfvNV = new Command();
+  public static final Command glGetFinalCombinerInputParameterfvNV = new Command(2);
   private static void glGetFinalCombinerInputParameterfvNV() {
     Command cmd = glGetFinalCombinerInputParameterfvNV;
     cmd.returnGroup = _null_;
@@ -22527,14 +22527,14 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_NV_register_combiners;
   }
-  public static final Command glGetTexParameterIiv = new Command();
+  public static final Command glGetTexParameterIiv = new Command(2);
   private static void glGetTexParameterIiv() {
     Command cmd = glGetTexParameterIiv;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, TextureTarget);
     cmd.addParam("pname", GLenum, GetTextureParameter);
   }
-  public static final Command glVertexArrayMultiTexCoordOffsetEXT = new Command();
+  public static final Command glVertexArrayMultiTexCoordOffsetEXT = new Command(2);
   private static void glVertexArrayMultiTexCoordOffsetEXT() {
     Command cmd = glVertexArrayMultiTexCoordOffsetEXT;
     cmd.returnGroup = _null_;
@@ -22542,88 +22542,88 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, TexCoordPointerType);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glMultiTexCoord1hNV = new Command();
+  public static final Command glMultiTexCoord1hNV = new Command(1);
   private static void glMultiTexCoord1hNV() {
     Command cmd = glMultiTexCoord1hNV;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_NV_half_float;
   }
-  public static final Command glProgramLocalParameterI4ivNV = new Command();
+  public static final Command glProgramLocalParameterI4ivNV = new Command(1);
   private static void glProgramLocalParameterI4ivNV() {
     Command cmd = glProgramLocalParameterI4ivNV;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_NV_gpu_program4;
   }
-  public static final Command glSetInvariantEXT = new Command();
+  public static final Command glSetInvariantEXT = new Command(1);
   private static void glSetInvariantEXT() {
     Command cmd = glSetInvariantEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_EXT_vertex_shader;
   }
-  public static final Command glIsQuery = new Command();
+  public static final Command glIsQuery = new Command(0);
   private static void glIsQuery() {
     Command cmd = glIsQuery;
     cmd.returnGroup = Boolean;
   }
-  public static final Command glFogCoordPointerEXT = new Command();
+  public static final Command glFogCoordPointerEXT = new Command(1);
   private static void glFogCoordPointerEXT() {
     Command cmd = glFogCoordPointerEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, FogPointerTypeEXT);
     cmd.extension = GL_EXT_fog_coord;
   }
-  public static final Command glProgramBufferParametersfvNV = new Command();
+  public static final Command glProgramBufferParametersfvNV = new Command(1);
   private static void glProgramBufferParametersfvNV() {
     Command cmd = glProgramBufferParametersfvNV;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_NV_parameter_buffer_object;
   }
-  public static final Command glCombinerParameterivNV = new Command();
+  public static final Command glCombinerParameterivNV = new Command(1);
   private static void glCombinerParameterivNV() {
     Command cmd = glCombinerParameterivNV;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_NV_register_combiners;
   }
-  public static final Command glPathParameterfNV = new Command();
+  public static final Command glPathParameterfNV = new Command(1);
   private static void glPathParameterfNV() {
     Command cmd = glPathParameterfNV;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_NV_path_rendering;
   }
-  public static final Command glMakeNamedBufferResidentNV = new Command();
+  public static final Command glMakeNamedBufferResidentNV = new Command(1);
   private static void glMakeNamedBufferResidentNV() {
     Command cmd = glMakeNamedBufferResidentNV;
     cmd.returnGroup = _null_;
     cmd.addParam("access", GLenum, _null_);
     cmd.extension = GL_NV_shader_buffer_load;
   }
-  public static final Command glInvalidateNamedFramebufferSubData = new Command();
+  public static final Command glInvalidateNamedFramebufferSubData = new Command(1);
   private static void glInvalidateNamedFramebufferSubData() {
     Command cmd = glInvalidateNamedFramebufferSubData;
     cmd.returnGroup = _null_;
     cmd.addParam("attachments", GLenum, _null_);
     cmd.extension = GL_ARB_direct_state_access;
   }
-  public static final Command glColorPointerListIBM = new Command();
+  public static final Command glColorPointerListIBM = new Command(1);
   private static void glColorPointerListIBM() {
     Command cmd = glColorPointerListIBM;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, ColorPointerType);
     cmd.extension = GL_IBM_vertex_array_lists;
   }
-  public static final Command glIsCommandListNV = new Command();
+  public static final Command glIsCommandListNV = new Command(0);
   private static void glIsCommandListNV() {
     Command cmd = glIsCommandListNV;
     cmd.returnGroup = Boolean;
     cmd.extension = GL_NV_command_list;
   }
-  public static final Command glGetColorTableParameterfvSGI = new Command();
+  public static final Command glGetColorTableParameterfvSGI = new Command(2);
   private static void glGetColorTableParameterfvSGI() {
     Command cmd = glGetColorTableParameterfvSGI;
     cmd.returnGroup = _null_;
@@ -22631,42 +22631,42 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, GetColorTableParameterPNameSGI);
     cmd.extension = GL_SGI_color_table;
   }
-  public static final Command glGetTransformFeedbacki_v = new Command();
+  public static final Command glGetTransformFeedbacki_v = new Command(1);
   private static void glGetTransformFeedbacki_v() {
     Command cmd = glGetTransformFeedbacki_v;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_direct_state_access;
   }
-  public static final Command glMultiTexCoord2svARB = new Command();
+  public static final Command glMultiTexCoord2svARB = new Command(1);
   private static void glMultiTexCoord2svARB() {
     Command cmd = glMultiTexCoord2svARB;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_ARB_multitexture;
   }
-  public static final Command glMultiDrawElementsIndirectCount = new Command();
+  public static final Command glMultiDrawElementsIndirectCount = new Command(2);
   private static void glMultiDrawElementsIndirectCount() {
     Command cmd = glMultiDrawElementsIndirectCount;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, PrimitiveType);
     cmd.addParam("type", GLenum, _null_);
   }
-  public static final Command glNormalStream3sATI = new Command();
+  public static final Command glNormalStream3sATI = new Command(1);
   private static void glNormalStream3sATI() {
     Command cmd = glNormalStream3sATI;
     cmd.returnGroup = _null_;
     cmd.addParam("stream", GLenum, _null_);
     cmd.extension = GL_ATI_vertex_streams;
   }
-  public static final Command glGenerateTextureMipmapEXT = new Command();
+  public static final Command glGenerateTextureMipmapEXT = new Command(1);
   private static void glGenerateTextureMipmapEXT() {
     Command cmd = glGenerateTextureMipmapEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, TextureTarget);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glDebugMessageEnableAMD = new Command();
+  public static final Command glDebugMessageEnableAMD = new Command(3);
   private static void glDebugMessageEnableAMD() {
     Command cmd = glDebugMessageEnableAMD;
     cmd.returnGroup = _null_;
@@ -22675,46 +22675,46 @@ public class GLmetadata {
     cmd.addParam("enabled", GLboolean, Boolean);
     cmd.extension = GL_AMD_debug_output;
   }
-  public static final Command glPointParameterfvSGIS = new Command();
+  public static final Command glPointParameterfvSGIS = new Command(1);
   private static void glPointParameterfvSGIS() {
     Command cmd = glPointParameterfvSGIS;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_SGIS_point_parameters;
   }
-  public static final Command glLightModeliv = new Command();
+  public static final Command glLightModeliv = new Command(1);
   private static void glLightModeliv() {
     Command cmd = glLightModeliv;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, LightModelParameter);
   }
-  public static final Command glCopyTexSubImage1DEXT = new Command();
+  public static final Command glCopyTexSubImage1DEXT = new Command(1);
   private static void glCopyTexSubImage1DEXT() {
     Command cmd = glCopyTexSubImage1DEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, TextureTarget);
   }
-  public static final Command glVertexStream4dATI = new Command();
+  public static final Command glVertexStream4dATI = new Command(1);
   private static void glVertexStream4dATI() {
     Command cmd = glVertexStream4dATI;
     cmd.returnGroup = _null_;
     cmd.addParam("stream", GLenum, _null_);
     cmd.extension = GL_ATI_vertex_streams;
   }
-  public static final Command glSpriteParameterfvSGIX = new Command();
+  public static final Command glSpriteParameterfvSGIX = new Command(1);
   private static void glSpriteParameterfvSGIX() {
     Command cmd = glSpriteParameterfvSGIX;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_SGIX_sprite;
   }
-  public static final Command glLightModelfv = new Command();
+  public static final Command glLightModelfv = new Command(1);
   private static void glLightModelfv() {
     Command cmd = glLightModelfv;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, LightModelParameter);
   }
-  public static final Command glConvolutionParameterxOES = new Command();
+  public static final Command glConvolutionParameterxOES = new Command(2);
   private static void glConvolutionParameterxOES() {
     Command cmd = glConvolutionParameterxOES;
     cmd.returnGroup = _null_;
@@ -22722,34 +22722,34 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_OES_fixed_point;
   }
-  public static final Command glMultiTexCoord3xvOES = new Command();
+  public static final Command glMultiTexCoord3xvOES = new Command(1);
   private static void glMultiTexCoord3xvOES() {
     Command cmd = glMultiTexCoord3xvOES;
     cmd.returnGroup = _null_;
     cmd.addParam("texture", GLenum, _null_);
     cmd.extension = GL_OES_fixed_point;
   }
-  public static final Command glBlendParameteriNV = new Command();
+  public static final Command glBlendParameteriNV = new Command(1);
   private static void glBlendParameteriNV() {
     Command cmd = glBlendParameteriNV;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_NV_blend_equation_advanced;
   }
-  public static final Command glGetMultisamplefv = new Command();
+  public static final Command glGetMultisamplefv = new Command(1);
   private static void glGetMultisamplefv() {
     Command cmd = glGetMultisamplefv;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_texture_multisample;
   }
-  public static final Command glIsQueryARB = new Command();
+  public static final Command glIsQueryARB = new Command(0);
   private static void glIsQueryARB() {
     Command cmd = glIsQueryARB;
     cmd.returnGroup = Boolean;
     cmd.extension = GL_ARB_occlusion_query;
   }
-  public static final Command glGetInternalformativ = new Command();
+  public static final Command glGetInternalformativ = new Command(3);
   private static void glGetInternalformativ() {
     Command cmd = glGetInternalformativ;
     cmd.returnGroup = _null_;
@@ -22758,13 +22758,13 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_internalformat_query;
   }
-  public static final Command glBufferSubData = new Command();
+  public static final Command glBufferSubData = new Command(1);
   private static void glBufferSubData() {
     Command cmd = glBufferSubData;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, BufferTargetARB);
   }
-  public static final Command glRenderbufferStorageMultisampleNV = new Command();
+  public static final Command glRenderbufferStorageMultisampleNV = new Command(2);
   private static void glRenderbufferStorageMultisampleNV() {
     Command cmd = glRenderbufferStorageMultisampleNV;
     cmd.returnGroup = _null_;
@@ -22772,14 +22772,14 @@ public class GLmetadata {
     cmd.addParam("internalformat", GLenum, _null_);
     cmd.extension = GL_NV_framebuffer_multisample;
   }
-  public static final Command glGetSyncivAPPLE = new Command();
+  public static final Command glGetSyncivAPPLE = new Command(1);
   private static void glGetSyncivAPPLE() {
     Command cmd = glGetSyncivAPPLE;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_APPLE_sync;
   }
-  public static final Command glBindTextureUnitParameterEXT = new Command();
+  public static final Command glBindTextureUnitParameterEXT = new Command(2);
   private static void glBindTextureUnitParameterEXT() {
     Command cmd = glBindTextureUnitParameterEXT;
     cmd.returnGroup = _null_;
@@ -22787,7 +22787,7 @@ public class GLmetadata {
     cmd.addParam("value", GLenum, _null_);
     cmd.extension = GL_EXT_vertex_shader;
   }
-  public static final Command glTextureParameteriEXT = new Command();
+  public static final Command glTextureParameteriEXT = new Command(2);
   private static void glTextureParameteriEXT() {
     Command cmd = glTextureParameteriEXT;
     cmd.returnGroup = _null_;
@@ -22795,14 +22795,14 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, TextureParameterName);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glCreateShaderProgramEXT = new Command();
+  public static final Command glCreateShaderProgramEXT = new Command(1);
   private static void glCreateShaderProgramEXT() {
     Command cmd = glCreateShaderProgramEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_EXT_separate_shader_objects;
   }
-  public static final Command glTextureImage2DMultisampleNV = new Command();
+  public static final Command glTextureImage2DMultisampleNV = new Command(2);
   private static void glTextureImage2DMultisampleNV() {
     Command cmd = glTextureImage2DMultisampleNV;
     cmd.returnGroup = _null_;
@@ -22810,28 +22810,28 @@ public class GLmetadata {
     cmd.addParam("fixedSampleLocations", GLboolean, Boolean);
     cmd.extension = GL_NV_texture_multisample;
   }
-  public static final Command glGetDoubleIndexedvEXT = new Command();
+  public static final Command glGetDoubleIndexedvEXT = new Command(1);
   private static void glGetDoubleIndexedvEXT() {
     Command cmd = glGetDoubleIndexedvEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glNamedStringARB = new Command();
+  public static final Command glNamedStringARB = new Command(1);
   private static void glNamedStringARB() {
     Command cmd = glNamedStringARB;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_ARB_shading_language_include;
   }
-  public static final Command glTexCoordPointervINTEL = new Command();
+  public static final Command glTexCoordPointervINTEL = new Command(1);
   private static void glTexCoordPointervINTEL() {
     Command cmd = glTexCoordPointervINTEL;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, VertexPointerType);
     cmd.extension = GL_INTEL_parallel_arrays;
   }
-  public static final Command glVertexArrayVertexAttribFormatEXT = new Command();
+  public static final Command glVertexArrayVertexAttribFormatEXT = new Command(2);
   private static void glVertexArrayVertexAttribFormatEXT() {
     Command cmd = glVertexArrayVertexAttribFormatEXT;
     cmd.returnGroup = _null_;
@@ -22839,14 +22839,14 @@ public class GLmetadata {
     cmd.addParam("normalized", GLboolean, Boolean);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glGetVariantArrayObjectfvATI = new Command();
+  public static final Command glGetVariantArrayObjectfvATI = new Command(1);
   private static void glGetVariantArrayObjectfvATI() {
     Command cmd = glGetVariantArrayObjectfvATI;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ATI_vertex_array_object;
   }
-  public static final Command glMultiTexCoordP4ui = new Command();
+  public static final Command glMultiTexCoordP4ui = new Command(2);
   private static void glMultiTexCoordP4ui() {
     Command cmd = glMultiTexCoordP4ui;
     cmd.returnGroup = _null_;
@@ -22854,26 +22854,26 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_ARB_vertex_type_2_10_10_10_rev;
   }
-  public static final Command glIsRenderbufferEXT = new Command();
+  public static final Command glIsRenderbufferEXT = new Command(0);
   private static void glIsRenderbufferEXT() {
     Command cmd = glIsRenderbufferEXT;
     cmd.returnGroup = Boolean;
     cmd.extension = GL_EXT_framebuffer_object;
   }
-  public static final Command glGetBooleanv = new Command();
+  public static final Command glGetBooleanv = new Command(2);
   private static void glGetBooleanv() {
     Command cmd = glGetBooleanv;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, GetPName);
     cmd.addParam("data", GLboolean, Boolean);
   }
-  public static final Command glEndQuery = new Command();
+  public static final Command glEndQuery = new Command(1);
   private static void glEndQuery() {
     Command cmd = glEndQuery;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
   }
-  public static final Command glBlitFramebuffer = new Command();
+  public static final Command glBlitFramebuffer = new Command(2);
   private static void glBlitFramebuffer() {
     Command cmd = glBlitFramebuffer;
     cmd.returnGroup = _null_;
@@ -22881,7 +22881,7 @@ public class GLmetadata {
     cmd.addParam("filter", GLenum, _null_);
     cmd.extension = GL_ARB_framebuffer_object;
   }
-  public static final Command glStencilThenCoverFillPathInstancedNV = new Command();
+  public static final Command glStencilThenCoverFillPathInstancedNV = new Command(4);
   private static void glStencilThenCoverFillPathInstancedNV() {
     Command cmd = glStencilThenCoverFillPathInstancedNV;
     cmd.returnGroup = _null_;
@@ -22891,35 +22891,35 @@ public class GLmetadata {
     cmd.addParam("transformType", GLenum, _null_);
     cmd.extension = GL_NV_path_rendering;
   }
-  public static final Command glUniformSubroutinesuiv = new Command();
+  public static final Command glUniformSubroutinesuiv = new Command(1);
   private static void glUniformSubroutinesuiv() {
     Command cmd = glUniformSubroutinesuiv;
     cmd.returnGroup = _null_;
     cmd.addParam("shadertype", GLenum, _null_);
     cmd.extension = GL_ARB_shader_subroutine;
   }
-  public static final Command glIndexPointerListIBM = new Command();
+  public static final Command glIndexPointerListIBM = new Command(1);
   private static void glIndexPointerListIBM() {
     Command cmd = glIndexPointerListIBM;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, IndexPointerType);
     cmd.extension = GL_IBM_vertex_array_lists;
   }
-  public static final Command glVertexStream4dvATI = new Command();
+  public static final Command glVertexStream4dvATI = new Command(1);
   private static void glVertexStream4dvATI() {
     Command cmd = glVertexStream4dvATI;
     cmd.returnGroup = _null_;
     cmd.addParam("stream", GLenum, _null_);
     cmd.extension = GL_ATI_vertex_streams;
   }
-  public static final Command glVertexArrayVertexAttribLOffsetEXT = new Command();
+  public static final Command glVertexArrayVertexAttribLOffsetEXT = new Command(1);
   private static void glVertexArrayVertexAttribLOffsetEXT() {
     Command cmd = glVertexArrayVertexAttribLOffsetEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glBlendFuncSeparateIndexedAMD = new Command();
+  public static final Command glBlendFuncSeparateIndexedAMD = new Command(4);
   private static void glBlendFuncSeparateIndexedAMD() {
     Command cmd = glBlendFuncSeparateIndexedAMD;
     cmd.returnGroup = _null_;
@@ -22928,7 +22928,7 @@ public class GLmetadata {
     cmd.addParam("srcAlpha", GLenum, _null_);
     cmd.addParam("dstAlpha", GLenum, _null_);
   }
-  public static final Command glGetnTexImageARB = new Command();
+  public static final Command glGetnTexImageARB = new Command(3);
   private static void glGetnTexImageARB() {
     Command cmd = glGetnTexImageARB;
     cmd.returnGroup = _null_;
@@ -22937,21 +22937,21 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_ARB_robustness;
   }
-  public static final Command glMemoryBarrierEXT = new Command();
+  public static final Command glMemoryBarrierEXT = new Command(1);
   private static void glMemoryBarrierEXT() {
     Command cmd = glMemoryBarrierEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("barriers", GLbitfield, _null_);
     cmd.extension = GL_EXT_shader_image_load_store;
   }
-  public static final Command glEnableClientStateIndexedEXT = new Command();
+  public static final Command glEnableClientStateIndexedEXT = new Command(1);
   private static void glEnableClientStateIndexedEXT() {
     Command cmd = glEnableClientStateIndexedEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("array", GLenum, EnableCap);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glTexStorageMem1DEXT = new Command();
+  public static final Command glTexStorageMem1DEXT = new Command(2);
   private static void glTexStorageMem1DEXT() {
     Command cmd = glTexStorageMem1DEXT;
     cmd.returnGroup = _null_;
@@ -22959,7 +22959,7 @@ public class GLmetadata {
     cmd.addParam("internalFormat", GLenum, _null_);
     cmd.extension = GL_EXT_memory_object;
   }
-  public static final Command glMultiTexCoordP2uiv = new Command();
+  public static final Command glMultiTexCoordP2uiv = new Command(2);
   private static void glMultiTexCoordP2uiv() {
     Command cmd = glMultiTexCoordP2uiv;
     cmd.returnGroup = _null_;
@@ -22967,7 +22967,7 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_ARB_vertex_type_2_10_10_10_rev;
   }
-  public static final Command glCompressedTextureSubImage2DEXT = new Command();
+  public static final Command glCompressedTextureSubImage2DEXT = new Command(2);
   private static void glCompressedTextureSubImage2DEXT() {
     Command cmd = glCompressedTextureSubImage2DEXT;
     cmd.returnGroup = _null_;
@@ -22975,7 +22975,7 @@ public class GLmetadata {
     cmd.addParam("format", GLenum, PixelFormat);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glTextureStorage3DMultisample = new Command();
+  public static final Command glTextureStorage3DMultisample = new Command(2);
   private static void glTextureStorage3DMultisample() {
     Command cmd = glTextureStorage3DMultisample;
     cmd.returnGroup = _null_;
@@ -22983,7 +22983,7 @@ public class GLmetadata {
     cmd.addParam("fixedsamplelocations", GLboolean, Boolean);
     cmd.extension = GL_ARB_direct_state_access;
   }
-  public static final Command glTextureStorage2DEXT = new Command();
+  public static final Command glTextureStorage2DEXT = new Command(2);
   private static void glTextureStorage2DEXT() {
     Command cmd = glTextureStorage2DEXT;
     cmd.returnGroup = _null_;
@@ -22991,13 +22991,13 @@ public class GLmetadata {
     cmd.addParam("internalformat", GLenum, _null_);
     cmd.extension = GL_EXT_texture_storage;
   }
-  public static final Command glIsImageHandleResidentARB = new Command();
+  public static final Command glIsImageHandleResidentARB = new Command(0);
   private static void glIsImageHandleResidentARB() {
     Command cmd = glIsImageHandleResidentARB;
     cmd.returnGroup = Boolean;
     cmd.extension = GL_ARB_bindless_texture;
   }
-  public static final Command glPresentFrameKeyedNV = new Command();
+  public static final Command glPresentFrameKeyedNV = new Command(3);
   private static void glPresentFrameKeyedNV() {
     Command cmd = glPresentFrameKeyedNV;
     cmd.returnGroup = _null_;
@@ -23006,42 +23006,42 @@ public class GLmetadata {
     cmd.addParam("target1", GLenum, _null_);
     cmd.extension = GL_NV_present_video;
   }
-  public static final Command glGetNamedBufferParameterivEXT = new Command();
+  public static final Command glGetNamedBufferParameterivEXT = new Command(1);
   private static void glGetNamedBufferParameterivEXT() {
     Command cmd = glGetNamedBufferParameterivEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glMultiDrawArraysIndirectCountARB = new Command();
+  public static final Command glMultiDrawArraysIndirectCountARB = new Command(1);
   private static void glMultiDrawArraysIndirectCountARB() {
     Command cmd = glMultiDrawArraysIndirectCountARB;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, PrimitiveType);
     cmd.extension = GL_ARB_indirect_parameters;
   }
-  public static final Command glDisableiOES = new Command();
+  public static final Command glDisableiOES = new Command(1);
   private static void glDisableiOES() {
     Command cmd = glDisableiOES;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_OES_viewport_array;
   }
-  public static final Command glMultiTexCoord1fARB = new Command();
+  public static final Command glMultiTexCoord1fARB = new Command(1);
   private static void glMultiTexCoord1fARB() {
     Command cmd = glMultiTexCoord1fARB;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_ARB_multitexture;
   }
-  public static final Command glGetNamedBufferParameterui64vNV = new Command();
+  public static final Command glGetNamedBufferParameterui64vNV = new Command(1);
   private static void glGetNamedBufferParameterui64vNV() {
     Command cmd = glGetNamedBufferParameterui64vNV;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_NV_shader_buffer_load;
   }
-  public static final Command glTextureImage2DEXT = new Command();
+  public static final Command glTextureImage2DEXT = new Command(3);
   private static void glTextureImage2DEXT() {
     Command cmd = glTextureImage2DEXT;
     cmd.returnGroup = _null_;
@@ -23050,34 +23050,34 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, PixelType);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glCheckFramebufferStatusEXT = new Command();
+  public static final Command glCheckFramebufferStatusEXT = new Command(1);
   private static void glCheckFramebufferStatusEXT() {
     Command cmd = glCheckFramebufferStatusEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_EXT_framebuffer_object;
   }
-  public static final Command glBeginConditionalRender = new Command();
+  public static final Command glBeginConditionalRender = new Command(1);
   private static void glBeginConditionalRender() {
     Command cmd = glBeginConditionalRender;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, _null_);
   }
-  public static final Command glBlendEquation = new Command();
+  public static final Command glBlendEquation = new Command(1);
   private static void glBlendEquation() {
     Command cmd = glBlendEquation;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, _null_);
     cmd.extension = GL_ARB_imaging;
   }
-  public static final Command glGenerateMipmap = new Command();
+  public static final Command glGenerateMipmap = new Command(1);
   private static void glGenerateMipmap() {
     Command cmd = glGenerateMipmap;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_ARB_framebuffer_object;
   }
-  public static final Command glTexStorage2DMultisample = new Command();
+  public static final Command glTexStorage2DMultisample = new Command(3);
   private static void glTexStorage2DMultisample() {
     Command cmd = glTexStorage2DMultisample;
     cmd.returnGroup = _null_;
@@ -23085,42 +23085,42 @@ public class GLmetadata {
     cmd.addParam("internalformat", GLenum, _null_);
     cmd.addParam("fixedsamplelocations", GLboolean, Boolean);
   }
-  public static final Command glGetVertexArrayIndexediv = new Command();
+  public static final Command glGetVertexArrayIndexediv = new Command(1);
   private static void glGetVertexArrayIndexediv() {
     Command cmd = glGetVertexArrayIndexediv;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_direct_state_access;
   }
-  public static final Command glVertexStream1iATI = new Command();
+  public static final Command glVertexStream1iATI = new Command(1);
   private static void glVertexStream1iATI() {
     Command cmd = glVertexStream1iATI;
     cmd.returnGroup = _null_;
     cmd.addParam("stream", GLenum, _null_);
     cmd.extension = GL_ATI_vertex_streams;
   }
-  public static final Command glPathParameterivNV = new Command();
+  public static final Command glPathParameterivNV = new Command(1);
   private static void glPathParameterivNV() {
     Command cmd = glPathParameterivNV;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_NV_path_rendering;
   }
-  public static final Command glUniformMatrix4x2dv = new Command();
+  public static final Command glUniformMatrix4x2dv = new Command(1);
   private static void glUniformMatrix4x2dv() {
     Command cmd = glUniformMatrix4x2dv;
     cmd.returnGroup = _null_;
     cmd.addParam("transpose", GLboolean, Boolean);
     cmd.extension = GL_ARB_gpu_shader_fp64;
   }
-  public static final Command glGetHandleARB = new Command();
+  public static final Command glGetHandleARB = new Command(1);
   private static void glGetHandleARB() {
     Command cmd = glGetHandleARB;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_shader_objects;
   }
-  public static final Command glGetSeparableFilterEXT = new Command();
+  public static final Command glGetSeparableFilterEXT = new Command(3);
   private static void glGetSeparableFilterEXT() {
     Command cmd = glGetSeparableFilterEXT;
     cmd.returnGroup = _null_;
@@ -23129,108 +23129,108 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, PixelType);
     cmd.extension = GL_EXT_convolution;
   }
-  public static final Command glProgramPathFragmentInputGenNV = new Command();
+  public static final Command glProgramPathFragmentInputGenNV = new Command(1);
   private static void glProgramPathFragmentInputGenNV() {
     Command cmd = glProgramPathFragmentInputGenNV;
     cmd.returnGroup = _null_;
     cmd.addParam("genMode", GLenum, _null_);
     cmd.extension = GL_NV_path_rendering;
   }
-  public static final Command glStencilFunc = new Command();
+  public static final Command glStencilFunc = new Command(1);
   private static void glStencilFunc() {
     Command cmd = glStencilFunc;
     cmd.returnGroup = _null_;
     cmd.addParam("func", GLenum, StencilFunction);
   }
-  public static final Command glTexCoordP2uiv = new Command();
+  public static final Command glTexCoordP2uiv = new Command(1);
   private static void glTexCoordP2uiv() {
     Command cmd = glTexCoordP2uiv;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_ARB_vertex_type_2_10_10_10_rev;
   }
-  public static final Command glMultiDrawElementArrayAPPLE = new Command();
+  public static final Command glMultiDrawElementArrayAPPLE = new Command(1);
   private static void glMultiDrawElementArrayAPPLE() {
     Command cmd = glMultiDrawElementArrayAPPLE;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, PrimitiveType);
     cmd.extension = GL_APPLE_element_array;
   }
-  public static final Command glSecondaryColorPointerEXT = new Command();
+  public static final Command glSecondaryColorPointerEXT = new Command(1);
   private static void glSecondaryColorPointerEXT() {
     Command cmd = glSecondaryColorPointerEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, ColorPointerType);
     cmd.extension = GL_EXT_secondary_color;
   }
-  public static final Command glSamplerParameterIivEXT = new Command();
+  public static final Command glSamplerParameterIivEXT = new Command(1);
   private static void glSamplerParameterIivEXT() {
     Command cmd = glSamplerParameterIivEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_EXT_texture_border_clamp;
   }
-  public static final Command glGetProgramLocalParameterfvARB = new Command();
+  public static final Command glGetProgramLocalParameterfvARB = new Command(1);
   private static void glGetProgramLocalParameterfvARB() {
     Command cmd = glGetProgramLocalParameterfvARB;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_ARB_vertex_program;
   }
-  public static final Command glGetVertexAttribivARB = new Command();
+  public static final Command glGetVertexAttribivARB = new Command(1);
   private static void glGetVertexAttribivARB() {
     Command cmd = glGetVertexAttribivARB;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_vertex_shader;
   }
-  public static final Command glUniformMatrix4x2fv = new Command();
+  public static final Command glUniformMatrix4x2fv = new Command(1);
   private static void glUniformMatrix4x2fv() {
     Command cmd = glUniformMatrix4x2fv;
     cmd.returnGroup = _null_;
     cmd.addParam("transpose", GLboolean, Boolean);
   }
-  public static final Command glMultiTexCoord2sARB = new Command();
+  public static final Command glMultiTexCoord2sARB = new Command(1);
   private static void glMultiTexCoord2sARB() {
     Command cmd = glMultiTexCoord2sARB;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_ARB_multitexture;
   }
-  public static final Command glGetActiveVaryingNV = new Command();
+  public static final Command glGetActiveVaryingNV = new Command(1);
   private static void glGetActiveVaryingNV() {
     Command cmd = glGetActiveVaryingNV;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_NV_transform_feedback;
   }
-  public static final Command glMultiDrawArrays = new Command();
+  public static final Command glMultiDrawArrays = new Command(1);
   private static void glMultiDrawArrays() {
     Command cmd = glMultiDrawArrays;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, PrimitiveType);
   }
-  public static final Command glVertexArrayTexCoordOffsetEXT = new Command();
+  public static final Command glVertexArrayTexCoordOffsetEXT = new Command(1);
   private static void glVertexArrayTexCoordOffsetEXT() {
     Command cmd = glVertexArrayTexCoordOffsetEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, TexCoordPointerType);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glCreateShader = new Command();
+  public static final Command glCreateShader = new Command(1);
   private static void glCreateShader() {
     Command cmd = glCreateShader;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
   }
-  public static final Command glProgramUniformMatrix4x2dv = new Command();
+  public static final Command glProgramUniformMatrix4x2dv = new Command(1);
   private static void glProgramUniformMatrix4x2dv() {
     Command cmd = glProgramUniformMatrix4x2dv;
     cmd.returnGroup = _null_;
     cmd.addParam("transpose", GLboolean, Boolean);
     cmd.extension = GL_ARB_separate_shader_objects;
   }
-  public static final Command glTexGenfvOES = new Command();
+  public static final Command glTexGenfvOES = new Command(2);
   private static void glTexGenfvOES() {
     Command cmd = glTexGenfvOES;
     cmd.returnGroup = _null_;
@@ -23238,34 +23238,34 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_OES_texture_cube_map;
   }
-  public static final Command glMultiDrawArraysIndirect = new Command();
+  public static final Command glMultiDrawArraysIndirect = new Command(1);
   private static void glMultiDrawArraysIndirect() {
     Command cmd = glMultiDrawArraysIndirect;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, PrimitiveType);
   }
-  public static final Command glMatrixIndexPointerOES = new Command();
+  public static final Command glMatrixIndexPointerOES = new Command(1);
   private static void glMatrixIndexPointerOES() {
     Command cmd = glMatrixIndexPointerOES;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_OES_matrix_palette;
   }
-  public static final Command glProgramLocalParameter4fARB = new Command();
+  public static final Command glProgramLocalParameter4fARB = new Command(1);
   private static void glProgramLocalParameter4fARB() {
     Command cmd = glProgramLocalParameter4fARB;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_ARB_vertex_program;
   }
-  public static final Command glUniformMatrix2dv = new Command();
+  public static final Command glUniformMatrix2dv = new Command(1);
   private static void glUniformMatrix2dv() {
     Command cmd = glUniformMatrix2dv;
     cmd.returnGroup = _null_;
     cmd.addParam("transpose", GLboolean, Boolean);
     cmd.extension = GL_ARB_gpu_shader_fp64;
   }
-  public static final Command glMapParameterfvNV = new Command();
+  public static final Command glMapParameterfvNV = new Command(2);
   private static void glMapParameterfvNV() {
     Command cmd = glMapParameterfvNV;
     cmd.returnGroup = _null_;
@@ -23273,27 +23273,27 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_NV_evaluators;
   }
-  public static final Command glIsNameAMD = new Command();
+  public static final Command glIsNameAMD = new Command(1);
   private static void glIsNameAMD() {
     Command cmd = glIsNameAMD;
     cmd.returnGroup = Boolean;
     cmd.addParam("identifier", GLenum, _null_);
     cmd.extension = GL_AMD_name_gen_delete;
   }
-  public static final Command glGetNamedFramebufferParameteriv = new Command();
+  public static final Command glGetNamedFramebufferParameteriv = new Command(1);
   private static void glGetNamedFramebufferParameteriv() {
     Command cmd = glGetNamedFramebufferParameteriv;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_direct_state_access;
   }
-  public static final Command glMultiDrawArraysIndirectAMD = new Command();
+  public static final Command glMultiDrawArraysIndirectAMD = new Command(1);
   private static void glMultiDrawArraysIndirectAMD() {
     Command cmd = glMultiDrawArraysIndirectAMD;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, PrimitiveType);
   }
-  public static final Command glCopyConvolutionFilter1DEXT = new Command();
+  public static final Command glCopyConvolutionFilter1DEXT = new Command(2);
   private static void glCopyConvolutionFilter1DEXT() {
     Command cmd = glCopyConvolutionFilter1DEXT;
     cmd.returnGroup = _null_;
@@ -23301,7 +23301,7 @@ public class GLmetadata {
     cmd.addParam("internalformat", GLenum, InternalFormat);
     cmd.extension = GL_EXT_convolution;
   }
-  public static final Command glTexParameterxOES = new Command();
+  public static final Command glTexParameterxOES = new Command(2);
   private static void glTexParameterxOES() {
     Command cmd = glTexParameterxOES;
     cmd.returnGroup = _null_;
@@ -23309,7 +23309,7 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_OES_fixed_point;
   }
-  public static final Command glGetTrackMatrixivNV = new Command();
+  public static final Command glGetTrackMatrixivNV = new Command(2);
   private static void glGetTrackMatrixivNV() {
     Command cmd = glGetTrackMatrixivNV;
     cmd.returnGroup = _null_;
@@ -23317,20 +23317,20 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_NV_vertex_program;
   }
-  public static final Command glGetActiveAttrib = new Command();
+  public static final Command glGetActiveAttrib = new Command(1);
   private static void glGetActiveAttrib() {
     Command cmd = glGetActiveAttrib;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
   }
-  public static final Command glProgramUniformMatrix4dvEXT = new Command();
+  public static final Command glProgramUniformMatrix4dvEXT = new Command(1);
   private static void glProgramUniformMatrix4dvEXT() {
     Command cmd = glProgramUniformMatrix4dvEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("transpose", GLboolean, Boolean);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glBlitFramebufferANGLE = new Command();
+  public static final Command glBlitFramebufferANGLE = new Command(2);
   private static void glBlitFramebufferANGLE() {
     Command cmd = glBlitFramebufferANGLE;
     cmd.returnGroup = _null_;
@@ -23338,7 +23338,7 @@ public class GLmetadata {
     cmd.addParam("filter", GLenum, _null_);
     cmd.extension = GL_ANGLE_framebuffer_blit;
   }
-  public static final Command glGetTexParameterIuivOES = new Command();
+  public static final Command glGetTexParameterIuivOES = new Command(2);
   private static void glGetTexParameterIuivOES() {
     Command cmd = glGetTexParameterIuivOES;
     cmd.returnGroup = _null_;
@@ -23346,34 +23346,34 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, GetTextureParameter);
     cmd.extension = GL_OES_texture_border_clamp;
   }
-  public static final Command glMatrixTranslatefEXT = new Command();
+  public static final Command glMatrixTranslatefEXT = new Command(1);
   private static void glMatrixTranslatefEXT() {
     Command cmd = glMatrixTranslatefEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, MatrixMode);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glUniformMatrix2fv = new Command();
+  public static final Command glUniformMatrix2fv = new Command(1);
   private static void glUniformMatrix2fv() {
     Command cmd = glUniformMatrix2fv;
     cmd.returnGroup = _null_;
     cmd.addParam("transpose", GLboolean, Boolean);
   }
-  public static final Command glMultiTexCoord1dvARB = new Command();
+  public static final Command glMultiTexCoord1dvARB = new Command(1);
   private static void glMultiTexCoord1dvARB() {
     Command cmd = glMultiTexCoord1dvARB;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_ARB_multitexture;
   }
-  public static final Command glQueryCounter = new Command();
+  public static final Command glQueryCounter = new Command(1);
   private static void glQueryCounter() {
     Command cmd = glQueryCounter;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_ARB_timer_query;
   }
-  public static final Command glColorTableSGI = new Command();
+  public static final Command glColorTableSGI = new Command(4);
   private static void glColorTableSGI() {
     Command cmd = glColorTableSGI;
     cmd.returnGroup = _null_;
@@ -23383,13 +23383,13 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, PixelType);
     cmd.extension = GL_SGI_color_table;
   }
-  public static final Command glGetVertexAttribIiv = new Command();
+  public static final Command glGetVertexAttribIiv = new Command(1);
   private static void glGetVertexAttribIiv() {
     Command cmd = glGetVertexAttribIiv;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
   }
-  public static final Command glCopyMultiTexImage1DEXT = new Command();
+  public static final Command glCopyMultiTexImage1DEXT = new Command(3);
   private static void glCopyMultiTexImage1DEXT() {
     Command cmd = glCopyMultiTexImage1DEXT;
     cmd.returnGroup = _null_;
@@ -23398,49 +23398,49 @@ public class GLmetadata {
     cmd.addParam("internalformat", GLenum, _null_);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glColorPointerEXT = new Command();
+  public static final Command glColorPointerEXT = new Command(1);
   private static void glColorPointerEXT() {
     Command cmd = glColorPointerEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, ColorPointerType);
     cmd.extension = GL_EXT_vertex_array;
   }
-  public static final Command glPointParameterfvEXT = new Command();
+  public static final Command glPointParameterfvEXT = new Command(1);
   private static void glPointParameterfvEXT() {
     Command cmd = glPointParameterfvEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_EXT_point_parameters;
   }
-  public static final Command glBindBufferRangeNV = new Command();
+  public static final Command glBindBufferRangeNV = new Command(1);
   private static void glBindBufferRangeNV() {
     Command cmd = glBindBufferRangeNV;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_NV_transform_feedback;
   }
-  public static final Command glClearNamedFramebufferfv = new Command();
+  public static final Command glClearNamedFramebufferfv = new Command(1);
   private static void glClearNamedFramebufferfv() {
     Command cmd = glClearNamedFramebufferfv;
     cmd.returnGroup = _null_;
     cmd.addParam("buffer", GLenum, _null_);
     cmd.extension = GL_ARB_direct_state_access;
   }
-  public static final Command glBindVideoCaptureStreamBufferNV = new Command();
+  public static final Command glBindVideoCaptureStreamBufferNV = new Command(1);
   private static void glBindVideoCaptureStreamBufferNV() {
     Command cmd = glBindVideoCaptureStreamBufferNV;
     cmd.returnGroup = _null_;
     cmd.addParam("frame_region", GLenum, _null_);
     cmd.extension = GL_NV_video_capture;
   }
-  public static final Command glTextureStorage2D = new Command();
+  public static final Command glTextureStorage2D = new Command(1);
   private static void glTextureStorage2D() {
     Command cmd = glTextureStorage2D;
     cmd.returnGroup = _null_;
     cmd.addParam("internalformat", GLenum, _null_);
     cmd.extension = GL_ARB_direct_state_access;
   }
-  public static final Command glTexStorageMem2DMultisampleEXT = new Command();
+  public static final Command glTexStorageMem2DMultisampleEXT = new Command(3);
   private static void glTexStorageMem2DMultisampleEXT() {
     Command cmd = glTexStorageMem2DMultisampleEXT;
     cmd.returnGroup = _null_;
@@ -23449,41 +23449,41 @@ public class GLmetadata {
     cmd.addParam("fixedSampleLocations", GLboolean, Boolean);
     cmd.extension = GL_EXT_memory_object;
   }
-  public static final Command glFlushStaticDataIBM = new Command();
+  public static final Command glFlushStaticDataIBM = new Command(1);
   private static void glFlushStaticDataIBM() {
     Command cmd = glFlushStaticDataIBM;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_IBM_static_data;
   }
-  public static final Command glGetProgramStringNV = new Command();
+  public static final Command glGetProgramStringNV = new Command(1);
   private static void glGetProgramStringNV() {
     Command cmd = glGetProgramStringNV;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_NV_vertex_program;
   }
-  public static final Command glGetQueryObjectuivEXT = new Command();
+  public static final Command glGetQueryObjectuivEXT = new Command(1);
   private static void glGetQueryObjectuivEXT() {
     Command cmd = glGetQueryObjectuivEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_EXT_occlusion_query_boolean;
   }
-  public static final Command glTextureStorage1D = new Command();
+  public static final Command glTextureStorage1D = new Command(1);
   private static void glTextureStorage1D() {
     Command cmd = glTextureStorage1D;
     cmd.returnGroup = _null_;
     cmd.addParam("internalformat", GLenum, _null_);
     cmd.extension = GL_ARB_direct_state_access;
   }
-  public static final Command glGetVertexAttribdv = new Command();
+  public static final Command glGetVertexAttribdv = new Command(1);
   private static void glGetVertexAttribdv() {
     Command cmd = glGetVertexAttribdv;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
   }
-  public static final Command glTextureViewEXT = new Command();
+  public static final Command glTextureViewEXT = new Command(2);
   private static void glTextureViewEXT() {
     Command cmd = glTextureViewEXT;
     cmd.returnGroup = _null_;
@@ -23491,33 +23491,33 @@ public class GLmetadata {
     cmd.addParam("internalformat", GLenum, _null_);
     cmd.extension = GL_EXT_texture_view;
   }
-  public static final Command glPathParameterfvNV = new Command();
+  public static final Command glPathParameterfvNV = new Command(1);
   private static void glPathParameterfvNV() {
     Command cmd = glPathParameterfvNV;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_NV_path_rendering;
   }
-  public static final Command glBeginTransformFeedbackEXT = new Command();
+  public static final Command glBeginTransformFeedbackEXT = new Command(1);
   private static void glBeginTransformFeedbackEXT() {
     Command cmd = glBeginTransformFeedbackEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("primitiveMode", GLenum, _null_);
     cmd.extension = GL_EXT_transform_feedback;
   }
-  public static final Command glIsImageHandleResidentNV = new Command();
+  public static final Command glIsImageHandleResidentNV = new Command(0);
   private static void glIsImageHandleResidentNV() {
     Command cmd = glIsImageHandleResidentNV;
     cmd.returnGroup = Boolean;
   }
-  public static final Command glVertexP3uiv = new Command();
+  public static final Command glVertexP3uiv = new Command(1);
   private static void glVertexP3uiv() {
     Command cmd = glVertexP3uiv;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_ARB_vertex_type_2_10_10_10_rev;
   }
-  public static final Command glFramebufferTextureEXT = new Command();
+  public static final Command glFramebufferTextureEXT = new Command(2);
   private static void glFramebufferTextureEXT() {
     Command cmd = glFramebufferTextureEXT;
     cmd.returnGroup = _null_;
@@ -23525,34 +23525,34 @@ public class GLmetadata {
     cmd.addParam("attachment", GLenum, _null_);
     cmd.extension = GL_NV_geometry_program4;
   }
-  public static final Command glMultiTexCoord1iv = new Command();
+  public static final Command glMultiTexCoord1iv = new Command(1);
   private static void glMultiTexCoord1iv() {
     Command cmd = glMultiTexCoord1iv;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
   }
-  public static final Command glColorFragmentOp3ATI = new Command();
+  public static final Command glColorFragmentOp3ATI = new Command(1);
   private static void glColorFragmentOp3ATI() {
     Command cmd = glColorFragmentOp3ATI;
     cmd.returnGroup = _null_;
     cmd.addParam("op", GLenum, _null_);
     cmd.extension = GL_ATI_fragment_shader;
   }
-  public static final Command glProgramBufferParametersIivNV = new Command();
+  public static final Command glProgramBufferParametersIivNV = new Command(1);
   private static void glProgramBufferParametersIivNV() {
     Command cmd = glProgramBufferParametersIivNV;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_NV_parameter_buffer_object;
   }
-  public static final Command glStencilThenCoverStrokePathNV = new Command();
+  public static final Command glStencilThenCoverStrokePathNV = new Command(1);
   private static void glStencilThenCoverStrokePathNV() {
     Command cmd = glStencilThenCoverStrokePathNV;
     cmd.returnGroup = _null_;
     cmd.addParam("coverMode", GLenum, _null_);
     cmd.extension = GL_NV_path_rendering;
   }
-  public static final Command glDebugMessageInsertKHR = new Command();
+  public static final Command glDebugMessageInsertKHR = new Command(3);
   private static void glDebugMessageInsertKHR() {
     Command cmd = glDebugMessageInsertKHR;
     cmd.returnGroup = _null_;
@@ -23561,33 +23561,33 @@ public class GLmetadata {
     cmd.addParam("severity", GLenum, _null_);
     cmd.extension = GL_KHR_debug;
   }
-  public static final Command glReleaseKeyedMutexWin32EXT = new Command();
+  public static final Command glReleaseKeyedMutexWin32EXT = new Command(0);
   private static void glReleaseKeyedMutexWin32EXT() {
     Command cmd = glReleaseKeyedMutexWin32EXT;
     cmd.returnGroup = Boolean;
   }
-  public static final Command glGetCompressedTexImageARB = new Command();
+  public static final Command glGetCompressedTexImageARB = new Command(1);
   private static void glGetCompressedTexImageARB() {
     Command cmd = glGetCompressedTexImageARB;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, TextureTarget);
     cmd.extension = GL_ARB_texture_compression;
   }
-  public static final Command glTextureStorage3D = new Command();
+  public static final Command glTextureStorage3D = new Command(1);
   private static void glTextureStorage3D() {
     Command cmd = glTextureStorage3D;
     cmd.returnGroup = _null_;
     cmd.addParam("internalformat", GLenum, _null_);
     cmd.extension = GL_ARB_direct_state_access;
   }
-  public static final Command glProgramUniformMatrix4x2fv = new Command();
+  public static final Command glProgramUniformMatrix4x2fv = new Command(1);
   private static void glProgramUniformMatrix4x2fv() {
     Command cmd = glProgramUniformMatrix4x2fv;
     cmd.returnGroup = _null_;
     cmd.addParam("transpose", GLboolean, Boolean);
     cmd.extension = GL_ARB_separate_shader_objects;
   }
-  public static final Command glBindMultiTextureEXT = new Command();
+  public static final Command glBindMultiTextureEXT = new Command(2);
   private static void glBindMultiTextureEXT() {
     Command cmd = glBindMultiTextureEXT;
     cmd.returnGroup = _null_;
@@ -23595,28 +23595,28 @@ public class GLmetadata {
     cmd.addParam("target", GLenum, TextureTarget);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glMapNamedBufferRange = new Command();
+  public static final Command glMapNamedBufferRange = new Command(1);
   private static void glMapNamedBufferRange() {
     Command cmd = glMapNamedBufferRange;
     cmd.returnGroup = _null_;
     cmd.addParam("access", GLbitfield, _null_);
     cmd.extension = GL_ARB_direct_state_access;
   }
-  public static final Command glClearNamedFramebufferfi = new Command();
+  public static final Command glClearNamedFramebufferfi = new Command(1);
   private static void glClearNamedFramebufferfi() {
     Command cmd = glClearNamedFramebufferfi;
     cmd.returnGroup = _null_;
     cmd.addParam("buffer", GLenum, _null_);
     cmd.extension = GL_ARB_direct_state_access;
   }
-  public static final Command glNamedRenderbufferStorageMultisample = new Command();
+  public static final Command glNamedRenderbufferStorageMultisample = new Command(1);
   private static void glNamedRenderbufferStorageMultisample() {
     Command cmd = glNamedRenderbufferStorageMultisample;
     cmd.returnGroup = _null_;
     cmd.addParam("internalformat", GLenum, _null_);
     cmd.extension = GL_ARB_direct_state_access;
   }
-  public static final Command glGetTexParameterIivEXT = new Command();
+  public static final Command glGetTexParameterIivEXT = new Command(2);
   private static void glGetTexParameterIivEXT() {
     Command cmd = glGetTexParameterIivEXT;
     cmd.returnGroup = _null_;
@@ -23624,47 +23624,47 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, GetTextureParameter);
     cmd.extension = GL_EXT_texture_integer;
   }
-  public static final Command glCombinerParameterfNV = new Command();
+  public static final Command glCombinerParameterfNV = new Command(1);
   private static void glCombinerParameterfNV() {
     Command cmd = glCombinerParameterfNV;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_NV_register_combiners;
   }
-  public static final Command glGetVertexAttribfv = new Command();
+  public static final Command glGetVertexAttribfv = new Command(1);
   private static void glGetVertexAttribfv() {
     Command cmd = glGetVertexAttribfv;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
   }
-  public static final Command glPointParameterx = new Command();
+  public static final Command glPointParameterx = new Command(1);
   private static void glPointParameterx() {
     Command cmd = glPointParameterx;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
   }
-  public static final Command glSampleMaskEXT = new Command();
+  public static final Command glSampleMaskEXT = new Command(1);
   private static void glSampleMaskEXT() {
     Command cmd = glSampleMaskEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("invert", GLboolean, Boolean);
     cmd.extension = GL_EXT_multisample;
   }
-  public static final Command glCopyTextureSubImage2DEXT = new Command();
+  public static final Command glCopyTextureSubImage2DEXT = new Command(1);
   private static void glCopyTextureSubImage2DEXT() {
     Command cmd = glCopyTextureSubImage2DEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, TextureTarget);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glResetHistogram = new Command();
+  public static final Command glResetHistogram = new Command(1);
   private static void glResetHistogram() {
     Command cmd = glResetHistogram;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_ARB_imaging;
   }
-  public static final Command glMaterialxvOES = new Command();
+  public static final Command glMaterialxvOES = new Command(2);
   private static void glMaterialxvOES() {
     Command cmd = glMaterialxvOES;
     cmd.returnGroup = _null_;
@@ -23672,7 +23672,7 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_OES_fixed_point;
   }
-  public static final Command glGetFinalCombinerInputParameterivNV = new Command();
+  public static final Command glGetFinalCombinerInputParameterivNV = new Command(2);
   private static void glGetFinalCombinerInputParameterivNV() {
     Command cmd = glGetFinalCombinerInputParameterivNV;
     cmd.returnGroup = _null_;
@@ -23680,19 +23680,19 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_NV_register_combiners;
   }
-  public static final Command glPointParameteri = new Command();
+  public static final Command glPointParameteri = new Command(1);
   private static void glPointParameteri() {
     Command cmd = glPointParameteri;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
   }
-  public static final Command glPointParameterf = new Command();
+  public static final Command glPointParameterf = new Command(1);
   private static void glPointParameterf() {
     Command cmd = glPointParameterf;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
   }
-  public static final Command glGetnConvolutionFilterARB = new Command();
+  public static final Command glGetnConvolutionFilterARB = new Command(3);
   private static void glGetnConvolutionFilterARB() {
     Command cmd = glGetnConvolutionFilterARB;
     cmd.returnGroup = _null_;
@@ -23701,14 +23701,14 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_ARB_robustness;
   }
-  public static final Command glGetVertexAttribIivEXT = new Command();
+  public static final Command glGetVertexAttribIivEXT = new Command(1);
   private static void glGetVertexAttribIivEXT() {
     Command cmd = glGetVertexAttribIivEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_NV_vertex_program4;
   }
-  public static final Command glTexBufferARB = new Command();
+  public static final Command glTexBufferARB = new Command(2);
   private static void glTexBufferARB() {
     Command cmd = glTexBufferARB;
     cmd.returnGroup = _null_;
@@ -23716,7 +23716,7 @@ public class GLmetadata {
     cmd.addParam("internalformat", GLenum, _null_);
     cmd.extension = GL_ARB_texture_buffer_object;
   }
-  public static final Command glTextureStorage2DMultisampleEXT = new Command();
+  public static final Command glTextureStorage2DMultisampleEXT = new Command(3);
   private static void glTextureStorage2DMultisampleEXT() {
     Command cmd = glTextureStorage2DMultisampleEXT;
     cmd.returnGroup = _null_;
@@ -23725,7 +23725,7 @@ public class GLmetadata {
     cmd.addParam("fixedsamplelocations", GLboolean, Boolean);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glReadnPixelsARB = new Command();
+  public static final Command glReadnPixelsARB = new Command(2);
   private static void glReadnPixelsARB() {
     Command cmd = glReadnPixelsARB;
     cmd.returnGroup = _null_;
@@ -23733,27 +23733,27 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_ARB_robustness;
   }
-  public static final Command glTexCoordPointerEXT = new Command();
+  public static final Command glTexCoordPointerEXT = new Command(1);
   private static void glTexCoordPointerEXT() {
     Command cmd = glTexCoordPointerEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, TexCoordPointerType);
     cmd.extension = GL_EXT_vertex_array;
   }
-  public static final Command glFragmentLightModelfSGIX = new Command();
+  public static final Command glFragmentLightModelfSGIX = new Command(1);
   private static void glFragmentLightModelfSGIX() {
     Command cmd = glFragmentLightModelfSGIX;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, FragmentLightModelParameterSGIX);
     cmd.extension = GL_SGIX_fragment_lighting;
   }
-  public static final Command glLightModelxv = new Command();
+  public static final Command glLightModelxv = new Command(1);
   private static void glLightModelxv() {
     Command cmd = glLightModelxv;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
   }
-  public static final Command glTexStorageMem3DMultisampleEXT = new Command();
+  public static final Command glTexStorageMem3DMultisampleEXT = new Command(3);
   private static void glTexStorageMem3DMultisampleEXT() {
     Command cmd = glTexStorageMem3DMultisampleEXT;
     cmd.returnGroup = _null_;
@@ -23762,7 +23762,7 @@ public class GLmetadata {
     cmd.addParam("fixedSampleLocations", GLboolean, Boolean);
     cmd.extension = GL_EXT_memory_object;
   }
-  public static final Command glMapBufferRange = new Command();
+  public static final Command glMapBufferRange = new Command(2);
   private static void glMapBufferRange() {
     Command cmd = glMapBufferRange;
     cmd.returnGroup = _null_;
@@ -23770,25 +23770,25 @@ public class GLmetadata {
     cmd.addParam("access", GLbitfield, _null_);
     cmd.extension = GL_ARB_map_buffer_range;
   }
-  public static final Command glIsFramebuffer = new Command();
+  public static final Command glIsFramebuffer = new Command(0);
   private static void glIsFramebuffer() {
     Command cmd = glIsFramebuffer;
     cmd.returnGroup = Boolean;
     cmd.extension = GL_ARB_framebuffer_object;
   }
-  public static final Command glGetVertexAttribArrayObjectfvATI = new Command();
+  public static final Command glGetVertexAttribArrayObjectfvATI = new Command(1);
   private static void glGetVertexAttribArrayObjectfvATI() {
     Command cmd = glGetVertexAttribArrayObjectfvATI;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
   }
-  public static final Command glGetVertexAttribiv = new Command();
+  public static final Command glGetVertexAttribiv = new Command(1);
   private static void glGetVertexAttribiv() {
     Command cmd = glGetVertexAttribiv;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
   }
-  public static final Command glCompressedTexSubImage1DARB = new Command();
+  public static final Command glCompressedTexSubImage1DARB = new Command(2);
   private static void glCompressedTexSubImage1DARB() {
     Command cmd = glCompressedTexSubImage1DARB;
     cmd.returnGroup = _null_;
@@ -23796,7 +23796,7 @@ public class GLmetadata {
     cmd.addParam("format", GLenum, PixelFormat);
     cmd.extension = GL_ARB_texture_compression;
   }
-  public static final Command glCoverStrokePathInstancedNV = new Command();
+  public static final Command glCoverStrokePathInstancedNV = new Command(3);
   private static void glCoverStrokePathInstancedNV() {
     Command cmd = glCoverStrokePathInstancedNV;
     cmd.returnGroup = _null_;
@@ -23805,14 +23805,14 @@ public class GLmetadata {
     cmd.addParam("transformType", GLenum, _null_);
     cmd.extension = GL_NV_path_rendering;
   }
-  public static final Command glClearNamedFramebufferiv = new Command();
+  public static final Command glClearNamedFramebufferiv = new Command(1);
   private static void glClearNamedFramebufferiv() {
     Command cmd = glClearNamedFramebufferiv;
     cmd.returnGroup = _null_;
     cmd.addParam("buffer", GLenum, _null_);
     cmd.extension = GL_ARB_direct_state_access;
   }
-  public static final Command glTexStorage3DEXT = new Command();
+  public static final Command glTexStorage3DEXT = new Command(2);
   private static void glTexStorage3DEXT() {
     Command cmd = glTexStorage3DEXT;
     cmd.returnGroup = _null_;
@@ -23820,103 +23820,103 @@ public class GLmetadata {
     cmd.addParam("internalformat", GLenum, _null_);
     cmd.extension = GL_EXT_texture_storage;
   }
-  public static final Command glGetProgramBinary = new Command();
+  public static final Command glGetProgramBinary = new Command(1);
   private static void glGetProgramBinary() {
     Command cmd = glGetProgramBinary;
     cmd.returnGroup = _null_;
     cmd.addParam("binaryFormat", GLenum, _null_);
     cmd.extension = GL_ARB_get_program_binary;
   }
-  public static final Command glElementPointerAPPLE = new Command();
+  public static final Command glElementPointerAPPLE = new Command(1);
   private static void glElementPointerAPPLE() {
     Command cmd = glElementPointerAPPLE;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_APPLE_element_array;
   }
-  public static final Command glGetQueryObjectiv = new Command();
+  public static final Command glGetQueryObjectiv = new Command(1);
   private static void glGetQueryObjectiv() {
     Command cmd = glGetQueryObjectiv;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
   }
-  public static final Command glIsProgramPipelineEXT = new Command();
+  public static final Command glIsProgramPipelineEXT = new Command(0);
   private static void glIsProgramPipelineEXT() {
     Command cmd = glIsProgramPipelineEXT;
     cmd.returnGroup = Boolean;
     cmd.extension = GL_EXT_separate_shader_objects;
   }
-  public static final Command glColorP4uiv = new Command();
+  public static final Command glColorP4uiv = new Command(1);
   private static void glColorP4uiv() {
     Command cmd = glColorP4uiv;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_ARB_vertex_type_2_10_10_10_rev;
   }
-  public static final Command glBindTransformFeedback = new Command();
+  public static final Command glBindTransformFeedback = new Command(1);
   private static void glBindTransformFeedback() {
     Command cmd = glBindTransformFeedback;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_ARB_transform_feedback2;
   }
-  public static final Command glPointParameterfEXT = new Command();
+  public static final Command glPointParameterfEXT = new Command(1);
   private static void glPointParameterfEXT() {
     Command cmd = glPointParameterfEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_EXT_point_parameters;
   }
-  public static final Command glGetPathParameterivNV = new Command();
+  public static final Command glGetPathParameterivNV = new Command(1);
   private static void glGetPathParameterivNV() {
     Command cmd = glGetPathParameterivNV;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_NV_path_rendering;
   }
-  public static final Command glObjectLabel = new Command();
+  public static final Command glObjectLabel = new Command(1);
   private static void glObjectLabel() {
     Command cmd = glObjectLabel;
     cmd.returnGroup = _null_;
     cmd.addParam("identifier", GLenum, _null_);
     cmd.extension = GL_KHR_debug;
   }
-  public static final Command glVDPAUGetSurfaceivNV = new Command();
+  public static final Command glVDPAUGetSurfaceivNV = new Command(1);
   private static void glVDPAUGetSurfaceivNV() {
     Command cmd = glVDPAUGetSurfaceivNV;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_NV_vdpau_interop;
   }
-  public static final Command glVertexStream1fvATI = new Command();
+  public static final Command glVertexStream1fvATI = new Command(1);
   private static void glVertexStream1fvATI() {
     Command cmd = glVertexStream1fvATI;
     cmd.returnGroup = _null_;
     cmd.addParam("stream", GLenum, _null_);
     cmd.extension = GL_ATI_vertex_streams;
   }
-  public static final Command glGetTransformFeedbackiv = new Command();
+  public static final Command glGetTransformFeedbackiv = new Command(1);
   private static void glGetTransformFeedbackiv() {
     Command cmd = glGetTransformFeedbackiv;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_direct_state_access;
   }
-  public static final Command glVertexAttribParameteriAMD = new Command();
+  public static final Command glVertexAttribParameteriAMD = new Command(1);
   private static void glVertexAttribParameteriAMD() {
     Command cmd = glVertexAttribParameteriAMD;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_AMD_interleaved_elements;
   }
-  public static final Command glGetProgramResourceLocationIndex = new Command();
+  public static final Command glGetProgramResourceLocationIndex = new Command(1);
   private static void glGetProgramResourceLocationIndex() {
     Command cmd = glGetProgramResourceLocationIndex;
     cmd.returnGroup = _null_;
     cmd.addParam("programInterface", GLenum, _null_);
     cmd.extension = GL_ARB_program_interface_query;
   }
-  public static final Command glGetImageTransformParameterfvHP = new Command();
+  public static final Command glGetImageTransformParameterfvHP = new Command(2);
   private static void glGetImageTransformParameterfvHP() {
     Command cmd = glGetImageTransformParameterfvHP;
     cmd.returnGroup = _null_;
@@ -23924,54 +23924,54 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_HP_image_transform;
   }
-  public static final Command glIsBufferARB = new Command();
+  public static final Command glIsBufferARB = new Command(0);
   private static void glIsBufferARB() {
     Command cmd = glIsBufferARB;
     cmd.returnGroup = Boolean;
     cmd.extension = GL_ARB_vertex_buffer_object;
   }
-  public static final Command glGetVertexAttribLui64vNV = new Command();
+  public static final Command glGetVertexAttribLui64vNV = new Command(1);
   private static void glGetVertexAttribLui64vNV() {
     Command cmd = glGetVertexAttribLui64vNV;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_NV_vertex_attrib_integer_64bit;
   }
-  public static final Command glProgramParameteriARB = new Command();
+  public static final Command glProgramParameteriARB = new Command(1);
   private static void glProgramParameteriARB() {
     Command cmd = glProgramParameteriARB;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_geometry_shader4;
   }
-  public static final Command glActiveStencilFaceEXT = new Command();
+  public static final Command glActiveStencilFaceEXT = new Command(1);
   private static void glActiveStencilFaceEXT() {
     Command cmd = glActiveStencilFaceEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("face", GLenum, StencilFaceDirection);
     cmd.extension = GL_EXT_stencil_two_side;
   }
-  public static final Command glMultiTexCoord4dARB = new Command();
+  public static final Command glMultiTexCoord4dARB = new Command(1);
   private static void glMultiTexCoord4dARB() {
     Command cmd = glMultiTexCoord4dARB;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_ARB_multitexture;
   }
-  public static final Command glGetPixelMapfv = new Command();
+  public static final Command glGetPixelMapfv = new Command(1);
   private static void glGetPixelMapfv() {
     Command cmd = glGetPixelMapfv;
     cmd.returnGroup = _null_;
     cmd.addParam("map", GLenum, PixelMap);
   }
-  public static final Command glVertexStream4svATI = new Command();
+  public static final Command glVertexStream4svATI = new Command(1);
   private static void glVertexStream4svATI() {
     Command cmd = glVertexStream4svATI;
     cmd.returnGroup = _null_;
     cmd.addParam("stream", GLenum, _null_);
     cmd.extension = GL_ATI_vertex_streams;
   }
-  public static final Command glTexEnvxvOES = new Command();
+  public static final Command glTexEnvxvOES = new Command(2);
   private static void glTexEnvxvOES() {
     Command cmd = glTexEnvxvOES;
     cmd.returnGroup = _null_;
@@ -23979,35 +23979,35 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_OES_fixed_point;
   }
-  public static final Command glNamedProgramLocalParameterI4uiEXT = new Command();
+  public static final Command glNamedProgramLocalParameterI4uiEXT = new Command(1);
   private static void glNamedProgramLocalParameterI4uiEXT() {
     Command cmd = glNamedProgramLocalParameterI4uiEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glFogCoordFormatNV = new Command();
+  public static final Command glFogCoordFormatNV = new Command(1);
   private static void glFogCoordFormatNV() {
     Command cmd = glFogCoordFormatNV;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_NV_vertex_buffer_unified_memory;
   }
-  public static final Command glGetIntegeri_vEXT = new Command();
+  public static final Command glGetIntegeri_vEXT = new Command(1);
   private static void glGetIntegeri_vEXT() {
     Command cmd = glGetIntegeri_vEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_EXT_multiview_draw_buffers;
   }
-  public static final Command glColorMaterial = new Command();
+  public static final Command glColorMaterial = new Command(2);
   private static void glColorMaterial() {
     Command cmd = glColorMaterial;
     cmd.returnGroup = _null_;
     cmd.addParam("face", GLenum, MaterialFace);
     cmd.addParam("mode", GLenum, ColorMaterialParameter);
   }
-  public static final Command glGetConvolutionParameterfvEXT = new Command();
+  public static final Command glGetConvolutionParameterfvEXT = new Command(2);
   private static void glGetConvolutionParameterfvEXT() {
     Command cmd = glGetConvolutionParameterfvEXT;
     cmd.returnGroup = _null_;
@@ -24015,7 +24015,7 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, ConvolutionParameterEXT);
     cmd.extension = GL_EXT_convolution;
   }
-  public static final Command glReadnPixels = new Command();
+  public static final Command glReadnPixels = new Command(2);
   private static void glReadnPixels() {
     Command cmd = glReadnPixels;
     cmd.returnGroup = _null_;
@@ -24023,7 +24023,7 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_KHR_robustness;
   }
-  public static final Command glCombinerInputNV = new Command();
+  public static final Command glCombinerInputNV = new Command(6);
   private static void glCombinerInputNV() {
     Command cmd = glCombinerInputNV;
     cmd.returnGroup = _null_;
@@ -24035,14 +24035,14 @@ public class GLmetadata {
     cmd.addParam("componentUsage", GLenum, _null_);
     cmd.extension = GL_NV_register_combiners;
   }
-  public static final Command glVDPAURegisterOutputSurfaceNV = new Command();
+  public static final Command glVDPAURegisterOutputSurfaceNV = new Command(1);
   private static void glVDPAURegisterOutputSurfaceNV() {
     Command cmd = glVDPAURegisterOutputSurfaceNV;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_NV_vdpau_interop;
   }
-  public static final Command glMultiTexEnvfEXT = new Command();
+  public static final Command glMultiTexEnvfEXT = new Command(3);
   private static void glMultiTexEnvfEXT() {
     Command cmd = glMultiTexEnvfEXT;
     cmd.returnGroup = _null_;
@@ -24051,62 +24051,62 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, TextureEnvParameter);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glIsProgramPipeline = new Command();
+  public static final Command glIsProgramPipeline = new Command(0);
   private static void glIsProgramPipeline() {
     Command cmd = glIsProgramPipeline;
     cmd.returnGroup = Boolean;
     cmd.extension = GL_ARB_separate_shader_objects;
   }
-  public static final Command glPathMemoryGlyphIndexArrayNV = new Command();
+  public static final Command glPathMemoryGlyphIndexArrayNV = new Command(1);
   private static void glPathMemoryGlyphIndexArrayNV() {
     Command cmd = glPathMemoryGlyphIndexArrayNV;
     cmd.returnGroup = _null_;
     cmd.addParam("fontTarget", GLenum, _null_);
     cmd.extension = GL_NV_path_rendering;
   }
-  public static final Command glCopyImageSubDataOES = new Command();
+  public static final Command glCopyImageSubDataOES = new Command(2);
   private static void glCopyImageSubDataOES() {
     Command cmd = glCopyImageSubDataOES;
     cmd.returnGroup = _null_;
     cmd.addParam("srcTarget", GLenum, _null_);
     cmd.addParam("dstTarget", GLenum, _null_);
   }
-  public static final Command glBindRenderbufferOES = new Command();
+  public static final Command glBindRenderbufferOES = new Command(1);
   private static void glBindRenderbufferOES() {
     Command cmd = glBindRenderbufferOES;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_OES_framebuffer_object;
   }
-  public static final Command glVertexStream2ivATI = new Command();
+  public static final Command glVertexStream2ivATI = new Command(1);
   private static void glVertexStream2ivATI() {
     Command cmd = glVertexStream2ivATI;
     cmd.returnGroup = _null_;
     cmd.addParam("stream", GLenum, _null_);
     cmd.extension = GL_ATI_vertex_streams;
   }
-  public static final Command glMultiTexCoord3hvNV = new Command();
+  public static final Command glMultiTexCoord3hvNV = new Command(1);
   private static void glMultiTexCoord3hvNV() {
     Command cmd = glMultiTexCoord3hvNV;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_NV_half_float;
   }
-  public static final Command glFramebufferDrawBuffersEXT = new Command();
+  public static final Command glFramebufferDrawBuffersEXT = new Command(1);
   private static void glFramebufferDrawBuffersEXT() {
     Command cmd = glFramebufferDrawBuffersEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("bufs", GLenum, DrawBufferMode);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glNewObjectBufferATI = new Command();
+  public static final Command glNewObjectBufferATI = new Command(1);
   private static void glNewObjectBufferATI() {
     Command cmd = glNewObjectBufferATI;
     cmd.returnGroup = _null_;
     cmd.addParam("usage", GLenum, _null_);
     cmd.extension = GL_ATI_vertex_array_object;
   }
-  public static final Command glTextureStorage3DMultisampleEXT = new Command();
+  public static final Command glTextureStorage3DMultisampleEXT = new Command(3);
   private static void glTextureStorage3DMultisampleEXT() {
     Command cmd = glTextureStorage3DMultisampleEXT;
     cmd.returnGroup = _null_;
@@ -24115,108 +24115,108 @@ public class GLmetadata {
     cmd.addParam("fixedsamplelocations", GLboolean, Boolean);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glMultiTexCoord2bvOES = new Command();
+  public static final Command glMultiTexCoord2bvOES = new Command(1);
   private static void glMultiTexCoord2bvOES() {
     Command cmd = glMultiTexCoord2bvOES;
     cmd.returnGroup = _null_;
     cmd.addParam("texture", GLenum, _null_);
     cmd.extension = GL_OES_byte_coordinates;
   }
-  public static final Command glGetProgramEnvParameterfvARB = new Command();
+  public static final Command glGetProgramEnvParameterfvARB = new Command(1);
   private static void glGetProgramEnvParameterfvARB() {
     Command cmd = glGetProgramEnvParameterfvARB;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_ARB_vertex_program;
   }
-  public static final Command glMakeImageHandleResidentARB = new Command();
+  public static final Command glMakeImageHandleResidentARB = new Command(1);
   private static void glMakeImageHandleResidentARB() {
     Command cmd = glMakeImageHandleResidentARB;
     cmd.returnGroup = _null_;
     cmd.addParam("access", GLenum, _null_);
     cmd.extension = GL_ARB_bindless_texture;
   }
-  public static final Command glMultiTexCoord1dv = new Command();
+  public static final Command glMultiTexCoord1dv = new Command(1);
   private static void glMultiTexCoord1dv() {
     Command cmd = glMultiTexCoord1dv;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
   }
-  public static final Command glMatrixLoadTransposefEXT = new Command();
+  public static final Command glMatrixLoadTransposefEXT = new Command(1);
   private static void glMatrixLoadTransposefEXT() {
     Command cmd = glMatrixLoadTransposefEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, MatrixMode);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glGetVertexAttribLi64vNV = new Command();
+  public static final Command glGetVertexAttribLi64vNV = new Command(1);
   private static void glGetVertexAttribLi64vNV() {
     Command cmd = glGetVertexAttribLi64vNV;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_NV_vertex_attrib_integer_64bit;
   }
-  public static final Command glBlendEquationiOES = new Command();
+  public static final Command glBlendEquationiOES = new Command(1);
   private static void glBlendEquationiOES() {
     Command cmd = glBlendEquationiOES;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, _null_);
     cmd.extension = GL_OES_draw_buffers_indexed;
   }
-  public static final Command glCopyImageSubData = new Command();
+  public static final Command glCopyImageSubData = new Command(2);
   private static void glCopyImageSubData() {
     Command cmd = glCopyImageSubData;
     cmd.returnGroup = _null_;
     cmd.addParam("srcTarget", GLenum, _null_);
     cmd.addParam("dstTarget", GLenum, _null_);
   }
-  public static final Command glIsSync = new Command();
+  public static final Command glIsSync = new Command(0);
   private static void glIsSync() {
     Command cmd = glIsSync;
     cmd.returnGroup = Boolean;
     cmd.extension = GL_ARB_sync;
   }
-  public static final Command glMatrixRotatedEXT = new Command();
+  public static final Command glMatrixRotatedEXT = new Command(1);
   private static void glMatrixRotatedEXT() {
     Command cmd = glMatrixRotatedEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, MatrixMode);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glMultiTexCoord4fvARB = new Command();
+  public static final Command glMultiTexCoord4fvARB = new Command(1);
   private static void glMultiTexCoord4fvARB() {
     Command cmd = glMultiTexCoord4fvARB;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_ARB_multitexture;
   }
-  public static final Command glMultiDrawElementsEXT = new Command();
+  public static final Command glMultiDrawElementsEXT = new Command(2);
   private static void glMultiDrawElementsEXT() {
     Command cmd = glMultiDrawElementsEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, PrimitiveType);
     cmd.addParam("type", GLenum, DrawElementsType);
   }
-  public static final Command glMap1xOES = new Command();
+  public static final Command glMap1xOES = new Command(1);
   private static void glMap1xOES() {
     Command cmd = glMap1xOES;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_OES_fixed_point;
   }
-  public static final Command glMultiTexCoord1fv = new Command();
+  public static final Command glMultiTexCoord1fv = new Command(1);
   private static void glMultiTexCoord1fv() {
     Command cmd = glMultiTexCoord1fv;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
   }
-  public static final Command glIsFenceNV = new Command();
+  public static final Command glIsFenceNV = new Command(0);
   private static void glIsFenceNV() {
     Command cmd = glIsFenceNV;
     cmd.returnGroup = Boolean;
     cmd.extension = GL_NV_fence;
   }
-  public static final Command glFramebufferTexture3DOES = new Command();
+  public static final Command glFramebufferTexture3DOES = new Command(3);
   private static void glFramebufferTexture3DOES() {
     Command cmd = glFramebufferTexture3DOES;
     cmd.returnGroup = _null_;
@@ -24225,49 +24225,49 @@ public class GLmetadata {
     cmd.addParam("textarget", GLenum, TextureTarget);
     cmd.extension = GL_OES_texture_3D;
   }
-  public static final Command glVertexP2ui = new Command();
+  public static final Command glVertexP2ui = new Command(1);
   private static void glVertexP2ui() {
     Command cmd = glVertexP2ui;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_ARB_vertex_type_2_10_10_10_rev;
   }
-  public static final Command glGetFixedvOES = new Command();
+  public static final Command glGetFixedvOES = new Command(1);
   private static void glGetFixedvOES() {
     Command cmd = glGetFixedvOES;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_OES_fixed_point;
   }
-  public static final Command glLoadIdentityDeformationMapSGIX = new Command();
+  public static final Command glLoadIdentityDeformationMapSGIX = new Command(1);
   private static void glLoadIdentityDeformationMapSGIX() {
     Command cmd = glLoadIdentityDeformationMapSGIX;
     cmd.returnGroup = _null_;
     cmd.addParam("mask", GLbitfield, FfdMaskSGIX);
     cmd.extension = GL_SGIX_polynomial_ffd;
   }
-  public static final Command glHintPGI = new Command();
+  public static final Command glHintPGI = new Command(1);
   private static void glHintPGI() {
     Command cmd = glHintPGI;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_PGI_misc_hints;
   }
-  public static final Command glBindRenderbuffer = new Command();
+  public static final Command glBindRenderbuffer = new Command(1);
   private static void glBindRenderbuffer() {
     Command cmd = glBindRenderbuffer;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_ARB_framebuffer_object;
   }
-  public static final Command glAlphaFuncxOES = new Command();
+  public static final Command glAlphaFuncxOES = new Command(1);
   private static void glAlphaFuncxOES() {
     Command cmd = glAlphaFuncxOES;
     cmd.returnGroup = _null_;
     cmd.addParam("func", GLenum, _null_);
     cmd.extension = GL_OES_fixed_point;
   }
-  public static final Command glTexGeniOES = new Command();
+  public static final Command glTexGeniOES = new Command(2);
   private static void glTexGeniOES() {
     Command cmd = glTexGeniOES;
     cmd.returnGroup = _null_;
@@ -24275,54 +24275,54 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_OES_texture_cube_map;
   }
-  public static final Command glUseProgramStages = new Command();
+  public static final Command glUseProgramStages = new Command(1);
   private static void glUseProgramStages() {
     Command cmd = glUseProgramStages;
     cmd.returnGroup = _null_;
     cmd.addParam("stages", GLbitfield, _null_);
     cmd.extension = GL_ARB_separate_shader_objects;
   }
-  public static final Command glNamedBufferDataEXT = new Command();
+  public static final Command glNamedBufferDataEXT = new Command(1);
   private static void glNamedBufferDataEXT() {
     Command cmd = glNamedBufferDataEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("usage", GLenum, _null_);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glProgramSubroutineParametersuivNV = new Command();
+  public static final Command glProgramSubroutineParametersuivNV = new Command(1);
   private static void glProgramSubroutineParametersuivNV() {
     Command cmd = glProgramSubroutineParametersuivNV;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_NV_gpu_program5;
   }
-  public static final Command glSecondaryColorPointerListIBM = new Command();
+  public static final Command glSecondaryColorPointerListIBM = new Command(1);
   private static void glSecondaryColorPointerListIBM() {
     Command cmd = glSecondaryColorPointerListIBM;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_IBM_vertex_array_lists;
   }
-  public static final Command glNamedFramebufferTextureEXT = new Command();
+  public static final Command glNamedFramebufferTextureEXT = new Command(1);
   private static void glNamedFramebufferTextureEXT() {
     Command cmd = glNamedFramebufferTextureEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("attachment", GLenum, _null_);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glAccum = new Command();
+  public static final Command glAccum = new Command(1);
   private static void glAccum() {
     Command cmd = glAccum;
     cmd.returnGroup = _null_;
     cmd.addParam("op", GLenum, AccumOp);
   }
-  public static final Command glShadeModel = new Command();
+  public static final Command glShadeModel = new Command(1);
   private static void glShadeModel() {
     Command cmd = glShadeModel;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, ShadingModel);
   }
-  public static final Command glFragmentLightivSGIX = new Command();
+  public static final Command glFragmentLightivSGIX = new Command(2);
   private static void glFragmentLightivSGIX() {
     Command cmd = glFragmentLightivSGIX;
     cmd.returnGroup = _null_;
@@ -24330,28 +24330,28 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_SGIX_fragment_lighting;
   }
-  public static final Command glUniformMatrix4fvARB = new Command();
+  public static final Command glUniformMatrix4fvARB = new Command(1);
   private static void glUniformMatrix4fvARB() {
     Command cmd = glUniformMatrix4fvARB;
     cmd.returnGroup = _null_;
     cmd.addParam("transpose", GLboolean, Boolean);
     cmd.extension = GL_ARB_shader_objects;
   }
-  public static final Command glGetVideoCaptureStreamfvNV = new Command();
+  public static final Command glGetVideoCaptureStreamfvNV = new Command(1);
   private static void glGetVideoCaptureStreamfvNV() {
     Command cmd = glGetVideoCaptureStreamfvNV;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_NV_video_capture;
   }
-  public static final Command glMultiTexCoord3bvOES = new Command();
+  public static final Command glMultiTexCoord3bvOES = new Command(1);
   private static void glMultiTexCoord3bvOES() {
     Command cmd = glMultiTexCoord3bvOES;
     cmd.returnGroup = _null_;
     cmd.addParam("texture", GLenum, _null_);
     cmd.extension = GL_OES_byte_coordinates;
   }
-  public static final Command glClearNamedBufferData = new Command();
+  public static final Command glClearNamedBufferData = new Command(3);
   private static void glClearNamedBufferData() {
     Command cmd = glClearNamedBufferData;
     cmd.returnGroup = _null_;
@@ -24360,14 +24360,14 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_ARB_direct_state_access;
   }
-  public static final Command glFramebufferSamplePositionsfvAMD = new Command();
+  public static final Command glFramebufferSamplePositionsfvAMD = new Command(1);
   private static void glFramebufferSamplePositionsfvAMD() {
     Command cmd = glFramebufferSamplePositionsfvAMD;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_AMD_framebuffer_sample_positions;
   }
-  public static final Command glCoverFillPathInstancedNV = new Command();
+  public static final Command glCoverFillPathInstancedNV = new Command(3);
   private static void glCoverFillPathInstancedNV() {
     Command cmd = glCoverFillPathInstancedNV;
     cmd.returnGroup = _null_;
@@ -24376,14 +24376,14 @@ public class GLmetadata {
     cmd.addParam("transformType", GLenum, _null_);
     cmd.extension = GL_NV_path_rendering;
   }
-  public static final Command glTextureParameterIiv = new Command();
+  public static final Command glTextureParameterIiv = new Command(1);
   private static void glTextureParameterIiv() {
     Command cmd = glTextureParameterIiv;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_direct_state_access;
   }
-  public static final Command glGetHistogramParameterfvEXT = new Command();
+  public static final Command glGetHistogramParameterfvEXT = new Command(2);
   private static void glGetHistogramParameterfvEXT() {
     Command cmd = glGetHistogramParameterfvEXT;
     cmd.returnGroup = _null_;
@@ -24391,7 +24391,7 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, GetHistogramParameterPNameEXT);
     cmd.extension = GL_EXT_histogram;
   }
-  public static final Command glGetMultiTexLevelParameterfvEXT = new Command();
+  public static final Command glGetMultiTexLevelParameterfvEXT = new Command(3);
   private static void glGetMultiTexLevelParameterfvEXT() {
     Command cmd = glGetMultiTexLevelParameterfvEXT;
     cmd.returnGroup = _null_;
@@ -24400,7 +24400,7 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, GetTextureParameter);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glCopyMultiTexSubImage3DEXT = new Command();
+  public static final Command glCopyMultiTexSubImage3DEXT = new Command(2);
   private static void glCopyMultiTexSubImage3DEXT() {
     Command cmd = glCopyMultiTexSubImage3DEXT;
     cmd.returnGroup = _null_;
@@ -24408,14 +24408,14 @@ public class GLmetadata {
     cmd.addParam("target", GLenum, TextureTarget);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glUniformMatrix4x2fvNV = new Command();
+  public static final Command glUniformMatrix4x2fvNV = new Command(1);
   private static void glUniformMatrix4x2fvNV() {
     Command cmd = glUniformMatrix4x2fvNV;
     cmd.returnGroup = _null_;
     cmd.addParam("transpose", GLboolean, Boolean);
     cmd.extension = GL_NV_non_square_matrices;
   }
-  public static final Command glCompressedMultiTexImage2DEXT = new Command();
+  public static final Command glCompressedMultiTexImage2DEXT = new Command(3);
   private static void glCompressedMultiTexImage2DEXT() {
     Command cmd = glCompressedMultiTexImage2DEXT;
     cmd.returnGroup = _null_;
@@ -24424,7 +24424,7 @@ public class GLmetadata {
     cmd.addParam("internalformat", GLenum, _null_);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glMultiTexSubImage3DEXT = new Command();
+  public static final Command glMultiTexSubImage3DEXT = new Command(4);
   private static void glMultiTexSubImage3DEXT() {
     Command cmd = glMultiTexSubImage3DEXT;
     cmd.returnGroup = _null_;
@@ -24434,7 +24434,7 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, PixelType);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glMapParameterivNV = new Command();
+  public static final Command glMapParameterivNV = new Command(2);
   private static void glMapParameterivNV() {
     Command cmd = glMapParameterivNV;
     cmd.returnGroup = _null_;
@@ -24442,21 +24442,21 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_NV_evaluators;
   }
-  public static final Command glProgramLocalParametersI4uivNV = new Command();
+  public static final Command glProgramLocalParametersI4uivNV = new Command(1);
   private static void glProgramLocalParametersI4uivNV() {
     Command cmd = glProgramLocalParametersI4uivNV;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_NV_gpu_program4;
   }
-  public static final Command glProgramLocalParameterI4uiNV = new Command();
+  public static final Command glProgramLocalParameterI4uiNV = new Command(1);
   private static void glProgramLocalParameterI4uiNV() {
     Command cmd = glProgramLocalParameterI4uiNV;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_NV_gpu_program4;
   }
-  public static final Command glHistogram = new Command();
+  public static final Command glHistogram = new Command(3);
   private static void glHistogram() {
     Command cmd = glHistogram;
     cmd.returnGroup = _null_;
@@ -24465,20 +24465,20 @@ public class GLmetadata {
     cmd.addParam("sink", GLboolean, Boolean);
     cmd.extension = GL_ARB_imaging;
   }
-  public static final Command glClientActiveTexture = new Command();
+  public static final Command glClientActiveTexture = new Command(1);
   private static void glClientActiveTexture() {
     Command cmd = glClientActiveTexture;
     cmd.returnGroup = _null_;
     cmd.addParam("texture", GLenum, _null_);
   }
-  public static final Command glVertexWeightPointerEXT = new Command();
+  public static final Command glVertexWeightPointerEXT = new Command(1);
   private static void glVertexWeightPointerEXT() {
     Command cmd = glVertexWeightPointerEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_EXT_vertex_weighting;
   }
-  public static final Command glTexFilterFuncSGIS = new Command();
+  public static final Command glTexFilterFuncSGIS = new Command(2);
   private static void glTexFilterFuncSGIS() {
     Command cmd = glTexFilterFuncSGIS;
     cmd.returnGroup = _null_;
@@ -24486,14 +24486,14 @@ public class GLmetadata {
     cmd.addParam("filter", GLenum, _null_);
     cmd.extension = GL_SGIS_texture_filter4;
   }
-  public static final Command glIsEnablediEXT = new Command();
+  public static final Command glIsEnablediEXT = new Command(1);
   private static void glIsEnablediEXT() {
     Command cmd = glIsEnablediEXT;
     cmd.returnGroup = Boolean;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_EXT_draw_buffers_indexed;
   }
-  public static final Command glRenderbufferStorageMultisampleIMG = new Command();
+  public static final Command glRenderbufferStorageMultisampleIMG = new Command(2);
   private static void glRenderbufferStorageMultisampleIMG() {
     Command cmd = glRenderbufferStorageMultisampleIMG;
     cmd.returnGroup = _null_;
@@ -24501,41 +24501,41 @@ public class GLmetadata {
     cmd.addParam("internalformat", GLenum, _null_);
     cmd.extension = GL_IMG_multisampled_render_to_texture;
   }
-  public static final Command glGetTexEnviv = new Command();
+  public static final Command glGetTexEnviv = new Command(2);
   private static void glGetTexEnviv() {
     Command cmd = glGetTexEnviv;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, TextureEnvTarget);
     cmd.addParam("pname", GLenum, TextureEnvParameter);
   }
-  public static final Command glGetVertexAttribIuiv = new Command();
+  public static final Command glGetVertexAttribIuiv = new Command(1);
   private static void glGetVertexAttribIuiv() {
     Command cmd = glGetVertexAttribIuiv;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
   }
-  public static final Command glHint = new Command();
+  public static final Command glHint = new Command(2);
   private static void glHint() {
     Command cmd = glHint;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, HintTarget);
     cmd.addParam("mode", GLenum, HintMode);
   }
-  public static final Command glMultiTexCoord1iARB = new Command();
+  public static final Command glMultiTexCoord1iARB = new Command(1);
   private static void glMultiTexCoord1iARB() {
     Command cmd = glMultiTexCoord1iARB;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_ARB_multitexture;
   }
-  public static final Command glColorPointervINTEL = new Command();
+  public static final Command glColorPointervINTEL = new Command(1);
   private static void glColorPointervINTEL() {
     Command cmd = glColorPointervINTEL;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, VertexPointerType);
     cmd.extension = GL_INTEL_parallel_arrays;
   }
-  public static final Command glCompressedTexSubImage3DOES = new Command();
+  public static final Command glCompressedTexSubImage3DOES = new Command(2);
   private static void glCompressedTexSubImage3DOES() {
     Command cmd = glCompressedTexSubImage3DOES;
     cmd.returnGroup = _null_;
@@ -24543,7 +24543,7 @@ public class GLmetadata {
     cmd.addParam("format", GLenum, _null_);
     cmd.extension = GL_OES_texture_3D;
   }
-  public static final Command glGetProgramParameterfvNV = new Command();
+  public static final Command glGetProgramParameterfvNV = new Command(2);
   private static void glGetProgramParameterfvNV() {
     Command cmd = glGetProgramParameterfvNV;
     cmd.returnGroup = _null_;
@@ -24551,14 +24551,14 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_NV_vertex_program;
   }
-  public static final Command glSetMultisamplefvAMD = new Command();
+  public static final Command glSetMultisamplefvAMD = new Command(1);
   private static void glSetMultisamplefvAMD() {
     Command cmd = glSetMultisamplefvAMD;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_AMD_sample_positions;
   }
-  public static final Command glGetTextureParameterivEXT = new Command();
+  public static final Command glGetTextureParameterivEXT = new Command(2);
   private static void glGetTextureParameterivEXT() {
     Command cmd = glGetTextureParameterivEXT;
     cmd.returnGroup = _null_;
@@ -24566,19 +24566,19 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, GetTextureParameter);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glGetActiveUniform = new Command();
+  public static final Command glGetActiveUniform = new Command(1);
   private static void glGetActiveUniform() {
     Command cmd = glGetActiveUniform;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
   }
-  public static final Command glMultiDrawArraysEXT = new Command();
+  public static final Command glMultiDrawArraysEXT = new Command(1);
   private static void glMultiDrawArraysEXT() {
     Command cmd = glMultiDrawArraysEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, PrimitiveType);
   }
-  public static final Command glCombinerOutputNV = new Command();
+  public static final Command glCombinerOutputNV = new Command(10);
   private static void glCombinerOutputNV() {
     Command cmd = glCombinerOutputNV;
     cmd.returnGroup = _null_;
@@ -24594,7 +24594,7 @@ public class GLmetadata {
     cmd.addParam("muxSum", GLboolean, Boolean);
     cmd.extension = GL_NV_register_combiners;
   }
-  public static final Command glTexImage3DOES = new Command();
+  public static final Command glTexImage3DOES = new Command(4);
   private static void glTexImage3DOES() {
     Command cmd = glTexImage3DOES;
     cmd.returnGroup = _null_;
@@ -24604,7 +24604,7 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_OES_texture_3D;
   }
-  public static final Command glNamedFramebufferTexture1DEXT = new Command();
+  public static final Command glNamedFramebufferTexture1DEXT = new Command(2);
   private static void glNamedFramebufferTexture1DEXT() {
     Command cmd = glNamedFramebufferTexture1DEXT;
     cmd.returnGroup = _null_;
@@ -24612,7 +24612,7 @@ public class GLmetadata {
     cmd.addParam("textarget", GLenum, TextureTarget);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glGetMultiTexImageEXT = new Command();
+  public static final Command glGetMultiTexImageEXT = new Command(4);
   private static void glGetMultiTexImageEXT() {
     Command cmd = glGetMultiTexImageEXT;
     cmd.returnGroup = _null_;
@@ -24622,14 +24622,14 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, PixelType);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glLightModelxvOES = new Command();
+  public static final Command glLightModelxvOES = new Command(1);
   private static void glLightModelxvOES() {
     Command cmd = glLightModelxvOES;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_OES_fixed_point;
   }
-  public static final Command glCopyColorTable = new Command();
+  public static final Command glCopyColorTable = new Command(2);
   private static void glCopyColorTable() {
     Command cmd = glCopyColorTable;
     cmd.returnGroup = _null_;
@@ -24637,7 +24637,7 @@ public class GLmetadata {
     cmd.addParam("internalformat", GLenum, InternalFormat);
     cmd.extension = GL_ARB_imaging;
   }
-  public static final Command glHistogramEXT = new Command();
+  public static final Command glHistogramEXT = new Command(3);
   private static void glHistogramEXT() {
     Command cmd = glHistogramEXT;
     cmd.returnGroup = _null_;
@@ -24646,14 +24646,14 @@ public class GLmetadata {
     cmd.addParam("sink", GLboolean, Boolean);
     cmd.extension = GL_EXT_histogram;
   }
-  public static final Command glTexCoordP3uiv = new Command();
+  public static final Command glTexCoordP3uiv = new Command(1);
   private static void glTexCoordP3uiv() {
     Command cmd = glTexCoordP3uiv;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_ARB_vertex_type_2_10_10_10_rev;
   }
-  public static final Command glBindImageTexture = new Command();
+  public static final Command glBindImageTexture = new Command(3);
   private static void glBindImageTexture() {
     Command cmd = glBindImageTexture;
     cmd.returnGroup = _null_;
@@ -24662,82 +24662,82 @@ public class GLmetadata {
     cmd.addParam("format", GLenum, _null_);
     cmd.extension = GL_ARB_shader_image_load_store;
   }
-  public static final Command glNamedProgramLocalParameter4fEXT = new Command();
+  public static final Command glNamedProgramLocalParameter4fEXT = new Command(1);
   private static void glNamedProgramLocalParameter4fEXT() {
     Command cmd = glNamedProgramLocalParameter4fEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glWaitSync = new Command();
+  public static final Command glWaitSync = new Command(1);
   private static void glWaitSync() {
     Command cmd = glWaitSync;
     cmd.returnGroup = _null_;
     cmd.addParam("flags", GLbitfield, _null_);
     cmd.extension = GL_ARB_sync;
   }
-  public static final Command glListParameteriSGIX = new Command();
+  public static final Command glListParameteriSGIX = new Command(1);
   private static void glListParameteriSGIX() {
     Command cmd = glListParameteriSGIX;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, ListParameterName);
     cmd.extension = GL_SGIX_list_priority;
   }
-  public static final Command glGetIntegerui64i_vNV = new Command();
+  public static final Command glGetIntegerui64i_vNV = new Command(1);
   private static void glGetIntegerui64i_vNV() {
     Command cmd = glGetIntegerui64i_vNV;
     cmd.returnGroup = _null_;
     cmd.addParam("value", GLenum, _null_);
     cmd.extension = GL_NV_vertex_buffer_unified_memory;
   }
-  public static final Command glTextureRenderbufferEXT = new Command();
+  public static final Command glTextureRenderbufferEXT = new Command(1);
   private static void glTextureRenderbufferEXT() {
     Command cmd = glTextureRenderbufferEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, TextureTarget);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glElementPointerATI = new Command();
+  public static final Command glElementPointerATI = new Command(1);
   private static void glElementPointerATI() {
     Command cmd = glElementPointerATI;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_ATI_element_array;
   }
-  public static final Command glVertexStream1sATI = new Command();
+  public static final Command glVertexStream1sATI = new Command(1);
   private static void glVertexStream1sATI() {
     Command cmd = glVertexStream1sATI;
     cmd.returnGroup = _null_;
     cmd.addParam("stream", GLenum, _null_);
     cmd.extension = GL_ATI_vertex_streams;
   }
-  public static final Command glExtIsProgramBinaryQCOM = new Command();
+  public static final Command glExtIsProgramBinaryQCOM = new Command(0);
   private static void glExtIsProgramBinaryQCOM() {
     Command cmd = glExtIsProgramBinaryQCOM;
     cmd.returnGroup = Boolean;
   }
-  public static final Command glProgramUniformMatrix2x3fvEXT = new Command();
+  public static final Command glProgramUniformMatrix2x3fvEXT = new Command(1);
   private static void glProgramUniformMatrix2x3fvEXT() {
     Command cmd = glProgramUniformMatrix2x3fvEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("transpose", GLboolean, Boolean);
     cmd.extension = GL_EXT_separate_shader_objects;
   }
-  public static final Command glDrawRangeElementsBaseVertexEXT = new Command();
+  public static final Command glDrawRangeElementsBaseVertexEXT = new Command(2);
   private static void glDrawRangeElementsBaseVertexEXT() {
     Command cmd = glDrawRangeElementsBaseVertexEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, PrimitiveType);
     cmd.addParam("type", GLenum, DrawElementsType);
   }
-  public static final Command glGetObjectLabelEXT = new Command();
+  public static final Command glGetObjectLabelEXT = new Command(1);
   private static void glGetObjectLabelEXT() {
     Command cmd = glGetObjectLabelEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_EXT_debug_label;
   }
-  public static final Command glTextureView = new Command();
+  public static final Command glTextureView = new Command(2);
   private static void glTextureView() {
     Command cmd = glTextureView;
     cmd.returnGroup = _null_;
@@ -24745,21 +24745,21 @@ public class GLmetadata {
     cmd.addParam("internalformat", GLenum, _null_);
     cmd.extension = GL_ARB_texture_view;
   }
-  public static final Command glImportMemoryFdEXT = new Command();
+  public static final Command glImportMemoryFdEXT = new Command(1);
   private static void glImportMemoryFdEXT() {
     Command cmd = glImportMemoryFdEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("handleType", GLenum, ExternalHandleType);
     cmd.extension = GL_EXT_memory_object_fd;
   }
-  public static final Command glMatrixMult3x2fNV = new Command();
+  public static final Command glMatrixMult3x2fNV = new Command(1);
   private static void glMatrixMult3x2fNV() {
     Command cmd = glMatrixMult3x2fNV;
     cmd.returnGroup = _null_;
     cmd.addParam("matrixMode", GLenum, _null_);
     cmd.extension = GL_NV_path_rendering;
   }
-  public static final Command glVertexAttribP1ui = new Command();
+  public static final Command glVertexAttribP1ui = new Command(2);
   private static void glVertexAttribP1ui() {
     Command cmd = glVertexAttribP1ui;
     cmd.returnGroup = _null_;
@@ -24767,61 +24767,61 @@ public class GLmetadata {
     cmd.addParam("normalized", GLboolean, Boolean);
     cmd.extension = GL_ARB_vertex_type_2_10_10_10_rev;
   }
-  public static final Command glLightEnviSGIX = new Command();
+  public static final Command glLightEnviSGIX = new Command(1);
   private static void glLightEnviSGIX() {
     Command cmd = glLightEnviSGIX;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, LightEnvParameterSGIX);
     cmd.extension = GL_SGIX_fragment_lighting;
   }
-  public static final Command glIsVertexArrayOES = new Command();
+  public static final Command glIsVertexArrayOES = new Command(0);
   private static void glIsVertexArrayOES() {
     Command cmd = glIsVertexArrayOES;
     cmd.returnGroup = Boolean;
     cmd.extension = GL_OES_vertex_array_object;
   }
-  public static final Command glDrawArraysIndirect = new Command();
+  public static final Command glDrawArraysIndirect = new Command(1);
   private static void glDrawArraysIndirect() {
     Command cmd = glDrawArraysIndirect;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, PrimitiveType);
     cmd.extension = GL_ARB_draw_indirect;
   }
-  public static final Command glIsPointInFillPathNV = new Command();
+  public static final Command glIsPointInFillPathNV = new Command(0);
   private static void glIsPointInFillPathNV() {
     Command cmd = glIsPointInFillPathNV;
     cmd.returnGroup = Boolean;
     cmd.extension = GL_NV_path_rendering;
   }
-  public static final Command glTextureStorageMem1DEXT = new Command();
+  public static final Command glTextureStorageMem1DEXT = new Command(1);
   private static void glTextureStorageMem1DEXT() {
     Command cmd = glTextureStorageMem1DEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("internalFormat", GLenum, _null_);
     cmd.extension = GL_EXT_memory_object;
   }
-  public static final Command glFragmentLightModelfvSGIX = new Command();
+  public static final Command glFragmentLightModelfvSGIX = new Command(1);
   private static void glFragmentLightModelfvSGIX() {
     Command cmd = glFragmentLightModelfvSGIX;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, FragmentLightModelParameterSGIX);
     cmd.extension = GL_SGIX_fragment_lighting;
   }
-  public static final Command glGetNamedFramebufferParameterivEXT = new Command();
+  public static final Command glGetNamedFramebufferParameterivEXT = new Command(1);
   private static void glGetNamedFramebufferParameterivEXT() {
     Command cmd = glGetNamedFramebufferParameterivEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glGetSamplerParameterIivEXT = new Command();
+  public static final Command glGetSamplerParameterIivEXT = new Command(1);
   private static void glGetSamplerParameterIivEXT() {
     Command cmd = glGetSamplerParameterIivEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_EXT_texture_border_clamp;
   }
-  public static final Command glTexGenxvOES = new Command();
+  public static final Command glTexGenxvOES = new Command(2);
   private static void glTexGenxvOES() {
     Command cmd = glTexGenxvOES;
     cmd.returnGroup = _null_;
@@ -24829,20 +24829,20 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_OES_texture_cube_map;
   }
-  public static final Command glTextureParameteriv = new Command();
+  public static final Command glTextureParameteriv = new Command(1);
   private static void glTextureParameteriv() {
     Command cmd = glTextureParameteriv;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_direct_state_access;
   }
-  public static final Command glIsTransformFeedback = new Command();
+  public static final Command glIsTransformFeedback = new Command(0);
   private static void glIsTransformFeedback() {
     Command cmd = glIsTransformFeedback;
     cmd.returnGroup = Boolean;
     cmd.extension = GL_ARB_transform_feedback2;
   }
-  public static final Command glMapBufferRangeEXT = new Command();
+  public static final Command glMapBufferRangeEXT = new Command(2);
   private static void glMapBufferRangeEXT() {
     Command cmd = glMapBufferRangeEXT;
     cmd.returnGroup = _null_;
@@ -24850,7 +24850,7 @@ public class GLmetadata {
     cmd.addParam("access", GLbitfield, _null_);
     cmd.extension = GL_EXT_map_buffer_range;
   }
-  public static final Command glBlendFuncSeparateiOES = new Command();
+  public static final Command glBlendFuncSeparateiOES = new Command(4);
   private static void glBlendFuncSeparateiOES() {
     Command cmd = glBlendFuncSeparateiOES;
     cmd.returnGroup = _null_;
@@ -24860,81 +24860,81 @@ public class GLmetadata {
     cmd.addParam("dstAlpha", GLenum, _null_);
     cmd.extension = GL_OES_draw_buffers_indexed;
   }
-  public static final Command glDrawRangeElements = new Command();
+  public static final Command glDrawRangeElements = new Command(2);
   private static void glDrawRangeElements() {
     Command cmd = glDrawRangeElements;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, PrimitiveType);
     cmd.addParam("type", GLenum, DrawElementsType);
   }
-  public static final Command glDrawTransformFeedbackStreamInstanced = new Command();
+  public static final Command glDrawTransformFeedbackStreamInstanced = new Command(1);
   private static void glDrawTransformFeedbackStreamInstanced() {
     Command cmd = glDrawTransformFeedbackStreamInstanced;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, PrimitiveType);
   }
-  public static final Command glGetProgramEnvParameterIuivNV = new Command();
+  public static final Command glGetProgramEnvParameterIuivNV = new Command(1);
   private static void glGetProgramEnvParameterIuivNV() {
     Command cmd = glGetProgramEnvParameterIuivNV;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_NV_gpu_program4;
   }
-  public static final Command glProgramUniformMatrix3x2dvEXT = new Command();
+  public static final Command glProgramUniformMatrix3x2dvEXT = new Command(1);
   private static void glProgramUniformMatrix3x2dvEXT() {
     Command cmd = glProgramUniformMatrix3x2dvEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("transpose", GLboolean, Boolean);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glGetSamplerParameterIuivOES = new Command();
+  public static final Command glGetSamplerParameterIuivOES = new Command(1);
   private static void glGetSamplerParameterIuivOES() {
     Command cmd = glGetSamplerParameterIuivOES;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_OES_texture_border_clamp;
   }
-  public static final Command glVertexP2uiv = new Command();
+  public static final Command glVertexP2uiv = new Command(1);
   private static void glVertexP2uiv() {
     Command cmd = glVertexP2uiv;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_ARB_vertex_type_2_10_10_10_rev;
   }
-  public static final Command glUniformMatrix2x4fv = new Command();
+  public static final Command glUniformMatrix2x4fv = new Command(1);
   private static void glUniformMatrix2x4fv() {
     Command cmd = glUniformMatrix2x4fv;
     cmd.returnGroup = _null_;
     cmd.addParam("transpose", GLboolean, Boolean);
   }
-  public static final Command glGetSamplerParameterIivOES = new Command();
+  public static final Command glGetSamplerParameterIivOES = new Command(1);
   private static void glGetSamplerParameterIivOES() {
     Command cmd = glGetSamplerParameterIivOES;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_OES_texture_border_clamp;
   }
-  public static final Command glMultiDrawElementsIndirectAMD = new Command();
+  public static final Command glMultiDrawElementsIndirectAMD = new Command(2);
   private static void glMultiDrawElementsIndirectAMD() {
     Command cmd = glMultiDrawElementsIndirectAMD;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, PrimitiveType);
     cmd.addParam("type", GLenum, _null_);
   }
-  public static final Command glClipPlanefOES = new Command();
+  public static final Command glClipPlanefOES = new Command(1);
   private static void glClipPlanefOES() {
     Command cmd = glClipPlanefOES;
     cmd.returnGroup = _null_;
     cmd.addParam("plane", GLenum, _null_);
   }
-  public static final Command glInvalidateFramebuffer = new Command();
+  public static final Command glInvalidateFramebuffer = new Command(2);
   private static void glInvalidateFramebuffer() {
     Command cmd = glInvalidateFramebuffer;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.addParam("attachments", GLenum, _null_);
   }
-  public static final Command glLGPUCopyImageSubDataNVX = new Command();
+  public static final Command glLGPUCopyImageSubDataNVX = new Command(3);
   private static void glLGPUCopyImageSubDataNVX() {
     Command cmd = glLGPUCopyImageSubDataNVX;
     cmd.returnGroup = _null_;
@@ -24943,14 +24943,14 @@ public class GLmetadata {
     cmd.addParam("dstTarget", GLenum, _null_);
     cmd.extension = GL_NVX_linked_gpu_multicast;
   }
-  public static final Command glVertexStream3dvATI = new Command();
+  public static final Command glVertexStream3dvATI = new Command(1);
   private static void glVertexStream3dvATI() {
     Command cmd = glVertexStream3dvATI;
     cmd.returnGroup = _null_;
     cmd.addParam("stream", GLenum, _null_);
     cmd.extension = GL_ATI_vertex_streams;
   }
-  public static final Command glMultiTexGenfvEXT = new Command();
+  public static final Command glMultiTexGenfvEXT = new Command(3);
   private static void glMultiTexGenfvEXT() {
     Command cmd = glMultiTexGenfvEXT;
     cmd.returnGroup = _null_;
@@ -24959,21 +24959,21 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, TextureGenParameter);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glWaitSemaphoreEXT = new Command();
+  public static final Command glWaitSemaphoreEXT = new Command(1);
   private static void glWaitSemaphoreEXT() {
     Command cmd = glWaitSemaphoreEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("srcLayouts", GLenum, TextureLayout);
     cmd.extension = GL_EXT_semaphore;
   }
-  public static final Command glRenderGpuMaskNV = new Command();
+  public static final Command glRenderGpuMaskNV = new Command(1);
   private static void glRenderGpuMaskNV() {
     Command cmd = glRenderGpuMaskNV;
     cmd.returnGroup = _null_;
     cmd.addParam("mask", GLbitfield, _null_);
     cmd.extension = GL_NV_gpu_multicast;
   }
-  public static final Command glColorTableParameterivSGI = new Command();
+  public static final Command glColorTableParameterivSGI = new Command(2);
   private static void glColorTableParameterivSGI() {
     Command cmd = glColorTableParameterivSGI;
     cmd.returnGroup = _null_;
@@ -24981,7 +24981,7 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, ColorTableParameterPNameSGI);
     cmd.extension = GL_SGI_color_table;
   }
-  public static final Command glGetMultiTexEnvivEXT = new Command();
+  public static final Command glGetMultiTexEnvivEXT = new Command(3);
   private static void glGetMultiTexEnvivEXT() {
     Command cmd = glGetMultiTexEnvivEXT;
     cmd.returnGroup = _null_;
@@ -24990,14 +24990,14 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, TextureEnvParameter);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glProgramLocalParametersI4ivNV = new Command();
+  public static final Command glProgramLocalParametersI4ivNV = new Command(1);
   private static void glProgramLocalParametersI4ivNV() {
     Command cmd = glProgramLocalParametersI4ivNV;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_NV_gpu_program4;
   }
-  public static final Command glGetMultiTexGendvEXT = new Command();
+  public static final Command glGetMultiTexGendvEXT = new Command(3);
   private static void glGetMultiTexGendvEXT() {
     Command cmd = glGetMultiTexGendvEXT;
     cmd.returnGroup = _null_;
@@ -25006,14 +25006,14 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, TextureGenParameter);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glTextureParameterIuiv = new Command();
+  public static final Command glTextureParameterIuiv = new Command(1);
   private static void glTextureParameterIuiv() {
     Command cmd = glTextureParameterIuiv;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_direct_state_access;
   }
-  public static final Command glGetnColorTable = new Command();
+  public static final Command glGetnColorTable = new Command(3);
   private static void glGetnColorTable() {
     Command cmd = glGetnColorTable;
     cmd.returnGroup = _null_;
@@ -25021,12 +25021,12 @@ public class GLmetadata {
     cmd.addParam("format", GLenum, _null_);
     cmd.addParam("type", GLenum, _null_);
   }
-  public static final Command glIsBuffer = new Command();
+  public static final Command glIsBuffer = new Command(0);
   private static void glIsBuffer() {
     Command cmd = glIsBuffer;
     cmd.returnGroup = Boolean;
   }
-  public static final Command glTexSubImage2DEXT = new Command();
+  public static final Command glTexSubImage2DEXT = new Command(3);
   private static void glTexSubImage2DEXT() {
     Command cmd = glTexSubImage2DEXT;
     cmd.returnGroup = _null_;
@@ -25034,14 +25034,14 @@ public class GLmetadata {
     cmd.addParam("format", GLenum, PixelFormat);
     cmd.addParam("type", GLenum, PixelType);
   }
-  public static final Command glTextureNormalEXT = new Command();
+  public static final Command glTextureNormalEXT = new Command(1);
   private static void glTextureNormalEXT() {
     Command cmd = glTextureNormalEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, _null_);
     cmd.extension = GL_EXT_texture_perturb_normal;
   }
-  public static final Command glExtTexObjectStateOverrideiQCOM = new Command();
+  public static final Command glExtTexObjectStateOverrideiQCOM = new Command(2);
   private static void glExtTexObjectStateOverrideiQCOM() {
     Command cmd = glExtTexObjectStateOverrideiQCOM;
     cmd.returnGroup = _null_;
@@ -25049,7 +25049,7 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_QCOM_extended_get;
   }
-  public static final Command glBufferStorage = new Command();
+  public static final Command glBufferStorage = new Command(2);
   private static void glBufferStorage() {
     Command cmd = glBufferStorage;
     cmd.returnGroup = _null_;
@@ -25057,21 +25057,21 @@ public class GLmetadata {
     cmd.addParam("flags", GLbitfield, _null_);
     cmd.extension = GL_ARB_buffer_storage;
   }
-  public static final Command glPointParameterfSGIS = new Command();
+  public static final Command glPointParameterfSGIS = new Command(1);
   private static void glPointParameterfSGIS() {
     Command cmd = glPointParameterfSGIS;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_SGIS_point_parameters;
   }
-  public static final Command glShaderOp1EXT = new Command();
+  public static final Command glShaderOp1EXT = new Command(1);
   private static void glShaderOp1EXT() {
     Command cmd = glShaderOp1EXT;
     cmd.returnGroup = _null_;
     cmd.addParam("op", GLenum, _null_);
     cmd.extension = GL_EXT_vertex_shader;
   }
-  public static final Command glTexImage3DEXT = new Command();
+  public static final Command glTexImage3DEXT = new Command(4);
   private static void glTexImage3DEXT() {
     Command cmd = glTexImage3DEXT;
     cmd.returnGroup = _null_;
@@ -25081,13 +25081,13 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, PixelType);
     cmd.extension = GL_EXT_texture3D;
   }
-  public static final Command glDrawTransformFeedbackEXT = new Command();
+  public static final Command glDrawTransformFeedbackEXT = new Command(1);
   private static void glDrawTransformFeedbackEXT() {
     Command cmd = glDrawTransformFeedbackEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, PrimitiveType);
   }
-  public static final Command glTexStorage3DMultisampleOES = new Command();
+  public static final Command glTexStorage3DMultisampleOES = new Command(3);
   private static void glTexStorage3DMultisampleOES() {
     Command cmd = glTexStorage3DMultisampleOES;
     cmd.returnGroup = _null_;
@@ -25096,14 +25096,14 @@ public class GLmetadata {
     cmd.addParam("fixedsamplelocations", GLboolean, Boolean);
     cmd.extension = GL_OES_texture_storage_multisample_2d_array;
   }
-  public static final Command glGetVariantPointervEXT = new Command();
+  public static final Command glGetVariantPointervEXT = new Command(1);
   private static void glGetVariantPointervEXT() {
     Command cmd = glGetVariantPointervEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("value", GLenum, _null_);
     cmd.extension = GL_EXT_vertex_shader;
   }
-  public static final Command glBlendEquationSeparateEXT = new Command();
+  public static final Command glBlendEquationSeparateEXT = new Command(2);
   private static void glBlendEquationSeparateEXT() {
     Command cmd = glBlendEquationSeparateEXT;
     cmd.returnGroup = _null_;
@@ -25111,42 +25111,42 @@ public class GLmetadata {
     cmd.addParam("modeAlpha", GLenum, BlendEquationModeEXT);
     cmd.extension = GL_EXT_blend_equation_separate;
   }
-  public static final Command glSelectPerfMonitorCountersAMD = new Command();
+  public static final Command glSelectPerfMonitorCountersAMD = new Command(1);
   private static void glSelectPerfMonitorCountersAMD() {
     Command cmd = glSelectPerfMonitorCountersAMD;
     cmd.returnGroup = _null_;
     cmd.addParam("enable", GLboolean, Boolean);
     cmd.extension = GL_AMD_performance_monitor;
   }
-  public static final Command glColorP3ui = new Command();
+  public static final Command glColorP3ui = new Command(1);
   private static void glColorP3ui() {
     Command cmd = glColorP3ui;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_ARB_vertex_type_2_10_10_10_rev;
   }
-  public static final Command glMapBuffer = new Command();
+  public static final Command glMapBuffer = new Command(2);
   private static void glMapBuffer() {
     Command cmd = glMapBuffer;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, BufferTargetARB);
     cmd.addParam("access", GLenum, BufferAccessARB);
   }
-  public static final Command glPathCommandsNV = new Command();
+  public static final Command glPathCommandsNV = new Command(1);
   private static void glPathCommandsNV() {
     Command cmd = glPathCommandsNV;
     cmd.returnGroup = _null_;
     cmd.addParam("coordType", GLenum, _null_);
     cmd.extension = GL_NV_path_rendering;
   }
-  public static final Command glMapNamedBufferEXT = new Command();
+  public static final Command glMapNamedBufferEXT = new Command(1);
   private static void glMapNamedBufferEXT() {
     Command cmd = glMapNamedBufferEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("access", GLenum, _null_);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glClipControl = new Command();
+  public static final Command glClipControl = new Command(2);
   private static void glClipControl() {
     Command cmd = glClipControl;
     cmd.returnGroup = _null_;
@@ -25154,7 +25154,7 @@ public class GLmetadata {
     cmd.addParam("depth", GLenum, _null_);
     cmd.extension = GL_ARB_clip_control;
   }
-  public static final Command glBindLightParameterEXT = new Command();
+  public static final Command glBindLightParameterEXT = new Command(2);
   private static void glBindLightParameterEXT() {
     Command cmd = glBindLightParameterEXT;
     cmd.returnGroup = _null_;
@@ -25162,41 +25162,41 @@ public class GLmetadata {
     cmd.addParam("value", GLenum, LightParameter);
     cmd.extension = GL_EXT_vertex_shader;
   }
-  public static final Command glBindBufferBase = new Command();
+  public static final Command glBindBufferBase = new Command(1);
   private static void glBindBufferBase() {
     Command cmd = glBindBufferBase;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_ARB_uniform_buffer_object;
   }
-  public static final Command glVertexAttribArrayObjectATI = new Command();
+  public static final Command glVertexAttribArrayObjectATI = new Command(2);
   private static void glVertexAttribArrayObjectATI() {
     Command cmd = glVertexAttribArrayObjectATI;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
     cmd.addParam("normalized", GLboolean, Boolean);
   }
-  public static final Command glGetCompressedTextureImageEXT = new Command();
+  public static final Command glGetCompressedTextureImageEXT = new Command(1);
   private static void glGetCompressedTextureImageEXT() {
     Command cmd = glGetCompressedTextureImageEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, TextureTarget);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glIsOcclusionQueryNV = new Command();
+  public static final Command glIsOcclusionQueryNV = new Command(0);
   private static void glIsOcclusionQueryNV() {
     Command cmd = glIsOcclusionQueryNV;
     cmd.returnGroup = Boolean;
     cmd.extension = GL_NV_occlusion_query;
   }
-  public static final Command glCopyTexSubImage3DOES = new Command();
+  public static final Command glCopyTexSubImage3DOES = new Command(1);
   private static void glCopyTexSubImage3DOES() {
     Command cmd = glCopyTexSubImage3DOES;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_OES_texture_3D;
   }
-  public static final Command glRenderbufferStorageEXT = new Command();
+  public static final Command glRenderbufferStorageEXT = new Command(2);
   private static void glRenderbufferStorageEXT() {
     Command cmd = glRenderbufferStorageEXT;
     cmd.returnGroup = _null_;
@@ -25204,20 +25204,20 @@ public class GLmetadata {
     cmd.addParam("internalformat", GLenum, _null_);
     cmd.extension = GL_EXT_framebuffer_object;
   }
-  public static final Command glWeightPointerOES = new Command();
+  public static final Command glWeightPointerOES = new Command(1);
   private static void glWeightPointerOES() {
     Command cmd = glWeightPointerOES;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_OES_matrix_palette;
   }
-  public static final Command glBlendEquationiARB = new Command();
+  public static final Command glBlendEquationiARB = new Command(1);
   private static void glBlendEquationiARB() {
     Command cmd = glBlendEquationiARB;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, _null_);
   }
-  public static final Command glMultiTexImage1DEXT = new Command();
+  public static final Command glMultiTexImage1DEXT = new Command(4);
   private static void glMultiTexImage1DEXT() {
     Command cmd = glMultiTexImage1DEXT;
     cmd.returnGroup = _null_;
@@ -25227,20 +25227,20 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, PixelType);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glFeedbackBuffer = new Command();
+  public static final Command glFeedbackBuffer = new Command(1);
   private static void glFeedbackBuffer() {
     Command cmd = glFeedbackBuffer;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, FeedbackType);
   }
-  public static final Command glTexCoordFormatNV = new Command();
+  public static final Command glTexCoordFormatNV = new Command(1);
   private static void glTexCoordFormatNV() {
     Command cmd = glTexCoordFormatNV;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_NV_vertex_buffer_unified_memory;
   }
-  public static final Command glTexStorageMem3DEXT = new Command();
+  public static final Command glTexStorageMem3DEXT = new Command(2);
   private static void glTexStorageMem3DEXT() {
     Command cmd = glTexStorageMem3DEXT;
     cmd.returnGroup = _null_;
@@ -25248,7 +25248,7 @@ public class GLmetadata {
     cmd.addParam("internalFormat", GLenum, _null_);
     cmd.extension = GL_EXT_memory_object;
   }
-  public static final Command glVertexArrayVertexAttribOffsetEXT = new Command();
+  public static final Command glVertexArrayVertexAttribOffsetEXT = new Command(2);
   private static void glVertexArrayVertexAttribOffsetEXT() {
     Command cmd = glVertexArrayVertexAttribOffsetEXT;
     cmd.returnGroup = _null_;
@@ -25256,20 +25256,20 @@ public class GLmetadata {
     cmd.addParam("normalized", GLboolean, Boolean);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glCullFace = new Command();
+  public static final Command glCullFace = new Command(1);
   private static void glCullFace() {
     Command cmd = glCullFace;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, CullFaceMode);
   }
-  public static final Command glDetailTexFuncSGIS = new Command();
+  public static final Command glDetailTexFuncSGIS = new Command(1);
   private static void glDetailTexFuncSGIS() {
     Command cmd = glDetailTexFuncSGIS;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, TextureTarget);
     cmd.extension = GL_SGIS_detail_texture;
   }
-  public static final Command glTexGenfOES = new Command();
+  public static final Command glTexGenfOES = new Command(2);
   private static void glTexGenfOES() {
     Command cmd = glTexGenfOES;
     cmd.returnGroup = _null_;
@@ -25277,14 +25277,14 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_OES_texture_cube_map;
   }
-  public static final Command glNamedBufferPageCommitmentEXT = new Command();
+  public static final Command glNamedBufferPageCommitmentEXT = new Command(1);
   private static void glNamedBufferPageCommitmentEXT() {
     Command cmd = glNamedBufferPageCommitmentEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("commit", GLboolean, Boolean);
     cmd.extension = GL_ARB_sparse_buffer;
   }
-  public static final Command glGetFramebufferAttachmentParameterivOES = new Command();
+  public static final Command glGetFramebufferAttachmentParameterivOES = new Command(3);
   private static void glGetFramebufferAttachmentParameterivOES() {
     Command cmd = glGetFramebufferAttachmentParameterivOES;
     cmd.returnGroup = _null_;
@@ -25293,20 +25293,20 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_OES_framebuffer_object;
   }
-  public static final Command glDisable = new Command();
+  public static final Command glDisable = new Command(1);
   private static void glDisable() {
     Command cmd = glDisable;
     cmd.returnGroup = _null_;
     cmd.addParam("cap", GLenum, EnableCap);
   }
-  public static final Command glGetFenceivNV = new Command();
+  public static final Command glGetFenceivNV = new Command(1);
   private static void glGetFenceivNV() {
     Command cmd = glGetFenceivNV;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_NV_fence;
   }
-  public static final Command glDebugMessageInsert = new Command();
+  public static final Command glDebugMessageInsert = new Command(3);
   private static void glDebugMessageInsert() {
     Command cmd = glDebugMessageInsert;
     cmd.returnGroup = _null_;
@@ -25315,21 +25315,21 @@ public class GLmetadata {
     cmd.addParam("severity", GLenum, _null_);
     cmd.extension = GL_KHR_debug;
   }
-  public static final Command glPixelTexGenSGIX = new Command();
+  public static final Command glPixelTexGenSGIX = new Command(1);
   private static void glPixelTexGenSGIX() {
     Command cmd = glPixelTexGenSGIX;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, _null_);
     cmd.extension = GL_SGIX_pixel_texture;
   }
-  public static final Command glAlphaFragmentOp1ATI = new Command();
+  public static final Command glAlphaFragmentOp1ATI = new Command(1);
   private static void glAlphaFragmentOp1ATI() {
     Command cmd = glAlphaFragmentOp1ATI;
     cmd.returnGroup = _null_;
     cmd.addParam("op", GLenum, _null_);
     cmd.extension = GL_ATI_fragment_shader;
   }
-  public static final Command glBindTexGenParameterEXT = new Command();
+  public static final Command glBindTexGenParameterEXT = new Command(3);
   private static void glBindTexGenParameterEXT() {
     Command cmd = glBindTexGenParameterEXT;
     cmd.returnGroup = _null_;
@@ -25338,7 +25338,7 @@ public class GLmetadata {
     cmd.addParam("value", GLenum, TextureGenParameter);
     cmd.extension = GL_EXT_vertex_shader;
   }
-  public static final Command glColorTableEXT = new Command();
+  public static final Command glColorTableEXT = new Command(4);
   private static void glColorTableEXT() {
     Command cmd = glColorTableEXT;
     cmd.returnGroup = _null_;
@@ -25348,21 +25348,21 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, PixelType);
     cmd.extension = GL_EXT_paletted_texture;
   }
-  public static final Command glEnableiEXT = new Command();
+  public static final Command glEnableiEXT = new Command(1);
   private static void glEnableiEXT() {
     Command cmd = glEnableiEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_EXT_draw_buffers_indexed;
   }
-  public static final Command glGetTexEnvfv = new Command();
+  public static final Command glGetTexEnvfv = new Command(2);
   private static void glGetTexEnvfv() {
     Command cmd = glGetTexEnvfv;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, TextureEnvTarget);
     cmd.addParam("pname", GLenum, TextureEnvParameter);
   }
-  public static final Command glTexGenivOES = new Command();
+  public static final Command glTexGenivOES = new Command(2);
   private static void glTexGenivOES() {
     Command cmd = glTexGenivOES;
     cmd.returnGroup = _null_;
@@ -25370,26 +25370,26 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_OES_texture_cube_map;
   }
-  public static final Command glGetProgramiv = new Command();
+  public static final Command glGetProgramiv = new Command(1);
   private static void glGetProgramiv() {
     Command cmd = glGetProgramiv;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
   }
-  public static final Command glClipPlane = new Command();
+  public static final Command glClipPlane = new Command(1);
   private static void glClipPlane() {
     Command cmd = glClipPlane;
     cmd.returnGroup = _null_;
     cmd.addParam("plane", GLenum, ClipPlaneName);
   }
-  public static final Command glLabelObjectEXT = new Command();
+  public static final Command glLabelObjectEXT = new Command(1);
   private static void glLabelObjectEXT() {
     Command cmd = glLabelObjectEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_EXT_debug_label;
   }
-  public static final Command glGetShaderPrecisionFormat = new Command();
+  public static final Command glGetShaderPrecisionFormat = new Command(2);
   private static void glGetShaderPrecisionFormat() {
     Command cmd = glGetShaderPrecisionFormat;
     cmd.returnGroup = _null_;
@@ -25397,41 +25397,41 @@ public class GLmetadata {
     cmd.addParam("precisiontype", GLenum, _null_);
     cmd.extension = GL_ARB_ES2_compatibility;
   }
-  public static final Command glMaterialf = new Command();
+  public static final Command glMaterialf = new Command(2);
   private static void glMaterialf() {
     Command cmd = glMaterialf;
     cmd.returnGroup = _null_;
     cmd.addParam("face", GLenum, MaterialFace);
     cmd.addParam("pname", GLenum, MaterialParameter);
   }
-  public static final Command glIsNamedBufferResidentNV = new Command();
+  public static final Command glIsNamedBufferResidentNV = new Command(0);
   private static void glIsNamedBufferResidentNV() {
     Command cmd = glIsNamedBufferResidentNV;
     cmd.returnGroup = Boolean;
     cmd.extension = GL_NV_shader_buffer_load;
   }
-  public static final Command glMateriali = new Command();
+  public static final Command glMateriali = new Command(2);
   private static void glMateriali() {
     Command cmd = glMateriali;
     cmd.returnGroup = _null_;
     cmd.addParam("face", GLenum, MaterialFace);
     cmd.addParam("pname", GLenum, MaterialParameter);
   }
-  public static final Command glProgramLocalParameter4dvARB = new Command();
+  public static final Command glProgramLocalParameter4dvARB = new Command(1);
   private static void glProgramLocalParameter4dvARB() {
     Command cmd = glProgramLocalParameter4dvARB;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_ARB_vertex_program;
   }
-  public static final Command glVertexStream4fATI = new Command();
+  public static final Command glVertexStream4fATI = new Command(1);
   private static void glVertexStream4fATI() {
     Command cmd = glVertexStream4fATI;
     cmd.returnGroup = _null_;
     cmd.addParam("stream", GLenum, _null_);
     cmd.extension = GL_ATI_vertex_streams;
   }
-  public static final Command glColorMaskiEXT = new Command();
+  public static final Command glColorMaskiEXT = new Command(4);
   private static void glColorMaskiEXT() {
     Command cmd = glColorMaskiEXT;
     cmd.returnGroup = _null_;
@@ -25441,49 +25441,49 @@ public class GLmetadata {
     cmd.addParam("a", GLboolean, Boolean);
     cmd.extension = GL_EXT_draw_buffers_indexed;
   }
-  public static final Command glGetQueryObjectui64v = new Command();
+  public static final Command glGetQueryObjectui64v = new Command(1);
   private static void glGetQueryObjectui64v() {
     Command cmd = glGetQueryObjectui64v;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_timer_query;
   }
-  public static final Command glNamedRenderbufferStorage = new Command();
+  public static final Command glNamedRenderbufferStorage = new Command(1);
   private static void glNamedRenderbufferStorage() {
     Command cmd = glNamedRenderbufferStorage;
     cmd.returnGroup = _null_;
     cmd.addParam("internalformat", GLenum, _null_);
     cmd.extension = GL_ARB_direct_state_access;
   }
-  public static final Command glVertexStream3dATI = new Command();
+  public static final Command glVertexStream3dATI = new Command(1);
   private static void glVertexStream3dATI() {
     Command cmd = glVertexStream3dATI;
     cmd.returnGroup = _null_;
     cmd.addParam("stream", GLenum, _null_);
     cmd.extension = GL_ATI_vertex_streams;
   }
-  public static final Command glMaterialx = new Command();
+  public static final Command glMaterialx = new Command(2);
   private static void glMaterialx() {
     Command cmd = glMaterialx;
     cmd.returnGroup = _null_;
     cmd.addParam("face", GLenum, _null_);
     cmd.addParam("pname", GLenum, _null_);
   }
-  public static final Command glListParameterfvSGIX = new Command();
+  public static final Command glListParameterfvSGIX = new Command(1);
   private static void glListParameterfvSGIX() {
     Command cmd = glListParameterfvSGIX;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, ListParameterName);
     cmd.extension = GL_SGIX_list_priority;
   }
-  public static final Command glSampleMapATI = new Command();
+  public static final Command glSampleMapATI = new Command(1);
   private static void glSampleMapATI() {
     Command cmd = glSampleMapATI;
     cmd.returnGroup = _null_;
     cmd.addParam("swizzle", GLenum, _null_);
     cmd.extension = GL_ATI_fragment_shader;
   }
-  public static final Command glConvolutionParameteriEXT = new Command();
+  public static final Command glConvolutionParameteriEXT = new Command(2);
   private static void glConvolutionParameteriEXT() {
     Command cmd = glConvolutionParameteriEXT;
     cmd.returnGroup = _null_;
@@ -25491,38 +25491,38 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, ConvolutionParameterEXT);
     cmd.extension = GL_EXT_convolution;
   }
-  public static final Command glAccumxOES = new Command();
+  public static final Command glAccumxOES = new Command(1);
   private static void glAccumxOES() {
     Command cmd = glAccumxOES;
     cmd.returnGroup = _null_;
     cmd.addParam("op", GLenum, _null_);
     cmd.extension = GL_OES_fixed_point;
   }
-  public static final Command glGetClipPlane = new Command();
+  public static final Command glGetClipPlane = new Command(1);
   private static void glGetClipPlane() {
     Command cmd = glGetClipPlane;
     cmd.returnGroup = _null_;
     cmd.addParam("plane", GLenum, ClipPlaneName);
   }
-  public static final Command glIsProgram = new Command();
+  public static final Command glIsProgram = new Command(0);
   private static void glIsProgram() {
     Command cmd = glIsProgram;
     cmd.returnGroup = Boolean;
   }
-  public static final Command glGetDoublei_vEXT = new Command();
+  public static final Command glGetDoublei_vEXT = new Command(1);
   private static void glGetDoublei_vEXT() {
     Command cmd = glGetDoublei_vEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glIsVertexArrayAPPLE = new Command();
+  public static final Command glIsVertexArrayAPPLE = new Command(0);
   private static void glIsVertexArrayAPPLE() {
     Command cmd = glIsVertexArrayAPPLE;
     cmd.returnGroup = Boolean;
     cmd.extension = GL_APPLE_vertex_array_object;
   }
-  public static final Command glGetPathTexGenfvNV = new Command();
+  public static final Command glGetPathTexGenfvNV = new Command(2);
   private static void glGetPathTexGenfvNV() {
     Command cmd = glGetPathTexGenfvNV;
     cmd.returnGroup = _null_;
@@ -25530,14 +25530,14 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_NV_path_rendering;
   }
-  public static final Command glSamplePatternEXT = new Command();
+  public static final Command glSamplePatternEXT = new Command(1);
   private static void glSamplePatternEXT() {
     Command cmd = glSamplePatternEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("pattern", GLenum, _null_);
     cmd.extension = GL_EXT_multisample;
   }
-  public static final Command glGetMapxvOES = new Command();
+  public static final Command glGetMapxvOES = new Command(2);
   private static void glGetMapxvOES() {
     Command cmd = glGetMapxvOES;
     cmd.returnGroup = _null_;
@@ -25545,33 +25545,33 @@ public class GLmetadata {
     cmd.addParam("query", GLenum, _null_);
     cmd.extension = GL_OES_fixed_point;
   }
-  public static final Command glBindProgramARB = new Command();
+  public static final Command glBindProgramARB = new Command(1);
   private static void glBindProgramARB() {
     Command cmd = glBindProgramARB;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_ARB_vertex_program;
   }
-  public static final Command glClearBufferfv = new Command();
+  public static final Command glClearBufferfv = new Command(1);
   private static void glClearBufferfv() {
     Command cmd = glClearBufferfv;
     cmd.returnGroup = _null_;
     cmd.addParam("buffer", GLenum, _null_);
   }
-  public static final Command glGetSamplerParameterfv = new Command();
+  public static final Command glGetSamplerParameterfv = new Command(1);
   private static void glGetSamplerParameterfv() {
     Command cmd = glGetSamplerParameterfv;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_sampler_objects;
   }
-  public static final Command glClearBufferfi = new Command();
+  public static final Command glClearBufferfi = new Command(1);
   private static void glClearBufferfi() {
     Command cmd = glClearBufferfi;
     cmd.returnGroup = _null_;
     cmd.addParam("buffer", GLenum, _null_);
   }
-  public static final Command glGetFragmentLightfvSGIX = new Command();
+  public static final Command glGetFragmentLightfvSGIX = new Command(2);
   private static void glGetFragmentLightfvSGIX() {
     Command cmd = glGetFragmentLightfvSGIX;
     cmd.returnGroup = _null_;
@@ -25579,81 +25579,81 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_SGIX_fragment_lighting;
   }
-  public static final Command glLightModeli = new Command();
+  public static final Command glLightModeli = new Command(1);
   private static void glLightModeli() {
     Command cmd = glLightModeli;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, LightModelParameter);
   }
-  public static final Command glGetTexLevelParameterfv = new Command();
+  public static final Command glGetTexLevelParameterfv = new Command(2);
   private static void glGetTexLevelParameterfv() {
     Command cmd = glGetTexLevelParameterfv;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, TextureTarget);
     cmd.addParam("pname", GLenum, GetTextureParameter);
   }
-  public static final Command glDrawRangeElementsBaseVertexOES = new Command();
+  public static final Command glDrawRangeElementsBaseVertexOES = new Command(2);
   private static void glDrawRangeElementsBaseVertexOES() {
     Command cmd = glDrawRangeElementsBaseVertexOES;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, PrimitiveType);
     cmd.addParam("type", GLenum, DrawElementsType);
   }
-  public static final Command glClearBufferiv = new Command();
+  public static final Command glClearBufferiv = new Command(1);
   private static void glClearBufferiv() {
     Command cmd = glClearBufferiv;
     cmd.returnGroup = _null_;
     cmd.addParam("buffer", GLenum, _null_);
   }
-  public static final Command glProgramEnvParameterI4uivNV = new Command();
+  public static final Command glProgramEnvParameterI4uivNV = new Command(1);
   private static void glProgramEnvParameterI4uivNV() {
     Command cmd = glProgramEnvParameterI4uivNV;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_NV_gpu_program4;
   }
-  public static final Command glCompressedTexSubImage2D = new Command();
+  public static final Command glCompressedTexSubImage2D = new Command(2);
   private static void glCompressedTexSubImage2D() {
     Command cmd = glCompressedTexSubImage2D;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, TextureTarget);
     cmd.addParam("format", GLenum, PixelFormat);
   }
-  public static final Command glLightModelf = new Command();
+  public static final Command glLightModelf = new Command(1);
   private static void glLightModelf() {
     Command cmd = glLightModelf;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, LightModelParameter);
   }
-  public static final Command glSampleMaski = new Command();
+  public static final Command glSampleMaski = new Command(1);
   private static void glSampleMaski() {
     Command cmd = glSampleMaski;
     cmd.returnGroup = _null_;
     cmd.addParam("mask", GLbitfield, _null_);
     cmd.extension = GL_ARB_texture_multisample;
   }
-  public static final Command glMatrixPushEXT = new Command();
+  public static final Command glMatrixPushEXT = new Command(1);
   private static void glMatrixPushEXT() {
     Command cmd = glMatrixPushEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, MatrixMode);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glGetNamedStringivARB = new Command();
+  public static final Command glGetNamedStringivARB = new Command(1);
   private static void glGetNamedStringivARB() {
     Command cmd = glGetNamedStringivARB;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_shading_language_include;
   }
-  public static final Command glGetTextureParameterfv = new Command();
+  public static final Command glGetTextureParameterfv = new Command(1);
   private static void glGetTextureParameterfv() {
     Command cmd = glGetTextureParameterfv;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_direct_state_access;
   }
-  public static final Command glDrawElementsInstancedANGLE = new Command();
+  public static final Command glDrawElementsInstancedANGLE = new Command(2);
   private static void glDrawElementsInstancedANGLE() {
     Command cmd = glDrawElementsInstancedANGLE;
     cmd.returnGroup = _null_;
@@ -25661,28 +25661,28 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_ANGLE_instanced_arrays;
   }
-  public static final Command glGetSamplerParameteriv = new Command();
+  public static final Command glGetSamplerParameteriv = new Command(1);
   private static void glGetSamplerParameteriv() {
     Command cmd = glGetSamplerParameteriv;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_sampler_objects;
   }
-  public static final Command glCompressedTexSubImage1D = new Command();
+  public static final Command glCompressedTexSubImage1D = new Command(2);
   private static void glCompressedTexSubImage1D() {
     Command cmd = glCompressedTexSubImage1D;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, TextureTarget);
     cmd.addParam("format", GLenum, PixelFormat);
   }
-  public static final Command glMultiTexCoord3dvARB = new Command();
+  public static final Command glMultiTexCoord3dvARB = new Command(1);
   private static void glMultiTexCoord3dvARB() {
     Command cmd = glMultiTexCoord3dvARB;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_ARB_multitexture;
   }
-  public static final Command glConvolutionParameteri = new Command();
+  public static final Command glConvolutionParameteri = new Command(2);
   private static void glConvolutionParameteri() {
     Command cmd = glConvolutionParameteri;
     cmd.returnGroup = _null_;
@@ -25690,7 +25690,7 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_imaging;
   }
-  public static final Command glConvolutionParameterf = new Command();
+  public static final Command glConvolutionParameterf = new Command(2);
   private static void glConvolutionParameterf() {
     Command cmd = glConvolutionParameterf;
     cmd.returnGroup = _null_;
@@ -25698,42 +25698,42 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_imaging;
   }
-  public static final Command glBindTextureEXT = new Command();
+  public static final Command glBindTextureEXT = new Command(1);
   private static void glBindTextureEXT() {
     Command cmd = glBindTextureEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, TextureTarget);
     cmd.extension = GL_EXT_texture_object;
   }
-  public static final Command glDrawElementsInstancedBaseVertex = new Command();
+  public static final Command glDrawElementsInstancedBaseVertex = new Command(2);
   private static void glDrawElementsInstancedBaseVertex() {
     Command cmd = glDrawElementsInstancedBaseVertex;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, PrimitiveType);
     cmd.addParam("type", GLenum, DrawElementsType);
   }
-  public static final Command glGetInvariantFloatvEXT = new Command();
+  public static final Command glGetInvariantFloatvEXT = new Command(1);
   private static void glGetInvariantFloatvEXT() {
     Command cmd = glGetInvariantFloatvEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("value", GLenum, _null_);
     cmd.extension = GL_EXT_vertex_shader;
   }
-  public static final Command glCreateQueries = new Command();
+  public static final Command glCreateQueries = new Command(1);
   private static void glCreateQueries() {
     Command cmd = glCreateQueries;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_ARB_direct_state_access;
   }
-  public static final Command glBeginTransformFeedbackNV = new Command();
+  public static final Command glBeginTransformFeedbackNV = new Command(1);
   private static void glBeginTransformFeedbackNV() {
     Command cmd = glBeginTransformFeedbackNV;
     cmd.returnGroup = _null_;
     cmd.addParam("primitiveMode", GLenum, _null_);
     cmd.extension = GL_NV_transform_feedback;
   }
-  public static final Command glImageTransformParameterfvHP = new Command();
+  public static final Command glImageTransformParameterfvHP = new Command(2);
   private static void glImageTransformParameterfvHP() {
     Command cmd = glImageTransformParameterfvHP;
     cmd.returnGroup = _null_;
@@ -25741,7 +25741,7 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_HP_image_transform;
   }
-  public static final Command glClearBufferData = new Command();
+  public static final Command glClearBufferData = new Command(4);
   private static void glClearBufferData() {
     Command cmd = glClearBufferData;
     cmd.returnGroup = _null_;
@@ -25750,14 +25750,14 @@ public class GLmetadata {
     cmd.addParam("format", GLenum, _null_);
     cmd.addParam("type", GLenum, _null_);
   }
-  public static final Command glGetActiveAttribARB = new Command();
+  public static final Command glGetActiveAttribARB = new Command(1);
   private static void glGetActiveAttribARB() {
     Command cmd = glGetActiveAttribARB;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_ARB_vertex_shader;
   }
-  public static final Command glGetImageHandleARB = new Command();
+  public static final Command glGetImageHandleARB = new Command(2);
   private static void glGetImageHandleARB() {
     Command cmd = glGetImageHandleARB;
     cmd.returnGroup = _null_;
@@ -25765,21 +25765,21 @@ public class GLmetadata {
     cmd.addParam("format", GLenum, _null_);
     cmd.extension = GL_ARB_bindless_texture;
   }
-  public static final Command glGetFloati_vNV = new Command();
+  public static final Command glGetFloati_vNV = new Command(1);
   private static void glGetFloati_vNV() {
     Command cmd = glGetFloati_vNV;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_NV_viewport_array;
   }
-  public static final Command glCompressedTexSubImage3D = new Command();
+  public static final Command glCompressedTexSubImage3D = new Command(2);
   private static void glCompressedTexSubImage3D() {
     Command cmd = glCompressedTexSubImage3D;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, TextureTarget);
     cmd.addParam("format", GLenum, PixelFormat);
   }
-  public static final Command glSwizzleEXT = new Command();
+  public static final Command glSwizzleEXT = new Command(4);
   private static void glSwizzleEXT() {
     Command cmd = glSwizzleEXT;
     cmd.returnGroup = _null_;
@@ -25789,7 +25789,7 @@ public class GLmetadata {
     cmd.addParam("outW", GLenum, _null_);
     cmd.extension = GL_EXT_vertex_shader;
   }
-  public static final Command glCopyBufferSubData = new Command();
+  public static final Command glCopyBufferSubData = new Command(2);
   private static void glCopyBufferSubData() {
     Command cmd = glCopyBufferSubData;
     cmd.returnGroup = _null_;
@@ -25797,42 +25797,42 @@ public class GLmetadata {
     cmd.addParam("writeTarget", GLenum, _null_);
     cmd.extension = GL_ARB_copy_buffer;
   }
-  public static final Command glMatrixMultfEXT = new Command();
+  public static final Command glMatrixMultfEXT = new Command(1);
   private static void glMatrixMultfEXT() {
     Command cmd = glMatrixMultfEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, MatrixMode);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glProgramUniformMatrix4x3dvEXT = new Command();
+  public static final Command glProgramUniformMatrix4x3dvEXT = new Command(1);
   private static void glProgramUniformMatrix4x3dvEXT() {
     Command cmd = glProgramUniformMatrix4x3dvEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("transpose", GLboolean, Boolean);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glGetTextureParameteriv = new Command();
+  public static final Command glGetTextureParameteriv = new Command(1);
   private static void glGetTextureParameteriv() {
     Command cmd = glGetTextureParameteriv;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_direct_state_access;
   }
-  public static final Command glMultiTexCoord2bOES = new Command();
+  public static final Command glMultiTexCoord2bOES = new Command(1);
   private static void glMultiTexCoord2bOES() {
     Command cmd = glMultiTexCoord2bOES;
     cmd.returnGroup = _null_;
     cmd.addParam("texture", GLenum, _null_);
     cmd.extension = GL_OES_byte_coordinates;
   }
-  public static final Command glMultiTexCoord2xOES = new Command();
+  public static final Command glMultiTexCoord2xOES = new Command(1);
   private static void glMultiTexCoord2xOES() {
     Command cmd = glMultiTexCoord2xOES;
     cmd.returnGroup = _null_;
     cmd.addParam("texture", GLenum, _null_);
     cmd.extension = GL_OES_fixed_point;
   }
-  public static final Command glGenerateMultiTexMipmapEXT = new Command();
+  public static final Command glGenerateMultiTexMipmapEXT = new Command(2);
   private static void glGenerateMultiTexMipmapEXT() {
     Command cmd = glGenerateMultiTexMipmapEXT;
     cmd.returnGroup = _null_;
@@ -25840,7 +25840,7 @@ public class GLmetadata {
     cmd.addParam("target", GLenum, TextureTarget);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glStencilThenCoverFillPathNV = new Command();
+  public static final Command glStencilThenCoverFillPathNV = new Command(2);
   private static void glStencilThenCoverFillPathNV() {
     Command cmd = glStencilThenCoverFillPathNV;
     cmd.returnGroup = _null_;
@@ -25848,27 +25848,27 @@ public class GLmetadata {
     cmd.addParam("coverMode", GLenum, _null_);
     cmd.extension = GL_NV_path_rendering;
   }
-  public static final Command glVertexArrayFogCoordOffsetEXT = new Command();
+  public static final Command glVertexArrayFogCoordOffsetEXT = new Command(1);
   private static void glVertexArrayFogCoordOffsetEXT() {
     Command cmd = glVertexArrayFogCoordOffsetEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, FogCoordinatePointerType);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glGetQueryObjectuiv = new Command();
+  public static final Command glGetQueryObjectuiv = new Command(1);
   private static void glGetQueryObjectuiv() {
     Command cmd = glGetQueryObjectuiv;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
   }
-  public static final Command glGetTexLevelParameteriv = new Command();
+  public static final Command glGetTexLevelParameteriv = new Command(2);
   private static void glGetTexLevelParameteriv() {
     Command cmd = glGetTexLevelParameteriv;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, TextureTarget);
     cmd.addParam("pname", GLenum, GetTextureParameter);
   }
-  public static final Command glExtGetTexLevelParameterivQCOM = new Command();
+  public static final Command glExtGetTexLevelParameterivQCOM = new Command(2);
   private static void glExtGetTexLevelParameterivQCOM() {
     Command cmd = glExtGetTexLevelParameterivQCOM;
     cmd.returnGroup = _null_;
@@ -25876,69 +25876,69 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_QCOM_extended_get;
   }
-  public static final Command glPassTexCoordATI = new Command();
+  public static final Command glPassTexCoordATI = new Command(1);
   private static void glPassTexCoordATI() {
     Command cmd = glPassTexCoordATI;
     cmd.returnGroup = _null_;
     cmd.addParam("swizzle", GLenum, _null_);
     cmd.extension = GL_ATI_fragment_shader;
   }
-  public static final Command glMatrixLoadfEXT = new Command();
+  public static final Command glMatrixLoadfEXT = new Command(1);
   private static void glMatrixLoadfEXT() {
     Command cmd = glMatrixLoadfEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, MatrixMode);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glDrawMeshArraysSUN = new Command();
+  public static final Command glDrawMeshArraysSUN = new Command(1);
   private static void glDrawMeshArraysSUN() {
     Command cmd = glDrawMeshArraysSUN;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, PrimitiveType);
     cmd.extension = GL_SUN_mesh_array;
   }
-  public static final Command glGetVertexAttribPointervNV = new Command();
+  public static final Command glGetVertexAttribPointervNV = new Command(1);
   private static void glGetVertexAttribPointervNV() {
     Command cmd = glGetVertexAttribPointervNV;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_NV_vertex_program;
   }
-  public static final Command glGetnPixelMapusvARB = new Command();
+  public static final Command glGetnPixelMapusvARB = new Command(1);
   private static void glGetnPixelMapusvARB() {
     Command cmd = glGetnPixelMapusvARB;
     cmd.returnGroup = _null_;
     cmd.addParam("map", GLenum, _null_);
     cmd.extension = GL_ARB_robustness;
   }
-  public static final Command glIsAsyncMarkerSGIX = new Command();
+  public static final Command glIsAsyncMarkerSGIX = new Command(0);
   private static void glIsAsyncMarkerSGIX() {
     Command cmd = glIsAsyncMarkerSGIX;
     cmd.returnGroup = Boolean;
     cmd.extension = GL_SGIX_async;
   }
-  public static final Command glTexParameterxv = new Command();
+  public static final Command glTexParameterxv = new Command(2);
   private static void glTexParameterxv() {
     Command cmd = glTexParameterxv;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.addParam("pname", GLenum, _null_);
   }
-  public static final Command glProgramUniformMatrix3x4fvEXT = new Command();
+  public static final Command glProgramUniformMatrix3x4fvEXT = new Command(1);
   private static void glProgramUniformMatrix3x4fvEXT() {
     Command cmd = glProgramUniformMatrix3x4fvEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("transpose", GLboolean, Boolean);
     cmd.extension = GL_EXT_separate_shader_objects;
   }
-  public static final Command glBlendEquationEXT = new Command();
+  public static final Command glBlendEquationEXT = new Command(1);
   private static void glBlendEquationEXT() {
     Command cmd = glBlendEquationEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, BlendEquationModeEXT);
     cmd.extension = GL_EXT_blend_minmax;
   }
-  public static final Command glBlendEquationSeparateiEXT = new Command();
+  public static final Command glBlendEquationSeparateiEXT = new Command(2);
   private static void glBlendEquationSeparateiEXT() {
     Command cmd = glBlendEquationSeparateiEXT;
     cmd.returnGroup = _null_;
@@ -25946,47 +25946,47 @@ public class GLmetadata {
     cmd.addParam("modeAlpha", GLenum, _null_);
     cmd.extension = GL_EXT_draw_buffers_indexed;
   }
-  public static final Command glMakeImageHandleResidentNV = new Command();
+  public static final Command glMakeImageHandleResidentNV = new Command(1);
   private static void glMakeImageHandleResidentNV() {
     Command cmd = glMakeImageHandleResidentNV;
     cmd.returnGroup = _null_;
     cmd.addParam("access", GLenum, _null_);
   }
-  public static final Command glGetFloatIndexedvEXT = new Command();
+  public static final Command glGetFloatIndexedvEXT = new Command(1);
   private static void glGetFloatIndexedvEXT() {
     Command cmd = glGetFloatIndexedvEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glMultiTexCoord3sARB = new Command();
+  public static final Command glMultiTexCoord3sARB = new Command(1);
   private static void glMultiTexCoord3sARB() {
     Command cmd = glMultiTexCoord3sARB;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_ARB_multitexture;
   }
-  public static final Command glGetSamplerParameterIuivEXT = new Command();
+  public static final Command glGetSamplerParameterIuivEXT = new Command(1);
   private static void glGetSamplerParameterIuivEXT() {
     Command cmd = glGetSamplerParameterIuivEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_EXT_texture_border_clamp;
   }
-  public static final Command glBindBuffersRange = new Command();
+  public static final Command glBindBuffersRange = new Command(1);
   private static void glBindBuffersRange() {
     Command cmd = glBindBuffersRange;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
   }
-  public static final Command glBeginQueryIndexed = new Command();
+  public static final Command glBeginQueryIndexed = new Command(1);
   private static void glBeginQueryIndexed() {
     Command cmd = glBeginQueryIndexed;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_ARB_transform_feedback3;
   }
-  public static final Command glFramebufferTexture3DEXT = new Command();
+  public static final Command glFramebufferTexture3DEXT = new Command(3);
   private static void glFramebufferTexture3DEXT() {
     Command cmd = glFramebufferTexture3DEXT;
     cmd.returnGroup = _null_;
@@ -25995,14 +25995,14 @@ public class GLmetadata {
     cmd.addParam("textarget", GLenum, TextureTarget);
     cmd.extension = GL_EXT_framebuffer_object;
   }
-  public static final Command glGetVideoCaptureStreamivNV = new Command();
+  public static final Command glGetVideoCaptureStreamivNV = new Command(1);
   private static void glGetVideoCaptureStreamivNV() {
     Command cmd = glGetVideoCaptureStreamivNV;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_NV_video_capture;
   }
-  public static final Command glStencilFillPathInstancedNV = new Command();
+  public static final Command glStencilFillPathInstancedNV = new Command(3);
   private static void glStencilFillPathInstancedNV() {
     Command cmd = glStencilFillPathInstancedNV;
     cmd.returnGroup = _null_;
@@ -26011,20 +26011,20 @@ public class GLmetadata {
     cmd.addParam("transformType", GLenum, _null_);
     cmd.extension = GL_NV_path_rendering;
   }
-  public static final Command glProgramUniformMatrix4x2dvEXT = new Command();
+  public static final Command glProgramUniformMatrix4x2dvEXT = new Command(1);
   private static void glProgramUniformMatrix4x2dvEXT() {
     Command cmd = glProgramUniformMatrix4x2dvEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("transpose", GLboolean, Boolean);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glCopyColorSubTableEXT = new Command();
+  public static final Command glCopyColorSubTableEXT = new Command(1);
   private static void glCopyColorSubTableEXT() {
     Command cmd = glCopyColorSubTableEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
   }
-  public static final Command glGetDebugMessageLogARB = new Command();
+  public static final Command glGetDebugMessageLogARB = new Command(3);
   private static void glGetDebugMessageLogARB() {
     Command cmd = glGetDebugMessageLogARB;
     cmd.returnGroup = _null_;
@@ -26033,7 +26033,7 @@ public class GLmetadata {
     cmd.addParam("severities", GLenum, _null_);
     cmd.extension = GL_ARB_debug_output;
   }
-  public static final Command glMultiTexCoordPointerEXT = new Command();
+  public static final Command glMultiTexCoordPointerEXT = new Command(2);
   private static void glMultiTexCoordPointerEXT() {
     Command cmd = glMultiTexCoordPointerEXT;
     cmd.returnGroup = _null_;
@@ -26041,14 +26041,14 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, TexCoordPointerType);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glClearNamedFramebufferuiv = new Command();
+  public static final Command glClearNamedFramebufferuiv = new Command(1);
   private static void glClearNamedFramebufferuiv() {
     Command cmd = glClearNamedFramebufferuiv;
     cmd.returnGroup = _null_;
     cmd.addParam("buffer", GLenum, _null_);
     cmd.extension = GL_ARB_direct_state_access;
   }
-  public static final Command glFragmentLightfvSGIX = new Command();
+  public static final Command glFragmentLightfvSGIX = new Command(2);
   private static void glFragmentLightfvSGIX() {
     Command cmd = glFragmentLightfvSGIX;
     cmd.returnGroup = _null_;
@@ -26056,13 +26056,13 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_SGIX_fragment_lighting;
   }
-  public static final Command glDepthMask = new Command();
+  public static final Command glDepthMask = new Command(1);
   private static void glDepthMask() {
     Command cmd = glDepthMask;
     cmd.returnGroup = _null_;
     cmd.addParam("flag", GLboolean, Boolean);
   }
-  public static final Command glTexSubImage3DOES = new Command();
+  public static final Command glTexSubImage3DOES = new Command(3);
   private static void glTexSubImage3DOES() {
     Command cmd = glTexSubImage3DOES;
     cmd.returnGroup = _null_;
@@ -26071,14 +26071,14 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_OES_texture_3D;
   }
-  public static final Command glProgramVertexLimitNV = new Command();
+  public static final Command glProgramVertexLimitNV = new Command(1);
   private static void glProgramVertexLimitNV() {
     Command cmd = glProgramVertexLimitNV;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_NV_geometry_program4;
   }
-  public static final Command glTexSubImage1D = new Command();
+  public static final Command glTexSubImage1D = new Command(3);
   private static void glTexSubImage1D() {
     Command cmd = glTexSubImage1D;
     cmd.returnGroup = _null_;
@@ -26086,14 +26086,14 @@ public class GLmetadata {
     cmd.addParam("format", GLenum, PixelFormat);
     cmd.addParam("type", GLenum, PixelType);
   }
-  public static final Command glDeleteNamesAMD = new Command();
+  public static final Command glDeleteNamesAMD = new Command(1);
   private static void glDeleteNamesAMD() {
     Command cmd = glDeleteNamesAMD;
     cmd.returnGroup = _null_;
     cmd.addParam("identifier", GLenum, _null_);
     cmd.extension = GL_AMD_name_gen_delete;
   }
-  public static final Command glTextureStorage1DEXT = new Command();
+  public static final Command glTextureStorage1DEXT = new Command(2);
   private static void glTextureStorage1DEXT() {
     Command cmd = glTextureStorage1DEXT;
     cmd.returnGroup = _null_;
@@ -26101,34 +26101,34 @@ public class GLmetadata {
     cmd.addParam("internalformat", GLenum, _null_);
     cmd.extension = GL_EXT_texture_storage;
   }
-  public static final Command glVertexPointerEXT = new Command();
+  public static final Command glVertexPointerEXT = new Command(1);
   private static void glVertexPointerEXT() {
     Command cmd = glVertexPointerEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, VertexPointerType);
     cmd.extension = GL_EXT_vertex_array;
   }
-  public static final Command glVertexStream1ivATI = new Command();
+  public static final Command glVertexStream1ivATI = new Command(1);
   private static void glVertexStream1ivATI() {
     Command cmd = glVertexStream1ivATI;
     cmd.returnGroup = _null_;
     cmd.addParam("stream", GLenum, _null_);
     cmd.extension = GL_ATI_vertex_streams;
   }
-  public static final Command glColorFragmentOp1ATI = new Command();
+  public static final Command glColorFragmentOp1ATI = new Command(1);
   private static void glColorFragmentOp1ATI() {
     Command cmd = glColorFragmentOp1ATI;
     cmd.returnGroup = _null_;
     cmd.addParam("op", GLenum, _null_);
     cmd.extension = GL_ATI_fragment_shader;
   }
-  public static final Command glGetVertexAttribArrayObjectivATI = new Command();
+  public static final Command glGetVertexAttribArrayObjectivATI = new Command(1);
   private static void glGetVertexAttribArrayObjectivATI() {
     Command cmd = glGetVertexAttribArrayObjectivATI;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
   }
-  public static final Command glGetColorTableParameterivSGI = new Command();
+  public static final Command glGetColorTableParameterivSGI = new Command(2);
   private static void glGetColorTableParameterivSGI() {
     Command cmd = glGetColorTableParameterivSGI;
     cmd.returnGroup = _null_;
@@ -26136,13 +26136,13 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, GetColorTableParameterPNameSGI);
     cmd.extension = GL_SGI_color_table;
   }
-  public static final Command glUniformMatrix2x3fv = new Command();
+  public static final Command glUniformMatrix2x3fv = new Command(1);
   private static void glUniformMatrix2x3fv() {
     Command cmd = glUniformMatrix2x3fv;
     cmd.returnGroup = _null_;
     cmd.addParam("transpose", GLboolean, Boolean);
   }
-  public static final Command glTextureImage1DEXT = new Command();
+  public static final Command glTextureImage1DEXT = new Command(3);
   private static void glTextureImage1DEXT() {
     Command cmd = glTextureImage1DEXT;
     cmd.returnGroup = _null_;
@@ -26151,20 +26151,20 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, PixelType);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glGetDebugMessageLogAMD = new Command();
+  public static final Command glGetDebugMessageLogAMD = new Command(1);
   private static void glGetDebugMessageLogAMD() {
     Command cmd = glGetDebugMessageLogAMD;
     cmd.returnGroup = _null_;
     cmd.addParam("categories", GLenum, _null_);
     cmd.extension = GL_AMD_debug_output;
   }
-  public static final Command glLightModelx = new Command();
+  public static final Command glLightModelx = new Command(1);
   private static void glLightModelx() {
     Command cmd = glLightModelx;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
   }
-  public static final Command glTexSubImage2D = new Command();
+  public static final Command glTexSubImage2D = new Command(3);
   private static void glTexSubImage2D() {
     Command cmd = glTexSubImage2D;
     cmd.returnGroup = _null_;
@@ -26172,7 +26172,7 @@ public class GLmetadata {
     cmd.addParam("format", GLenum, PixelFormat);
     cmd.addParam("type", GLenum, PixelType);
   }
-  public static final Command glColorTableParameterfvSGI = new Command();
+  public static final Command glColorTableParameterfvSGI = new Command(2);
   private static void glColorTableParameterfvSGI() {
     Command cmd = glColorTableParameterfvSGI;
     cmd.returnGroup = _null_;
@@ -26180,7 +26180,7 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, ColorTableParameterPNameSGI);
     cmd.extension = GL_SGI_color_table;
   }
-  public static final Command glGetQueryivEXT = new Command();
+  public static final Command glGetQueryivEXT = new Command(2);
   private static void glGetQueryivEXT() {
     Command cmd = glGetQueryivEXT;
     cmd.returnGroup = _null_;
@@ -26188,35 +26188,35 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_EXT_occlusion_query_boolean;
   }
-  public static final Command glVertexArrayVertexOffsetEXT = new Command();
+  public static final Command glVertexArrayVertexOffsetEXT = new Command(1);
   private static void glVertexArrayVertexOffsetEXT() {
     Command cmd = glVertexArrayVertexOffsetEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, VertexPointerType);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glEdgeFlagPointerListIBM = new Command();
+  public static final Command glEdgeFlagPointerListIBM = new Command(1);
   private static void glEdgeFlagPointerListIBM() {
     Command cmd = glEdgeFlagPointerListIBM;
     cmd.returnGroup = _null_;
     cmd.addParam("pointer", GLboolean, Boolean);
     cmd.extension = GL_IBM_vertex_array_lists;
   }
-  public static final Command glVertexStream3svATI = new Command();
+  public static final Command glVertexStream3svATI = new Command(1);
   private static void glVertexStream3svATI() {
     Command cmd = glVertexStream3svATI;
     cmd.returnGroup = _null_;
     cmd.addParam("stream", GLenum, _null_);
     cmd.extension = GL_ATI_vertex_streams;
   }
-  public static final Command glGetNamedBufferPointerv = new Command();
+  public static final Command glGetNamedBufferPointerv = new Command(1);
   private static void glGetNamedBufferPointerv() {
     Command cmd = glGetNamedBufferPointerv;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_direct_state_access;
   }
-  public static final Command glIndexMaterialEXT = new Command();
+  public static final Command glIndexMaterialEXT = new Command(2);
   private static void glIndexMaterialEXT() {
     Command cmd = glIndexMaterialEXT;
     cmd.returnGroup = _null_;
@@ -26224,20 +26224,20 @@ public class GLmetadata {
     cmd.addParam("mode", GLenum, _null_);
     cmd.extension = GL_EXT_index_material;
   }
-  public static final Command glMultiModeDrawArraysIBM = new Command();
+  public static final Command glMultiModeDrawArraysIBM = new Command(1);
   private static void glMultiModeDrawArraysIBM() {
     Command cmd = glMultiModeDrawArraysIBM;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, PrimitiveType);
   }
-  public static final Command glMatrixLoad3x2fNV = new Command();
+  public static final Command glMatrixLoad3x2fNV = new Command(1);
   private static void glMatrixLoad3x2fNV() {
     Command cmd = glMatrixLoad3x2fNV;
     cmd.returnGroup = _null_;
     cmd.addParam("matrixMode", GLenum, _null_);
     cmd.extension = GL_NV_path_rendering;
   }
-  public static final Command glCompressedMultiTexSubImage2DEXT = new Command();
+  public static final Command glCompressedMultiTexSubImage2DEXT = new Command(3);
   private static void glCompressedMultiTexSubImage2DEXT() {
     Command cmd = glCompressedMultiTexSubImage2DEXT;
     cmd.returnGroup = _null_;
@@ -26246,7 +26246,7 @@ public class GLmetadata {
     cmd.addParam("format", GLenum, PixelFormat);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glTexSubImage3D = new Command();
+  public static final Command glTexSubImage3D = new Command(3);
   private static void glTexSubImage3D() {
     Command cmd = glTexSubImage3D;
     cmd.returnGroup = _null_;
@@ -26254,21 +26254,21 @@ public class GLmetadata {
     cmd.addParam("format", GLenum, PixelFormat);
     cmd.addParam("type", GLenum, PixelType);
   }
-  public static final Command glCreateTextures = new Command();
+  public static final Command glCreateTextures = new Command(1);
   private static void glCreateTextures() {
     Command cmd = glCreateTextures;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_ARB_direct_state_access;
   }
-  public static final Command glDrawBuffersIndexedEXT = new Command();
+  public static final Command glDrawBuffersIndexedEXT = new Command(1);
   private static void glDrawBuffersIndexedEXT() {
     Command cmd = glDrawBuffersIndexedEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("location", GLenum, _null_);
     cmd.extension = GL_EXT_multiview_draw_buffers;
   }
-  public static final Command glCompressedTextureSubImage1DEXT = new Command();
+  public static final Command glCompressedTextureSubImage1DEXT = new Command(2);
   private static void glCompressedTextureSubImage1DEXT() {
     Command cmd = glCompressedTextureSubImage1DEXT;
     cmd.returnGroup = _null_;
@@ -26276,35 +26276,35 @@ public class GLmetadata {
     cmd.addParam("format", GLenum, PixelFormat);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glUniformMatrix2x3dv = new Command();
+  public static final Command glUniformMatrix2x3dv = new Command(1);
   private static void glUniformMatrix2x3dv() {
     Command cmd = glUniformMatrix2x3dv;
     cmd.returnGroup = _null_;
     cmd.addParam("transpose", GLboolean, Boolean);
     cmd.extension = GL_ARB_gpu_shader_fp64;
   }
-  public static final Command glFramebufferTextureMultisampleMultiviewOVR = new Command();
+  public static final Command glFramebufferTextureMultisampleMultiviewOVR = new Command(2);
   private static void glFramebufferTextureMultisampleMultiviewOVR() {
     Command cmd = glFramebufferTextureMultisampleMultiviewOVR;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.addParam("attachment", GLenum, _null_);
   }
-  public static final Command glGetNamedRenderbufferParameteriv = new Command();
+  public static final Command glGetNamedRenderbufferParameteriv = new Command(1);
   private static void glGetNamedRenderbufferParameteriv() {
     Command cmd = glGetNamedRenderbufferParameteriv;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_direct_state_access;
   }
-  public static final Command glProgramEnvParameter4dARB = new Command();
+  public static final Command glProgramEnvParameter4dARB = new Command(1);
   private static void glProgramEnvParameter4dARB() {
     Command cmd = glProgramEnvParameter4dARB;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_ARB_vertex_program;
   }
-  public static final Command glGetTexImage = new Command();
+  public static final Command glGetTexImage = new Command(3);
   private static void glGetTexImage() {
     Command cmd = glGetTexImage;
     cmd.returnGroup = _null_;
@@ -26312,14 +26312,14 @@ public class GLmetadata {
     cmd.addParam("format", GLenum, PixelFormat);
     cmd.addParam("type", GLenum, PixelType);
   }
-  public static final Command glCopyTextureSubImage1DEXT = new Command();
+  public static final Command glCopyTextureSubImage1DEXT = new Command(1);
   private static void glCopyTextureSubImage1DEXT() {
     Command cmd = glCopyTextureSubImage1DEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, TextureTarget);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glFramebufferTexture1D = new Command();
+  public static final Command glFramebufferTexture1D = new Command(3);
   private static void glFramebufferTexture1D() {
     Command cmd = glFramebufferTexture1D;
     cmd.returnGroup = _null_;
@@ -26328,14 +26328,14 @@ public class GLmetadata {
     cmd.addParam("textarget", GLenum, TextureTarget);
     cmd.extension = GL_ARB_framebuffer_object;
   }
-  public static final Command glLightModelxOES = new Command();
+  public static final Command glLightModelxOES = new Command(1);
   private static void glLightModelxOES() {
     Command cmd = glLightModelxOES;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_OES_fixed_point;
   }
-  public static final Command glTexImage3DMultisample = new Command();
+  public static final Command glTexImage3DMultisample = new Command(3);
   private static void glTexImage3DMultisample() {
     Command cmd = glTexImage3DMultisample;
     cmd.returnGroup = _null_;
@@ -26344,14 +26344,14 @@ public class GLmetadata {
     cmd.addParam("fixedsamplelocations", GLboolean, Boolean);
     cmd.extension = GL_ARB_texture_multisample;
   }
-  public static final Command glProgramUniformMatrix3x2dv = new Command();
+  public static final Command glProgramUniformMatrix3x2dv = new Command(1);
   private static void glProgramUniformMatrix3x2dv() {
     Command cmd = glProgramUniformMatrix3x2dv;
     cmd.returnGroup = _null_;
     cmd.addParam("transpose", GLboolean, Boolean);
     cmd.extension = GL_ARB_separate_shader_objects;
   }
-  public static final Command glRenderbufferStorageOES = new Command();
+  public static final Command glRenderbufferStorageOES = new Command(2);
   private static void glRenderbufferStorageOES() {
     Command cmd = glRenderbufferStorageOES;
     cmd.returnGroup = _null_;
@@ -26359,28 +26359,28 @@ public class GLmetadata {
     cmd.addParam("internalformat", GLenum, _null_);
     cmd.extension = GL_OES_framebuffer_object;
   }
-  public static final Command glTexRenderbufferNV = new Command();
+  public static final Command glTexRenderbufferNV = new Command(1);
   private static void glTexRenderbufferNV() {
     Command cmd = glTexRenderbufferNV;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, TextureTarget);
     cmd.extension = GL_NV_explicit_multisample;
   }
-  public static final Command glMatrixRotatefEXT = new Command();
+  public static final Command glMatrixRotatefEXT = new Command(1);
   private static void glMatrixRotatefEXT() {
     Command cmd = glMatrixRotatefEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, MatrixMode);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glUniformMatrix2x4dv = new Command();
+  public static final Command glUniformMatrix2x4dv = new Command(1);
   private static void glUniformMatrix2x4dv() {
     Command cmd = glUniformMatrix2x4dv;
     cmd.returnGroup = _null_;
     cmd.addParam("transpose", GLboolean, Boolean);
     cmd.extension = GL_ARB_gpu_shader_fp64;
   }
-  public static final Command glGetColorTableEXT = new Command();
+  public static final Command glGetColorTableEXT = new Command(3);
   private static void glGetColorTableEXT() {
     Command cmd = glGetColorTableEXT;
     cmd.returnGroup = _null_;
@@ -26389,14 +26389,14 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, PixelType);
     cmd.extension = GL_EXT_paletted_texture;
   }
-  public static final Command glFlushMappedBufferRange = new Command();
+  public static final Command glFlushMappedBufferRange = new Command(1);
   private static void glFlushMappedBufferRange() {
     Command cmd = glFlushMappedBufferRange;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, BufferTargetARB);
     cmd.extension = GL_ARB_map_buffer_range;
   }
-  public static final Command glGetTextureImageEXT = new Command();
+  public static final Command glGetTextureImageEXT = new Command(3);
   private static void glGetTextureImageEXT() {
     Command cmd = glGetTextureImageEXT;
     cmd.returnGroup = _null_;
@@ -26405,14 +26405,14 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, PixelType);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glBindBufferBaseNV = new Command();
+  public static final Command glBindBufferBaseNV = new Command(1);
   private static void glBindBufferBaseNV() {
     Command cmd = glBindBufferBaseNV;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_NV_transform_feedback;
   }
-  public static final Command glCopyConvolutionFilter2DEXT = new Command();
+  public static final Command glCopyConvolutionFilter2DEXT = new Command(2);
   private static void glCopyConvolutionFilter2DEXT() {
     Command cmd = glCopyConvolutionFilter2DEXT;
     cmd.returnGroup = _null_;
@@ -26420,25 +26420,25 @@ public class GLmetadata {
     cmd.addParam("internalformat", GLenum, InternalFormat);
     cmd.extension = GL_EXT_convolution;
   }
-  public static final Command glTransformFeedbackVaryings = new Command();
+  public static final Command glTransformFeedbackVaryings = new Command(1);
   private static void glTransformFeedbackVaryings() {
     Command cmd = glTransformFeedbackVaryings;
     cmd.returnGroup = _null_;
     cmd.addParam("bufferMode", GLenum, _null_);
   }
-  public static final Command glProgramLocalParameterI4iNV = new Command();
+  public static final Command glProgramLocalParameterI4iNV = new Command(1);
   private static void glProgramLocalParameterI4iNV() {
     Command cmd = glProgramLocalParameterI4iNV;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_NV_gpu_program4;
   }
-  public static final Command glIsTexture = new Command();
+  public static final Command glIsTexture = new Command(0);
   private static void glIsTexture() {
     Command cmd = glIsTexture;
     cmd.returnGroup = Boolean;
   }
-  public static final Command glGetMapAttribParameterfvNV = new Command();
+  public static final Command glGetMapAttribParameterfvNV = new Command(2);
   private static void glGetMapAttribParameterfvNV() {
     Command cmd = glGetMapAttribParameterfvNV;
     cmd.returnGroup = _null_;
@@ -26446,14 +26446,14 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_NV_evaluators;
   }
-  public static final Command glEnableiOES = new Command();
+  public static final Command glEnableiOES = new Command(1);
   private static void glEnableiOES() {
     Command cmd = glEnableiOES;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_OES_viewport_array;
   }
-  public static final Command glRenderbufferStorageMultisampleANGLE = new Command();
+  public static final Command glRenderbufferStorageMultisampleANGLE = new Command(2);
   private static void glRenderbufferStorageMultisampleANGLE() {
     Command cmd = glRenderbufferStorageMultisampleANGLE;
     cmd.returnGroup = _null_;
@@ -26461,7 +26461,7 @@ public class GLmetadata {
     cmd.addParam("internalformat", GLenum, _null_);
     cmd.extension = GL_ANGLE_framebuffer_multisample;
   }
-  public static final Command glFramebufferTexture3D = new Command();
+  public static final Command glFramebufferTexture3D = new Command(3);
   private static void glFramebufferTexture3D() {
     Command cmd = glFramebufferTexture3D;
     cmd.returnGroup = _null_;
@@ -26470,7 +26470,7 @@ public class GLmetadata {
     cmd.addParam("textarget", GLenum, TextureTarget);
     cmd.extension = GL_ARB_framebuffer_object;
   }
-  public static final Command glMultiTexCoordP4uiv = new Command();
+  public static final Command glMultiTexCoordP4uiv = new Command(2);
   private static void glMultiTexCoordP4uiv() {
     Command cmd = glMultiTexCoordP4uiv;
     cmd.returnGroup = _null_;
@@ -26478,7 +26478,7 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_ARB_vertex_type_2_10_10_10_rev;
   }
-  public static final Command glTexParameterxvOES = new Command();
+  public static final Command glTexParameterxvOES = new Command(2);
   private static void glTexParameterxvOES() {
     Command cmd = glTexParameterxvOES;
     cmd.returnGroup = _null_;
@@ -26486,7 +26486,7 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_OES_fixed_point;
   }
-  public static final Command glTexStorage2DEXT = new Command();
+  public static final Command glTexStorage2DEXT = new Command(2);
   private static void glTexStorage2DEXT() {
     Command cmd = glTexStorage2DEXT;
     cmd.returnGroup = _null_;
@@ -26494,7 +26494,7 @@ public class GLmetadata {
     cmd.addParam("internalformat", GLenum, _null_);
     cmd.extension = GL_EXT_texture_storage;
   }
-  public static final Command glFramebufferTexture2D = new Command();
+  public static final Command glFramebufferTexture2D = new Command(3);
   private static void glFramebufferTexture2D() {
     Command cmd = glFramebufferTexture2D;
     cmd.returnGroup = _null_;
@@ -26503,7 +26503,7 @@ public class GLmetadata {
     cmd.addParam("textarget", GLenum, TextureTarget);
     cmd.extension = GL_ARB_framebuffer_object;
   }
-  public static final Command glBlendEquationSeparateiOES = new Command();
+  public static final Command glBlendEquationSeparateiOES = new Command(2);
   private static void glBlendEquationSeparateiOES() {
     Command cmd = glBlendEquationSeparateiOES;
     cmd.returnGroup = _null_;
@@ -26511,54 +26511,54 @@ public class GLmetadata {
     cmd.addParam("modeAlpha", GLenum, _null_);
     cmd.extension = GL_OES_draw_buffers_indexed;
   }
-  public static final Command glTexParameterIuiv = new Command();
+  public static final Command glTexParameterIuiv = new Command(2);
   private static void glTexParameterIuiv() {
     Command cmd = glTexParameterIuiv;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, TextureTarget);
     cmd.addParam("pname", GLenum, TextureParameterName);
   }
-  public static final Command glGetUnsignedBytevEXT = new Command();
+  public static final Command glGetUnsignedBytevEXT = new Command(1);
   private static void glGetUnsignedBytevEXT() {
     Command cmd = glGetUnsignedBytevEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, GetPName);
     cmd.extension = GL_EXT_semaphore;
   }
-  public static final Command glIsSemaphoreEXT = new Command();
+  public static final Command glIsSemaphoreEXT = new Command(0);
   private static void glIsSemaphoreEXT() {
     Command cmd = glIsSemaphoreEXT;
     cmd.returnGroup = Boolean;
     cmd.extension = GL_EXT_semaphore;
   }
-  public static final Command glVertexStream4iATI = new Command();
+  public static final Command glVertexStream4iATI = new Command(1);
   private static void glVertexStream4iATI() {
     Command cmd = glVertexStream4iATI;
     cmd.returnGroup = _null_;
     cmd.addParam("stream", GLenum, _null_);
     cmd.extension = GL_ATI_vertex_streams;
   }
-  public static final Command glDrawElementArrayAPPLE = new Command();
+  public static final Command glDrawElementArrayAPPLE = new Command(1);
   private static void glDrawElementArrayAPPLE() {
     Command cmd = glDrawElementArrayAPPLE;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, PrimitiveType);
     cmd.extension = GL_APPLE_element_array;
   }
-  public static final Command glGetFloatv = new Command();
+  public static final Command glGetFloatv = new Command(1);
   private static void glGetFloatv() {
     Command cmd = glGetFloatv;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, GetPName);
   }
-  public static final Command glReadPixels = new Command();
+  public static final Command glReadPixels = new Command(2);
   private static void glReadPixels() {
     Command cmd = glReadPixels;
     cmd.returnGroup = _null_;
     cmd.addParam("format", GLenum, PixelFormat);
     cmd.addParam("type", GLenum, PixelType);
   }
-  public static final Command glBlendFuncSeparateiEXT = new Command();
+  public static final Command glBlendFuncSeparateiEXT = new Command(4);
   private static void glBlendFuncSeparateiEXT() {
     Command cmd = glBlendFuncSeparateiEXT;
     cmd.returnGroup = _null_;
@@ -26568,28 +26568,28 @@ public class GLmetadata {
     cmd.addParam("dstAlpha", GLenum, _null_);
     cmd.extension = GL_EXT_draw_buffers_indexed;
   }
-  public static final Command glGetOcclusionQueryivNV = new Command();
+  public static final Command glGetOcclusionQueryivNV = new Command(1);
   private static void glGetOcclusionQueryivNV() {
     Command cmd = glGetOcclusionQueryivNV;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_NV_occlusion_query;
   }
-  public static final Command glMultiTexCoord2fARB = new Command();
+  public static final Command glMultiTexCoord2fARB = new Command(1);
   private static void glMultiTexCoord2fARB() {
     Command cmd = glMultiTexCoord2fARB;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_ARB_multitexture;
   }
-  public static final Command glFragmentLightModelivSGIX = new Command();
+  public static final Command glFragmentLightModelivSGIX = new Command(1);
   private static void glFragmentLightModelivSGIX() {
     Command cmd = glFragmentLightModelivSGIX;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, FragmentLightModelParameterSGIX);
     cmd.extension = GL_SGIX_fragment_lighting;
   }
-  public static final Command glGetFragmentMaterialivSGIX = new Command();
+  public static final Command glGetFragmentMaterialivSGIX = new Command(2);
   private static void glGetFragmentMaterialivSGIX() {
     Command cmd = glGetFragmentMaterialivSGIX;
     cmd.returnGroup = _null_;
@@ -26597,7 +26597,7 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, MaterialParameter);
     cmd.extension = GL_SGIX_fragment_lighting;
   }
-  public static final Command glDrawElementsInstancedEXT = new Command();
+  public static final Command glDrawElementsInstancedEXT = new Command(2);
   private static void glDrawElementsInstancedEXT() {
     Command cmd = glDrawElementsInstancedEXT;
     cmd.returnGroup = _null_;
@@ -26605,14 +26605,14 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, DrawElementsType);
     cmd.extension = GL_EXT_instanced_arrays;
   }
-  public static final Command glVertexBlendEnviATI = new Command();
+  public static final Command glVertexBlendEnviATI = new Command(1);
   private static void glVertexBlendEnviATI() {
     Command cmd = glVertexBlendEnviATI;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ATI_vertex_streams;
   }
-  public static final Command glClampColorARB = new Command();
+  public static final Command glClampColorARB = new Command(2);
   private static void glClampColorARB() {
     Command cmd = glClampColorARB;
     cmd.returnGroup = _null_;
@@ -26620,7 +26620,7 @@ public class GLmetadata {
     cmd.addParam("clamp", GLenum, _null_);
     cmd.extension = GL_ARB_color_buffer_float;
   }
-  public static final Command glConvolutionFilter2D = new Command();
+  public static final Command glConvolutionFilter2D = new Command(4);
   private static void glConvolutionFilter2D() {
     Command cmd = glConvolutionFilter2D;
     cmd.returnGroup = _null_;
@@ -26630,14 +26630,14 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, PixelType);
     cmd.extension = GL_ARB_imaging;
   }
-  public static final Command glGetQueryObjectivARB = new Command();
+  public static final Command glGetQueryObjectivARB = new Command(1);
   private static void glGetQueryObjectivARB() {
     Command cmd = glGetQueryObjectivARB;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_occlusion_query;
   }
-  public static final Command glGetHistogramParameterivEXT = new Command();
+  public static final Command glGetHistogramParameterivEXT = new Command(2);
   private static void glGetHistogramParameterivEXT() {
     Command cmd = glGetHistogramParameterivEXT;
     cmd.returnGroup = _null_;
@@ -26645,7 +26645,7 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, GetHistogramParameterPNameEXT);
     cmd.extension = GL_EXT_histogram;
   }
-  public static final Command glGetMapAttribParameterivNV = new Command();
+  public static final Command glGetMapAttribParameterivNV = new Command(2);
   private static void glGetMapAttribParameterivNV() {
     Command cmd = glGetMapAttribParameterivNV;
     cmd.returnGroup = _null_;
@@ -26653,14 +26653,14 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_NV_evaluators;
   }
-  public static final Command glProgramUniformMatrix3x2fv = new Command();
+  public static final Command glProgramUniformMatrix3x2fv = new Command(1);
   private static void glProgramUniformMatrix3x2fv() {
     Command cmd = glProgramUniformMatrix3x2fv;
     cmd.returnGroup = _null_;
     cmd.addParam("transpose", GLboolean, Boolean);
     cmd.extension = GL_ARB_separate_shader_objects;
   }
-  public static final Command glGetPathTexGenivNV = new Command();
+  public static final Command glGetPathTexGenivNV = new Command(2);
   private static void glGetPathTexGenivNV() {
     Command cmd = glGetPathTexGenivNV;
     cmd.returnGroup = _null_;
@@ -26668,7 +26668,7 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_NV_path_rendering;
   }
-  public static final Command glBufferPageCommitmentARB = new Command();
+  public static final Command glBufferPageCommitmentARB = new Command(2);
   private static void glBufferPageCommitmentARB() {
     Command cmd = glBufferPageCommitmentARB;
     cmd.returnGroup = _null_;
@@ -26676,14 +26676,14 @@ public class GLmetadata {
     cmd.addParam("commit", GLboolean, Boolean);
     cmd.extension = GL_ARB_sparse_buffer;
   }
-  public static final Command glBeginQueryARB = new Command();
+  public static final Command glBeginQueryARB = new Command(1);
   private static void glBeginQueryARB() {
     Command cmd = glBeginQueryARB;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_ARB_occlusion_query;
   }
-  public static final Command glConvolutionFilter1D = new Command();
+  public static final Command glConvolutionFilter1D = new Command(4);
   private static void glConvolutionFilter1D() {
     Command cmd = glConvolutionFilter1D;
     cmd.returnGroup = _null_;
@@ -26693,14 +26693,14 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, PixelType);
     cmd.extension = GL_ARB_imaging;
   }
-  public static final Command glVertexArrayIndexOffsetEXT = new Command();
+  public static final Command glVertexArrayIndexOffsetEXT = new Command(1);
   private static void glVertexArrayIndexOffsetEXT() {
     Command cmd = glVertexArrayIndexOffsetEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, IndexPointerType);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glExtGetTexSubImageQCOM = new Command();
+  public static final Command glExtGetTexSubImageQCOM = new Command(3);
   private static void glExtGetTexSubImageQCOM() {
     Command cmd = glExtGetTexSubImageQCOM;
     cmd.returnGroup = _null_;
@@ -26709,21 +26709,21 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_QCOM_extended_get;
   }
-  public static final Command glImportSemaphoreWin32HandleEXT = new Command();
+  public static final Command glImportSemaphoreWin32HandleEXT = new Command(1);
   private static void glImportSemaphoreWin32HandleEXT() {
     Command cmd = glImportSemaphoreWin32HandleEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("handleType", GLenum, ExternalHandleType);
     cmd.extension = GL_EXT_semaphore_win32;
   }
-  public static final Command glMultiTexCoord1dARB = new Command();
+  public static final Command glMultiTexCoord1dARB = new Command(1);
   private static void glMultiTexCoord1dARB() {
     Command cmd = glMultiTexCoord1dARB;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_ARB_multitexture;
   }
-  public static final Command glColorSubTableEXT = new Command();
+  public static final Command glColorSubTableEXT = new Command(3);
   private static void glColorSubTableEXT() {
     Command cmd = glColorSubTableEXT;
     cmd.returnGroup = _null_;
@@ -26731,21 +26731,21 @@ public class GLmetadata {
     cmd.addParam("format", GLenum, PixelFormat);
     cmd.addParam("type", GLenum, PixelType);
   }
-  public static final Command glGetVertexArrayIntegervEXT = new Command();
+  public static final Command glGetVertexArrayIntegervEXT = new Command(1);
   private static void glGetVertexArrayIntegervEXT() {
     Command cmd = glGetVertexArrayIntegervEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glSecondaryColorP3ui = new Command();
+  public static final Command glSecondaryColorP3ui = new Command(1);
   private static void glSecondaryColorP3ui() {
     Command cmd = glSecondaryColorP3ui;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_ARB_vertex_type_2_10_10_10_rev;
   }
-  public static final Command glColorMaskiOES = new Command();
+  public static final Command glColorMaskiOES = new Command(4);
   private static void glColorMaskiOES() {
     Command cmd = glColorMaskiOES;
     cmd.returnGroup = _null_;
@@ -26755,27 +26755,27 @@ public class GLmetadata {
     cmd.addParam("a", GLboolean, Boolean);
     cmd.extension = GL_OES_draw_buffers_indexed;
   }
-  public static final Command glIndexFormatNV = new Command();
+  public static final Command glIndexFormatNV = new Command(1);
   private static void glIndexFormatNV() {
     Command cmd = glIndexFormatNV;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_NV_vertex_buffer_unified_memory;
   }
-  public static final Command glCopyTexSubImage2DEXT = new Command();
+  public static final Command glCopyTexSubImage2DEXT = new Command(1);
   private static void glCopyTexSubImage2DEXT() {
     Command cmd = glCopyTexSubImage2DEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, TextureTarget);
   }
-  public static final Command glProgramUniformMatrix3dvEXT = new Command();
+  public static final Command glProgramUniformMatrix3dvEXT = new Command(1);
   private static void glProgramUniformMatrix3dvEXT() {
     Command cmd = glProgramUniformMatrix3dvEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("transpose", GLboolean, Boolean);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glRenderbufferStorageMultisample = new Command();
+  public static final Command glRenderbufferStorageMultisample = new Command(2);
   private static void glRenderbufferStorageMultisample() {
     Command cmd = glRenderbufferStorageMultisample;
     cmd.returnGroup = _null_;
@@ -26783,90 +26783,90 @@ public class GLmetadata {
     cmd.addParam("internalformat", GLenum, _null_);
     cmd.extension = GL_ARB_framebuffer_object;
   }
-  public static final Command glGetPerfMonitorCounterInfoAMD = new Command();
+  public static final Command glGetPerfMonitorCounterInfoAMD = new Command(1);
   private static void glGetPerfMonitorCounterInfoAMD() {
     Command cmd = glGetPerfMonitorCounterInfoAMD;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_AMD_performance_monitor;
   }
-  public static final Command glGetVertexAttribfvARB = new Command();
+  public static final Command glGetVertexAttribfvARB = new Command(1);
   private static void glGetVertexAttribfvARB() {
     Command cmd = glGetVertexAttribfvARB;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_vertex_shader;
   }
-  public static final Command glIsSampler = new Command();
+  public static final Command glIsSampler = new Command(0);
   private static void glIsSampler() {
     Command cmd = glIsSampler;
     cmd.returnGroup = Boolean;
     cmd.extension = GL_ARB_sampler_objects;
   }
-  public static final Command glGetQueryObjecti64v = new Command();
+  public static final Command glGetQueryObjecti64v = new Command(1);
   private static void glGetQueryObjecti64v() {
     Command cmd = glGetQueryObjecti64v;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_timer_query;
   }
-  public static final Command glDeformationMap3fSGIX = new Command();
+  public static final Command glDeformationMap3fSGIX = new Command(1);
   private static void glDeformationMap3fSGIX() {
     Command cmd = glDeformationMap3fSGIX;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, FfdTargetSGIX);
     cmd.extension = GL_SGIX_polynomial_ffd;
   }
-  public static final Command glGetBufferSubDataARB = new Command();
+  public static final Command glGetBufferSubDataARB = new Command(1);
   private static void glGetBufferSubDataARB() {
     Command cmd = glGetBufferSubDataARB;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, BufferTargetARB);
     cmd.extension = GL_ARB_vertex_buffer_object;
   }
-  public static final Command glDrawPixels = new Command();
+  public static final Command glDrawPixels = new Command(2);
   private static void glDrawPixels() {
     Command cmd = glDrawPixels;
     cmd.returnGroup = _null_;
     cmd.addParam("format", GLenum, PixelFormat);
     cmd.addParam("type", GLenum, PixelType);
   }
-  public static final Command glSampleMaskIndexedNV = new Command();
+  public static final Command glSampleMaskIndexedNV = new Command(1);
   private static void glSampleMaskIndexedNV() {
     Command cmd = glSampleMaskIndexedNV;
     cmd.returnGroup = _null_;
     cmd.addParam("mask", GLbitfield, _null_);
     cmd.extension = GL_NV_explicit_multisample;
   }
-  public static final Command glTexParameteriv = new Command();
+  public static final Command glTexParameteriv = new Command(2);
   private static void glTexParameteriv() {
     Command cmd = glTexParameteriv;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, TextureTarget);
     cmd.addParam("pname", GLenum, TextureParameterName);
   }
-  public static final Command glMultiTexCoord1ivARB = new Command();
+  public static final Command glMultiTexCoord1ivARB = new Command(1);
   private static void glMultiTexCoord1ivARB() {
     Command cmd = glMultiTexCoord1ivARB;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_ARB_multitexture;
   }
-  public static final Command glMultiTexCoord4hvNV = new Command();
+  public static final Command glMultiTexCoord4hvNV = new Command(1);
   private static void glMultiTexCoord4hvNV() {
     Command cmd = glMultiTexCoord4hvNV;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_NV_half_float;
   }
-  public static final Command glShaderBinary = new Command();
+  public static final Command glShaderBinary = new Command(1);
   private static void glShaderBinary() {
     Command cmd = glShaderBinary;
     cmd.returnGroup = _null_;
     cmd.addParam("binaryformat", GLenum, _null_);
     cmd.extension = GL_ARB_ES2_compatibility;
   }
-  public static final Command glTexImage2D = new Command();
+  public static final Command glTexImage2D = new Command(3);
   private static void glTexImage2D() {
     Command cmd = glTexImage2D;
     cmd.returnGroup = _null_;
@@ -26874,14 +26874,14 @@ public class GLmetadata {
     cmd.addParam("format", GLenum, PixelFormat);
     cmd.addParam("type", GLenum, PixelType);
   }
-  public static final Command glCoverageModulationNV = new Command();
+  public static final Command glCoverageModulationNV = new Command(1);
   private static void glCoverageModulationNV() {
     Command cmd = glCoverageModulationNV;
     cmd.returnGroup = _null_;
     cmd.addParam("components", GLenum, _null_);
     cmd.extension = GL_NV_framebuffer_mixed_samples;
   }
-  public static final Command glTexStorage3DMultisample = new Command();
+  public static final Command glTexStorage3DMultisample = new Command(3);
   private static void glTexStorage3DMultisample() {
     Command cmd = glTexStorage3DMultisample;
     cmd.returnGroup = _null_;
@@ -26889,14 +26889,14 @@ public class GLmetadata {
     cmd.addParam("internalformat", GLenum, _null_);
     cmd.addParam("fixedsamplelocations", GLboolean, Boolean);
   }
-  public static final Command glMultiModeDrawElementsIBM = new Command();
+  public static final Command glMultiModeDrawElementsIBM = new Command(2);
   private static void glMultiModeDrawElementsIBM() {
     Command cmd = glMultiModeDrawElementsIBM;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, PrimitiveType);
     cmd.addParam("type", GLenum, DrawElementsType);
   }
-  public static final Command glFinalCombinerInputNV = new Command();
+  public static final Command glFinalCombinerInputNV = new Command(4);
   private static void glFinalCombinerInputNV() {
     Command cmd = glFinalCombinerInputNV;
     cmd.returnGroup = _null_;
@@ -26906,14 +26906,14 @@ public class GLmetadata {
     cmd.addParam("componentUsage", GLenum, _null_);
     cmd.extension = GL_NV_register_combiners;
   }
-  public static final Command glMultiDrawElements = new Command();
+  public static final Command glMultiDrawElements = new Command(2);
   private static void glMultiDrawElements() {
     Command cmd = glMultiDrawElements;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, PrimitiveType);
     cmd.addParam("type", GLenum, DrawElementsType);
   }
-  public static final Command glTexImage3D = new Command();
+  public static final Command glTexImage3D = new Command(3);
   private static void glTexImage3D() {
     Command cmd = glTexImage3D;
     cmd.returnGroup = _null_;
@@ -26921,14 +26921,14 @@ public class GLmetadata {
     cmd.addParam("format", GLenum, PixelFormat);
     cmd.addParam("type", GLenum, PixelType);
   }
-  public static final Command glGetSamplerParameterIuiv = new Command();
+  public static final Command glGetSamplerParameterIuiv = new Command(1);
   private static void glGetSamplerParameterIuiv() {
     Command cmd = glGetSamplerParameterIuiv;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_sampler_objects;
   }
-  public static final Command glFramebufferRenderbufferOES = new Command();
+  public static final Command glFramebufferRenderbufferOES = new Command(3);
   private static void glFramebufferRenderbufferOES() {
     Command cmd = glFramebufferRenderbufferOES;
     cmd.returnGroup = _null_;
@@ -26937,35 +26937,35 @@ public class GLmetadata {
     cmd.addParam("renderbuffertarget", GLenum, _null_);
     cmd.extension = GL_OES_framebuffer_object;
   }
-  public static final Command glNormalStream3fATI = new Command();
+  public static final Command glNormalStream3fATI = new Command(1);
   private static void glNormalStream3fATI() {
     Command cmd = glNormalStream3fATI;
     cmd.returnGroup = _null_;
     cmd.addParam("stream", GLenum, _null_);
     cmd.extension = GL_ATI_vertex_streams;
   }
-  public static final Command glPathParameteriNV = new Command();
+  public static final Command glPathParameteriNV = new Command(1);
   private static void glPathParameteriNV() {
     Command cmd = glPathParameteriNV;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_NV_path_rendering;
   }
-  public static final Command glNamedBufferStorage = new Command();
+  public static final Command glNamedBufferStorage = new Command(1);
   private static void glNamedBufferStorage() {
     Command cmd = glNamedBufferStorage;
     cmd.returnGroup = _null_;
     cmd.addParam("flags", GLbitfield, _null_);
     cmd.extension = GL_ARB_direct_state_access;
   }
-  public static final Command glBindBufferOffsetNV = new Command();
+  public static final Command glBindBufferOffsetNV = new Command(1);
   private static void glBindBufferOffsetNV() {
     Command cmd = glBindBufferOffsetNV;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_NV_transform_feedback;
   }
-  public static final Command glVertexAttribFormatNV = new Command();
+  public static final Command glVertexAttribFormatNV = new Command(2);
   private static void glVertexAttribFormatNV() {
     Command cmd = glVertexAttribFormatNV;
     cmd.returnGroup = _null_;
@@ -26973,7 +26973,7 @@ public class GLmetadata {
     cmd.addParam("normalized", GLboolean, Boolean);
     cmd.extension = GL_NV_vertex_buffer_unified_memory;
   }
-  public static final Command glBlendFuncSeparate = new Command();
+  public static final Command glBlendFuncSeparate = new Command(4);
   private static void glBlendFuncSeparate() {
     Command cmd = glBlendFuncSeparate;
     cmd.returnGroup = _null_;
@@ -26982,7 +26982,7 @@ public class GLmetadata {
     cmd.addParam("sfactorAlpha", GLenum, _null_);
     cmd.addParam("dfactorAlpha", GLenum, _null_);
   }
-  public static final Command glMultiDrawElementsIndirectCountARB = new Command();
+  public static final Command glMultiDrawElementsIndirectCountARB = new Command(2);
   private static void glMultiDrawElementsIndirectCountARB() {
     Command cmd = glMultiDrawElementsIndirectCountARB;
     cmd.returnGroup = _null_;
@@ -26990,14 +26990,14 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_ARB_indirect_parameters;
   }
-  public static final Command glBufferData = new Command();
+  public static final Command glBufferData = new Command(2);
   private static void glBufferData() {
     Command cmd = glBufferData;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, BufferTargetARB);
     cmd.addParam("usage", GLenum, BufferUsageARB);
   }
-  public static final Command glMapControlPointsNV = new Command();
+  public static final Command glMapControlPointsNV = new Command(3);
   private static void glMapControlPointsNV() {
     Command cmd = glMapControlPointsNV;
     cmd.returnGroup = _null_;
@@ -27006,7 +27006,7 @@ public class GLmetadata {
     cmd.addParam("packed", GLboolean, Boolean);
     cmd.extension = GL_NV_evaluators;
   }
-  public static final Command glTextureSubImage3DEXT = new Command();
+  public static final Command glTextureSubImage3DEXT = new Command(3);
   private static void glTextureSubImage3DEXT() {
     Command cmd = glTextureSubImage3DEXT;
     cmd.returnGroup = _null_;
@@ -27015,28 +27015,28 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, PixelType);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glTexBuffer = new Command();
+  public static final Command glTexBuffer = new Command(2);
   private static void glTexBuffer() {
     Command cmd = glTexBuffer;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, TextureTarget);
     cmd.addParam("internalformat", GLenum, _null_);
   }
-  public static final Command glGetPointeri_vEXT = new Command();
+  public static final Command glGetPointeri_vEXT = new Command(1);
   private static void glGetPointeri_vEXT() {
     Command cmd = glGetPointeri_vEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glClientActiveTextureARB = new Command();
+  public static final Command glClientActiveTextureARB = new Command(1);
   private static void glClientActiveTextureARB() {
     Command cmd = glClientActiveTextureARB;
     cmd.returnGroup = _null_;
     cmd.addParam("texture", GLenum, _null_);
     cmd.extension = GL_ARB_multitexture;
   }
-  public static final Command glTexImage1D = new Command();
+  public static final Command glTexImage1D = new Command(3);
   private static void glTexImage1D() {
     Command cmd = glTexImage1D;
     cmd.returnGroup = _null_;
@@ -27044,13 +27044,13 @@ public class GLmetadata {
     cmd.addParam("format", GLenum, PixelFormat);
     cmd.addParam("type", GLenum, PixelType);
   }
-  public static final Command glIsEnabledIndexedEXT = new Command();
+  public static final Command glIsEnabledIndexedEXT = new Command(1);
   private static void glIsEnabledIndexedEXT() {
     Command cmd = glIsEnabledIndexedEXT;
     cmd.returnGroup = Boolean;
     cmd.addParam("target", GLenum, _null_);
   }
-  public static final Command glCopyColorTableSGI = new Command();
+  public static final Command glCopyColorTableSGI = new Command(2);
   private static void glCopyColorTableSGI() {
     Command cmd = glCopyColorTableSGI;
     cmd.returnGroup = _null_;
@@ -27058,19 +27058,19 @@ public class GLmetadata {
     cmd.addParam("internalformat", GLenum, InternalFormat);
     cmd.extension = GL_SGI_color_table;
   }
-  public static final Command glIsTextureHandleResidentNV = new Command();
+  public static final Command glIsTextureHandleResidentNV = new Command(0);
   private static void glIsTextureHandleResidentNV() {
     Command cmd = glIsTextureHandleResidentNV;
     cmd.returnGroup = Boolean;
   }
-  public static final Command glMatrixMultTranspose3x3fNV = new Command();
+  public static final Command glMatrixMultTranspose3x3fNV = new Command(1);
   private static void glMatrixMultTranspose3x3fNV() {
     Command cmd = glMatrixMultTranspose3x3fNV;
     cmd.returnGroup = _null_;
     cmd.addParam("matrixMode", GLenum, _null_);
     cmd.extension = GL_NV_path_rendering;
   }
-  public static final Command glFragmentMaterialivSGIX = new Command();
+  public static final Command glFragmentMaterialivSGIX = new Command(2);
   private static void glFragmentMaterialivSGIX() {
     Command cmd = glFragmentMaterialivSGIX;
     cmd.returnGroup = _null_;
@@ -27078,27 +27078,27 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, MaterialParameter);
     cmd.extension = GL_SGIX_fragment_lighting;
   }
-  public static final Command glMatrixLoadTranspose3x3fNV = new Command();
+  public static final Command glMatrixLoadTranspose3x3fNV = new Command(1);
   private static void glMatrixLoadTranspose3x3fNV() {
     Command cmd = glMatrixLoadTranspose3x3fNV;
     cmd.returnGroup = _null_;
     cmd.addParam("matrixMode", GLenum, _null_);
     cmd.extension = GL_NV_path_rendering;
   }
-  public static final Command glPointAlongPathNV = new Command();
+  public static final Command glPointAlongPathNV = new Command(0);
   private static void glPointAlongPathNV() {
     Command cmd = glPointAlongPathNV;
     cmd.returnGroup = Boolean;
     cmd.extension = GL_NV_path_rendering;
   }
-  public static final Command glGetVertexArrayIndexed64iv = new Command();
+  public static final Command glGetVertexArrayIndexed64iv = new Command(1);
   private static void glGetVertexArrayIndexed64iv() {
     Command cmd = glGetVertexArrayIndexed64iv;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_direct_state_access;
   }
-  public static final Command glGetFramebufferAttachmentParameterivEXT = new Command();
+  public static final Command glGetFramebufferAttachmentParameterivEXT = new Command(3);
   private static void glGetFramebufferAttachmentParameterivEXT() {
     Command cmd = glGetFramebufferAttachmentParameterivEXT;
     cmd.returnGroup = _null_;
@@ -27107,7 +27107,7 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_EXT_framebuffer_object;
   }
-  public static final Command glTexImage2DMultisampleCoverageNV = new Command();
+  public static final Command glTexImage2DMultisampleCoverageNV = new Command(2);
   private static void glTexImage2DMultisampleCoverageNV() {
     Command cmd = glTexImage2DMultisampleCoverageNV;
     cmd.returnGroup = _null_;
@@ -27115,14 +27115,14 @@ public class GLmetadata {
     cmd.addParam("fixedSampleLocations", GLboolean, Boolean);
     cmd.extension = GL_NV_texture_multisample;
   }
-  public static final Command glBufferStorageExternalEXT = new Command();
+  public static final Command glBufferStorageExternalEXT = new Command(2);
   private static void glBufferStorageExternalEXT() {
     Command cmd = glBufferStorageExternalEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.addParam("flags", GLbitfield, _null_);
   }
-  public static final Command glGetBufferPointervOES = new Command();
+  public static final Command glGetBufferPointervOES = new Command(2);
   private static void glGetBufferPointervOES() {
     Command cmd = glGetBufferPointervOES;
     cmd.returnGroup = _null_;
@@ -27130,7 +27130,7 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_OES_mapbuffer;
   }
-  public static final Command glBlendEquationSeparateOES = new Command();
+  public static final Command glBlendEquationSeparateOES = new Command(2);
   private static void glBlendEquationSeparateOES() {
     Command cmd = glBlendEquationSeparateOES;
     cmd.returnGroup = _null_;
@@ -27138,14 +27138,14 @@ public class GLmetadata {
     cmd.addParam("modeAlpha", GLenum, _null_);
     cmd.extension = GL_OES_blend_equation_separate;
   }
-  public static final Command glDrawBuffersNV = new Command();
+  public static final Command glDrawBuffersNV = new Command(1);
   private static void glDrawBuffersNV() {
     Command cmd = glDrawBuffersNV;
     cmd.returnGroup = _null_;
     cmd.addParam("bufs", GLenum, _null_);
     cmd.extension = GL_NV_draw_buffers;
   }
-  public static final Command glGetnColorTableARB = new Command();
+  public static final Command glGetnColorTableARB = new Command(3);
   private static void glGetnColorTableARB() {
     Command cmd = glGetnColorTableARB;
     cmd.returnGroup = _null_;
@@ -27154,27 +27154,27 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_ARB_robustness;
   }
-  public static final Command glDrawTransformFeedback = new Command();
+  public static final Command glDrawTransformFeedback = new Command(1);
   private static void glDrawTransformFeedback() {
     Command cmd = glDrawTransformFeedback;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, PrimitiveType);
     cmd.extension = GL_ARB_transform_feedback2;
   }
-  public static final Command glVertexPointer = new Command();
+  public static final Command glVertexPointer = new Command(1);
   private static void glVertexPointer() {
     Command cmd = glVertexPointer;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, VertexPointerType);
   }
-  public static final Command glPathSubCommandsNV = new Command();
+  public static final Command glPathSubCommandsNV = new Command(1);
   private static void glPathSubCommandsNV() {
     Command cmd = glPathSubCommandsNV;
     cmd.returnGroup = _null_;
     cmd.addParam("coordType", GLenum, _null_);
     cmd.extension = GL_NV_path_rendering;
   }
-  public static final Command glMultiTexParameterIivEXT = new Command();
+  public static final Command glMultiTexParameterIivEXT = new Command(3);
   private static void glMultiTexParameterIivEXT() {
     Command cmd = glMultiTexParameterIivEXT;
     cmd.returnGroup = _null_;
@@ -27183,7 +27183,7 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, TextureParameterName);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glTextureImage2DMultisampleCoverageNV = new Command();
+  public static final Command glTextureImage2DMultisampleCoverageNV = new Command(2);
   private static void glTextureImage2DMultisampleCoverageNV() {
     Command cmd = glTextureImage2DMultisampleCoverageNV;
     cmd.returnGroup = _null_;
@@ -27191,14 +27191,14 @@ public class GLmetadata {
     cmd.addParam("fixedSampleLocations", GLboolean, Boolean);
     cmd.extension = GL_NV_texture_multisample;
   }
-  public static final Command glMultiTexCoord3svARB = new Command();
+  public static final Command glMultiTexCoord3svARB = new Command(1);
   private static void glMultiTexCoord3svARB() {
     Command cmd = glMultiTexCoord3svARB;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_ARB_multitexture;
   }
-  public static final Command glCopyBufferSubDataNV = new Command();
+  public static final Command glCopyBufferSubDataNV = new Command(2);
   private static void glCopyBufferSubDataNV() {
     Command cmd = glCopyBufferSubDataNV;
     cmd.returnGroup = _null_;
@@ -27206,34 +27206,34 @@ public class GLmetadata {
     cmd.addParam("writeTarget", GLenum, _null_);
     cmd.extension = GL_NV_copy_buffer;
   }
-  public static final Command glBufferStorageMemEXT = new Command();
+  public static final Command glBufferStorageMemEXT = new Command(1);
   private static void glBufferStorageMemEXT() {
     Command cmd = glBufferStorageMemEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, BufferTargetARB);
     cmd.extension = GL_EXT_memory_object;
   }
-  public static final Command glPointParameteriv = new Command();
+  public static final Command glPointParameteriv = new Command(1);
   private static void glPointParameteriv() {
     Command cmd = glPointParameteriv;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
   }
-  public static final Command glDrawElementsInstancedBaseInstanceEXT = new Command();
+  public static final Command glDrawElementsInstancedBaseInstanceEXT = new Command(2);
   private static void glDrawElementsInstancedBaseInstanceEXT() {
     Command cmd = glDrawElementsInstancedBaseInstanceEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, PrimitiveType);
     cmd.addParam("type", GLenum, _null_);
   }
-  public static final Command glGetProgramLocalParameterIuivNV = new Command();
+  public static final Command glGetProgramLocalParameterIuivNV = new Command(1);
   private static void glGetProgramLocalParameterIuivNV() {
     Command cmd = glGetProgramLocalParameterIuivNV;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_NV_gpu_program4;
   }
-  public static final Command glCompressedMultiTexImage3DEXT = new Command();
+  public static final Command glCompressedMultiTexImage3DEXT = new Command(3);
   private static void glCompressedMultiTexImage3DEXT() {
     Command cmd = glCompressedMultiTexImage3DEXT;
     cmd.returnGroup = _null_;
@@ -27242,27 +27242,27 @@ public class GLmetadata {
     cmd.addParam("internalformat", GLenum, _null_);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glNormalStream3iATI = new Command();
+  public static final Command glNormalStream3iATI = new Command(1);
   private static void glNormalStream3iATI() {
     Command cmd = glNormalStream3iATI;
     cmd.returnGroup = _null_;
     cmd.addParam("stream", GLenum, _null_);
     cmd.extension = GL_ATI_vertex_streams;
   }
-  public static final Command glPushDebugGroup = new Command();
+  public static final Command glPushDebugGroup = new Command(1);
   private static void glPushDebugGroup() {
     Command cmd = glPushDebugGroup;
     cmd.returnGroup = _null_;
     cmd.addParam("source", GLenum, _null_);
     cmd.extension = GL_KHR_debug;
   }
-  public static final Command glMultiDrawArraysIndirectBindlessCountNV = new Command();
+  public static final Command glMultiDrawArraysIndirectBindlessCountNV = new Command(1);
   private static void glMultiDrawArraysIndirectBindlessCountNV() {
     Command cmd = glMultiDrawArraysIndirectBindlessCountNV;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, PrimitiveType);
   }
-  public static final Command glGetObjectParameterivAPPLE = new Command();
+  public static final Command glGetObjectParameterivAPPLE = new Command(2);
   private static void glGetObjectParameterivAPPLE() {
     Command cmd = glGetObjectParameterivAPPLE;
     cmd.returnGroup = _null_;
@@ -27270,20 +27270,20 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_APPLE_object_purgeable;
   }
-  public static final Command glVertexAttribLPointerEXT = new Command();
+  public static final Command glVertexAttribLPointerEXT = new Command(1);
   private static void glVertexAttribLPointerEXT() {
     Command cmd = glVertexAttribLPointerEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_EXT_vertex_attrib_64bit;
   }
-  public static final Command glAlphaFuncx = new Command();
+  public static final Command glAlphaFuncx = new Command(1);
   private static void glAlphaFuncx() {
     Command cmd = glAlphaFuncx;
     cmd.returnGroup = _null_;
     cmd.addParam("func", GLenum, _null_);
   }
-  public static final Command glGetConvolutionParameterxvOES = new Command();
+  public static final Command glGetConvolutionParameterxvOES = new Command(2);
   private static void glGetConvolutionParameterxvOES() {
     Command cmd = glGetConvolutionParameterxvOES;
     cmd.returnGroup = _null_;
@@ -27291,28 +27291,28 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_OES_fixed_point;
   }
-  public static final Command glInvalidateNamedFramebufferData = new Command();
+  public static final Command glInvalidateNamedFramebufferData = new Command(1);
   private static void glInvalidateNamedFramebufferData() {
     Command cmd = glInvalidateNamedFramebufferData;
     cmd.returnGroup = _null_;
     cmd.addParam("attachments", GLenum, _null_);
     cmd.extension = GL_ARB_direct_state_access;
   }
-  public static final Command glVertexAttribPointer = new Command();
+  public static final Command glVertexAttribPointer = new Command(2);
   private static void glVertexAttribPointer() {
     Command cmd = glVertexAttribPointer;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
     cmd.addParam("normalized", GLboolean, Boolean);
   }
-  public static final Command glCoverageMaskNV = new Command();
+  public static final Command glCoverageMaskNV = new Command(1);
   private static void glCoverageMaskNV() {
     Command cmd = glCoverageMaskNV;
     cmd.returnGroup = _null_;
     cmd.addParam("mask", GLboolean, Boolean);
     cmd.extension = GL_NV_coverage_sample;
   }
-  public static final Command glFragmentLightiSGIX = new Command();
+  public static final Command glFragmentLightiSGIX = new Command(2);
   private static void glFragmentLightiSGIX() {
     Command cmd = glFragmentLightiSGIX;
     cmd.returnGroup = _null_;
@@ -27320,21 +27320,21 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_SGIX_fragment_lighting;
   }
-  public static final Command glBlendFunciARB = new Command();
+  public static final Command glBlendFunciARB = new Command(2);
   private static void glBlendFunciARB() {
     Command cmd = glBlendFunciARB;
     cmd.returnGroup = _null_;
     cmd.addParam("src", GLenum, _null_);
     cmd.addParam("dst", GLenum, _null_);
   }
-  public static final Command glMultiTexCoord2iARB = new Command();
+  public static final Command glMultiTexCoord2iARB = new Command(1);
   private static void glMultiTexCoord2iARB() {
     Command cmd = glMultiTexCoord2iARB;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_ARB_multitexture;
   }
-  public static final Command glConvolutionParameterivEXT = new Command();
+  public static final Command glConvolutionParameterivEXT = new Command(2);
   private static void glConvolutionParameterivEXT() {
     Command cmd = glConvolutionParameterivEXT;
     cmd.returnGroup = _null_;
@@ -27342,7 +27342,7 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, ConvolutionParameterEXT);
     cmd.extension = GL_EXT_convolution;
   }
-  public static final Command glFramebufferRenderbufferEXT = new Command();
+  public static final Command glFramebufferRenderbufferEXT = new Command(3);
   private static void glFramebufferRenderbufferEXT() {
     Command cmd = glFramebufferRenderbufferEXT;
     cmd.returnGroup = _null_;
@@ -27351,14 +27351,14 @@ public class GLmetadata {
     cmd.addParam("renderbuffertarget", GLenum, _null_);
     cmd.extension = GL_EXT_framebuffer_object;
   }
-  public static final Command glGetUnsignedBytei_vEXT = new Command();
+  public static final Command glGetUnsignedBytei_vEXT = new Command(1);
   private static void glGetUnsignedBytei_vEXT() {
     Command cmd = glGetUnsignedBytei_vEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_EXT_semaphore;
   }
-  public static final Command glFramebufferTextureLayerEXT = new Command();
+  public static final Command glFramebufferTextureLayerEXT = new Command(2);
   private static void glFramebufferTextureLayerEXT() {
     Command cmd = glFramebufferTextureLayerEXT;
     cmd.returnGroup = _null_;
@@ -27366,62 +27366,62 @@ public class GLmetadata {
     cmd.addParam("attachment", GLenum, _null_);
     cmd.extension = GL_NV_geometry_program4;
   }
-  public static final Command glActiveTextureARB = new Command();
+  public static final Command glActiveTextureARB = new Command(1);
   private static void glActiveTextureARB() {
     Command cmd = glActiveTextureARB;
     cmd.returnGroup = _null_;
     cmd.addParam("texture", GLenum, _null_);
     cmd.extension = GL_ARB_multitexture;
   }
-  public static final Command glBlendEquationOES = new Command();
+  public static final Command glBlendEquationOES = new Command(1);
   private static void glBlendEquationOES() {
     Command cmd = glBlendEquationOES;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, _null_);
     cmd.extension = GL_OES_blend_subtract;
   }
-  public static final Command glGenerateMipmapOES = new Command();
+  public static final Command glGenerateMipmapOES = new Command(1);
   private static void glGenerateMipmapOES() {
     Command cmd = glGenerateMipmapOES;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_OES_framebuffer_object;
   }
-  public static final Command glNormalP3uiv = new Command();
+  public static final Command glNormalP3uiv = new Command(1);
   private static void glNormalP3uiv() {
     Command cmd = glNormalP3uiv;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_ARB_vertex_type_2_10_10_10_rev;
   }
-  public static final Command glBindBufferRangeEXT = new Command();
+  public static final Command glBindBufferRangeEXT = new Command(1);
   private static void glBindBufferRangeEXT() {
     Command cmd = glBindBufferRangeEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_EXT_transform_feedback;
   }
-  public static final Command glPointParameterfv = new Command();
+  public static final Command glPointParameterfv = new Command(1);
   private static void glPointParameterfv() {
     Command cmd = glPointParameterfv;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
   }
-  public static final Command glCoverageOperationNV = new Command();
+  public static final Command glCoverageOperationNV = new Command(1);
   private static void glCoverageOperationNV() {
     Command cmd = glCoverageOperationNV;
     cmd.returnGroup = _null_;
     cmd.addParam("operation", GLenum, _null_);
     cmd.extension = GL_NV_coverage_sample;
   }
-  public static final Command glNamedRenderbufferStorageMultisampleCoverageEXT = new Command();
+  public static final Command glNamedRenderbufferStorageMultisampleCoverageEXT = new Command(1);
   private static void glNamedRenderbufferStorageMultisampleCoverageEXT() {
     Command cmd = glNamedRenderbufferStorageMultisampleCoverageEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("internalformat", GLenum, InternalFormat);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glMultiTexEnvfvEXT = new Command();
+  public static final Command glMultiTexEnvfvEXT = new Command(3);
   private static void glMultiTexEnvfvEXT() {
     Command cmd = glMultiTexEnvfvEXT;
     cmd.returnGroup = _null_;
@@ -27430,21 +27430,21 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, TextureEnvParameter);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glClipPlanefIMG = new Command();
+  public static final Command glClipPlanefIMG = new Command(1);
   private static void glClipPlanefIMG() {
     Command cmd = glClipPlanefIMG;
     cmd.returnGroup = _null_;
     cmd.addParam("p", GLenum, _null_);
     cmd.extension = GL_IMG_user_clip_plane;
   }
-  public static final Command glIndexFuncEXT = new Command();
+  public static final Command glIndexFuncEXT = new Command(1);
   private static void glIndexFuncEXT() {
     Command cmd = glIndexFuncEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("func", GLenum, _null_);
     cmd.extension = GL_EXT_index_func;
   }
-  public static final Command glGetnMapfvARB = new Command();
+  public static final Command glGetnMapfvARB = new Command(2);
   private static void glGetnMapfvARB() {
     Command cmd = glGetnMapfvARB;
     cmd.returnGroup = _null_;
@@ -27452,7 +27452,7 @@ public class GLmetadata {
     cmd.addParam("query", GLenum, _null_);
     cmd.extension = GL_ARB_robustness;
   }
-  public static final Command glClearBufferSubData = new Command();
+  public static final Command glClearBufferSubData = new Command(4);
   private static void glClearBufferSubData() {
     Command cmd = glClearBufferSubData;
     cmd.returnGroup = _null_;
@@ -27461,7 +27461,7 @@ public class GLmetadata {
     cmd.addParam("format", GLenum, _null_);
     cmd.addParam("type", GLenum, _null_);
   }
-  public static final Command glCompressedTexImage3DOES = new Command();
+  public static final Command glCompressedTexImage3DOES = new Command(2);
   private static void glCompressedTexImage3DOES() {
     Command cmd = glCompressedTexImage3DOES;
     cmd.returnGroup = _null_;
@@ -27469,7 +27469,7 @@ public class GLmetadata {
     cmd.addParam("internalformat", GLenum, _null_);
     cmd.extension = GL_OES_texture_3D;
   }
-  public static final Command glGetnMinmaxARB = new Command();
+  public static final Command glGetnMinmaxARB = new Command(4);
   private static void glGetnMinmaxARB() {
     Command cmd = glGetnMinmaxARB;
     cmd.returnGroup = _null_;
@@ -27479,14 +27479,14 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_ARB_robustness;
   }
-  public static final Command glGetQueryObjectui64vEXT = new Command();
+  public static final Command glGetQueryObjectui64vEXT = new Command(1);
   private static void glGetQueryObjectui64vEXT() {
     Command cmd = glGetQueryObjectui64vEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_EXT_timer_query;
   }
-  public static final Command glGetMultiTexGenivEXT = new Command();
+  public static final Command glGetMultiTexGenivEXT = new Command(3);
   private static void glGetMultiTexGenivEXT() {
     Command cmd = glGetMultiTexGenivEXT;
     cmd.returnGroup = _null_;
@@ -27495,14 +27495,14 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, TextureGenParameter);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glProvokingVertex = new Command();
+  public static final Command glProvokingVertex = new Command(1);
   private static void glProvokingVertex() {
     Command cmd = glProvokingVertex;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, _null_);
     cmd.extension = GL_ARB_provoking_vertex;
   }
-  public static final Command glGetTexLevelParameterxvOES = new Command();
+  public static final Command glGetTexLevelParameterxvOES = new Command(2);
   private static void glGetTexLevelParameterxvOES() {
     Command cmd = glGetTexLevelParameterxvOES;
     cmd.returnGroup = _null_;
@@ -27510,68 +27510,68 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_OES_fixed_point;
   }
-  public static final Command glIsVertexAttribEnabledAPPLE = new Command();
+  public static final Command glIsVertexAttribEnabledAPPLE = new Command(1);
   private static void glIsVertexAttribEnabledAPPLE() {
     Command cmd = glIsVertexAttribEnabledAPPLE;
     cmd.returnGroup = Boolean;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_APPLE_vertex_program_evaluators;
   }
-  public static final Command glGetNamedFramebufferParameterfvAMD = new Command();
+  public static final Command glGetNamedFramebufferParameterfvAMD = new Command(1);
   private static void glGetNamedFramebufferParameterfvAMD() {
     Command cmd = glGetNamedFramebufferParameterfvAMD;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_AMD_framebuffer_sample_positions;
   }
-  public static final Command glMaterialfv = new Command();
+  public static final Command glMaterialfv = new Command(2);
   private static void glMaterialfv() {
     Command cmd = glMaterialfv;
     cmd.returnGroup = _null_;
     cmd.addParam("face", GLenum, MaterialFace);
     cmd.addParam("pname", GLenum, MaterialParameter);
   }
-  public static final Command glDrawRangeElementArrayATI = new Command();
+  public static final Command glDrawRangeElementArrayATI = new Command(1);
   private static void glDrawRangeElementArrayATI() {
     Command cmd = glDrawRangeElementArrayATI;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, PrimitiveType);
     cmd.extension = GL_ATI_element_array;
   }
-  public static final Command glEGLImageTargetRenderbufferStorageOES = new Command();
+  public static final Command glEGLImageTargetRenderbufferStorageOES = new Command(1);
   private static void glEGLImageTargetRenderbufferStorageOES() {
     Command cmd = glEGLImageTargetRenderbufferStorageOES;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
   }
-  public static final Command glGetIntegerv = new Command();
+  public static final Command glGetIntegerv = new Command(1);
   private static void glGetIntegerv() {
     Command cmd = glGetIntegerv;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, GetPName);
   }
-  public static final Command glGetVariantFloatvEXT = new Command();
+  public static final Command glGetVariantFloatvEXT = new Command(1);
   private static void glGetVariantFloatvEXT() {
     Command cmd = glGetVariantFloatvEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("value", GLenum, _null_);
     cmd.extension = GL_EXT_vertex_shader;
   }
-  public static final Command glBlendEquationSeparateIndexedAMD = new Command();
+  public static final Command glBlendEquationSeparateIndexedAMD = new Command(2);
   private static void glBlendEquationSeparateIndexedAMD() {
     Command cmd = glBlendEquationSeparateIndexedAMD;
     cmd.returnGroup = _null_;
     cmd.addParam("modeRGB", GLenum, _null_);
     cmd.addParam("modeAlpha", GLenum, _null_);
   }
-  public static final Command glPNTrianglesiATI = new Command();
+  public static final Command glPNTrianglesiATI = new Command(1);
   private static void glPNTrianglesiATI() {
     Command cmd = glPNTrianglesiATI;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ATI_pn_triangles;
   }
-  public static final Command glFragmentMaterialfvSGIX = new Command();
+  public static final Command glFragmentMaterialfvSGIX = new Command(2);
   private static void glFragmentMaterialfvSGIX() {
     Command cmd = glFragmentMaterialfvSGIX;
     cmd.returnGroup = _null_;
@@ -27579,13 +27579,13 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, MaterialParameter);
     cmd.extension = GL_SGIX_fragment_lighting;
   }
-  public static final Command glPixelMapuiv = new Command();
+  public static final Command glPixelMapuiv = new Command(1);
   private static void glPixelMapuiv() {
     Command cmd = glPixelMapuiv;
     cmd.returnGroup = _null_;
     cmd.addParam("map", GLenum, PixelMap);
   }
-  public static final Command glStencilFuncSeparateATI = new Command();
+  public static final Command glStencilFuncSeparateATI = new Command(2);
   private static void glStencilFuncSeparateATI() {
     Command cmd = glStencilFuncSeparateATI;
     cmd.returnGroup = _null_;
@@ -27593,88 +27593,88 @@ public class GLmetadata {
     cmd.addParam("backfunc", GLenum, StencilFunction);
     cmd.extension = GL_ATI_separate_stencil;
   }
-  public static final Command glTextureLightEXT = new Command();
+  public static final Command glTextureLightEXT = new Command(1);
   private static void glTextureLightEXT() {
     Command cmd = glTextureLightEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_EXT_light_texture;
   }
-  public static final Command glMatrixIndexPointerARB = new Command();
+  public static final Command glMatrixIndexPointerARB = new Command(1);
   private static void glMatrixIndexPointerARB() {
     Command cmd = glMatrixIndexPointerARB;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_ARB_matrix_palette;
   }
-  public static final Command glEnableClientState = new Command();
+  public static final Command glEnableClientState = new Command(1);
   private static void glEnableClientState() {
     Command cmd = glEnableClientState;
     cmd.returnGroup = _null_;
     cmd.addParam("array", GLenum, EnableCap);
   }
-  public static final Command glPixelMapx = new Command();
+  public static final Command glPixelMapx = new Command(1);
   private static void glPixelMapx() {
     Command cmd = glPixelMapx;
     cmd.returnGroup = _null_;
     cmd.addParam("map", GLenum, _null_);
     cmd.extension = GL_OES_fixed_point;
   }
-  public static final Command glNormalPointerListIBM = new Command();
+  public static final Command glNormalPointerListIBM = new Command(1);
   private static void glNormalPointerListIBM() {
     Command cmd = glNormalPointerListIBM;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, NormalPointerType);
     cmd.extension = GL_IBM_vertex_array_lists;
   }
-  public static final Command glIsEnablediNV = new Command();
+  public static final Command glIsEnablediNV = new Command(1);
   private static void glIsEnablediNV() {
     Command cmd = glIsEnablediNV;
     cmd.returnGroup = Boolean;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_NV_viewport_array;
   }
-  public static final Command glAreTexturesResident = new Command();
+  public static final Command glAreTexturesResident = new Command(1);
   private static void glAreTexturesResident() {
     Command cmd = glAreTexturesResident;
     cmd.returnGroup = Boolean;
     cmd.addParam("residences", GLboolean, Boolean);
   }
-  public static final Command glDrawTransformFeedbackInstanced = new Command();
+  public static final Command glDrawTransformFeedbackInstanced = new Command(1);
   private static void glDrawTransformFeedbackInstanced() {
     Command cmd = glDrawTransformFeedbackInstanced;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, PrimitiveType);
   }
-  public static final Command glGetTextureLevelParameterfv = new Command();
+  public static final Command glGetTextureLevelParameterfv = new Command(1);
   private static void glGetTextureLevelParameterfv() {
     Command cmd = glGetTextureLevelParameterfv;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_direct_state_access;
   }
-  public static final Command glVideoCaptureStreamParameterivNV = new Command();
+  public static final Command glVideoCaptureStreamParameterivNV = new Command(1);
   private static void glVideoCaptureStreamParameterivNV() {
     Command cmd = glVideoCaptureStreamParameterivNV;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_NV_video_capture;
   }
-  public static final Command glCullParameterfvEXT = new Command();
+  public static final Command glCullParameterfvEXT = new Command(1);
   private static void glCullParameterfvEXT() {
     Command cmd = glCullParameterfvEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_EXT_cull_vertex;
   }
-  public static final Command glTexParameterfv = new Command();
+  public static final Command glTexParameterfv = new Command(2);
   private static void glTexParameterfv() {
     Command cmd = glTexParameterfv;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, TextureTarget);
     cmd.addParam("pname", GLenum, TextureParameterName);
   }
-  public static final Command glCopyMultiTexSubImage2DEXT = new Command();
+  public static final Command glCopyMultiTexSubImage2DEXT = new Command(2);
   private static void glCopyMultiTexSubImage2DEXT() {
     Command cmd = glCopyMultiTexSubImage2DEXT;
     cmd.returnGroup = _null_;
@@ -27682,55 +27682,55 @@ public class GLmetadata {
     cmd.addParam("target", GLenum, TextureTarget);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glClientAttribDefaultEXT = new Command();
+  public static final Command glClientAttribDefaultEXT = new Command(1);
   private static void glClientAttribDefaultEXT() {
     Command cmd = glClientAttribDefaultEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("mask", GLbitfield, ClientAttribMask);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glCheckFramebufferStatus = new Command();
+  public static final Command glCheckFramebufferStatus = new Command(1);
   private static void glCheckFramebufferStatus() {
     Command cmd = glCheckFramebufferStatus;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_ARB_framebuffer_object;
   }
-  public static final Command glGetLightiv = new Command();
+  public static final Command glGetLightiv = new Command(2);
   private static void glGetLightiv() {
     Command cmd = glGetLightiv;
     cmd.returnGroup = _null_;
     cmd.addParam("light", GLenum, LightName);
     cmd.addParam("pname", GLenum, LightParameter);
   }
-  public static final Command glListParameterfSGIX = new Command();
+  public static final Command glListParameterfSGIX = new Command(1);
   private static void glListParameterfSGIX() {
     Command cmd = glListParameterfSGIX;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, ListParameterName);
     cmd.extension = GL_SGIX_list_priority;
   }
-  public static final Command glGetnPixelMapfvARB = new Command();
+  public static final Command glGetnPixelMapfvARB = new Command(1);
   private static void glGetnPixelMapfvARB() {
     Command cmd = glGetnPixelMapfvARB;
     cmd.returnGroup = _null_;
     cmd.addParam("map", GLenum, _null_);
     cmd.extension = GL_ARB_robustness;
   }
-  public static final Command glBlendEquationIndexedAMD = new Command();
+  public static final Command glBlendEquationIndexedAMD = new Command(1);
   private static void glBlendEquationIndexedAMD() {
     Command cmd = glBlendEquationIndexedAMD;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, _null_);
   }
-  public static final Command glDrawElementsInstanced = new Command();
+  public static final Command glDrawElementsInstanced = new Command(2);
   private static void glDrawElementsInstanced() {
     Command cmd = glDrawElementsInstanced;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, PrimitiveType);
     cmd.addParam("type", GLenum, DrawElementsType);
   }
-  public static final Command glMultiTexParameterfEXT = new Command();
+  public static final Command glMultiTexParameterfEXT = new Command(3);
   private static void glMultiTexParameterfEXT() {
     Command cmd = glMultiTexParameterfEXT;
     cmd.returnGroup = _null_;
@@ -27739,13 +27739,13 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, TextureParameterName);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glEdgeFlagv = new Command();
+  public static final Command glEdgeFlagv = new Command(1);
   private static void glEdgeFlagv() {
     Command cmd = glEdgeFlagv;
     cmd.returnGroup = _null_;
     cmd.addParam("flag", GLboolean, Boolean);
   }
-  public static final Command glGetProgramResourcefvNV = new Command();
+  public static final Command glGetProgramResourcefvNV = new Command(2);
   private static void glGetProgramResourcefvNV() {
     Command cmd = glGetProgramResourcefvNV;
     cmd.returnGroup = _null_;
@@ -27753,35 +27753,35 @@ public class GLmetadata {
     cmd.addParam("props", GLenum, _null_);
     cmd.extension = GL_NV_path_rendering;
   }
-  public static final Command glGetProgramBinaryOES = new Command();
+  public static final Command glGetProgramBinaryOES = new Command(1);
   private static void glGetProgramBinaryOES() {
     Command cmd = glGetProgramBinaryOES;
     cmd.returnGroup = _null_;
     cmd.addParam("binaryFormat", GLenum, _null_);
     cmd.extension = GL_OES_get_program_binary;
   }
-  public static final Command glCopyTextureSubImage3DEXT = new Command();
+  public static final Command glCopyTextureSubImage3DEXT = new Command(1);
   private static void glCopyTextureSubImage3DEXT() {
     Command cmd = glCopyTextureSubImage3DEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, TextureTarget);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glMaterialiv = new Command();
+  public static final Command glMaterialiv = new Command(2);
   private static void glMaterialiv() {
     Command cmd = glMaterialiv;
     cmd.returnGroup = _null_;
     cmd.addParam("face", GLenum, MaterialFace);
     cmd.addParam("pname", GLenum, MaterialParameter);
   }
-  public static final Command glMulticastWaitSyncNV = new Command();
+  public static final Command glMulticastWaitSyncNV = new Command(1);
   private static void glMulticastWaitSyncNV() {
     Command cmd = glMulticastWaitSyncNV;
     cmd.returnGroup = _null_;
     cmd.addParam("waitGpuMask", GLbitfield, _null_);
     cmd.extension = GL_NV_gpu_multicast;
   }
-  public static final Command glMinmax = new Command();
+  public static final Command glMinmax = new Command(3);
   private static void glMinmax() {
     Command cmd = glMinmax;
     cmd.returnGroup = _null_;
@@ -27790,7 +27790,7 @@ public class GLmetadata {
     cmd.addParam("sink", GLboolean, Boolean);
     cmd.extension = GL_ARB_imaging;
   }
-  public static final Command glVertexAttribP3ui = new Command();
+  public static final Command glVertexAttribP3ui = new Command(2);
   private static void glVertexAttribP3ui() {
     Command cmd = glVertexAttribP3ui;
     cmd.returnGroup = _null_;
@@ -27798,48 +27798,48 @@ public class GLmetadata {
     cmd.addParam("normalized", GLboolean, Boolean);
     cmd.extension = GL_ARB_vertex_type_2_10_10_10_rev;
   }
-  public static final Command glVertexPointervINTEL = new Command();
+  public static final Command glVertexPointervINTEL = new Command(1);
   private static void glVertexPointervINTEL() {
     Command cmd = glVertexPointervINTEL;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, VertexPointerType);
     cmd.extension = GL_INTEL_parallel_arrays;
   }
-  public static final Command glBindFramebuffer = new Command();
+  public static final Command glBindFramebuffer = new Command(1);
   private static void glBindFramebuffer() {
     Command cmd = glBindFramebuffer;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_ARB_framebuffer_object;
   }
-  public static final Command glMakeBufferNonResidentNV = new Command();
+  public static final Command glMakeBufferNonResidentNV = new Command(1);
   private static void glMakeBufferNonResidentNV() {
     Command cmd = glMakeBufferNonResidentNV;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_NV_shader_buffer_load;
   }
-  public static final Command glVertexStream2dvATI = new Command();
+  public static final Command glVertexStream2dvATI = new Command(1);
   private static void glVertexStream2dvATI() {
     Command cmd = glVertexStream2dvATI;
     cmd.returnGroup = _null_;
     cmd.addParam("stream", GLenum, _null_);
     cmd.extension = GL_ATI_vertex_streams;
   }
-  public static final Command glTransformFeedbackAttribsNV = new Command();
+  public static final Command glTransformFeedbackAttribsNV = new Command(1);
   private static void glTransformFeedbackAttribsNV() {
     Command cmd = glTransformFeedbackAttribsNV;
     cmd.returnGroup = _null_;
     cmd.addParam("bufferMode", GLenum, _null_);
     cmd.extension = GL_NV_transform_feedback;
   }
-  public static final Command glIsFenceAPPLE = new Command();
+  public static final Command glIsFenceAPPLE = new Command(0);
   private static void glIsFenceAPPLE() {
     Command cmd = glIsFenceAPPLE;
     cmd.returnGroup = Boolean;
     cmd.extension = GL_APPLE_fence;
   }
-  public static final Command glColorTableParameteriv = new Command();
+  public static final Command glColorTableParameteriv = new Command(2);
   private static void glColorTableParameteriv() {
     Command cmd = glColorTableParameteriv;
     cmd.returnGroup = _null_;
@@ -27847,90 +27847,90 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_imaging;
   }
-  public static final Command glDrawBuffersEXT = new Command();
+  public static final Command glDrawBuffersEXT = new Command(1);
   private static void glDrawBuffersEXT() {
     Command cmd = glDrawBuffersEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("bufs", GLenum, _null_);
     cmd.extension = GL_EXT_draw_buffers;
   }
-  public static final Command glProgramUniformMatrix2x4dvEXT = new Command();
+  public static final Command glProgramUniformMatrix2x4dvEXT = new Command(1);
   private static void glProgramUniformMatrix2x4dvEXT() {
     Command cmd = glProgramUniformMatrix2x4dvEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("transpose", GLboolean, Boolean);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glCopyTexImage1DEXT = new Command();
+  public static final Command glCopyTexImage1DEXT = new Command(2);
   private static void glCopyTexImage1DEXT() {
     Command cmd = glCopyTexImage1DEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, TextureTarget);
     cmd.addParam("internalformat", GLenum, InternalFormat);
   }
-  public static final Command glCreateShaderProgramvEXT = new Command();
+  public static final Command glCreateShaderProgramvEXT = new Command(1);
   private static void glCreateShaderProgramvEXT() {
     Command cmd = glCreateShaderProgramvEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_EXT_separate_shader_objects;
   }
-  public static final Command glFramebufferTexture = new Command();
+  public static final Command glFramebufferTexture = new Command(2);
   private static void glFramebufferTexture() {
     Command cmd = glFramebufferTexture;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.addParam("attachment", GLenum, _null_);
   }
-  public static final Command glNamedProgramLocalParameters4fvEXT = new Command();
+  public static final Command glNamedProgramLocalParameters4fvEXT = new Command(1);
   private static void glNamedProgramLocalParameters4fvEXT() {
     Command cmd = glNamedProgramLocalParameters4fvEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glGetVideoivNV = new Command();
+  public static final Command glGetVideoivNV = new Command(1);
   private static void glGetVideoivNV() {
     Command cmd = glGetVideoivNV;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_NV_present_video;
   }
-  public static final Command glGetLightfv = new Command();
+  public static final Command glGetLightfv = new Command(2);
   private static void glGetLightfv() {
     Command cmd = glGetLightfv;
     cmd.returnGroup = _null_;
     cmd.addParam("light", GLenum, LightName);
     cmd.addParam("pname", GLenum, LightParameter);
   }
-  public static final Command glGetNamedRenderbufferParameterivEXT = new Command();
+  public static final Command glGetNamedRenderbufferParameterivEXT = new Command(1);
   private static void glGetNamedRenderbufferParameterivEXT() {
     Command cmd = glGetNamedRenderbufferParameterivEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glCompressedTextureSubImage3D = new Command();
+  public static final Command glCompressedTextureSubImage3D = new Command(1);
   private static void glCompressedTextureSubImage3D() {
     Command cmd = glCompressedTextureSubImage3D;
     cmd.returnGroup = _null_;
     cmd.addParam("format", GLenum, _null_);
     cmd.extension = GL_ARB_direct_state_access;
   }
-  public static final Command glGetClipPlanefOES = new Command();
+  public static final Command glGetClipPlanefOES = new Command(1);
   private static void glGetClipPlanefOES() {
     Command cmd = glGetClipPlanefOES;
     cmd.returnGroup = _null_;
     cmd.addParam("plane", GLenum, _null_);
   }
-  public static final Command glFinishObjectAPPLE = new Command();
+  public static final Command glFinishObjectAPPLE = new Command(1);
   private static void glFinishObjectAPPLE() {
     Command cmd = glFinishObjectAPPLE;
     cmd.returnGroup = _null_;
     cmd.addParam("object", GLenum, _null_);
     cmd.extension = GL_APPLE_fence;
   }
-  public static final Command glGetRenderbufferParameterivOES = new Command();
+  public static final Command glGetRenderbufferParameterivOES = new Command(2);
   private static void glGetRenderbufferParameterivOES() {
     Command cmd = glGetRenderbufferParameterivOES;
     cmd.returnGroup = _null_;
@@ -27938,7 +27938,7 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_OES_framebuffer_object;
   }
-  public static final Command glMultiTexGendEXT = new Command();
+  public static final Command glMultiTexGendEXT = new Command(3);
   private static void glMultiTexGendEXT() {
     Command cmd = glMultiTexGendEXT;
     cmd.returnGroup = _null_;
@@ -27947,7 +27947,7 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, TextureGenParameter);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glVertexArrayAttribFormat = new Command();
+  public static final Command glVertexArrayAttribFormat = new Command(2);
   private static void glVertexArrayAttribFormat() {
     Command cmd = glVertexArrayAttribFormat;
     cmd.returnGroup = _null_;
@@ -27955,21 +27955,21 @@ public class GLmetadata {
     cmd.addParam("normalized", GLboolean, Boolean);
     cmd.extension = GL_ARB_direct_state_access;
   }
-  public static final Command glFogCoordPointerListIBM = new Command();
+  public static final Command glFogCoordPointerListIBM = new Command(1);
   private static void glFogCoordPointerListIBM() {
     Command cmd = glFogCoordPointerListIBM;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, FogPointerTypeIBM);
     cmd.extension = GL_IBM_vertex_array_lists;
   }
-  public static final Command glVertexArrayAttribIFormat = new Command();
+  public static final Command glVertexArrayAttribIFormat = new Command(1);
   private static void glVertexArrayAttribIFormat() {
     Command cmd = glVertexArrayAttribIFormat;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_ARB_direct_state_access;
   }
-  public static final Command glGetPixelTransformParameterfvEXT = new Command();
+  public static final Command glGetPixelTransformParameterfvEXT = new Command(2);
   private static void glGetPixelTransformParameterfvEXT() {
     Command cmd = glGetPixelTransformParameterfvEXT;
     cmd.returnGroup = _null_;
@@ -27977,27 +27977,27 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_EXT_pixel_transform;
   }
-  public static final Command glMatrixLoad3x3fNV = new Command();
+  public static final Command glMatrixLoad3x3fNV = new Command(1);
   private static void glMatrixLoad3x3fNV() {
     Command cmd = glMatrixLoad3x3fNV;
     cmd.returnGroup = _null_;
     cmd.addParam("matrixMode", GLenum, _null_);
     cmd.extension = GL_NV_path_rendering;
   }
-  public static final Command glProgramLocalParameters4fvEXT = new Command();
+  public static final Command glProgramLocalParameters4fvEXT = new Command(1);
   private static void glProgramLocalParameters4fvEXT() {
     Command cmd = glProgramLocalParameters4fvEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
   }
-  public static final Command glDrawElementsBaseVertexOES = new Command();
+  public static final Command glDrawElementsBaseVertexOES = new Command(2);
   private static void glDrawElementsBaseVertexOES() {
     Command cmd = glDrawElementsBaseVertexOES;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, PrimitiveType);
     cmd.addParam("type", GLenum, DrawElementsType);
   }
-  public static final Command glMultiTexCoordP1uiv = new Command();
+  public static final Command glMultiTexCoordP1uiv = new Command(2);
   private static void glMultiTexCoordP1uiv() {
     Command cmd = glMultiTexCoordP1uiv;
     cmd.returnGroup = _null_;
@@ -28005,7 +28005,7 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_ARB_vertex_type_2_10_10_10_rev;
   }
-  public static final Command glColorTableParameterfv = new Command();
+  public static final Command glColorTableParameterfv = new Command(2);
   private static void glColorTableParameterfv() {
     Command cmd = glColorTableParameterfv;
     cmd.returnGroup = _null_;
@@ -28013,27 +28013,27 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_imaging;
   }
-  public static final Command glGetVertexAttribPointerv = new Command();
+  public static final Command glGetVertexAttribPointerv = new Command(1);
   private static void glGetVertexAttribPointerv() {
     Command cmd = glGetVertexAttribPointerv;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
   }
-  public static final Command glCompressedTextureSubImage1D = new Command();
+  public static final Command glCompressedTextureSubImage1D = new Command(1);
   private static void glCompressedTextureSubImage1D() {
     Command cmd = glCompressedTextureSubImage1D;
     cmd.returnGroup = _null_;
     cmd.addParam("format", GLenum, _null_);
     cmd.extension = GL_ARB_direct_state_access;
   }
-  public static final Command glTexBumpParameterivATI = new Command();
+  public static final Command glTexBumpParameterivATI = new Command(1);
   private static void glTexBumpParameterivATI() {
     Command cmd = glTexBumpParameterivATI;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ATI_envmap_bumpmap;
   }
-  public static final Command glFramebufferTexture2DOES = new Command();
+  public static final Command glFramebufferTexture2DOES = new Command(3);
   private static void glFramebufferTexture2DOES() {
     Command cmd = glFramebufferTexture2DOES;
     cmd.returnGroup = _null_;
@@ -28042,7 +28042,7 @@ public class GLmetadata {
     cmd.addParam("textarget", GLenum, TextureTarget);
     cmd.extension = GL_OES_framebuffer_object;
   }
-  public static final Command glMultiTexCoordP1ui = new Command();
+  public static final Command glMultiTexCoordP1ui = new Command(2);
   private static void glMultiTexCoordP1ui() {
     Command cmd = glMultiTexCoordP1ui;
     cmd.returnGroup = _null_;
@@ -28050,34 +28050,34 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_ARB_vertex_type_2_10_10_10_rev;
   }
-  public static final Command glIndexPointerEXT = new Command();
+  public static final Command glIndexPointerEXT = new Command(1);
   private static void glIndexPointerEXT() {
     Command cmd = glIndexPointerEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, IndexPointerType);
     cmd.extension = GL_EXT_vertex_array;
   }
-  public static final Command glGetBufferSubData = new Command();
+  public static final Command glGetBufferSubData = new Command(1);
   private static void glGetBufferSubData() {
     Command cmd = glGetBufferSubData;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, BufferTargetARB);
   }
-  public static final Command glCompressedTextureSubImage2D = new Command();
+  public static final Command glCompressedTextureSubImage2D = new Command(1);
   private static void glCompressedTextureSubImage2D() {
     Command cmd = glCompressedTextureSubImage2D;
     cmd.returnGroup = _null_;
     cmd.addParam("format", GLenum, _null_);
     cmd.extension = GL_ARB_direct_state_access;
   }
-  public static final Command glDrawTransformFeedbackNV = new Command();
+  public static final Command glDrawTransformFeedbackNV = new Command(1);
   private static void glDrawTransformFeedbackNV() {
     Command cmd = glDrawTransformFeedbackNV;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, PrimitiveType);
     cmd.extension = GL_NV_transform_feedback2;
   }
-  public static final Command glGetFragmentLightivSGIX = new Command();
+  public static final Command glGetFragmentLightivSGIX = new Command(2);
   private static void glGetFragmentLightivSGIX() {
     Command cmd = glGetFragmentLightivSGIX;
     cmd.returnGroup = _null_;
@@ -28085,7 +28085,7 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_SGIX_fragment_lighting;
   }
-  public static final Command glTexSubImage3DEXT = new Command();
+  public static final Command glTexSubImage3DEXT = new Command(3);
   private static void glTexSubImage3DEXT() {
     Command cmd = glTexSubImage3DEXT;
     cmd.returnGroup = _null_;
@@ -28094,27 +28094,27 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, PixelType);
     cmd.extension = GL_EXT_texture3D;
   }
-  public static final Command glGetnPixelMapusv = new Command();
+  public static final Command glGetnPixelMapusv = new Command(1);
   private static void glGetnPixelMapusv() {
     Command cmd = glGetnPixelMapusv;
     cmd.returnGroup = _null_;
     cmd.addParam("map", GLenum, _null_);
   }
-  public static final Command glPathFogGenNV = new Command();
+  public static final Command glPathFogGenNV = new Command(1);
   private static void glPathFogGenNV() {
     Command cmd = glPathFogGenNV;
     cmd.returnGroup = _null_;
     cmd.addParam("genMode", GLenum, _null_);
     cmd.extension = GL_NV_path_rendering;
   }
-  public static final Command glGetSubroutineIndex = new Command();
+  public static final Command glGetSubroutineIndex = new Command(1);
   private static void glGetSubroutineIndex() {
     Command cmd = glGetSubroutineIndex;
     cmd.returnGroup = _null_;
     cmd.addParam("shadertype", GLenum, _null_);
     cmd.extension = GL_ARB_shader_subroutine;
   }
-  public static final Command glProgramStringARB = new Command();
+  public static final Command glProgramStringARB = new Command(2);
   private static void glProgramStringARB() {
     Command cmd = glProgramStringARB;
     cmd.returnGroup = _null_;
@@ -28122,40 +28122,40 @@ public class GLmetadata {
     cmd.addParam("format", GLenum, _null_);
     cmd.extension = GL_ARB_vertex_program;
   }
-  public static final Command glIsList = new Command();
+  public static final Command glIsList = new Command(0);
   private static void glIsList() {
     Command cmd = glIsList;
     cmd.returnGroup = Boolean;
   }
-  public static final Command glMultiTexCoord2ivARB = new Command();
+  public static final Command glMultiTexCoord2ivARB = new Command(1);
   private static void glMultiTexCoord2ivARB() {
     Command cmd = glMultiTexCoord2ivARB;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_ARB_multitexture;
   }
-  public static final Command glColorFragmentOp2ATI = new Command();
+  public static final Command glColorFragmentOp2ATI = new Command(1);
   private static void glColorFragmentOp2ATI() {
     Command cmd = glColorFragmentOp2ATI;
     cmd.returnGroup = _null_;
     cmd.addParam("op", GLenum, _null_);
     cmd.extension = GL_ATI_fragment_shader;
   }
-  public static final Command glFramebufferSampleLocationsfvARB = new Command();
+  public static final Command glFramebufferSampleLocationsfvARB = new Command(1);
   private static void glFramebufferSampleLocationsfvARB() {
     Command cmd = glFramebufferSampleLocationsfvARB;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_ARB_sample_locations;
   }
-  public static final Command glGetQueryBufferObjectui64v = new Command();
+  public static final Command glGetQueryBufferObjectui64v = new Command(1);
   private static void glGetQueryBufferObjectui64v() {
     Command cmd = glGetQueryBufferObjectui64v;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_direct_state_access;
   }
-  public static final Command glFramebufferTexture2DMultisampleIMG = new Command();
+  public static final Command glFramebufferTexture2DMultisampleIMG = new Command(3);
   private static void glFramebufferTexture2DMultisampleIMG() {
     Command cmd = glFramebufferTexture2DMultisampleIMG;
     cmd.returnGroup = _null_;
@@ -28164,54 +28164,54 @@ public class GLmetadata {
     cmd.addParam("textarget", GLenum, TextureTarget);
     cmd.extension = GL_IMG_multisampled_render_to_texture;
   }
-  public static final Command glGetString = new Command();
+  public static final Command glGetString = new Command(1);
   private static void glGetString() {
     Command cmd = glGetString;
     cmd.returnGroup = _null_;
     cmd.addParam("name", GLenum, StringName);
   }
-  public static final Command glPathCoverDepthFuncNV = new Command();
+  public static final Command glPathCoverDepthFuncNV = new Command(1);
   private static void glPathCoverDepthFuncNV() {
     Command cmd = glPathCoverDepthFuncNV;
     cmd.returnGroup = _null_;
     cmd.addParam("func", GLenum, DepthFunction);
     cmd.extension = GL_NV_path_rendering;
   }
-  public static final Command glGetSubroutineUniformLocation = new Command();
+  public static final Command glGetSubroutineUniformLocation = new Command(1);
   private static void glGetSubroutineUniformLocation() {
     Command cmd = glGetSubroutineUniformLocation;
     cmd.returnGroup = _null_;
     cmd.addParam("shadertype", GLenum, _null_);
     cmd.extension = GL_ARB_shader_subroutine;
   }
-  public static final Command glTexGenf = new Command();
+  public static final Command glTexGenf = new Command(2);
   private static void glTexGenf() {
     Command cmd = glTexGenf;
     cmd.returnGroup = _null_;
     cmd.addParam("coord", GLenum, TextureCoordName);
     cmd.addParam("pname", GLenum, TextureGenParameter);
   }
-  public static final Command glTexGeni = new Command();
+  public static final Command glTexGeni = new Command(2);
   private static void glTexGeni() {
     Command cmd = glTexGeni;
     cmd.returnGroup = _null_;
     cmd.addParam("coord", GLenum, TextureCoordName);
     cmd.addParam("pname", GLenum, TextureGenParameter);
   }
-  public static final Command glIsFramebufferEXT = new Command();
+  public static final Command glIsFramebufferEXT = new Command(0);
   private static void glIsFramebufferEXT() {
     Command cmd = glIsFramebufferEXT;
     cmd.returnGroup = Boolean;
     cmd.extension = GL_EXT_framebuffer_object;
   }
-  public static final Command glProgramUniformMatrix2dvEXT = new Command();
+  public static final Command glProgramUniformMatrix2dvEXT = new Command(1);
   private static void glProgramUniformMatrix2dvEXT() {
     Command cmd = glProgramUniformMatrix2dvEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("transpose", GLboolean, Boolean);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glBlitNamedFramebuffer = new Command();
+  public static final Command glBlitNamedFramebuffer = new Command(2);
   private static void glBlitNamedFramebuffer() {
     Command cmd = glBlitNamedFramebuffer;
     cmd.returnGroup = _null_;
@@ -28219,28 +28219,28 @@ public class GLmetadata {
     cmd.addParam("filter", GLenum, _null_);
     cmd.extension = GL_ARB_direct_state_access;
   }
-  public static final Command glTexGend = new Command();
+  public static final Command glTexGend = new Command(2);
   private static void glTexGend() {
     Command cmd = glTexGend;
     cmd.returnGroup = _null_;
     cmd.addParam("coord", GLenum, TextureCoordName);
     cmd.addParam("pname", GLenum, TextureGenParameter);
   }
-  public static final Command glGetBooleani_v = new Command();
+  public static final Command glGetBooleani_v = new Command(2);
   private static void glGetBooleani_v() {
     Command cmd = glGetBooleani_v;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.addParam("data", GLboolean, Boolean);
   }
-  public static final Command glGetQueryiv = new Command();
+  public static final Command glGetQueryiv = new Command(2);
   private static void glGetQueryiv() {
     Command cmd = glGetQueryiv;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.addParam("pname", GLenum, _null_);
   }
-  public static final Command glGetVariantBooleanvEXT = new Command();
+  public static final Command glGetVariantBooleanvEXT = new Command(2);
   private static void glGetVariantBooleanvEXT() {
     Command cmd = glGetVariantBooleanvEXT;
     cmd.returnGroup = _null_;
@@ -28248,21 +28248,21 @@ public class GLmetadata {
     cmd.addParam("data", GLboolean, Boolean);
     cmd.extension = GL_EXT_vertex_shader;
   }
-  public static final Command glBindBufferBaseEXT = new Command();
+  public static final Command glBindBufferBaseEXT = new Command(1);
   private static void glBindBufferBaseEXT() {
     Command cmd = glBindBufferBaseEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_EXT_transform_feedback;
   }
-  public static final Command glVertexStream4ivATI = new Command();
+  public static final Command glVertexStream4ivATI = new Command(1);
   private static void glVertexStream4ivATI() {
     Command cmd = glVertexStream4ivATI;
     cmd.returnGroup = _null_;
     cmd.addParam("stream", GLenum, _null_);
     cmd.extension = GL_ATI_vertex_streams;
   }
-  public static final Command glGetnHistogram = new Command();
+  public static final Command glGetnHistogram = new Command(4);
   private static void glGetnHistogram() {
     Command cmd = glGetnHistogram;
     cmd.returnGroup = _null_;
@@ -28271,61 +28271,61 @@ public class GLmetadata {
     cmd.addParam("format", GLenum, _null_);
     cmd.addParam("type", GLenum, _null_);
   }
-  public static final Command glGetActiveAtomicCounterBufferiv = new Command();
+  public static final Command glGetActiveAtomicCounterBufferiv = new Command(1);
   private static void glGetActiveAtomicCounterBufferiv() {
     Command cmd = glGetActiveAtomicCounterBufferiv;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_shader_atomic_counters;
   }
-  public static final Command glMapNamedBufferRangeEXT = new Command();
+  public static final Command glMapNamedBufferRangeEXT = new Command(1);
   private static void glMapNamedBufferRangeEXT() {
     Command cmd = glMapNamedBufferRangeEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("access", GLbitfield, _null_);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glProgramEnvParameter4fvARB = new Command();
+  public static final Command glProgramEnvParameter4fvARB = new Command(1);
   private static void glProgramEnvParameter4fvARB() {
     Command cmd = glProgramEnvParameter4fvARB;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_ARB_vertex_program;
   }
-  public static final Command glGetVideouivNV = new Command();
+  public static final Command glGetVideouivNV = new Command(1);
   private static void glGetVideouivNV() {
     Command cmd = glGetVideouivNV;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_NV_present_video;
   }
-  public static final Command glPointParameterxv = new Command();
+  public static final Command glPointParameterxv = new Command(1);
   private static void glPointParameterxv() {
     Command cmd = glPointParameterxv;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
   }
-  public static final Command glGetnPixelMapuivARB = new Command();
+  public static final Command glGetnPixelMapuivARB = new Command(1);
   private static void glGetnPixelMapuivARB() {
     Command cmd = glGetnPixelMapuivARB;
     cmd.returnGroup = _null_;
     cmd.addParam("map", GLenum, _null_);
     cmd.extension = GL_ARB_robustness;
   }
-  public static final Command glIsTextureHandleResidentARB = new Command();
+  public static final Command glIsTextureHandleResidentARB = new Command(0);
   private static void glIsTextureHandleResidentARB() {
     Command cmd = glIsTextureHandleResidentARB;
     cmd.returnGroup = Boolean;
     cmd.extension = GL_ARB_bindless_texture;
   }
-  public static final Command glNamedFramebufferDrawBuffer = new Command();
+  public static final Command glNamedFramebufferDrawBuffer = new Command(1);
   private static void glNamedFramebufferDrawBuffer() {
     Command cmd = glNamedFramebufferDrawBuffer;
     cmd.returnGroup = _null_;
     cmd.addParam("buf", GLenum, _null_);
     cmd.extension = GL_ARB_direct_state_access;
   }
-  public static final Command glTextureStorage3DEXT = new Command();
+  public static final Command glTextureStorage3DEXT = new Command(2);
   private static void glTextureStorage3DEXT() {
     Command cmd = glTextureStorage3DEXT;
     cmd.returnGroup = _null_;
@@ -28333,26 +28333,26 @@ public class GLmetadata {
     cmd.addParam("internalformat", GLenum, _null_);
     cmd.extension = GL_EXT_texture_storage;
   }
-  public static final Command glGetObjectBufferfvATI = new Command();
+  public static final Command glGetObjectBufferfvATI = new Command(1);
   private static void glGetObjectBufferfvATI() {
     Command cmd = glGetObjectBufferfvATI;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ATI_vertex_array_object;
   }
-  public static final Command glEvalMesh1 = new Command();
+  public static final Command glEvalMesh1 = new Command(1);
   private static void glEvalMesh1() {
     Command cmd = glEvalMesh1;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, MeshMode1);
   }
-  public static final Command glEvalMesh2 = new Command();
+  public static final Command glEvalMesh2 = new Command(1);
   private static void glEvalMesh2() {
     Command cmd = glEvalMesh2;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, MeshMode2);
   }
-  public static final Command glFramebufferParameteri = new Command();
+  public static final Command glFramebufferParameteri = new Command(2);
   private static void glFramebufferParameteri() {
     Command cmd = glFramebufferParameteri;
     cmd.returnGroup = _null_;
@@ -28360,14 +28360,14 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_framebuffer_no_attachments;
   }
-  public static final Command glGetObjectParameterivARB = new Command();
+  public static final Command glGetObjectParameterivARB = new Command(1);
   private static void glGetObjectParameterivARB() {
     Command cmd = glGetObjectParameterivARB;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_shader_objects;
   }
-  public static final Command glTexImage3DMultisampleCoverageNV = new Command();
+  public static final Command glTexImage3DMultisampleCoverageNV = new Command(2);
   private static void glTexImage3DMultisampleCoverageNV() {
     Command cmd = glTexImage3DMultisampleCoverageNV;
     cmd.returnGroup = _null_;
@@ -28375,14 +28375,14 @@ public class GLmetadata {
     cmd.addParam("fixedSampleLocations", GLboolean, Boolean);
     cmd.extension = GL_NV_texture_multisample;
   }
-  public static final Command glProgramUniformMatrix2x3fv = new Command();
+  public static final Command glProgramUniformMatrix2x3fv = new Command(1);
   private static void glProgramUniformMatrix2x3fv() {
     Command cmd = glProgramUniformMatrix2x3fv;
     cmd.returnGroup = _null_;
     cmd.addParam("transpose", GLboolean, Boolean);
     cmd.extension = GL_ARB_separate_shader_objects;
   }
-  public static final Command glFramebufferTextureFaceARB = new Command();
+  public static final Command glFramebufferTextureFaceARB = new Command(3);
   private static void glFramebufferTextureFaceARB() {
     Command cmd = glFramebufferTextureFaceARB;
     cmd.returnGroup = _null_;
@@ -28391,7 +28391,7 @@ public class GLmetadata {
     cmd.addParam("face", GLenum, TextureTarget);
     cmd.extension = GL_ARB_geometry_shader4;
   }
-  public static final Command glTexStorageMem2DEXT = new Command();
+  public static final Command glTexStorageMem2DEXT = new Command(2);
   private static void glTexStorageMem2DEXT() {
     Command cmd = glTexStorageMem2DEXT;
     cmd.returnGroup = _null_;
@@ -28399,20 +28399,20 @@ public class GLmetadata {
     cmd.addParam("internalFormat", GLenum, _null_);
     cmd.extension = GL_EXT_memory_object;
   }
-  public static final Command glGetnPixelMapuiv = new Command();
+  public static final Command glGetnPixelMapuiv = new Command(1);
   private static void glGetnPixelMapuiv() {
     Command cmd = glGetnPixelMapuiv;
     cmd.returnGroup = _null_;
     cmd.addParam("map", GLenum, _null_);
   }
-  public static final Command glTexCoordP2ui = new Command();
+  public static final Command glTexCoordP2ui = new Command(1);
   private static void glTexCoordP2ui() {
     Command cmd = glTexCoordP2ui;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_ARB_vertex_type_2_10_10_10_rev;
   }
-  public static final Command glGetLightxvOES = new Command();
+  public static final Command glGetLightxvOES = new Command(2);
   private static void glGetLightxvOES() {
     Command cmd = glGetLightxvOES;
     cmd.returnGroup = _null_;
@@ -28420,27 +28420,27 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_OES_fixed_point;
   }
-  public static final Command glMultiTexCoord4bvOES = new Command();
+  public static final Command glMultiTexCoord4bvOES = new Command(1);
   private static void glMultiTexCoord4bvOES() {
     Command cmd = glMultiTexCoord4bvOES;
     cmd.returnGroup = _null_;
     cmd.addParam("texture", GLenum, _null_);
     cmd.extension = GL_OES_byte_coordinates;
   }
-  public static final Command glIndexPointer = new Command();
+  public static final Command glIndexPointer = new Command(1);
   private static void glIndexPointer() {
     Command cmd = glIndexPointer;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, IndexPointerType);
   }
-  public static final Command glNamedProgramLocalParameter4fvEXT = new Command();
+  public static final Command glNamedProgramLocalParameter4fvEXT = new Command(1);
   private static void glNamedProgramLocalParameter4fvEXT() {
     Command cmd = glNamedProgramLocalParameter4fvEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glClearTexSubImage = new Command();
+  public static final Command glClearTexSubImage = new Command(2);
   private static void glClearTexSubImage() {
     Command cmd = glClearTexSubImage;
     cmd.returnGroup = _null_;
@@ -28448,7 +28448,7 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_ARB_clear_texture;
   }
-  public static final Command glFramebufferTextureLayer = new Command();
+  public static final Command glFramebufferTextureLayer = new Command(2);
   private static void glFramebufferTextureLayer() {
     Command cmd = glFramebufferTextureLayer;
     cmd.returnGroup = _null_;
@@ -28456,63 +28456,63 @@ public class GLmetadata {
     cmd.addParam("attachment", GLenum, _null_);
     cmd.extension = GL_ARB_framebuffer_object;
   }
-  public static final Command glGetVertexAttribLdv = new Command();
+  public static final Command glGetVertexAttribLdv = new Command(1);
   private static void glGetVertexAttribLdv() {
     Command cmd = glGetVertexAttribLdv;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_vertex_attrib_64bit;
   }
-  public static final Command glVertexP4uiv = new Command();
+  public static final Command glVertexP4uiv = new Command(1);
   private static void glVertexP4uiv() {
     Command cmd = glVertexP4uiv;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_ARB_vertex_type_2_10_10_10_rev;
   }
-  public static final Command glGetTexParameterxv = new Command();
+  public static final Command glGetTexParameterxv = new Command(2);
   private static void glGetTexParameterxv() {
     Command cmd = glGetTexParameterxv;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.addParam("pname", GLenum, _null_);
   }
-  public static final Command glSampleCoveragexOES = new Command();
+  public static final Command glSampleCoveragexOES = new Command(1);
   private static void glSampleCoveragexOES() {
     Command cmd = glSampleCoveragexOES;
     cmd.returnGroup = _null_;
     cmd.addParam("invert", GLboolean, Boolean);
     cmd.extension = GL_OES_fixed_point;
   }
-  public static final Command glGetSamplerParameterIiv = new Command();
+  public static final Command glGetSamplerParameterIiv = new Command(1);
   private static void glGetSamplerParameterIiv() {
     Command cmd = glGetSamplerParameterIiv;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_sampler_objects;
   }
-  public static final Command glVertexAttribPointerNV = new Command();
+  public static final Command glVertexAttribPointerNV = new Command(1);
   private static void glVertexAttribPointerNV() {
     Command cmd = glVertexAttribPointerNV;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_NV_vertex_program;
   }
-  public static final Command glVertexStream4sATI = new Command();
+  public static final Command glVertexStream4sATI = new Command(1);
   private static void glVertexStream4sATI() {
     Command cmd = glVertexStream4sATI;
     cmd.returnGroup = _null_;
     cmd.addParam("stream", GLenum, _null_);
     cmd.extension = GL_ATI_vertex_streams;
   }
-  public static final Command glProgramUniformMatrix2x3dv = new Command();
+  public static final Command glProgramUniformMatrix2x3dv = new Command(1);
   private static void glProgramUniformMatrix2x3dv() {
     Command cmd = glProgramUniformMatrix2x3dv;
     cmd.returnGroup = _null_;
     cmd.addParam("transpose", GLboolean, Boolean);
     cmd.extension = GL_ARB_separate_shader_objects;
   }
-  public static final Command glFramebufferTexture2DEXT = new Command();
+  public static final Command glFramebufferTexture2DEXT = new Command(3);
   private static void glFramebufferTexture2DEXT() {
     Command cmd = glFramebufferTexture2DEXT;
     cmd.returnGroup = _null_;
@@ -28521,14 +28521,14 @@ public class GLmetadata {
     cmd.addParam("textarget", GLenum, TextureTarget);
     cmd.extension = GL_EXT_framebuffer_object;
   }
-  public static final Command glUniformMatrix3x2fvNV = new Command();
+  public static final Command glUniformMatrix3x2fvNV = new Command(1);
   private static void glUniformMatrix3x2fvNV() {
     Command cmd = glUniformMatrix3x2fvNV;
     cmd.returnGroup = _null_;
     cmd.addParam("transpose", GLboolean, Boolean);
     cmd.extension = GL_NV_non_square_matrices;
   }
-  public static final Command glPathGlyphRangeNV = new Command();
+  public static final Command glPathGlyphRangeNV = new Command(3);
   private static void glPathGlyphRangeNV() {
     Command cmd = glPathGlyphRangeNV;
     cmd.returnGroup = _null_;
@@ -28537,94 +28537,94 @@ public class GLmetadata {
     cmd.addParam("handleMissingGlyphs", GLenum, _null_);
     cmd.extension = GL_NV_path_rendering;
   }
-  public static final Command glProgramBufferParametersIuivNV = new Command();
+  public static final Command glProgramBufferParametersIuivNV = new Command(1);
   private static void glProgramBufferParametersIuivNV() {
     Command cmd = glProgramBufferParametersIuivNV;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_NV_parameter_buffer_object;
   }
-  public static final Command glBinormalPointerEXT = new Command();
+  public static final Command glBinormalPointerEXT = new Command(1);
   private static void glBinormalPointerEXT() {
     Command cmd = glBinormalPointerEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_EXT_coordinate_frame;
   }
-  public static final Command glStencilFillPathNV = new Command();
+  public static final Command glStencilFillPathNV = new Command(1);
   private static void glStencilFillPathNV() {
     Command cmd = glStencilFillPathNV;
     cmd.returnGroup = _null_;
     cmd.addParam("fillMode", GLenum, _null_);
     cmd.extension = GL_NV_path_rendering;
   }
-  public static final Command glGetError = new Command();
+  public static final Command glGetError = new Command(0);
   private static void glGetError() {
     Command cmd = glGetError;
     cmd.returnGroup = ErrorCode;
   }
-  public static final Command glDrawElementsInstancedBaseVertexOES = new Command();
+  public static final Command glDrawElementsInstancedBaseVertexOES = new Command(2);
   private static void glDrawElementsInstancedBaseVertexOES() {
     Command cmd = glDrawElementsInstancedBaseVertexOES;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, PrimitiveType);
     cmd.addParam("type", GLenum, DrawElementsType);
   }
-  public static final Command glVertexStream3fATI = new Command();
+  public static final Command glVertexStream3fATI = new Command(1);
   private static void glVertexStream3fATI() {
     Command cmd = glVertexStream3fATI;
     cmd.returnGroup = _null_;
     cmd.addParam("stream", GLenum, _null_);
     cmd.extension = GL_ATI_vertex_streams;
   }
-  public static final Command glCombinerParameteriNV = new Command();
+  public static final Command glCombinerParameteriNV = new Command(1);
   private static void glCombinerParameteriNV() {
     Command cmd = glCombinerParameteriNV;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_NV_register_combiners;
   }
-  public static final Command glGetGraphicsResetStatus = new Command();
+  public static final Command glGetGraphicsResetStatus = new Command(0);
   private static void glGetGraphicsResetStatus() {
     Command cmd = glGetGraphicsResetStatus;
     cmd.returnGroup = _null_;
     cmd.extension = GL_KHR_robustness;
   }
-  public static final Command glNamedProgramLocalParameterI4uivEXT = new Command();
+  public static final Command glNamedProgramLocalParameterI4uivEXT = new Command(1);
   private static void glNamedProgramLocalParameterI4uivEXT() {
     Command cmd = glNamedProgramLocalParameterI4uivEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glPointParameterivNV = new Command();
+  public static final Command glPointParameterivNV = new Command(1);
   private static void glPointParameterivNV() {
     Command cmd = glPointParameterivNV;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_NV_point_sprite;
   }
-  public static final Command glNormalPointerEXT = new Command();
+  public static final Command glNormalPointerEXT = new Command(1);
   private static void glNormalPointerEXT() {
     Command cmd = glNormalPointerEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, NormalPointerType);
     cmd.extension = GL_EXT_vertex_array;
   }
-  public static final Command glLogicOp = new Command();
+  public static final Command glLogicOp = new Command(1);
   private static void glLogicOp() {
     Command cmd = glLogicOp;
     cmd.returnGroup = _null_;
     cmd.addParam("opcode", GLenum, LogicOp);
   }
-  public static final Command glMatrixScaledEXT = new Command();
+  public static final Command glMatrixScaledEXT = new Command(1);
   private static void glMatrixScaledEXT() {
     Command cmd = glMatrixScaledEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, MatrixMode);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glGetPathColorGenivNV = new Command();
+  public static final Command glGetPathColorGenivNV = new Command(2);
   private static void glGetPathColorGenivNV() {
     Command cmd = glGetPathColorGenivNV;
     cmd.returnGroup = _null_;
@@ -28632,27 +28632,27 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_NV_path_rendering;
   }
-  public static final Command glUnmapNamedBuffer = new Command();
+  public static final Command glUnmapNamedBuffer = new Command(0);
   private static void glUnmapNamedBuffer() {
     Command cmd = glUnmapNamedBuffer;
     cmd.returnGroup = Boolean;
     cmd.extension = GL_ARB_direct_state_access;
   }
-  public static final Command glDrawArraysInstancedEXT = new Command();
+  public static final Command glDrawArraysInstancedEXT = new Command(1);
   private static void glDrawArraysInstancedEXT() {
     Command cmd = glDrawArraysInstancedEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, PrimitiveType);
     cmd.extension = GL_EXT_instanced_arrays;
   }
-  public static final Command glVertexStream2svATI = new Command();
+  public static final Command glVertexStream2svATI = new Command(1);
   private static void glVertexStream2svATI() {
     Command cmd = glVertexStream2svATI;
     cmd.returnGroup = _null_;
     cmd.addParam("stream", GLenum, _null_);
     cmd.extension = GL_ATI_vertex_streams;
   }
-  public static final Command glGetTextureImage = new Command();
+  public static final Command glGetTextureImage = new Command(2);
   private static void glGetTextureImage() {
     Command cmd = glGetTextureImage;
     cmd.returnGroup = _null_;
@@ -28660,7 +28660,7 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_ARB_direct_state_access;
   }
-  public static final Command glPixelTransformParameterfvEXT = new Command();
+  public static final Command glPixelTransformParameterfvEXT = new Command(2);
   private static void glPixelTransformParameterfvEXT() {
     Command cmd = glPixelTransformParameterfvEXT;
     cmd.returnGroup = _null_;
@@ -28668,56 +28668,56 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_EXT_pixel_transform;
   }
-  public static final Command glIsBufferResidentNV = new Command();
+  public static final Command glIsBufferResidentNV = new Command(1);
   private static void glIsBufferResidentNV() {
     Command cmd = glIsBufferResidentNV;
     cmd.returnGroup = Boolean;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_NV_shader_buffer_load;
   }
-  public static final Command glClientWaitSyncAPPLE = new Command();
+  public static final Command glClientWaitSyncAPPLE = new Command(1);
   private static void glClientWaitSyncAPPLE() {
     Command cmd = glClientWaitSyncAPPLE;
     cmd.returnGroup = _null_;
     cmd.addParam("flags", GLbitfield, _null_);
     cmd.extension = GL_APPLE_sync;
   }
-  public static final Command glVertexStream2dATI = new Command();
+  public static final Command glVertexStream2dATI = new Command(1);
   private static void glVertexStream2dATI() {
     Command cmd = glVertexStream2dATI;
     cmd.returnGroup = _null_;
     cmd.addParam("stream", GLenum, _null_);
     cmd.extension = GL_ATI_vertex_streams;
   }
-  public static final Command glCopyImageSubDataNV = new Command();
+  public static final Command glCopyImageSubDataNV = new Command(2);
   private static void glCopyImageSubDataNV() {
     Command cmd = glCopyImageSubDataNV;
     cmd.returnGroup = _null_;
     cmd.addParam("srcTarget", GLenum, _null_);
     cmd.addParam("dstTarget", GLenum, _null_);
   }
-  public static final Command glColorP3uiv = new Command();
+  public static final Command glColorP3uiv = new Command(1);
   private static void glColorP3uiv() {
     Command cmd = glColorP3uiv;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_ARB_vertex_type_2_10_10_10_rev;
   }
-  public static final Command glClientWaitSync = new Command();
+  public static final Command glClientWaitSync = new Command(1);
   private static void glClientWaitSync() {
     Command cmd = glClientWaitSync;
     cmd.returnGroup = _null_;
     cmd.addParam("flags", GLbitfield, _null_);
     cmd.extension = GL_ARB_sync;
   }
-  public static final Command glGetVertexArrayIntegeri_vEXT = new Command();
+  public static final Command glGetVertexArrayIntegeri_vEXT = new Command(1);
   private static void glGetVertexArrayIntegeri_vEXT() {
     Command cmd = glGetVertexArrayIntegeri_vEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glTexParameterIivEXT = new Command();
+  public static final Command glTexParameterIivEXT = new Command(2);
   private static void glTexParameterIivEXT() {
     Command cmd = glTexParameterIivEXT;
     cmd.returnGroup = _null_;
@@ -28725,7 +28725,7 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, TextureParameterName);
     cmd.extension = GL_EXT_texture_integer;
   }
-  public static final Command glCompressedTexImage1DARB = new Command();
+  public static final Command glCompressedTexImage1DARB = new Command(2);
   private static void glCompressedTexImage1DARB() {
     Command cmd = glCompressedTexImage1DARB;
     cmd.returnGroup = _null_;
@@ -28733,14 +28733,14 @@ public class GLmetadata {
     cmd.addParam("internalformat", GLenum, InternalFormat);
     cmd.extension = GL_ARB_texture_compression;
   }
-  public static final Command glPatchParameteriEXT = new Command();
+  public static final Command glPatchParameteriEXT = new Command(1);
   private static void glPatchParameteriEXT() {
     Command cmd = glPatchParameteriEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_EXT_tessellation_shader;
   }
-  public static final Command glTexPageCommitmentEXT = new Command();
+  public static final Command glTexPageCommitmentEXT = new Command(2);
   private static void glTexPageCommitmentEXT() {
     Command cmd = glTexPageCommitmentEXT;
     cmd.returnGroup = _null_;
@@ -28748,7 +28748,7 @@ public class GLmetadata {
     cmd.addParam("commit", GLboolean, Boolean);
     cmd.extension = GL_EXT_sparse_texture;
   }
-  public static final Command glMultiTexImage2DEXT = new Command();
+  public static final Command glMultiTexImage2DEXT = new Command(4);
   private static void glMultiTexImage2DEXT() {
     Command cmd = glMultiTexImage2DEXT;
     cmd.returnGroup = _null_;
@@ -28758,7 +28758,7 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, PixelType);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glGetRenderbufferParameteriv = new Command();
+  public static final Command glGetRenderbufferParameteriv = new Command(2);
   private static void glGetRenderbufferParameteriv() {
     Command cmd = glGetRenderbufferParameteriv;
     cmd.returnGroup = _null_;
@@ -28766,34 +28766,34 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_framebuffer_object;
   }
-  public static final Command glPixelMapusv = new Command();
+  public static final Command glPixelMapusv = new Command(1);
   private static void glPixelMapusv() {
     Command cmd = glPixelMapusv;
     cmd.returnGroup = _null_;
     cmd.addParam("map", GLenum, PixelMap);
   }
-  public static final Command glEnableVertexAttribAPPLE = new Command();
+  public static final Command glEnableVertexAttribAPPLE = new Command(1);
   private static void glEnableVertexAttribAPPLE() {
     Command cmd = glEnableVertexAttribAPPLE;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_APPLE_vertex_program_evaluators;
   }
-  public static final Command glGetNamedProgramLocalParameterIuivEXT = new Command();
+  public static final Command glGetNamedProgramLocalParameterIuivEXT = new Command(1);
   private static void glGetNamedProgramLocalParameterIuivEXT() {
     Command cmd = glGetNamedProgramLocalParameterIuivEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glPatchParameterfv = new Command();
+  public static final Command glPatchParameterfv = new Command(1);
   private static void glPatchParameterfv() {
     Command cmd = glPatchParameterfv;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_tessellation_shader;
   }
-  public static final Command glGetTexParameterPointervAPPLE = new Command();
+  public static final Command glGetTexParameterPointervAPPLE = new Command(2);
   private static void glGetTexParameterPointervAPPLE() {
     Command cmd = glGetTexParameterPointervAPPLE;
     cmd.returnGroup = _null_;
@@ -28801,21 +28801,21 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_APPLE_texture_range;
   }
-  public static final Command glNormalFormatNV = new Command();
+  public static final Command glNormalFormatNV = new Command(1);
   private static void glNormalFormatNV() {
     Command cmd = glNormalFormatNV;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_NV_vertex_buffer_unified_memory;
   }
-  public static final Command glMemoryBarrierByRegion = new Command();
+  public static final Command glMemoryBarrierByRegion = new Command(1);
   private static void glMemoryBarrierByRegion() {
     Command cmd = glMemoryBarrierByRegion;
     cmd.returnGroup = _null_;
     cmd.addParam("barriers", GLbitfield, _null_);
     cmd.extension = GL_ARB_ES3_1_compatibility;
   }
-  public static final Command glGetSeparableFilter = new Command();
+  public static final Command glGetSeparableFilter = new Command(3);
   private static void glGetSeparableFilter() {
     Command cmd = glGetSeparableFilter;
     cmd.returnGroup = _null_;
@@ -28824,14 +28824,14 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, PixelType);
     cmd.extension = GL_ARB_imaging;
   }
-  public static final Command glNormalStream3bvATI = new Command();
+  public static final Command glNormalStream3bvATI = new Command(1);
   private static void glNormalStream3bvATI() {
     Command cmd = glNormalStream3bvATI;
     cmd.returnGroup = _null_;
     cmd.addParam("stream", GLenum, _null_);
     cmd.extension = GL_ATI_vertex_streams;
   }
-  public static final Command glGetNamedProgramivEXT = new Command();
+  public static final Command glGetNamedProgramivEXT = new Command(2);
   private static void glGetNamedProgramivEXT() {
     Command cmd = glGetNamedProgramivEXT;
     cmd.returnGroup = _null_;
@@ -28839,20 +28839,20 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glVertexP4ui = new Command();
+  public static final Command glVertexP4ui = new Command(1);
   private static void glVertexP4ui() {
     Command cmd = glVertexP4ui;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_ARB_vertex_type_2_10_10_10_rev;
   }
-  public static final Command glGetGraphicsResetStatusARB = new Command();
+  public static final Command glGetGraphicsResetStatusARB = new Command(0);
   private static void glGetGraphicsResetStatusARB() {
     Command cmd = glGetGraphicsResetStatusARB;
     cmd.returnGroup = _null_;
     cmd.extension = GL_ARB_robustness;
   }
-  public static final Command glGetTextureParameterfvEXT = new Command();
+  public static final Command glGetTextureParameterfvEXT = new Command(2);
   private static void glGetTextureParameterfvEXT() {
     Command cmd = glGetTextureParameterfvEXT;
     cmd.returnGroup = _null_;
@@ -28860,7 +28860,7 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, GetTextureParameter);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glTexParameterIuivOES = new Command();
+  public static final Command glTexParameterIuivOES = new Command(2);
   private static void glTexParameterIuivOES() {
     Command cmd = glTexParameterIuivOES;
     cmd.returnGroup = _null_;
@@ -28868,7 +28868,7 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, TextureParameterName);
     cmd.extension = GL_OES_texture_border_clamp;
   }
-  public static final Command glGetFramebufferParameteriv = new Command();
+  public static final Command glGetFramebufferParameteriv = new Command(2);
   private static void glGetFramebufferParameteriv() {
     Command cmd = glGetFramebufferParameteriv;
     cmd.returnGroup = _null_;
@@ -28876,56 +28876,56 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_framebuffer_no_attachments;
   }
-  public static final Command glMultiTexCoord1xvOES = new Command();
+  public static final Command glMultiTexCoord1xvOES = new Command(1);
   private static void glMultiTexCoord1xvOES() {
     Command cmd = glMultiTexCoord1xvOES;
     cmd.returnGroup = _null_;
     cmd.addParam("texture", GLenum, _null_);
     cmd.extension = GL_OES_fixed_point;
   }
-  public static final Command glVertexBlendEnvfATI = new Command();
+  public static final Command glVertexBlendEnvfATI = new Command(1);
   private static void glVertexBlendEnvfATI() {
     Command cmd = glVertexBlendEnvfATI;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ATI_vertex_streams;
   }
-  public static final Command glProgramParameter4dNV = new Command();
+  public static final Command glProgramParameter4dNV = new Command(1);
   private static void glProgramParameter4dNV() {
     Command cmd = glProgramParameter4dNV;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_NV_vertex_program;
   }
-  public static final Command glObjectLabelKHR = new Command();
+  public static final Command glObjectLabelKHR = new Command(1);
   private static void glObjectLabelKHR() {
     Command cmd = glObjectLabelKHR;
     cmd.returnGroup = _null_;
     cmd.addParam("identifier", GLenum, _null_);
     cmd.extension = GL_KHR_debug;
   }
-  public static final Command glGetMultisamplefvNV = new Command();
+  public static final Command glGetMultisamplefvNV = new Command(1);
   private static void glGetMultisamplefvNV() {
     Command cmd = glGetMultisamplefvNV;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_NV_explicit_multisample;
   }
-  public static final Command glEndQueryEXT = new Command();
+  public static final Command glEndQueryEXT = new Command(1);
   private static void glEndQueryEXT() {
     Command cmd = glEndQueryEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_EXT_occlusion_query_boolean;
   }
-  public static final Command glGetQueryBufferObjectuiv = new Command();
+  public static final Command glGetQueryBufferObjectuiv = new Command(1);
   private static void glGetQueryBufferObjectuiv() {
     Command cmd = glGetQueryBufferObjectuiv;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_direct_state_access;
   }
-  public static final Command glTexBufferRange = new Command();
+  public static final Command glTexBufferRange = new Command(2);
   private static void glTexBufferRange() {
     Command cmd = glTexBufferRange;
     cmd.returnGroup = _null_;
@@ -28933,27 +28933,27 @@ public class GLmetadata {
     cmd.addParam("internalformat", GLenum, _null_);
     cmd.extension = GL_ARB_texture_buffer_range;
   }
-  public static final Command glProgramUniformMatrix4x3fvEXT = new Command();
+  public static final Command glProgramUniformMatrix4x3fvEXT = new Command(1);
   private static void glProgramUniformMatrix4x3fvEXT() {
     Command cmd = glProgramUniformMatrix4x3fvEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("transpose", GLboolean, Boolean);
     cmd.extension = GL_EXT_separate_shader_objects;
   }
-  public static final Command glSpriteParameteriSGIX = new Command();
+  public static final Command glSpriteParameteriSGIX = new Command(1);
   private static void glSpriteParameteriSGIX() {
     Command cmd = glSpriteParameteriSGIX;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_SGIX_sprite;
   }
-  public static final Command glDrawArraysInstancedBaseInstance = new Command();
+  public static final Command glDrawArraysInstancedBaseInstance = new Command(1);
   private static void glDrawArraysInstancedBaseInstance() {
     Command cmd = glDrawArraysInstancedBaseInstance;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, PrimitiveType);
   }
-  public static final Command glTexParameterIivOES = new Command();
+  public static final Command glTexParameterIivOES = new Command(2);
   private static void glTexParameterIivOES() {
     Command cmd = glTexParameterIivOES;
     cmd.returnGroup = _null_;
@@ -28961,7 +28961,7 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, TextureParameterName);
     cmd.extension = GL_OES_texture_border_clamp;
   }
-  public static final Command glGetRenderbufferParameterivEXT = new Command();
+  public static final Command glGetRenderbufferParameterivEXT = new Command(2);
   private static void glGetRenderbufferParameterivEXT() {
     Command cmd = glGetRenderbufferParameterivEXT;
     cmd.returnGroup = _null_;
@@ -28969,7 +28969,7 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_EXT_framebuffer_object;
   }
-  public static final Command glGetnHistogramARB = new Command();
+  public static final Command glGetnHistogramARB = new Command(4);
   private static void glGetnHistogramARB() {
     Command cmd = glGetnHistogramARB;
     cmd.returnGroup = _null_;
@@ -28979,13 +28979,13 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_ARB_robustness;
   }
-  public static final Command glIsPointInStrokePathNV = new Command();
+  public static final Command glIsPointInStrokePathNV = new Command(0);
   private static void glIsPointInStrokePathNV() {
     Command cmd = glIsPointInStrokePathNV;
     cmd.returnGroup = Boolean;
     cmd.extension = GL_NV_path_rendering;
   }
-  public static final Command glBlendFuncSeparateOES = new Command();
+  public static final Command glBlendFuncSeparateOES = new Command(4);
   private static void glBlendFuncSeparateOES() {
     Command cmd = glBlendFuncSeparateOES;
     cmd.returnGroup = _null_;
@@ -28995,28 +28995,28 @@ public class GLmetadata {
     cmd.addParam("dstAlpha", GLenum, _null_);
     cmd.extension = GL_OES_blend_func_separate;
   }
-  public static final Command glReadBufferIndexedEXT = new Command();
+  public static final Command glReadBufferIndexedEXT = new Command(1);
   private static void glReadBufferIndexedEXT() {
     Command cmd = glReadBufferIndexedEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("src", GLenum, _null_);
     cmd.extension = GL_EXT_multiview_draw_buffers;
   }
-  public static final Command glGetFramebufferParameterivEXT = new Command();
+  public static final Command glGetFramebufferParameterivEXT = new Command(1);
   private static void glGetFramebufferParameterivEXT() {
     Command cmd = glGetFramebufferParameterivEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glProgramEnvParametersI4ivNV = new Command();
+  public static final Command glProgramEnvParametersI4ivNV = new Command(1);
   private static void glProgramEnvParametersI4ivNV() {
     Command cmd = glProgramEnvParametersI4ivNV;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_NV_gpu_program4;
   }
-  public static final Command glGetNamedFramebufferAttachmentParameteriv = new Command();
+  public static final Command glGetNamedFramebufferAttachmentParameteriv = new Command(2);
   private static void glGetNamedFramebufferAttachmentParameteriv() {
     Command cmd = glGetNamedFramebufferAttachmentParameteriv;
     cmd.returnGroup = _null_;
@@ -29024,49 +29024,49 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_direct_state_access;
   }
-  public static final Command glMatrixLoaddEXT = new Command();
+  public static final Command glMatrixLoaddEXT = new Command(1);
   private static void glMatrixLoaddEXT() {
     Command cmd = glMatrixLoaddEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, MatrixMode);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glGetOcclusionQueryuivNV = new Command();
+  public static final Command glGetOcclusionQueryuivNV = new Command(1);
   private static void glGetOcclusionQueryuivNV() {
     Command cmd = glGetOcclusionQueryuivNV;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_NV_occlusion_query;
   }
-  public static final Command glGetTextureSubImage = new Command();
+  public static final Command glGetTextureSubImage = new Command(2);
   private static void glGetTextureSubImage() {
     Command cmd = glGetTextureSubImage;
     cmd.returnGroup = _null_;
     cmd.addParam("format", GLenum, _null_);
     cmd.addParam("type", GLenum, _null_);
   }
-  public static final Command glVertexArrayNormalOffsetEXT = new Command();
+  public static final Command glVertexArrayNormalOffsetEXT = new Command(1);
   private static void glVertexArrayNormalOffsetEXT() {
     Command cmd = glVertexArrayNormalOffsetEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, NormalPointerType);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glGetTransformFeedbackVaryingEXT = new Command();
+  public static final Command glGetTransformFeedbackVaryingEXT = new Command(1);
   private static void glGetTransformFeedbackVaryingEXT() {
     Command cmd = glGetTransformFeedbackVaryingEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_EXT_transform_feedback;
   }
-  public static final Command glProvokingVertexEXT = new Command();
+  public static final Command glProvokingVertexEXT = new Command(1);
   private static void glProvokingVertexEXT() {
     Command cmd = glProvokingVertexEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, _null_);
     cmd.extension = GL_EXT_provoking_vertex;
   }
-  public static final Command glTrackMatrixNV = new Command();
+  public static final Command glTrackMatrixNV = new Command(3);
   private static void glTrackMatrixNV() {
     Command cmd = glTrackMatrixNV;
     cmd.returnGroup = _null_;
@@ -29075,7 +29075,7 @@ public class GLmetadata {
     cmd.addParam("transform", GLenum, _null_);
     cmd.extension = GL_NV_vertex_program;
   }
-  public static final Command glConvolutionParameteriv = new Command();
+  public static final Command glConvolutionParameteriv = new Command(2);
   private static void glConvolutionParameteriv() {
     Command cmd = glConvolutionParameteriv;
     cmd.returnGroup = _null_;
@@ -29083,14 +29083,14 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_imaging;
   }
-  public static final Command glResetHistogramEXT = new Command();
+  public static final Command glResetHistogramEXT = new Command(1);
   private static void glResetHistogramEXT() {
     Command cmd = glResetHistogramEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, HistogramTargetEXT);
     cmd.extension = GL_EXT_histogram;
   }
-  public static final Command glGetCombinerInputParameterfvNV = new Command();
+  public static final Command glGetCombinerInputParameterfvNV = new Command(4);
   private static void glGetCombinerInputParameterfvNV() {
     Command cmd = glGetCombinerInputParameterfvNV;
     cmd.returnGroup = _null_;
@@ -29100,56 +29100,56 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_NV_register_combiners;
   }
-  public static final Command glMultiTexCoord3xOES = new Command();
+  public static final Command glMultiTexCoord3xOES = new Command(1);
   private static void glMultiTexCoord3xOES() {
     Command cmd = glMultiTexCoord3xOES;
     cmd.returnGroup = _null_;
     cmd.addParam("texture", GLenum, _null_);
     cmd.extension = GL_OES_fixed_point;
   }
-  public static final Command glSpriteParameterfSGIX = new Command();
+  public static final Command glSpriteParameterfSGIX = new Command(1);
   private static void glSpriteParameterfSGIX() {
     Command cmd = glSpriteParameterfSGIX;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_SGIX_sprite;
   }
-  public static final Command glGetVertexArrayiv = new Command();
+  public static final Command glGetVertexArrayiv = new Command(1);
   private static void glGetVertexArrayiv() {
     Command cmd = glGetVertexArrayiv;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_direct_state_access;
   }
-  public static final Command glVertexFormatNV = new Command();
+  public static final Command glVertexFormatNV = new Command(1);
   private static void glVertexFormatNV() {
     Command cmd = glVertexFormatNV;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_NV_vertex_buffer_unified_memory;
   }
-  public static final Command glGetProgramResourceIndex = new Command();
+  public static final Command glGetProgramResourceIndex = new Command(1);
   private static void glGetProgramResourceIndex() {
     Command cmd = glGetProgramResourceIndex;
     cmd.returnGroup = _null_;
     cmd.addParam("programInterface", GLenum, _null_);
     cmd.extension = GL_ARB_program_interface_query;
   }
-  public static final Command glProgramEnvParametersI4uivNV = new Command();
+  public static final Command glProgramEnvParametersI4uivNV = new Command(1);
   private static void glProgramEnvParametersI4uivNV() {
     Command cmd = glProgramEnvParametersI4uivNV;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_NV_gpu_program4;
   }
-  public static final Command glProgramParameter4fNV = new Command();
+  public static final Command glProgramParameter4fNV = new Command(1);
   private static void glProgramParameter4fNV() {
     Command cmd = glProgramParameter4fNV;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_NV_vertex_program;
   }
-  public static final Command glMultiTexParameterfvEXT = new Command();
+  public static final Command glMultiTexParameterfvEXT = new Command(3);
   private static void glMultiTexParameterfvEXT() {
     Command cmd = glMultiTexParameterfvEXT;
     cmd.returnGroup = _null_;
@@ -29158,47 +29158,47 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, TextureParameterName);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glMultiTexCoord3bOES = new Command();
+  public static final Command glMultiTexCoord3bOES = new Command(1);
   private static void glMultiTexCoord3bOES() {
     Command cmd = glMultiTexCoord3bOES;
     cmd.returnGroup = _null_;
     cmd.addParam("texture", GLenum, _null_);
     cmd.extension = GL_OES_byte_coordinates;
   }
-  public static final Command glGetTextureParameterIuiv = new Command();
+  public static final Command glGetTextureParameterIuiv = new Command(1);
   private static void glGetTextureParameterIuiv() {
     Command cmd = glGetTextureParameterIuiv;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_direct_state_access;
   }
-  public static final Command glQueryMatrixxOES = new Command();
+  public static final Command glQueryMatrixxOES = new Command(0);
   private static void glQueryMatrixxOES() {
     Command cmd = glQueryMatrixxOES;
     cmd.returnGroup = _null_;
   }
-  public static final Command glVertexP3ui = new Command();
+  public static final Command glVertexP3ui = new Command(1);
   private static void glVertexP3ui() {
     Command cmd = glVertexP3ui;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_ARB_vertex_type_2_10_10_10_rev;
   }
-  public static final Command glGetTexParameteriv = new Command();
+  public static final Command glGetTexParameteriv = new Command(2);
   private static void glGetTexParameteriv() {
     Command cmd = glGetTexParameteriv;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, TextureTarget);
     cmd.addParam("pname", GLenum, GetTextureParameter);
   }
-  public static final Command glGetPathMetricRangeNV = new Command();
+  public static final Command glGetPathMetricRangeNV = new Command(1);
   private static void glGetPathMetricRangeNV() {
     Command cmd = glGetPathMetricRangeNV;
     cmd.returnGroup = _null_;
     cmd.addParam("metricQueryMask", GLbitfield, _null_);
     cmd.extension = GL_NV_path_rendering;
   }
-  public static final Command glMultiTexBufferEXT = new Command();
+  public static final Command glMultiTexBufferEXT = new Command(3);
   private static void glMultiTexBufferEXT() {
     Command cmd = glMultiTexBufferEXT;
     cmd.returnGroup = _null_;
@@ -29207,35 +29207,35 @@ public class GLmetadata {
     cmd.addParam("internalformat", GLenum, _null_);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glMultiTexCoord3hNV = new Command();
+  public static final Command glMultiTexCoord3hNV = new Command(1);
   private static void glMultiTexCoord3hNV() {
     Command cmd = glMultiTexCoord3hNV;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_NV_half_float;
   }
-  public static final Command glAlphaToCoverageDitherControlNV = new Command();
+  public static final Command glAlphaToCoverageDitherControlNV = new Command(1);
   private static void glAlphaToCoverageDitherControlNV() {
     Command cmd = glAlphaToCoverageDitherControlNV;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, _null_);
     cmd.extension = GL_NV_alpha_to_coverage_dither_control;
   }
-  public static final Command glVertexAttribIFormat = new Command();
+  public static final Command glVertexAttribIFormat = new Command(1);
   private static void glVertexAttribIFormat() {
     Command cmd = glVertexAttribIFormat;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_ARB_vertex_attrib_binding;
   }
-  public static final Command glMultiTexCoord1fvARB = new Command();
+  public static final Command glMultiTexCoord1fvARB = new Command(1);
   private static void glMultiTexCoord1fvARB() {
     Command cmd = glMultiTexCoord1fvARB;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_ARB_multitexture;
   }
-  public static final Command glFragmentMaterialiSGIX = new Command();
+  public static final Command glFragmentMaterialiSGIX = new Command(2);
   private static void glFragmentMaterialiSGIX() {
     Command cmd = glFragmentMaterialiSGIX;
     cmd.returnGroup = _null_;
@@ -29243,14 +29243,14 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, MaterialParameter);
     cmd.extension = GL_SGIX_fragment_lighting;
   }
-  public static final Command glGetVertexAttribPointervARB = new Command();
+  public static final Command glGetVertexAttribPointervARB = new Command(1);
   private static void glGetVertexAttribPointervARB() {
     Command cmd = glGetVertexAttribPointervARB;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_vertex_shader;
   }
-  public static final Command glMapTexture2DINTEL = new Command();
+  public static final Command glMapTexture2DINTEL = new Command(2);
   private static void glMapTexture2DINTEL() {
     Command cmd = glMapTexture2DINTEL;
     cmd.returnGroup = _null_;
@@ -29258,13 +29258,13 @@ public class GLmetadata {
     cmd.addParam("layout", GLenum, _null_);
     cmd.extension = GL_INTEL_map_texture;
   }
-  public static final Command glIsEnabled = new Command();
+  public static final Command glIsEnabled = new Command(1);
   private static void glIsEnabled() {
     Command cmd = glIsEnabled;
     cmd.returnGroup = Boolean;
     cmd.addParam("cap", GLenum, EnableCap);
   }
-  public static final Command glVertexAttribP2uiv = new Command();
+  public static final Command glVertexAttribP2uiv = new Command(2);
   private static void glVertexAttribP2uiv() {
     Command cmd = glVertexAttribP2uiv;
     cmd.returnGroup = _null_;
@@ -29272,21 +29272,21 @@ public class GLmetadata {
     cmd.addParam("normalized", GLboolean, Boolean);
     cmd.extension = GL_ARB_vertex_type_2_10_10_10_rev;
   }
-  public static final Command glClientActiveVertexStreamATI = new Command();
+  public static final Command glClientActiveVertexStreamATI = new Command(1);
   private static void glClientActiveVertexStreamATI() {
     Command cmd = glClientActiveVertexStreamATI;
     cmd.returnGroup = _null_;
     cmd.addParam("stream", GLenum, _null_);
     cmd.extension = GL_ATI_vertex_streams;
   }
-  public static final Command glDrawElementsInstancedNV = new Command();
+  public static final Command glDrawElementsInstancedNV = new Command(2);
   private static void glDrawElementsInstancedNV() {
     Command cmd = glDrawElementsInstancedNV;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, PrimitiveType);
     cmd.addParam("type", GLenum, _null_);
   }
-  public static final Command glCopyTextureImage2DEXT = new Command();
+  public static final Command glCopyTextureImage2DEXT = new Command(2);
   private static void glCopyTextureImage2DEXT() {
     Command cmd = glCopyTextureImage2DEXT;
     cmd.returnGroup = _null_;
@@ -29294,20 +29294,20 @@ public class GLmetadata {
     cmd.addParam("internalformat", GLenum, _null_);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glIsQueryEXT = new Command();
+  public static final Command glIsQueryEXT = new Command(0);
   private static void glIsQueryEXT() {
     Command cmd = glIsQueryEXT;
     cmd.returnGroup = Boolean;
     cmd.extension = GL_EXT_occlusion_query_boolean;
   }
-  public static final Command glStateCaptureNV = new Command();
+  public static final Command glStateCaptureNV = new Command(1);
   private static void glStateCaptureNV() {
     Command cmd = glStateCaptureNV;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, _null_);
     cmd.extension = GL_NV_command_list;
   }
-  public static final Command glGetQueryIndexediv = new Command();
+  public static final Command glGetQueryIndexediv = new Command(2);
   private static void glGetQueryIndexediv() {
     Command cmd = glGetQueryIndexediv;
     cmd.returnGroup = _null_;
@@ -29315,49 +29315,49 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_transform_feedback3;
   }
-  public static final Command glGetActiveSubroutineUniformName = new Command();
+  public static final Command glGetActiveSubroutineUniformName = new Command(1);
   private static void glGetActiveSubroutineUniformName() {
     Command cmd = glGetActiveSubroutineUniformName;
     cmd.returnGroup = _null_;
     cmd.addParam("shadertype", GLenum, _null_);
     cmd.extension = GL_ARB_shader_subroutine;
   }
-  public static final Command glTexBumpParameterfvATI = new Command();
+  public static final Command glTexBumpParameterfvATI = new Command(1);
   private static void glTexBumpParameterfvATI() {
     Command cmd = glTexBumpParameterfvATI;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ATI_envmap_bumpmap;
   }
-  public static final Command glGetObjectParameterfvARB = new Command();
+  public static final Command glGetObjectParameterfvARB = new Command(1);
   private static void glGetObjectParameterfvARB() {
     Command cmd = glGetObjectParameterfvARB;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_shader_objects;
   }
-  public static final Command glGetQueryBufferObjecti64v = new Command();
+  public static final Command glGetQueryBufferObjecti64v = new Command(1);
   private static void glGetQueryBufferObjecti64v() {
     Command cmd = glGetQueryBufferObjecti64v;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_direct_state_access;
   }
-  public static final Command glClipPlanexOES = new Command();
+  public static final Command glClipPlanexOES = new Command(1);
   private static void glClipPlanexOES() {
     Command cmd = glClipPlanexOES;
     cmd.returnGroup = _null_;
     cmd.addParam("plane", GLenum, _null_);
     cmd.extension = GL_OES_fixed_point;
   }
-  public static final Command glGetTexParameterfv = new Command();
+  public static final Command glGetTexParameterfv = new Command(2);
   private static void glGetTexParameterfv() {
     Command cmd = glGetTexParameterfv;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, TextureTarget);
     cmd.addParam("pname", GLenum, GetTextureParameter);
   }
-  public static final Command glStencilThenCoverStrokePathInstancedNV = new Command();
+  public static final Command glStencilThenCoverStrokePathInstancedNV = new Command(3);
   private static void glStencilThenCoverStrokePathInstancedNV() {
     Command cmd = glStencilThenCoverStrokePathInstancedNV;
     cmd.returnGroup = _null_;
@@ -29366,34 +29366,34 @@ public class GLmetadata {
     cmd.addParam("transformType", GLenum, _null_);
     cmd.extension = GL_NV_path_rendering;
   }
-  public static final Command glPointParameterxOES = new Command();
+  public static final Command glPointParameterxOES = new Command(1);
   private static void glPointParameterxOES() {
     Command cmd = glPointParameterxOES;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_OES_fixed_point;
   }
-  public static final Command glTextureParameteri = new Command();
+  public static final Command glTextureParameteri = new Command(1);
   private static void glTextureParameteri() {
     Command cmd = glTextureParameteri;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_direct_state_access;
   }
-  public static final Command glDisablei = new Command();
+  public static final Command glDisablei = new Command(1);
   private static void glDisablei() {
     Command cmd = glDisablei;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
   }
-  public static final Command glTextureParameterf = new Command();
+  public static final Command glTextureParameterf = new Command(1);
   private static void glTextureParameterf() {
     Command cmd = glTextureParameterf;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_direct_state_access;
   }
-  public static final Command glColorTable = new Command();
+  public static final Command glColorTable = new Command(4);
   private static void glColorTable() {
     Command cmd = glColorTable;
     cmd.returnGroup = _null_;
@@ -29403,27 +29403,27 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, PixelType);
     cmd.extension = GL_ARB_imaging;
   }
-  public static final Command glBindBuffersBase = new Command();
+  public static final Command glBindBuffersBase = new Command(1);
   private static void glBindBuffersBase() {
     Command cmd = glBindBuffersBase;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
   }
-  public static final Command glExtGetBufferPointervQCOM = new Command();
+  public static final Command glExtGetBufferPointervQCOM = new Command(1);
   private static void glExtGetBufferPointervQCOM() {
     Command cmd = glExtGetBufferPointervQCOM;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_QCOM_extended_get;
   }
-  public static final Command glIsEnablediOES = new Command();
+  public static final Command glIsEnablediOES = new Command(1);
   private static void glIsEnablediOES() {
     Command cmd = glIsEnablediOES;
     cmd.returnGroup = Boolean;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_OES_viewport_array;
   }
-  public static final Command glGetCompressedMultiTexImageEXT = new Command();
+  public static final Command glGetCompressedMultiTexImageEXT = new Command(2);
   private static void glGetCompressedMultiTexImageEXT() {
     Command cmd = glGetCompressedMultiTexImageEXT;
     cmd.returnGroup = _null_;
@@ -29431,7 +29431,7 @@ public class GLmetadata {
     cmd.addParam("target", GLenum, TextureTarget);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glGetnConvolutionFilter = new Command();
+  public static final Command glGetnConvolutionFilter = new Command(3);
   private static void glGetnConvolutionFilter() {
     Command cmd = glGetnConvolutionFilter;
     cmd.returnGroup = _null_;
@@ -29439,7 +29439,7 @@ public class GLmetadata {
     cmd.addParam("format", GLenum, _null_);
     cmd.addParam("type", GLenum, _null_);
   }
-  public static final Command glTextureStorage2DMultisample = new Command();
+  public static final Command glTextureStorage2DMultisample = new Command(2);
   private static void glTextureStorage2DMultisample() {
     Command cmd = glTextureStorage2DMultisample;
     cmd.returnGroup = _null_;
@@ -29447,54 +29447,54 @@ public class GLmetadata {
     cmd.addParam("fixedsamplelocations", GLboolean, Boolean);
     cmd.extension = GL_ARB_direct_state_access;
   }
-  public static final Command glMapNamedBuffer = new Command();
+  public static final Command glMapNamedBuffer = new Command(1);
   private static void glMapNamedBuffer() {
     Command cmd = glMapNamedBuffer;
     cmd.returnGroup = _null_;
     cmd.addParam("access", GLenum, _null_);
     cmd.extension = GL_ARB_direct_state_access;
   }
-  public static final Command glGetFloati_vEXT = new Command();
+  public static final Command glGetFloati_vEXT = new Command(1);
   private static void glGetFloati_vEXT() {
     Command cmd = glGetFloati_vEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glPushAttrib = new Command();
+  public static final Command glPushAttrib = new Command(1);
   private static void glPushAttrib() {
     Command cmd = glPushAttrib;
     cmd.returnGroup = _null_;
     cmd.addParam("mask", GLbitfield, AttribMask);
   }
-  public static final Command glGetObjectLabel = new Command();
+  public static final Command glGetObjectLabel = new Command(1);
   private static void glGetObjectLabel() {
     Command cmd = glGetObjectLabel;
     cmd.returnGroup = _null_;
     cmd.addParam("identifier", GLenum, _null_);
     cmd.extension = GL_KHR_debug;
   }
-  public static final Command glMultiDrawArraysIndirectEXT = new Command();
+  public static final Command glMultiDrawArraysIndirectEXT = new Command(1);
   private static void glMultiDrawArraysIndirectEXT() {
     Command cmd = glMultiDrawArraysIndirectEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, PrimitiveType);
   }
-  public static final Command glDrawElementArrayATI = new Command();
+  public static final Command glDrawElementArrayATI = new Command(1);
   private static void glDrawElementArrayATI() {
     Command cmd = glDrawElementArrayATI;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, PrimitiveType);
     cmd.extension = GL_ATI_element_array;
   }
-  public static final Command glMemoryBarrier = new Command();
+  public static final Command glMemoryBarrier = new Command(1);
   private static void glMemoryBarrier() {
     Command cmd = glMemoryBarrier;
     cmd.returnGroup = _null_;
     cmd.addParam("barriers", GLbitfield, _null_);
     cmd.extension = GL_ARB_shader_image_load_store;
   }
-  public static final Command glMapBufferOES = new Command();
+  public static final Command glMapBufferOES = new Command(2);
   private static void glMapBufferOES() {
     Command cmd = glMapBufferOES;
     cmd.returnGroup = _null_;
@@ -29502,7 +29502,7 @@ public class GLmetadata {
     cmd.addParam("access", GLenum, _null_);
     cmd.extension = GL_OES_mapbuffer;
   }
-  public static final Command glTextureStorageSparseAMD = new Command();
+  public static final Command glTextureStorageSparseAMD = new Command(3);
   private static void glTextureStorageSparseAMD() {
     Command cmd = glTextureStorageSparseAMD;
     cmd.returnGroup = _null_;
@@ -29511,34 +29511,34 @@ public class GLmetadata {
     cmd.addParam("flags", GLbitfield, _null_);
     cmd.extension = GL_AMD_sparse_texture;
   }
-  public static final Command glSamplerParameterIuiv = new Command();
+  public static final Command glSamplerParameterIuiv = new Command(1);
   private static void glSamplerParameterIuiv() {
     Command cmd = glSamplerParameterIuiv;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_sampler_objects;
   }
-  public static final Command glIsNamedStringARB = new Command();
+  public static final Command glIsNamedStringARB = new Command(0);
   private static void glIsNamedStringARB() {
     Command cmd = glIsNamedStringARB;
     cmd.returnGroup = Boolean;
     cmd.extension = GL_ARB_shading_language_include;
   }
-  public static final Command glBindFramebufferOES = new Command();
+  public static final Command glBindFramebufferOES = new Command(1);
   private static void glBindFramebufferOES() {
     Command cmd = glBindFramebufferOES;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_OES_framebuffer_object;
   }
-  public static final Command glNamedProgramLocalParameterI4ivEXT = new Command();
+  public static final Command glNamedProgramLocalParameterI4ivEXT = new Command(1);
   private static void glNamedProgramLocalParameterI4ivEXT() {
     Command cmd = glNamedProgramLocalParameterI4ivEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glTexBufferRangeOES = new Command();
+  public static final Command glTexBufferRangeOES = new Command(2);
   private static void glTexBufferRangeOES() {
     Command cmd = glTexBufferRangeOES;
     cmd.returnGroup = _null_;
@@ -29546,7 +29546,7 @@ public class GLmetadata {
     cmd.addParam("internalformat", GLenum, _null_);
     cmd.extension = GL_OES_texture_buffer;
   }
-  public static final Command glFramebufferTexture2DDownsampleIMG = new Command();
+  public static final Command glFramebufferTexture2DDownsampleIMG = new Command(3);
   private static void glFramebufferTexture2DDownsampleIMG() {
     Command cmd = glFramebufferTexture2DDownsampleIMG;
     cmd.returnGroup = _null_;
@@ -29555,14 +29555,14 @@ public class GLmetadata {
     cmd.addParam("textarget", GLenum, TextureTarget);
     cmd.extension = GL_IMG_framebuffer_downsample;
   }
-  public static final Command glColorP4ui = new Command();
+  public static final Command glColorP4ui = new Command(1);
   private static void glColorP4ui() {
     Command cmd = glColorP4ui;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_ARB_vertex_type_2_10_10_10_rev;
   }
-  public static final Command glCompressedMultiTexSubImage1DEXT = new Command();
+  public static final Command glCompressedMultiTexSubImage1DEXT = new Command(3);
   private static void glCompressedMultiTexSubImage1DEXT() {
     Command cmd = glCompressedMultiTexSubImage1DEXT;
     cmd.returnGroup = _null_;
@@ -29571,42 +29571,42 @@ public class GLmetadata {
     cmd.addParam("format", GLenum, PixelFormat);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glGetPerfMonitorCounterDataAMD = new Command();
+  public static final Command glGetPerfMonitorCounterDataAMD = new Command(1);
   private static void glGetPerfMonitorCounterDataAMD() {
     Command cmd = glGetPerfMonitorCounterDataAMD;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_AMD_performance_monitor;
   }
-  public static final Command glBindProgramNV = new Command();
+  public static final Command glBindProgramNV = new Command(1);
   private static void glBindProgramNV() {
     Command cmd = glBindProgramNV;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_NV_vertex_program;
   }
-  public static final Command glGetProgramEnvParameterIivNV = new Command();
+  public static final Command glGetProgramEnvParameterIivNV = new Command(1);
   private static void glGetProgramEnvParameterIivNV() {
     Command cmd = glGetProgramEnvParameterIivNV;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_NV_gpu_program4;
   }
-  public static final Command glProgramUniformMatrix3x4dv = new Command();
+  public static final Command glProgramUniformMatrix3x4dv = new Command(1);
   private static void glProgramUniformMatrix3x4dv() {
     Command cmd = glProgramUniformMatrix3x4dv;
     cmd.returnGroup = _null_;
     cmd.addParam("transpose", GLboolean, Boolean);
     cmd.extension = GL_ARB_separate_shader_objects;
   }
-  public static final Command glVideoCaptureStreamParameterfvNV = new Command();
+  public static final Command glVideoCaptureStreamParameterfvNV = new Command(1);
   private static void glVideoCaptureStreamParameterfvNV() {
     Command cmd = glVideoCaptureStreamParameterfvNV;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_NV_video_capture;
   }
-  public static final Command glPathTexGenNV = new Command();
+  public static final Command glPathTexGenNV = new Command(2);
   private static void glPathTexGenNV() {
     Command cmd = glPathTexGenNV;
     cmd.returnGroup = _null_;
@@ -29614,7 +29614,7 @@ public class GLmetadata {
     cmd.addParam("genMode", GLenum, _null_);
     cmd.extension = GL_NV_path_rendering;
   }
-  public static final Command glImageTransformParameterfHP = new Command();
+  public static final Command glImageTransformParameterfHP = new Command(2);
   private static void glImageTransformParameterfHP() {
     Command cmd = glImageTransformParameterfHP;
     cmd.returnGroup = _null_;
@@ -29622,7 +29622,7 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_HP_image_transform;
   }
-  public static final Command glGetTexGenfvOES = new Command();
+  public static final Command glGetTexGenfvOES = new Command(2);
   private static void glGetTexGenfvOES() {
     Command cmd = glGetTexGenfvOES;
     cmd.returnGroup = _null_;
@@ -29630,28 +29630,28 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_OES_texture_cube_map;
   }
-  public static final Command glPixelDataRangeNV = new Command();
+  public static final Command glPixelDataRangeNV = new Command(1);
   private static void glPixelDataRangeNV() {
     Command cmd = glPixelDataRangeNV;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_NV_pixel_data_range;
   }
-  public static final Command glPointParameterfvARB = new Command();
+  public static final Command glPointParameterfvARB = new Command(1);
   private static void glPointParameterfvARB() {
     Command cmd = glPointParameterfvARB;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_point_parameters;
   }
-  public static final Command glVertexAttribLPointer = new Command();
+  public static final Command glVertexAttribLPointer = new Command(1);
   private static void glVertexAttribLPointer() {
     Command cmd = glVertexAttribLPointer;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_ARB_vertex_attrib_64bit;
   }
-  public static final Command glGetMapParameterfvNV = new Command();
+  public static final Command glGetMapParameterfvNV = new Command(2);
   private static void glGetMapParameterfvNV() {
     Command cmd = glGetMapParameterfvNV;
     cmd.returnGroup = _null_;
@@ -29659,7 +29659,7 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_NV_evaluators;
   }
-  public static final Command glGetMinmaxParameterfvEXT = new Command();
+  public static final Command glGetMinmaxParameterfvEXT = new Command(2);
   private static void glGetMinmaxParameterfvEXT() {
     Command cmd = glGetMinmaxParameterfvEXT;
     cmd.returnGroup = _null_;
@@ -29667,21 +29667,21 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, GetMinmaxParameterPNameEXT);
     cmd.extension = GL_EXT_histogram;
   }
-  public static final Command glProgramBinary = new Command();
+  public static final Command glProgramBinary = new Command(1);
   private static void glProgramBinary() {
     Command cmd = glProgramBinary;
     cmd.returnGroup = _null_;
     cmd.addParam("binaryFormat", GLenum, _null_);
     cmd.extension = GL_ARB_get_program_binary;
   }
-  public static final Command glUniformMatrix2fvARB = new Command();
+  public static final Command glUniformMatrix2fvARB = new Command(1);
   private static void glUniformMatrix2fvARB() {
     Command cmd = glUniformMatrix2fvARB;
     cmd.returnGroup = _null_;
     cmd.addParam("transpose", GLboolean, Boolean);
     cmd.extension = GL_ARB_shader_objects;
   }
-  public static final Command glVertexAttribP2ui = new Command();
+  public static final Command glVertexAttribP2ui = new Command(2);
   private static void glVertexAttribP2ui() {
     Command cmd = glVertexAttribP2ui;
     cmd.returnGroup = _null_;
@@ -29689,21 +29689,21 @@ public class GLmetadata {
     cmd.addParam("normalized", GLboolean, Boolean);
     cmd.extension = GL_ARB_vertex_type_2_10_10_10_rev;
   }
-  public static final Command glVertexStream4fvATI = new Command();
+  public static final Command glVertexStream4fvATI = new Command(1);
   private static void glVertexStream4fvATI() {
     Command cmd = glVertexStream4fvATI;
     cmd.returnGroup = _null_;
     cmd.addParam("stream", GLenum, _null_);
     cmd.extension = GL_ATI_vertex_streams;
   }
-  public static final Command glProgramEnvParameter4fARB = new Command();
+  public static final Command glProgramEnvParameter4fARB = new Command(1);
   private static void glProgramEnvParameter4fARB() {
     Command cmd = glProgramEnvParameter4fARB;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_ARB_vertex_program;
   }
-  public static final Command glConvolutionParameterfv = new Command();
+  public static final Command glConvolutionParameterfv = new Command(2);
   private static void glConvolutionParameterfv() {
     Command cmd = glConvolutionParameterfv;
     cmd.returnGroup = _null_;
@@ -29711,14 +29711,14 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_imaging;
   }
-  public static final Command glUnmapBufferOES = new Command();
+  public static final Command glUnmapBufferOES = new Command(1);
   private static void glUnmapBufferOES() {
     Command cmd = glUnmapBufferOES;
     cmd.returnGroup = Boolean;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_OES_mapbuffer;
   }
-  public static final Command glCompressedTexSubImage3DARB = new Command();
+  public static final Command glCompressedTexSubImage3DARB = new Command(2);
   private static void glCompressedTexSubImage3DARB() {
     Command cmd = glCompressedTexSubImage3DARB;
     cmd.returnGroup = _null_;
@@ -29726,7 +29726,7 @@ public class GLmetadata {
     cmd.addParam("format", GLenum, PixelFormat);
     cmd.extension = GL_ARB_texture_compression;
   }
-  public static final Command glDrawElementsIndirect = new Command();
+  public static final Command glDrawElementsIndirect = new Command(2);
   private static void glDrawElementsIndirect() {
     Command cmd = glDrawElementsIndirect;
     cmd.returnGroup = _null_;
@@ -29734,28 +29734,28 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_ARB_draw_indirect;
   }
-  public static final Command glUniformMatrix2x4fvNV = new Command();
+  public static final Command glUniformMatrix2x4fvNV = new Command(1);
   private static void glUniformMatrix2x4fvNV() {
     Command cmd = glUniformMatrix2x4fvNV;
     cmd.returnGroup = _null_;
     cmd.addParam("transpose", GLboolean, Boolean);
     cmd.extension = GL_NV_non_square_matrices;
   }
-  public static final Command glBindBufferOffsetEXT = new Command();
+  public static final Command glBindBufferOffsetEXT = new Command(1);
   private static void glBindBufferOffsetEXT() {
     Command cmd = glBindBufferOffsetEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_EXT_transform_feedback;
   }
-  public static final Command glVertexArrayVertexAttribIOffsetEXT = new Command();
+  public static final Command glVertexArrayVertexAttribIOffsetEXT = new Command(1);
   private static void glVertexArrayVertexAttribIOffsetEXT() {
     Command cmd = glVertexArrayVertexAttribIOffsetEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glGetMinmaxEXT = new Command();
+  public static final Command glGetMinmaxEXT = new Command(4);
   private static void glGetMinmaxEXT() {
     Command cmd = glGetMinmaxEXT;
     cmd.returnGroup = _null_;
@@ -29765,7 +29765,7 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, PixelType);
     cmd.extension = GL_EXT_histogram;
   }
-  public static final Command glGetPathColorGenfvNV = new Command();
+  public static final Command glGetPathColorGenfvNV = new Command(2);
   private static void glGetPathColorGenfvNV() {
     Command cmd = glGetPathColorGenfvNV;
     cmd.returnGroup = _null_;
@@ -29773,7 +29773,7 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_NV_path_rendering;
   }
-  public static final Command glBlendFuncSeparatei = new Command();
+  public static final Command glBlendFuncSeparatei = new Command(4);
   private static void glBlendFuncSeparatei() {
     Command cmd = glBlendFuncSeparatei;
     cmd.returnGroup = _null_;
@@ -29782,14 +29782,14 @@ public class GLmetadata {
     cmd.addParam("srcAlpha", GLenum, _null_);
     cmd.addParam("dstAlpha", GLenum, _null_);
   }
-  public static final Command glFogxOES = new Command();
+  public static final Command glFogxOES = new Command(1);
   private static void glFogxOES() {
     Command cmd = glFogxOES;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_OES_fixed_point;
   }
-  public static final Command glTexImage2DMultisample = new Command();
+  public static final Command glTexImage2DMultisample = new Command(3);
   private static void glTexImage2DMultisample() {
     Command cmd = glTexImage2DMultisample;
     cmd.returnGroup = _null_;
@@ -29798,7 +29798,7 @@ public class GLmetadata {
     cmd.addParam("fixedsamplelocations", GLboolean, Boolean);
     cmd.extension = GL_ARB_texture_multisample;
   }
-  public static final Command glObjectPurgeableAPPLE = new Command();
+  public static final Command glObjectPurgeableAPPLE = new Command(2);
   private static void glObjectPurgeableAPPLE() {
     Command cmd = glObjectPurgeableAPPLE;
     cmd.returnGroup = _null_;
@@ -29806,7 +29806,7 @@ public class GLmetadata {
     cmd.addParam("option", GLenum, _null_);
     cmd.extension = GL_APPLE_object_purgeable;
   }
-  public static final Command glViewportSwizzleNV = new Command();
+  public static final Command glViewportSwizzleNV = new Command(4);
   private static void glViewportSwizzleNV() {
     Command cmd = glViewportSwizzleNV;
     cmd.returnGroup = _null_;
@@ -29816,21 +29816,21 @@ public class GLmetadata {
     cmd.addParam("swizzlew", GLenum, _null_);
     cmd.extension = GL_NV_viewport_swizzle;
   }
-  public static final Command glMultiTexCoord3fARB = new Command();
+  public static final Command glMultiTexCoord3fARB = new Command(1);
   private static void glMultiTexCoord3fARB() {
     Command cmd = glMultiTexCoord3fARB;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_ARB_multitexture;
   }
-  public static final Command glDisableClientStateiEXT = new Command();
+  public static final Command glDisableClientStateiEXT = new Command(1);
   private static void glDisableClientStateiEXT() {
     Command cmd = glDisableClientStateiEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("array", GLenum, EnableCap);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glTextureSubImage2DEXT = new Command();
+  public static final Command glTextureSubImage2DEXT = new Command(3);
   private static void glTextureSubImage2DEXT() {
     Command cmd = glTextureSubImage2DEXT;
     cmd.returnGroup = _null_;
@@ -29839,7 +29839,7 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, PixelType);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glFragmentLightfSGIX = new Command();
+  public static final Command glFragmentLightfSGIX = new Command(2);
   private static void glFragmentLightfSGIX() {
     Command cmd = glFragmentLightfSGIX;
     cmd.returnGroup = _null_;
@@ -29847,28 +29847,28 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_SGIX_fragment_lighting;
   }
-  public static final Command glVertexStream3iATI = new Command();
+  public static final Command glVertexStream3iATI = new Command(1);
   private static void glVertexStream3iATI() {
     Command cmd = glVertexStream3iATI;
     cmd.returnGroup = _null_;
     cmd.addParam("stream", GLenum, _null_);
     cmd.extension = GL_ATI_vertex_streams;
   }
-  public static final Command glBindParameterEXT = new Command();
+  public static final Command glBindParameterEXT = new Command(1);
   private static void glBindParameterEXT() {
     Command cmd = glBindParameterEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("value", GLenum, _null_);
     cmd.extension = GL_EXT_vertex_shader;
   }
-  public static final Command glDrawElementsBaseVertexEXT = new Command();
+  public static final Command glDrawElementsBaseVertexEXT = new Command(2);
   private static void glDrawElementsBaseVertexEXT() {
     Command cmd = glDrawElementsBaseVertexEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, PrimitiveType);
     cmd.addParam("type", GLenum, DrawElementsType);
   }
-  public static final Command glGetColorTableParameterfvEXT = new Command();
+  public static final Command glGetColorTableParameterfvEXT = new Command(2);
   private static void glGetColorTableParameterfvEXT() {
     Command cmd = glGetColorTableParameterfvEXT;
     cmd.returnGroup = _null_;
@@ -29876,69 +29876,69 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_EXT_paletted_texture;
   }
-  public static final Command glRasterSamplesEXT = new Command();
+  public static final Command glRasterSamplesEXT = new Command(1);
   private static void glRasterSamplesEXT() {
     Command cmd = glRasterSamplesEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("fixedsamplelocations", GLboolean, Boolean);
     cmd.extension = GL_NV_framebuffer_mixed_samples;
   }
-  public static final Command glNormalStream3dATI = new Command();
+  public static final Command glNormalStream3dATI = new Command(1);
   private static void glNormalStream3dATI() {
     Command cmd = glNormalStream3dATI;
     cmd.returnGroup = _null_;
     cmd.addParam("stream", GLenum, _null_);
     cmd.extension = GL_ATI_vertex_streams;
   }
-  public static final Command glGetVertexAttribdvNV = new Command();
+  public static final Command glGetVertexAttribdvNV = new Command(1);
   private static void glGetVertexAttribdvNV() {
     Command cmd = glGetVertexAttribdvNV;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_NV_vertex_program;
   }
-  public static final Command glGetProgramLocalParameterdvARB = new Command();
+  public static final Command glGetProgramLocalParameterdvARB = new Command(1);
   private static void glGetProgramLocalParameterdvARB() {
     Command cmd = glGetProgramLocalParameterdvARB;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_ARB_vertex_program;
   }
-  public static final Command glIsSyncAPPLE = new Command();
+  public static final Command glIsSyncAPPLE = new Command(0);
   private static void glIsSyncAPPLE() {
     Command cmd = glIsSyncAPPLE;
     cmd.returnGroup = Boolean;
     cmd.extension = GL_APPLE_sync;
   }
-  public static final Command glGetQueryObjectuivARB = new Command();
+  public static final Command glGetQueryObjectuivARB = new Command(1);
   private static void glGetQueryObjectuivARB() {
     Command cmd = glGetQueryObjectuivARB;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_occlusion_query;
   }
-  public static final Command glProgramUniformMatrix3x4fv = new Command();
+  public static final Command glProgramUniformMatrix3x4fv = new Command(1);
   private static void glProgramUniformMatrix3x4fv() {
     Command cmd = glProgramUniformMatrix3x4fv;
     cmd.returnGroup = _null_;
     cmd.addParam("transpose", GLboolean, Boolean);
     cmd.extension = GL_ARB_separate_shader_objects;
   }
-  public static final Command glFramebufferReadBufferEXT = new Command();
+  public static final Command glFramebufferReadBufferEXT = new Command(1);
   private static void glFramebufferReadBufferEXT() {
     Command cmd = glFramebufferReadBufferEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, ReadBufferMode);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glTextureParameterfv = new Command();
+  public static final Command glTextureParameterfv = new Command(1);
   private static void glTextureParameterfv() {
     Command cmd = glTextureParameterfv;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_direct_state_access;
   }
-  public static final Command glGetMaterialxvOES = new Command();
+  public static final Command glGetMaterialxvOES = new Command(2);
   private static void glGetMaterialxvOES() {
     Command cmd = glGetMaterialxvOES;
     cmd.returnGroup = _null_;
@@ -29946,14 +29946,14 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_OES_fixed_point;
   }
-  public static final Command glMultiTexCoord2dARB = new Command();
+  public static final Command glMultiTexCoord2dARB = new Command(1);
   private static void glMultiTexCoord2dARB() {
     Command cmd = glMultiTexCoord2dARB;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_ARB_multitexture;
   }
-  public static final Command glPolygonModeNV = new Command();
+  public static final Command glPolygonModeNV = new Command(2);
   private static void glPolygonModeNV() {
     Command cmd = glPolygonModeNV;
     cmd.returnGroup = _null_;
@@ -29961,7 +29961,7 @@ public class GLmetadata {
     cmd.addParam("mode", GLenum, PolygonMode);
     cmd.extension = GL_NV_polygon_mode;
   }
-  public static final Command glTextureStorageMem2DMultisampleEXT = new Command();
+  public static final Command glTextureStorageMem2DMultisampleEXT = new Command(2);
   private static void glTextureStorageMem2DMultisampleEXT() {
     Command cmd = glTextureStorageMem2DMultisampleEXT;
     cmd.returnGroup = _null_;
@@ -29969,47 +29969,47 @@ public class GLmetadata {
     cmd.addParam("fixedSampleLocations", GLboolean, Boolean);
     cmd.extension = GL_EXT_memory_object;
   }
-  public static final Command glGetNamedBufferPointervEXT = new Command();
+  public static final Command glGetNamedBufferPointervEXT = new Command(1);
   private static void glGetNamedBufferPointervEXT() {
     Command cmd = glGetNamedBufferPointervEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glUniformMatrix3x4fv = new Command();
+  public static final Command glUniformMatrix3x4fv = new Command(1);
   private static void glUniformMatrix3x4fv() {
     Command cmd = glUniformMatrix3x4fv;
     cmd.returnGroup = _null_;
     cmd.addParam("transpose", GLboolean, Boolean);
   }
-  public static final Command glGetTexEnvxv = new Command();
+  public static final Command glGetTexEnvxv = new Command(2);
   private static void glGetTexEnvxv() {
     Command cmd = glGetTexEnvxv;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.addParam("pname", GLenum, _null_);
   }
-  public static final Command glCompressedTexImage3D = new Command();
+  public static final Command glCompressedTexImage3D = new Command(2);
   private static void glCompressedTexImage3D() {
     Command cmd = glCompressedTexImage3D;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, TextureTarget);
     cmd.addParam("internalformat", GLenum, InternalFormat);
   }
-  public static final Command glMultiTexCoord1hvNV = new Command();
+  public static final Command glMultiTexCoord1hvNV = new Command(1);
   private static void glMultiTexCoord1hvNV() {
     Command cmd = glMultiTexCoord1hvNV;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_NV_half_float;
   }
-  public static final Command glUnmapBuffer = new Command();
+  public static final Command glUnmapBuffer = new Command(1);
   private static void glUnmapBuffer() {
     Command cmd = glUnmapBuffer;
     cmd.returnGroup = Boolean;
     cmd.addParam("target", GLenum, BufferTargetARB);
   }
-  public static final Command glMultiTexParameterIuivEXT = new Command();
+  public static final Command glMultiTexParameterIuivEXT = new Command(3);
   private static void glMultiTexParameterIuivEXT() {
     Command cmd = glMultiTexParameterIuivEXT;
     cmd.returnGroup = _null_;
@@ -30018,7 +30018,7 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, TextureParameterName);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glGetnTexImage = new Command();
+  public static final Command glGetnTexImage = new Command(3);
   private static void glGetnTexImage() {
     Command cmd = glGetnTexImage;
     cmd.returnGroup = _null_;
@@ -30026,7 +30026,7 @@ public class GLmetadata {
     cmd.addParam("format", GLenum, _null_);
     cmd.addParam("type", GLenum, _null_);
   }
-  public static final Command glReadnPixelsEXT = new Command();
+  public static final Command glReadnPixelsEXT = new Command(2);
   private static void glReadnPixelsEXT() {
     Command cmd = glReadnPixelsEXT;
     cmd.returnGroup = _null_;
@@ -30034,7 +30034,7 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_EXT_robustness;
   }
-  public static final Command glCopyMultiTexSubImage1DEXT = new Command();
+  public static final Command glCopyMultiTexSubImage1DEXT = new Command(2);
   private static void glCopyMultiTexSubImage1DEXT() {
     Command cmd = glCopyMultiTexSubImage1DEXT;
     cmd.returnGroup = _null_;
@@ -30042,7 +30042,7 @@ public class GLmetadata {
     cmd.addParam("target", GLenum, TextureTarget);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glGetConvolutionFilter = new Command();
+  public static final Command glGetConvolutionFilter = new Command(3);
   private static void glGetConvolutionFilter() {
     Command cmd = glGetConvolutionFilter;
     cmd.returnGroup = _null_;
@@ -30051,87 +30051,87 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, PixelType);
     cmd.extension = GL_ARB_imaging;
   }
-  public static final Command glConservativeRasterParameteriNV = new Command();
+  public static final Command glConservativeRasterParameteriNV = new Command(1);
   private static void glConservativeRasterParameteriNV() {
     Command cmd = glConservativeRasterParameteriNV;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_NV_conservative_raster_pre_snap_triangles;
   }
-  public static final Command glEnableIndexedEXT = new Command();
+  public static final Command glEnableIndexedEXT = new Command(1);
   private static void glEnableIndexedEXT() {
     Command cmd = glEnableIndexedEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
   }
-  public static final Command glUniformMatrix3x4dv = new Command();
+  public static final Command glUniformMatrix3x4dv = new Command(1);
   private static void glUniformMatrix3x4dv() {
     Command cmd = glUniformMatrix3x4dv;
     cmd.returnGroup = _null_;
     cmd.addParam("transpose", GLboolean, Boolean);
     cmd.extension = GL_ARB_gpu_shader_fp64;
   }
-  public static final Command glPointParameterfARB = new Command();
+  public static final Command glPointParameterfARB = new Command(1);
   private static void glPointParameterfARB() {
     Command cmd = glPointParameterfARB;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_point_parameters;
   }
-  public static final Command glGetClipPlanex = new Command();
+  public static final Command glGetClipPlanex = new Command(1);
   private static void glGetClipPlanex() {
     Command cmd = glGetClipPlanex;
     cmd.returnGroup = _null_;
     cmd.addParam("plane", GLenum, _null_);
   }
-  public static final Command glMultiTexCoord4sARB = new Command();
+  public static final Command glMultiTexCoord4sARB = new Command(1);
   private static void glMultiTexCoord4sARB() {
     Command cmd = glMultiTexCoord4sARB;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_ARB_multitexture;
   }
-  public static final Command glGetnCompressedTexImage = new Command();
+  public static final Command glGetnCompressedTexImage = new Command(1);
   private static void glGetnCompressedTexImage() {
     Command cmd = glGetnCompressedTexImage;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
   }
-  public static final Command glNormalStream3ivATI = new Command();
+  public static final Command glNormalStream3ivATI = new Command(1);
   private static void glNormalStream3ivATI() {
     Command cmd = glNormalStream3ivATI;
     cmd.returnGroup = _null_;
     cmd.addParam("stream", GLenum, _null_);
     cmd.extension = GL_ATI_vertex_streams;
   }
-  public static final Command glVertexAttribLFormatNV = new Command();
+  public static final Command glVertexAttribLFormatNV = new Command(1);
   private static void glVertexAttribLFormatNV() {
     Command cmd = glVertexAttribLFormatNV;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_NV_vertex_attrib_integer_64bit;
   }
-  public static final Command glShaderOp2EXT = new Command();
+  public static final Command glShaderOp2EXT = new Command(1);
   private static void glShaderOp2EXT() {
     Command cmd = glShaderOp2EXT;
     cmd.returnGroup = _null_;
     cmd.addParam("op", GLenum, _null_);
     cmd.extension = GL_EXT_vertex_shader;
   }
-  public static final Command glGetActiveSubroutineName = new Command();
+  public static final Command glGetActiveSubroutineName = new Command(1);
   private static void glGetActiveSubroutineName() {
     Command cmd = glGetActiveSubroutineName;
     cmd.returnGroup = _null_;
     cmd.addParam("shadertype", GLenum, _null_);
     cmd.extension = GL_ARB_shader_subroutine;
   }
-  public static final Command glGetClipPlanef = new Command();
+  public static final Command glGetClipPlanef = new Command(1);
   private static void glGetClipPlanef() {
     Command cmd = glGetClipPlanef;
     cmd.returnGroup = _null_;
     cmd.addParam("plane", GLenum, _null_);
   }
-  public static final Command glNamedProgramStringEXT = new Command();
+  public static final Command glNamedProgramStringEXT = new Command(2);
   private static void glNamedProgramStringEXT() {
     Command cmd = glNamedProgramStringEXT;
     cmd.returnGroup = _null_;
@@ -30139,35 +30139,35 @@ public class GLmetadata {
     cmd.addParam("format", GLenum, _null_);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glProgramUniformMatrix4fvEXT = new Command();
+  public static final Command glProgramUniformMatrix4fvEXT = new Command(1);
   private static void glProgramUniformMatrix4fvEXT() {
     Command cmd = glProgramUniformMatrix4fvEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("transpose", GLboolean, Boolean);
     cmd.extension = GL_EXT_separate_shader_objects;
   }
-  public static final Command glMatrixFrustumEXT = new Command();
+  public static final Command glMatrixFrustumEXT = new Command(1);
   private static void glMatrixFrustumEXT() {
     Command cmd = glMatrixFrustumEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, MatrixMode);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glTexCoordP1ui = new Command();
+  public static final Command glTexCoordP1ui = new Command(1);
   private static void glTexCoordP1ui() {
     Command cmd = glTexCoordP1ui;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_ARB_vertex_type_2_10_10_10_rev;
   }
-  public static final Command glCompressedTexImage1D = new Command();
+  public static final Command glCompressedTexImage1D = new Command(2);
   private static void glCompressedTexImage1D() {
     Command cmd = glCompressedTexImage1D;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, TextureTarget);
     cmd.addParam("internalformat", GLenum, InternalFormat);
   }
-  public static final Command glGetTexEnvxvOES = new Command();
+  public static final Command glGetTexEnvxvOES = new Command(2);
   private static void glGetTexEnvxvOES() {
     Command cmd = glGetTexEnvxvOES;
     cmd.returnGroup = _null_;
@@ -30175,7 +30175,7 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_OES_fixed_point;
   }
-  public static final Command glStencilOpSeparate = new Command();
+  public static final Command glStencilOpSeparate = new Command(4);
   private static void glStencilOpSeparate() {
     Command cmd = glStencilOpSeparate;
     cmd.returnGroup = _null_;
@@ -30184,7 +30184,7 @@ public class GLmetadata {
     cmd.addParam("dpfail", GLenum, StencilOp);
     cmd.addParam("dppass", GLenum, StencilOp);
   }
-  public static final Command glPixelTransformParameterfEXT = new Command();
+  public static final Command glPixelTransformParameterfEXT = new Command(2);
   private static void glPixelTransformParameterfEXT() {
     Command cmd = glPixelTransformParameterfEXT;
     cmd.returnGroup = _null_;
@@ -30192,7 +30192,7 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_EXT_pixel_transform;
   }
-  public static final Command glConvolutionParameterfEXT = new Command();
+  public static final Command glConvolutionParameterfEXT = new Command(2);
   private static void glConvolutionParameterfEXT() {
     Command cmd = glConvolutionParameterfEXT;
     cmd.returnGroup = _null_;
@@ -30200,21 +30200,21 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, ConvolutionParameterEXT);
     cmd.extension = GL_EXT_convolution;
   }
-  public static final Command glGetFloati_vOES = new Command();
+  public static final Command glGetFloati_vOES = new Command(1);
   private static void glGetFloati_vOES() {
     Command cmd = glGetFloati_vOES;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_OES_viewport_array;
   }
-  public static final Command glGetProgramLocalParameterIivNV = new Command();
+  public static final Command glGetProgramLocalParameterIivNV = new Command(1);
   private static void glGetProgramLocalParameterIivNV() {
     Command cmd = glGetProgramLocalParameterIivNV;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_NV_gpu_program4;
   }
-  public static final Command glGetMinmax = new Command();
+  public static final Command glGetMinmax = new Command(4);
   private static void glGetMinmax() {
     Command cmd = glGetMinmax;
     cmd.returnGroup = _null_;
@@ -30224,35 +30224,35 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, PixelType);
     cmd.extension = GL_ARB_imaging;
   }
-  public static final Command glSetFenceNV = new Command();
+  public static final Command glSetFenceNV = new Command(1);
   private static void glSetFenceNV() {
     Command cmd = glSetFenceNV;
     cmd.returnGroup = _null_;
     cmd.addParam("condition", GLenum, _null_);
     cmd.extension = GL_NV_fence;
   }
-  public static final Command glCompressedTexImage2D = new Command();
+  public static final Command glCompressedTexImage2D = new Command(2);
   private static void glCompressedTexImage2D() {
     Command cmd = glCompressedTexImage2D;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, TextureTarget);
     cmd.addParam("internalformat", GLenum, InternalFormat);
   }
-  public static final Command glMultiTexCoord4dvARB = new Command();
+  public static final Command glMultiTexCoord4dvARB = new Command(1);
   private static void glMultiTexCoord4dvARB() {
     Command cmd = glMultiTexCoord4dvARB;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_ARB_multitexture;
   }
-  public static final Command glLoadProgramNV = new Command();
+  public static final Command glLoadProgramNV = new Command(1);
   private static void glLoadProgramNV() {
     Command cmd = glLoadProgramNV;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_NV_vertex_program;
   }
-  public static final Command glGetTextureParameterIuivEXT = new Command();
+  public static final Command glGetTextureParameterIuivEXT = new Command(2);
   private static void glGetTextureParameterIuivEXT() {
     Command cmd = glGetTextureParameterIuivEXT;
     cmd.returnGroup = _null_;
@@ -30260,13 +30260,13 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, GetTextureParameter);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glCopyPixels = new Command();
+  public static final Command glCopyPixels = new Command(1);
   private static void glCopyPixels() {
     Command cmd = glCopyPixels;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, PixelCopyType);
   }
-  public static final Command glConvolutionParameterfvEXT = new Command();
+  public static final Command glConvolutionParameterfvEXT = new Command(2);
   private static void glConvolutionParameterfvEXT() {
     Command cmd = glConvolutionParameterfvEXT;
     cmd.returnGroup = _null_;
@@ -30274,14 +30274,14 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, ConvolutionParameterEXT);
     cmd.extension = GL_EXT_convolution;
   }
-  public static final Command glNamedProgramLocalParameterI4iEXT = new Command();
+  public static final Command glNamedProgramLocalParameterI4iEXT = new Command(1);
   private static void glNamedProgramLocalParameterI4iEXT() {
     Command cmd = glNamedProgramLocalParameterI4iEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glTexStorage1DEXT = new Command();
+  public static final Command glTexStorage1DEXT = new Command(2);
   private static void glTexStorage1DEXT() {
     Command cmd = glTexStorage1DEXT;
     cmd.returnGroup = _null_;
@@ -30289,13 +30289,13 @@ public class GLmetadata {
     cmd.addParam("internalformat", GLenum, _null_);
     cmd.extension = GL_EXT_texture_storage;
   }
-  public static final Command glCopyTexSubImage3D = new Command();
+  public static final Command glCopyTexSubImage3D = new Command(1);
   private static void glCopyTexSubImage3D() {
     Command cmd = glCopyTexSubImage3D;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, TextureTarget);
   }
-  public static final Command glGetnSeparableFilter = new Command();
+  public static final Command glGetnSeparableFilter = new Command(3);
   private static void glGetnSeparableFilter() {
     Command cmd = glGetnSeparableFilter;
     cmd.returnGroup = _null_;
@@ -30303,39 +30303,39 @@ public class GLmetadata {
     cmd.addParam("format", GLenum, _null_);
     cmd.addParam("type", GLenum, _null_);
   }
-  public static final Command glNormalP3ui = new Command();
+  public static final Command glNormalP3ui = new Command(1);
   private static void glNormalP3ui() {
     Command cmd = glNormalP3ui;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_ARB_vertex_type_2_10_10_10_rev;
   }
-  public static final Command glGetGraphicsResetStatusKHR = new Command();
+  public static final Command glGetGraphicsResetStatusKHR = new Command(0);
   private static void glGetGraphicsResetStatusKHR() {
     Command cmd = glGetGraphicsResetStatusKHR;
     cmd.returnGroup = _null_;
     cmd.extension = GL_KHR_robustness;
   }
-  public static final Command glIsObjectBufferATI = new Command();
+  public static final Command glIsObjectBufferATI = new Command(0);
   private static void glIsObjectBufferATI() {
     Command cmd = glIsObjectBufferATI;
     cmd.returnGroup = Boolean;
     cmd.extension = GL_ATI_vertex_array_object;
   }
-  public static final Command glIglooInterfaceSGIX = new Command();
+  public static final Command glIglooInterfaceSGIX = new Command(1);
   private static void glIglooInterfaceSGIX() {
     Command cmd = glIglooInterfaceSGIX;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
   }
-  public static final Command glReadBufferNV = new Command();
+  public static final Command glReadBufferNV = new Command(1);
   private static void glReadBufferNV() {
     Command cmd = glReadBufferNV;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, _null_);
     cmd.extension = GL_NV_read_buffer;
   }
-  public static final Command glGetCombinerStageParameterfvNV = new Command();
+  public static final Command glGetCombinerStageParameterfvNV = new Command(2);
   private static void glGetCombinerStageParameterfvNV() {
     Command cmd = glGetCombinerStageParameterfvNV;
     cmd.returnGroup = _null_;
@@ -30343,21 +30343,21 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_NV_register_combiners2;
   }
-  public static final Command glDrawElementsInstancedBaseVertexBaseInstance = new Command();
+  public static final Command glDrawElementsInstancedBaseVertexBaseInstance = new Command(2);
   private static void glDrawElementsInstancedBaseVertexBaseInstance() {
     Command cmd = glDrawElementsInstancedBaseVertexBaseInstance;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, PrimitiveType);
     cmd.addParam("type", GLenum, _null_);
   }
-  public static final Command glGenerateMipmapEXT = new Command();
+  public static final Command glGenerateMipmapEXT = new Command(1);
   private static void glGenerateMipmapEXT() {
     Command cmd = glGenerateMipmapEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_EXT_framebuffer_object;
   }
-  public static final Command glDrawRangeElementsEXT = new Command();
+  public static final Command glDrawRangeElementsEXT = new Command(2);
   private static void glDrawRangeElementsEXT() {
     Command cmd = glDrawRangeElementsEXT;
     cmd.returnGroup = _null_;
@@ -30365,86 +30365,86 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, DrawElementsType);
     cmd.extension = GL_EXT_draw_range_elements;
   }
-  public static final Command glPixelStoref = new Command();
+  public static final Command glPixelStoref = new Command(1);
   private static void glPixelStoref() {
     Command cmd = glPixelStoref;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, PixelStoreParameter);
   }
-  public static final Command glIsFramebufferOES = new Command();
+  public static final Command glIsFramebufferOES = new Command(0);
   private static void glIsFramebufferOES() {
     Command cmd = glIsFramebufferOES;
     cmd.returnGroup = Boolean;
     cmd.extension = GL_OES_framebuffer_object;
   }
-  public static final Command glStencilFuncSeparate = new Command();
+  public static final Command glStencilFuncSeparate = new Command(2);
   private static void glStencilFuncSeparate() {
     Command cmd = glStencilFuncSeparate;
     cmd.returnGroup = _null_;
     cmd.addParam("face", GLenum, StencilFaceDirection);
     cmd.addParam("func", GLenum, StencilFunction);
   }
-  public static final Command glGetProgramEnvParameterdvARB = new Command();
+  public static final Command glGetProgramEnvParameterdvARB = new Command(1);
   private static void glGetProgramEnvParameterdvARB() {
     Command cmd = glGetProgramEnvParameterdvARB;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_ARB_vertex_program;
   }
-  public static final Command glPixelStorei = new Command();
+  public static final Command glPixelStorei = new Command(1);
   private static void glPixelStorei() {
     Command cmd = glPixelStorei;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, PixelStoreParameter);
   }
-  public static final Command glCheckNamedFramebufferStatusEXT = new Command();
+  public static final Command glCheckNamedFramebufferStatusEXT = new Command(1);
   private static void glCheckNamedFramebufferStatusEXT() {
     Command cmd = glCheckNamedFramebufferStatusEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glGetInteger64i_v = new Command();
+  public static final Command glGetInteger64i_v = new Command(1);
   private static void glGetInteger64i_v() {
     Command cmd = glGetInteger64i_v;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
   }
-  public static final Command glClearTexSubImageEXT = new Command();
+  public static final Command glClearTexSubImageEXT = new Command(2);
   private static void glClearTexSubImageEXT() {
     Command cmd = glClearTexSubImageEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("format", GLenum, _null_);
     cmd.addParam("type", GLenum, _null_);
   }
-  public static final Command glGetTextureLevelParameteriv = new Command();
+  public static final Command glGetTextureLevelParameteriv = new Command(1);
   private static void glGetTextureLevelParameteriv() {
     Command cmd = glGetTextureLevelParameteriv;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_direct_state_access;
   }
-  public static final Command glPixelStorex = new Command();
+  public static final Command glPixelStorex = new Command(1);
   private static void glPixelStorex() {
     Command cmd = glPixelStorex;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_OES_fixed_point;
   }
-  public static final Command glCopyTexSubImage1D = new Command();
+  public static final Command glCopyTexSubImage1D = new Command(1);
   private static void glCopyTexSubImage1D() {
     Command cmd = glCopyTexSubImage1D;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, TextureTarget);
   }
-  public static final Command glDrawCommandsNV = new Command();
+  public static final Command glDrawCommandsNV = new Command(1);
   private static void glDrawCommandsNV() {
     Command cmd = glDrawCommandsNV;
     cmd.returnGroup = _null_;
     cmd.addParam("primitiveMode", GLenum, _null_);
     cmd.extension = GL_NV_command_list;
   }
-  public static final Command glPathColorGenNV = new Command();
+  public static final Command glPathColorGenNV = new Command(3);
   private static void glPathColorGenNV() {
     Command cmd = glPathColorGenNV;
     cmd.returnGroup = _null_;
@@ -30453,7 +30453,7 @@ public class GLmetadata {
     cmd.addParam("colorFormat", GLenum, _null_);
     cmd.extension = GL_NV_path_rendering;
   }
-  public static final Command glTexBufferEXT = new Command();
+  public static final Command glTexBufferEXT = new Command(2);
   private static void glTexBufferEXT() {
     Command cmd = glTexBufferEXT;
     cmd.returnGroup = _null_;
@@ -30461,28 +30461,28 @@ public class GLmetadata {
     cmd.addParam("internalformat", GLenum, _null_);
     cmd.extension = GL_EXT_texture_buffer_object;
   }
-  public static final Command glMatrixMultTransposefEXT = new Command();
+  public static final Command glMatrixMultTransposefEXT = new Command(1);
   private static void glMatrixMultTransposefEXT() {
     Command cmd = glMatrixMultTransposefEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, MatrixMode);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glMultiDrawRangeElementArrayAPPLE = new Command();
+  public static final Command glMultiDrawRangeElementArrayAPPLE = new Command(1);
   private static void glMultiDrawRangeElementArrayAPPLE() {
     Command cmd = glMultiDrawRangeElementArrayAPPLE;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, PrimitiveType);
     cmd.extension = GL_APPLE_element_array;
   }
-  public static final Command glSpriteParameterivSGIX = new Command();
+  public static final Command glSpriteParameterivSGIX = new Command(1);
   private static void glSpriteParameterivSGIX() {
     Command cmd = glSpriteParameterivSGIX;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_SGIX_sprite;
   }
-  public static final Command glGetCombinerInputParameterivNV = new Command();
+  public static final Command glGetCombinerInputParameterivNV = new Command(4);
   private static void glGetCombinerInputParameterivNV() {
     Command cmd = glGetCombinerInputParameterivNV;
     cmd.returnGroup = _null_;
@@ -30492,14 +30492,14 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_NV_register_combiners;
   }
-  public static final Command glGetProgramPipelineiv = new Command();
+  public static final Command glGetProgramPipelineiv = new Command(1);
   private static void glGetProgramPipelineiv() {
     Command cmd = glGetProgramPipelineiv;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_separate_shader_objects;
   }
-  public static final Command glRenderbufferStorageMultisampleCoverageNV = new Command();
+  public static final Command glRenderbufferStorageMultisampleCoverageNV = new Command(2);
   private static void glRenderbufferStorageMultisampleCoverageNV() {
     Command cmd = glRenderbufferStorageMultisampleCoverageNV;
     cmd.returnGroup = _null_;
@@ -30507,7 +30507,7 @@ public class GLmetadata {
     cmd.addParam("internalformat", GLenum, InternalFormat);
     cmd.extension = GL_NV_framebuffer_multisample_coverage;
   }
-  public static final Command glGetNamedFramebufferAttachmentParameterivEXT = new Command();
+  public static final Command glGetNamedFramebufferAttachmentParameterivEXT = new Command(2);
   private static void glGetNamedFramebufferAttachmentParameterivEXT() {
     Command cmd = glGetNamedFramebufferAttachmentParameterivEXT;
     cmd.returnGroup = _null_;
@@ -30515,20 +30515,20 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glCopyTexSubImage2D = new Command();
+  public static final Command glCopyTexSubImage2D = new Command(1);
   private static void glCopyTexSubImage2D() {
     Command cmd = glCopyTexSubImage2D;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, TextureTarget);
   }
-  public static final Command glDrawRangeElementArrayAPPLE = new Command();
+  public static final Command glDrawRangeElementArrayAPPLE = new Command(1);
   private static void glDrawRangeElementArrayAPPLE() {
     Command cmd = glDrawRangeElementArrayAPPLE;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, PrimitiveType);
     cmd.extension = GL_APPLE_element_array;
   }
-  public static final Command glGetProgramivARB = new Command();
+  public static final Command glGetProgramivARB = new Command(2);
   private static void glGetProgramivARB() {
     Command cmd = glGetProgramivARB;
     cmd.returnGroup = _null_;
@@ -30536,14 +30536,14 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ARB_vertex_program;
   }
-  public static final Command glGetPointervKHR = new Command();
+  public static final Command glGetPointervKHR = new Command(1);
   private static void glGetPointervKHR() {
     Command cmd = glGetPointervKHR;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_KHR_debug;
   }
-  public static final Command glTextureParameterIuivEXT = new Command();
+  public static final Command glTextureParameterIuivEXT = new Command(2);
   private static void glTextureParameterIuivEXT() {
     Command cmd = glTextureParameterIuivEXT;
     cmd.returnGroup = _null_;
@@ -30551,41 +30551,41 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, TextureParameterName);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glProgramParameteriEXT = new Command();
+  public static final Command glProgramParameteriEXT = new Command(1);
   private static void glProgramParameteriEXT() {
     Command cmd = glProgramParameteriEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_EXT_separate_shader_objects;
   }
-  public static final Command glPointSizePointerOES = new Command();
+  public static final Command glPointSizePointerOES = new Command(1);
   private static void glPointSizePointerOES() {
     Command cmd = glPointSizePointerOES;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
     cmd.extension = GL_OES_point_size_array;
   }
-  public static final Command glBlendEquationi = new Command();
+  public static final Command glBlendEquationi = new Command(1);
   private static void glBlendEquationi() {
     Command cmd = glBlendEquationi;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, _null_);
   }
-  public static final Command glMaterialxv = new Command();
+  public static final Command glMaterialxv = new Command(2);
   private static void glMaterialxv() {
     Command cmd = glMaterialxv;
     cmd.returnGroup = _null_;
     cmd.addParam("face", GLenum, _null_);
     cmd.addParam("pname", GLenum, _null_);
   }
-  public static final Command glWindowRectanglesEXT = new Command();
+  public static final Command glWindowRectanglesEXT = new Command(1);
   private static void glWindowRectanglesEXT() {
     Command cmd = glWindowRectanglesEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("mode", GLenum, _null_);
     cmd.extension = GL_EXT_window_rectangles;
   }
-  public static final Command glGetConvolutionFilterEXT = new Command();
+  public static final Command glGetConvolutionFilterEXT = new Command(3);
   private static void glGetConvolutionFilterEXT() {
     Command cmd = glGetConvolutionFilterEXT;
     cmd.returnGroup = _null_;
@@ -30594,20 +30594,20 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, PixelType);
     cmd.extension = GL_EXT_convolution;
   }
-  public static final Command glGetNamedProgramLocalParameterIivEXT = new Command();
+  public static final Command glGetNamedProgramLocalParameterIivEXT = new Command(1);
   private static void glGetNamedProgramLocalParameterIivEXT() {
     Command cmd = glGetNamedProgramLocalParameterIivEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glCopyTexSubImage3DEXT = new Command();
+  public static final Command glCopyTexSubImage3DEXT = new Command(1);
   private static void glCopyTexSubImage3DEXT() {
     Command cmd = glCopyTexSubImage3DEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, TextureTarget);
   }
-  public static final Command glGetBufferParameterui64vNV = new Command();
+  public static final Command glGetBufferParameterui64vNV = new Command(2);
   private static void glGetBufferParameterui64vNV() {
     Command cmd = glGetBufferParameterui64vNV;
     cmd.returnGroup = _null_;
@@ -30615,40 +30615,40 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_NV_shader_buffer_load;
   }
-  public static final Command glPNTrianglesfATI = new Command();
+  public static final Command glPNTrianglesfATI = new Command(1);
   private static void glPNTrianglesfATI() {
     Command cmd = glPNTrianglesfATI;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_ATI_pn_triangles;
   }
-  public static final Command glGetVideoCaptureStreamdvNV = new Command();
+  public static final Command glGetVideoCaptureStreamdvNV = new Command(1);
   private static void glGetVideoCaptureStreamdvNV() {
     Command cmd = glGetVideoCaptureStreamdvNV;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_NV_video_capture;
   }
-  public static final Command glProgramEnvParameters4fvEXT = new Command();
+  public static final Command glProgramEnvParameters4fvEXT = new Command(1);
   private static void glProgramEnvParameters4fvEXT() {
     Command cmd = glProgramEnvParameters4fvEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("target", GLenum, _null_);
   }
-  public static final Command glIsTextureEXT = new Command();
+  public static final Command glIsTextureEXT = new Command(0);
   private static void glIsTextureEXT() {
     Command cmd = glIsTextureEXT;
     cmd.returnGroup = Boolean;
     cmd.extension = GL_EXT_texture_object;
   }
-  public static final Command glCreateSyncFromCLeventARB = new Command();
+  public static final Command glCreateSyncFromCLeventARB = new Command(1);
   private static void glCreateSyncFromCLeventARB() {
     Command cmd = glCreateSyncFromCLeventARB;
     cmd.returnGroup = _null_;
     cmd.addParam("flags", GLbitfield, _null_);
     cmd.extension = GL_ARB_cl_event;
   }
-  public static final Command glSeparableFilter2DEXT = new Command();
+  public static final Command glSeparableFilter2DEXT = new Command(4);
   private static void glSeparableFilter2DEXT() {
     Command cmd = glSeparableFilter2DEXT;
     cmd.returnGroup = _null_;
@@ -30658,7 +30658,7 @@ public class GLmetadata {
     cmd.addParam("type", GLenum, PixelType);
     cmd.extension = GL_EXT_convolution;
   }
-  public static final Command glFramebufferTextureARB = new Command();
+  public static final Command glFramebufferTextureARB = new Command(2);
   private static void glFramebufferTextureARB() {
     Command cmd = glFramebufferTextureARB;
     cmd.returnGroup = _null_;
@@ -30666,20 +30666,20 @@ public class GLmetadata {
     cmd.addParam("attachment", GLenum, _null_);
     cmd.extension = GL_ARB_geometry_shader4;
   }
-  public static final Command glSecondaryColorPointer = new Command();
+  public static final Command glSecondaryColorPointer = new Command(1);
   private static void glSecondaryColorPointer() {
     Command cmd = glSecondaryColorPointer;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, ColorPointerType);
   }
-  public static final Command glAlphaFragmentOp2ATI = new Command();
+  public static final Command glAlphaFragmentOp2ATI = new Command(1);
   private static void glAlphaFragmentOp2ATI() {
     Command cmd = glAlphaFragmentOp2ATI;
     cmd.returnGroup = _null_;
     cmd.addParam("op", GLenum, _null_);
     cmd.extension = GL_ATI_fragment_shader;
   }
-  public static final Command glMultiTexParameteriEXT = new Command();
+  public static final Command glMultiTexParameteriEXT = new Command(3);
   private static void glMultiTexParameteriEXT() {
     Command cmd = glMultiTexParameteriEXT;
     cmd.returnGroup = _null_;
@@ -30688,20 +30688,20 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, TextureParameterName);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glGetQueryObjecti64vEXT = new Command();
+  public static final Command glGetQueryObjecti64vEXT = new Command(1);
   private static void glGetQueryObjecti64vEXT() {
     Command cmd = glGetQueryObjecti64vEXT;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_EXT_timer_query;
   }
-  public static final Command glPixelTransferf = new Command();
+  public static final Command glPixelTransferf = new Command(1);
   private static void glPixelTransferf() {
     Command cmd = glPixelTransferf;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, PixelTransferParameter);
   }
-  public static final Command glCompressedTextureImage1DEXT = new Command();
+  public static final Command glCompressedTextureImage1DEXT = new Command(2);
   private static void glCompressedTextureImage1DEXT() {
     Command cmd = glCompressedTextureImage1DEXT;
     cmd.returnGroup = _null_;
@@ -30709,19 +30709,19 @@ public class GLmetadata {
     cmd.addParam("internalformat", GLenum, _null_);
     cmd.extension = GL_EXT_direct_state_access;
   }
-  public static final Command glPixelTransferi = new Command();
+  public static final Command glPixelTransferi = new Command(1);
   private static void glPixelTransferi() {
     Command cmd = glPixelTransferi;
     cmd.returnGroup = _null_;
     cmd.addParam("pname", GLenum, PixelTransferParameter);
   }
-  public static final Command glFogCoordPointer = new Command();
+  public static final Command glFogCoordPointer = new Command(1);
   private static void glFogCoordPointer() {
     Command cmd = glFogCoordPointer;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, FogPointerTypeEXT);
   }
-  public static final Command glFramebufferTextureMultiviewOVR = new Command();
+  public static final Command glFramebufferTextureMultiviewOVR = new Command(2);
   private static void glFramebufferTextureMultiviewOVR() {
     Command cmd = glFramebufferTextureMultiviewOVR;
     cmd.returnGroup = _null_;
@@ -30729,27 +30729,27 @@ public class GLmetadata {
     cmd.addParam("attachment", GLenum, _null_);
     cmd.extension = GL_OVR_multiview;
   }
-  public static final Command glPushDebugGroupKHR = new Command();
+  public static final Command glPushDebugGroupKHR = new Command(1);
   private static void glPushDebugGroupKHR() {
     Command cmd = glPushDebugGroupKHR;
     cmd.returnGroup = _null_;
     cmd.addParam("source", GLenum, _null_);
     cmd.extension = GL_KHR_debug;
   }
-  public static final Command glVertexAttribIPointer = new Command();
+  public static final Command glVertexAttribIPointer = new Command(1);
   private static void glVertexAttribIPointer() {
     Command cmd = glVertexAttribIPointer;
     cmd.returnGroup = _null_;
     cmd.addParam("type", GLenum, _null_);
   }
-  public static final Command glVertexStream1dvATI = new Command();
+  public static final Command glVertexStream1dvATI = new Command(1);
   private static void glVertexStream1dvATI() {
     Command cmd = glVertexStream1dvATI;
     cmd.returnGroup = _null_;
     cmd.addParam("stream", GLenum, _null_);
     cmd.extension = GL_ATI_vertex_streams;
   }
-  public static final Command glFramebufferRenderbuffer = new Command();
+  public static final Command glFramebufferRenderbuffer = new Command(3);
   private static void glFramebufferRenderbuffer() {
     Command cmd = glFramebufferRenderbuffer;
     cmd.returnGroup = _null_;
@@ -30758,7 +30758,7 @@ public class GLmetadata {
     cmd.addParam("renderbuffertarget", GLenum, _null_);
     cmd.extension = GL_ARB_framebuffer_object;
   }
-  public static final Command glCombinerStageParameterfvNV = new Command();
+  public static final Command glCombinerStageParameterfvNV = new Command(2);
   private static void glCombinerStageParameterfvNV() {
     Command cmd = glCombinerStageParameterfvNV;
     cmd.returnGroup = _null_;
@@ -30766,20 +30766,20 @@ public class GLmetadata {
     cmd.addParam("pname", GLenum, _null_);
     cmd.extension = GL_NV_register_combiners2;
   }
-  public static final Command glAreProgramsResidentNV = new Command();
+  public static final Command glAreProgramsResidentNV = new Command(1);
   private static void glAreProgramsResidentNV() {
     Command cmd = glAreProgramsResidentNV;
     cmd.returnGroup = Boolean;
     cmd.addParam("residences", GLboolean, Boolean);
     cmd.extension = GL_NV_vertex_program;
   }
-  public static final Command glActiveTexture = new Command();
+  public static final Command glActiveTexture = new Command(1);
   private static void glActiveTexture() {
     Command cmd = glActiveTexture;
     cmd.returnGroup = _null_;
     cmd.addParam("texture", GLenum, _null_);
   }
-  public static final Command glVertexAttribFormat = new Command();
+  public static final Command glVertexAttribFormat = new Command(2);
   private static void glVertexAttribFormat() {
     Command cmd = glVertexAttribFormat;
     cmd.returnGroup = _null_;
@@ -30787,13 +30787,13 @@ public class GLmetadata {
     cmd.addParam("normalized", GLboolean, Boolean);
     cmd.extension = GL_ARB_vertex_attrib_binding;
   }
-  public static final Command glDisableClientState = new Command();
+  public static final Command glDisableClientState = new Command(1);
   private static void glDisableClientState() {
     Command cmd = glDisableClientState;
     cmd.returnGroup = _null_;
     cmd.addParam("array", GLenum, EnableCap);
   }
-  public static final Command glBindMaterialParameterEXT = new Command();
+  public static final Command glBindMaterialParameterEXT = new Command(2);
   private static void glBindMaterialParameterEXT() {
     Command cmd = glBindMaterialParameterEXT;
     cmd.returnGroup = _null_;
