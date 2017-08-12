@@ -25,14 +25,18 @@ package org.lwjglx.debug;
 import static org.lwjglx.debug.Log.*;
 import static org.lwjglx.debug.Properties.*;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintWriter;
-import java.lang.reflect.Method;
-import java.lang.reflect.Modifier;
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import org.lwjglx.debug.ClassMetadata.MethodInfo;
 import org.objectweb.asm.ClassReader;
+import org.objectweb.asm.ClassVisitor;
 import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
@@ -57,11 +61,71 @@ class InterceptedCall {
     }
 }
 
+class Method {
+    final String name;
+    final String desc;
+
+    Method(String name, String desc) {
+        this.name = name;
+        this.desc = desc;
+    }
+
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + desc.hashCode();
+        result = prime * result + name.hashCode();
+        return result;
+    }
+
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        Method other = (Method) obj;
+        if (!desc.equals(other.desc))
+            return false;
+        if (!name.equals(other.name))
+            return false;
+        return true;
+    }
+}
+
+class ClassKey {
+    final ClassLoader cl;
+    final String internalName;
+
+    ClassKey(ClassLoader cl, String internalName) {
+        this.cl = cl;
+        this.internalName = internalName;
+    }
+
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + cl.hashCode();
+        result = prime * result + internalName.hashCode();
+        return result;
+    }
+
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        ClassKey other = (ClassKey) obj;
+        if (cl != other.cl)
+            return false;
+        if (!internalName.equals(other.internalName))
+            return false;
+        return true;
+    }
+}
+
 class InterceptClassGenerator implements Opcodes {
 
     private static final String MethodCall_InternalName = "org/lwjglx/debug/MethodCall";
     private static final String MethodCall_Desc = "L" + MethodCall_InternalName + ";";
     private static final String RT_InternalName = "org/lwjglx/debug/RT";
+
+    private static final Map<ClassKey, HashSet<Method>> declaredMethods = new ConcurrentHashMap<>();
 
     private static boolean isGLcall(InterceptedCall call) {
         return (call.name.startsWith("gl") || call.name.startsWith("ngl")) && call.receiverInternalName.startsWith("org/lwjgl/opengl/");
@@ -99,24 +163,36 @@ class InterceptClassGenerator implements Opcodes {
 
     private static String getClassForMethod(ClassLoader cl, String desc, InterceptedCall call) {
         String className = call.receiverInternalName.replace("org/lwjgl/", "org/lwjglx/debug/");
-        Class<?> clazz;
-        try {
-            clazz = cl.loadClass(className.replace('/', '.'));
-        } catch (ClassNotFoundException e) {
-            /* That's okay: No class manual validation/trace class found */
-            return null;
-        }
-        Method[] methods = clazz.getDeclaredMethods();
-        for (Method m : methods) {
-            boolean isStatic = Modifier.isStatic(m.getModifiers());
-            boolean isPublic = Modifier.isPublic(m.getModifiers());
-            if (!isStatic || !isPublic) {
-                continue;
+        ClassKey key = new ClassKey(cl, className);
+        HashSet<Method> dmethods = declaredMethods.get(key);
+        if (dmethods == null) {
+            dmethods = new HashSet<>();
+            declaredMethods.put(key, dmethods);
+            InputStream is = cl.getResourceAsStream(className + ".class");
+            if (is == null) {
+                return null;
             }
-            if (m.getName().equals(call.name) && Type.getMethodDescriptor(m).equals(desc)) {
-                return className;
+            ClassReader cr;
+            try {
+                cr = new ClassReader(is);
+            } catch (IOException e) {
+                return null;
             }
+            final HashSet<Method> methods = dmethods;
+            cr.accept(new ClassVisitor(ASM5) {
+                public MethodVisitor visitMethod(int access, String name, String desc, String signature, String[] exceptions) {
+                    boolean isStatic = (access & ACC_STATIC) != 0;
+                    boolean isPublic = (access & ACC_PUBLIC) != 0;
+                    if (!isStatic || !isPublic)
+                        return null;
+                    methods.add(new Method(name, desc));
+                    return null;
+                }
+            }, ClassReader.SKIP_CODE | ClassReader.SKIP_DEBUG | ClassReader.SKIP_FRAMES);
         }
+        Method searched = new Method(call.name, desc);
+        if (dmethods.contains(searched))
+            return className;
         return null;
     }
 
