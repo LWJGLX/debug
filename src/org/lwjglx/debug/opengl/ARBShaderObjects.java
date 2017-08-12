@@ -97,13 +97,13 @@ public class ARBShaderObjects {
 
     public static void glGetObjectParameteriARB(int shader, int pname, int ret, MethodCall mc) {
         mc.param(shader);
-        mc.paramEnum(GLmetadata._null_.get(pname));
+        mc.paramEnum(GLmetadata._null_().get(pname));
         switch (pname) {
         case org.lwjgl.opengl.ARBShaderObjects.GL_OBJECT_COMPILE_STATUS_ARB:
-            mc.returnValueEnum(GLmetadata.Boolean.get(ret));
+            mc.returnValueEnum(GLmetadata.Boolean().get(ret));
             break;
         case org.lwjgl.opengl.ARBShaderObjects.GL_OBJECT_LINK_STATUS_ARB:
-            mc.returnValueEnum(GLmetadata.Boolean.get(ret));
+            mc.returnValueEnum(GLmetadata.Boolean().get(ret));
             break;
         default:
             mc.param(pname);

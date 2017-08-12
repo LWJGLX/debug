@@ -236,7 +236,13 @@ public class GLXMLReader extends DefaultHandler {
             String commandName = attributes.getValue("name");
             Command cmd = commands.get(commandName);
             currentExtension.commands.put(commandName, cmd);
-            cmd.extension = currentExtension;
+            if (cmd.extension != null) {
+                /* More than one extension defines this command... sigh... */
+                /* We merge both extension's enums */
+                cmd.extension.enums.putAll(currentExtension.enums);
+            } else {
+                cmd.extension = currentExtension;
+            }
         }
     }
 
@@ -250,7 +256,6 @@ public class GLXMLReader extends DefaultHandler {
     }
 
     private void generate() throws Exception {
-        StringBuilder clinit = new StringBuilder();
         StringBuilder sb = new StringBuilder();
         StringBuilder prolog = new StringBuilder();
         FileOutputStream fos = new FileOutputStream(new File("src/org/lwjglx/debug/GLmetadata.java"));
@@ -275,6 +280,34 @@ public class GLXMLReader extends DefaultHandler {
         }
         /* See which GLenum is used in an extension */
         for (Extension ext : extensions.values()) {
+            if (ext.commands.isEmpty())
+                continue;
+            /* Are there any commands referencing this extension? */
+            boolean commandReferences = false;
+            for (Command cmd : commands.values()) {
+                if (cmd.extension == ext) {
+                    commandReferences = true;
+                    break;
+                }
+            }
+            if (!commandReferences)
+                continue;
+            /* Does this extension has any commands we need to resolve parameters of? */
+            boolean hasCommands = false;
+            for (Command cmd : ext.commands.values()) {
+                for (Param param : cmd.params) {
+                    if ("GLboolean".equals(param.type) || "GLenum".equals(param.type) || "GLbitfield".equals(param.type)) {
+                        hasCommands = true;
+                        break;
+                    }
+                }
+                if ("GLboolean".equals(cmd.returnType.type) || "GLenum".equals(cmd.returnType.type) || "GLbitfield".equals(cmd.returnType.type)) {
+                    hasCommands = true;
+                }
+            }
+            if (!hasCommands) {
+                continue;
+            }
             for (GLenum e : ext.enums.values()) {
                 if (!e.hasValue)
                     continue;
@@ -287,7 +320,6 @@ public class GLXMLReader extends DefaultHandler {
                 continue;
             sb.append("  private static final int ").append(e.name).append(" = ").append(e.value).append(";\n");
         }
-        clinit.append("  static {\n");
         for (Group group : groups.values()) {
             String gname = group.name;
             if (gname == null) {
@@ -304,12 +336,13 @@ public class GLXMLReader extends DefaultHandler {
                 }
                 numEnums++;
             }
-            sb.append("  public static final Map<Integer, String> ").append(gname).append(" = new HashMap<Integer, String>(").append(numEnums).append(");\n");
+            sb.append("  private static Map<Integer, String> ").append(gname).append(";\n");
             int i = 0;
             it = group.enums.values().iterator();
+            StringBuilder groupInit = new StringBuilder();
             do {
-                clinit.append("    ").append(gname).append(i).append("();\n");
                 sb.append("  private static void ").append(gname).append(i).append("() {\n");
+                groupInit.append("    ").append(gname).append(i).append("();\n");
                 for (int t = 0; it.hasNext() && t < 100; t++) {
                     GLenum e = it.next();
                     if (!e.hasValue)
@@ -322,18 +355,72 @@ public class GLXMLReader extends DefaultHandler {
                 sb.append("  }\n");
                 i++;
             } while (it.hasNext());
+            sb.append("  public static Map<Integer, String> ").append(gname).append("() {\n");
+            sb.append("    if (").append(gname).append(" != null)\n");
+            sb.append("      return ").append(gname).append(";\n");
+            sb.append("    ").append(gname).append(" = new HashMap<Integer, String>(").append(numEnums).append(");\n");
+            sb.append(groupInit.toString());
+            sb.append("    return ").append(gname).append(";\n");
+            sb.append("  }\n");
         }
         for (Extension ext : extensions.values()) {
-            if (ext.enums.isEmpty())
+            if (ext.enums.isEmpty() || ext.commands.isEmpty())
                 continue;
-            clinit.append("    ").append(ext.name).append("();\n");
-            sb.append("  private static final Map<Integer, String> ").append(ext.name).append(" = new HashMap<Integer, String>();\n");
-            sb.append("  private static void ").append(ext.name).append("() {\n");
+            boolean hasCommands = false;
+            /* Does this extension has any commands we need to resolve parameters of? */
+            for (Command cmd : ext.commands.values()) {
+                for (Param param : cmd.params) {
+                    if ("GLboolean".equals(param.type) || "GLenum".equals(param.type) || "GLbitfield".equals(param.type)) {
+                        hasCommands = true;
+                        break;
+                    }
+                }
+                if ("GLboolean".equals(cmd.returnType.type) || "GLenum".equals(cmd.returnType.type) || "GLbitfield".equals(cmd.returnType.type)) {
+                    hasCommands = true;
+                }
+            }
+            if (!hasCommands) {
+                continue;
+            }
+            /* Are there any commands referencing this extension? */
+            boolean commandReferences = false;
+            for (Command cmd : commands.values()) {
+                boolean found = false;
+                for (Param param : cmd.params) {
+                    if ("GLboolean".equals(param.type) || "GLenum".equals(param.type) || "GLbitfield".equals(param.type)) {
+                        found = true;
+                        break;
+                    }
+                }
+                if ("GLboolean".equals(cmd.returnType.type) || "GLenum".equals(cmd.returnType.type) || "GLbitfield".equals(cmd.returnType.type)) {
+                    found = true;
+                }
+                if (!found)
+                    continue;
+                if (cmd.extension == ext) {
+                    commandReferences = true;
+                    break;
+                }
+            }
+            if (!commandReferences)
+                continue;
+            int numEnums = 0;
+            for (GLenum e : ext.enums.values()) {
+                if (!e.hasValue)
+                    continue;
+                numEnums++;
+            }
+            sb.append("  private static Map<Integer, String> ").append(ext.name).append(";\n");
+            sb.append("  private static Map<Integer, String> ").append(ext.name).append("() {\n");
+            sb.append("    if (").append(ext.name).append(" != null)\n");
+            sb.append("      return ").append(ext.name).append(";\n");
+            sb.append("    ").append(ext.name).append(" = new HashMap<Integer, String>(").append(numEnums).append(");\n");
             for (GLenum e : ext.enums.values()) {
                 if (!e.hasValue)
                     continue;
                 sb.append("    ").append(ext.name).append(".put(").append(e.name).append(", \"").append(e.name).append("\");\n");
             }
+            sb.append("    return ").append(ext.name).append(";\n");
             sb.append("  }\n");
         }
         for (Command cmd : commands.values()) {
@@ -359,33 +446,34 @@ public class GLXMLReader extends DefaultHandler {
                     }
                 }
             }
-            sb.append("  public static final Command ").append(cmd.name).append(" = new Command(").append(numParams).append(");\n");
-            sb.append("  private static void ").append(cmd.name).append("() {\n");
-            sb.append("    Command cmd = ").append(cmd.name).append(";\n");
+            sb.append("  private static Command ").append(cmd.name).append(";\n");
+            sb.append("  public static Command ").append(cmd.name).append("() {\n");
+            sb.append("    if (").append(cmd.name).append(" != null)\n");
+            sb.append("      return ").append(cmd.name).append(";\n");
+            sb.append("    Command cmd = new Command(").append(numParams).append(");\n");
             if (cmd.returnType.group != null && cmd.returnType.group.name != null) {
-                sb.append("    cmd.returnGroup = ").append(cmd.returnType.group.name).append(";\n");
+                sb.append("    cmd.returnGroup = ").append(cmd.returnType.group.name).append("();\n");
             } else {
-                sb.append("    cmd.returnGroup = _null_;\n");
+                sb.append("    cmd.returnGroup = _null_();\n");
             }
             for (Param param : cmd.params) {
                 if ("GLboolean".equals(param.type) || "GLenum".equals(param.type) || "GLbitfield".equals(param.type)) {
                     if (param.group == null || param.group.name == null) {
-                        sb.append("    cmd.addParam(\"").append(param.name).append("\", ").append(param.type).append(", _null_);\n");
+                        sb.append("    cmd.addParam(\"").append(param.name).append("\", ").append(param.type).append(", _null_());\n");
                     } else {
-                        sb.append("    cmd.addParam(\"").append(param.name).append("\", ").append(param.type).append(", ").append(param.group.name).append(");\n");
+                        sb.append("    cmd.addParam(\"").append(param.name).append("\", ").append(param.type).append(", ").append(param.group.name).append("());\n");
                     }
                 }
             }
             if (cmd.extension != null && !cmd.extension.enums.isEmpty()) {
-                sb.append("    cmd.extension = ").append(cmd.extension.name).append(";\n");
+                sb.append("    cmd.extension = ").append(cmd.extension.name).append("();\n");
             }
+            sb.append("    ").append(cmd.name).append(" = cmd;\n");
+            sb.append("    return cmd;\n");
             sb.append("  }\n");
-            clinit.append("    ").append(cmd.name).append("();\n");
         }
-        clinit.append("  }\n");
         writer.write(prolog.toString());
         writer.write(sb.toString());
-        writer.write(clinit.toString());
         writer.write("}\n");
         writer.close();
         fos.close();

@@ -97,13 +97,13 @@ class InterceptClassGenerator implements Opcodes {
         mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, "checkFunction", "(JLjava/lang/String;)V", false);
     }
 
-    private static String validationMethod(ClassLoader cl, InterceptedCall call) {
-        String interceptClassName = call.receiverInternalName.replace("org/lwjgl/", "org/lwjglx/debug/");
+    private static String getClassForMethod(ClassLoader cl, String desc, InterceptedCall call) {
+        String className = call.receiverInternalName.replace("org/lwjgl/", "org/lwjglx/debug/");
         Class<?> clazz;
         try {
-            clazz = cl.loadClass(interceptClassName.replace('/', '.'));
+            clazz = cl.loadClass(className.replace('/', '.'));
         } catch (ClassNotFoundException e) {
-            /* That's okay: We don't yet have a manual interceptor class */
+            /* That's okay: No class manual validation/trace class found */
             return null;
         }
         Method[] methods = clazz.getDeclaredMethods();
@@ -113,31 +113,8 @@ class InterceptClassGenerator implements Opcodes {
             if (!isStatic || !isPublic) {
                 continue;
             }
-            if (m.getName().equals(call.name) && Type.getMethodDescriptor(m).equals(call.desc)) {
-                return interceptClassName;
-            }
-        }
-        return null;
-    }
-
-    private static String traceMethod(ClassLoader cl, String traceMethodDesc, InterceptedCall call) {
-        String traceClassName = call.receiverInternalName.replace("org/lwjgl/", "org/lwjglx/debug/");
-        Class<?> clazz;
-        try {
-            clazz = cl.loadClass(traceClassName.replace('/', '.'));
-        } catch (ClassNotFoundException e) {
-            /* That's okay: We don't yet have a manual trace class */
-            return null;
-        }
-        Method[] methods = clazz.getDeclaredMethods();
-        for (Method m : methods) {
-            boolean isStatic = Modifier.isStatic(m.getModifiers());
-            boolean isPublic = Modifier.isPublic(m.getModifiers());
-            if (!isStatic || !isPublic) {
-                continue;
-            }
-            if (m.getName().equals(call.name) && Type.getMethodDescriptor(m).equals(traceMethodDesc)) {
-                return traceClassName;
+            if (m.getName().equals(call.name) && Type.getMethodDescriptor(m).equals(desc)) {
+                return className;
             }
         }
         return null;
@@ -189,7 +166,7 @@ class InterceptClassGenerator implements Opcodes {
                     mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, "methodCall", "(Ljava/lang/String;ILjava/lang/String;)" + MethodCall_Desc, false);
                     int methodCallVar = var++; // <- local to hold the created MethodCall
                     /* check if we have a user-provided trace method */
-                    String traceMethodOwnerName = traceMethod(classLoader, traceMethodDesc, call);
+                    String traceMethodOwnerName = getClassForMethod(classLoader, traceMethodDesc, call);
                     if (traceMethodOwnerName != null) {
                         mv.visitVarInsn(ASTORE, methodCallVar); // <- store in local
                         /* Call a user-provided intercept method or the target method */
@@ -294,7 +271,7 @@ class InterceptClassGenerator implements Opcodes {
 
     private static void callUserMethodOrDirect(ClassLoader classLoader, InterceptedCall call, MethodVisitor mv) {
         /* Check if we have a user-provided validation method */
-        String validationMethodOwnerName = validationMethod(classLoader, call);
+        String validationMethodOwnerName = getClassForMethod(classLoader, call.desc, call);
         if (validationMethodOwnerName != null) {
             /* we have, so call it... */
             mv.visitMethodInsn(INVOKESTATIC, validationMethodOwnerName, call.name, call.desc, false);
@@ -316,7 +293,7 @@ class InterceptClassGenerator implements Opcodes {
         } catch (NoSuchFieldException e) {
             fieldName += "v";
         }
-        mv.visitFieldInsn(GETSTATIC, "org/lwjglx/debug/GLmetadata", fieldName, "Lorg/lwjglx/debug/Command;");
+        mv.visitMethodInsn(INVOKESTATIC, "org/lwjglx/debug/GLmetadata", fieldName, "()Lorg/lwjglx/debug/Command;", false);
         Util.ldcI(mv, glEnumIndex);
         mv.visitVarInsn(ILOAD, var);
         mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, helperMethod, "(Lorg/lwjglx/debug/Command;II)Ljava/lang/String;", false);
@@ -332,7 +309,7 @@ class InterceptClassGenerator implements Opcodes {
         } catch (NoSuchFieldException e) {
             fieldName += "v";
         }
-        mv.visitFieldInsn(GETSTATIC, "org/lwjglx/debug/GLmetadata", fieldName, "Lorg/lwjglx/debug/Command;");
+        mv.visitMethodInsn(INVOKESTATIC, "org/lwjglx/debug/GLmetadata", fieldName, "()Lorg/lwjglx/debug/Command;", false);
         mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, helperMethod, "(I" + MethodCall_Desc + "Lorg/lwjglx/debug/Command;)I", false);
     }
 

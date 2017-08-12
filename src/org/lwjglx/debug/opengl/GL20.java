@@ -137,10 +137,10 @@ public class GL20 {
 
     public static void glGetShaderi(int shader, int pname, int ret, MethodCall mc) {
         mc.param(shader);
-        mc.paramEnum(GLmetadata._null_.get(pname));
+        mc.paramEnum(GLmetadata._null_().get(pname));
         switch (pname) {
         case org.lwjgl.opengl.GL20.GL_COMPILE_STATUS:
-            mc.returnValueEnum(GLmetadata.Boolean.get(ret));
+            mc.returnValueEnum(GLmetadata.Boolean().get(ret));
             break;
         default:
             mc.param(pname);
@@ -150,10 +150,10 @@ public class GL20 {
 
     public static void glGetProgrami(int program, int pname, int ret, MethodCall mc) {
         mc.param(program);
-        mc.paramEnum(GLmetadata._null_.get(pname));
+        mc.paramEnum(GLmetadata._null_().get(pname));
         switch (pname) {
         case org.lwjgl.opengl.GL20.GL_LINK_STATUS:
-            mc.returnValueEnum(GLmetadata.Boolean.get(ret));
+            mc.returnValueEnum(GLmetadata.Boolean().get(ret));
             break;
         default:
             mc.param(pname);

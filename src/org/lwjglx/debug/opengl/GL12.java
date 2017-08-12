@@ -67,18 +67,18 @@ public class GL12 {
     }
 
     private static void glTexImage3D_trace(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, Buffer pixels, MethodCall mc) {
-        mc.paramEnum(GLmetadata.TextureTarget.get(target));
+        mc.paramEnum(GLmetadata.TextureTarget().get(target));
         mc.param(level);
         if (internalformat >= 1 && internalformat <= 4)
             mc.param(internalformat);
         else
-            mc.paramEnum(GLmetadata.InternalFormat.get(internalformat));
+            mc.paramEnum(GLmetadata.InternalFormat().get(internalformat));
         mc.param(width);
         mc.param(height);
         mc.param(depth);
         mc.param(border);
-        mc.paramEnum(GLmetadata.PixelFormat.get(format));
-        mc.paramEnum(GLmetadata.PixelType.get(type));
+        mc.paramEnum(GLmetadata.PixelFormat().get(format));
+        mc.paramEnum(GLmetadata.PixelType().get(type));
         mc.param(pixels);
     }
 

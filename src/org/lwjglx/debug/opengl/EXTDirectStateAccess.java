@@ -38,17 +38,17 @@ import org.lwjglx.debug.MethodCall;
 public class EXTDirectStateAccess {
 
     private static void glMultiTexImage1DEXT_trace(int texunit, int target, int level, int internalformat, int width, int border, int format, int type, Buffer pixels, MethodCall mc) {
-        mc.paramEnum(GLmetadata._null_.get(texunit));
-        mc.paramEnum(GLmetadata.TextureTarget.get(target));
+        mc.paramEnum(GLmetadata._null_().get(texunit));
+        mc.paramEnum(GLmetadata.TextureTarget().get(target));
         mc.param(level);
         if (internalformat >= 1 && internalformat <= 4)
             mc.param(internalformat);
         else
-            mc.paramEnum(GLmetadata.InternalFormat.get(internalformat));
+            mc.paramEnum(GLmetadata.InternalFormat().get(internalformat));
         mc.param(width);
         mc.param(border);
-        mc.paramEnum(GLmetadata.PixelFormat.get(format));
-        mc.paramEnum(GLmetadata.PixelType.get(type));
+        mc.paramEnum(GLmetadata.PixelFormat().get(format));
+        mc.paramEnum(GLmetadata.PixelType().get(type));
         mc.param(pixels);
     }
 
@@ -73,18 +73,18 @@ public class EXTDirectStateAccess {
     }
 
     private static void glMultiTexImage2DEXT_trace(int texunit, int target, int level, int internalformat, int width, int height, int border, int format, int type, Buffer pixels, MethodCall mc) {
-        mc.paramEnum(GLmetadata._null_.get(texunit));
-        mc.paramEnum(GLmetadata.TextureTarget.get(target));
+        mc.paramEnum(GLmetadata._null_().get(texunit));
+        mc.paramEnum(GLmetadata.TextureTarget().get(target));
         mc.param(level);
         if (internalformat >= 1 && internalformat <= 4)
             mc.param(internalformat);
         else
-            mc.paramEnum(GLmetadata.InternalFormat.get(internalformat));
+            mc.paramEnum(GLmetadata.InternalFormat().get(internalformat));
         mc.param(width);
         mc.param(height);
         mc.param(border);
-        mc.paramEnum(GLmetadata.PixelFormat.get(format));
-        mc.paramEnum(GLmetadata.PixelType.get(type));
+        mc.paramEnum(GLmetadata.PixelFormat().get(format));
+        mc.paramEnum(GLmetadata.PixelType().get(type));
         mc.param(pixels);
     }
 
@@ -110,19 +110,19 @@ public class EXTDirectStateAccess {
 
     private static void glMultiTexImage3DEXT_trace(int texunit, int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, Buffer pixels,
             MethodCall mc) {
-        mc.paramEnum(GLmetadata._null_.get(texunit));
-        mc.paramEnum(GLmetadata.TextureTarget.get(target));
+        mc.paramEnum(GLmetadata._null_().get(texunit));
+        mc.paramEnum(GLmetadata.TextureTarget().get(target));
         mc.param(level);
         if (internalformat >= 1 && internalformat <= 4)
             mc.param(internalformat);
         else
-            mc.paramEnum(GLmetadata.InternalFormat.get(internalformat));
+            mc.paramEnum(GLmetadata.InternalFormat().get(internalformat));
         mc.param(width);
         mc.param(height);
         mc.param(depth);
         mc.param(border);
-        mc.paramEnum(GLmetadata.PixelFormat.get(format));
-        mc.paramEnum(GLmetadata.PixelType.get(type));
+        mc.paramEnum(GLmetadata.PixelFormat().get(format));
+        mc.paramEnum(GLmetadata.PixelType().get(type));
         mc.param(pixels);
     }
 
@@ -153,16 +153,16 @@ public class EXTDirectStateAccess {
 
     private static void glTextureImage1DEXT_trace(int texture, int target, int level, int internalformat, int width, int border, int format, int type, Buffer pixels, MethodCall mc) {
         mc.param(texture);
-        mc.paramEnum(GLmetadata.TextureTarget.get(target));
+        mc.paramEnum(GLmetadata.TextureTarget().get(target));
         mc.param(level);
         if (internalformat >= 1 && internalformat <= 4)
             mc.param(internalformat);
         else
-            mc.paramEnum(GLmetadata.InternalFormat.get(internalformat));
+            mc.paramEnum(GLmetadata.InternalFormat().get(internalformat));
         mc.param(width);
         mc.param(border);
-        mc.paramEnum(GLmetadata.PixelFormat.get(format));
-        mc.paramEnum(GLmetadata.PixelType.get(type));
+        mc.paramEnum(GLmetadata.PixelFormat().get(format));
+        mc.paramEnum(GLmetadata.PixelType().get(type));
         mc.param(pixels);
     }
 
@@ -188,17 +188,17 @@ public class EXTDirectStateAccess {
 
     private static void glTextureImage2DEXT_trace(int texture, int target, int level, int internalformat, int width, int height, int border, int format, int type, Buffer pixels, MethodCall mc) {
         mc.param(texture);
-        mc.paramEnum(GLmetadata.TextureTarget.get(target));
+        mc.paramEnum(GLmetadata.TextureTarget().get(target));
         mc.param(level);
         if (internalformat >= 1 && internalformat <= 4)
             mc.param(internalformat);
         else
-            mc.paramEnum(GLmetadata.InternalFormat.get(internalformat));
+            mc.paramEnum(GLmetadata.InternalFormat().get(internalformat));
         mc.param(width);
         mc.param(height);
         mc.param(border);
-        mc.paramEnum(GLmetadata.PixelFormat.get(format));
-        mc.paramEnum(GLmetadata.PixelType.get(type));
+        mc.paramEnum(GLmetadata.PixelFormat().get(format));
+        mc.paramEnum(GLmetadata.PixelType().get(type));
         mc.param(pixels);
     }
 
@@ -225,18 +225,18 @@ public class EXTDirectStateAccess {
     private static void glTextureImage3DEXT_trace(int texture, int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, Buffer pixels,
             MethodCall mc) {
         mc.param(texture);
-        mc.paramEnum(GLmetadata.TextureTarget.get(target));
+        mc.paramEnum(GLmetadata.TextureTarget().get(target));
         mc.param(level);
         if (internalformat >= 1 && internalformat <= 4)
             mc.param(internalformat);
         else
-            mc.paramEnum(GLmetadata.InternalFormat.get(internalformat));
+            mc.paramEnum(GLmetadata.InternalFormat().get(internalformat));
         mc.param(width);
         mc.param(height);
         mc.param(depth);
         mc.param(border);
-        mc.paramEnum(GLmetadata.PixelFormat.get(format));
-        mc.paramEnum(GLmetadata.PixelType.get(type));
+        mc.paramEnum(GLmetadata.PixelFormat().get(format));
+        mc.paramEnum(GLmetadata.PixelType().get(type));
         mc.param(pixels);
     }
 

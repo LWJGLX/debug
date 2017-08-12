@@ -760,14 +760,14 @@ public class RT {
         if (glEnum == null) {
             glEnum = param.group.get(value);
         }
-        if (glEnum == null && param.group != GLmetadata._null_) {
+        if (glEnum == null && param.group != GLmetadata._null_()) {
             // try the null-group
             /*
              * Reason: Take, for example, glEnable/glDisable. Its parameter is a GLenum in the group EnableCap. However, that group only holds all enum values that were valid in like OpenGL 1.1. Over
              * the time, new enum values became valid, such as GL_TEXTURE_CUBE_MAP_SEAMLESS in OpenGL 3.2. However, those enum values were not added to the EnableCap enum group. They were instead
              * added in the overlap-free "unnamed" group, which we call the null-group. So we will look in that unnamed group, too.
              */
-            glEnum = GLmetadata._null_.get(value);
+            glEnum = GLmetadata._null_().get(value);
         }
         return glEnum;
     }
@@ -782,14 +782,14 @@ public class RT {
         if (glEnum == null) {
             glEnum = cmd.returnGroup.get(value);
         }
-        if (glEnum == null && cmd.returnGroup != GLmetadata._null_) {
+        if (glEnum == null && cmd.returnGroup != GLmetadata._null_()) {
             // try the null-group
             /*
              * Reason: Take, for example, glEnable/glDisable. Its parameter is a GLenum in the group EnableCap. However, that group only holds all enum values that were valid in like OpenGL 1.1. Over
              * the time, new enum values became valid, such as GL_TEXTURE_CUBE_MAP_SEAMLESS in OpenGL 3.2. However, those enum values were not added to the EnableCap enum group. They were instead
              * added in the overlap-free "unnamed" group, which we call the null-group. So we will look in that unnamed group, too.
              */
-            glEnum = GLmetadata._null_.get(value);
+            glEnum = GLmetadata._null_().get(value);
         }
         mc.returnValueEnum(glEnum);
         return value;
