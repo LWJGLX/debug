@@ -23,13 +23,14 @@ The following configuration properties are available to configure the library:
 - `exclude` - Exclude trace outputs for called methods matching a given GLOB pattern (set via Agent argument `e`)
 - `nothrow` - Do not throw a Java exception on any detected error but only log the error. Note that this may result in a JVM crash due to illegal arguments or GL errors. (set via system property `-Dorg.lwjglx.NO_THROW` or via Agent argument `n`)
 - `debug` - Log additional information about classfile transformations (this can be used to debug the library itself). (set via system property `org.lwjglx.DEBUG` or via Agent argument `d`)
-- `output` - Write LWJGL3 and LWJGLX debug and trace logging messages to a file (when this option is set, no output of LWJGL3 and LWJGLX is printed to stdout or stderr, but instead to the specified file). The file name is the value of this property. (set via system property `-Dorg.lwjglx.OUTPUT` or via Agent argument `o`)
+- `output` - Write LWJGL3 and LWJGLX debug and trace logging messages to a file (when this option is set, no output of LWJGL3 and LWJGLX is printed to stdout or stderr, but instead to the specified file). The file name is the value of this property. When the file name ends with `.zip` or `.gz` then a corresponding compressed archive file will be created to save storage space. In this case, the JVM must exit normally for the archive file to be finalized properly. (set via system property `-Dorg.lwjglx.OUTPUT` or via Agent argument `o`)
 - `sleep` - Thread.sleep() before calling each intercepted method (useful when following a call trace). The number of milliseconds are specified as the value of this property. (set via system property `-Dorg.lwjglx.SLEEP` or via Agent argument `s`)
 
 Examples:
 
 * `java -javaagent:lwjglx-debug.jar=t ...` (generate a trace on stderr)
 * `java -javaagent:lwjglx-debug.jar=t;o=trace.log` (generate a trace written to file `trace.log`)
+* `java -javaagent:lwjglx-debug.jar=t;o=trace.log.zip` (generate a zip archive containing a single `trace.log` file)
 * `java -javaagent:lwjglx-debug.jar=tn;o=trace.log` (generate a trace written to file `trace.log` and do not throw on GL errors)
 * `java -javaagent:lwjglx-debug.jar=t;e=*GL20*,*GL11.glVertex3f` (generate a trace on stderr and exclude all methods from any class having `GL20` in its name, as well as exclude `glVertex3f` from any class ending with `GL11`)
 
