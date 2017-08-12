@@ -94,16 +94,18 @@ public class Agent implements ClassFileTransformer, Opcodes {
         class BooleanHolder {
             boolean value;
         }
+        class StringHolder {
+            String value;
+        }
         BooleanHolder modified = new BooleanHolder();
         Map<String, InterceptedCall> calls = new LinkedHashMap<String, InterceptedCall>();
         String callerName = className.replace('.', '/');
         String proxyName = "org/lwjglx/debug/$Proxy$" + counter.incrementAndGet();
+        StringHolder sourceFile = new StringHolder();
         ClassVisitor cv = new ClassVisitor(ASM5, cw) {
-            private String source;
-
             public void visitSource(String source, String debug) {
                 super.visitSource(source, debug);
-                this.source = source;
+                sourceFile.value = source;
                 Log.maxSourceLength = Math.max(Log.maxSourceLength, source.length());
             }
 
@@ -122,7 +124,7 @@ public class Agent implements ClassFileTransformer, Opcodes {
                             String key = owner + "." + name + desc;
                             InterceptedCall call = calls.get(key);
                             if (call == null) {
-                                call = new InterceptedCall(source, lastLineNumber, owner, name, desc);
+                                call = new InterceptedCall(owner, name, desc);
                                 String methodName;
                                 if (DEBUG) {
                                     methodName = name + call.index;
@@ -135,13 +137,8 @@ public class Agent implements ClassFileTransformer, Opcodes {
                             Log.maxLineNumberLength = Math.max(Log.maxLineNumberLength, (int) (Math.log10(lastLineNumber) + 1));
                             String proxyDesc = call.desc;
                             if (Properties.TRACE) {
-                                if (source == null) {
-                                    mv.visitInsn(ACONST_NULL);
-                                } else {
-                                    mv.visitLdcInsn(source);
-                                }
                                 Util.ldcI(mv, lastLineNumber);
-                                proxyDesc = call.desc.substring(0, call.desc.lastIndexOf(')')) + "Ljava/lang/String;I" + call.desc.substring(call.desc.lastIndexOf(')'));
+                                proxyDesc = call.desc.substring(0, call.desc.lastIndexOf(')')) + "I" + call.desc.substring(call.desc.lastIndexOf(')'));
                             }
                             mv.visitMethodInsn(INVOKESTATIC, proxyName, call.generatedMethodName, proxyDesc, itf);
                             modified.value = true;
@@ -171,7 +168,7 @@ public class Agent implements ClassFileTransformer, Opcodes {
             debug("Modified [" + className + "] (" + calls.size() + " calls into LWJGL)");
         }
         /* Generate proxy class */
-        InterceptClassGenerator.generate(loader, proxyName, callerName, calls.values());
+        InterceptClassGenerator.generate(loader, proxyName, callerName, calls.values(), sourceFile.value);
         byte[] arr = cw.toByteArray();
         if (DEBUG) {
             TraceClassVisitor tcv = new TraceClassVisitor(new PrintWriter(System.err));
