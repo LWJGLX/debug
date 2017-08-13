@@ -749,6 +749,23 @@ public class RT {
         checkNativeByteOrder(buffer);
     }
 
+    public static String glEnumFor(int value, Map<Integer, String> initialGroup) {
+        String glEnum = null;
+        if (glEnum == null) {
+            glEnum = initialGroup.get(value);
+        }
+        if (glEnum == null && initialGroup != GLmetadata._null_()) {
+            // try the null-group
+            /*
+             * Reason: Take, for example, glEnable/glDisable. Its parameter is a GLenum in the group EnableCap. However, that group only holds all enum values that were valid in like OpenGL 1.1. Over
+             * the time, new enum values became valid, such as GL_TEXTURE_CUBE_MAP_SEAMLESS in OpenGL 3.2. However, those enum values were not added to the EnableCap enum group. They were instead
+             * added in the overlap-free "unnamed" group, which we call the null-group. So we will look in that unnamed group, too.
+             */
+            glEnum = GLmetadata._null_().get(value);
+        }
+        return glEnum;
+    }
+
     public static String glEnumFor(Command cmd, int paramIndex, int value) {
         Param param = cmd.params.get(paramIndex);
         /* Try extension first */

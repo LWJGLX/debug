@@ -343,7 +343,6 @@ public class GLmetadata {
   private static final int GL_MATRIX26_ARB = 35034;
   private static final int GL_DECAL = 8449;
   private static final int GL_CONTEXT_FLAG_ROBUST_ACCESS_BIT = 4;
-  private static final int GL_MODULATE_SUBTRACT_ATI = 34630;
   private static final int GL_RGBA_INTEGER_EXT = 36249;
   private static final int GL_COMPRESSED_SRGB8_ALPHA8_ASTC_6x6_KHR = 37844;
   private static final int GL_INVERT_RGB_NV = 37539;
@@ -735,7 +734,6 @@ public class GLmetadata {
   private static final int GL_PROXY_HISTOGRAM_EXT = 32805;
   private static final int GL_MODELVIEW0_ARB = 5888;
   private static final int GL_ATOMIC_COUNTER_BARRIER_BIT_EXT = 4096;
-  private static final int GL_TEXT_FRAGMENT_SHADER_ATI = 33280;
   private static final int GL_MAX_CONVOLUTION_WIDTH_EXT = 32794;
   private static final int GL_CLEAR_TEXTURE = 37733;
   private static final int GL_COMPRESSED_INTENSITY = 34028;
@@ -953,7 +951,6 @@ public class GLmetadata {
   private static final int GL_MAX_COMPUTE_TEXTURE_IMAGE_UNITS = 37308;
   private static final int GL_PROGRAM_NATIVE_TEMPORARIES_ARB = 34982;
   private static final int GL_OBJECT_SHADER_SOURCE_LENGTH_ARB = 35720;
-  private static final int GL_RGBA_FLOAT16_ATI = 34842;
   private static final int GL_TEXTURE_LUMINANCE_SIZE = 32864;
   private static final int GL_DRAW_BUFFER1_ARB = 34854;
   private static final int GL_STENCIL_REF_COMMAND_NV = 12;
@@ -1131,7 +1128,6 @@ public class GLmetadata {
   private static final int GL_OUTPUT_TEXTURE_COORD9_EXT = 34726;
   private static final int GL_OBJECT_DISTANCE_TO_LINE_SGIS = 33267;
   private static final int GL_COLOR_ATTACHMENT9 = 36073;
-  private static final int GL_LUMINANCE_FLOAT16_ATI = 34846;
   private static final int GL_DRAW_BUFFER_EXT = 3073;
   private static final int GL_IMAGE_CLASS_1_X_8 = 33473;
   private static final int GL_TRACE_ARRAYS_BIT_MESA = 4;
@@ -1213,7 +1209,6 @@ public class GLmetadata {
   private static final int GL_VERTEX_ARRAY_BINDING = 34229;
   private static final int GL_BUFFER_UPDATE_BARRIER_BIT_EXT = 512;
   private static final int GL_HISTOGRAM_LUMINANCE_SIZE_EXT = 32812;
-  private static final int GL_LUMINANCE_ALPHA_FLOAT16_ATI = 34847;
   private static final int GL_VERTEX_ATTRIB_MAP1_SIZE_APPLE = 35330;
   private static final int GL_PIXEL_TEX_GEN_Q_CEILING_SGIX = 33156;
   private static final int GL_MAX_TESS_EVALUATION_OUTPUT_COMPONENTS_EXT = 36486;
@@ -1228,7 +1223,6 @@ public class GLmetadata {
   private static final int GL_BLEND_SRC_RGB_EXT = 32969;
   private static final int GL_COLOR_ARRAY_SIZE_EXT = 32897;
   private static final int GL_OCCLUSION_TEST_HP = 33125;
-  private static final int GL_COLOR_CLEAR_UNCLAMPED_VALUE_ATI = 34869;
   private static final int GL_MATRIX4_NV = 34356;
   private static final int GL_VERTEX_BINDING_STRIDE = 33496;
   private static final int GL_STENCIL_INDEX1_EXT = 36166;
@@ -1403,7 +1397,6 @@ public class GLmetadata {
   private static final int GL_COMPRESSED_RGBA_ASTC_6x6 = 37812;
   private static final int GL_COMPRESSED_RGBA_ASTC_6x5 = 37811;
   private static final int GL_INT_SAMPLER_2D_RECT_EXT = 36301;
-  private static final int GL_INTENSITY_FLOAT16_ATI = 34845;
   private static final int GL_FRAGMENT_COLOR_MATERIAL_PARAMETER_SGIX = 33795;
   private static final int GL_SAMPLE_BUFFERS_3DFX = 34483;
   private static final int GL_POINT_FADE_THRESHOLD_SIZE = 33064;
@@ -1418,7 +1411,6 @@ public class GLmetadata {
   private static final int GL_LINES = 1;
   private static final int GL_SELECT = 7170;
   private static final int GL_COMPRESSED_ALPHA = 34025;
-  private static final int GL_RGB_FLOAT32_ATI = 34837;
   private static final int GL_ELEMENT_ARRAY_BUFFER_BINDING_ARB = 34965;
   private static final int GL_UNSIGNED_INT_IMAGE_CUBE_MAP_ARRAY = 36970;
   private static final int GL_MODELVIEW29_ARB = 34621;
@@ -1622,7 +1614,6 @@ public class GLmetadata {
   private static final int GL_IS_PER_PATCH = 37607;
   private static final int GL_UNSIGNED_SHORT_8_8_REV_MESA = 34235;
   private static final int GL_LUID_SIZE_EXT = 8;
-  private static final int GL_MODULATE_ADD_ATI = 34628;
   private static final int GL_COVERAGE_SAMPLES_NV = 36564;
   private static final int GL_NUM_LOOPBACK_COMPONENTS_ATI = 35188;
   private static final int GL_TRIANGULAR_NV = 37029;
@@ -1926,7 +1917,6 @@ public class GLmetadata {
   private static final int GL_BUFFER = 33504;
   private static final int GL_COPY = 5379;
   private static final int GL_QUADRATIC_CURVE_TO_NV = 10;
-  private static final int GL_COMPRESSED_LUMINANCE_ALPHA_3DC_ATI = 34871;
   private static final int GL_SAMPLES_ARB = 32937;
   private static final int GL_SLIM10U_SGIX = 33566;
   private static final int GL_SAMPLER_2D_MULTISAMPLE = 37128;
@@ -2027,7 +2017,6 @@ public class GLmetadata {
   private static final int GL_VIEWPORT_SUBPIXEL_BITS_NV = 33372;
   private static final int GL_FRAMEBUFFER_INCOMPLETE_ATTACHMENT = 36054;
   private static final int GL_TEXTURE_LOD_BIAS_S_SGIX = 33166;
-  private static final int GL_MIRROR_CLAMP_TO_EDGE_ATI = 34627;
   private static final int GL_FUNC_REVERSE_SUBTRACT = 32779;
   private static final int GL_POST_CONVOLUTION_GREEN_BIAS = 32801;
   private static final int GL_OUTPUT_TEXTURE_COORD29_EXT = 34746;
@@ -2236,7 +2225,6 @@ public class GLmetadata {
   private static final int GL_PROXY_TEXTURE_RECTANGLE = 34039;
   private static final int GL_FRONT_FACE_COMMAND_NV = 18;
   private static final int GL_RGBA4_DXT5_S3TC = 33701;
-  private static final int GL_ALPHA_FLOAT32_ATI = 34838;
   private static final int GL_COLOR_MATERIAL = 2903;
   private static final int GL_NUM_WINDOW_RECTANGLES_EXT = 36629;
   private static final int GL_PROGRAM_STRING_ARB = 34344;
@@ -2430,7 +2418,6 @@ public class GLmetadata {
   private static final int GL_QUARTER_BIT_ATI = 16;
   private static final int GL_SRC0_ALPHA = 34184;
   private static final int GL_PROXY_TEXTURE_3D_EXT = 32880;
-  private static final int GL_MODULATE_SIGNED_ADD_ATI = 34629;
   private static final int GL_STATIC_COPY = 35046;
   private static final int GL_EDGE_FLAG_ARRAY = 32889;
   private static final int GL_CLIP_PLANE0_IMG = 12288;
@@ -2513,7 +2500,6 @@ public class GLmetadata {
   private static final int GL_TEXTURE_MAX_LEVEL = 33085;
   private static final int GL_SRGB_READ = 33431;
   private static final int GL_TEXTURE_BORDER_COLOR = 4100;
-  private static final int GL_MIRROR_CLAMP_ATI = 34626;
   private static final int GL_RED_SCALE = 3348;
   private static final int GL_TEXTURE6_ARB = 33990;
   private static final int GL_GEOMETRY_INPUT_TYPE = 35095;
@@ -2534,7 +2520,6 @@ public class GLmetadata {
   private static final int GL_CURRENT_VERTEX_ATTRIB = 34342;
   private static final int GL_FRAMEBUFFER_ATTACHMENT_OBJECT_NAME_EXT = 36049;
   private static final int GL_ALL_PIXELS_AMD = -1;
-  private static final int GL_RENDERBUFFER_FREE_MEMORY_ATI = 34813;
   private static final int GL_IMAGE_2D_MULTISAMPLE_ARRAY = 36950;
   private static final int GL_OUTPUT_TEXTURE_COORD3_EXT = 34720;
   private static final int GL_VERTEX_SHADER = 35633;
@@ -2861,7 +2846,6 @@ public class GLmetadata {
   private static final int GL_COLOR_RENDERABLE = 33414;
   private static final int GL_COLOR_ALPHA_PAIRING_ATI = 35189;
   private static final int GL_NORMAL_ARRAY_ADDRESS_NV = 36642;
-  private static final int GL_ALPHA_FLOAT16_ATI = 34844;
   private static final int GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL = 36050;
   private static final int GL_QUERY_OBJECT_AMD = 37203;
   private static final int GL_REG_23_ATI = 35128;
@@ -3290,7 +3274,6 @@ public class GLmetadata {
   private static final int GL_MAX_COMPUTE_SHADER_STORAGE_BLOCKS = 37083;
   private static final int GL_MATRIX7_NV = 34359;
   private static final int GL_LIGHTEN_KHR = 37528;
-  private static final int GL_VBO_FREE_MEMORY_ATI = 34811;
   private static final int GL_FRACTIONAL_EVEN_EXT = 36476;
   private static final int GL_FEEDBACK_BUFFER_POINTER = 3568;
   private static final int GL_MAX_TESS_CONTROL_SHADER_STORAGE_BLOCKS_OES = 37080;
@@ -3373,7 +3356,6 @@ public class GLmetadata {
   private static final int GL_POINT_SIZE_ARRAY_OES = 35740;
   private static final int GL_UNSIGNED_BYTE = 5121;
   private static final int GL_OUTPUT_TEXTURE_COORD28_EXT = 34745;
-  private static final int GL_TEXTURE_FREE_MEMORY_ATI = 34812;
   private static final int GL_COMPRESSED_SIGNED_RED_RGTC1 = 36284;
   private static final int GL_SHADING_LANGUAGE_VERSION = 35724;
   private static final int GL_GREEN_MAX_CLAMP_INGR = 34149;
@@ -4169,7 +4151,6 @@ public class GLmetadata {
   private static final int GL_INTERNALFORMAT_PREFERRED = 33392;
   private static final int GL_RGB_422_APPLE = 35359;
   private static final int GL_4_BYTES = 5129;
-  private static final int GL_RGBA_FLOAT32_ATI = 34836;
   private static final int GL_MAX_GEOMETRY_TEXTURE_IMAGE_UNITS = 35881;
   private static final int GL_ACTIVE_STENCIL_FACE_EXT = 35089;
   private static final int GL_COLORBURN_NV = 37530;
@@ -4372,7 +4353,6 @@ public class GLmetadata {
   private static final int GL_PROGRAM_INSTRUCTIONS_ARB = 34976;
   private static final int GL_R1UI_V3F_SUN = 34244;
   private static final int GL_WEIGHT_ARRAY_TYPE_OES = 34473;
-  private static final int GL_RGB_FLOAT16_ATI = 34843;
   private static final int GL_VERTEX_PROGRAM_BINDING_NV = 34378;
   private static final int GL_MAX_TRANSFORM_FEEDBACK_INTERLEAVED_COMPONENTS_NV = 35978;
   private static final int GL_QUERY_RESULT_AVAILABLE_ARB = 34919;
@@ -4527,7 +4507,6 @@ public class GLmetadata {
   private static final int GL_LINE_WIDTH_GRANULARITY = 2851;
   private static final int GL_MAX_FRAGMENT_LIGHTS_SGIX = 33796;
   private static final int GL_LUMINANCE16UI_EXT = 36218;
-  private static final int GL_LUMINANCE_FLOAT32_ATI = 34840;
   private static final int GL_DRAW_BUFFER15_ARB = 34868;
   private static final int GL_VERTEX_ARRAY_STRIDE = 32892;
   private static final int GL_SECONDARY_COLOR_ARRAY = 33886;
@@ -4803,7 +4782,6 @@ public class GLmetadata {
   private static final int GL_TEXTURE_COMPRESSED_BLOCK_WIDTH = 33457;
   private static final int GL_TEXTURE_USAGE_ANGLE = 37794;
   private static final int GL_DEBUG_CALLBACK_USER_PARAM_ARB = 33349;
-  private static final int GL_LUMINANCE_ALPHA_FLOAT32_ATI = 34841;
   private static final int GL_INT_IMAGE_2D_MULTISAMPLE_ARRAY_EXT = 36961;
   private static final int GL_TRACE_OPERATIONS_BIT_MESA = 1;
   private static final int GL_CURRENT_RASTER_INDEX = 2821;
@@ -4876,7 +4854,6 @@ public class GLmetadata {
   private static final int GL_OP_MADD_EXT = 34696;
   private static final int GL_UNPACK_SUBSAMPLE_RATE_SGIX = 34209;
   private static final int GL_RGB10_A2UI = 36975;
-  private static final int GL_RGBA_FLOAT_MODE_ATI = 34848;
   private static final int GL_SAMPLE_ALPHA_TO_ONE = 32927;
   private static final int GL_SAMPLER_2D_MULTISAMPLE_ARRAY = 37131;
   private static final int GL_REPLACE_VALUE_AMD = 34635;
@@ -4894,7 +4871,6 @@ public class GLmetadata {
   private static final int GL_TEXTURE_IMMUTABLE_LEVELS = 33503;
   private static final int GL_DOUBLE_MAT2_EXT = 36678;
   private static final int GL_RENDERBUFFER_WIDTH_OES = 36162;
-  private static final int GL_INTENSITY_FLOAT32_ATI = 34839;
   private static final int GL_UTF8_NV = 37018;
   private static final int GL_MODELVIEW0_STACK_DEPTH_EXT = 2979;
   private static final int GL_INTERLACE_READ_OML = 35201;
@@ -5046,7 +5022,6 @@ public class GLmetadata {
     _null_.put(GL_FOG_COORDINATE_ARRAY_BUFFER_BINDING, "GL_FOG_COORDINATE_ARRAY_BUFFER_BINDING");
     _null_.put(GL_TRANSFORM_FEEDBACK_BINDING, "GL_TRANSFORM_FEEDBACK_BINDING");
     _null_.put(GL_REFERENCED_BY_GEOMETRY_SHADER, "GL_REFERENCED_BY_GEOMETRY_SHADER");
-    _null_.put(GL_EIGHTH_BIT_ATI, "GL_EIGHTH_BIT_ATI");
     _null_.put(GL_TEXTURE_GEN_MODE, "GL_TEXTURE_GEN_MODE");
     _null_.put(GL_CLIPPING_INPUT_PRIMITIVES, "GL_CLIPPING_INPUT_PRIMITIVES");
     _null_.put(GL_GPU_MEMORY_INFO_CURRENT_AVAILABLE_VIDMEM_NVX, "GL_GPU_MEMORY_INFO_CURRENT_AVAILABLE_VIDMEM_NVX");
@@ -5070,8 +5045,6 @@ public class GLmetadata {
     _null_.put(GL_MAX_FRAGMENT_UNIFORM_VECTORS, "GL_MAX_FRAGMENT_UNIFORM_VECTORS");
     _null_.put(GL_UNIFORM_SIZE, "GL_UNIFORM_SIZE");
     _null_.put(GL_RGBA_DXT5_S3TC, "GL_RGBA_DXT5_S3TC");
-    _null_.put(GL_SECONDARY_INTERPOLATOR_ATI, "GL_SECONDARY_INTERPOLATOR_ATI");
-    _null_.put(GL_REG_12_ATI, "GL_REG_12_ATI");
     _null_.put(GL_INVALID_OPERATION, "GL_INVALID_OPERATION");
     _null_.put(GL_SOURCE0_RGB, "GL_SOURCE0_RGB");
     _null_.put(GL_IMAGE_BINDING_ACCESS, "GL_IMAGE_BINDING_ACCESS");
@@ -5079,7 +5052,6 @@ public class GLmetadata {
     _null_.put(GL_TEXTURE_COMPARE_SGIX, "GL_TEXTURE_COMPARE_SGIX");
     _null_.put(GL_MAX_DEBUG_MESSAGE_LENGTH, "GL_MAX_DEBUG_MESSAGE_LENGTH");
     _null_.put(GL_BLUE_MAX_CLAMP_INGR, "GL_BLUE_MAX_CLAMP_INGR");
-    _null_.put(GL_PN_TRIANGLES_TESSELATION_LEVEL_ATI, "GL_PN_TRIANGLES_TESSELATION_LEVEL_ATI");
     _null_.put(GL_SAMPLER_2D_ARRAY_SHADOW, "GL_SAMPLER_2D_ARRAY_SHADOW");
     _null_.put(GL_POST_COLOR_MATRIX_RED_SCALE, "GL_POST_COLOR_MATRIX_RED_SCALE");
     _null_.put(GL_MAX_COMBINED_IMAGE_UNIFORMS, "GL_MAX_COMBINED_IMAGE_UNIFORMS");
@@ -5103,7 +5075,6 @@ public class GLmetadata {
     _null_.put(GL_GREEN_INTEGER, "GL_GREEN_INTEGER");
     _null_.put(GL_PERFQUERY_COUNTER_DURATION_RAW_INTEL, "GL_PERFQUERY_COUNTER_DURATION_RAW_INTEL");
     _null_.put(GL_LINES_ADJACENCY, "GL_LINES_ADJACENCY");
-    _null_.put(GL_VERTEX_STREAM0_ATI, "GL_VERTEX_STREAM0_ATI");
     _null_.put(GL_STENCIL_BUFFER_BIT2_QCOM, "GL_STENCIL_BUFFER_BIT2_QCOM");
     _null_.put(GL_DYNAMIC_DRAW, "GL_DYNAMIC_DRAW");
     _null_.put(GL_SLUMINANCE8, "GL_SLUMINANCE8");
@@ -5115,14 +5086,12 @@ public class GLmetadata {
     _null_.put(GL_PROGRAM_BINARY_FORMATS, "GL_PROGRAM_BINARY_FORMATS");
     _null_.put(GL_PROXY_TEXTURE_CUBE_MAP_ARRAY, "GL_PROXY_TEXTURE_CUBE_MAP_ARRAY");
     _null_.put(GL_INTENSITY_SNORM, "GL_INTENSITY_SNORM");
-    _null_.put(GL_REG_21_ATI, "GL_REG_21_ATI");
     _null_.put(GL_COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2, "GL_COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2");
     _null_.put(GL_COMPRESSED_SRGB_ALPHA, "GL_COMPRESSED_SRGB_ALPHA");
     _null_.put(GL_PIXEL_MAP_A_TO_A, "GL_PIXEL_MAP_A_TO_A");
     _null_.put(GL_SYNC_GPU_COMMANDS_COMPLETE, "GL_SYNC_GPU_COMMANDS_COMPLETE");
     _null_.put(GL_MAX_TESS_CONTROL_INPUT_COMPONENTS, "GL_MAX_TESS_CONTROL_INPUT_COMPONENTS");
     _null_.put(GL_BUFFER_SERIALIZED_MODIFY_APPLE, "GL_BUFFER_SERIALIZED_MODIFY_APPLE");
-    _null_.put(GL_SWIZZLE_STRQ_DQ_ATI, "GL_SWIZZLE_STRQ_DQ_ATI");
     _null_.put(GL_ALL_BARRIER_BITS, "GL_ALL_BARRIER_BITS");
     _null_.put(GL_TEXTURE_FETCH_BARRIER_BIT, "GL_TEXTURE_FETCH_BARRIER_BIT");
     _null_.put(GL_RGB_FLOAT16_APPLE, "GL_RGB_FLOAT16_APPLE");
@@ -5136,7 +5105,6 @@ public class GLmetadata {
     _null_.put(GL_TEXTURE_GATHER, "GL_TEXTURE_GATHER");
     _null_.put(GL_COLOR_TABLE_ALPHA_SIZE, "GL_COLOR_TABLE_ALPHA_SIZE");
     _null_.put(GL_MAX_SAMPLES_ANGLE, "GL_MAX_SAMPLES_ANGLE");
-    _null_.put(GL_REG_5_ATI, "GL_REG_5_ATI");
     _null_.put(GL_MAX_LABEL_LENGTH_KHR, "GL_MAX_LABEL_LENGTH_KHR");
     _null_.put(GL_IMAGE_CLASS_10_10_10_2, "GL_IMAGE_CLASS_10_10_10_2");
     _null_.put(GL_IMAGE_2D_ARRAY, "GL_IMAGE_2D_ARRAY");
@@ -5161,11 +5129,9 @@ public class GLmetadata {
     _null_.put(GL_CURRENT_PROGRAM, "GL_CURRENT_PROGRAM");
     _null_.put(GL_ALPHA_TEST_FUNC, "GL_ALPHA_TEST_FUNC");
     _null_.put(GL_POLYGON_OFFSET_POINT, "GL_POLYGON_OFFSET_POINT");
-    _null_.put(GL_CON_3_ATI, "GL_CON_3_ATI");
     _null_.put(GL_FOG_COORDINATE, "GL_FOG_COORDINATE");
     _null_.put(GL_LIST_MODE, "GL_LIST_MODE");
     _null_.put(GL_RGB_S3TC, "GL_RGB_S3TC");
-    _null_.put(GL_MAX_VERTEX_STREAMS_ATI, "GL_MAX_VERTEX_STREAMS_ATI");
     _null_.put(GL_INCR, "GL_INCR");
     _null_.put(GL_ACTIVE_RESOURCES, "GL_ACTIVE_RESOURCES");
     _null_.put(GL_COMPRESSED_RGBA_ASTC_8x8, "GL_COMPRESSED_RGBA_ASTC_8x8");
@@ -5204,8 +5170,6 @@ public class GLmetadata {
     _null_.put(GL_COLOR_SUM, "GL_COLOR_SUM");
     _null_.put(GL_COLOR_TABLE_FORMAT_SGI, "GL_COLOR_TABLE_FORMAT_SGI");
     _null_.put(GL_PIXEL_PACK_BUFFER_BINDING, "GL_PIXEL_PACK_BUFFER_BINDING");
-    _null_.put(GL_DU8DV8_ATI, "GL_DU8DV8_ATI");
-    _null_.put(GL_DRAW_BUFFER8_ATI, "GL_DRAW_BUFFER8_ATI");
     _null_.put(GL_FOG_COORDINATE_ARRAY_STRIDE, "GL_FOG_COORDINATE_ARRAY_STRIDE");
     _null_.put(GL_TEXTURE_VIEW, "GL_TEXTURE_VIEW");
     _null_.put(GL_TEXTURE_INTENSITY_SIZE, "GL_TEXTURE_INTENSITY_SIZE");
@@ -5214,14 +5178,12 @@ public class GLmetadata {
     _null_.put(GL_R32UI, "GL_R32UI");
     _null_.put(GL_TEXTURE_LOD_BIAS_T_SGIX, "GL_TEXTURE_LOD_BIAS_T_SGIX");
     _null_.put(GL_TEXTURE_COORD_ARRAY_POINTER, "GL_TEXTURE_COORD_ARRAY_POINTER");
-    _null_.put(GL_DOT2_ADD_ATI, "GL_DOT2_ADD_ATI");
     _null_.put(GL_R1UI_C4F_N3F_V3F_SUN, "GL_R1UI_C4F_N3F_V3F_SUN");
     _null_.put(GL_ANY_SAMPLES_PASSED, "GL_ANY_SAMPLES_PASSED");
     _null_.put(GL_TEXTURE_COORD_ARRAY_LIST_IBM, "GL_TEXTURE_COORD_ARRAY_LIST_IBM");
     _null_.put(GL_DEPTH_BUFFER_BIT0_QCOM, "GL_DEPTH_BUFFER_BIT0_QCOM");
     _null_.put(GL_TEXTURE_4DSIZE_SGIS, "GL_TEXTURE_4DSIZE_SGIS");
     _null_.put(GL_LESS, "GL_LESS");
-    _null_.put(GL_GREEN_BIT_ATI, "GL_GREEN_BIT_ATI");
     _null_.put(GL_DEPTH_BUFFER_BIT4_QCOM, "GL_DEPTH_BUFFER_BIT4_QCOM");
     _null_.put(GL_TEXTURE_COORD_ARRAY, "GL_TEXTURE_COORD_ARRAY");
     _null_.put(GL_COMPRESSED_RGB_PVRTC_4BPPV1_IMG, "GL_COMPRESSED_RGB_PVRTC_4BPPV1_IMG");
@@ -5232,18 +5194,15 @@ public class GLmetadata {
     _null_.put(GL_TESS_CONTROL_SHADER_PATCHES, "GL_TESS_CONTROL_SHADER_PATCHES");
     _null_.put(GL_TRANSFORM_FEEDBACK_PAUSED, "GL_TRANSFORM_FEEDBACK_PAUSED");
     _null_.put(GL_MIN_SPARSE_LEVEL_AMD, "GL_MIN_SPARSE_LEVEL_AMD");
-    _null_.put(GL_NUM_FRAGMENT_REGISTERS_ATI, "GL_NUM_FRAGMENT_REGISTERS_ATI");
     _null_.put(GL_INT_IMAGE_2D_MULTISAMPLE, "GL_INT_IMAGE_2D_MULTISAMPLE");
     _null_.put(GL_QUADRATIC_ATTENUATION, "GL_QUADRATIC_ATTENUATION");
     _null_.put(GL_CONTEXT_FLAG_DEBUG_BIT_KHR, "GL_CONTEXT_FLAG_DEBUG_BIT_KHR");
     _null_.put(GL_DECAL, "GL_DECAL");
     _null_.put(GL_CONTEXT_FLAG_ROBUST_ACCESS_BIT, "GL_CONTEXT_FLAG_ROBUST_ACCESS_BIT");
-    _null_.put(GL_MODULATE_SUBTRACT_ATI, "GL_MODULATE_SUBTRACT_ATI");
   }
   private static void _null_4() {
     _null_.put(GL_COMPRESSED_SRGB8_ALPHA8_ASTC_6x6_KHR, "GL_COMPRESSED_SRGB8_ALPHA8_ASTC_6x6_KHR");
     _null_.put(GL_DRAW_BUFFER9, "GL_DRAW_BUFFER9");
-    _null_.put(GL_4X_BIT_ATI, "GL_4X_BIT_ATI");
     _null_.put(GL_DRAW_BUFFER5, "GL_DRAW_BUFFER5");
     _null_.put(GL_DRAW_BUFFER6, "GL_DRAW_BUFFER6");
     _null_.put(GL_CONSERVE_MEMORY_HINT_PGI, "GL_CONSERVE_MEMORY_HINT_PGI");
@@ -5270,7 +5229,6 @@ public class GLmetadata {
     _null_.put(GL_GUILTY_CONTEXT_RESET_KHR, "GL_GUILTY_CONTEXT_RESET_KHR");
     _null_.put(GL_RGB8, "GL_RGB8");
     _null_.put(GL_FRAMEBUFFER_RENDERABLE, "GL_FRAMEBUFFER_RENDERABLE");
-    _null_.put(GL_CON_12_ATI, "GL_CON_12_ATI");
     _null_.put(GL_MAX_GEOMETRY_TOTAL_OUTPUT_COMPONENTS, "GL_MAX_GEOMETRY_TOTAL_OUTPUT_COMPONENTS");
     _null_.put(GL_UNPACK_ROW_BYTES_APPLE, "GL_UNPACK_ROW_BYTES_APPLE");
     _null_.put(GL_PERFMON_RESULT_AMD, "GL_PERFMON_RESULT_AMD");
@@ -5286,7 +5244,6 @@ public class GLmetadata {
     _null_.put(GL_UNPACK_RESAMPLE_OML, "GL_UNPACK_RESAMPLE_OML");
     _null_.put(GL_SOFTLIGHT_KHR, "GL_SOFTLIGHT_KHR");
     _null_.put(GL_QUERY_WAIT, "GL_QUERY_WAIT");
-    _null_.put(GL_STATIC_ATI, "GL_STATIC_ATI");
     _null_.put(GL_MIN_PROGRAM_TEXTURE_GATHER_OFFSET, "GL_MIN_PROGRAM_TEXTURE_GATHER_OFFSET");
     _null_.put(GL_VERTEX_ATTRIB_ARRAY_POINTER, "GL_VERTEX_ATTRIB_ARRAY_POINTER");
     _null_.put(GL_VERTEX_ARRAY_BINDING_APPLE, "GL_VERTEX_ARRAY_BINDING_APPLE");
@@ -5301,9 +5258,7 @@ public class GLmetadata {
     _null_.put(GL_TEXTURE_LIGHTING_MODE_HP, "GL_TEXTURE_LIGHTING_MODE_HP");
   }
   private static void _null_5() {
-    _null_.put(GL_CON_28_ATI, "GL_CON_28_ATI");
     _null_.put(GL_VERTEX_ATTRIB_ARRAY_LONG, "GL_VERTEX_ATTRIB_ARRAY_LONG");
-    _null_.put(GL_REG_25_ATI, "GL_REG_25_ATI");
     _null_.put(GL_SPHERE_MAP, "GL_SPHERE_MAP");
     _null_.put(GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_NUM_VIEWS_OVR, "GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_NUM_VIEWS_OVR");
     _null_.put(GL_VERTEX_ARRAY_KHR, "GL_VERTEX_ARRAY_KHR");
@@ -5315,7 +5270,6 @@ public class GLmetadata {
     _null_.put(GL_NO_RESET_NOTIFICATION, "GL_NO_RESET_NOTIFICATION");
     _null_.put(GL_UNIFORM_BUFFER_OFFSET_ALIGNMENT, "GL_UNIFORM_BUFFER_OFFSET_ALIGNMENT");
     _null_.put(GL_SYNC_STATUS, "GL_SYNC_STATUS");
-    _null_.put(GL_RED_BIT_ATI, "GL_RED_BIT_ATI");
     _null_.put(GL_TEXTURE_RECTANGLE, "GL_TEXTURE_RECTANGLE");
     _null_.put(GL_POLYGON_OFFSET_UNITS, "GL_POLYGON_OFFSET_UNITS");
     _null_.put(GL_COMPRESSED_RGBA_ASTC_12x10_KHR, "GL_COMPRESSED_RGBA_ASTC_12x10_KHR");
@@ -5365,7 +5319,6 @@ public class GLmetadata {
     _null_.put(GL_OPERAND2_RGB, "GL_OPERAND2_RGB");
     _null_.put(GL_COMPRESSED_SRGB_ALPHA_PVRTC_4BPPV2_IMG, "GL_COMPRESSED_SRGB_ALPHA_PVRTC_4BPPV2_IMG");
     _null_.put(GL_TEXTURE_MAG_FILTER, "GL_TEXTURE_MAG_FILTER");
-    _null_.put(GL_ELEMENT_ARRAY_POINTER_ATI, "GL_ELEMENT_ARRAY_POINTER_ATI");
     _null_.put(GL_PIXEL_TILE_CACHE_INCREMENT_SGIX, "GL_PIXEL_TILE_CACHE_INCREMENT_SGIX");
     _null_.put(GL_COMPRESSED_RGBA_S3TC_DXT5_ANGLE, "GL_COMPRESSED_RGBA_S3TC_DXT5_ANGLE");
     _null_.put(GL_READ_PIXELS, "GL_READ_PIXELS");
@@ -5407,9 +5360,7 @@ public class GLmetadata {
   private static void _null_7() {
     _null_.put(GL_TEXTURE_MULTI_BUFFER_HINT_SGIX, "GL_TEXTURE_MULTI_BUFFER_HINT_SGIX");
     _null_.put(GL_PERFQUERY_COUNTER_DATA_BOOL32_INTEL, "GL_PERFQUERY_COUNTER_DATA_BOOL32_INTEL");
-    _null_.put(GL_PRESERVE_ATI, "GL_PRESERVE_ATI");
     _null_.put(GL_TEXTURE_CUBE_MAP, "GL_TEXTURE_CUBE_MAP");
-    _null_.put(GL_MAX_PN_TRIANGLES_TESSELATION_LEVEL_ATI, "GL_MAX_PN_TRIANGLES_TESSELATION_LEVEL_ATI");
     _null_.put(GL_RENDERBUFFER_SAMPLES, "GL_RENDERBUFFER_SAMPLES");
     _null_.put(GL_QUERY_BUFFER_BINDING_AMD, "GL_QUERY_BUFFER_BINDING_AMD");
     _null_.put(GL_INTERNALFORMAT_STENCIL_TYPE, "GL_INTERNALFORMAT_STENCIL_TYPE");
@@ -5454,7 +5405,6 @@ public class GLmetadata {
     _null_.put(GL_READ_FRAMEBUFFER, "GL_READ_FRAMEBUFFER");
     _null_.put(GL_SHADER_STORAGE_BUFFER, "GL_SHADER_STORAGE_BUFFER");
     _null_.put(GL_COMPRESSED_RGBA_ASTC_10x6_KHR, "GL_COMPRESSED_RGBA_ASTC_10x6_KHR");
-    _null_.put(GL_CON_24_ATI, "GL_CON_24_ATI");
     _null_.put(GL_DEBUG_NEXT_LOGGED_MESSAGE_LENGTH_KHR, "GL_DEBUG_NEXT_LOGGED_MESSAGE_LENGTH_KHR");
     _null_.put(GL_ONE_MINUS_SRC1_COLOR, "GL_ONE_MINUS_SRC1_COLOR");
     _null_.put(GL_INTERNALFORMAT_GREEN_SIZE, "GL_INTERNALFORMAT_GREEN_SIZE");
@@ -5473,7 +5423,6 @@ public class GLmetadata {
     _null_.put(GL_TEXTURE_TYPE_QCOM, "GL_TEXTURE_TYPE_QCOM");
     _null_.put(GL_IMAGE_CUBE_MAP_ARRAY, "GL_IMAGE_CUBE_MAP_ARRAY");
     _null_.put(GL_INDEX_BIT_PGI, "GL_INDEX_BIT_PGI");
-    _null_.put(GL_NUM_INPUT_INTERPOLATOR_COMPONENTS_ATI, "GL_NUM_INPUT_INTERPOLATOR_COMPONENTS_ATI");
     _null_.put(GL_SLUMINANCE_ALPHA, "GL_SLUMINANCE_ALPHA");
     _null_.put(GL_COLOR_ARRAY_BUFFER_BINDING, "GL_COLOR_ARRAY_BUFFER_BINDING");
     _null_.put(GL_FALSE, "GL_FALSE");
@@ -5482,11 +5431,9 @@ public class GLmetadata {
     _null_.put(GL_SAMPLER_2D, "GL_SAMPLER_2D");
     _null_.put(GL_TEXCOORD4_BIT_PGI, "GL_TEXCOORD4_BIT_PGI");
     _null_.put(GL_SPRITE_MODE_SGIX, "GL_SPRITE_MODE_SGIX");
-    _null_.put(GL_REG_1_ATI, "GL_REG_1_ATI");
     _null_.put(GL_UNSIGNED_SHORT_8_8_MESA, "GL_UNSIGNED_SHORT_8_8_MESA");
     _null_.put(GL_MIRROR_CLAMP_TO_EDGE, "GL_MIRROR_CLAMP_TO_EDGE");
     _null_.put(GL_FRAMEBUFFER_FETCH_NONCOHERENT_QCOM, "GL_FRAMEBUFFER_FETCH_NONCOHERENT_QCOM");
-    _null_.put(GL_TEXT_FRAGMENT_SHADER_ATI, "GL_TEXT_FRAGMENT_SHADER_ATI");
     _null_.put(GL_CLEAR_TEXTURE, "GL_CLEAR_TEXTURE");
     _null_.put(GL_COMPRESSED_INTENSITY, "GL_COMPRESSED_INTENSITY");
     _null_.put(GL_INT, "GL_INT");
@@ -5500,7 +5447,6 @@ public class GLmetadata {
     _null_.put(GL_FRAMEBUFFER_ATTACHMENT_LAYERED, "GL_FRAMEBUFFER_ATTACHMENT_LAYERED");
     _null_.put(GL_CLIP_DISTANCE3, "GL_CLIP_DISTANCE3");
     _null_.put(GL_CLIP_DISTANCE2, "GL_CLIP_DISTANCE2");
-    _null_.put(GL_ARRAY_OBJECT_OFFSET_ATI, "GL_ARRAY_OBJECT_OFFSET_ATI");
     _null_.put(GL_CLIP_DISTANCE5, "GL_CLIP_DISTANCE5");
     _null_.put(GL_R8I, "GL_R8I");
     _null_.put(GL_CLIP_DISTANCE4, "GL_CLIP_DISTANCE4");
@@ -5522,7 +5468,6 @@ public class GLmetadata {
     _null_.put(GL_INT_SAMPLER_CUBE_MAP_ARRAY, "GL_INT_SAMPLER_CUBE_MAP_ARRAY");
     _null_.put(GL_FRAGMENT_DEPTH, "GL_FRAGMENT_DEPTH");
     _null_.put(GL_MULTISAMPLE_BUFFER_BIT4_QCOM, "GL_MULTISAMPLE_BUFFER_BIT4_QCOM");
-    _null_.put(GL_REG_29_ATI, "GL_REG_29_ATI");
     _null_.put(GL_VERTEX_ATTRIB_MAP2_DOMAIN_APPLE, "GL_VERTEX_ATTRIB_MAP2_DOMAIN_APPLE");
     _null_.put(GL_ATC_RGBA_INTERPOLATED_ALPHA_AMD, "GL_ATC_RGBA_INTERPOLATED_ALPHA_AMD");
     _null_.put(GL_RENDERBUFFER_INTERNAL_FORMAT, "GL_RENDERBUFFER_INTERNAL_FORMAT");
@@ -5551,10 +5496,8 @@ public class GLmetadata {
     _null_.put(GL_HISTOGRAM_ALPHA_SIZE, "GL_HISTOGRAM_ALPHA_SIZE");
     _null_.put(GL_LINE_STRIP_ADJACENCY, "GL_LINE_STRIP_ADJACENCY");
     _null_.put(GL_LUMINANCE16_SNORM, "GL_LUMINANCE16_SNORM");
-    _null_.put(GL_CON_16_ATI, "GL_CON_16_ATI");
     _null_.put(GL_UNKNOWN_CONTEXT_RESET_KHR, "GL_UNKNOWN_CONTEXT_RESET_KHR");
     _null_.put(GL_POINT_SIZE_GRANULARITY, "GL_POINT_SIZE_GRANULARITY");
-    _null_.put(GL_DRAW_BUFFER12_ATI, "GL_DRAW_BUFFER12_ATI");
     _null_.put(GL_QUERY_DEPTH_PASS_EVENT_BIT_AMD, "GL_QUERY_DEPTH_PASS_EVENT_BIT_AMD");
     _null_.put(GL_UNIFORM_MATRIX_STRIDE, "GL_UNIFORM_MATRIX_STRIDE");
     _null_.put(GL_MAX_COMBINED_COMPUTE_UNIFORM_COMPONENTS, "GL_MAX_COMBINED_COMPUTE_UNIFORM_COMPONENTS");
@@ -5571,7 +5514,6 @@ public class GLmetadata {
     _null_.put(GL_LUMINANCE6_ALPHA2, "GL_LUMINANCE6_ALPHA2");
     _null_.put(GL_MAX_CLIPMAP_VIRTUAL_DEPTH_SGIX, "GL_MAX_CLIPMAP_VIRTUAL_DEPTH_SGIX");
     _null_.put(GL_FRAMEBUFFER_SRGB, "GL_FRAMEBUFFER_SRGB");
-    _null_.put(GL_DOT4_ATI, "GL_DOT4_ATI");
     _null_.put(GL_TRANSFORM_FEEDBACK_BARRIER_BIT, "GL_TRANSFORM_FEEDBACK_BARRIER_BIT");
     _null_.put(GL_EYE_DISTANCE_TO_POINT_SGIS, "GL_EYE_DISTANCE_TO_POINT_SGIS");
     _null_.put(GL_MODULATE, "GL_MODULATE");
@@ -5583,11 +5525,9 @@ public class GLmetadata {
   private static void _null_10() {
     _null_.put(GL_MULTIPLY_KHR, "GL_MULTIPLY_KHR");
     _null_.put(GL_TRANSPOSE_MODELVIEW_MATRIX, "GL_TRANSPOSE_MODELVIEW_MATRIX");
-    _null_.put(GL_DRAW_BUFFER5_ATI, "GL_DRAW_BUFFER5_ATI");
     _null_.put(GL_BLUE_BIAS, "GL_BLUE_BIAS");
     _null_.put(GL_AUTO_NORMAL, "GL_AUTO_NORMAL");
     _null_.put(GL_POINT_SIZE_MIN, "GL_POINT_SIZE_MIN");
-    _null_.put(GL_NUM_INSTRUCTIONS_PER_PASS_ATI, "GL_NUM_INSTRUCTIONS_PER_PASS_ATI");
     _null_.put(GL_CULL_VERTEX_IBM, "GL_CULL_VERTEX_IBM");
     _null_.put(GL_MIPMAP, "GL_MIPMAP");
     _null_.put(GL_SINGLE_COLOR, "GL_SINGLE_COLOR");
@@ -5605,7 +5545,6 @@ public class GLmetadata {
     _null_.put(GL_DELETE_STATUS, "GL_DELETE_STATUS");
     _null_.put(GL_VIEW_CLASS_S3TC_DXT3_RGBA, "GL_VIEW_CLASS_S3TC_DXT3_RGBA");
     _null_.put(GL_SAMPLE_PATTERN_SGIS, "GL_SAMPLE_PATTERN_SGIS");
-    _null_.put(GL_DRAW_BUFFER1_ATI, "GL_DRAW_BUFFER1_ATI");
     _null_.put(GL_R11F_G11F_B10F_APPLE, "GL_R11F_G11F_B10F_APPLE");
     _null_.put(GL_MAX_VERTEX_HINT_PGI, "GL_MAX_VERTEX_HINT_PGI");
     _null_.put(GL_UNSIGNED_INT_IMAGE_1D_ARRAY, "GL_UNSIGNED_INT_IMAGE_1D_ARRAY");
@@ -5628,7 +5567,6 @@ public class GLmetadata {
     _null_.put(GL_DUAL_LUMINANCE4_SGIS, "GL_DUAL_LUMINANCE4_SGIS");
     _null_.put(GL_COLOR_BUFFER_BIT5_QCOM, "GL_COLOR_BUFFER_BIT5_QCOM");
     _null_.put(GL_MAX_COMPUTE_TEXTURE_IMAGE_UNITS, "GL_MAX_COMPUTE_TEXTURE_IMAGE_UNITS");
-    _null_.put(GL_RGBA_FLOAT16_ATI, "GL_RGBA_FLOAT16_ATI");
     _null_.put(GL_TEXTURE_LUMINANCE_SIZE, "GL_TEXTURE_LUMINANCE_SIZE");
     _null_.put(GL_RESET_NOTIFICATION_STRATEGY, "GL_RESET_NOTIFICATION_STRATEGY");
     _null_.put(GL_COMPRESSED_RGBA_ASTC_10x6, "GL_COMPRESSED_RGBA_ASTC_10x6");
@@ -5643,7 +5581,6 @@ public class GLmetadata {
     _null_.put(GL_SPOT_CUTOFF, "GL_SPOT_CUTOFF");
     _null_.put(GL_TEXTURE_COLOR_WRITEMASK_SGIS, "GL_TEXTURE_COLOR_WRITEMASK_SGIS");
     _null_.put(GL_DYNAMIC_COPY, "GL_DYNAMIC_COPY");
-    _null_.put(GL_CON_20_ATI, "GL_CON_20_ATI");
     _null_.put(GL_OBJECT_POINT_SGIS, "GL_OBJECT_POINT_SGIS");
     _null_.put(GL_ALPHA_MAX_CLAMP_INGR, "GL_ALPHA_MAX_CLAMP_INGR");
     _null_.put(GL_REPLACEMENT_CODE_ARRAY_STRIDE_SUN, "GL_REPLACEMENT_CODE_ARRAY_STRIDE_SUN");
@@ -5663,7 +5600,6 @@ public class GLmetadata {
     _null_.put(GL_INDEX_CLEAR_VALUE, "GL_INDEX_CLEAR_VALUE");
     _null_.put(GL_RGB9_E5_APPLE, "GL_RGB9_E5_APPLE");
     _null_.put(GL_BGRA_INTEGER, "GL_BGRA_INTEGER");
-    _null_.put(GL_REG_16_ATI, "GL_REG_16_ATI");
     _null_.put(GL_SGX_PROGRAM_BINARY_IMG, "GL_SGX_PROGRAM_BINARY_IMG");
     _null_.put(GL_HSL_SATURATION, "GL_HSL_SATURATION");
     _null_.put(GL_REPLICATE_BORDER, "GL_REPLICATE_BORDER");
@@ -5705,7 +5641,6 @@ public class GLmetadata {
     _null_.put(GL_RENDERBUFFER_ALPHA_SIZE, "GL_RENDERBUFFER_ALPHA_SIZE");
     _null_.put(GL_MAP_WRITE_BIT, "GL_MAP_WRITE_BIT");
     _null_.put(GL_FRAGMENT_SUBROUTINE, "GL_FRAGMENT_SUBROUTINE");
-    _null_.put(GL_CON_7_ATI, "GL_CON_7_ATI");
     _null_.put(GL_ALLOW_DRAW_MEM_HINT_PGI, "GL_ALLOW_DRAW_MEM_HINT_PGI");
     _null_.put(GL_MAX_COMPUTE_SHARED_MEMORY_SIZE, "GL_MAX_COMPUTE_SHARED_MEMORY_SIZE");
     _null_.put(GL_UNSIGNED_INT_24_8_MESA, "GL_UNSIGNED_INT_24_8_MESA");
@@ -5716,7 +5651,6 @@ public class GLmetadata {
     _null_.put(GL_DISPLAY_LIST, "GL_DISPLAY_LIST");
     _null_.put(GL_COLOR_ATTACHMENT0, "GL_COLOR_ATTACHMENT0");
     _null_.put(GL_MAX_FRAMEZOOM_FACTOR_SGIX, "GL_MAX_FRAMEZOOM_FACTOR_SGIX");
-    _null_.put(GL_REG_9_ATI, "GL_REG_9_ATI");
     _null_.put(GL_COLOR_ATTACHMENT4, "GL_COLOR_ATTACHMENT4");
     _null_.put(GL_QUERY_RESULT_NO_WAIT, "GL_QUERY_RESULT_NO_WAIT");
     _null_.put(GL_COLOR_ATTACHMENT3, "GL_COLOR_ATTACHMENT3");
@@ -5734,7 +5668,6 @@ public class GLmetadata {
     _null_.put(GL_NUM_PROGRAM_BINARY_FORMATS, "GL_NUM_PROGRAM_BINARY_FORMATS");
     _null_.put(GL_LINEAR_MIPMAP_LINEAR, "GL_LINEAR_MIPMAP_LINEAR");
     _null_.put(GL_ALPHA16, "GL_ALPHA16");
-    _null_.put(GL_NEGATE_BIT_ATI, "GL_NEGATE_BIT_ATI");
     _null_.put(GL_CUBIC_MIPMAP_LINEAR_IMG, "GL_CUBIC_MIPMAP_LINEAR_IMG");
     _null_.put(GL_VERTEX_SUBROUTINE, "GL_VERTEX_SUBROUTINE");
     _null_.put(GL_ALPHA12, "GL_ALPHA12");
@@ -5744,7 +5677,6 @@ public class GLmetadata {
     _null_.put(GL_NEAREST_MIPMAP_NEAREST, "GL_NEAREST_MIPMAP_NEAREST");
     _null_.put(GL_OBJECT_DISTANCE_TO_LINE_SGIS, "GL_OBJECT_DISTANCE_TO_LINE_SGIS");
     _null_.put(GL_COLOR_ATTACHMENT9, "GL_COLOR_ATTACHMENT9");
-    _null_.put(GL_LUMINANCE_FLOAT16_ATI, "GL_LUMINANCE_FLOAT16_ATI");
     _null_.put(GL_IMAGE_CLASS_1_X_8, "GL_IMAGE_CLASS_1_X_8");
     _null_.put(GL_TRACE_ARRAYS_BIT_MESA, "GL_TRACE_ARRAYS_BIT_MESA");
   }
@@ -5778,7 +5710,6 @@ public class GLmetadata {
     _null_.put(GL_UNSIGNED_SHORT_8_8_REV_APPLE, "GL_UNSIGNED_SHORT_8_8_REV_APPLE");
     _null_.put(GL_QUERY_WAIT_INVERTED, "GL_QUERY_WAIT_INVERTED");
     _null_.put(GL_MAX_PROGRAM_TEXTURE_GATHER_OFFSET, "GL_MAX_PROGRAM_TEXTURE_GATHER_OFFSET");
-    _null_.put(GL_VERTEX_STREAM7_ATI, "GL_VERTEX_STREAM7_ATI");
     _null_.put(GL_PACK_REVERSE_ROW_ORDER_ANGLE, "GL_PACK_REVERSE_ROW_ORDER_ANGLE");
     _null_.put(GL_ATOMIC_COUNTER_BUFFER_ACTIVE_ATOMIC_COUNTERS, "GL_ATOMIC_COUNTER_BUFFER_ACTIVE_ATOMIC_COUNTERS");
     _null_.put(GL_HSL_COLOR, "GL_HSL_COLOR");
@@ -5795,7 +5726,6 @@ public class GLmetadata {
     _null_.put(GL_TRACE_TEXTURES_BIT_MESA, "GL_TRACE_TEXTURES_BIT_MESA");
     _null_.put(GL_MAT_EMISSION_BIT_PGI, "GL_MAT_EMISSION_BIT_PGI");
     _null_.put(GL_VERTEX_ARRAY_BINDING, "GL_VERTEX_ARRAY_BINDING");
-    _null_.put(GL_LUMINANCE_ALPHA_FLOAT16_ATI, "GL_LUMINANCE_ALPHA_FLOAT16_ATI");
     _null_.put(GL_VERTEX_ATTRIB_MAP1_SIZE_APPLE, "GL_VERTEX_ATTRIB_MAP1_SIZE_APPLE");
     _null_.put(GL_PIXEL_TEX_GEN_Q_CEILING_SGIX, "GL_PIXEL_TEX_GEN_Q_CEILING_SGIX");
     _null_.put(GL_MAX_SUBROUTINE_UNIFORM_LOCATIONS, "GL_MAX_SUBROUTINE_UNIFORM_LOCATIONS");
@@ -5805,7 +5735,6 @@ public class GLmetadata {
     _null_.put(GL_OCCLUSION_TEST_HP, "GL_OCCLUSION_TEST_HP");
   }
   private static void _null_14() {
-    _null_.put(GL_COLOR_CLEAR_UNCLAMPED_VALUE_ATI, "GL_COLOR_CLEAR_UNCLAMPED_VALUE_ATI");
     _null_.put(GL_VERTEX_BINDING_STRIDE, "GL_VERTEX_BINDING_STRIDE");
     _null_.put(GL_POST_CONVOLUTION_BLUE_SCALE, "GL_POST_CONVOLUTION_BLUE_SCALE");
     _null_.put(GL_MAX_CUBE_MAP_TEXTURE_SIZE, "GL_MAX_CUBE_MAP_TEXTURE_SIZE");
@@ -5858,7 +5787,6 @@ public class GLmetadata {
     _null_.put(GL_DUAL_LUMINANCE_ALPHA8_SGIS, "GL_DUAL_LUMINANCE_ALPHA8_SGIS");
     _null_.put(GL_COMPARE_REF_TO_TEXTURE, "GL_COMPARE_REF_TO_TEXTURE");
     _null_.put(GL_INTERLACE_OML, "GL_INTERLACE_OML");
-    _null_.put(GL_REG_6_ATI, "GL_REG_6_ATI");
     _null_.put(GL_DEBUG_TYPE_PORTABILITY_KHR, "GL_DEBUG_TYPE_PORTABILITY_KHR");
     _null_.put(GL_MAX_VARYING_FLOATS, "GL_MAX_VARYING_FLOATS");
     _null_.put(GL_LUMINANCE_ALPHA_FLOAT32_APPLE, "GL_LUMINANCE_ALPHA_FLOAT32_APPLE");
@@ -5891,7 +5819,6 @@ public class GLmetadata {
     _null_.put(GL_REPLACEMENT_CODE_SUN, "GL_REPLACEMENT_CODE_SUN");
     _null_.put(GL_SCISSOR_BOX, "GL_SCISSOR_BOX");
     _null_.put(GL_RENDER, "GL_RENDER");
-    _null_.put(GL_CON_0_ATI, "GL_CON_0_ATI");
     _null_.put(GL_FRAMEBUFFER_DEFAULT_LAYERS, "GL_FRAMEBUFFER_DEFAULT_LAYERS");
     _null_.put(GL_TEXTURE_CUBE_MAP_POSITIVE_X, "GL_TEXTURE_CUBE_MAP_POSITIVE_X");
     _null_.put(GL_TEXTURE_CUBE_MAP_POSITIVE_Y, "GL_TEXTURE_CUBE_MAP_POSITIVE_Y");
@@ -5909,7 +5836,6 @@ public class GLmetadata {
     _null_.put(GL_VERTEX23_BIT_PGI, "GL_VERTEX23_BIT_PGI");
     _null_.put(GL_COMPRESSED_RGBA_ASTC_6x6, "GL_COMPRESSED_RGBA_ASTC_6x6");
     _null_.put(GL_COMPRESSED_RGBA_ASTC_6x5, "GL_COMPRESSED_RGBA_ASTC_6x5");
-    _null_.put(GL_INTENSITY_FLOAT16_ATI, "GL_INTENSITY_FLOAT16_ATI");
     _null_.put(GL_FRAGMENT_COLOR_MATERIAL_PARAMETER_SGIX, "GL_FRAGMENT_COLOR_MATERIAL_PARAMETER_SGIX");
     _null_.put(GL_SAMPLE_BUFFERS_3DFX, "GL_SAMPLE_BUFFERS_3DFX");
     _null_.put(GL_POINT_FADE_THRESHOLD_SIZE, "GL_POINT_FADE_THRESHOLD_SIZE");
@@ -5921,7 +5847,6 @@ public class GLmetadata {
     _null_.put(GL_LINES, "GL_LINES");
     _null_.put(GL_SELECT, "GL_SELECT");
     _null_.put(GL_COMPRESSED_ALPHA, "GL_COMPRESSED_ALPHA");
-    _null_.put(GL_RGB_FLOAT32_ATI, "GL_RGB_FLOAT32_ATI");
     _null_.put(GL_UNSIGNED_INT_IMAGE_CUBE_MAP_ARRAY, "GL_UNSIGNED_INT_IMAGE_CUBE_MAP_ARRAY");
     _null_.put(GL_PERSPECTIVE_CORRECTION_HINT, "GL_PERSPECTIVE_CORRECTION_HINT");
     _null_.put(GL_ALPHA_BITS, "GL_ALPHA_BITS");
@@ -5961,7 +5886,6 @@ public class GLmetadata {
     _null_.put(GL_VERTEX_ELEMENT_SWIZZLE_AMD, "GL_VERTEX_ELEMENT_SWIZZLE_AMD");
     _null_.put(GL_UNPACK_COMPRESSED_BLOCK_WIDTH, "GL_UNPACK_COMPRESSED_BLOCK_WIDTH");
     _null_.put(GL_PIXEL_SUBSAMPLE_2424_SGIX, "GL_PIXEL_SUBSAMPLE_2424_SGIX");
-    _null_.put(GL_VERTEX_STREAM3_ATI, "GL_VERTEX_STREAM3_ATI");
     _null_.put(GL_MINMAX_FORMAT, "GL_MINMAX_FORMAT");
     _null_.put(GL_MAX_GEOMETRY_UNIFORM_BLOCKS, "GL_MAX_GEOMETRY_UNIFORM_BLOCKS");
     _null_.put(GL_BACK_NORMALS_HINT_PGI, "GL_BACK_NORMALS_HINT_PGI");
@@ -5979,7 +5903,6 @@ public class GLmetadata {
     _null_.put(GL_3DC_X_AMD, "GL_3DC_X_AMD");
     _null_.put(GL_SYNC_FENCE_APPLE, "GL_SYNC_FENCE_APPLE");
     _null_.put(GL_DUAL_INTENSITY12_SGIS, "GL_DUAL_INTENSITY12_SGIS");
-    _null_.put(GL_REG_13_ATI, "GL_REG_13_ATI");
     _null_.put(GL_DEPTH_PASS_INSTRUMENT_COUNTERS_SGIX, "GL_DEPTH_PASS_INSTRUMENT_COUNTERS_SGIX");
     _null_.put(GL_UNSIGNED_NORMALIZED, "GL_UNSIGNED_NORMALIZED");
     _null_.put(GL_COLOR_ATTACHMENT15, "GL_COLOR_ATTACHMENT15");
@@ -6026,7 +5949,6 @@ public class GLmetadata {
     _null_.put(GL_TEXTURE_UPDATE_BARRIER_BIT, "GL_TEXTURE_UPDATE_BARRIER_BIT");
     _null_.put(GL_SIMULTANEOUS_TEXTURE_AND_DEPTH_TEST, "GL_SIMULTANEOUS_TEXTURE_AND_DEPTH_TEST");
     _null_.put(GL_COMPRESSED_RG, "GL_COMPRESSED_RG");
-    _null_.put(GL_CON_27_ATI, "GL_CON_27_ATI");
     _null_.put(GL_COLOR_ATTACHMENT31, "GL_COLOR_ATTACHMENT31");
     _null_.put(GL_SHADER_STORAGE_BUFFER_SIZE, "GL_SHADER_STORAGE_BUFFER_SIZE");
     _null_.put(GL_COLOR_ATTACHMENT30, "GL_COLOR_ATTACHMENT30");
@@ -6046,8 +5968,6 @@ public class GLmetadata {
     _null_.put(GL_CLEAR_BUFFER, "GL_CLEAR_BUFFER");
     _null_.put(GL_IS_PER_PATCH, "GL_IS_PER_PATCH");
     _null_.put(GL_UNSIGNED_SHORT_8_8_REV_MESA, "GL_UNSIGNED_SHORT_8_8_REV_MESA");
-    _null_.put(GL_MODULATE_ADD_ATI, "GL_MODULATE_ADD_ATI");
-    _null_.put(GL_NUM_LOOPBACK_COMPONENTS_ATI, "GL_NUM_LOOPBACK_COMPONENTS_ATI");
     _null_.put(GL_TEXTURE_2D, "GL_TEXTURE_2D");
     _null_.put(GL_NO_RESET_NOTIFICATION_KHR, "GL_NO_RESET_NOTIFICATION_KHR");
     _null_.put(GL_COLOR_TABLE_RED_SIZE, "GL_COLOR_TABLE_RED_SIZE");
@@ -6058,7 +5978,6 @@ public class GLmetadata {
     _null_.put(GL_ALREADY_SIGNALED, "GL_ALREADY_SIGNALED");
     _null_.put(GL_PIXEL_TEX_GEN_ALPHA_REPLACE_SGIX, "GL_PIXEL_TEX_GEN_ALPHA_REPLACE_SGIX");
     _null_.put(GL_SHADER_BINARY_FORMAT_SPIR_V, "GL_SHADER_BINARY_FORMAT_SPIR_V");
-    _null_.put(GL_REG_22_ATI, "GL_REG_22_ATI");
     _null_.put(GL_QUERY_BUFFER_BINDING, "GL_QUERY_BUFFER_BINDING");
     _null_.put(GL_TEXTURE_1D, "GL_TEXTURE_1D");
     _null_.put(GL_TEXTURE_INTERNAL_FORMAT, "GL_TEXTURE_INTERNAL_FORMAT");
@@ -6086,7 +6005,6 @@ public class GLmetadata {
     _null_.put(GL_RG8_SNORM, "GL_RG8_SNORM");
     _null_.put(GL_PIXEL_MAP_I_TO_R_SIZE, "GL_PIXEL_MAP_I_TO_R_SIZE");
     _null_.put(GL_BUFFER_USAGE, "GL_BUFFER_USAGE");
-    _null_.put(GL_OBJECT_BUFFER_SIZE_ATI, "GL_OBJECT_BUFFER_SIZE_ATI");
     _null_.put(GL_TEXTURE_3D, "GL_TEXTURE_3D");
     _null_.put(GL_GREEN, "GL_GREEN");
     _null_.put(GL_INT_SAMPLER_2D_RECT, "GL_INT_SAMPLER_2D_RECT");
@@ -6109,7 +6027,6 @@ public class GLmetadata {
     _null_.put(GL_POST_COLOR_MATRIX_ALPHA_SCALE_SGI, "GL_POST_COLOR_MATRIX_ALPHA_SCALE_SGI");
     _null_.put(GL_FRAGMENT_LIGHT_MODEL_TWO_SIDE_SGIX, "GL_FRAGMENT_LIGHT_MODEL_TWO_SIDE_SGIX");
     _null_.put(GL_IMAGE_CLASS_2_X_16, "GL_IMAGE_CLASS_2_X_16");
-    _null_.put(GL_FRAGMENT_SHADER_ATI, "GL_FRAGMENT_SHADER_ATI");
     _null_.put(GL_BOOL_VEC4, "GL_BOOL_VEC4");
     _null_.put(GL_BOOL_VEC3, "GL_BOOL_VEC3");
     _null_.put(GL_BOOL_VEC2, "GL_BOOL_VEC2");
@@ -6150,7 +6067,6 @@ public class GLmetadata {
     _null_.put(GL_LUMINANCE8_ALPHA8, "GL_LUMINANCE8_ALPHA8");
     _null_.put(GL_UNSIGNED_BYTE_3_3_2, "GL_UNSIGNED_BYTE_3_3_2");
     _null_.put(GL_IMAGE_CLASS_11_11_10, "GL_IMAGE_CLASS_11_11_10");
-    _null_.put(GL_DRAW_BUFFER9_ATI, "GL_DRAW_BUFFER9_ATI");
     _null_.put(GL_CURRENT_INDEX, "GL_CURRENT_INDEX");
     _null_.put(GL_FOG_DENSITY, "GL_FOG_DENSITY");
     _null_.put(GL_PIXEL_MAP_S_TO_S_SIZE, "GL_PIXEL_MAP_S_TO_S_SIZE");
@@ -6180,7 +6096,6 @@ public class GLmetadata {
     _null_.put(GL_COMBINE_ALPHA, "GL_COMBINE_ALPHA");
     _null_.put(GL_COMPRESSED_RGBA_ASTC_10x8_KHR, "GL_COMPRESSED_RGBA_ASTC_10x8_KHR");
     _null_.put(GL_VIEW_CLASS_32_BITS, "GL_VIEW_CLASS_32_BITS");
-    _null_.put(GL_ADD_ATI, "GL_ADD_ATI");
     _null_.put(GL_COLOR_BUFFER_BIT3_QCOM, "GL_COLOR_BUFFER_BIT3_QCOM");
     _null_.put(GL_REPLACEMENT_CODE_ARRAY_SUN, "GL_REPLACEMENT_CODE_ARRAY_SUN");
     _null_.put(GL_COMPUTE_SUBROUTINE_UNIFORM, "GL_COMPUTE_SUBROUTINE_UNIFORM");
@@ -6191,9 +6106,6 @@ public class GLmetadata {
     _null_.put(GL_FRAMEBUFFER_COMPLETE, "GL_FRAMEBUFFER_COMPLETE");
     _null_.put(GL_DEBUG_SOURCE_OTHER, "GL_DEBUG_SOURCE_OTHER");
     _null_.put(GL_ALIASED_LINE_WIDTH_RANGE, "GL_ALIASED_LINE_WIDTH_RANGE");
-    _null_.put(GL_BUMP_ROT_MATRIX_ATI, "GL_BUMP_ROT_MATRIX_ATI");
-    _null_.put(GL_SWIZZLE_STQ_DQ_ATI, "GL_SWIZZLE_STQ_DQ_ATI");
-    _null_.put(GL_CON_23_ATI, "GL_CON_23_ATI");
     _null_.put(GL_NUM_SHADER_BINARY_FORMATS, "GL_NUM_SHADER_BINARY_FORMATS");
     _null_.put(GL_ISOLINES, "GL_ISOLINES");
     _null_.put(GL_DEBUG_CATEGORY_APPLICATION_AMD, "GL_DEBUG_CATEGORY_APPLICATION_AMD");
@@ -6227,7 +6139,6 @@ public class GLmetadata {
     _null_.put(GL_FENCE_APPLE, "GL_FENCE_APPLE");
     _null_.put(GL_BUFFER, "GL_BUFFER");
     _null_.put(GL_COPY, "GL_COPY");
-    _null_.put(GL_COMPRESSED_LUMINANCE_ALPHA_3DC_ATI, "GL_COMPRESSED_LUMINANCE_ALPHA_3DC_ATI");
     _null_.put(GL_SLIM10U_SGIX, "GL_SLIM10U_SGIX");
     _null_.put(GL_SAMPLER_2D_MULTISAMPLE, "GL_SAMPLER_2D_MULTISAMPLE");
     _null_.put(GL_C4UB_V3F, "GL_C4UB_V3F");
@@ -6240,7 +6151,6 @@ public class GLmetadata {
     _null_.put(GL_PASS_THROUGH_TOKEN, "GL_PASS_THROUGH_TOKEN");
     _null_.put(GL_TEXTURE_BASE_LEVEL_SGIS, "GL_TEXTURE_BASE_LEVEL_SGIS");
     _null_.put(GL_SHADER, "GL_SHADER");
-    _null_.put(GL_REG_26_ATI, "GL_REG_26_ATI");
     _null_.put(GL_SOFTLIGHT, "GL_SOFTLIGHT");
     _null_.put(GL_PROGRAM, "GL_PROGRAM");
     _null_.put(GL_IMAGE_ROTATE_ORIGIN_Y_HP, "GL_IMAGE_ROTATE_ORIGIN_Y_HP");
@@ -6253,7 +6163,6 @@ public class GLmetadata {
     _null_.put(GL_PIXEL_TEX_GEN_ALPHA_LS_SGIX, "GL_PIXEL_TEX_GEN_ALPHA_LS_SGIX");
     _null_.put(GL_MAX_VERTEX_ATOMIC_COUNTERS, "GL_MAX_VERTEX_ATOMIC_COUNTERS");
     _null_.put(GL_OUT_OF_MEMORY, "GL_OUT_OF_MEMORY");
-    _null_.put(GL_CON_8_ATI, "GL_CON_8_ATI");
     _null_.put(GL_MAX_COLOR_MATRIX_STACK_DEPTH_SGI, "GL_MAX_COLOR_MATRIX_STACK_DEPTH_SGI");
     _null_.put(GL_CONSTANT_BORDER, "GL_CONSTANT_BORDER");
     _null_.put(GL_DEPTH_BUFFER_BIT6_QCOM, "GL_DEPTH_BUFFER_BIT6_QCOM");
@@ -6294,7 +6203,6 @@ public class GLmetadata {
     _null_.put(GL_COMBINE_RGB, "GL_COMBINE_RGB");
     _null_.put(GL_FRAMEBUFFER_INCOMPLETE_ATTACHMENT, "GL_FRAMEBUFFER_INCOMPLETE_ATTACHMENT");
     _null_.put(GL_TEXTURE_LOD_BIAS_S_SGIX, "GL_TEXTURE_LOD_BIAS_S_SGIX");
-    _null_.put(GL_MIRROR_CLAMP_TO_EDGE_ATI, "GL_MIRROR_CLAMP_TO_EDGE_ATI");
     _null_.put(GL_FUNC_REVERSE_SUBTRACT, "GL_FUNC_REVERSE_SUBTRACT");
     _null_.put(GL_POST_CONVOLUTION_GREEN_BIAS, "GL_POST_CONVOLUTION_GREEN_BIAS");
     _null_.put(GL_PROJECTION_STACK_DEPTH, "GL_PROJECTION_STACK_DEPTH");
@@ -6307,7 +6215,6 @@ public class GLmetadata {
     _null_.put(GL_GEOMETRY_SUBROUTINE_UNIFORM, "GL_GEOMETRY_SUBROUTINE_UNIFORM");
     _null_.put(GL_RENDERER, "GL_RENDERER");
     _null_.put(GL_UNIFORM_OFFSET, "GL_UNIFORM_OFFSET");
-    _null_.put(GL_CON_13_ATI, "GL_CON_13_ATI");
     _null_.put(GL_TESS_GEN_POINT_MODE, "GL_TESS_GEN_POINT_MODE");
     _null_.put(GL_DEBUG_TYPE_PERFORMANCE, "GL_DEBUG_TYPE_PERFORMANCE");
     _null_.put(GL_PACK_SUBSAMPLE_RATE_SGIX, "GL_PACK_SUBSAMPLE_RATE_SGIX");
@@ -6323,7 +6230,6 @@ public class GLmetadata {
     _null_.put(GL_TEXTURE_RANGE_POINTER_APPLE, "GL_TEXTURE_RANGE_POINTER_APPLE");
     _null_.put(GL_MAX_PIXEL_MAP_TABLE, "GL_MAX_PIXEL_MAP_TABLE");
     _null_.put(GL_STEREO, "GL_STEREO");
-    _null_.put(GL_DOT3_ATI, "GL_DOT3_ATI");
     _null_.put(GL_FRAMEBUFFER_ATTACHMENT_STENCIL_SIZE, "GL_FRAMEBUFFER_ATTACHMENT_STENCIL_SIZE");
     _null_.put(GL_STATIC_DRAW, "GL_STATIC_DRAW");
     _null_.put(GL_CLIP_PLANE4_IMG, "GL_CLIP_PLANE4_IMG");
@@ -6347,20 +6253,15 @@ public class GLmetadata {
     _null_.put(GL_VERTEX_PROGRAM_TWO_SIDE, "GL_VERTEX_PROGRAM_TWO_SIDE");
     _null_.put(GL_MAX_GEOMETRY_SHADER_INVOCATIONS, "GL_MAX_GEOMETRY_SHADER_INVOCATIONS");
     _null_.put(GL_INT_SAMPLER_BUFFER_AMD, "GL_INT_SAMPLER_BUFFER_AMD");
-    _null_.put(GL_BUMP_ROT_MATRIX_SIZE_ATI, "GL_BUMP_ROT_MATRIX_SIZE_ATI");
-    _null_.put(GL_NUM_PASSES_ATI, "GL_NUM_PASSES_ATI");
-    _null_.put(GL_DRAW_BUFFER6_ATI, "GL_DRAW_BUFFER6_ATI");
     _null_.put(GL_MAX_VERTEX_UNIFORM_COMPONENTS, "GL_MAX_VERTEX_UNIFORM_COMPONENTS");
     _null_.put(GL_VERTEX_ATTRIB_ARRAY_STRIDE, "GL_VERTEX_ATTRIB_ARRAY_STRIDE");
     _null_.put(GL_PERFQUERY_QUERY_NAME_LENGTH_MAX_INTEL, "GL_PERFQUERY_QUERY_NAME_LENGTH_MAX_INTEL");
     _null_.put(GL_SLUMINANCE, "GL_SLUMINANCE");
-    _null_.put(GL_REG_2_ATI, "GL_REG_2_ATI");
     _null_.put(GL_LOCATION_INDEX, "GL_LOCATION_INDEX");
     _null_.put(GL_DEBUG_CATEGORY_DEPRECATION_AMD, "GL_DEBUG_CATEGORY_DEPRECATION_AMD");
     _null_.put(GL_POST_CONVOLUTION_COLOR_TABLE_SGI, "GL_POST_CONVOLUTION_COLOR_TABLE_SGI");
     _null_.put(GL_SRC0_RGB, "GL_SRC0_RGB");
     _null_.put(GL_MAX_CONVOLUTION_HEIGHT, "GL_MAX_CONVOLUTION_HEIGHT");
-    _null_.put(GL_SWIZZLE_STR_ATI, "GL_SWIZZLE_STR_ATI");
     _null_.put(GL_PIXEL_TILE_HEIGHT_SGIX, "GL_PIXEL_TILE_HEIGHT_SGIX");
     _null_.put(GL_ALL_STATIC_DATA_IBM, "GL_ALL_STATIC_DATA_IBM");
     _null_.put(GL_HISTOGRAM_WIDTH, "GL_HISTOGRAM_WIDTH");
@@ -6388,7 +6289,6 @@ public class GLmetadata {
     _null_.put(GL_BUFFER_MAP_LENGTH, "GL_BUFFER_MAP_LENGTH");
     _null_.put(GL_SAMPLES, "GL_SAMPLES");
     _null_.put(GL_SAMPLER, "GL_SAMPLER");
-    _null_.put(GL_LERP_ATI, "GL_LERP_ATI");
     _null_.put(GL_INT_2_10_10_10_REV, "GL_INT_2_10_10_10_REV");
     _null_.put(GL_T2F_C3F_V3F, "GL_T2F_C3F_V3F");
     _null_.put(GL_DMP_PROGRAM_BINARY_DMP, "GL_DMP_PROGRAM_BINARY_DMP");
@@ -6410,9 +6310,7 @@ public class GLmetadata {
     _null_.put(GL_VIEW_CLASS_RGTC2_RG, "GL_VIEW_CLASS_RGTC2_RG");
     _null_.put(GL_FOG_COLOR, "GL_FOG_COLOR");
     _null_.put(GL_MAX_DEFORMATION_ORDER_SGIX, "GL_MAX_DEFORMATION_ORDER_SGIX");
-    _null_.put(GL_MUL_ATI, "GL_MUL_ATI");
     _null_.put(GL_LINE, "GL_LINE");
-    _null_.put(GL_DRAW_BUFFER13_ATI, "GL_DRAW_BUFFER13_ATI");
     _null_.put(GL_TEXTURE_COLOR_TABLE_SGI, "GL_TEXTURE_COLOR_TABLE_SGI");
     _null_.put(GL_FRAGMENT_COLOR_MATERIAL_SGIX, "GL_FRAGMENT_COLOR_MATERIAL_SGIX");
     _null_.put(GL_PRIMITIVES_SUBMITTED, "GL_PRIMITIVES_SUBMITTED");
@@ -6432,7 +6330,6 @@ public class GLmetadata {
     _null_.put(GL_COPY_PIXEL_TOKEN, "GL_COPY_PIXEL_TOKEN");
     _null_.put(GL_PROXY_TEXTURE_RECTANGLE, "GL_PROXY_TEXTURE_RECTANGLE");
     _null_.put(GL_RGBA4_DXT5_S3TC, "GL_RGBA4_DXT5_S3TC");
-    _null_.put(GL_ALPHA_FLOAT32_ATI, "GL_ALPHA_FLOAT32_ATI");
     _null_.put(GL_COLOR_MATERIAL, "GL_COLOR_MATERIAL");
     _null_.put(GL_CURRENT_BIT, "GL_CURRENT_BIT");
     _null_.put(GL_COEFF, "GL_COEFF");
@@ -6475,13 +6372,11 @@ public class GLmetadata {
     _null_.put(GL_COMPRESSED_SRGB8_ALPHA8_ASTC_5x5, "GL_COMPRESSED_SRGB8_ALPHA8_ASTC_5x5");
     _null_.put(GL_R16F, "GL_R16F");
     _null_.put(GL_QUAD_ALPHA8_SGIS, "GL_QUAD_ALPHA8_SGIS");
-    _null_.put(GL_DRAW_BUFFER2_ATI, "GL_DRAW_BUFFER2_ATI");
     _null_.put(GL_COMPRESSED_SRGB8_ALPHA8_ASTC_5x4, "GL_COMPRESSED_SRGB8_ALPHA8_ASTC_5x4");
     _null_.put(GL_R16I, "GL_R16I");
     _null_.put(GL_C3F_V3F, "GL_C3F_V3F");
     _null_.put(GL_PROXY_TEXTURE_4D_SGIS, "GL_PROXY_TEXTURE_4D_SGIS");
     _null_.put(GL_SPRITE_AXIAL_SGIX, "GL_SPRITE_AXIAL_SGIX");
-    _null_.put(GL_DISCARD_ATI, "GL_DISCARD_ATI");
     _null_.put(GL_DISPATCH_INDIRECT_BUFFER, "GL_DISPATCH_INDIRECT_BUFFER");
     _null_.put(GL_COMPRESSED_SRGB8_ETC2, "GL_COMPRESSED_SRGB8_ETC2");
     _null_.put(GL_SHADER_STORAGE_BUFFER_START, "GL_SHADER_STORAGE_BUFFER_START");
@@ -6491,7 +6386,6 @@ public class GLmetadata {
     _null_.put(GL_2PASS_0_SGIS, "GL_2PASS_0_SGIS");
     _null_.put(GL_INTERNALFORMAT_ALPHA_SIZE, "GL_INTERNALFORMAT_ALPHA_SIZE");
     _null_.put(GL_CONSTANT, "GL_CONSTANT");
-    _null_.put(GL_CON_17_ATI, "GL_CON_17_ATI");
     _null_.put(GL_VERTEX_CONSISTENT_HINT_PGI, "GL_VERTEX_CONSISTENT_HINT_PGI");
     _null_.put(GL_SECONDARY_COLOR_ARRAY_LIST_IBM, "GL_SECONDARY_COLOR_ARRAY_LIST_IBM");
     _null_.put(GL_UNSIGNED_INT_SAMPLER_1D_ARRAY, "GL_UNSIGNED_INT_SAMPLER_1D_ARRAY");
@@ -6499,7 +6393,6 @@ public class GLmetadata {
     _null_.put(GL_SAMPLES_3DFX, "GL_SAMPLES_3DFX");
     _null_.put(GL_GEOMETRY_SHADER_BIT, "GL_GEOMETRY_SHADER_BIT");
     _null_.put(GL_IMAGE_CLASS_2_X_8, "GL_IMAGE_CLASS_2_X_8");
-    _null_.put(GL_CON_4_ATI, "GL_CON_4_ATI");
     _null_.put(GL_DEBUG_NEXT_LOGGED_MESSAGE_LENGTH, "GL_DEBUG_NEXT_LOGGED_MESSAGE_LENGTH");
     _null_.put(GL_RETURN, "GL_RETURN");
     _null_.put(GL_MAX_TRANSFORM_FEEDBACK_INTERLEAVED_COMPONENTS, "GL_MAX_TRANSFORM_FEEDBACK_INTERLEAVED_COMPONENTS");
@@ -6520,17 +6413,14 @@ public class GLmetadata {
     _null_.put(GL_MAX_TESS_EVALUATION_TEXTURE_IMAGE_UNITS, "GL_MAX_TESS_EVALUATION_TEXTURE_IMAGE_UNITS");
     _null_.put(GL_STENCIL_CLEAR_VALUE, "GL_STENCIL_CLEAR_VALUE");
     _null_.put(GL_R1UI_T2F_V3F_SUN, "GL_R1UI_T2F_V3F_SUN");
-    _null_.put(GL_VERTEX_STREAM6_ATI, "GL_VERTEX_STREAM6_ATI");
     _null_.put(GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN, "GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN");
     _null_.put(GL_COMPRESSED_LUMINANCE, "GL_COMPRESSED_LUMINANCE");
     _null_.put(GL_CURRENT_FOG_COORDINATE, "GL_CURRENT_FOG_COORDINATE");
-    _null_.put(GL_COMP_BIT_ATI, "GL_COMP_BIT_ATI");
     _null_.put(GL_TEXTURE_BUFFER_BINDING, "GL_TEXTURE_BUFFER_BINDING");
     _null_.put(GL_SMAPHS30_PROGRAM_BINARY_DMP, "GL_SMAPHS30_PROGRAM_BINARY_DMP");
     _null_.put(GL_PATCH_VERTICES, "GL_PATCH_VERTICES");
     _null_.put(GL_DIFFERENCE, "GL_DIFFERENCE");
     _null_.put(GL_MAX_COMBINED_CLIP_AND_CULL_DISTANCES, "GL_MAX_COMBINED_CLIP_AND_CULL_DISTANCES");
-    _null_.put(GL_REG_17_ATI, "GL_REG_17_ATI");
     _null_.put(GL_CLAMP_TO_EDGE, "GL_CLAMP_TO_EDGE");
     _null_.put(GL_UNIFORM_BUFFER_START, "GL_UNIFORM_BUFFER_START");
     _null_.put(GL_MAP1_GRID_SEGMENTS, "GL_MAP1_GRID_SEGMENTS");
@@ -6546,9 +6436,7 @@ public class GLmetadata {
     _null_.put(GL_R, "GL_R");
     _null_.put(GL_T, "GL_T");
     _null_.put(GL_PERCENTAGE_AMD, "GL_PERCENTAGE_AMD");
-    _null_.put(GL_QUARTER_BIT_ATI, "GL_QUARTER_BIT_ATI");
     _null_.put(GL_SRC0_ALPHA, "GL_SRC0_ALPHA");
-    _null_.put(GL_MODULATE_SIGNED_ADD_ATI, "GL_MODULATE_SIGNED_ADD_ATI");
     _null_.put(GL_STATIC_COPY, "GL_STATIC_COPY");
     _null_.put(GL_EDGE_FLAG_ARRAY, "GL_EDGE_FLAG_ARRAY");
     _null_.put(GL_CLIP_PLANE0_IMG, "GL_CLIP_PLANE0_IMG");
@@ -6603,7 +6491,6 @@ public class GLmetadata {
     _null_.put(GL_TEXTURE_MAX_LEVEL, "GL_TEXTURE_MAX_LEVEL");
     _null_.put(GL_SRGB_READ, "GL_SRGB_READ");
     _null_.put(GL_TEXTURE_BORDER_COLOR, "GL_TEXTURE_BORDER_COLOR");
-    _null_.put(GL_MIRROR_CLAMP_ATI, "GL_MIRROR_CLAMP_ATI");
     _null_.put(GL_RED_SCALE, "GL_RED_SCALE");
     _null_.put(GL_GEOMETRY_INPUT_TYPE, "GL_GEOMETRY_INPUT_TYPE");
     _null_.put(GL_PIXEL_GROUP_COLOR_SGIS, "GL_PIXEL_GROUP_COLOR_SGIS");
@@ -6618,7 +6505,6 @@ public class GLmetadata {
     _null_.put(GL_MAP_PERSISTENT_BIT, "GL_MAP_PERSISTENT_BIT");
     _null_.put(GL_CURRENT_VERTEX_ATTRIB, "GL_CURRENT_VERTEX_ATTRIB");
     _null_.put(GL_ALL_PIXELS_AMD, "GL_ALL_PIXELS_AMD");
-    _null_.put(GL_RENDERBUFFER_FREE_MEMORY_ATI, "GL_RENDERBUFFER_FREE_MEMORY_ATI");
     _null_.put(GL_IMAGE_2D_MULTISAMPLE_ARRAY, "GL_IMAGE_2D_MULTISAMPLE_ARRAY");
     _null_.put(GL_VERTEX_SHADER, "GL_VERTEX_SHADER");
     _null_.put(GL_TEXTURE_CONSTANT_DATA_SUNX, "GL_TEXTURE_CONSTANT_DATA_SUNX");
@@ -6636,7 +6522,6 @@ public class GLmetadata {
     _null_.put(GL_MAX_COMBINED_ATOMIC_COUNTERS, "GL_MAX_COMBINED_ATOMIC_COUNTERS");
     _null_.put(GL_COMPARE_R_TO_TEXTURE, "GL_COMPARE_R_TO_TEXTURE");
     _null_.put(GL_UNDEFINED_APPLE, "GL_UNDEFINED_APPLE");
-    _null_.put(GL_REG_7_ATI, "GL_REG_7_ATI");
     _null_.put(GL_VIEWPORT_INDEX_PROVOKING_VERTEX, "GL_VIEWPORT_INDEX_PROVOKING_VERTEX");
     _null_.put(GL_MAX_GEOMETRY_INPUT_COMPONENTS, "GL_MAX_GEOMETRY_INPUT_COMPONENTS");
     _null_.put(GL_HISTOGRAM, "GL_HISTOGRAM");
@@ -6733,7 +6618,6 @@ public class GLmetadata {
     _null_.put(GL_BLEND_DST, "GL_BLEND_DST");
     _null_.put(GL_TEXTURE_STACK_DEPTH, "GL_TEXTURE_STACK_DEPTH");
     _null_.put(GL_1PASS_SGIS, "GL_1PASS_SGIS");
-    _null_.put(GL_8X_BIT_ATI, "GL_8X_BIT_ATI");
     _null_.put(GL_TRANSFORM_FEEDBACK_STREAM_OVERFLOW, "GL_TRANSFORM_FEEDBACK_STREAM_OVERFLOW");
     _null_.put(GL_LINEAR_SHARPEN_COLOR_SGIS, "GL_LINEAR_SHARPEN_COLOR_SGIS");
     _null_.put(GL_TRACE_ERRORS_BIT_MESA, "GL_TRACE_ERRORS_BIT_MESA");
@@ -6742,7 +6626,6 @@ public class GLmetadata {
     _null_.put(GL_INTENSITY8, "GL_INTENSITY8");
     _null_.put(GL_INTENSITY4, "GL_INTENSITY4");
     _null_.put(GL_SCALEBIAS_HINT_SGIX, "GL_SCALEBIAS_HINT_SGIX");
-    _null_.put(GL_REG_14_ATI, "GL_REG_14_ATI");
     _null_.put(GL_DOUBLE_VEC4, "GL_DOUBLE_VEC4");
     _null_.put(GL_DOUBLE_VEC3, "GL_DOUBLE_VEC3");
     _null_.put(GL_LINE_STIPPLE_PATTERN, "GL_LINE_STIPPLE_PATTERN");
@@ -6752,8 +6635,6 @@ public class GLmetadata {
     _null_.put(GL_MAX_ARRAY_TEXTURE_LAYERS, "GL_MAX_ARRAY_TEXTURE_LAYERS");
     _null_.put(GL_FULL_STIPPLE_HINT_PGI, "GL_FULL_STIPPLE_HINT_PGI");
     _null_.put(GL_VERTEX_ATTRIB_ARRAY_BARRIER_BIT, "GL_VERTEX_ATTRIB_ARRAY_BARRIER_BIT");
-    _null_.put(GL_VERTEX_STREAM2_ATI, "GL_VERTEX_STREAM2_ATI");
-    _null_.put(GL_CON_1_ATI, "GL_CON_1_ATI");
     _null_.put(GL_SECONDARY_COLOR_ARRAY_TYPE, "GL_SECONDARY_COLOR_ARRAY_TYPE");
     _null_.put(GL_SRGB_ALPHA, "GL_SRGB_ALPHA");
     _null_.put(GL_COMPRESSED_RGBA_BPTC_UNORM, "GL_COMPRESSED_RGBA_BPTC_UNORM");
@@ -6818,11 +6699,8 @@ public class GLmetadata {
     _null_.put(GL_SHORT, "GL_SHORT");
     _null_.put(GL_RG16F, "GL_RG16F");
     _null_.put(GL_COLOR_RENDERABLE, "GL_COLOR_RENDERABLE");
-    _null_.put(GL_COLOR_ALPHA_PAIRING_ATI, "GL_COLOR_ALPHA_PAIRING_ATI");
-    _null_.put(GL_ALPHA_FLOAT16_ATI, "GL_ALPHA_FLOAT16_ATI");
     _null_.put(GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL, "GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL");
     _null_.put(GL_QUERY_OBJECT_AMD, "GL_QUERY_OBJECT_AMD");
-    _null_.put(GL_REG_23_ATI, "GL_REG_23_ATI");
     _null_.put(GL_RGB8I, "GL_RGB8I");
     _null_.put(GL_PIXEL_MAP_I_TO_G_SIZE, "GL_PIXEL_MAP_I_TO_G_SIZE");
     _null_.put(GL_EYE_LINEAR, "GL_EYE_LINEAR");
@@ -6851,7 +6729,6 @@ public class GLmetadata {
     _null_.put(GL_ONE, "GL_ONE");
     _null_.put(GL_VERTEX_ARRAY_RANGE_LENGTH_APPLE, "GL_VERTEX_ARRAY_RANGE_LENGTH_APPLE");
     _null_.put(GL_DEBUG_OBJECT_MESA, "GL_DEBUG_OBJECT_MESA");
-    _null_.put(GL_BLUE_BIT_ATI, "GL_BLUE_BIT_ATI");
     _null_.put(GL_PROXY_POST_COLOR_MATRIX_COLOR_TABLE_SGI, "GL_PROXY_POST_COLOR_MATRIX_COLOR_TABLE_SGI");
     _null_.put(GL_UNPACK_COMPRESSED_BLOCK_SIZE, "GL_UNPACK_COMPRESSED_BLOCK_SIZE");
     _null_.put(GL_RENDERBUFFER_STENCIL_SIZE, "GL_RENDERBUFFER_STENCIL_SIZE");
@@ -6878,7 +6755,6 @@ public class GLmetadata {
     _null_.put(GL_POST_COLOR_MATRIX_ALPHA_SCALE, "GL_POST_COLOR_MATRIX_ALPHA_SCALE");
     _null_.put(GL_TRANSPOSE_PROJECTION_MATRIX, "GL_TRANSPOSE_PROJECTION_MATRIX");
     _null_.put(GL_STATIC_VERTEX_ARRAY_IBM, "GL_STATIC_VERTEX_ARRAY_IBM");
-    _null_.put(GL_BIAS_BIT_ATI, "GL_BIAS_BIT_ATI");
     _null_.put(GL_GENERATE_MIPMAP_HINT, "GL_GENERATE_MIPMAP_HINT");
     _null_.put(GL_UNSIGNED_INT_5_9_9_9_REV, "GL_UNSIGNED_INT_5_9_9_9_REV");
     _null_.put(GL_ASYNC_TEX_IMAGE_SGIX, "GL_ASYNC_TEX_IMAGE_SGIX");
@@ -6907,13 +6783,11 @@ public class GLmetadata {
     _null_.put(GL_CONTEXT_ROBUST_ACCESS, "GL_CONTEXT_ROBUST_ACCESS");
     _null_.put(GL_POINT_SMOOTH_HINT, "GL_POINT_SMOOTH_HINT");
     _null_.put(GL_INT_IMAGE_CUBE, "GL_INT_IMAGE_CUBE");
-    _null_.put(GL_BUMP_TARGET_ATI, "GL_BUMP_TARGET_ATI");
     _null_.put(GL_IMAGE_SCALE_X_HP, "GL_IMAGE_SCALE_X_HP");
     _null_.put(GL_VIEW_CLASS_128_BITS, "GL_VIEW_CLASS_128_BITS");
     _null_.put(GL_UNIFORM_BLOCK, "GL_UNIFORM_BLOCK");
     _null_.put(GL_MULTISAMPLE, "GL_MULTISAMPLE");
     _null_.put(GL_LUMINANCE_ALPHA_SNORM, "GL_LUMINANCE_ALPHA_SNORM");
-    _null_.put(GL_REG_10_ATI, "GL_REG_10_ATI");
     _null_.put(GL_SAMPLE_MASK_VALUE_SGIS, "GL_SAMPLE_MASK_VALUE_SGIS");
     _null_.put(GL_QUAD_LUMINANCE8_SGIS, "GL_QUAD_LUMINANCE8_SGIS");
     _null_.put(GL_DEBUG_CALLBACK_FUNCTION, "GL_DEBUG_CALLBACK_FUNCTION");
@@ -6962,7 +6836,6 @@ public class GLmetadata {
     _null_.put(GL_STACK_UNDERFLOW, "GL_STACK_UNDERFLOW");
     _null_.put(GL_IMPLEMENTATION_COLOR_READ_FORMAT, "GL_IMPLEMENTATION_COLOR_READ_FORMAT");
     _null_.put(GL_MAX_TESS_CONTROL_TOTAL_OUTPUT_COMPONENTS, "GL_MAX_TESS_CONTROL_TOTAL_OUTPUT_COMPONENTS");
-    _null_.put(GL_CON_10_ATI, "GL_CON_10_ATI");
     _null_.put(GL_RESET_NOTIFICATION_STRATEGY_KHR, "GL_RESET_NOTIFICATION_STRATEGY_KHR");
     _null_.put(GL_PROXY_POST_IMAGE_TRANSFORM_COLOR_TABLE_HP, "GL_PROXY_POST_IMAGE_TRANSFORM_COLOR_TABLE_HP");
     _null_.put(GL_ATTACHED_SHADERS, "GL_ATTACHED_SHADERS");
@@ -6978,7 +6851,6 @@ public class GLmetadata {
     _null_.put(GL_YCRCB_444_SGIX, "GL_YCRCB_444_SGIX");
     _null_.put(GL_SYNC_FLAGS, "GL_SYNC_FLAGS");
     _null_.put(GL_IMAGE_2D_MULTISAMPLE, "GL_IMAGE_2D_MULTISAMPLE");
-    _null_.put(GL_CON_26_ATI, "GL_CON_26_ATI");
     _null_.put(GL_RECIP_ADD_SIGNED_ALPHA_IMG, "GL_RECIP_ADD_SIGNED_ALPHA_IMG");
     _null_.put(GL_TEXTURE_WIDTH, "GL_TEXTURE_WIDTH");
     _null_.put(GL_VERTEX_ATTRIB_ARRAY_NORMALIZED, "GL_VERTEX_ATTRIB_ARRAY_NORMALIZED");
@@ -6997,15 +6869,11 @@ public class GLmetadata {
     _null_.put(GL_VIEW_CLASS_8_BITS, "GL_VIEW_CLASS_8_BITS");
     _null_.put(GL_LINE_BIT, "GL_LINE_BIT");
     _null_.put(GL_PACK_LSB_FIRST, "GL_PACK_LSB_FIRST");
-    _null_.put(GL_REG_27_ATI, "GL_REG_27_ATI");
     _null_.put(GL_TEXTURE_COMPARE_FUNC, "GL_TEXTURE_COMPARE_FUNC");
     _null_.put(GL_MULTISAMPLE_LINE_WIDTH_GRANULARITY, "GL_MULTISAMPLE_LINE_WIDTH_GRANULARITY");
     _null_.put(GL_WEIGHT_ARRAY_BUFFER_BINDING, "GL_WEIGHT_ARRAY_BUFFER_BINDING");
-    _null_.put(GL_CON_31_ATI, "GL_CON_31_ATI");
     _null_.put(GL_PERFQUERY_DONOT_FLUSH_INTEL, "GL_PERFQUERY_DONOT_FLUSH_INTEL");
     _null_.put(GL_INVALID_ENUM, "GL_INVALID_ENUM");
-    _null_.put(GL_CON_9_ATI, "GL_CON_9_ATI");
-    _null_.put(GL_DRAW_BUFFER14_ATI, "GL_DRAW_BUFFER14_ATI");
     _null_.put(GL_DETAIL_TEXTURE_LEVEL_SGIS, "GL_DETAIL_TEXTURE_LEVEL_SGIS");
     _null_.put(GL_TEXTURE_FORMAT_QCOM, "GL_TEXTURE_FORMAT_QCOM");
     _null_.put(GL_CURRENT_QUERY, "GL_CURRENT_QUERY");
@@ -7030,7 +6898,6 @@ public class GLmetadata {
     _null_.put(GL_PROJECTION_MATRIX, "GL_PROJECTION_MATRIX");
     _null_.put(GL_NEAREST_CLIPMAP_NEAREST_SGIX, "GL_NEAREST_CLIPMAP_NEAREST_SGIX");
     _null_.put(GL_PERFQUERY_COUNTER_TIMESTAMP_INTEL, "GL_PERFQUERY_COUNTER_TIMESTAMP_INTEL");
-    _null_.put(GL_PN_TRIANGLES_POINT_MODE_LINEAR_ATI, "GL_PN_TRIANGLES_POINT_MODE_LINEAR_ATI");
     _null_.put(GL_OR_INVERTED, "GL_OR_INVERTED");
     _null_.put(GL_CONTEXT_FLAGS, "GL_CONTEXT_FLAGS");
     _null_.put(GL_CLIP_DEPTH_MODE, "GL_CLIP_DEPTH_MODE");
@@ -7056,14 +6923,12 @@ public class GLmetadata {
     _null_.put(GL_TEXTURE_MAX_LOD, "GL_TEXTURE_MAX_LOD");
     _null_.put(GL_SAMPLER_CUBE_MAP_ARRAY, "GL_SAMPLER_CUBE_MAP_ARRAY");
     _null_.put(GL_COMPRESSED_RGBA_ASTC_12x12_KHR, "GL_COMPRESSED_RGBA_ASTC_12x12_KHR");
-    _null_.put(GL_MAD_ATI, "GL_MAD_ATI");
     _null_.put(GL_YCRCB_422_SGIX, "GL_YCRCB_422_SGIX");
     _null_.put(GL_STENCIL_BACK_REF, "GL_STENCIL_BACK_REF");
     _null_.put(GL_CONVOLUTION_HEIGHT, "GL_CONVOLUTION_HEIGHT");
     _null_.put(GL_ASYNC_MARKER_SGIX, "GL_ASYNC_MARKER_SGIX");
     _null_.put(GL_INTERNALFORMAT_STENCIL_SIZE, "GL_INTERNALFORMAT_STENCIL_SIZE");
     _null_.put(GL_FRAMEBUFFER_INCOMPLETE_READ_BUFFER, "GL_FRAMEBUFFER_INCOMPLETE_READ_BUFFER");
-    _null_.put(GL_STENCIL_BACK_FAIL_ATI, "GL_STENCIL_BACK_FAIL_ATI");
     _null_.put(GL_CLIENT_PIXEL_STORE_BIT, "GL_CLIENT_PIXEL_STORE_BIT");
     _null_.put(GL_INT_IMAGE_2D_RECT, "GL_INT_IMAGE_2D_RECT");
     _null_.put(GL_MATERIAL_SIDE_HINT_PGI, "GL_MATERIAL_SIDE_HINT_PGI");
@@ -7078,12 +6943,9 @@ public class GLmetadata {
     _null_.put(GL_CONVOLUTION_HINT_SGIX, "GL_CONVOLUTION_HINT_SGIX");
     _null_.put(GL_MAX_COMPUTE_SHADER_STORAGE_BLOCKS, "GL_MAX_COMPUTE_SHADER_STORAGE_BLOCKS");
     _null_.put(GL_LIGHTEN_KHR, "GL_LIGHTEN_KHR");
-    _null_.put(GL_VBO_FREE_MEMORY_ATI, "GL_VBO_FREE_MEMORY_ATI");
     _null_.put(GL_FEEDBACK_BUFFER_POINTER, "GL_FEEDBACK_BUFFER_POINTER");
     _null_.put(GL_COLOR_TABLE_BLUE_SIZE, "GL_COLOR_TABLE_BLUE_SIZE");
     _null_.put(GL_INT_IMAGE_2D_MULTISAMPLE_ARRAY, "GL_INT_IMAGE_2D_MULTISAMPLE_ARRAY");
-    _null_.put(GL_PN_TRIANGLES_NORMAL_MODE_LINEAR_ATI, "GL_PN_TRIANGLES_NORMAL_MODE_LINEAR_ATI");
-    _null_.put(GL_DRAW_BUFFER3_ATI, "GL_DRAW_BUFFER3_ATI");
     _null_.put(GL_MAX_FRAMEBUFFER_HEIGHT, "GL_MAX_FRAMEBUFFER_HEIGHT");
     _null_.put(GL_GEOMETRY_SHADER_PRIMITIVES_EMITTED, "GL_GEOMETRY_SHADER_PRIMITIVES_EMITTED");
     _null_.put(GL_RENDER_MODE, "GL_RENDER_MODE");
@@ -7107,23 +6969,19 @@ public class GLmetadata {
     _null_.put(GL_POLYGON_SMOOTH, "GL_POLYGON_SMOOTH");
     _null_.put(GL_NUM_EXTENSIONS, "GL_NUM_EXTENSIONS");
     _null_.put(GL_VERTEX_ATTRIB_ARRAY_INTEGER, "GL_VERTEX_ATTRIB_ARRAY_INTEGER");
-    _null_.put(GL_NUM_FRAGMENT_CONSTANTS_ATI, "GL_NUM_FRAGMENT_CONSTANTS_ATI");
     _null_.put(GL_CLAMP, "GL_CLAMP");
     _null_.put(GL_MAX_CLIP_PLANES_IMG, "GL_MAX_CLIP_PLANES_IMG");
     _null_.put(GL_DISCRETE_AMD, "GL_DISCRETE_AMD");
     _null_.put(GL_MATRIX_STRIDE, "GL_MATRIX_STRIDE");
     _null_.put(GL_BLEND_EQUATION, "GL_BLEND_EQUATION");
     _null_.put(GL_PATCH_DEFAULT_OUTER_LEVEL, "GL_PATCH_DEFAULT_OUTER_LEVEL");
-    _null_.put(GL_CON_14_ATI, "GL_CON_14_ATI");
     _null_.put(GL_ACTIVE_VARIABLES, "GL_ACTIVE_VARIABLES");
     _null_.put(GL_COMPRESSED_SRGB8_ALPHA8_ASTC_10x8_KHR, "GL_COMPRESSED_SRGB8_ALPHA8_ASTC_10x8_KHR");
     _null_.put(GL_PERFMON_RESULT_AVAILABLE_AMD, "GL_PERFMON_RESULT_AVAILABLE_AMD");
     _null_.put(GL_ADD_BLEND_IMG, "GL_ADD_BLEND_IMG");
     _null_.put(GL_YCRCBA_SGIX, "GL_YCRCBA_SGIX");
     _null_.put(GL_FOG_COORDINATE_ARRAY_LIST_STRIDE_IBM, "GL_FOG_COORDINATE_ARRAY_LIST_STRIDE_IBM");
-    _null_.put(GL_CON_22_ATI, "GL_CON_22_ATI");
     _null_.put(GL_UNSIGNED_BYTE, "GL_UNSIGNED_BYTE");
-    _null_.put(GL_TEXTURE_FREE_MEMORY_ATI, "GL_TEXTURE_FREE_MEMORY_ATI");
     _null_.put(GL_COMPRESSED_SIGNED_RED_RGTC1, "GL_COMPRESSED_SIGNED_RED_RGTC1");
     _null_.put(GL_SHADING_LANGUAGE_VERSION, "GL_SHADING_LANGUAGE_VERSION");
     _null_.put(GL_GREEN_MAX_CLAMP_INGR, "GL_GREEN_MAX_CLAMP_INGR");
@@ -7152,9 +7010,7 @@ public class GLmetadata {
     _null_.put(GL_DEBUG_LOGGED_MESSAGES_KHR, "GL_DEBUG_LOGGED_MESSAGES_KHR");
     _null_.put(GL_ELEMENT_ARRAY_APPLE, "GL_ELEMENT_ARRAY_APPLE");
     _null_.put(GL_COMPRESSED_RGBA_ASTC_5x4_KHR, "GL_COMPRESSED_RGBA_ASTC_5x4_KHR");
-    _null_.put(GL_BUMP_TEX_UNITS_ATI, "GL_BUMP_TEX_UNITS_ATI");
     _null_.put(GL_INTERNALFORMAT_GREEN_TYPE, "GL_INTERNALFORMAT_GREEN_TYPE");
-    _null_.put(GL_SWIZZLE_STQ_ATI, "GL_SWIZZLE_STQ_ATI");
     _null_.put(GL_SRC1_RGB, "GL_SRC1_RGB");
     _null_.put(GL_SAMPLER_CUBE, "GL_SAMPLER_CUBE");
     _null_.put(GL_PERFQUERY_COUNTER_DATA_UINT32_INTEL, "GL_PERFQUERY_COUNTER_DATA_UINT32_INTEL");
@@ -7162,7 +7018,6 @@ public class GLmetadata {
     _null_.put(GL_EQUIV, "GL_EQUIV");
     _null_.put(GL_INDEX_ARRAY_POINTER, "GL_INDEX_ARRAY_POINTER");
     _null_.put(GL_CAVEAT_SUPPORT, "GL_CAVEAT_SUPPORT");
-    _null_.put(GL_REG_3_ATI, "GL_REG_3_ATI");
     _null_.put(GL_PERFMON_GLOBAL_MODE_QCOM, "GL_PERFMON_GLOBAL_MODE_QCOM");
     _null_.put(GL_ENABLE_BIT, "GL_ENABLE_BIT");
     _null_.put(GL_LOW_FLOAT, "GL_LOW_FLOAT");
@@ -7175,7 +7030,6 @@ public class GLmetadata {
     _null_.put(GL_PERFQUERY_COUNTER_DATA_FLOAT_INTEL, "GL_PERFQUERY_COUNTER_DATA_FLOAT_INTEL");
     _null_.put(GL_CONTEXT_ROBUST_ACCESS_KHR, "GL_CONTEXT_ROBUST_ACCESS_KHR");
     _null_.put(GL_PRIMITIVE_BOUNDING_BOX, "GL_PRIMITIVE_BOUNDING_BOX");
-    _null_.put(GL_ELEMENT_ARRAY_TYPE_ATI, "GL_ELEMENT_ARRAY_TYPE_ATI");
     _null_.put(GL_EXP, "GL_EXP");
     _null_.put(GL_LINE_SMOOTH_HINT, "GL_LINE_SMOOTH_HINT");
     _null_.put(GL_VIEW_CLASS_64_BITS, "GL_VIEW_CLASS_64_BITS");
@@ -7190,26 +7044,21 @@ public class GLmetadata {
     _null_.put(GL_AND_REVERSE, "GL_AND_REVERSE");
     _null_.put(GL_TRUE, "GL_TRUE");
     _null_.put(GL_MAX_ASYNC_DRAW_PIXELS_SGIX, "GL_MAX_ASYNC_DRAW_PIXELS_SGIX");
-    _null_.put(GL_CON_18_ATI, "GL_CON_18_ATI");
     _null_.put(GL_FOG_INDEX, "GL_FOG_INDEX");
     _null_.put(GL_MIN_MAP_BUFFER_ALIGNMENT, "GL_MIN_MAP_BUFFER_ALIGNMENT");
     _null_.put(GL_BLEND_SRC_RGB, "GL_BLEND_SRC_RGB");
     _null_.put(GL_ACTIVE_SUBROUTINE_UNIFORM_MAX_LENGTH, "GL_ACTIVE_SUBROUTINE_UNIFORM_MAX_LENGTH");
     _null_.put(GL_HISTOGRAM_LUMINANCE_SIZE, "GL_HISTOGRAM_LUMINANCE_SIZE");
     _null_.put(GL_FRAGMENT_LIGHT5_SGIX, "GL_FRAGMENT_LIGHT5_SGIX");
-    _null_.put(GL_DRAW_BUFFER10_ATI, "GL_DRAW_BUFFER10_ATI");
     _null_.put(GL_MAX_TESS_EVALUATION_UNIFORM_BLOCKS, "GL_MAX_TESS_EVALUATION_UNIFORM_BLOCKS");
     _null_.put(GL_COMPRESSED_RGBA, "GL_COMPRESSED_RGBA");
-    _null_.put(GL_CON_5_ATI, "GL_CON_5_ATI");
     _null_.put(GL_FRAMEBUFFER_ATTACHMENT_GREEN_SIZE, "GL_FRAMEBUFFER_ATTACHMENT_GREEN_SIZE");
     _null_.put(GL_FORMAT_SUBSAMPLE_244_244_OML, "GL_FORMAT_SUBSAMPLE_244_244_OML");
     _null_.put(GL_BLEND_COLOR, "GL_BLEND_COLOR");
     _null_.put(GL_SIGNALED_APPLE, "GL_SIGNALED_APPLE");
     _null_.put(GL_DEPTH_BIAS, "GL_DEPTH_BIAS");
-    _null_.put(GL_REG_31_ATI, "GL_REG_31_ATI");
   }
   private static void _null_40() {
-    _null_.put(GL_STENCIL_BACK_FUNC_ATI, "GL_STENCIL_BACK_FUNC_ATI");
     _null_.put(GL_HISTOGRAM_SINK, "GL_HISTOGRAM_SINK");
     _null_.put(GL_DEPTH_FUNC, "GL_DEPTH_FUNC");
     _null_.put(GL_INT_IMAGE_1D_ARRAY, "GL_INT_IMAGE_1D_ARRAY");
@@ -7231,7 +7080,6 @@ public class GLmetadata {
     _null_.put(GL_POINT_DISTANCE_ATTENUATION, "GL_POINT_DISTANCE_ATTENUATION");
     _null_.put(GL_SAMPLE_COVERAGE, "GL_SAMPLE_COVERAGE");
     _null_.put(GL_BUFFER_OBJECT_APPLE, "GL_BUFFER_OBJECT_APPLE");
-    _null_.put(GL_DYNAMIC_ATI, "GL_DYNAMIC_ATI");
     _null_.put(GL_ALPHA_MAX_SGIX, "GL_ALPHA_MAX_SGIX");
     _null_.put(GL_ATOMIC_COUNTER_BUFFER_START, "GL_ATOMIC_COUNTER_BUFFER_START");
     _null_.put(GL_IR_INSTRUMENT1_SGIX, "GL_IR_INSTRUMENT1_SGIX");
@@ -7243,7 +7091,6 @@ public class GLmetadata {
     _null_.put(GL_SPOT_EXPONENT, "GL_SPOT_EXPONENT");
     _null_.put(GL_MAX_LABEL_LENGTH, "GL_MAX_LABEL_LENGTH");
     _null_.put(GL_NAME_STACK_DEPTH, "GL_NAME_STACK_DEPTH");
-    _null_.put(GL_SUB_ATI, "GL_SUB_ATI");
     _null_.put(GL_IMAGE_CLASS_1_X_16, "GL_IMAGE_CLASS_1_X_16");
     _null_.put(GL_UNSIGNED_INT_10F_11F_11F_REV_APPLE, "GL_UNSIGNED_INT_10F_11F_11F_REV_APPLE");
     _null_.put(GL_PIXEL_MAP_G_TO_G, "GL_PIXEL_MAP_G_TO_G");
@@ -7253,15 +7100,12 @@ public class GLmetadata {
     _null_.put(GL_DRAW_BUFFER14, "GL_DRAW_BUFFER14");
     _null_.put(GL_DRAW_BUFFER15, "GL_DRAW_BUFFER15");
     _null_.put(GL_MULTISAMPLE_BUFFER_BIT1_QCOM, "GL_MULTISAMPLE_BUFFER_BIT1_QCOM");
-    _null_.put(GL_VERTEX_STREAM5_ATI, "GL_VERTEX_STREAM5_ATI");
     _null_.put(GL_DRAW_BUFFER10, "GL_DRAW_BUFFER10");
     _null_.put(GL_DRAW_BUFFER11, "GL_DRAW_BUFFER11");
     _null_.put(GL_CUBIC_IMG, "GL_CUBIC_IMG");
     _null_.put(GL_DRAW_BUFFER12, "GL_DRAW_BUFFER12");
     _null_.put(GL_RED_MAX_CLAMP_INGR, "GL_RED_MAX_CLAMP_INGR");
     _null_.put(GL_DRAW_BUFFER13, "GL_DRAW_BUFFER13");
-    _null_.put(GL_SWIZZLE_STRQ_ATI, "GL_SWIZZLE_STRQ_ATI");
-    _null_.put(GL_BUMP_NUM_TEX_UNITS_ATI, "GL_BUMP_NUM_TEX_UNITS_ATI");
     _null_.put(GL_TEXTURE_VIEW_NUM_LAYERS, "GL_TEXTURE_VIEW_NUM_LAYERS");
     _null_.put(GL_INSTRUMENT_MEASUREMENTS_SGIX, "GL_INSTRUMENT_MEASUREMENTS_SGIX");
     _null_.put(GL_MAX_COMBINED_SHADER_STORAGE_BLOCKS, "GL_MAX_COMBINED_SHADER_STORAGE_BLOCKS");
@@ -7324,7 +7168,6 @@ public class GLmetadata {
     _null_.put(GL_PERFQUERY_COUNTER_DATA_UINT64_INTEL, "GL_PERFQUERY_COUNTER_DATA_UINT64_INTEL");
     _null_.put(GL_REFERENCE_PLANE_EQUATION_SGIX, "GL_REFERENCE_PLANE_EQUATION_SGIX");
     _null_.put(GL_TESS_CONTROL_OUTPUT_VERTICES, "GL_TESS_CONTROL_OUTPUT_VERTICES");
-    _null_.put(GL_REG_18_ATI, "GL_REG_18_ATI");
     _null_.put(GL_CONTEXT_FLAG_NO_ERROR_BIT, "GL_CONTEXT_FLAG_NO_ERROR_BIT");
     _null_.put(GL_TEXTURE_COMPRESSED_IMAGE_SIZE, "GL_TEXTURE_COMPRESSED_IMAGE_SIZE");
     _null_.put(GL_COMPRESSED_SRGB, "GL_COMPRESSED_SRGB");
@@ -7334,7 +7177,6 @@ public class GLmetadata {
     _null_.put(GL_ALL_SHADER_BITS, "GL_ALL_SHADER_BITS");
     _null_.put(GL_MAX_ACTIVE_LIGHTS_SGIX, "GL_MAX_ACTIVE_LIGHTS_SGIX");
     _null_.put(GL_QUERY_BY_REGION_WAIT_INVERTED, "GL_QUERY_BY_REGION_WAIT_INVERTED");
-    _null_.put(GL_PN_TRIANGLES_NORMAL_MODE_ATI, "GL_PN_TRIANGLES_NORMAL_MODE_ATI");
     _null_.put(GL_UNSIGNED_INT_SAMPLER_2D_MULTISAMPLE_ARRAY, "GL_UNSIGNED_INT_SAMPLER_2D_MULTISAMPLE_ARRAY");
     _null_.put(GL_VERTEX_ATTRIB_ARRAY_DIVISOR_ANGLE, "GL_VERTEX_ATTRIB_ARRAY_DIVISOR_ANGLE");
     _null_.put(GL_OCCLUSION_QUERY_EVENT_MASK_AMD, "GL_OCCLUSION_QUERY_EVENT_MASK_AMD");
@@ -7391,7 +7233,6 @@ public class GLmetadata {
     _null_.put(GL_COMPRESSED_RGBA_ASTC_8x6_KHR, "GL_COMPRESSED_RGBA_ASTC_8x6_KHR");
     _null_.put(GL_PIXEL_TILE_GRID_HEIGHT_SGIX, "GL_PIXEL_TILE_GRID_HEIGHT_SGIX");
     _null_.put(GL_TEXTURE_CUBE_MAP_SEAMLESS, "GL_TEXTURE_CUBE_MAP_SEAMLESS");
-    _null_.put(GL_REG_20_ATI, "GL_REG_20_ATI");
     _null_.put(GL_DEBUG_SEVERITY_LOW_KHR, "GL_DEBUG_SEVERITY_LOW_KHR");
     _null_.put(GL_VERTEX_ARRAY_SIZE, "GL_VERTEX_ARRAY_SIZE");
     _null_.put(GL_MAP_INVALIDATE_RANGE_BIT, "GL_MAP_INVALIDATE_RANGE_BIT");
@@ -7402,7 +7243,6 @@ public class GLmetadata {
     _null_.put(GL_DUAL_LUMINANCE12_SGIS, "GL_DUAL_LUMINANCE12_SGIS");
     _null_.put(GL_ATOMIC_COUNTER_BUFFER_ACTIVE_ATOMIC_COUNTER_INDICES, "GL_ATOMIC_COUNTER_BUFFER_ACTIVE_ATOMIC_COUNTER_INDICES");
     _null_.put(GL_TEXTURE_BASE_LEVEL, "GL_TEXTURE_BASE_LEVEL");
-    _null_.put(GL_ELEMENT_ARRAY_ATI, "GL_ELEMENT_ARRAY_ATI");
     _null_.put(GL_SPRITE_TRANSLATION_SGIX, "GL_SPRITE_TRANSLATION_SGIX");
     _null_.put(GL_COUNTER_TYPE_AMD, "GL_COUNTER_TYPE_AMD");
     _null_.put(GL_REPLACE_OLDEST_SUN, "GL_REPLACE_OLDEST_SUN");
@@ -7413,7 +7253,6 @@ public class GLmetadata {
     _null_.put(GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE_AND_DOWNSAMPLE_IMG, "GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE_AND_DOWNSAMPLE_IMG");
     _null_.put(GL_BUFFER_UPDATE_BARRIER_BIT, "GL_BUFFER_UPDATE_BARRIER_BIT");
     _null_.put(GL_BLUE_MIN_CLAMP_INGR, "GL_BLUE_MIN_CLAMP_INGR");
-    _null_.put(GL_NUM_INSTRUCTIONS_TOTAL_ATI, "GL_NUM_INSTRUCTIONS_TOTAL_ATI");
     _null_.put(GL_RGBA_MODE, "GL_RGBA_MODE");
   }
   private static void _null_44() {
@@ -7435,12 +7274,9 @@ public class GLmetadata {
     _null_.put(GL_TEXTURE_VIEW_MIN_LEVEL, "GL_TEXTURE_VIEW_MIN_LEVEL");
     _null_.put(GL_LIGHTING_BIT, "GL_LIGHTING_BIT");
     _null_.put(GL_AUTO_GENERATE_MIPMAP, "GL_AUTO_GENERATE_MIPMAP");
-    _null_.put(GL_REG_11_ATI, "GL_REG_11_ATI");
     _null_.put(GL_UNPACK_RESAMPLE_SGIX, "GL_UNPACK_RESAMPLE_SGIX");
     _null_.put(GL_MAX_TEXTURE_LOD_BIAS, "GL_MAX_TEXTURE_LOD_BIAS");
-    _null_.put(GL_VERTEX_STREAM1_ATI, "GL_VERTEX_STREAM1_ATI");
     _null_.put(GL_BOOL, "GL_BOOL");
-    _null_.put(GL_DUDV_ATI, "GL_DUDV_ATI");
     _null_.put(GL_COLOR_ARRAY_STRIDE, "GL_COLOR_ARRAY_STRIDE");
     _null_.put(GL_ELEMENT_ARRAY_BUFFER_BINDING, "GL_ELEMENT_ARRAY_BUFFER_BINDING");
     _null_.put(GL_UNPACK_IMAGE_DEPTH_SGIS, "GL_UNPACK_IMAGE_DEPTH_SGIS");
@@ -7480,8 +7316,6 @@ public class GLmetadata {
     _null_.put(GL_SECONDARY_COLOR_ARRAY_BUFFER_BINDING, "GL_SECONDARY_COLOR_ARRAY_BUFFER_BINDING");
     _null_.put(GL_TEXTURE_COMPONENTS, "GL_TEXTURE_COMPONENTS");
     _null_.put(GL_TEXTURE_COMPRESSED, "GL_TEXTURE_COMPRESSED");
-    _null_.put(GL_CON_29_ATI, "GL_CON_29_ATI");
-    _null_.put(GL_STENCIL_BACK_PASS_DEPTH_FAIL_ATI, "GL_STENCIL_BACK_PASS_DEPTH_FAIL_ATI");
     _null_.put(GL_RED_SNORM, "GL_RED_SNORM");
     _null_.put(GL_UNSIGNED_SHORT_4_4_4_4, "GL_UNSIGNED_SHORT_4_4_4_4");
     _null_.put(GL_FOG_COORD, "GL_FOG_COORD");
@@ -7491,14 +7325,12 @@ public class GLmetadata {
     _null_.put(GL_MAX_FOG_FUNC_POINTS_SGIS, "GL_MAX_FOG_FUNC_POINTS_SGIS");
     _null_.put(GL_COMPRESSED_SRGB_ALPHA_PVRTC_2BPPV2_IMG, "GL_COMPRESSED_SRGB_ALPHA_PVRTC_2BPPV2_IMG");
     _null_.put(GL_MAX_TESS_CONTROL_ATOMIC_COUNTER_BUFFERS, "GL_MAX_TESS_CONTROL_ATOMIC_COUNTER_BUFFERS");
-    _null_.put(GL_REG_4_ATI, "GL_REG_4_ATI");
     _null_.put(GL_SAMPLE_MASK, "GL_SAMPLE_MASK");
     _null_.put(GL_UNSIGNED_BYTE_2_3_3_REV, "GL_UNSIGNED_BYTE_2_3_3_REV");
     _null_.put(GL_3D_COLOR, "GL_3D_COLOR");
     _null_.put(GL_TIMEOUT_IGNORED, "GL_TIMEOUT_IGNORED");
     _null_.put(GL_POST_TEXTURE_FILTER_BIAS_SGIX, "GL_POST_TEXTURE_FILTER_BIAS_SGIX");
     _null_.put(GL_TEXTURE_COORD_ARRAY_SIZE, "GL_TEXTURE_COORD_ARRAY_SIZE");
-    _null_.put(GL_SWIZZLE_STR_DR_ATI, "GL_SWIZZLE_STR_DR_ATI");
     _null_.put(GL_DEBUG_SEVERITY_HIGH_AMD, "GL_DEBUG_SEVERITY_HIGH_AMD");
     _null_.put(GL_LINK_STATUS, "GL_LINK_STATUS");
     _null_.put(GL_SAMPLER_KHR, "GL_SAMPLER_KHR");
@@ -7519,12 +7351,10 @@ public class GLmetadata {
     _null_.put(GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_GEOMETRY_SHADER, "GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_GEOMETRY_SHADER");
     _null_.put(GL_UNPACK_PREMULTIPLY_ALPHA_WEBGL, "GL_UNPACK_PREMULTIPLY_ALPHA_WEBGL");
     _null_.put(GL_QUERY_NO_WAIT, "GL_QUERY_NO_WAIT");
-    _null_.put(GL_CON_2_ATI, "GL_CON_2_ATI");
     _null_.put(GL_TEXTURE_PRIORITY, "GL_TEXTURE_PRIORITY");
     _null_.put(GL_EDGE_FLAG_ARRAY_LIST_STRIDE_IBM, "GL_EDGE_FLAG_ARRAY_LIST_STRIDE_IBM");
     _null_.put(GL_PROXY_HISTOGRAM, "GL_PROXY_HISTOGRAM");
     _null_.put(GL_SIMULTANEOUS_TEXTURE_AND_STENCIL_WRITE, "GL_SIMULTANEOUS_TEXTURE_AND_STENCIL_WRITE");
-    _null_.put(GL_MAX_DRAW_BUFFERS_ATI, "GL_MAX_DRAW_BUFFERS_ATI");
     _null_.put(GL_DEPTH_COMPONENT16, "GL_DEPTH_COMPONENT16");
     _null_.put(GL_SPRITE_AXIS_SGIX, "GL_SPRITE_AXIS_SGIX");
     _null_.put(GL_DUAL_LUMINANCE8_SGIS, "GL_DUAL_LUMINANCE8_SGIS");
@@ -7537,19 +7367,16 @@ public class GLmetadata {
     _null_.put(GL_TEXTURE_2D_MULTISAMPLE, "GL_TEXTURE_2D_MULTISAMPLE");
     _null_.put(GL_TEXTURE_DEPTH_QCOM, "GL_TEXTURE_DEPTH_QCOM");
     _null_.put(GL_BUFFER_VARIABLE, "GL_BUFFER_VARIABLE");
-    _null_.put(GL_PN_TRIANGLES_ATI, "GL_PN_TRIANGLES_ATI");
     _null_.put(GL_MAX_TEXTURE_MAX_ANISOTROPY, "GL_MAX_TEXTURE_MAX_ANISOTROPY");
     _null_.put(GL_INFO_LOG_LENGTH, "GL_INFO_LOG_LENGTH");
     _null_.put(GL_PIXELS_PER_SAMPLE_PATTERN_X_AMD, "GL_PIXELS_PER_SAMPLE_PATTERN_X_AMD");
     _null_.put(GL_IMAGE_BUFFER, "GL_IMAGE_BUFFER");
     _null_.put(GL_MAX_VERTEX_UNIFORM_VECTORS, "GL_MAX_VERTEX_UNIFORM_VECTORS");
     _null_.put(GL_SMAPHS_PROGRAM_BINARY_DMP, "GL_SMAPHS_PROGRAM_BINARY_DMP");
-    _null_.put(GL_CON_11_ATI, "GL_CON_11_ATI");
     _null_.put(GL_PRIMARY_COLOR, "GL_PRIMARY_COLOR");
     _null_.put(GL_SMOOTH_POINT_SIZE_GRANULARITY, "GL_SMOOTH_POINT_SIZE_GRANULARITY");
     _null_.put(GL_QUAD_ALPHA4_SGIS, "GL_QUAD_ALPHA4_SGIS");
     _null_.put(GL_COMPRESSED_SIGNED_R11_EAC, "GL_COMPRESSED_SIGNED_R11_EAC");
-    _null_.put(GL_ARRAY_OBJECT_BUFFER_ATI, "GL_ARRAY_OBJECT_BUFFER_ATI");
     _null_.put(GL_NO_ERROR, "GL_NO_ERROR");
     _null_.put(GL_COMPRESSED_RGBA_FXT1_3DFX, "GL_COMPRESSED_RGBA_FXT1_3DFX");
     _null_.put(GL_BACK_RIGHT, "GL_BACK_RIGHT");
@@ -7592,7 +7419,6 @@ public class GLmetadata {
     _null_.put(GL_INTERNALFORMAT_PREFERRED, "GL_INTERNALFORMAT_PREFERRED");
     _null_.put(GL_RGB_422_APPLE, "GL_RGB_422_APPLE");
     _null_.put(GL_4_BYTES, "GL_4_BYTES");
-    _null_.put(GL_RGBA_FLOAT32_ATI, "GL_RGBA_FLOAT32_ATI");
     _null_.put(GL_MAX_GEOMETRY_TEXTURE_IMAGE_UNITS, "GL_MAX_GEOMETRY_TEXTURE_IMAGE_UNITS");
     _null_.put(GL_PIXEL_TILE_GRID_DEPTH_SGIX, "GL_PIXEL_TILE_GRID_DEPTH_SGIX");
     _null_.put(GL_MAX_VERTEX_IMAGE_UNIFORMS, "GL_MAX_VERTEX_IMAGE_UNIFORMS");
@@ -7613,7 +7439,6 @@ public class GLmetadata {
   }
   private static void _null_48() {
     _null_.put(GL_SYNC_FLUSH_COMMANDS_BIT_APPLE, "GL_SYNC_FLUSH_COMMANDS_BIT_APPLE");
-    _null_.put(GL_DRAW_BUFFER7_ATI, "GL_DRAW_BUFFER7_ATI");
     _null_.put(GL_DEBUG_LOGGED_MESSAGES, "GL_DEBUG_LOGGED_MESSAGES");
     _null_.put(GL_GEOMETRY_SUBROUTINE, "GL_GEOMETRY_SUBROUTINE");
     _null_.put(GL_READ_PIXELS_TYPE, "GL_READ_PIXELS_TYPE");
@@ -7634,7 +7459,6 @@ public class GLmetadata {
     _null_.put(GL_TEXTURE_MAX_ANISOTROPY, "GL_TEXTURE_MAX_ANISOTROPY");
     _null_.put(GL_NAND, "GL_NAND");
     _null_.put(GL_FIRST_VERTEX_CONVENTION, "GL_FIRST_VERTEX_CONVENTION");
-    _null_.put(GL_CON_25_ATI, "GL_CON_25_ATI");
     _null_.put(GL_OPERAND1_RGB, "GL_OPERAND1_RGB");
     _null_.put(GL_VERTEX_TEXTURE, "GL_VERTEX_TEXTURE");
     _null_.put(GL_LUMINANCE16, "GL_LUMINANCE16");
@@ -7702,10 +7526,8 @@ public class GLmetadata {
     _null_.put(GL_PIXEL_MAP_I_TO_G, "GL_PIXEL_MAP_I_TO_G");
     _null_.put(GL_TEXTURE_DEPTH_SIZE, "GL_TEXTURE_DEPTH_SIZE");
     _null_.put(GL_PROXY_TEXTURE_CUBE_MAP, "GL_PROXY_TEXTURE_CUBE_MAP");
-    _null_.put(GL_CND_ATI, "GL_CND_ATI");
     _null_.put(GL_PIXEL_MAP_I_TO_I, "GL_PIXEL_MAP_I_TO_I");
     _null_.put(GL_PROGRAM_POINT_SIZE, "GL_PROGRAM_POINT_SIZE");
-    _null_.put(GL_REG_24_ATI, "GL_REG_24_ATI");
     _null_.put(GL_PIXEL_MAP_I_TO_R, "GL_PIXEL_MAP_I_TO_R");
     _null_.put(GL_IMAGE_MIN_FILTER_HP, "GL_IMAGE_MIN_FILTER_HP");
     _null_.put(GL_UNSIGNED_INT_IMAGE_CUBE, "GL_UNSIGNED_INT_IMAGE_CUBE");
@@ -7727,16 +7549,12 @@ public class GLmetadata {
     _null_.put(GL_SUBPIXEL_BITS, "GL_SUBPIXEL_BITS");
     _null_.put(GL_R8, "GL_R8");
     _null_.put(GL_R1UI_V3F_SUN, "GL_R1UI_V3F_SUN");
-    _null_.put(GL_RGB_FLOAT16_ATI, "GL_RGB_FLOAT16_ATI");
   }
   private static void _null_50() {
     _null_.put(GL_MAX_EVAL_ORDER, "GL_MAX_EVAL_ORDER");
     _null_.put(GL_PRIMITIVE_RESTART, "GL_PRIMITIVE_RESTART");
-    _null_.put(GL_OBJECT_BUFFER_USAGE_ATI, "GL_OBJECT_BUFFER_USAGE_ATI");
-    _null_.put(GL_VERTEX_SOURCE_ATI, "GL_VERTEX_SOURCE_ATI");
     _null_.put(GL_UNDEFINED_VERTEX, "GL_UNDEFINED_VERTEX");
     _null_.put(GL_MULTIPLY, "GL_MULTIPLY");
-    _null_.put(GL_SATURATE_BIT_ATI, "GL_SATURATE_BIT_ATI");
     _null_.put(GL_SPIR_V_EXTENSIONS, "GL_SPIR_V_EXTENSIONS");
     _null_.put(GL_IMAGE_MAG_FILTER_HP, "GL_IMAGE_MAG_FILTER_HP");
     _null_.put(GL_DYNAMIC_READ, "GL_DYNAMIC_READ");
@@ -7750,7 +7568,6 @@ public class GLmetadata {
     _null_.put(GL_PACK_SWAP_BYTES, "GL_PACK_SWAP_BYTES");
     _null_.put(GL_MULTISAMPLE_BIT_3DFX, "GL_MULTISAMPLE_BIT_3DFX");
     _null_.put(GL_CCW, "GL_CCW");
-    _null_.put(GL_REG_19_ATI, "GL_REG_19_ATI");
     _null_.put(GL_STENCIL_REF, "GL_STENCIL_REF");
     _null_.put(GL_SYNC_GPU_COMMANDS_COMPLETE_APPLE, "GL_SYNC_GPU_COMMANDS_COMPLETE_APPLE");
     _null_.put(GL_TEXTURE, "GL_TEXTURE");
@@ -7765,12 +7582,10 @@ public class GLmetadata {
     _null_.put(GL_TRACE_PIXELS_BIT_MESA, "GL_TRACE_PIXELS_BIT_MESA");
     _null_.put(GL_RETAINED_APPLE, "GL_RETAINED_APPLE");
     _null_.put(GL_CUBIC_MIPMAP_NEAREST_IMG, "GL_CUBIC_MIPMAP_NEAREST_IMG");
-    _null_.put(GL_DRAW_BUFFER4_ATI, "GL_DRAW_BUFFER4_ATI");
     _null_.put(GL_CLAMP_TO_BORDER, "GL_CLAMP_TO_BORDER");
     _null_.put(GL_UNSIGNED_INT_IMAGE_2D_MULTISAMPLE_ARRAY, "GL_UNSIGNED_INT_IMAGE_2D_MULTISAMPLE_ARRAY");
     _null_.put(GL_MAP2_INDEX, "GL_MAP2_INDEX");
     _null_.put(GL_PREVIOUS, "GL_PREVIOUS");
-    _null_.put(GL_REG_0_ATI, "GL_REG_0_ATI");
     _null_.put(GL_BUFFER_DATA_SIZE, "GL_BUFFER_DATA_SIZE");
     _null_.put(GL_FOG_FUNC_SGIS, "GL_FOG_FUNC_SGIS");
     _null_.put(GL_RGBA16I, "GL_RGBA16I");
@@ -7796,15 +7611,12 @@ public class GLmetadata {
     _null_.put(GL_MAX_COMBINED_IMAGE_UNITS_AND_FRAGMENT_OUTPUTS, "GL_MAX_COMBINED_IMAGE_UNITS_AND_FRAGMENT_OUTPUTS");
     _null_.put(GL_FRAMEBUFFER_DEFAULT_HEIGHT, "GL_FRAMEBUFFER_DEFAULT_HEIGHT");
     _null_.put(GL_COMPRESSED_RGBA_PVRTC_2BPPV1_IMG, "GL_COMPRESSED_RGBA_PVRTC_2BPPV1_IMG");
-    _null_.put(GL_CON_30_ATI, "GL_CON_30_ATI");
     _null_.put(GL_FRAMEBUFFER, "GL_FRAMEBUFFER");
     _null_.put(GL_MATRIX_MODE, "GL_MATRIX_MODE");
-    _null_.put(GL_DRAW_BUFFER15_ATI, "GL_DRAW_BUFFER15_ATI");
     _null_.put(GL_MAX_COMBINED_TESS_CONTROL_UNIFORM_COMPONENTS, "GL_MAX_COMBINED_TESS_CONTROL_UNIFORM_COMPONENTS");
     _null_.put(GL_MAP_STENCIL, "GL_MAP_STENCIL");
     _null_.put(GL_ARRAY_BUFFER, "GL_ARRAY_BUFFER");
     _null_.put(GL_CONVOLUTION_BORDER_COLOR, "GL_CONVOLUTION_BORDER_COLOR");
-    _null_.put(GL_PN_TRIANGLES_NORMAL_MODE_QUADRATIC_ATI, "GL_PN_TRIANGLES_NORMAL_MODE_QUADRATIC_ATI");
     _null_.put(GL_QUERY_RESULT_AVAILABLE, "GL_QUERY_RESULT_AVAILABLE");
     _null_.put(GL_SMOOTH_LINE_WIDTH_GRANULARITY, "GL_SMOOTH_LINE_WIDTH_GRANULARITY");
     _null_.put(GL_MAT_SPECULAR_BIT_PGI, "GL_MAT_SPECULAR_BIT_PGI");
@@ -7818,7 +7630,6 @@ public class GLmetadata {
     _null_.put(GL_LINE_WIDTH_GRANULARITY, "GL_LINE_WIDTH_GRANULARITY");
     _null_.put(GL_PIXEL_MAP_S_TO_S, "GL_PIXEL_MAP_S_TO_S");
     _null_.put(GL_MAX_FRAGMENT_LIGHTS_SGIX, "GL_MAX_FRAGMENT_LIGHTS_SGIX");
-    _null_.put(GL_LUMINANCE_FLOAT32_ATI, "GL_LUMINANCE_FLOAT32_ATI");
     _null_.put(GL_VERTEX_ARRAY_STRIDE, "GL_VERTEX_ARRAY_STRIDE");
     _null_.put(GL_SECONDARY_COLOR_ARRAY, "GL_SECONDARY_COLOR_ARRAY");
     _null_.put(GL_CONTEXT_FLAG_FORWARD_COMPATIBLE_BIT, "GL_CONTEXT_FLAG_FORWARD_COMPATIBLE_BIT");
@@ -7832,7 +7643,6 @@ public class GLmetadata {
     _null_.put(GL_MAX_UNIFORM_BUFFER_BINDINGS, "GL_MAX_UNIFORM_BUFFER_BINDINGS");
     _null_.put(GL_ALPHA_TEST_FUNC_QCOM, "GL_ALPHA_TEST_FUNC_QCOM");
     _null_.put(GL_VERTEX_ARRAY_PARALLEL_POINTERS_INTEL, "GL_VERTEX_ARRAY_PARALLEL_POINTERS_INTEL");
-    _null_.put(GL_BUMP_ENVMAP_ATI, "GL_BUMP_ENVMAP_ATI");
     _null_.put(GL_RG16, "GL_RG16");
     _null_.put(GL_COMPRESSED_RGBA_PVRTC_4BPPV2_IMG, "GL_COMPRESSED_RGBA_PVRTC_4BPPV2_IMG");
     _null_.put(GL_RGBA8I, "GL_RGBA8I");
@@ -7848,7 +7658,6 @@ public class GLmetadata {
     _null_.put(GL_RG16UI, "GL_RG16UI");
     _null_.put(GL_PARAMETER_BUFFER, "GL_PARAMETER_BUFFER");
     _null_.put(GL_MAX_VARYING_COMPONENTS, "GL_MAX_VARYING_COMPONENTS");
-    _null_.put(GL_CON_21_ATI, "GL_CON_21_ATI");
     _null_.put(GL_UNSIGNED_INT_SAMPLER_2D, "GL_UNSIGNED_INT_SAMPLER_2D");
     _null_.put(GL_HISTOGRAM_RED_SIZE, "GL_HISTOGRAM_RED_SIZE");
     _null_.put(GL_OPERAND1_ALPHA, "GL_OPERAND1_ALPHA");
@@ -7905,7 +7714,6 @@ public class GLmetadata {
     _null_.put(GL_ACCUM_RED_BITS, "GL_ACCUM_RED_BITS");
     _null_.put(GL_MAP2_COLOR_4, "GL_MAP2_COLOR_4");
     _null_.put(GL_TEXTURE_MAX_CLAMP_R_SGIX, "GL_TEXTURE_MAX_CLAMP_R_SGIX");
-    _null_.put(GL_REG_28_ATI, "GL_REG_28_ATI");
     _null_.put(GL_TEXTURE_BIT, "GL_TEXTURE_BIT");
     _null_.put(GL_RGB8_SNORM, "GL_RGB8_SNORM");
     _null_.put(GL_TEXTURE_BINDING_1D, "GL_TEXTURE_BINDING_1D");
@@ -7920,7 +7728,6 @@ public class GLmetadata {
     _null_.put(GL_QUERY_BUFFER_AMD, "GL_QUERY_BUFFER_AMD");
     _null_.put(GL_TEXTURE_BINDING_BUFFER, "GL_TEXTURE_BINDING_BUFFER");
     _null_.put(GL_TEXTURE_TARGET_QCOM, "GL_TEXTURE_TARGET_QCOM");
-    _null_.put(GL_PN_TRIANGLES_POINT_MODE_ATI, "GL_PN_TRIANGLES_POINT_MODE_ATI");
     _null_.put(GL_UNPACK_LSB_FIRST, "GL_UNPACK_LSB_FIRST");
     _null_.put(GL_TEXTURE_BINDING_2D, "GL_TEXTURE_BINDING_2D");
     _null_.put(GL_LEFT, "GL_LEFT");
@@ -7939,8 +7746,6 @@ public class GLmetadata {
     _null_.put(GL_READ_BUFFER, "GL_READ_BUFFER");
     _null_.put(GL_FRAMEZOOM_SGIX, "GL_FRAMEZOOM_SGIX");
     _null_.put(GL_TEXTURE_BINDING_3D, "GL_TEXTURE_BINDING_3D");
-    _null_.put(GL_CND0_ATI, "GL_CND0_ATI");
-    _null_.put(GL_STENCIL_BACK_PASS_DEPTH_PASS_ATI, "GL_STENCIL_BACK_PASS_DEPTH_PASS_ATI");
     _null_.put(GL_BLEND_DST_RGB, "GL_BLEND_DST_RGB");
     _null_.put(GL_FRAMEBUFFER_BINDING_ANGLE, "GL_FRAMEBUFFER_BINDING_ANGLE");
     _null_.put(GL_DUAL_ALPHA8_SGIS, "GL_DUAL_ALPHA8_SGIS");
@@ -7948,8 +7753,6 @@ public class GLmetadata {
     _null_.put(GL_PERFQUERY_GPA_EXTENDED_COUNTERS_INTEL, "GL_PERFQUERY_GPA_EXTENDED_COUNTERS_INTEL");
     _null_.put(GL_BLEND, "GL_BLEND");
     _null_.put(GL_DEPTH_STENCIL_TEXTURE_MODE, "GL_DEPTH_STENCIL_TEXTURE_MODE");
-    _null_.put(GL_CON_15_ATI, "GL_CON_15_ATI");
-    _null_.put(GL_2X_BIT_ATI, "GL_2X_BIT_ATI");
     _null_.put(GL_POINT_SMOOTH, "GL_POINT_SMOOTH");
     _null_.put(GL_SEPARATE_SPECULAR_COLOR, "GL_SEPARATE_SPECULAR_COLOR");
     _null_.put(GL_FOG_COORDINATE_ARRAY_TYPE, "GL_FOG_COORDINATE_ARRAY_TYPE");
@@ -7969,7 +7772,6 @@ public class GLmetadata {
     _null_.put(GL_INVERTED_SCREEN_W_REND, "GL_INVERTED_SCREEN_W_REND");
     _null_.put(GL_MAX_FRAGMENT_ATOMIC_COUNTER_BUFFERS, "GL_MAX_FRAGMENT_ATOMIC_COUNTER_BUFFERS");
     _null_.put(GL_TEXTURE_LEQUAL_R_SGIX, "GL_TEXTURE_LEQUAL_R_SGIX");
-    _null_.put(GL_REG_15_ATI, "GL_REG_15_ATI");
     _null_.put(GL_INTENSITY8_SNORM, "GL_INTENSITY8_SNORM");
     _null_.put(GL_CONTEXT_LOST, "GL_CONTEXT_LOST");
     _null_.put(GL_UNIFORM_BUFFER_BINDING, "GL_UNIFORM_BUFFER_BINDING");
@@ -7992,7 +7794,6 @@ public class GLmetadata {
     _null_.put(GL_POST_COLOR_MATRIX_BLUE_BIAS_SGI, "GL_POST_COLOR_MATRIX_BLUE_BIAS_SGI");
     _null_.put(GL_RGBA8UI, "GL_RGBA8UI");
     _null_.put(GL_ATOMIC_COUNTER_BUFFER, "GL_ATOMIC_COUNTER_BUFFER");
-    _null_.put(GL_VERTEX_STREAM4_ATI, "GL_VERTEX_STREAM4_ATI");
     _null_.put(GL_MAP2_NORMAL, "GL_MAP2_NORMAL");
     _null_.put(GL_PROXY_POST_CONVOLUTION_COLOR_TABLE_SGI, "GL_PROXY_POST_CONVOLUTION_COLOR_TABLE_SGI");
     _null_.put(GL_OCCLUSION_TEST_RESULT_HP, "GL_OCCLUSION_TEST_RESULT_HP");
@@ -8003,7 +7804,6 @@ public class GLmetadata {
     _null_.put(GL_VIRTUAL_PAGE_SIZE_Z_AMD, "GL_VIRTUAL_PAGE_SIZE_Z_AMD");
     _null_.put(GL_TEXTURE_COMPRESSED_BLOCK_WIDTH, "GL_TEXTURE_COMPRESSED_BLOCK_WIDTH");
     _null_.put(GL_TEXTURE_USAGE_ANGLE, "GL_TEXTURE_USAGE_ANGLE");
-    _null_.put(GL_LUMINANCE_ALPHA_FLOAT32_ATI, "GL_LUMINANCE_ALPHA_FLOAT32_ATI");
     _null_.put(GL_TRACE_OPERATIONS_BIT_MESA, "GL_TRACE_OPERATIONS_BIT_MESA");
     _null_.put(GL_CURRENT_RASTER_INDEX, "GL_CURRENT_RASTER_INDEX");
     _null_.put(GL_DEBUG_SOURCE_APPLICATION_KHR, "GL_DEBUG_SOURCE_APPLICATION_KHR");
@@ -8028,7 +7828,6 @@ public class GLmetadata {
     _null_.put(GL_SRC_ALPHA_SATURATE, "GL_SRC_ALPHA_SATURATE");
     _null_.put(GL_UNPACK_ALIGNMENT, "GL_UNPACK_ALIGNMENT");
     _null_.put(GL_IMAGE_BINDING_LEVEL, "GL_IMAGE_BINDING_LEVEL");
-    _null_.put(GL_DRAW_BUFFER11_ATI, "GL_DRAW_BUFFER11_ATI");
     _null_.put(GL_PERFQUERY_WAIT_INTEL, "GL_PERFQUERY_WAIT_INTEL");
     _null_.put(GL_QUAD_INTENSITY4_SGIS, "GL_QUAD_INTENSITY4_SGIS");
     _null_.put(GL_MAP_FLUSH_EXPLICIT_BIT, "GL_MAP_FLUSH_EXPLICIT_BIT");
@@ -8053,16 +7852,13 @@ public class GLmetadata {
     _null_.put(GL_MAX_TESS_PATCH_COMPONENTS, "GL_MAX_TESS_PATCH_COMPONENTS");
     _null_.put(GL_UNPACK_SUBSAMPLE_RATE_SGIX, "GL_UNPACK_SUBSAMPLE_RATE_SGIX");
     _null_.put(GL_RGB10_A2UI, "GL_RGB10_A2UI");
-    _null_.put(GL_RGBA_FLOAT_MODE_ATI, "GL_RGBA_FLOAT_MODE_ATI");
     _null_.put(GL_SAMPLE_ALPHA_TO_ONE, "GL_SAMPLE_ALPHA_TO_ONE");
     _null_.put(GL_SAMPLER_2D_MULTISAMPLE_ARRAY, "GL_SAMPLER_2D_MULTISAMPLE_ARRAY");
     _null_.put(GL_REPLACE_VALUE_AMD, "GL_REPLACE_VALUE_AMD");
     _null_.put(GL_MAX_ATOMIC_COUNTER_BUFFER_BINDINGS, "GL_MAX_ATOMIC_COUNTER_BUFFER_BINDINGS");
     _null_.put(GL_VERTEX_ARRAY_RANGE_POINTER_APPLE, "GL_VERTEX_ARRAY_RANGE_POINTER_APPLE");
-    _null_.put(GL_HALF_BIT_ATI, "GL_HALF_BIT_ATI");
     _null_.put(GL_SAMPLER_1D_ARRAY, "GL_SAMPLER_1D_ARRAY");
     _null_.put(GL_TEXTURE_IMMUTABLE_LEVELS, "GL_TEXTURE_IMMUTABLE_LEVELS");
-    _null_.put(GL_INTENSITY_FLOAT32_ATI, "GL_INTENSITY_FLOAT32_ATI");
     _null_.put(GL_INTERLACE_READ_OML, "GL_INTERLACE_READ_OML");
     _null_.put(GL_CPU_OPTIMIZED_QCOM, "GL_CPU_OPTIMIZED_QCOM");
     _null_.put(GL_TRANSFORM_FEEDBACK_BUFFER_START, "GL_TRANSFORM_FEEDBACK_BUFFER_START");
@@ -8079,7 +7875,6 @@ public class GLmetadata {
     _null_.put(GL_TEXCOORD2_BIT_PGI, "GL_TEXCOORD2_BIT_PGI");
     _null_.put(GL_PERFMON_RESULT_SIZE_AMD, "GL_PERFMON_RESULT_SIZE_AMD");
     _null_.put(GL_PIXEL_TEX_GEN_ALPHA_MS_SGIX, "GL_PIXEL_TEX_GEN_ALPHA_MS_SGIX");
-    _null_.put(GL_PN_TRIANGLES_POINT_MODE_CUBIC_ATI, "GL_PN_TRIANGLES_POINT_MODE_CUBIC_ATI");
     _null_.put(GL_IMAGE_CUBIC_WEIGHT_HP, "GL_IMAGE_CUBIC_WEIGHT_HP");
     _null_.put(GL_FLOAT_MAT4, "GL_FLOAT_MAT4");
     _null_.put(GL_FLOAT_MAT3, "GL_FLOAT_MAT3");
@@ -8092,7 +7887,6 @@ public class GLmetadata {
     _null_.put(GL_SAMPLER_BINDING, "GL_SAMPLER_BINDING");
     _null_.put(GL_SOURCE2_RGB, "GL_SOURCE2_RGB");
     _null_.put(GL_DEPTH24_STENCIL8, "GL_DEPTH24_STENCIL8");
-    _null_.put(GL_MOV_ATI, "GL_MOV_ATI");
     _null_.put(GL_SIMULTANEOUS_TEXTURE_AND_STENCIL_TEST, "GL_SIMULTANEOUS_TEXTURE_AND_STENCIL_TEST");
     _null_.put(GL_STENCIL, "GL_STENCIL");
     _null_.put(GL_DRAW_INDIRECT_BUFFER, "GL_DRAW_INDIRECT_BUFFER");
@@ -8110,17 +7904,14 @@ public class GLmetadata {
     _null_.put(GL_TEXTURE_WRAP_Q_SGIS, "GL_TEXTURE_WRAP_Q_SGIS");
     _null_.put(GL_CUBIC_HP, "GL_CUBIC_HP");
     _null_.put(GL_MAT_DIFFUSE_BIT_PGI, "GL_MAT_DIFFUSE_BIT_PGI");
-    _null_.put(GL_DRAW_BUFFER0_ATI, "GL_DRAW_BUFFER0_ATI");
     _null_.put(GL_POLYGON, "GL_POLYGON");
     _null_.put(GL_ATOMIC_COUNTER_BUFFER_BINDING, "GL_ATOMIC_COUNTER_BUFFER_BINDING");
     _null_.put(GL_STENCIL_FUNC, "GL_STENCIL_FUNC");
     _null_.put(GL_COLOR_INDEXES, "GL_COLOR_INDEXES");
     _null_.put(GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_BASE_VIEW_INDEX_OVR, "GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_BASE_VIEW_INDEX_OVR");
     _null_.put(GL_EDGE_FLAG_ARRAY_LIST_IBM, "GL_EDGE_FLAG_ARRAY_LIST_IBM");
-    _null_.put(GL_REG_8_ATI, "GL_REG_8_ATI");
     _null_.put(GL_BINNING_CONTROL_HINT_QCOM, "GL_BINNING_CONTROL_HINT_QCOM");
     _null_.put(GL_LOCATION_COMPONENT, "GL_LOCATION_COMPONENT");
-    _null_.put(GL_CON_19_ATI, "GL_CON_19_ATI");
     _null_.put(GL_AUX0, "GL_AUX0");
   }
   private static void _null_57() {
@@ -8130,7 +7921,6 @@ public class GLmetadata {
     _null_.put(GL_VERTEX_DATA_HINT_PGI, "GL_VERTEX_DATA_HINT_PGI");
     _null_.put(GL_AUX2, "GL_AUX2");
     _null_.put(GL_AUX3, "GL_AUX3");
-    _null_.put(GL_CON_6_ATI, "GL_CON_6_ATI");
     _null_.put(GL_VERTEX_ATTRIB_ARRAY_ENABLED, "GL_VERTEX_ATTRIB_ARRAY_ENABLED");
     _null_.put(GL_SCREEN_KHR, "GL_SCREEN_KHR");
     _null_.put(GL_MULTISAMPLE_BUFFER_BIT5_QCOM, "GL_MULTISAMPLE_BUFFER_BIT5_QCOM");
@@ -8152,12 +7942,11 @@ public class GLmetadata {
     _null_.put(GL_READ_PIXELS_FORMAT, "GL_READ_PIXELS_FORMAT");
     _null_.put(GL_STREAM_READ, "GL_STREAM_READ");
     _null_.put(GL_ADD_SIGNED, "GL_ADD_SIGNED");
-    _null_.put(GL_REG_30_ATI, "GL_REG_30_ATI");
   }
   public static Map<Integer, String> _null_() {
     if (_null_ != null)
       return _null_;
-    _null_ = new HashMap<Integer, String>(2996);
+    _null_ = new HashMap<Integer, String>(2809);
     _null_0();
     _null_1();
     _null_2();

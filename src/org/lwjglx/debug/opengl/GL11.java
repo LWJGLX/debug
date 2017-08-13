@@ -35,6 +35,7 @@ import java.nio.ShortBuffer;
 import org.lwjglx.debug.Context;
 import org.lwjglx.debug.GLmetadata;
 import org.lwjglx.debug.MethodCall;
+import org.lwjglx.debug.RT;
 
 public class GL11 {
 
@@ -88,19 +89,23 @@ public class GL11 {
         }
     }
 
-    private static void glTexImage2D_trace(int target, int level, int internalformat, int width, int height, int border, int format, int type, Buffer pixels, MethodCall mc) {
+    private static void glTexImage2D_trace(int target, int level, int internalformat, int width, int height, int border, int format, int type, Object pixelsOrSize, MethodCall mc) {
         mc.paramEnum(GLmetadata.TextureTarget().get(target));
         mc.param(level);
         if (internalformat >= 1 && internalformat <= 4)
             mc.param(internalformat);
         else
-            mc.paramEnum(GLmetadata.InternalFormat().get(internalformat));
+            mc.paramEnum(RT.glEnumFor(internalformat, GLmetadata.InternalFormat()));
         mc.param(width);
         mc.param(height);
         mc.param(border);
-        mc.paramEnum(GLmetadata.PixelFormat().get(format));
-        mc.paramEnum(GLmetadata.PixelType().get(type));
-        mc.param(pixels);
+        mc.paramEnum(RT.glEnumFor(format, GLmetadata.PixelFormat()));
+        mc.paramEnum(RT.glEnumFor(type, GLmetadata.PixelType()));
+        mc.param(pixelsOrSize);
+    }
+
+    public static void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, long size, Void ret, MethodCall mc) {
+        glTexImage2D_trace(target, level, internalformat, width, height, border, format, type, size, mc);
     }
 
     public static void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, ByteBuffer pixels, Void ret, MethodCall mc) {
@@ -129,11 +134,11 @@ public class GL11 {
         if (internalformat >= 1 && internalformat <= 4)
             mc.param(internalformat);
         else
-            mc.paramEnum(GLmetadata.InternalFormat().get(internalformat));
+            mc.paramEnum(RT.glEnumFor(internalformat, GLmetadata.InternalFormat()));
         mc.param(width);
         mc.param(border);
-        mc.paramEnum(GLmetadata.PixelFormat().get(format));
-        mc.paramEnum(GLmetadata.PixelType().get(type));
+        mc.paramEnum(RT.glEnumFor(format, GLmetadata.PixelFormat()));
+        mc.paramEnum(RT.glEnumFor(type, GLmetadata.PixelType()));
         mc.param(pixels);
     }
 
@@ -160,28 +165,28 @@ public class GL11 {
     private static void glTexParameter_trace(int target, int pname, int param, MethodCall mc) {
         switch (pname) {
         case org.lwjgl.opengl.GL43.GL_DEPTH_STENCIL_TEXTURE_MODE:
-            mc.paramEnum(GLmetadata.PixelFormat().get(param));
+            mc.paramEnum(RT.glEnumFor(param, GLmetadata.PixelFormat()));
             break;
         case org.lwjgl.opengl.GL11.GL_TEXTURE_MIN_FILTER:
-            mc.paramEnum(GLmetadata.TextureMinFilter().get(param));
+            mc.paramEnum(RT.glEnumFor(param, GLmetadata.TextureMinFilter()));
             break;
         case org.lwjgl.opengl.GL11.GL_TEXTURE_MAG_FILTER:
-            mc.paramEnum(GLmetadata.TextureMagFilter().get(param));
+            mc.paramEnum(RT.glEnumFor(param, GLmetadata.TextureMagFilter()));
             break;
         case org.lwjgl.opengl.GL14.GL_TEXTURE_COMPARE_FUNC:
-            mc.paramEnum(GLmetadata.AlphaFunction().get(param));
+            mc.paramEnum(RT.glEnumFor(param, GLmetadata.AlphaFunction()));
             break;
         case org.lwjgl.opengl.GL14.GL_TEXTURE_COMPARE_MODE:
             mc.paramEnum(GLmetadata._null_().get(param));
             break;
         case org.lwjgl.opengl.GL11.GL_TEXTURE_WRAP_S:
-            mc.paramEnum(GLmetadata.TextureWrapMode().get(param));
+            mc.paramEnum(RT.glEnumFor(param, GLmetadata.TextureWrapMode()));
             break;
         case org.lwjgl.opengl.GL11.GL_TEXTURE_WRAP_T:
-            mc.paramEnum(GLmetadata.TextureWrapMode().get(param));
+            mc.paramEnum(RT.glEnumFor(param, GLmetadata.TextureWrapMode()));
             break;
         case org.lwjgl.opengl.GL12.GL_TEXTURE_WRAP_R:
-            mc.paramEnum(GLmetadata.TextureWrapMode().get(param));
+            mc.paramEnum(RT.glEnumFor(param, GLmetadata.TextureWrapMode()));
             break;
         case org.lwjgl.opengl.GL14.GL_GENERATE_MIPMAP:
             mc.paramEnum(GLmetadata.Boolean().get(param));
@@ -193,8 +198,8 @@ public class GL11 {
     }
 
     public static void glTexParameteri(int target, int pname, int param, Void ret, MethodCall mc) {
-        mc.paramEnum(GLmetadata.TextureTarget().get(target));
-        mc.paramEnum(GLmetadata.TextureParameterName().get(pname));
+        mc.paramEnum(RT.glEnumFor(target, GLmetadata.TextureTarget()));
+        mc.paramEnum(RT.glEnumFor(pname, GLmetadata.TextureParameterName()));
         glTexParameter_trace(target, pname, param, mc);
     }
 

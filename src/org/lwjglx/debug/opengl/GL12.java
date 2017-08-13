@@ -34,6 +34,7 @@ import java.nio.ShortBuffer;
 
 import org.lwjglx.debug.GLmetadata;
 import org.lwjglx.debug.MethodCall;
+import org.lwjglx.debug.RT;
 
 public class GL12 {
 
@@ -72,13 +73,13 @@ public class GL12 {
         if (internalformat >= 1 && internalformat <= 4)
             mc.param(internalformat);
         else
-            mc.paramEnum(GLmetadata.InternalFormat().get(internalformat));
+            mc.paramEnum(RT.glEnumFor(internalformat, GLmetadata.InternalFormat()));
         mc.param(width);
         mc.param(height);
         mc.param(depth);
         mc.param(border);
-        mc.paramEnum(GLmetadata.PixelFormat().get(format));
-        mc.paramEnum(GLmetadata.PixelType().get(type));
+        mc.paramEnum(RT.glEnumFor(format, GLmetadata.PixelFormat()));
+        mc.paramEnum(RT.glEnumFor(type, GLmetadata.PixelType()));
         mc.param(pixels);
     }
 

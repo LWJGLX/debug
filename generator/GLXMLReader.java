@@ -272,7 +272,7 @@ public class GLXMLReader extends DefaultHandler {
             for (GLenum e : group.enums.values()) {
                 if (!e.hasValue)
                     continue;
-                if ((e.name.endsWith("_ARB") || e.name.endsWith("_EXT") || e.name.endsWith("_NV") || e.name.endsWith("_OES")) && group.enums.containsValue(new GLenum(e.value))) {
+                if ((e.name.endsWith("_ARB") || e.name.endsWith("_EXT") || e.name.endsWith("_NV") || e.name.endsWith("_OES") || e.name.endsWith("_ATI")) && group.enums.containsValue(new GLenum(e.value))) {
                     continue;
                 }
                 e.used = true;
@@ -331,7 +331,7 @@ public class GLXMLReader extends DefaultHandler {
                 GLenum e = it.next();
                 if (!e.hasValue)
                     continue;
-                if ((e.name.endsWith("_ARB") || e.name.endsWith("_EXT") || e.name.endsWith("_NV") || e.name.endsWith("_OES")) && group.enums.containsValue(new GLenum(e.value))) {
+                if ((e.name.endsWith("_ARB") || e.name.endsWith("_EXT") || e.name.endsWith("_NV") || e.name.endsWith("_OES") || e.name.endsWith("_ATI")) && group.enums.containsValue(new GLenum(e.value))) {
                     continue;
                 }
                 numEnums++;
@@ -347,7 +347,7 @@ public class GLXMLReader extends DefaultHandler {
                     GLenum e = it.next();
                     if (!e.hasValue)
                         continue;
-                    if ((e.name.endsWith("_ARB") || e.name.endsWith("_EXT") || e.name.endsWith("_NV") || e.name.endsWith("_OES")) && group.enums.containsValue(new GLenum(e.value))) {
+                    if ((e.name.endsWith("_ARB") || e.name.endsWith("_EXT") || e.name.endsWith("_NV") || e.name.endsWith("_OES") || e.name.endsWith("_ATI")) && group.enums.containsValue(new GLenum(e.value))) {
                         continue;
                     }
                     sb.append("    ").append(gname).append(".put(").append(e.name).append(", \"").append(e.name).append("\");\n");
