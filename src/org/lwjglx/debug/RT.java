@@ -52,10 +52,9 @@ class Command {
         params = new ArrayList<>(numParams);
     }
 
-    void addParam(String name, int type, Map<Integer, String> group) {
+    void addParam(String name, Map<Integer, String> group) {
         Param p = new Param();
         p.name = name;
-        p.type = type;
         p.group = group;
         params.add(p);
     }
@@ -63,7 +62,6 @@ class Command {
 
 class Param {
     String name;
-    int type;
     Map<Integer, String> group;
 }
 

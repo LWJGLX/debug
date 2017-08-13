@@ -27,9 +27,11 @@ import java.io.Writer;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Stack;
+import java.util.stream.Collectors;
 
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
@@ -48,7 +50,7 @@ public class GLXMLReader extends DefaultHandler {
         Extension extension;
     }
 
-    static class GLenum {
+    static class GLenum implements Comparable<GLenum> {
         String name;
         int value;
         boolean hasValue;
@@ -59,6 +61,14 @@ public class GLXMLReader extends DefaultHandler {
 
         GLenum(int value) {
             this.value = value;
+        }
+
+        public int compareTo(GLenum o) {
+            if (value < o.value)
+                return -1;
+            if (value > o.value)
+                return +1;
+            return 0;
         }
 
         public int hashCode() {
@@ -255,6 +265,21 @@ public class GLXMLReader extends DefaultHandler {
         }
     }
 
+    /**
+     * https://stackoverflow.com/questions/109383/sort-a-mapkey-value-by-values-java#answer-2581754
+     */
+    static <K, V extends Comparable<? super V>> Map<K, V> sortByValue(Map<K, V> map) {
+        return map.entrySet()
+                  .stream()
+                  .sorted(Map.Entry.comparingByValue(/*Collections.reverseOrder()*/))
+                  .collect(Collectors.toMap(
+                    Map.Entry::getKey, 
+                    Map.Entry::getValue, 
+                    (e1, e2) -> e1, 
+                    LinkedHashMap::new
+                  ));
+    }
+
     private void generate() throws Exception {
         StringBuilder sb = new StringBuilder();
         StringBuilder prolog = new StringBuilder();
@@ -264,9 +289,6 @@ public class GLXMLReader extends DefaultHandler {
         prolog.append("import java.util.Map;\n");
         prolog.append("import java.util.HashMap;\n");
         prolog.append("public class GLmetadata {\n");
-        sb.append("  private static final int GLboolean = 1;\n");
-        sb.append("  private static final int GLenum = 2;\n");
-        sb.append("  private static final int GLbitfield = 3;\n");
         /* See which GLenum is actually used in a group*/
         for (Group group : groups.values()) {
             for (GLenum e : group.enums.values()) {
@@ -315,7 +337,7 @@ public class GLXMLReader extends DefaultHandler {
             }
         }
         /* Print used GLenums */
-        for (GLenum e : enums.values()) {
+        for (GLenum e : sortByValue(enums).values()) {
             if (!e.hasValue || !e.used)
                 continue;
             sb.append("  private static final int ").append(e.name).append(" = ").append(e.value).append(";\n");
@@ -459,9 +481,9 @@ public class GLXMLReader extends DefaultHandler {
             for (Param param : cmd.params) {
                 if ("GLboolean".equals(param.type) || "GLenum".equals(param.type) || "GLbitfield".equals(param.type)) {
                     if (param.group == null || param.group.name == null) {
-                        sb.append("    cmd.addParam(\"").append(param.name).append("\", ").append(param.type).append(", _null_());\n");
+                        sb.append("    cmd.addParam(\"").append(param.name).append("\", _null_());\n");
                     } else {
-                        sb.append("    cmd.addParam(\"").append(param.name).append("\", ").append(param.type).append(", ").append(param.group.name).append("());\n");
+                        sb.append("    cmd.addParam(\"").append(param.name).append("\", ").append(param.group.name).append("());\n");
                     }
                 }
             }
