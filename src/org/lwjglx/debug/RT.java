@@ -816,7 +816,7 @@ public class RT {
         for (Map.Entry<Integer, String> e : param.group.entrySet()) {
             int bitmask = e.getKey();
             int v = value & bitmask;
-            int rest = value ^ bitmask; // <- handle "ALL" masks
+            int rest = v ^ bitmask; // <- handle "ALL" masks
             if (v != 0 && rest == 0) {
                 if (sb.length() == 0) {
                     sb.append(e.getValue());
