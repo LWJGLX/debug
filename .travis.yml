@@ -12,7 +12,7 @@ before_install:
 script: 
 
 script:
-- mvn clean package -Dmaven.javadoc.skip=false -Dmaven.test.skip=true
+- ./mvnw clean package -Dmaven.javadoc.skip=false -Dmaven.test.skip=true
 - cd target
 - "aws s3 cp lwjglx-debug-1.0.0-SNAPSHOT.jar s3://build.lwjgl.org/addons/lwjglx-debug/lwjglx-debug-1.0.0.jar --acl public-read --storage-class REDUCED_REDUNDANCY --cache-control \"public, must-revalidate, proxy-revalidate, max-age=0\""
 - "aws s3 cp lwjglx-debug-1.0.0-SNAPSHOT-sources.jar s3://build.lwjgl.org/addons/lwjglx-debug/lwjglx-debug-1.0.0-sources.jar --acl public-read --storage-class REDUCED_REDUNDANCY --cache-control \"public, must-revalidate, proxy-revalidate, max-age=0\""
