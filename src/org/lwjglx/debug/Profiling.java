@@ -27,6 +27,7 @@ import org.eclipse.jetty.websocket.server.WebSocketUpgradeFilter;
 import org.eclipse.jetty.websocket.servlet.WebSocketServlet;
 import org.eclipse.jetty.websocket.servlet.WebSocketServletFactory;
 import org.lwjgl.system.MemoryStack;
+import org.lwjglx.debug.Context.BufferObject;
 
 @SuppressWarnings("serial")
 class EchoSocketServlet extends WebSocketServlet {
@@ -117,13 +118,18 @@ class Profiling {
         }
         lastSent = ctx.frameEndTime;
         try (MemoryStack stack = stackPush()) {
-            ByteBuffer buf = stack.malloc(20).order(ByteOrder.BIG_ENDIAN);
+            ByteBuffer buf = stack.malloc(28).order(ByteOrder.BIG_ENDIAN);
             float ms = (float) (ctx.frameEndTime - ctx.frameStartTime) / 1E6f;
             buf.putInt(0, ctx.counter);
             buf.putInt(4, frame);
             buf.putFloat(8, ms);
             buf.putInt(12, ctx.glCallCount);
             buf.putInt(16, ctx.verticesCount);
+            long boMemory = 0L;
+            for (BufferObject bo : ctx.bufferObjects.values()) {
+                boMemory += bo.size;
+            }
+            buf.putDouble(20, boMemory);
             synchronized (ProfilingConnection.connections) {
                 for (ProfilingConnection c : ProfilingConnection.connections) {
                     c.outbound.getRemote().sendBytesByFuture(buf);

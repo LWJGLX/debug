@@ -1,107 +1,130 @@
 <html>
-  <head>
-<script src="chartjs.js"></script>
-<style>
-</style>
-  </head>
-  <body>
-      <div style="width:75%;">
-        <canvas id="frametime"></canvas>
-    </div>
+<head>
+  <script src="chartjs.js"></script>
+</head>
+<body>
+  <div style="width:75%;">
+    <canvas id="frametime"></canvas>
+  </div>
   <script>
-  var frametimeChart;
-  var numSamples = 0;
-  var MAX_NUM_SAMPLES = 120; // <- 1 minute
-  var ws = new WebSocket('ws://' + location.host + '/ws');
-  ws.binaryType = "arraybuffer";
-  ws.onmessage = function (event) {
-    var view = new DataView(event.data);
-    var glcontext = view.getInt32(0);
-    var frame = view.getInt32(4);
-    var time = view.getFloat32(8);
-    var glCalls = view.getInt32(12);
-    var vertices = view.getInt32(16);
-    numSamples++;
-    if (numSamples > MAX_NUM_SAMPLES) {
+    var chart;
+    var numSamples = 0;
+    var MAX_NUM_SAMPLES = 120; // <- 1 minute
+    var ws = new WebSocket('ws://' + location.host + '/ws');
+    ws.binaryType = "arraybuffer";
+    ws.onmessage = function (event) {
+      var view = new DataView(event.data);
+      var glcontext = view.getInt32(0);
+      var frame = view.getInt32(4);
+      var time = view.getFloat32(8);
+      var glCalls = view.getInt32(12);
+      var vertices = view.getInt32(16);
+      var bufferObjectSize = view.getFloat64(20);
+      numSamples++;
+      if (numSamples > MAX_NUM_SAMPLES) {
         config.data.labels.shift();
-	    config.data.datasets[0].data.shift();
-	    config.data.datasets[1].data.shift();
-	    config.data.datasets[2].data.shift();
+        config.data.datasets[0].data.shift();
+        config.data.datasets[1].data.shift();
+        config.data.datasets[2].data.shift();
+        config.data.datasets[3].data.shift();
+      }
+      config.data.labels.push(frame);
+      config.data.datasets[0].data.push(time);
+      config.data.datasets[1].data.push(glCalls);
+      config.data.datasets[2].data.push(vertices);
+      config.data.datasets[3].data.push(bufferObjectSize);
+      console.log(bufferObjectSize);
+      chart.update();
     }
-    config.data.labels.push(frame);
-    config.data.datasets[0].data.push(time);
-    config.data.datasets[1].data.push(glCalls);
-    config.data.datasets[2].data.push(vertices);
-    frametimeChart.update();
-  }
-  var config = {
-  type: "line",
-  data: {
-    "labels": [
-    ],
-    "datasets": [{
-      "label": "Frametime (ms.)",
-      "fill": false,
-      borderColor: "rgba(220,0,0,0.8)",
-      yAxisID: "frametime",
-      "data": [
-      ]
-    }, {
-      "label": "GL calls",
-      "fill": false,
-      borderColor: "rgba(20,20,220,0.8)",
-      yAxisID: "glcalls",
-      "data": [
-      ]
-    }, {
-      "label": "Vertices",
-      "fill": false,
-      borderColor: "rgba(20,220,220,0.8)",
-      yAxisID: "vertices",
-      "data": [
-      ]
-    }]
-  },
-  options: {
-    animation: false,
-    scales: {
-      xAxes: [
-        {
-          scaleLabel: {
-            display: true,
-            labelString: "frames"
-          }
+    var config = {
+      data: {
+        labels: [
+        ],
+        datasets: [{
+          type: 'line',
+          label: "Frametime (ms.)",
+          fill: false,
+          borderColor: "rgba(220,0,0,0.8)",
+          yAxisID: "frametime",
+          data: []
+        }, {
+          type: 'line',
+          label: "GL calls",
+          fill: false,
+          borderColor: "rgba(20,20,220,0.8)",
+          yAxisID: "glcalls",
+          data: []
+        }, {
+          type: 'line',
+          label: "Vertices",
+          fill: false,
+          borderColor: "rgba(20,220,220,0.8)",
+          yAxisID: "vertices",
+          data: []
+        }, {
+          type: 'line',
+          label: "BO memory (bytes)",
+          fill: true,
+          borderColor: "rgba(220,20,220,0.8)",
+          backgroundColor: "rgba(220,20,220,0.05)",
+          yAxisID: "bo_memory",
+          data: []
+        }]
+      },
+      options: {
+        animation: false,
+        scales: {
+          xAxes: [{
+            scaleLabel: {
+              display: true,
+              labelString: "frames"
+            }
+          }],
+          yAxes: [{
+            position: "left",
+            id: "frametime",
+            ticks: {
+              fontColor: "#A22",
+              beginAtZero: true
+            }
+          }, {
+            position: "right",
+            id: "glcalls",
+            ticks: {
+              fontColor: "#22A",
+              beginAtZero: true,
+              callback: function (value, index, values) {
+                return value.toLocaleString();
+              }
+            }
+          }, {
+            position: "right",
+            id: "vertices",
+            ticks: {
+              fontColor: "#2AA",
+              beginAtZero: true,
+              callback: function (value, index, values) {
+                return value.toLocaleString();
+              }
+            }
+          }, {
+            position: "right",
+            id: "bo_memory",
+            ticks: {
+              fontColor: "#A2A",
+              beginAtZero: true,
+              callback: function (value, index, values) {
+                return value.toLocaleString();
+              }
+            }
+          }]
         }
-      ],
-      yAxes: [{
-        position: "left",
-        id: "frametime",
-        ticks: {
-          fontColor: "#A22",
-          beginAtZero: true
-        }
-      }, {
-        position: "right",
-        id: "glcalls",
-        ticks: {
-          fontColor: "#22A",
-          beginAtZero: true
-        }
-      }, {
-        position: "right",
-        id: "vertices",
-        ticks: {
-          fontColor: "#2AA",
-          beginAtZero: true
-        }
-      }]
-    }
-  }
-};
-         window.onload = function() {
-            var ctx = document.getElementById("frametime").getContext("2d");
-            frametimeChart = new Chart(ctx, config);
-        };
+      }
+    };
+    window.onload = function () {
+      var ctx = document.getElementById("frametime").getContext("2d");
+      chart = new Chart(ctx, config);
+    };
   </script>
-  </body>
+</body>
 </html>

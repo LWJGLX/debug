@@ -55,6 +55,14 @@ public class Context implements Comparable<Context> {
     public static class ProgramPipeline {
     }
 
+    public static class BufferObject {
+        public long size;
+    }
+
+    public static class TextureObject {
+        public long size;
+    }
+
     public static final ThreadLocal<Context> CURRENT_CONTEXT = new ThreadLocal<Context>();
     public static final Map<Long, Context> CONTEXTS = new ConcurrentHashMap<Long, Context>();
     public static final Map<Long, ShareGroup> SHARE_GROUPS = new ConcurrentHashMap<Long, ShareGroup>();
@@ -74,7 +82,10 @@ public class Context implements Comparable<Context> {
     public ProgramPipeline currentProgramPipeline;
     public Map<Integer, VAO> vaos = new HashMap<Integer, VAO>();
     public Map<Integer, FBO> fbos = new HashMap<Integer, FBO>();
-    public Map<Integer, ProgramPipeline> programPipelines = new HashMap<Integer, ProgramPipeline>();
+    public Map<Integer, BufferObject> bufferObjects = new HashMap<>();
+    public Map<Integer, BufferObject> bufferObjectBindings = new HashMap<>();
+    public Map<Integer, TextureObject> textureObjects = new HashMap<>();
+    public Map<Integer, ProgramPipeline> programPipelines = new HashMap<>();
     public ShareGroup shareGroup;
     public boolean inImmediateMode;
 
