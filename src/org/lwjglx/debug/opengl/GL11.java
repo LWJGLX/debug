@@ -35,6 +35,7 @@ import java.nio.ShortBuffer;
 import org.lwjglx.debug.Context;
 import org.lwjglx.debug.GLmetadata;
 import org.lwjglx.debug.MethodCall;
+import org.lwjglx.debug.Properties;
 import org.lwjglx.debug.RT;
 
 public class GL11 {
@@ -42,6 +43,9 @@ public class GL11 {
     public static void glDrawArrays(int mode, int first, int count) {
         checkVertexAttributes();
         org.lwjgl.opengl.GL11.glDrawArrays(mode, first, count);
+        if (Properties.PROFILE) {
+            RT.draw(count);
+        }
     }
 
     public static void glDrawElements(int mode, int count, int type, long indices) {
@@ -51,26 +55,41 @@ public class GL11 {
         }
         checkVertexAttributes();
         org.lwjgl.opengl.GL11.glDrawElements(mode, count, type, indices);
+        if (Properties.PROFILE) {
+            RT.draw(count);
+        }
     }
 
     public static void glDrawElements(int mode, int type, ByteBuffer indices) {
         checkVertexAttributes();
         org.lwjgl.opengl.GL11.glDrawElements(mode, type, indices);
+        if (Properties.PROFILE) {
+            RT.draw(indices.remaining());
+        }
     }
 
     public static void glDrawElements(int mode, ByteBuffer indices) {
         checkVertexAttributes();
         org.lwjgl.opengl.GL11.glDrawElements(mode, indices);
+        if (Properties.PROFILE) {
+            RT.draw(indices.remaining());
+        }
     }
 
     public static void glDrawElements(int mode, ShortBuffer indices) {
         checkVertexAttributes();
         org.lwjgl.opengl.GL11.glDrawElements(mode, indices);
+        if (Properties.PROFILE) {
+            RT.draw(indices.remaining());
+        }
     }
 
     public static void glDrawElements(int mode, IntBuffer indices) {
         checkVertexAttributes();
         org.lwjgl.opengl.GL11.glDrawElements(mode, indices);
+        if (Properties.PROFILE) {
+            RT.draw(indices.remaining());
+        }
     }
 
     public static void glPopClientAttrib() {

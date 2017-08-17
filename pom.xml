@@ -115,6 +115,12 @@
 	<build>
 		<sourceDirectory>src</sourceDirectory>
 		<testSourceDirectory>test</testSourceDirectory>
+		<resources>
+			<resource>
+				<directory>${basedir}/res</directory>
+				<filtering>false</filtering>
+			</resource>
+		</resources>
 		<plugins>
 			<plugin>
 				<artifactId>maven-resources-plugin</artifactId>
@@ -325,6 +331,12 @@
 			<version>${lwjgl.version}</version>
 			<classifier>natives-${platform}</classifier>
 			<scope>provided</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.eclipse.jetty.websocket/websocket-server -->
+		<dependency>
+			<groupId>org.eclipse.jetty.websocket</groupId>
+			<artifactId>websocket-server</artifactId>
+			<version>9.4.6.v20170531</version>
 		</dependency>
 	</dependencies>
 </project>

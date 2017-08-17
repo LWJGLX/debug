@@ -29,11 +29,17 @@ import java.nio.ByteBuffer;
 import java.nio.IntBuffer;
 import java.nio.ShortBuffer;
 
+import org.lwjglx.debug.Properties;
+import org.lwjglx.debug.RT;
+
 public class ARBDrawInstanced {
 
     public static void glDrawArraysInstancedARB(int mode, int first, int count, int primcount) {
         checkVertexAttributes();
         org.lwjgl.opengl.ARBDrawInstanced.glDrawArraysInstancedARB(mode, first, count, primcount);
+        if (Properties.PROFILE) {
+            RT.draw(count * primcount);
+        }
     }
 
     public static void glDrawElementsInstancedARB(int mode, int count, int type, long indices, int primcount) {
@@ -43,26 +49,41 @@ public class ARBDrawInstanced {
         }
         checkVertexAttributes();
         org.lwjgl.opengl.ARBDrawInstanced.glDrawElementsInstancedARB(mode, count, type, indices, primcount);
+        if (Properties.PROFILE) {
+            RT.draw(count * primcount);
+        }
     }
 
     public static void glDrawElementsInstancedARB(int mode, int type, ByteBuffer indices, int primcount) {
         checkVertexAttributes();
         org.lwjgl.opengl.ARBDrawInstanced.glDrawElementsInstancedARB(mode, type, indices, primcount);
+        if (Properties.PROFILE) {
+            RT.draw(indices.remaining() * primcount);
+        }
     }
 
     public static void glDrawElementsInstancedARB(int mode, ByteBuffer indices, int primcount) {
         checkVertexAttributes();
         org.lwjgl.opengl.ARBDrawInstanced.glDrawElementsInstancedARB(mode, indices, primcount);
+        if (Properties.PROFILE) {
+            RT.draw(indices.remaining() * primcount);
+        }
     }
 
     public static void glDrawElementsInstancedARB(int mode, ShortBuffer indices, int primcount) {
         checkVertexAttributes();
         org.lwjgl.opengl.ARBDrawInstanced.glDrawElementsInstancedARB(mode, indices, primcount);
+        if (Properties.PROFILE) {
+            RT.draw(indices.remaining() * primcount);
+        }
     }
 
     public static void glDrawElementsInstancedARB(int mode, IntBuffer indices, int primcount) {
         checkVertexAttributes();
         org.lwjgl.opengl.ARBDrawInstanced.glDrawElementsInstancedARB(mode, indices, primcount);
+        if (Properties.PROFILE) {
+            RT.draw(indices.remaining() * primcount);
+        }
     }
 
 }

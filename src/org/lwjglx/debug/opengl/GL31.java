@@ -29,11 +29,17 @@ import java.nio.ByteBuffer;
 import java.nio.IntBuffer;
 import java.nio.ShortBuffer;
 
+import org.lwjglx.debug.Properties;
+import org.lwjglx.debug.RT;
+
 public class GL31 {
 
     public static void glDrawArraysInstanced(int mode, int first, int count, int primcount) {
         checkVertexAttributes();
         org.lwjgl.opengl.GL31.glDrawArraysInstanced(mode, first, count, primcount);
+        if (Properties.PROFILE) {
+            RT.draw(count * primcount);
+        }
     }
 
     public static void glDrawElementsInstanced(int mode, int count, int type, long indices, int primcount) {
@@ -43,26 +49,41 @@ public class GL31 {
         }
         checkVertexAttributes();
         org.lwjgl.opengl.GL31.glDrawElementsInstanced(mode, count, type, indices, primcount);
+        if (Properties.PROFILE) {
+            RT.draw(count * primcount);
+        }
     }
 
     public static void glDrawElementsInstanced(int mode, int type, ByteBuffer indices, int primcount) {
         checkVertexAttributes();
         org.lwjgl.opengl.GL31.glDrawElementsInstanced(mode, type, indices, primcount);
+        if (Properties.PROFILE) {
+            RT.draw(indices.remaining() * primcount);
+        }
     }
 
     public static void glDrawElementsInstanced(int mode, ByteBuffer indices, int primcount) {
         checkVertexAttributes();
         org.lwjgl.opengl.GL31.glDrawElementsInstanced(mode, indices, primcount);
+        if (Properties.PROFILE) {
+            RT.draw(indices.remaining() * primcount);
+        }
     }
 
     public static void glDrawElementsInstanced(int mode, ShortBuffer indices, int primcount) {
         checkVertexAttributes();
         org.lwjgl.opengl.GL31.glDrawElementsInstanced(mode, indices, primcount);
+        if (Properties.PROFILE) {
+            RT.draw(indices.remaining() * primcount);
+        }
     }
 
     public static void glDrawElementsInstanced(int mode, IntBuffer indices, int primcount) {
         checkVertexAttributes();
         org.lwjgl.opengl.GL31.glDrawElementsInstanced(mode, indices, primcount);
+        if (Properties.PROFILE) {
+            RT.draw(indices.remaining() * primcount);
+        }
     }
 
 }

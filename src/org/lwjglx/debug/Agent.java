@@ -38,6 +38,8 @@ import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.regex.Pattern;
 
+import javax.servlet.ServletException;
+
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.ClassVisitor;
 import org.objectweb.asm.ClassWriter;
@@ -281,6 +283,7 @@ public class Agent implements ClassFileTransformer, Opcodes {
             OptionSpec<String> path = parser.accepts("exclude").withRequiredArg().ofType(String.class).withValuesSeparatedBy(",");
             parser.accepts("debug");
             parser.accepts("trace");
+            parser.accepts("profile");
             parser.accepts("nothrow");
             OptionSpec<Long> sleep = parser.accepts("sleep").withRequiredArg().ofType(Long.class);
             OptionSpec<String> output = parser.accepts("output").withRequiredArg().ofType(String.class);
@@ -295,12 +298,21 @@ public class Agent implements ClassFileTransformer, Opcodes {
                 Properties.DEBUG = true;
             if (options.has("trace"))
                 Properties.TRACE = true;
+            if (options.has("profile"))
+                Properties.PROFILE = true;
             if (options.has("nothrow"))
                 Properties.NO_THROW_ON_ERROR = true;
             if (options.has("sleep"))
                 Properties.SLEEP = options.valueOf(sleep);
             if (options.has("output"))
                 Properties.OUTPUT = options.valueOf(output);
+        }
+        if (Properties.PROFILE) {
+            try {
+                Profiling.startServer();
+            } catch (ServletException e) {
+                throw new AssertionError("Could not start profiling server", e);
+            }
         }
         Agent t = new Agent(excludes);
         instrumentation.addTransformer(t);

@@ -26,6 +26,7 @@ public class Properties {
 
     public static boolean DEBUG = getBooleanProperty("org.lwjglx.DEBUG", false);
     public static boolean TRACE = getBooleanProperty("org.lwjglx.TRACE", false);
+    public static boolean PROFILE = getBooleanProperty("org.lwjglx.PROFILE", false);
     public static boolean NO_THROW_ON_ERROR = getBooleanProperty("org.lwjglx.NO_THROW", false);
     public static String OUTPUT = System.getProperty("org.lwjglx.OUTPUT", null);
     public static long SLEEP = getLongProperty("org.lwjglx.SLEEP", 0L);

@@ -33,6 +33,7 @@ import org.lwjgl.glfw.GLFWVidMode;
 import org.lwjgl.system.APIUtil;
 import org.lwjglx.debug.Context;
 import org.lwjglx.debug.MethodCall;
+import org.lwjglx.debug.RT;
 
 public class GLFW {
 
@@ -404,6 +405,11 @@ public class GLFW {
             mc.comment(refreshRate / Math.abs(interval) + " Hz");
         }
         mc.param(interval);
+    }
+
+    public static void glfwSwapBuffers(long window) {
+        org.lwjgl.glfw.GLFW.glfwSwapBuffers(window);
+        RT.frame();
     }
 
 }

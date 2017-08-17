@@ -78,6 +78,12 @@ public class Context implements Comparable<Context> {
     public ShareGroup shareGroup;
     public boolean inImmediateMode;
 
+    /* Profiling (per frame info) */
+    public int verticesCount;
+    public long frameStartTime;
+    public long frameEndTime;
+    public int glCallCount;
+
     public static void create(long window, long share) {
         Context ctx = new Context();
         ctx.window = window;

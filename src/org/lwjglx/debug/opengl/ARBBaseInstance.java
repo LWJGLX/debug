@@ -29,11 +29,17 @@ import java.nio.ByteBuffer;
 import java.nio.IntBuffer;
 import java.nio.ShortBuffer;
 
+import org.lwjglx.debug.Properties;
+import org.lwjglx.debug.RT;
+
 public class ARBBaseInstance {
 
     public static void glDrawArraysInstancedBaseInstance(int mode, int first, int count, int primcount, int baseinstance) {
         checkVertexAttributes();
         org.lwjgl.opengl.ARBBaseInstance.glDrawArraysInstancedBaseInstance(mode, first, count, primcount, baseinstance);
+        if (Properties.PROFILE) {
+            RT.draw(count * primcount);
+        }
     }
 
     public static void glDrawElementsInstancedBaseInstance(int mode, int count, int type, long indices, int primcount, int baseinstance) {
@@ -43,26 +49,41 @@ public class ARBBaseInstance {
         }
         checkVertexAttributes();
         org.lwjgl.opengl.ARBBaseInstance.glDrawElementsInstancedBaseInstance(mode, count, type, indices, primcount, baseinstance);
+        if (Properties.PROFILE) {
+            RT.draw(count * primcount);
+        }
     }
 
     public static void glDrawElementsInstancedBaseInstance(int mode, int type, ByteBuffer indices, int primcount, int baseinstance) {
         checkVertexAttributes();
         org.lwjgl.opengl.ARBBaseInstance.glDrawElementsInstancedBaseInstance(mode, type, indices, primcount, baseinstance);
+        if (Properties.PROFILE) {
+            RT.draw(indices.remaining() * primcount);
+        }
     }
 
     public static void glDrawElementsInstancedBaseInstance(int mode, ByteBuffer indices, int primcount, int baseinstance) {
         checkVertexAttributes();
         org.lwjgl.opengl.ARBBaseInstance.glDrawElementsInstancedBaseInstance(mode, indices, primcount, baseinstance);
+        if (Properties.PROFILE) {
+            RT.draw(indices.remaining() * primcount);
+        }
     }
 
     public static void glDrawElementsInstancedBaseInstance(int mode, ShortBuffer indices, int primcount, int baseinstance) {
         checkVertexAttributes();
         org.lwjgl.opengl.ARBBaseInstance.glDrawElementsInstancedBaseInstance(mode, indices, primcount, baseinstance);
+        if (Properties.PROFILE) {
+            RT.draw(indices.remaining() * primcount);
+        }
     }
 
     public static void glDrawElementsInstancedBaseInstance(int mode, IntBuffer indices, int primcount, int baseinstance) {
         checkVertexAttributes();
         org.lwjgl.opengl.ARBBaseInstance.glDrawElementsInstancedBaseInstance(mode, indices, primcount, baseinstance);
+        if (Properties.PROFILE) {
+            RT.draw(indices.remaining() * primcount);
+        }
     }
 
     public static void glDrawElementsInstancedBaseVertexBaseInstance(int mode, int count, int type, long indices, int primcount, int basevertex, int baseinstance) {
@@ -72,26 +93,41 @@ public class ARBBaseInstance {
         }
         checkVertexAttributes();
         org.lwjgl.opengl.ARBBaseInstance.glDrawElementsInstancedBaseVertexBaseInstance(mode, count, type, indices, primcount, basevertex, baseinstance);
+        if (Properties.PROFILE) {
+            RT.draw(count * primcount);
+        }
     }
 
     public static void glDrawElementsInstancedBaseVertexBaseInstance(int mode, int type, ByteBuffer indices, int primcount, int basevertex, int baseinstance) {
         checkVertexAttributes();
         org.lwjgl.opengl.ARBBaseInstance.glDrawElementsInstancedBaseVertexBaseInstance(mode, type, indices, primcount, basevertex, baseinstance);
+        if (Properties.PROFILE) {
+            RT.draw(indices.remaining() * primcount);
+        }
     }
 
     public static void glDrawElementsInstancedBaseVertexBaseInstance(int mode, ByteBuffer indices, int primcount, int basevertex, int baseinstance) {
         checkVertexAttributes();
         org.lwjgl.opengl.ARBBaseInstance.glDrawElementsInstancedBaseVertexBaseInstance(mode, indices, primcount, basevertex, baseinstance);
+        if (Properties.PROFILE) {
+            RT.draw(indices.remaining() * primcount);
+        }
     }
 
     public static void glDrawElementsInstancedBaseVertexBaseInstance(int mode, ShortBuffer indices, int primcount, int basevertex, int baseinstance) {
         checkVertexAttributes();
         org.lwjgl.opengl.ARBBaseInstance.glDrawElementsInstancedBaseVertexBaseInstance(mode, indices, primcount, basevertex, baseinstance);
+        if (Properties.PROFILE) {
+            RT.draw(indices.remaining() * primcount);
+        }
     }
 
     public static void glDrawElementsInstancedBaseVertexBaseInstance(int mode, IntBuffer indices, int primcount, int basevertex, int baseinstance) {
         checkVertexAttributes();
         org.lwjgl.opengl.ARBBaseInstance.glDrawElementsInstancedBaseVertexBaseInstance(mode, indices, primcount, basevertex, baseinstance);
+        if (Properties.PROFILE) {
+            RT.draw(indices.remaining() * primcount);
+        }
     }
 
 }

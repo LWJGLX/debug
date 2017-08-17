@@ -1,0 +1,60 @@
+<html>
+  <head>
+<script src="chartjs.js"></script>
+<style>
+</style>
+  </head>
+  <body>
+      <div style="width:75%;">
+        <canvas id="frametime"></canvas>
+    </div>
+  <script>
+  var frametimeChart;
+  var ws = new WebSocket('ws://' + location.host + '/ws');
+  ws.binaryType = "arraybuffer";
+  ws.onopen = function (event) {
+    console.log("Socket open!") 
+  };
+  ws.onmessage = function (event) {
+    var view = new DataView(event.data);
+    var frame = view.getInt32(0);
+    var time = view.getFloat32(4);
+    config.data.labels.push(frame);
+    config.data.datasets[0].data.push(time);
+    frametimeChart.update();
+  }
+  var config = {
+            type: 'line',
+            data: {
+                labels: [],
+                datasets: [{
+                    data: [
+                    ],
+                    fill: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    xAxes: [{
+                      display: true,
+                        scaleLabel: {
+                            display: true
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true
+                        }
+                    }]
+                }
+            }
+        };
+         window.onload = function() {
+            var ctx = document.getElementById("frametime").getContext("2d");
+            frametimeChart = new Chart(ctx, config);
+        };
+  </script>
+  </body>
+</html>

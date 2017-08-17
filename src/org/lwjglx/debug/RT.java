@@ -835,4 +835,26 @@ public class RT {
         }
     }
 
+    public static void draw(int verticesCount) {
+        Context ctx = CURRENT_CONTEXT.get();
+        ctx.verticesCount += verticesCount;
+    }
+
+    public static void frame() {
+        Context ctx = CURRENT_CONTEXT.get();
+        ctx.frameEndTime = System.nanoTime();
+        if (Properties.PROFILE) {
+            Profiling.frame(ctx);
+        }
+        /* Reset counters for next frame */
+        ctx.verticesCount = 0;
+        ctx.glCallCount = 0;
+        ctx.frameStartTime = ctx.frameEndTime;
+    }
+
+    public static void glCall() {
+        Context ctx = CURRENT_CONTEXT.get();
+        ctx.glCallCount++;
+    }
+
 }

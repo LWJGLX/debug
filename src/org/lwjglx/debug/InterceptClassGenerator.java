@@ -228,6 +228,10 @@ class InterceptClassGenerator implements Opcodes {
                     mv.visitMethodInsn(INVOKESTATIC, "org/lwjgl/opengl/GL", "getCapabilities", "()Lorg/lwjgl/opengl/GLCapabilities;", false);
                     /* and whether the function is supported */
                     checkFunctionSupported(mv, call.glName);
+                    /* also increment GL call profiling counter */
+                    if (PROFILE) {
+                        mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, "glCall", "()V", false);
+                    }
                 }
                 /* Optionally delay the call */
                 sleep(mv);
