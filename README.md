@@ -25,6 +25,7 @@ The following configuration properties are available to configure the library:
 - `debug` - Log additional information about classfile transformations (this can be used to debug the library itself). (set via system property `org.lwjglx.DEBUG` or via Agent argument `d`)
 - `output` - Write LWJGL3 and LWJGLX debug and trace logging messages to a file (when this option is set, no output of LWJGL3 and LWJGLX is printed to stdout or stderr, but instead to the specified file). The file name is the value of this property. When the file name ends with `.zip` or `.gz` then a corresponding compressed archive file will be created to save storage space. In this case, the JVM must exit normally for the archive file to be finalized properly. (set via system property `-Dorg.lwjglx.OUTPUT` or via Agent argument `o`)
 - `sleep` - Thread.sleep() before calling each intercepted method (useful when following a call trace). The number of milliseconds are specified as the value of this property. (set via system property `-Dorg.lwjglx.SLEEP` or via Agent argument `s`)
+- `profile` - Profile various aspects about the application, such as frame time, number of GL calls, number of drawn vertices, allocated buffer object and texture memory. Once the application was started with profiling enabled, open a browser on [http://localhost:2992](http://localhost:2992). (set via system property `-Dorg.lwjglx.PROFILE` or via Agent argument `p`)
 
 Examples:
 
