@@ -10,6 +10,8 @@
     </div>
   <script>
   var frametimeChart;
+  var numSamples = 0;
+  var MAX_NUM_SAMPLES = 120; // <- 1 minute
   var ws = new WebSocket('ws://' + location.host + '/ws');
   ws.binaryType = "arraybuffer";
   ws.onmessage = function (event) {
@@ -19,6 +21,13 @@
     var time = view.getFloat32(8);
     var glCalls = view.getInt32(12);
     var vertices = view.getInt32(16);
+    numSamples++;
+    if (numSamples > MAX_NUM_SAMPLES) {
+        config.data.labels.shift();
+	    config.data.datasets[0].data.shift();
+	    config.data.datasets[1].data.shift();
+	    config.data.datasets[2].data.shift();
+    }
     config.data.labels.push(frame);
     config.data.datasets[0].data.push(time);
     config.data.datasets[1].data.push(glCalls);
@@ -54,6 +63,7 @@
     }]
   },
   options: {
+    animation: false,
     scales: {
       xAxes: [
         {
