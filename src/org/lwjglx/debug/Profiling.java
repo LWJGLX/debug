@@ -24,6 +24,9 @@ import org.eclipse.jetty.util.thread.ScheduledExecutorScheduler;
 import org.eclipse.jetty.websocket.api.Session;
 import org.eclipse.jetty.websocket.api.WebSocketListener;
 import org.eclipse.jetty.websocket.server.WebSocketUpgradeFilter;
+import org.eclipse.jetty.websocket.servlet.ServletUpgradeRequest;
+import org.eclipse.jetty.websocket.servlet.ServletUpgradeResponse;
+import org.eclipse.jetty.websocket.servlet.WebSocketCreator;
 import org.eclipse.jetty.websocket.servlet.WebSocketServlet;
 import org.eclipse.jetty.websocket.servlet.WebSocketServletFactory;
 import org.lwjgl.system.MemoryStack;
@@ -72,6 +75,12 @@ class ProfilingConnection implements WebSocketListener {
     @Override
     public void onWebSocketBinary(byte[] arg0, int arg1, int arg2) {
         /* ignore */
+    }
+}
+
+class ProfilingConnectionCreator implements WebSocketCreator {
+    public Object createWebSocket(ServletUpgradeRequest req, ServletUpgradeResponse resp) {
+        return new ProfilingConnection();
     }
 }
 
@@ -148,7 +157,7 @@ class Profiling {
             buf.putDouble(28, toMemory / 1024L);
             synchronized (ProfilingConnection.connections) {
                 for (ProfilingConnection c : ProfilingConnection.connections) {
-                    c.outbound.getRemote().sendBytesByFuture(buf);
+                    c.outbound.getRemote().sendBytesByFuture(buf.slice());
                 }
             }
         }
