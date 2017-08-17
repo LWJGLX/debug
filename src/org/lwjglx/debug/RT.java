@@ -840,6 +840,25 @@ public class RT {
         ctx.verticesCount += verticesCount;
     }
 
+    public static void beginImmediate() {
+        Context ctx = CURRENT_CONTEXT.get();
+        ctx.inImmediateMode = true;
+    }
+
+    public static void endImmediate() {
+        Context ctx = CURRENT_CONTEXT.get();
+        ctx.inImmediateMode = false;
+        if (Properties.PROFILE) {
+            draw(ctx.immediateModeVertices);
+            ctx.immediateModeVertices = 0;
+        }
+    }
+
+    public static void vertex() {
+        Context ctx = CURRENT_CONTEXT.get();
+        ctx.immediateModeVertices++;
+    }
+
     public static void frame() {
         Context ctx = CURRENT_CONTEXT.get();
         ctx.frameEndTime = System.nanoTime();

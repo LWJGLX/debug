@@ -40,6 +40,258 @@ import org.lwjglx.debug.RT;
 
 public class GL11 {
 
+    public static void glVertex2f(float x, float y) {
+        org.lwjgl.opengl.GL11.glVertex2f(x, y);
+        if (Properties.PROFILE) {
+            RT.vertex();
+        }
+    }
+
+    public static void glVertex2s(short x, short y) {
+        org.lwjgl.opengl.GL11.glVertex2s(x, y);
+        if (Properties.PROFILE) {
+            RT.vertex();
+        }
+    }
+
+    public static void glVertex2i(int x, int y) {
+        org.lwjgl.opengl.GL11.glVertex2i(x, y);
+        if (Properties.PROFILE) {
+            RT.vertex();
+        }
+    }
+
+    public static void glVertex2d(double x, double y) {
+        org.lwjgl.opengl.GL11.glVertex2d(x, y);
+        if (Properties.PROFILE) {
+            RT.vertex();
+        }
+    }
+
+    public static void glVertex2fv(FloatBuffer coords) {
+        org.lwjgl.opengl.GL11.glVertex2fv(coords);
+        if (Properties.PROFILE) {
+            RT.vertex();
+        }
+    }
+
+    public static void glVertex2fv(float[] coords) {
+        org.lwjgl.opengl.GL11.glVertex2fv(coords);
+        if (Properties.PROFILE) {
+            RT.vertex();
+        }
+    }
+
+    public static void glVertex2fs(ShortBuffer coords) {
+        org.lwjgl.opengl.GL11.glVertex2sv(coords);
+        if (Properties.PROFILE) {
+            RT.vertex();
+        }
+    }
+
+    public static void glVertex2fs(short[] coords) {
+        org.lwjgl.opengl.GL11.glVertex2sv(coords);
+        if (Properties.PROFILE) {
+            RT.vertex();
+        }
+    }
+
+    public static void glVertex2fi(IntBuffer coords) {
+        org.lwjgl.opengl.GL11.glVertex2iv(coords);
+        if (Properties.PROFILE) {
+            RT.vertex();
+        }
+    }
+
+    public static void glVertex2fi(int[] coords) {
+        org.lwjgl.opengl.GL11.glVertex2iv(coords);
+        if (Properties.PROFILE) {
+            RT.vertex();
+        }
+    }
+
+    public static void glVertex2fd(DoubleBuffer coords) {
+        org.lwjgl.opengl.GL11.glVertex2dv(coords);
+        if (Properties.PROFILE) {
+            RT.vertex();
+        }
+    }
+
+    public static void glVertex2fd(double[] coords) {
+        org.lwjgl.opengl.GL11.glVertex2dv(coords);
+        if (Properties.PROFILE) {
+            RT.vertex();
+        }
+    }
+
+    public static void glVertex3f(float x, float y, float z) {
+        org.lwjgl.opengl.GL11.glVertex3f(x, y, z);
+        if (Properties.PROFILE) {
+            RT.vertex();
+        }
+    }
+
+    public static void glVertex3s(short x, short y, short z) {
+        org.lwjgl.opengl.GL11.glVertex3s(x, y, z);
+        if (Properties.PROFILE) {
+            RT.vertex();
+        }
+    }
+
+    public static void glVertex3i(int x, int y, int z) {
+        org.lwjgl.opengl.GL11.glVertex3i(x, y, z);
+        if (Properties.PROFILE) {
+            RT.vertex();
+        }
+    }
+
+    public static void glVertex3d(double x, double y, double z) {
+        org.lwjgl.opengl.GL11.glVertex3d(x, y, z);
+        if (Properties.PROFILE) {
+            RT.vertex();
+        }
+    }
+
+    public static void glVertex3fv(FloatBuffer coords) {
+        org.lwjgl.opengl.GL11.glVertex3fv(coords);
+        if (Properties.PROFILE) {
+            RT.vertex();
+        }
+    }
+
+    public static void glVertex3fv(float[] coords) {
+        org.lwjgl.opengl.GL11.glVertex3fv(coords);
+        if (Properties.PROFILE) {
+            RT.vertex();
+        }
+    }
+
+    public static void glVertex3fs(ShortBuffer coords) {
+        org.lwjgl.opengl.GL11.glVertex3sv(coords);
+        if (Properties.PROFILE) {
+            RT.vertex();
+        }
+    }
+
+    public static void glVertex3fs(short[] coords) {
+        org.lwjgl.opengl.GL11.glVertex3sv(coords);
+        if (Properties.PROFILE) {
+            RT.vertex();
+        }
+    }
+
+    public static void glVertex3fi(IntBuffer coords) {
+        org.lwjgl.opengl.GL11.glVertex3iv(coords);
+        if (Properties.PROFILE) {
+            RT.vertex();
+        }
+    }
+
+    public static void glVertex3fi(int[] coords) {
+        org.lwjgl.opengl.GL11.glVertex3iv(coords);
+        if (Properties.PROFILE) {
+            RT.vertex();
+        }
+    }
+
+    public static void glVertex3fd(DoubleBuffer coords) {
+        org.lwjgl.opengl.GL11.glVertex3dv(coords);
+        if (Properties.PROFILE) {
+            RT.vertex();
+        }
+    }
+
+    public static void glVertex3fd(double[] coords) {
+        org.lwjgl.opengl.GL11.glVertex3dv(coords);
+        if (Properties.PROFILE) {
+            RT.vertex();
+        }
+    }
+
+    public static void glVertex4f(float x, float y, float z, float w) {
+        org.lwjgl.opengl.GL11.glVertex4f(x, y, z, w);
+        if (Properties.PROFILE) {
+            RT.vertex();
+        }
+    }
+
+    public static void glVertex4f(short x, short y, short z, short w) {
+        org.lwjgl.opengl.GL11.glVertex4s(x, y, z, w);
+        if (Properties.PROFILE) {
+            RT.vertex();
+        }
+    }
+
+    public static void glVertex4f(int x, int y, int z, int w) {
+        org.lwjgl.opengl.GL11.glVertex4i(x, y, z, w);
+        if (Properties.PROFILE) {
+            RT.vertex();
+        }
+    }
+
+    public static void glVertex4f(double x, double y, double z, double w) {
+        org.lwjgl.opengl.GL11.glVertex4d(x, y, z, w);
+        if (Properties.PROFILE) {
+            RT.vertex();
+        }
+    }
+
+    public static void glVertex4fv(FloatBuffer coords) {
+        org.lwjgl.opengl.GL11.glVertex4fv(coords);
+        if (Properties.PROFILE) {
+            RT.vertex();
+        }
+    }
+
+    public static void glVertex4fv(float[] coords) {
+        org.lwjgl.opengl.GL11.glVertex4fv(coords);
+        if (Properties.PROFILE) {
+            RT.vertex();
+        }
+    }
+
+    public static void glVertex4fs(ShortBuffer coords) {
+        org.lwjgl.opengl.GL11.glVertex4sv(coords);
+        if (Properties.PROFILE) {
+            RT.vertex();
+        }
+    }
+
+    public static void glVertex4fs(short[] coords) {
+        org.lwjgl.opengl.GL11.glVertex4sv(coords);
+        if (Properties.PROFILE) {
+            RT.vertex();
+        }
+    }
+
+    public static void glVertex4fi(IntBuffer coords) {
+        org.lwjgl.opengl.GL11.glVertex4iv(coords);
+        if (Properties.PROFILE) {
+            RT.vertex();
+        }
+    }
+
+    public static void glVertex4fi(int[] coords) {
+        org.lwjgl.opengl.GL11.glVertex4iv(coords);
+        if (Properties.PROFILE) {
+            RT.vertex();
+        }
+    }
+
+    public static void glVertex4fd(DoubleBuffer coords) {
+        org.lwjgl.opengl.GL11.glVertex4dv(coords);
+        if (Properties.PROFILE) {
+            RT.vertex();
+        }
+    }
+
+    public static void glVertex4fd(double[] coords) {
+        org.lwjgl.opengl.GL11.glVertex4dv(coords);
+        if (Properties.PROFILE) {
+            RT.vertex();
+        }
+    }
+
     public static void glDrawArrays(int mode, int first, int count) {
         checkVertexAttributes();
         org.lwjgl.opengl.GL11.glDrawArrays(mode, first, count);
@@ -224,14 +476,12 @@ public class GL11 {
 
     public static void glBegin(int mode) {
         org.lwjgl.opengl.GL11.glBegin(mode);
-        Context ctx = CURRENT_CONTEXT.get();
-        ctx.inImmediateMode = true;
+        RT.beginImmediate();
     }
 
     public static void glEnd() {
         org.lwjgl.opengl.GL11.glEnd();
-        Context ctx = CURRENT_CONTEXT.get();
-        ctx.inImmediateMode = false;
+        RT.endImmediate();
     }
 
 }

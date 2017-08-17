@@ -83,6 +83,7 @@ public class Context implements Comparable<Context> {
     public long frameStartTime;
     public long frameEndTime;
     public int glCallCount;
+    public int immediateModeVertices;
 
     public static void create(long window, long share) {
         Context ctx = new Context();
