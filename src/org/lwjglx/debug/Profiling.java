@@ -117,10 +117,13 @@ class Profiling {
         }
         lastSent = ctx.frameEndTime;
         try (MemoryStack stack = stackPush()) {
-            ByteBuffer buf = stack.malloc(8).order(ByteOrder.BIG_ENDIAN);
+            ByteBuffer buf = stack.malloc(20).order(ByteOrder.BIG_ENDIAN);
             float ms = (float) (ctx.frameEndTime - ctx.frameStartTime) / 1E6f;
-            buf.putInt(0, frame);
-            buf.putFloat(4, ms);
+            buf.putInt(0, ctx.counter);
+            buf.putInt(4, frame);
+            buf.putFloat(8, ms);
+            buf.putInt(12, ctx.glCallCount);
+            buf.putInt(16, ctx.verticesCount);
             synchronized (ProfilingConnection.connections) {
                 for (ProfilingConnection c : ProfilingConnection.connections) {
                     c.outbound.getRemote().sendBytesByFuture(buf);

@@ -12,45 +12,82 @@
   var frametimeChart;
   var ws = new WebSocket('ws://' + location.host + '/ws');
   ws.binaryType = "arraybuffer";
-  ws.onopen = function (event) {
-    console.log("Socket open!") 
-  };
   ws.onmessage = function (event) {
     var view = new DataView(event.data);
-    var frame = view.getInt32(0);
-    var time = view.getFloat32(4);
+    var glcontext = view.getInt32(0);
+    var frame = view.getInt32(4);
+    var time = view.getFloat32(8);
+    var glCalls = view.getInt32(12);
+    var vertices = view.getInt32(16);
     config.data.labels.push(frame);
     config.data.datasets[0].data.push(time);
+    config.data.datasets[1].data.push(glCalls);
+    config.data.datasets[2].data.push(vertices);
     frametimeChart.update();
   }
   var config = {
-            type: 'line',
-            data: {
-                labels: [],
-                datasets: [{
-                    data: [
-                    ],
-                    fill: false,
-                }]
-            },
-            options: {
-                responsive: true,
-                scales: {
-                    xAxes: [{
-                      display: true,
-                        scaleLabel: {
-                            display: true
-                        }
-                    }],
-                    yAxes: [{
-                        display: true,
-                        scaleLabel: {
-                            display: true
-                        }
-                    }]
-                }
-            }
-        };
+  type: "line",
+  data: {
+    "labels": [
+    ],
+    "datasets": [{
+      "label": "Frametime (ms.)",
+      "fill": false,
+      borderColor: "rgba(220,0,0,0.8)",
+      yAxisID: "frametime",
+      "data": [
+      ]
+    }, {
+      "label": "GL calls",
+      "fill": false,
+      borderColor: "rgba(20,20,220,0.8)",
+      yAxisID: "glcalls",
+      "data": [
+      ]
+    }, {
+      "label": "Vertices",
+      "fill": false,
+      borderColor: "rgba(20,220,220,0.8)",
+      yAxisID: "vertices",
+      "data": [
+      ]
+    }]
+  },
+  options: {
+    scales: {
+      xAxes: [
+        {
+          scaleLabel: {
+            display: true,
+            labelString: "frames"
+          }
+        }
+      ],
+      yAxes: [{
+        position: "left",
+        id: "frametime",
+        ticks: {
+          fontColor: "#A22",
+          beginAtZero: true
+        }
+      }, {
+        position: "right",
+        id: "glcalls",
+        ticks: {
+          fontColor: "#22A",
+          beginAtZero: true
+        }
+      }, {
+        position: "right",
+        id: "vertices",
+        ticks: {
+          fontColor: "#2AA",
+          beginAtZero: true
+        }
+      }]
+    }
+  }
+};
          window.onload = function() {
             var ctx = document.getElementById("frametime").getContext("2d");
             frametimeChart = new Chart(ctx, config);
