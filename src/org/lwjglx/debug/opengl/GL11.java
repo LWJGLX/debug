@@ -31,8 +31,12 @@ import java.nio.DoubleBuffer;
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 import java.nio.ShortBuffer;
+import java.util.Iterator;
+import java.util.Map;
 
 import org.lwjglx.debug.Context;
+import org.lwjglx.debug.Context.TextureLayer;
+import org.lwjglx.debug.Context.TextureObject;
 import org.lwjglx.debug.GLmetadata;
 import org.lwjglx.debug.MethodCall;
 import org.lwjglx.debug.Properties;
@@ -360,6 +364,103 @@ public class GL11 {
         }
     }
 
+    public static void glGenTextures(IntBuffer textures) {
+        org.lwjgl.opengl.GL11.glGenTextures(textures);
+        Context ctx = CURRENT_CONTEXT.get();
+        int pos = textures.position();
+        for (int i = 0; i < textures.remaining(); i++) {
+            int texture = textures.get(pos + i);
+            ctx.textureObjects.put(texture, new TextureObject());
+        }
+    }
+
+    public static void glGenTextures(int[] textures) {
+        org.lwjgl.opengl.GL11.glGenTextures(textures);
+        Context ctx = CURRENT_CONTEXT.get();
+        for (int i = 0; i < textures.length; i++) {
+            int texture = textures[i];
+            ctx.textureObjects.put(texture, new TextureObject());
+        }
+    }
+
+    public static int glGenTextures() {
+        int tex = org.lwjgl.opengl.GL11.glGenTextures();
+        Context ctx = CURRENT_CONTEXT.get();
+        ctx.textureObjects.put(tex, new TextureObject());
+        return tex;
+    }
+
+    private static void assignLayers(int target, TextureObject to) {
+        if (to.layers == null) {
+            switch (target) {
+            case org.lwjgl.opengl.GL13.GL_TEXTURE_CUBE_MAP:
+                to.layers = new TextureLayer[6];
+                break;
+            default:
+                to.layers = new TextureLayer[1];
+                break;
+            }
+            for (int i = 0; i < to.layers.length; i++) {
+                to.layers[i] = new TextureLayer();
+            }
+        }
+    }
+
+    public static void glBindTexture(int target, int texture) {
+        org.lwjgl.opengl.GL11.glBindTexture(target, texture);
+        Context ctx = CURRENT_CONTEXT.get();
+        if (texture != 0) {
+            TextureObject to = ctx.textureObjects.get(texture);
+            assignLayers(target, to);
+            ctx.textureObjectBindings.put(target, to);
+        } else {
+            ctx.textureObjectBindings.remove(target);
+        }
+    }
+
+    public static void glDeleteTextures(IntBuffer textures) {
+        org.lwjgl.opengl.GL11.glDeleteTextures(textures);
+        Context ctx = CURRENT_CONTEXT.get();
+        int pos = textures.position();
+        for (int i = 0; i < textures.remaining(); i++) {
+            int buffer = textures.get(pos + i);
+            TextureObject to = ctx.textureObjects.remove(buffer);
+            Iterator<Map.Entry<Integer, TextureObject>> it = ctx.textureObjectBindings.entrySet().iterator();
+            while (it.hasNext()) {
+                if (it.next().getValue() == to) {
+                    it.remove();
+                }
+            }
+        }
+    }
+
+    public static void glDeleteTextures(int[] textures) {
+        org.lwjgl.opengl.GL11.glDeleteTextures(textures);
+        Context ctx = CURRENT_CONTEXT.get();
+        for (int i = 0; i < textures.length; i++) {
+            int buffer = textures[i];
+            TextureObject to = ctx.textureObjects.remove(buffer);
+            Iterator<Map.Entry<Integer, TextureObject>> it = ctx.textureObjectBindings.entrySet().iterator();
+            while (it.hasNext()) {
+                if (it.next().getValue() == to) {
+                    it.remove();
+                }
+            }
+        }
+    }
+
+    public static void glDeleteTextures(int texture) {
+        org.lwjgl.opengl.GL11.glDeleteTextures(texture);
+        Context ctx = CURRENT_CONTEXT.get();
+        TextureObject to = ctx.textureObjects.remove(texture);
+        Iterator<Map.Entry<Integer, TextureObject>> it = ctx.textureObjectBindings.entrySet().iterator();
+        while (it.hasNext()) {
+            if (it.next().getValue() == to) {
+                it.remove();
+            }
+        }
+    }
+
     private static void glTexImage2D_trace(int target, int level, int internalformat, int width, int height, int border, int format, int type, Object pixelsOrSize, MethodCall mc) {
         mc.paramEnum(GLmetadata.TextureTarget().get(target));
         mc.param(level);
@@ -373,6 +474,149 @@ public class GL11 {
         mc.paramEnum(RT.glEnumFor(format, GLmetadata.PixelFormat()));
         mc.paramEnum(RT.glEnumFor(type, GLmetadata.PixelType()));
         mc.param(pixelsOrSize);
+    }
+
+    private static int textureSize(int internalFormat, int width, int height) {
+        switch (internalFormat) {
+        // Base internal formats
+        case org.lwjgl.opengl.GL11.GL_DEPTH_COMPONENT:
+            return width * height * 3;
+        case org.lwjgl.opengl.GL30.GL_DEPTH_STENCIL:
+            return width * height * 4;
+        case org.lwjgl.opengl.GL11.GL_RED:
+            return width * height;
+        case org.lwjgl.opengl.GL30.GL_RG:
+            return width * height * 2;
+        case org.lwjgl.opengl.GL11.GL_RGB:
+            return width * height * 3;
+        case org.lwjgl.opengl.GL11.GL_RGBA:
+            return width * height * 4;
+        // Sized internal formats
+        case org.lwjgl.opengl.GL30.GL_R8:
+            return width * height;
+        case org.lwjgl.opengl.GL31.GL_R8_SNORM:
+            return width * height;
+        case org.lwjgl.opengl.GL30.GL_R16:
+            return width * height * 16 / 8;
+        case org.lwjgl.opengl.GL31.GL_R16_SNORM:
+            return width * height * 16 / 8;
+        case org.lwjgl.opengl.GL30.GL_RG8:
+            return width * height * 16 / 8;
+        case org.lwjgl.opengl.GL31.GL_RG8_SNORM:
+            return width * height * 16 / 8;
+        case org.lwjgl.opengl.GL30.GL_RG16:
+            return width * height * 32 / 8;
+        case org.lwjgl.opengl.GL31.GL_RG16_SNORM:
+            return width * height * 32 / 8;
+        case org.lwjgl.opengl.GL11.GL_R3_G3_B2:
+            return width * height * 8 / 8;
+        case org.lwjgl.opengl.GL11.GL_RGB4:
+            return width * height * 12 / 8;
+        case org.lwjgl.opengl.GL11.GL_RGB5:
+            return width * height * 15 / 8;
+        case org.lwjgl.opengl.GL11.GL_RGB8:
+            return width * height * 24 / 8;
+        case org.lwjgl.opengl.GL31.GL_RGB8_SNORM:
+            return width * height * 24 / 8;
+        case org.lwjgl.opengl.GL11.GL_RGB10:
+            return width * height * 30 / 8;
+        case org.lwjgl.opengl.GL11.GL_RGB12:
+            return width * height * 36 / 8;
+        case org.lwjgl.opengl.GL31.GL_RGB16_SNORM:
+            return width * height * 48 / 8;
+        case org.lwjgl.opengl.GL11.GL_RGBA2:
+            return width * height * 8 / 8;
+        case org.lwjgl.opengl.GL11.GL_RGBA4:
+            return width * height * 16 / 8;
+        case org.lwjgl.opengl.GL11.GL_RGB5_A1:
+            return width * height * 16 / 8;
+        case org.lwjgl.opengl.GL11.GL_RGBA8:
+            return width * height * 32 / 8;
+        case org.lwjgl.opengl.GL31.GL_RGBA8_SNORM:
+            return width * height * 32 / 8;
+        case org.lwjgl.opengl.GL11.GL_RGB10_A2:
+            return width * height * 32 / 8;
+        case org.lwjgl.opengl.GL33.GL_RGB10_A2UI:
+            return width * height * 32 / 8;
+        case org.lwjgl.opengl.GL11.GL_RGBA12:
+            return width * height * 42 / 8;
+        case org.lwjgl.opengl.GL11.GL_RGBA16:
+            return width * height * 64 / 8;
+        case org.lwjgl.opengl.GL21.GL_SRGB8:
+            return width * height * 24 / 8;
+        case org.lwjgl.opengl.GL21.GL_SRGB8_ALPHA8:
+            return width * height * 32 / 8;
+        case org.lwjgl.opengl.GL30.GL_R16F:
+            return width * height * 16 / 8;
+        case org.lwjgl.opengl.GL30.GL_RG16F:
+            return width * height * 32 / 8;
+        case org.lwjgl.opengl.GL30.GL_RGB16F:
+            return width * height * 48 / 8;
+        case org.lwjgl.opengl.GL30.GL_RGBA16F:
+            return width * height * 64 / 8;
+        case org.lwjgl.opengl.GL30.GL_R32F:
+            return width * height * 32 / 8;
+        case org.lwjgl.opengl.GL30.GL_RG32F:
+            return width * height * 64 / 8;
+        case org.lwjgl.opengl.GL30.GL_RGB32F:
+            return width * height * 96 / 8;
+        case org.lwjgl.opengl.GL30.GL_RGBA32F:
+            return width * height * 128 / 8;
+        case org.lwjgl.opengl.GL30.GL_R11F_G11F_B10F:
+            return width * height * 32 / 8;
+        case org.lwjgl.opengl.GL30.GL_RGB9_E5:
+            return width * height * (27 - 5) / 8;
+        case org.lwjgl.opengl.GL30.GL_R8I:
+            return width * height * 8 / 8;
+        case org.lwjgl.opengl.GL30.GL_R8UI:
+            return width * height * 8 / 8;
+        case org.lwjgl.opengl.GL30.GL_R16I:
+            return width * height * 16 / 8;
+        case org.lwjgl.opengl.GL30.GL_R16UI:
+            return width * height * 16 / 8;
+        case org.lwjgl.opengl.GL30.GL_R32I:
+            return width * height * 32 / 8;
+        case org.lwjgl.opengl.GL30.GL_R32UI:
+            return width * height * 32 / 8;
+        case org.lwjgl.opengl.GL30.GL_RG8I:
+            return width * height * 16 / 8;
+        case org.lwjgl.opengl.GL30.GL_RG8UI:
+            return width * height * 16 / 8;
+        case org.lwjgl.opengl.GL30.GL_RG16I:
+            return width * height * 32 / 8;
+        case org.lwjgl.opengl.GL30.GL_RG16UI:
+            return width * height * 32 / 8;
+        case org.lwjgl.opengl.GL30.GL_RG32I:
+            return width * height * 64 / 8;
+        case org.lwjgl.opengl.GL30.GL_RG32UI:
+            return width * height * 64 / 8;
+        case org.lwjgl.opengl.GL30.GL_RGB8I:
+            return width * height * 24 / 8;
+        case org.lwjgl.opengl.GL30.GL_RGB8UI:
+            return width * height * 24 / 8;
+        case org.lwjgl.opengl.GL30.GL_RGB16I:
+            return width * height * 16 * 3 / 8;
+        case org.lwjgl.opengl.GL30.GL_RGB16UI:
+            return width * height * 16 * 3 / 8;
+        case org.lwjgl.opengl.GL30.GL_RGB32I:
+            return width * height * 32 * 3 / 8;
+        case org.lwjgl.opengl.GL30.GL_RGB32UI:
+            return width * height * 32 * 3 / 8;
+        case org.lwjgl.opengl.GL30.GL_RGBA8I:
+            return width * height * 8 * 4 / 8;
+        case org.lwjgl.opengl.GL30.GL_RGBA8UI:
+            return width * height * 8 * 4 / 8;
+        case org.lwjgl.opengl.GL30.GL_RGBA16I:
+            return width * height * 16 * 4 / 8;
+        case org.lwjgl.opengl.GL30.GL_RGBA16UI:
+            return width * height * 16 * 4 / 8;
+        case org.lwjgl.opengl.GL30.GL_RGBA32I:
+            return width * height * 32 * 4 / 8;
+        case org.lwjgl.opengl.GL30.GL_RGBA32UI:
+            return width * height * 32 * 4 / 8;
+        default:
+            return width * height; // <- yet unknown
+        }
     }
 
     public static void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, long size, Void ret, MethodCall mc) {
@@ -397,6 +641,85 @@ public class GL11 {
 
     public static void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, DoubleBuffer pixels, Void ret, MethodCall mc) {
         glTexImage2D_trace(target, level, internalformat, width, height, border, format, type, pixels, mc);
+    }
+
+    private static void setTextureLayerSize(int target, int level, int internalformat, int width, int height, TextureObject obj) {
+        TextureLayer tlayer = null;
+        if (target >= org.lwjgl.opengl.GL13.GL_TEXTURE_CUBE_MAP_POSITIVE_X && target <= org.lwjgl.opengl.GL13.GL_TEXTURE_CUBE_MAP_NEGATIVE_Z) {
+            int layer = target - org.lwjgl.opengl.GL13.GL_TEXTURE_CUBE_MAP_POSITIVE_X;
+            tlayer = obj.layers[layer];
+        } else {
+            tlayer = obj.layers[0];
+        }
+        tlayer.ensureLevel(level);
+        tlayer.levels[level].size = textureSize(internalformat, width, height);
+    }
+
+    private static void profileTexture2D(int target, int level, int internalformat, int width, int height) {
+        Context ctx = CURRENT_CONTEXT.get();
+        int boundTarget = target;
+        if (target >= org.lwjgl.opengl.GL13.GL_TEXTURE_CUBE_MAP_POSITIVE_X && target <= org.lwjgl.opengl.GL13.GL_TEXTURE_CUBE_MAP_NEGATIVE_Z) {
+            boundTarget = org.lwjgl.opengl.GL13.GL_TEXTURE_CUBE_MAP;
+        }
+        TextureObject to = ctx.textureObjectBindings.get(boundTarget);
+        if (to != null) {
+            setTextureLayerSize(target, level, internalformat, width, height, to);
+            /* See whether mipmap levels should be automatically generated */
+            boolean generateMipmaps = ctx.caps.OpenGL14 && org.lwjgl.opengl.GL11.glGetTexParameteri(boundTarget, org.lwjgl.opengl.GL14.GL_GENERATE_MIPMAP) == 1;
+            if (generateMipmaps) {
+                /* Determine maximum mipmap level */
+                int maxLevel = ctx.caps.OpenGL12 ? org.lwjgl.opengl.GL11.glGetTexParameteri(boundTarget, org.lwjgl.opengl.GL12.GL_TEXTURE_MAX_LEVEL) : 1000;
+                /* Set the size of all mipmap levels */
+                while (width > 1 || height > 1 && level < maxLevel) {
+                    width >>>= 1;
+                    height >>>= 1;
+                    level++;
+                    setTextureLayerSize(target, level, internalformat, width, height, to);
+                }
+            }
+        }
+    }
+
+    public static void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, long size) {
+        org.lwjgl.opengl.GL11.glTexImage2D(target, level, internalformat, width, height, border, format, type, size);
+        if (Properties.PROFILE) {
+            profileTexture2D(target, level, internalformat, width, height);
+        }
+    }
+
+    public static void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, ByteBuffer pixels) {
+        org.lwjgl.opengl.GL11.glTexImage2D(target, level, internalformat, width, height, border, format, type, pixels);
+        if (Properties.PROFILE) {
+            profileTexture2D(target, level, internalformat, width, height);
+        }
+    }
+
+    public static void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, ShortBuffer pixels) {
+        org.lwjgl.opengl.GL11.glTexImage2D(target, level, internalformat, width, height, border, format, type, pixels);
+        if (Properties.PROFILE) {
+            profileTexture2D(target, level, internalformat, width, height);
+        }
+    }
+
+    public static void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, IntBuffer pixels) {
+        org.lwjgl.opengl.GL11.glTexImage2D(target, level, internalformat, width, height, border, format, type, pixels);
+        if (Properties.PROFILE) {
+            profileTexture2D(target, level, internalformat, width, height);
+        }
+    }
+
+    public static void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, FloatBuffer pixels) {
+        org.lwjgl.opengl.GL11.glTexImage2D(target, level, internalformat, width, height, border, format, type, pixels);
+        if (Properties.PROFILE) {
+            profileTexture2D(target, level, internalformat, width, height);
+        }
+    }
+
+    public static void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, DoubleBuffer pixels) {
+        org.lwjgl.opengl.GL11.glTexImage2D(target, level, internalformat, width, height, border, format, type, pixels);
+        if (Properties.PROFILE) {
+            profileTexture2D(target, level, internalformat, width, height);
+        }
     }
 
     private static void glTexImage1D_trace(int target, int level, int internalformat, int width, int border, int format, int type, Buffer pixels, MethodCall mc) {

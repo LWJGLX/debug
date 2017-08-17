@@ -59,8 +59,29 @@ public class Context implements Comparable<Context> {
         public long size;
     }
 
-    public static class TextureObject {
+    public static class TextureLevel {
         public long size;
+    }
+
+    public static class TextureLayer {
+        public TextureLevel[] levels;
+        public void ensureLevel(int level) {
+            if (levels == null) {
+                levels = new TextureLevel[level + 1];
+            } else if (levels.length <= level) {
+                TextureLevel[] newLevels = new TextureLevel[level + 1];
+                System.arraycopy(levels, 0, newLevels, 0, levels.length);
+                levels = newLevels;
+            }
+            for (int i = 0; i < levels.length; i++) {
+                if (levels[i] == null)
+                    levels[i] = new TextureLevel();
+            }
+        }
+    }
+
+    public static class TextureObject {
+        public TextureLayer[] layers;
     }
 
     public static final ThreadLocal<Context> CURRENT_CONTEXT = new ThreadLocal<Context>();
@@ -85,6 +106,7 @@ public class Context implements Comparable<Context> {
     public Map<Integer, BufferObject> bufferObjects = new HashMap<>();
     public Map<Integer, BufferObject> bufferObjectBindings = new HashMap<>();
     public Map<Integer, TextureObject> textureObjects = new HashMap<>();
+    public Map<Integer, TextureObject> textureObjectBindings = new HashMap<>();
     public Map<Integer, ProgramPipeline> programPipelines = new HashMap<>();
     public ShareGroup shareGroup;
     public boolean inImmediateMode;

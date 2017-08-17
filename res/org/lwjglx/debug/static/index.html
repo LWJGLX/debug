@@ -20,6 +20,7 @@
       var glCalls = view.getInt32(12);
       var vertices = view.getInt32(16);
       var bufferObjectSize = view.getFloat64(20);
+      var textureObjectSize = view.getFloat64(28);
       numSamples++;
       if (numSamples > MAX_NUM_SAMPLES) {
         config.data.labels.shift();
@@ -27,13 +28,14 @@
         config.data.datasets[1].data.shift();
         config.data.datasets[2].data.shift();
         config.data.datasets[3].data.shift();
+        config.data.datasets[4].data.shift();
       }
       config.data.labels.push(frame);
       config.data.datasets[0].data.push(time);
       config.data.datasets[1].data.push(glCalls);
       config.data.datasets[2].data.push(vertices);
       config.data.datasets[3].data.push(bufferObjectSize);
-      console.log(bufferObjectSize);
+      config.data.datasets[4].data.push(textureObjectSize);
       chart.update();
     }
     var config = {
@@ -68,6 +70,14 @@
           borderColor: "rgba(220,20,220,0.8)",
           backgroundColor: "rgba(220,20,220,0.05)",
           yAxisID: "bo_memory",
+          data: []
+        }, {
+          type: 'line',
+          label: "TO memory (kilobytes)",
+          fill: true,
+          borderColor: "rgba(220,220,20,0.8)",
+          backgroundColor: "rgba(220,220,20,0.05)",
+          yAxisID: "to_memory",
           data: []
         }]
       },
@@ -112,6 +122,16 @@
             id: "bo_memory",
             ticks: {
               fontColor: "#A2A",
+              beginAtZero: true,
+              callback: function (value, index, values) {
+                return value.toLocaleString();
+              }
+            }
+          }, {
+            position: "right",
+            id: "to_memory",
+            ticks: {
+              fontColor: "#AA2",
               beginAtZero: true,
               callback: function (value, index, values) {
                 return value.toLocaleString();

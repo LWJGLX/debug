@@ -28,6 +28,9 @@ import org.eclipse.jetty.websocket.servlet.WebSocketServlet;
 import org.eclipse.jetty.websocket.servlet.WebSocketServletFactory;
 import org.lwjgl.system.MemoryStack;
 import org.lwjglx.debug.Context.BufferObject;
+import org.lwjglx.debug.Context.TextureLayer;
+import org.lwjglx.debug.Context.TextureLevel;
+import org.lwjglx.debug.Context.TextureObject;
 
 @SuppressWarnings("serial")
 class EchoSocketServlet extends WebSocketServlet {
@@ -118,7 +121,7 @@ class Profiling {
         }
         lastSent = ctx.frameEndTime;
         try (MemoryStack stack = stackPush()) {
-            ByteBuffer buf = stack.malloc(28).order(ByteOrder.BIG_ENDIAN);
+            ByteBuffer buf = stack.malloc(36).order(ByteOrder.BIG_ENDIAN);
             float ms = (float) (ctx.frameEndTime - ctx.frameStartTime) / 1E6f;
             buf.putInt(0, ctx.counter);
             buf.putInt(4, frame);
@@ -130,17 +133,25 @@ class Profiling {
                 boMemory += bo.size;
             }
             buf.putDouble(20, boMemory);
+            long toMemory = 0L;
+            for (TextureObject to : ctx.textureObjects.values()) {
+                if (to.layers != null) {
+                    for (TextureLayer layer : to.layers) {
+                        if (layer.levels != null) {
+                            for (TextureLevel level : layer.levels) {
+                                toMemory += level.size;
+                            }
+                        }
+                    }
+                }
+            }
+            buf.putDouble(28, toMemory / 1024L);
             synchronized (ProfilingConnection.connections) {
                 for (ProfilingConnection c : ProfilingConnection.connections) {
                     c.outbound.getRemote().sendBytesByFuture(buf);
                 }
             }
         }
-    }
-
-    public static void main(String[] args) throws Exception {
-        Profiling.startServer();
-        Thread.sleep(20000000000L);
     }
 
 }
