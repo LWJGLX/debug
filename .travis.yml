@@ -9,7 +9,9 @@ before_install:
 - pip install --user awscli
 - export PATH=$PATH:$HOME/.local/bin
 
-script: 
+branches:
+  only:
+  - master
 
 script:
 - ./mvnw clean package -Dmaven.javadoc.skip=false -Dmaven.test.skip=true
