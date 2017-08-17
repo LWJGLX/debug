@@ -16,8 +16,6 @@ import org.eclipse.jetty.server.ServerConnector;
 import org.eclipse.jetty.servlet.DefaultServlet;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
-import org.eclipse.jetty.util.log.Log;
-import org.eclipse.jetty.util.log.Logger;
 import org.eclipse.jetty.util.resource.Resource;
 import org.eclipse.jetty.util.thread.QueuedThreadPool;
 import org.eclipse.jetty.util.thread.ScheduledExecutorScheduler;
@@ -45,8 +43,6 @@ class EchoSocketServlet extends WebSocketServlet {
 
 class ProfilingConnection implements WebSocketListener {
     public static final List<ProfilingConnection> connections = new ArrayList<>();
-
-    static final Logger LOG = Log.getLogger(ProfilingConnection.class);
     Session outbound;
 
     public void onWebSocketClose(int statusCode, String reason) {
@@ -67,14 +63,9 @@ class ProfilingConnection implements WebSocketListener {
     }
 
     public void onWebSocketText(String message) {
-        if ((outbound != null) && (outbound.isOpen())) {
-            outbound.getRemote().sendString(message, null);
-        }
     }
 
-    @Override
     public void onWebSocketBinary(byte[] arg0, int arg1, int arg2) {
-        /* ignore */
     }
 }
 
@@ -90,7 +81,6 @@ class Profiling {
 
     public static Server server;
     public static long lastSent;
-    public static int frame;
 
     public static void startServer() throws ServletException {
         QueuedThreadPool threadPool = new QueuedThreadPool(10);
@@ -124,7 +114,7 @@ class Profiling {
     }
 
     public static void frame(Context ctx) {
-        frame++;
+        ctx.frame++;
         if ((ctx.frameEndTime - lastSent) / 1E6 < sendIntervalMs) {
             return;
         }
@@ -133,7 +123,7 @@ class Profiling {
             ByteBuffer buf = stack.malloc(36).order(ByteOrder.BIG_ENDIAN);
             float ms = (float) (ctx.frameEndTime - ctx.frameStartTime) / 1E6f;
             buf.putInt(0, ctx.counter);
-            buf.putInt(4, frame);
+            buf.putInt(4, ctx.frame);
             buf.putFloat(8, ms);
             buf.putInt(12, ctx.glCallCount);
             buf.putInt(16, ctx.verticesCount);
@@ -141,7 +131,7 @@ class Profiling {
             for (BufferObject bo : ctx.bufferObjects.values()) {
                 boMemory += bo.size;
             }
-            buf.putDouble(20, boMemory);
+            buf.putDouble(20, boMemory / 1024);
             long toMemory = 0L;
             for (TextureObject to : ctx.textureObjects.values()) {
                 if (to.layers != null) {

@@ -31,9 +31,17 @@ import java.nio.IntBuffer;
 import java.nio.ShortBuffer;
 
 import org.lwjglx.debug.Context;
+import org.lwjglx.debug.Properties;
 import org.lwjglx.debug.Context.VAO;
 
 public class GL30 {
+
+    public static void glGenerateMipmap(int target) {
+        org.lwjgl.opengl.GL30.glGenerateMipmap(target);
+        if (Properties.PROFILE) {
+            generateMipmap(target);
+        }
+    }
 
     public static void glVertexAttribIPointer(int index, int size, int type, int stride, ByteBuffer pointer) {
         CURRENT_CONTEXT.get().currentVao.initializedVertexArrays[index] = pointer != null;

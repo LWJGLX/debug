@@ -61,6 +61,9 @@ public class Context implements Comparable<Context> {
 
     public static class TextureLevel {
         public long size;
+        public int internalformat;
+        public int width;
+        public int height;
     }
 
     public static class TextureLayer {
@@ -117,6 +120,7 @@ public class Context implements Comparable<Context> {
     public long frameEndTime;
     public int glCallCount;
     public int immediateModeVertices;
+    public int frame;
 
     public static void create(long window, long share) {
         Context ctx = new Context();
