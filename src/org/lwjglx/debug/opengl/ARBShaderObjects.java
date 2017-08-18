@@ -31,31 +31,36 @@ import java.nio.IntBuffer;
 
 import org.lwjglx.debug.GLmetadata;
 import org.lwjglx.debug.MethodCall;
+import org.lwjglx.debug.Properties;
 
 public class ARBShaderObjects {
 
     public static void glCompileShaderARB(int shader) {
         org.lwjgl.opengl.ARBShaderObjects.glCompileShaderARB(shader);
-        /* Check compile status */
-        int status = org.lwjgl.opengl.ARBShaderObjects.glGetObjectParameteriARB(shader, org.lwjgl.opengl.ARBShaderObjects.GL_OBJECT_COMPILE_STATUS_ARB);
-        if (status != org.lwjgl.opengl.GL11.GL_TRUE) {
-            String shaderLog = org.lwjgl.opengl.ARBShaderObjects.glGetInfoLogARB(shader);
-            error("Shader [" + shader + "] did not compile successfully:\n" + shaderLog);
+        if (Properties.VALIDATE.enabled) {
+            /* Check compile status */
+            int status = org.lwjgl.opengl.ARBShaderObjects.glGetObjectParameteriARB(shader, org.lwjgl.opengl.ARBShaderObjects.GL_OBJECT_COMPILE_STATUS_ARB);
+            if (status != org.lwjgl.opengl.GL11.GL_TRUE) {
+                String shaderLog = org.lwjgl.opengl.ARBShaderObjects.glGetInfoLogARB(shader);
+                error("Shader [" + shader + "] did not compile successfully:\n" + shaderLog);
+            }
         }
     }
 
     public static void glLinkProgramARB(int program) {
         org.lwjgl.opengl.ARBShaderObjects.glLinkProgramARB(program);
-        /* Check link status */
-        int status = org.lwjgl.opengl.ARBShaderObjects.glGetObjectParameteriARB(program, org.lwjgl.opengl.ARBShaderObjects.GL_OBJECT_LINK_STATUS_ARB);
-        if (status != org.lwjgl.opengl.GL11.GL_TRUE) {
-            String programLog = org.lwjgl.opengl.ARBShaderObjects.glGetInfoLogARB(program);
-            error("Program [" + program + "] did not link successfully:\n" + programLog);
+        if (Properties.VALIDATE.enabled) {
+            /* Check link status */
+            int status = org.lwjgl.opengl.ARBShaderObjects.glGetObjectParameteriARB(program, org.lwjgl.opengl.ARBShaderObjects.GL_OBJECT_LINK_STATUS_ARB);
+            if (status != org.lwjgl.opengl.GL11.GL_TRUE) {
+                String programLog = org.lwjgl.opengl.ARBShaderObjects.glGetInfoLogARB(program);
+                error("Program [" + program + "] did not link successfully:\n" + programLog);
+            }
         }
     }
 
     public static void glShaderSource(int shader, org.lwjgl.PointerBuffer strings, IntBuffer length) {
-        if (TRACE) {
+        if (TRACE.enabled) {
             /* Log the shader source */
             StringBuilder sb = new StringBuilder();
             if (strings != null && length != null) {
@@ -74,7 +79,7 @@ public class ARBShaderObjects {
     }
 
     public static void glShaderSource(int shader, CharSequence... strings) {
-        if (TRACE) {
+        if (TRACE.enabled) {
             /* Log the shader source */
             StringBuilder sb = new StringBuilder();
             if (strings != null) {
@@ -88,7 +93,7 @@ public class ARBShaderObjects {
     }
 
     public static void glShaderSource(int shader, CharSequence string) {
-        if (TRACE) {
+        if (TRACE.enabled) {
             /* Log the shader source */
             trace("Shader source for shader [" + shader + "]:\n" + string);
         }

@@ -28,64 +28,79 @@ import static org.lwjglx.debug.RT.*;
 import java.nio.IntBuffer;
 
 import org.lwjglx.debug.Context;
+import org.lwjglx.debug.Properties;
 import org.lwjglx.debug.Context.VAO;
 
 public class ARBVertexArrayObject {
 
     public static void glGenVertexArrays(IntBuffer arrays) {
         org.lwjgl.opengl.ARBVertexArrayObject.glGenVertexArrays(arrays);
-        Context context = CURRENT_CONTEXT.get();
-        int position = arrays.position();
-        for (int i = 0; i < arrays.remaining(); i++) {
-            VAO vao = new VAO(context.GL_MAX_VERTEX_ATTRIBS);
-            context.vaos.put(arrays.get(position + i), vao);
+        if (Properties.VALIDATE.enabled) {
+            Context context = CURRENT_CONTEXT.get();
+            int position = arrays.position();
+            for (int i = 0; i < arrays.remaining(); i++) {
+                VAO vao = new VAO(context.GL_MAX_VERTEX_ATTRIBS);
+                context.vaos.put(arrays.get(position + i), vao);
+            }
         }
     }
 
     public static int glGenVertexArrays() {
         int index = org.lwjgl.opengl.ARBVertexArrayObject.glGenVertexArrays();
-        Context context = CURRENT_CONTEXT.get();
-        VAO vao = new VAO(context.GL_MAX_VERTEX_ATTRIBS);
-        context.vaos.put(index, vao);
+        if (Properties.VALIDATE.enabled) {
+            Context context = CURRENT_CONTEXT.get();
+            VAO vao = new VAO(context.GL_MAX_VERTEX_ATTRIBS);
+            context.vaos.put(index, vao);
+        }
         return index;
     }
 
     public static void glGenVertexArrays(int[] arrays) {
         org.lwjgl.opengl.ARBVertexArrayObject.glGenVertexArrays(arrays);
-        Context context = CURRENT_CONTEXT.get();
-        for (int i = 0; i < arrays.length; i++) {
-            VAO vao = new VAO(context.GL_MAX_VERTEX_ATTRIBS);
-            context.vaos.put(arrays[i], vao);
+        if (Properties.VALIDATE.enabled) {
+            Context context = CURRENT_CONTEXT.get();
+            for (int i = 0; i < arrays.length; i++) {
+                VAO vao = new VAO(context.GL_MAX_VERTEX_ATTRIBS);
+                context.vaos.put(arrays[i], vao);
+            }
         }
     }
 
     public static void glBindVertexArray(int index) {
-        Context ctx = CURRENT_CONTEXT.get();
-        VAO vao = ctx.vaos.get(index);
-        if (vao == null && ctx.shareGroup != null) {
-            for (Context c : ctx.shareGroup.contexts) {
-                if (c.vaos.containsKey(index)) {
-                    throwISEOrLogError("Trying to bind unknown VAO [" + index + "] from shared context [" + c.counter + "]");
+        if (Properties.VALIDATE.enabled) {
+            Context ctx = CURRENT_CONTEXT.get();
+            VAO vao = ctx.vaos.get(index);
+            if (vao == null && ctx.shareGroup != null) {
+                for (Context c : ctx.shareGroup.contexts) {
+                    if (c.vaos.containsKey(index)) {
+                        throwISEOrLogError("Trying to bind unknown VAO [" + index + "] from shared context [" + c.counter + "]");
+                    }
                 }
             }
+            ctx.currentVao = vao;
         }
-        ctx.currentVao = vao;
         org.lwjgl.opengl.ARBVertexArrayObject.glBindVertexArray(index);
     }
 
     public static void glDeleteVertexArrays(int index) {
         org.lwjgl.opengl.ARBVertexArrayObject.glDeleteVertexArrays(index);
-        deleteVertexArray(index);
+        if (Properties.VALIDATE.enabled) {
+            deleteVertexArray(index);
+        }
     }
 
     public static void glDeleteVertexArrays(IntBuffer indices) {
         org.lwjgl.opengl.ARBVertexArrayObject.glDeleteVertexArrays(indices);
-        deleteVertexArrays(indices);
+        if (Properties.VALIDATE.enabled) {
+            deleteVertexArrays(indices);
+        }
     }
 
     public static void glDeleteVertexArrays(int[] indices) {
         org.lwjgl.opengl.ARBVertexArrayObject.glDeleteVertexArrays(indices);
-        deleteVertexArrays(indices);
+        if (Properties.VALIDATE.enabled) {
+            deleteVertexArrays(indices);
+        }
     }
 
 }

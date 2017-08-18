@@ -18,52 +18,62 @@ public class GL15 {
 
     public static void glGenBuffers(IntBuffer buffers) {
         org.lwjgl.opengl.GL15.glGenBuffers(buffers);
-        Context ctx = CURRENT_CONTEXT.get();
-        int pos = buffers.position();
-        for (int i = 0; i < buffers.remaining(); i++) {
-            int buffer = buffers.get(pos + i);
-            ctx.bufferObjects.put(buffer, new BufferObject());
+        if (Properties.PROFILE.enabled) {
+            Context ctx = CURRENT_CONTEXT.get();
+            int pos = buffers.position();
+            for (int i = 0; i < buffers.remaining(); i++) {
+                int buffer = buffers.get(pos + i);
+                ctx.bufferObjects.put(buffer, new BufferObject());
+            }
         }
     }
 
     public static void glGenBuffers(int[] buffers) {
         org.lwjgl.opengl.GL15.glGenBuffers(buffers);
-        Context ctx = CURRENT_CONTEXT.get();
-        for (int i = 0; i < buffers.length; i++) {
-            int buffer = buffers[i];
-            ctx.bufferObjects.put(buffer, new BufferObject());
+        if (Properties.PROFILE.enabled) {
+            Context ctx = CURRENT_CONTEXT.get();
+            for (int i = 0; i < buffers.length; i++) {
+                int buffer = buffers[i];
+                ctx.bufferObjects.put(buffer, new BufferObject());
+            }
         }
     }
 
     public static int glGenBuffers() {
         int ret = org.lwjgl.opengl.GL15.glGenBuffers();
-        Context ctx = CURRENT_CONTEXT.get();
-        ctx.bufferObjects.put(ret, new BufferObject());
+        if (Properties.PROFILE.enabled) {
+            Context ctx = CURRENT_CONTEXT.get();
+            ctx.bufferObjects.put(ret, new BufferObject());
+        }
         return ret;
     }
 
     public static void glBindBuffer(int target, int buffer) {
         org.lwjgl.opengl.GL15.glBindBuffer(target, buffer);
-        Context ctx = CURRENT_CONTEXT.get();
-        if (buffer != 0) {
-            BufferObject bo = ctx.bufferObjects.get(buffer);
-            ctx.bufferObjectBindings.put(target, bo);
-        } else {
-            ctx.bufferObjectBindings.remove(target);
+        if (Properties.PROFILE.enabled) {
+            Context ctx = CURRENT_CONTEXT.get();
+            if (buffer != 0) {
+                BufferObject bo = ctx.bufferObjects.get(buffer);
+                ctx.bufferObjectBindings.put(target, bo);
+            } else {
+                ctx.bufferObjectBindings.remove(target);
+            }
         }
     }
 
     public static void glDeleteBuffers(IntBuffer buffers) {
         org.lwjgl.opengl.GL15.glDeleteBuffers(buffers);
-        Context ctx = CURRENT_CONTEXT.get();
-        int pos = buffers.position();
-        for (int i = 0; i < buffers.remaining(); i++) {
-            int buffer = buffers.get(pos + i);
-            BufferObject bo = ctx.bufferObjects.remove(buffer);
-            Iterator<Map.Entry<Integer, BufferObject>> it = ctx.bufferObjectBindings.entrySet().iterator();
-            while (it.hasNext()) {
-                if (it.next().getValue() == bo) {
-                    it.remove();
+        if (Properties.PROFILE.enabled) {
+            Context ctx = CURRENT_CONTEXT.get();
+            int pos = buffers.position();
+            for (int i = 0; i < buffers.remaining(); i++) {
+                int buffer = buffers.get(pos + i);
+                BufferObject bo = ctx.bufferObjects.remove(buffer);
+                Iterator<Map.Entry<Integer, BufferObject>> it = ctx.bufferObjectBindings.entrySet().iterator();
+                while (it.hasNext()) {
+                    if (it.next().getValue() == bo) {
+                        it.remove();
+                    }
                 }
             }
         }
@@ -71,9 +81,25 @@ public class GL15 {
 
     public static void glDeleteBuffers(int[] buffers) {
         org.lwjgl.opengl.GL15.glDeleteBuffers(buffers);
-        Context ctx = CURRENT_CONTEXT.get();
-        for (int i = 0; i < buffers.length; i++) {
-            int buffer = buffers[i];
+        if (Properties.PROFILE.enabled) {
+            Context ctx = CURRENT_CONTEXT.get();
+            for (int i = 0; i < buffers.length; i++) {
+                int buffer = buffers[i];
+                BufferObject bo = ctx.bufferObjects.remove(buffer);
+                Iterator<Map.Entry<Integer, BufferObject>> it = ctx.bufferObjectBindings.entrySet().iterator();
+                while (it.hasNext()) {
+                    if (it.next().getValue() == bo) {
+                        it.remove();
+                    }
+                }
+            }
+        }
+    }
+
+    public static void glDeleteBuffers(int buffer) {
+        org.lwjgl.opengl.GL15.glDeleteBuffers(buffer);
+        if (Properties.PROFILE.enabled) {
+            Context ctx = CURRENT_CONTEXT.get();
             BufferObject bo = ctx.bufferObjects.remove(buffer);
             Iterator<Map.Entry<Integer, BufferObject>> it = ctx.bufferObjectBindings.entrySet().iterator();
             while (it.hasNext()) {
@@ -84,21 +110,9 @@ public class GL15 {
         }
     }
 
-    public static void glDeleteBuffers(int buffer) {
-        org.lwjgl.opengl.GL15.glDeleteBuffers(buffer);
-        Context ctx = CURRENT_CONTEXT.get();
-        BufferObject bo = ctx.bufferObjects.remove(buffer);
-        Iterator<Map.Entry<Integer, BufferObject>> it = ctx.bufferObjectBindings.entrySet().iterator();
-        while (it.hasNext()) {
-            if (it.next().getValue() == bo) {
-                it.remove();
-            }
-        }
-    }
-
     public static void glBufferData(int target, long size, int usage) {
         org.lwjgl.opengl.GL15.glBufferData(target, size, usage);
-        if (Properties.PROFILE) {
+        if (Properties.PROFILE.enabled) {
             Context ctx = CURRENT_CONTEXT.get();
             BufferObject bo = ctx.bufferObjectBindings.get(target);
             if (bo != null) {
@@ -109,7 +123,7 @@ public class GL15 {
 
     public static void glBufferData(int target, ByteBuffer data, int usage) {
         org.lwjgl.opengl.GL15.glBufferData(target, data, usage);
-        if (Properties.PROFILE) {
+        if (Properties.PROFILE.enabled) {
             Context ctx = CURRENT_CONTEXT.get();
             BufferObject bo = ctx.bufferObjectBindings.get(target);
             if (bo != null) {
@@ -120,7 +134,7 @@ public class GL15 {
 
     public static void glBufferData(int target, ShortBuffer data, int usage) {
         org.lwjgl.opengl.GL15.glBufferData(target, data, usage);
-        if (Properties.PROFILE) {
+        if (Properties.PROFILE.enabled) {
             Context ctx = CURRENT_CONTEXT.get();
             BufferObject bo = ctx.bufferObjectBindings.get(target);
             if (bo != null) {
@@ -131,7 +145,7 @@ public class GL15 {
 
     public static void glBufferData(int target, short[] data, int usage) {
         org.lwjgl.opengl.GL15.glBufferData(target, data, usage);
-        if (Properties.PROFILE) {
+        if (Properties.PROFILE.enabled) {
             Context ctx = CURRENT_CONTEXT.get();
             BufferObject bo = ctx.bufferObjectBindings.get(target);
             if (bo != null) {
@@ -142,7 +156,7 @@ public class GL15 {
 
     public static void glBufferData(int target, IntBuffer data, int usage) {
         org.lwjgl.opengl.GL15.glBufferData(target, data, usage);
-        if (Properties.PROFILE) {
+        if (Properties.PROFILE.enabled) {
             Context ctx = CURRENT_CONTEXT.get();
             BufferObject bo = ctx.bufferObjectBindings.get(target);
             if (bo != null) {
@@ -153,7 +167,7 @@ public class GL15 {
 
     public static void glBufferData(int target, int[] data, int usage) {
         org.lwjgl.opengl.GL15.glBufferData(target, data, usage);
-        if (Properties.PROFILE) {
+        if (Properties.PROFILE.enabled) {
             Context ctx = CURRENT_CONTEXT.get();
             BufferObject bo = ctx.bufferObjectBindings.get(target);
             if (bo != null) {
@@ -164,7 +178,7 @@ public class GL15 {
 
     public static void glBufferData(int target, FloatBuffer data, int usage) {
         org.lwjgl.opengl.GL15.glBufferData(target, data, usage);
-        if (Properties.PROFILE) {
+        if (Properties.PROFILE.enabled) {
             Context ctx = CURRENT_CONTEXT.get();
             BufferObject bo = ctx.bufferObjectBindings.get(target);
             if (bo != null) {
@@ -175,7 +189,7 @@ public class GL15 {
 
     public static void glBufferData(int target, float[] data, int usage) {
         org.lwjgl.opengl.GL15.glBufferData(target, data, usage);
-        if (Properties.PROFILE) {
+        if (Properties.PROFILE.enabled) {
             Context ctx = CURRENT_CONTEXT.get();
             BufferObject bo = ctx.bufferObjectBindings.get(target);
             if (bo != null) {
@@ -186,7 +200,7 @@ public class GL15 {
 
     public static void glBufferData(int target, DoubleBuffer data, int usage) {
         org.lwjgl.opengl.GL15.glBufferData(target, data, usage);
-        if (Properties.PROFILE) {
+        if (Properties.PROFILE.enabled) {
             Context ctx = CURRENT_CONTEXT.get();
             BufferObject bo = ctx.bufferObjectBindings.get(target);
             if (bo != null) {
@@ -197,7 +211,7 @@ public class GL15 {
 
     public static void glBufferData(int target, double[] data, int usage) {
         org.lwjgl.opengl.GL15.glBufferData(target, data, usage);
-        if (Properties.PROFILE) {
+        if (Properties.PROFILE.enabled) {
             Context ctx = CURRENT_CONTEXT.get();
             BufferObject bo = ctx.bufferObjectBindings.get(target);
             if (bo != null) {

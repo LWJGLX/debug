@@ -148,7 +148,7 @@ class InterceptClassGenerator implements Opcodes {
                 org.lwjgl.opengl.GLCapabilities.class.getField(nameV);
                 return nameV;
             } catch (Exception e2) {
-                if (DEBUG)
+                if (DEBUG.enabled)
                     debug("Expected field GLCapabilities." + name + " to exist");
                 return null;
             }
@@ -209,7 +209,7 @@ class InterceptClassGenerator implements Opcodes {
         /* Generate a new method for each intercepted call */
         for (InterceptedCall call : calls) {
             String effectiveDesc = call.desc;
-            if (TRACE) {
+            if (TRACE.enabled) {
                 effectiveDesc = call.desc.substring(0, call.desc.lastIndexOf(')')) + "I" + call.desc.substring(call.desc.lastIndexOf(')'));
             }
             MethodVisitor mv = cw.visitMethod(ACC_PUBLIC | ACC_STATIC | ACC_SYNTHETIC, call.generatedMethodName, effectiveDesc, null, null);
@@ -224,19 +224,21 @@ class InterceptClassGenerator implements Opcodes {
                 /* check if GL call */
                 call.glName = glCall(call);
                 if (call.glName != null) {
-                    /* if GL call, then check whether GLCapabilities have been set */
-                    mv.visitMethodInsn(INVOKESTATIC, "org/lwjgl/opengl/GL", "getCapabilities", "()Lorg/lwjgl/opengl/GLCapabilities;", false);
-                    /* and whether the function is supported */
-                    checkFunctionSupported(mv, call.glName);
+                    if (VALIDATE.enabled) {
+                        /* if GL call, then check whether GLCapabilities have been set */
+                        mv.visitMethodInsn(INVOKESTATIC, "org/lwjgl/opengl/GL", "getCapabilities", "()Lorg/lwjgl/opengl/GLCapabilities;", false);
+                        /* and whether the function is supported */
+                        checkFunctionSupported(mv, call.glName);
+                    }
                     /* also increment GL call profiling counter */
-                    if (PROFILE) {
+                    if (PROFILE.enabled) {
                         mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, "glCall", "()V", false);
                     }
                 }
                 /* Optionally delay the call */
                 sleep(mv);
                 /* Do we want to output a call trace? */
-                if (Properties.TRACE) {
+                if (TRACE.enabled) {
                     /* What is the expected descriptor of the trace method? */
                     String traceMethodDesc = buildTraceMethodDesc(call, retType);
                     /* push a new MethodCall object on the stack */
@@ -301,7 +303,7 @@ class InterceptClassGenerator implements Opcodes {
         }
         cw.visitEnd();
         byte[] arr = cw.toByteArray();
-        if (DEBUG) {
+        if (DEBUG.enabled) {
             debug("Created proxy class for [" + callerName + "] (" + String.format("%,d", arr.length) + " bytes)");
             TraceClassVisitor tcv = new TraceClassVisitor(new PrintWriter(System.err));
             ClassReader tcr = new ClassReader(arr);
@@ -334,9 +336,11 @@ class InterceptClassGenerator implements Opcodes {
         for (int i = 0; i < paramTypes.length; i++) {
             Type paramType = paramTypes[i];
             mv.visitVarInsn(paramType.getOpcode(ILOAD), var);
-            if (paramType.getSort() == Type.OBJECT && Util.isBuffer(paramType.getInternalName())) {
-                mv.visitInsn(DUP);
-                mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, "checkBuffer", "(" + paramType.getDescriptor() + ")V", false);
+            if (VALIDATE.enabled) {
+                if (paramType.getSort() == Type.OBJECT && Util.isBuffer(paramType.getInternalName())) {
+                    mv.visitInsn(DUP);
+                    mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, "checkBuffer", "(" + paramType.getDescriptor() + ")V", false);
+                }
             }
             var += paramType.getSize();
         }
@@ -363,7 +367,7 @@ class InterceptClassGenerator implements Opcodes {
             mv.visitMethodInsn(INVOKESTATIC, call.receiverInternalName, call.name, call.desc, false);
         }
         /* Check GL error if it was a GL call */
-        if (call.glName != null && !call.glName.equals("glGetError")) {
+        if (VALIDATE.enabled && call.glName != null && !call.glName.equals("glGetError")) {
             mv.visitLdcInsn(call.name);
             mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, "checkError", "(Ljava/lang/String;)V", false);
         }

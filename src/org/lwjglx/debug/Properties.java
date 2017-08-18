@@ -24,18 +24,42 @@ package org.lwjglx.debug;
 
 public class Properties {
 
-    public static boolean DEBUG = getBooleanProperty("org.lwjglx.DEBUG", false);
-    public static boolean TRACE = getBooleanProperty("org.lwjglx.TRACE", false);
-    public static boolean PROFILE = getBooleanProperty("org.lwjglx.PROFILE", false);
-    public static boolean NO_THROW_ON_ERROR = getBooleanProperty("org.lwjglx.NO_THROW", false);
+    public static class BooleanProperty {
+        public boolean enabled;
+        public boolean byDefault;
+
+        public void enable() {
+            this.enabled = true;
+            this.byDefault = false;
+        }
+
+        public void disableIfByDefault() {
+            if (this.byDefault) {
+                this.enabled = false;
+                this.byDefault = false;
+            }
+        }
+    }
+
+    public static final BooleanProperty VALIDATE = getBooleanProperty("org.lwjglx.VALIDATE", true);
+    public static final BooleanProperty DEBUG = getBooleanProperty("org.lwjglx.DEBUG", false);
+    public static final BooleanProperty TRACE = getBooleanProperty("org.lwjglx.TRACE", false);
+    public static final BooleanProperty PROFILE = getBooleanProperty("org.lwjglx.PROFILE", false);
+    public static final BooleanProperty NO_THROW_ON_ERROR = getBooleanProperty("org.lwjglx.NO_THROW", false);
     public static String OUTPUT = System.getProperty("org.lwjglx.OUTPUT", null);
     public static long SLEEP = getLongProperty("org.lwjglx.SLEEP", 0L);
 
-    private static boolean getBooleanProperty(String prop, boolean def) {
+    private static BooleanProperty getBooleanProperty(String prop, boolean def) {
         String value = System.getProperty(prop);
-        if (value != null)
-            return value.equals("") || Boolean.valueOf(value);
-        return def;
+        BooleanProperty p = new BooleanProperty();
+        if (value != null) {
+            p.byDefault = false;
+            p.enabled = value.equals("") || Boolean.valueOf(value);
+        } else {
+            p.byDefault = true;
+            p.enabled = def;
+        }
+        return p;
     }
 
     private static long getLongProperty(String prop, long def) {

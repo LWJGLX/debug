@@ -56,10 +56,6 @@ public class Agent implements ClassFileTransformer, Opcodes {
 
     private static final String RT_InternalName = "org/lwjglx/debug/RT";
 
-    static {
-        LWJGLInit.touch();
-    }
-
     private static final AtomicInteger counter = new AtomicInteger();
 
     private final Set<Pattern> excludes;
@@ -128,7 +124,7 @@ public class Agent implements ClassFileTransformer, Opcodes {
                             if (call == null) {
                                 call = new InterceptedCall(owner, name, desc);
                                 String methodName;
-                                if (DEBUG) {
+                                if (DEBUG.enabled) {
                                     methodName = name + call.index;
                                 } else {
                                     methodName = Integer.toString(call.index);
@@ -138,7 +134,7 @@ public class Agent implements ClassFileTransformer, Opcodes {
                             }
                             Log.maxLineNumberLength = Math.max(Log.maxLineNumberLength, (int) (Math.log10(lastLineNumber) + 1));
                             String proxyDesc = call.desc;
-                            if (Properties.TRACE) {
+                            if (TRACE.enabled) {
                                 Util.ldcI(mv, lastLineNumber);
                                 proxyDesc = call.desc.substring(0, call.desc.lastIndexOf(')')) + "I" + call.desc.substring(call.desc.lastIndexOf(')'));
                             }
@@ -162,17 +158,17 @@ public class Agent implements ClassFileTransformer, Opcodes {
         };
         cr.accept(cv, 0);
         if (!modified.value) {
-            if (DEBUG)
+            if (DEBUG.enabled)
                 debug("Did not modify: " + className);
             return null;
         }
-        if (DEBUG) {
+        if (DEBUG.enabled) {
             debug("Modified [" + className + "] (" + calls.size() + " calls into LWJGL)");
         }
         /* Generate proxy class */
         InterceptClassGenerator.generate(loader, proxyName, callerName, calls.values(), sourceFile.value);
         byte[] arr = cw.toByteArray();
-        if (DEBUG) {
+        if (DEBUG.enabled) {
             TraceClassVisitor tcv = new TraceClassVisitor(new PrintWriter(System.err));
             ClassReader tcr = new ClassReader(arr);
             tcr.accept(tcv, 0);
@@ -285,6 +281,7 @@ public class Agent implements ClassFileTransformer, Opcodes {
             parser.accepts("trace");
             parser.accepts("profile");
             parser.accepts("nothrow");
+            parser.accepts("validate");
             OptionSpec<Long> sleep = parser.accepts("sleep").withRequiredArg().ofType(Long.class);
             OptionSpec<String> output = parser.accepts("output").withRequiredArg().ofType(String.class);
             OptionSet options = parser.parse(args);
@@ -295,25 +292,30 @@ public class Agent implements ClassFileTransformer, Opcodes {
                 }
             }
             if (options.has("debug"))
-                Properties.DEBUG = true;
+                Properties.DEBUG.enable();
             if (options.has("trace"))
-                Properties.TRACE = true;
-            if (options.has("profile"))
-                Properties.PROFILE = true;
+                Properties.TRACE.enable();
+            if (options.has("profile")) {
+                Properties.PROFILE.enable();
+                Properties.VALIDATE.disableIfByDefault();
+            }
+            if (options.has("validate"))
+                Properties.VALIDATE.enable();
             if (options.has("nothrow"))
-                Properties.NO_THROW_ON_ERROR = true;
+                Properties.NO_THROW_ON_ERROR.enable();
             if (options.has("sleep"))
                 Properties.SLEEP = options.valueOf(sleep);
             if (options.has("output"))
                 Properties.OUTPUT = options.valueOf(output);
         }
-        if (Properties.PROFILE) {
+        if (Properties.PROFILE.enabled) {
             try {
                 Profiling.startServer();
             } catch (ServletException e) {
                 throw new AssertionError("Could not start profiling server", e);
             }
         }
+        LWJGLInit.init();
         Agent t = new Agent(excludes);
         instrumentation.addTransformer(t);
     }

@@ -689,7 +689,7 @@ public class RT {
 
     public static void throwISEOrLogError(String message, boolean stacktrace) {
         IllegalStateException e = filterStackTrace(new IllegalStateException(message));
-        if (!Properties.NO_THROW_ON_ERROR) {
+        if (!Properties.NO_THROW_ON_ERROR.enabled) {
             throw e;
         } else {
             error(message, stacktrace ? e : null);
@@ -702,7 +702,7 @@ public class RT {
 
     public static void throwIAEOrLogError(String message, boolean stacktrace) {
         IllegalArgumentException e = filterStackTrace(new IllegalArgumentException(message));
-        if (!Properties.NO_THROW_ON_ERROR) {
+        if (!Properties.NO_THROW_ON_ERROR.enabled) {
             throw e;
         } else {
             error(message, stacktrace ? e : null);
@@ -851,7 +851,7 @@ public class RT {
     public static void endImmediate() {
         Context ctx = CURRENT_CONTEXT.get();
         ctx.inImmediateMode = false;
-        if (Properties.PROFILE) {
+        if (Properties.PROFILE.enabled) {
             draw(ctx.immediateModeVertices);
             ctx.immediateModeVertices = 0;
         }
@@ -865,9 +865,7 @@ public class RT {
     public static void frame() {
         Context ctx = CURRENT_CONTEXT.get();
         ctx.frameEndTime = System.nanoTime();
-        if (Properties.PROFILE) {
-            Profiling.frame(ctx);
-        }
+        Profiling.frame(ctx);
         /* Reset counters for next frame */
         ctx.verticesCount = 0;
         ctx.glCallCount = 0;

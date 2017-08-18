@@ -31,7 +31,7 @@ public class EXTSeparateShaderObjects {
 
     public static int glCreateShaderProgramEXT(int type, ByteBuffer string) {
         int shader = org.lwjgl.opengl.EXTSeparateShaderObjects.glCreateShaderProgramEXT(type, string);
-        if (TRACE) {
+        if (TRACE.enabled) {
             /* Log the shader source */
             StringBuilder sb = new StringBuilder();
             if (string != null) {
@@ -45,7 +45,7 @@ public class EXTSeparateShaderObjects {
 
     public static int glCreateShaderProgramEXT(int type, CharSequence string) {
         int shader = org.lwjgl.opengl.EXTSeparateShaderObjects.glCreateShaderProgramEXT(type, string);
-        if (TRACE) {
+        if (TRACE.enabled) {
             /* Log the shader source */
             StringBuilder sb = new StringBuilder();
             if (string != null) {

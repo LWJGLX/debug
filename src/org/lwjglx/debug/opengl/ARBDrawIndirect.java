@@ -6,46 +6,63 @@ import java.nio.ByteBuffer;
 import java.nio.IntBuffer;
 
 import org.lwjgl.system.NativeType;
+import org.lwjglx.debug.Properties;
 
 public class ARBDrawIndirect {
 
     public static void glDrawArraysIndirect(@NativeType("GLenum") int mode, @NativeType("const void *") ByteBuffer indirect) {
-        checkVertexAttributes();
+        if (Properties.VALIDATE.enabled) {
+            checkVertexAttributes();
+        }
         org.lwjgl.opengl.ARBDrawIndirect.glDrawArraysIndirect(mode, indirect);
     }
 
     public static void glDrawArraysIndirect(@NativeType("GLenum") int mode, @NativeType("const void *") long indirect) {
-        checkVertexAttributes();
+        if (Properties.VALIDATE.enabled) {
+            checkVertexAttributes();
+        }
         org.lwjgl.opengl.ARBDrawIndirect.glDrawArraysIndirect(mode, indirect);
     }
 
     public static void glDrawArraysIndirect(@NativeType("GLenum") int mode, @NativeType("const void *") IntBuffer indirect) {
-        checkVertexAttributes();
+        if (Properties.VALIDATE.enabled) {
+            checkVertexAttributes();
+        }
         org.lwjgl.opengl.ARBDrawIndirect.glDrawArraysIndirect(mode, indirect);
     }
 
     public static void glDrawElementsIndirect(@NativeType("GLenum") int mode, @NativeType("GLenum") int type, @NativeType("const void *") ByteBuffer indirect) {
-        checkVertexAttributes();
+        if (Properties.VALIDATE.enabled) {
+            checkVertexAttributes();
+        }
         org.lwjgl.opengl.ARBDrawIndirect.glDrawElementsIndirect(mode, type, indirect);
     }
 
     public static void glDrawElementsIndirect(@NativeType("GLenum") int mode, @NativeType("GLenum") int type, @NativeType("const void *") long indirect) {
-        checkVertexAttributes();
+        if (Properties.VALIDATE.enabled) {
+            checkVertexAttributes();
+        }
         org.lwjgl.opengl.ARBDrawIndirect.glDrawElementsIndirect(mode, type, indirect);
     }
 
     public static void glDrawElementsIndirect(@NativeType("GLenum") int mode, @NativeType("GLenum") int type, @NativeType("const void *") IntBuffer indirect) {
-        checkVertexAttributes();
+        if (Properties.VALIDATE.enabled) {
+            checkVertexAttributes();
+        }
         org.lwjgl.opengl.ARBDrawIndirect.glDrawElementsIndirect(mode, type, indirect);
     }
 
     public static void glDrawArraysIndirect(@NativeType("GLenum") int mode, @NativeType("const void *") int[] indirect) {
-        checkVertexAttributes();
+        if (Properties.VALIDATE.enabled) {
+            checkVertexAttributes();
+        }
         org.lwjgl.opengl.ARBDrawIndirect.glDrawArraysIndirect(mode, indirect);
     }
 
     public static void glDrawElementsIndirect(@NativeType("GLenum") int mode, @NativeType("GLenum") int type, @NativeType("const void *") int[] indirect) {
-        checkVertexAttributes();
+        if (Properties.VALIDATE.enabled) {
+            checkVertexAttributes();
+        }
         org.lwjgl.opengl.ARBDrawIndirect.glDrawElementsIndirect(mode, type, indirect);
     }
 

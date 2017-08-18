@@ -34,36 +34,47 @@ import java.nio.ShortBuffer;
 
 import org.lwjglx.debug.GLmetadata;
 import org.lwjglx.debug.MethodCall;
+import org.lwjglx.debug.Properties;
 import org.lwjglx.debug.RT;
 
 public class GL12 {
 
     public static void glDrawRangeElements(int mode, int start, int end, int count, int type, long indices) {
-        int ibo = org.lwjgl.opengl.GL11.glGetInteger(org.lwjgl.opengl.GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING);
-        if (ibo == 0) {
-            throwISEOrLogError("glDrawRangeElements called with index offset but no ELEMENT_ARRAY_BUFFER bound");
+        if (Properties.VALIDATE.enabled) {
+            int ibo = org.lwjgl.opengl.GL11.glGetInteger(org.lwjgl.opengl.GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING);
+            if (ibo == 0) {
+                throwISEOrLogError("glDrawRangeElements called with index offset but no ELEMENT_ARRAY_BUFFER bound");
+            }
+            checkVertexAttributes();
         }
-        checkVertexAttributes();
         org.lwjgl.opengl.GL12.glDrawRangeElements(mode, start, end, count, type, indices);
     }
 
     public static void glDrawRangeElements(int mode, int start, int end, int type, ByteBuffer indices) {
-        checkVertexAttributes();
+        if (Properties.VALIDATE.enabled) {
+            checkVertexAttributes();
+        }
         org.lwjgl.opengl.GL12.glDrawRangeElements(mode, start, end, type, indices);
     }
 
     public static void glDrawRangeElements(int mode, int start, int end, ByteBuffer indices) {
-        checkVertexAttributes();
+        if (Properties.VALIDATE.enabled) {
+            checkVertexAttributes();
+        }
         org.lwjgl.opengl.GL12.glDrawRangeElements(mode, start, end, indices);
     }
 
     public static void glDrawRangeElements(int mode, int start, int end, ShortBuffer indices) {
-        checkVertexAttributes();
+        if (Properties.VALIDATE.enabled) {
+            checkVertexAttributes();
+        }
         org.lwjgl.opengl.GL12.glDrawRangeElements(mode, start, end, indices);
     }
 
     public static void glDrawRangeElements(int mode, int start, int end, IntBuffer indices) {
-        checkVertexAttributes();
+        if (Properties.VALIDATE.enabled) {
+            checkVertexAttributes();
+        }
         org.lwjgl.opengl.GL12.glDrawRangeElements(mode, start, end, indices);
     }
 

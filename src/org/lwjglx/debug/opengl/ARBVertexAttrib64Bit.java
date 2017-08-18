@@ -27,23 +27,31 @@ import static org.lwjglx.debug.Context.*;
 import java.nio.ByteBuffer;
 import java.nio.DoubleBuffer;
 
+import org.lwjglx.debug.Properties;
+
 public class ARBVertexAttrib64Bit {
 
     public static void glVertexAttribIPointer(int index, int size, int type, int stride, ByteBuffer pointer) {
-        CURRENT_CONTEXT.get().currentVao.initializedVertexArrays[index] = pointer != null;
+        if (Properties.VALIDATE.enabled) {
+            CURRENT_CONTEXT.get().currentVao.initializedVertexArrays[index] = pointer != null;
+        }
         org.lwjgl.opengl.ARBVertexAttrib64Bit.glVertexAttribLPointer(index, size, type, stride, pointer);
     }
 
     public static void glVertexAttribLPointer(int index, int size, int type, int stride, long pointer) {
-        int vbo = org.lwjgl.opengl.GL11.glGetInteger(org.lwjgl.opengl.GL15.GL_ARRAY_BUFFER_BINDING);
-        if (vbo != 0) {
-            CURRENT_CONTEXT.get().currentVao.initializedVertexArrays[index] = true;
+        if (Properties.VALIDATE.enabled) {
+            int vbo = org.lwjgl.opengl.GL11.glGetInteger(org.lwjgl.opengl.GL15.GL_ARRAY_BUFFER_BINDING);
+            if (vbo != 0) {
+                CURRENT_CONTEXT.get().currentVao.initializedVertexArrays[index] = true;
+            }
         }
         org.lwjgl.opengl.ARBVertexAttrib64Bit.glVertexAttribLPointer(index, size, type, stride, pointer);
     }
 
     public static void glVertexAttribIPointer(int index, int size, int stride, DoubleBuffer pointer) {
-        CURRENT_CONTEXT.get().currentVao.initializedVertexArrays[index] = pointer != null;
+        if (Properties.VALIDATE.enabled) {
+            CURRENT_CONTEXT.get().currentVao.initializedVertexArrays[index] = pointer != null;
+        }
         org.lwjgl.opengl.ARBVertexAttrib64Bit.glVertexAttribLPointer(index, size, stride, pointer);
     }
 

@@ -33,70 +33,89 @@ import java.nio.ShortBuffer;
 
 import org.lwjglx.debug.GLmetadata;
 import org.lwjglx.debug.MethodCall;
+import org.lwjglx.debug.Properties;
 
 public class GL20 {
 
     public static void glEnableVertexAttribArray(int index) {
-        CURRENT_CONTEXT.get().currentVao.enabledVertexArrays[index] = true;
+        if (Properties.VALIDATE.enabled) {
+            CURRENT_CONTEXT.get().currentVao.enabledVertexArrays[index] = true;
+        }
         org.lwjgl.opengl.GL20.glEnableVertexAttribArray(index);
     }
 
     public static void glDisableVertexAttribArray(int index) {
-        CURRENT_CONTEXT.get().currentVao.enabledVertexArrays[index] = false;
+        if (Properties.VALIDATE.enabled) {
+            CURRENT_CONTEXT.get().currentVao.enabledVertexArrays[index] = false;
+        }
         org.lwjgl.opengl.GL20.glDisableVertexAttribArray(index);
     }
 
     public static void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, FloatBuffer pointer) {
-        CURRENT_CONTEXT.get().currentVao.initializedVertexArrays[index] = pointer != null;
+        if (Properties.VALIDATE.enabled) {
+            CURRENT_CONTEXT.get().currentVao.initializedVertexArrays[index] = pointer != null;
+        }
         org.lwjgl.opengl.GL20.glVertexAttribPointer(index, size, type, normalized, stride, pointer);
     }
 
     public static void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, ByteBuffer pointer) {
-        CURRENT_CONTEXT.get().currentVao.initializedVertexArrays[index] = pointer != null;
+        if (Properties.VALIDATE.enabled) {
+            CURRENT_CONTEXT.get().currentVao.initializedVertexArrays[index] = pointer != null;
+        }
         org.lwjgl.opengl.GL20.glVertexAttribPointer(index, size, type, normalized, stride, pointer);
     }
 
     public static void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, IntBuffer pointer) {
-        CURRENT_CONTEXT.get().currentVao.initializedVertexArrays[index] = pointer != null;
+        if (Properties.VALIDATE.enabled) {
+            CURRENT_CONTEXT.get().currentVao.initializedVertexArrays[index] = pointer != null;
+        }
         org.lwjgl.opengl.GL20.glVertexAttribPointer(index, size, type, normalized, stride, pointer);
     }
 
     public static void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, ShortBuffer pointer) {
-        CURRENT_CONTEXT.get().currentVao.initializedVertexArrays[index] = pointer != null;
+        if (Properties.VALIDATE.enabled) {
+            CURRENT_CONTEXT.get().currentVao.initializedVertexArrays[index] = pointer != null;
+        }
         org.lwjgl.opengl.GL20.glVertexAttribPointer(index, size, type, normalized, stride, pointer);
     }
 
     public static void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, long pointer) {
-        int vbo = org.lwjgl.opengl.GL11.glGetInteger(org.lwjgl.opengl.GL15.GL_ARRAY_BUFFER_BINDING);
-        if (vbo != 0) {
-            CURRENT_CONTEXT.get().currentVao.initializedVertexArrays[index] = true;
+        if (Properties.VALIDATE.enabled) {
+            int vbo = org.lwjgl.opengl.GL11.glGetInteger(org.lwjgl.opengl.GL15.GL_ARRAY_BUFFER_BINDING);
+            if (vbo != 0) {
+                CURRENT_CONTEXT.get().currentVao.initializedVertexArrays[index] = true;
+            }
         }
         org.lwjgl.opengl.GL20.glVertexAttribPointer(index, size, type, normalized, stride, pointer);
     }
 
     public static void glCompileShader(int shader) {
         org.lwjgl.opengl.GL20.glCompileShader(shader);
-        /* Check compile status */
-        int status = org.lwjgl.opengl.GL20.glGetShaderi(shader, org.lwjgl.opengl.GL20.GL_COMPILE_STATUS);
-        if (status != org.lwjgl.opengl.GL11.GL_TRUE) {
-            String shaderLog = org.lwjgl.opengl.GL20.glGetShaderInfoLog(shader);
-            error("Shader [" + shader + "] did not compile successfully:\n" + shaderLog);
+        if (Properties.VALIDATE.enabled) {
+            /* Check compile status */
+            int status = org.lwjgl.opengl.GL20.glGetShaderi(shader, org.lwjgl.opengl.GL20.GL_COMPILE_STATUS);
+            if (status != org.lwjgl.opengl.GL11.GL_TRUE) {
+                String shaderLog = org.lwjgl.opengl.GL20.glGetShaderInfoLog(shader);
+                error("Shader [" + shader + "] did not compile successfully:\n" + shaderLog);
+            }
         }
     }
 
     public static void glLinkProgram(int program) {
         org.lwjgl.opengl.GL20.glLinkProgram(program);
-        /* Check link status */
-        int status = org.lwjgl.opengl.GL20.glGetProgrami(program, org.lwjgl.opengl.GL20.GL_LINK_STATUS);
-        if (status != org.lwjgl.opengl.GL11.GL_TRUE) {
-            String programLog = org.lwjgl.opengl.GL20.glGetProgramInfoLog(program);
-            error("Program [" + program + "] did not link successfully:\n" + programLog);
+        if (Properties.VALIDATE.enabled) {
+            /* Check link status */
+            int status = org.lwjgl.opengl.GL20.glGetProgrami(program, org.lwjgl.opengl.GL20.GL_LINK_STATUS);
+            if (status != org.lwjgl.opengl.GL11.GL_TRUE) {
+                String programLog = org.lwjgl.opengl.GL20.glGetProgramInfoLog(program);
+                error("Program [" + program + "] did not link successfully:\n" + programLog);
+            }
         }
     }
 
     public static void glShaderSource(int shader, org.lwjgl.PointerBuffer strings, IntBuffer length) {
         org.lwjgl.opengl.GL20.glShaderSource(shader, strings, length);
-        if (TRACE) {
+        if (TRACE.enabled) {
             /* Log the shader source */
             StringBuilder sb = new StringBuilder();
             if (strings != null && length != null) {
@@ -115,7 +134,7 @@ public class GL20 {
 
     public static void glShaderSource(int shader, CharSequence... strings) {
         org.lwjgl.opengl.GL20.glShaderSource(shader, strings);
-        if (TRACE) {
+        if (TRACE.enabled) {
             /* Log the shader source */
             StringBuilder sb = new StringBuilder();
             if (strings != null) {
@@ -129,7 +148,7 @@ public class GL20 {
 
     public static void glShaderSource(int shader, CharSequence string) {
         org.lwjgl.opengl.GL20.glShaderSource(shader, string);
-        if (TRACE) {
+        if (TRACE.enabled) {
             /* Log the shader source */
             trace("Shader source for shader [" + shader + "]:\n" + string);
         }

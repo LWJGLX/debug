@@ -24,19 +24,19 @@ package org.lwjglx.debug;
 
 class LWJGLInit {
 
-    static {
-        /* Set properties (possibly overriding -D command line arguments) */
-        System.setProperty("org.lwjgl.util.Debug", "true");
-        System.setProperty("org.lwjgl.util.NoChecks", "false");
-        System.setProperty("org.lwjgl.util.DebugLoader", "true");
-        System.setProperty("org.lwjgl.util.DebugAllocator", "true");
-        System.setProperty("org.lwjgl.util.DebugStack", "true");
-        /* And ensure that user code cannot change them via setProperty */
-        org.lwjgl.system.Configuration.DEBUG.hashCode();
-        /* Set the debug stream */
-        org.lwjgl.system.Configuration.DEBUG_STREAM.set("org.lwjglx.debug.Log$DebugStreamFactory");
+    static void init() {
+        if (Properties.VALIDATE.enabled) {
+            /* Set properties (possibly overriding -D command line arguments) */
+            System.setProperty("org.lwjgl.util.Debug", "true");
+            System.setProperty("org.lwjgl.util.NoChecks", "false");
+            System.setProperty("org.lwjgl.util.DebugLoader", "true");
+            System.setProperty("org.lwjgl.util.DebugAllocator", "true");
+            System.setProperty("org.lwjgl.util.DebugStack", "true");
+            /* And ensure that user code cannot change them via setProperty */
+            org.lwjgl.system.Configuration.DEBUG.hashCode();
+            /* Set the debug stream */
+            org.lwjgl.system.Configuration.DEBUG_STREAM.set("org.lwjglx.debug.Log$DebugStreamFactory");
+        }
     }
-
-    static void touch() {}
 
 }

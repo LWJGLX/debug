@@ -33,49 +33,60 @@ import org.lwjgl.glfw.GLFWVidMode;
 import org.lwjgl.system.APIUtil;
 import org.lwjglx.debug.Context;
 import org.lwjglx.debug.MethodCall;
+import org.lwjglx.debug.Properties;
 import org.lwjglx.debug.RT;
 
 public class GLFW {
 
     private static GLFWErrorCallback userCallback;
-    private static GLFWErrorCallback errorCallback = new GLFWErrorCallback() {
-        private Map<Integer, String> ERROR_CODES = APIUtil.apiClassTokens((field, value) -> 0x10000 < value && value < 0x20000, null, org.lwjgl.glfw.GLFW.class);
-
-        public void invoke(int error, long description) {
-            String msg = getDescription(description);
-            System.err.printf("[LWJGL] %s error\n", ERROR_CODES.get(error));
-            System.err.println("\tDescription : " + msg);
-            System.err.println("\tStacktrace  :");
-            StackTraceElement[] stack = Thread.currentThread().getStackTrace();
-            for (int i = 4; i < stack.length; i++) {
-                System.err.print("\t\t");
-                System.err.println(stack[i].toString());
-            }
-            if (userCallback != null) {
-                userCallback.invoke(error, description);
-            }
-        }
-    };
+    private static GLFWErrorCallback errorCallback;
 
     public static boolean glfwInit() {
-        debug("Registering GLFWErrorCallback");
-        /* Set a GLFW error callback first and remember any possibly current callback to delegate to */
-        userCallback = org.lwjgl.glfw.GLFW.glfwSetErrorCallback(errorCallback);
-        boolean ret = org.lwjgl.glfw.GLFW.glfwInit();
-        if (!ret) {
-            error("glfwInit returned false");
+        boolean ret;
+        if (Properties.VALIDATE.enabled) {
+            debug("Registering GLFWErrorCallback");
+            /* Set a GLFW error callback first and remember any possibly current callback to delegate to */
+            errorCallback = new GLFWErrorCallback() {
+                private final Map<Integer, String> ERROR_CODES = APIUtil.apiClassTokens((field, value) -> 0x10000 < value && value < 0x20000, null, org.lwjgl.glfw.GLFW.class);
+
+                public void invoke(int error, long description) {
+                    String msg = getDescription(description);
+                    System.err.printf("[LWJGL] %s error\n", ERROR_CODES.get(error));
+                    System.err.println("\tDescription : " + msg);
+                    System.err.println("\tStacktrace  :");
+                    StackTraceElement[] stack = Thread.currentThread().getStackTrace();
+                    for (int i = 4; i < stack.length; i++) {
+                        System.err.print("\t\t");
+                        System.err.println(stack[i].toString());
+                    }
+                    if (userCallback != null) {
+                        userCallback.invoke(error, description);
+                    }
+                }
+            };
+            userCallback = org.lwjgl.glfw.GLFW.glfwSetErrorCallback(errorCallback);
+            ret = org.lwjgl.glfw.GLFW.glfwInit();
+            if (!ret) {
+                error("glfwInit returned false");
+            }
+        } else {
+            ret = org.lwjgl.glfw.GLFW.glfwInit();
         }
         return ret;
     }
 
     public static void glfwTerminate() {
-        // Reinstate any user-defined error callback
-        // because the user might call glfwSetErrorCallback(null).free()
-        org.lwjgl.glfw.GLFW.glfwSetErrorCallback(userCallback);
+        if (Properties.VALIDATE.enabled) {
+            // Reinstate any user-defined error callback
+            // because the user might call glfwSetErrorCallback(null).free()
+            org.lwjgl.glfw.GLFW.glfwSetErrorCallback(userCallback);
+        }
         org.lwjgl.glfw.GLFW.glfwTerminate();
-        debug("Freeing GLFWErrorCallback");
-        if (errorCallback != null)
-            errorCallback.free();
+        if (Properties.VALIDATE.enabled) {
+            debug("Freeing GLFWErrorCallback");
+            if (errorCallback != null)
+                errorCallback.free();
+        }
     }
 
     private static void printBoolean(MethodCall mc, int value) {
@@ -348,14 +359,18 @@ public class GLFW {
     }
 
     public static long glfwCreateWindow(int width, int height, ByteBuffer title, long monitor, long share) {
-        org.lwjgl.glfw.GLFW.glfwWindowHint(org.lwjgl.glfw.GLFW.GLFW_OPENGL_DEBUG_CONTEXT, org.lwjgl.glfw.GLFW.GLFW_TRUE);
+        if (Properties.VALIDATE.enabled) {
+            org.lwjgl.glfw.GLFW.glfwWindowHint(org.lwjgl.glfw.GLFW.GLFW_OPENGL_DEBUG_CONTEXT, org.lwjgl.glfw.GLFW.GLFW_TRUE);
+        }
         long window = org.lwjgl.glfw.GLFW.glfwCreateWindow(width, height, title, monitor, share);
         createWindow(window, share);
         return window;
     }
 
     public static long glfwCreateWindow(int width, int height, CharSequence title, long monitor, long share) {
-        org.lwjgl.glfw.GLFW.glfwWindowHint(org.lwjgl.glfw.GLFW.GLFW_OPENGL_DEBUG_CONTEXT, org.lwjgl.glfw.GLFW.GLFW_TRUE);
+        if (Properties.VALIDATE.enabled) {
+            org.lwjgl.glfw.GLFW.glfwWindowHint(org.lwjgl.glfw.GLFW.GLFW_OPENGL_DEBUG_CONTEXT, org.lwjgl.glfw.GLFW.GLFW_TRUE);
+        }
         long window = org.lwjgl.glfw.GLFW.glfwCreateWindow(width, height, title, monitor, share);
         createWindow(window, share);
         return window;
@@ -409,7 +424,9 @@ public class GLFW {
 
     public static void glfwSwapBuffers(long window) {
         org.lwjgl.glfw.GLFW.glfwSwapBuffers(window);
-        RT.frame();
+        if (Properties.PROFILE.enabled) {
+            RT.frame();
+        }
     }
 
 }

@@ -29,43 +29,59 @@ import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 import java.nio.ShortBuffer;
 
+import org.lwjglx.debug.Properties;
+
 public class ARBVertexShader {
 
     public static void glVertexAttribPointerARB(int index, int size, int type, boolean normalized, int stride, FloatBuffer pointer) {
-        CURRENT_CONTEXT.get().currentVao.initializedVertexArrays[index] = pointer != null;
+        if (Properties.VALIDATE.enabled) {
+            CURRENT_CONTEXT.get().currentVao.initializedVertexArrays[index] = pointer != null;
+        }
         org.lwjgl.opengl.ARBVertexShader.glVertexAttribPointerARB(index, size, type, normalized, stride, pointer);
     }
 
     public static void glVertexAttribPointerARB(int index, int size, int type, boolean normalized, int stride, ByteBuffer pointer) {
-        CURRENT_CONTEXT.get().currentVao.initializedVertexArrays[index] = pointer != null;
+        if (Properties.VALIDATE.enabled) {
+            CURRENT_CONTEXT.get().currentVao.initializedVertexArrays[index] = pointer != null;
+        }
         org.lwjgl.opengl.ARBVertexShader.glVertexAttribPointerARB(index, size, type, normalized, stride, pointer);
     }
 
     public static void glVertexAttribPointerARB(int index, int size, int type, boolean normalized, int stride, IntBuffer pointer) {
-        CURRENT_CONTEXT.get().currentVao.initializedVertexArrays[index] = pointer != null;
+        if (Properties.VALIDATE.enabled) {
+            CURRENT_CONTEXT.get().currentVao.initializedVertexArrays[index] = pointer != null;
+        }
         org.lwjgl.opengl.ARBVertexShader.glVertexAttribPointerARB(index, size, type, normalized, stride, pointer);
     }
 
     public static void glVertexAttribPointerARB(int index, int size, int type, boolean normalized, int stride, ShortBuffer pointer) {
-        CURRENT_CONTEXT.get().currentVao.initializedVertexArrays[index] = pointer != null;
+        if (Properties.VALIDATE.enabled) {
+            CURRENT_CONTEXT.get().currentVao.initializedVertexArrays[index] = pointer != null;
+        }
         org.lwjgl.opengl.ARBVertexShader.glVertexAttribPointerARB(index, size, type, normalized, stride, pointer);
     }
 
     public static void glVertexAttribPointerARB(int index, int size, int type, boolean normalized, int stride, long pointer) {
-        int vbo = org.lwjgl.opengl.GL11.glGetInteger(org.lwjgl.opengl.GL15.GL_ARRAY_BUFFER_BINDING);
-        if (vbo != 0) {
-            CURRENT_CONTEXT.get().currentVao.initializedVertexArrays[index] = true;
+        if (Properties.VALIDATE.enabled) {
+            int vbo = org.lwjgl.opengl.GL11.glGetInteger(org.lwjgl.opengl.GL15.GL_ARRAY_BUFFER_BINDING);
+            if (vbo != 0) {
+                CURRENT_CONTEXT.get().currentVao.initializedVertexArrays[index] = true;
+            }
         }
         org.lwjgl.opengl.ARBVertexShader.glVertexAttribPointerARB(index, size, type, normalized, stride, pointer);
     }
 
     public static void glEnableVertexAttribArrayARB(int index) {
-        CURRENT_CONTEXT.get().currentVao.enabledVertexArrays[index] = true;
+        if (Properties.VALIDATE.enabled) {
+            CURRENT_CONTEXT.get().currentVao.enabledVertexArrays[index] = true;
+        }
         org.lwjgl.opengl.ARBVertexShader.glEnableVertexAttribArrayARB(index);
     }
 
     public static void glDisableVertexAttribArrayARB(int index) {
-        CURRENT_CONTEXT.get().currentVao.enabledVertexArrays[index] = false;
+        if (Properties.VALIDATE.enabled) {
+            CURRENT_CONTEXT.get().currentVao.enabledVertexArrays[index] = false;
+        }
         org.lwjgl.opengl.ARBVertexShader.glDisableVertexAttribArrayARB(index);
     }
 

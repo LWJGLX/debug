@@ -34,6 +34,7 @@ import java.nio.ShortBuffer;
 import org.lwjglx.debug.Context;
 import org.lwjglx.debug.GLmetadata;
 import org.lwjglx.debug.MethodCall;
+import org.lwjglx.debug.Properties;
 
 public class EXTDirectStateAccess {
 
@@ -88,23 +89,28 @@ public class EXTDirectStateAccess {
         mc.param(pixels);
     }
 
-    public static void glMultiTexImage2DEXT(int texunit, int target, int level, int internalformat, int width, int height, int border, int format, int type, ByteBuffer pixels, Void ret, MethodCall mc) {
+    public static void glMultiTexImage2DEXT(int texunit, int target, int level, int internalformat, int width, int height, int border, int format, int type, ByteBuffer pixels, Void ret,
+            MethodCall mc) {
         glMultiTexImage2DEXT_trace(texunit, target, level, internalformat, width, height, border, format, type, pixels, mc);
     }
 
-    public static void glMultiTexImage2DEXT(int texunit, int target, int level, int internalformat, int width, int height, int border, int format, int type, ShortBuffer pixels, Void ret, MethodCall mc) {
+    public static void glMultiTexImage2DEXT(int texunit, int target, int level, int internalformat, int width, int height, int border, int format, int type, ShortBuffer pixels, Void ret,
+            MethodCall mc) {
         glMultiTexImage2DEXT_trace(texunit, target, level, internalformat, width, height, border, format, type, pixels, mc);
     }
 
-    public static void glMultiTexImage2DEXT(int texunit, int target, int level, int internalformat, int width, int height, int border, int format, int type, IntBuffer pixels, Void ret, MethodCall mc) {
+    public static void glMultiTexImage2DEXT(int texunit, int target, int level, int internalformat, int width, int height, int border, int format, int type, IntBuffer pixels, Void ret,
+            MethodCall mc) {
         glMultiTexImage2DEXT_trace(texunit, target, level, internalformat, width, height, border, format, type, pixels, mc);
     }
 
-    public static void glMultiTexImage2DEXT(int texunit, int target, int level, int internalformat, int width, int height, int border, int format, int type, FloatBuffer pixels, Void ret, MethodCall mc) {
+    public static void glMultiTexImage2DEXT(int texunit, int target, int level, int internalformat, int width, int height, int border, int format, int type, FloatBuffer pixels, Void ret,
+            MethodCall mc) {
         glMultiTexImage2DEXT_trace(texunit, target, level, internalformat, width, height, border, format, type, pixels, mc);
     }
 
-    public static void glMultiTexImage2DEXT(int texunit, int target, int level, int internalformat, int width, int height, int border, int format, int type, DoubleBuffer pixels, Void ret, MethodCall mc) {
+    public static void glMultiTexImage2DEXT(int texunit, int target, int level, int internalformat, int width, int height, int border, int format, int type, DoubleBuffer pixels, Void ret,
+            MethodCall mc) {
         glMultiTexImage2DEXT_trace(texunit, target, level, internalformat, width, height, border, format, type, pixels, mc);
     }
 
@@ -126,28 +132,28 @@ public class EXTDirectStateAccess {
         mc.param(pixels);
     }
 
-    public static void glMultiTexImage3DEXT(int texunit, int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, ByteBuffer pixels,
-            Void ret, MethodCall mc) {
+    public static void glMultiTexImage3DEXT(int texunit, int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, ByteBuffer pixels, Void ret,
+            MethodCall mc) {
         glMultiTexImage3DEXT_trace(texunit, target, level, internalformat, width, height, depth, border, format, type, pixels, mc);
     }
 
-    public static void glMultiTexImage3DEXT(int texunit, int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, ShortBuffer pixels,
-            Void ret, MethodCall mc) {
+    public static void glMultiTexImage3DEXT(int texunit, int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, ShortBuffer pixels, Void ret,
+            MethodCall mc) {
         glMultiTexImage3DEXT_trace(texunit, target, level, internalformat, width, height, depth, border, format, type, pixels, mc);
     }
 
-    public static void glMultiTexImage3DEXT(int texunit, int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, IntBuffer pixels,
-            Void ret, MethodCall mc) {
+    public static void glMultiTexImage3DEXT(int texunit, int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, IntBuffer pixels, Void ret,
+            MethodCall mc) {
         glMultiTexImage3DEXT_trace(texunit, target, level, internalformat, width, height, depth, border, format, type, pixels, mc);
     }
 
-    public static void glMultiTexImage3DEXT(int texunit, int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, FloatBuffer pixels,
-            Void ret, MethodCall mc) {
+    public static void glMultiTexImage3DEXT(int texunit, int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, FloatBuffer pixels, Void ret,
+            MethodCall mc) {
         glMultiTexImage3DEXT_trace(texunit, target, level, internalformat, width, height, depth, border, format, type, pixels, mc);
     }
 
-    public static void glMultiTexImage3DEXT(int texunit, int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, DoubleBuffer pixels,
-            Void ret, MethodCall mc) {
+    public static void glMultiTexImage3DEXT(int texunit, int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, DoubleBuffer pixels, Void ret,
+            MethodCall mc) {
         glMultiTexImage3DEXT_trace(texunit, target, level, internalformat, width, height, depth, border, format, type, pixels, mc);
     }
 
@@ -202,11 +208,13 @@ public class EXTDirectStateAccess {
         mc.param(pixels);
     }
 
-    public static void glTextureImage2DEXT(int texture, int target, int level, int internalformat, int width, int height, int border, int format, int type, ByteBuffer pixels, Void ret, MethodCall mc) {
+    public static void glTextureImage2DEXT(int texture, int target, int level, int internalformat, int width, int height, int border, int format, int type, ByteBuffer pixels, Void ret,
+            MethodCall mc) {
         glTextureImage2DEXT_trace(texture, target, level, internalformat, width, height, border, format, type, pixels, mc);
     }
 
-    public static void glTextureImage2DEXT(int texture, int target, int level, int internalformat, int width, int height, int border, int format, int type, ShortBuffer pixels, Void ret, MethodCall mc) {
+    public static void glTextureImage2DEXT(int texture, int target, int level, int internalformat, int width, int height, int border, int format, int type, ShortBuffer pixels, Void ret,
+            MethodCall mc) {
         glTextureImage2DEXT_trace(texture, target, level, internalformat, width, height, border, format, type, pixels, mc);
     }
 
@@ -214,11 +222,13 @@ public class EXTDirectStateAccess {
         glTextureImage2DEXT_trace(texture, target, level, internalformat, width, height, border, format, type, pixels, mc);
     }
 
-    public static void glTextureImage2DEXT(int texture, int target, int level, int internalformat, int width, int height, int border, int format, int type, FloatBuffer pixels, Void ret, MethodCall mc) {
+    public static void glTextureImage2DEXT(int texture, int target, int level, int internalformat, int width, int height, int border, int format, int type, FloatBuffer pixels, Void ret,
+            MethodCall mc) {
         glTextureImage2DEXT_trace(texture, target, level, internalformat, width, height, border, format, type, pixels, mc);
     }
 
-    public static void glTextureImage2DEXT(int texture, int target, int level, int internalformat, int width, int height, int border, int format, int type, DoubleBuffer pixels, Void ret, MethodCall mc) {
+    public static void glTextureImage2DEXT(int texture, int target, int level, int internalformat, int width, int height, int border, int format, int type, DoubleBuffer pixels, Void ret,
+            MethodCall mc) {
         glTextureImage2DEXT_trace(texture, target, level, internalformat, width, height, border, format, type, pixels, mc);
     }
 
@@ -240,41 +250,45 @@ public class EXTDirectStateAccess {
         mc.param(pixels);
     }
 
-    public static void glTextureImage3DEXT(int texture, int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, ByteBuffer pixels,
-            Void ret, MethodCall mc) {
+    public static void glTextureImage3DEXT(int texture, int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, ByteBuffer pixels, Void ret,
+            MethodCall mc) {
         glTextureImage3DEXT_trace(texture, target, level, internalformat, width, height, depth, border, format, type, pixels, mc);
     }
 
-    public static void glTextureImage3DEXT(int texture, int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, ShortBuffer pixels,
-            Void ret, MethodCall mc) {
+    public static void glTextureImage3DEXT(int texture, int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, ShortBuffer pixels, Void ret,
+            MethodCall mc) {
         glTextureImage3DEXT_trace(texture, target, level, internalformat, width, height, depth, border, format, type, pixels, mc);
     }
 
-    public static void glTextureImage3DEXT(int texture, int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, IntBuffer pixels,
-            Void ret, MethodCall mc) {
+    public static void glTextureImage3DEXT(int texture, int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, IntBuffer pixels, Void ret,
+            MethodCall mc) {
         glTextureImage3DEXT_trace(texture, target, level, internalformat, width, height, depth, border, format, type, pixels, mc);
     }
 
-    public static void glTextureImage3DEXT(int texture, int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, FloatBuffer pixels,
-            Void ret, MethodCall mc) {
+    public static void glTextureImage3DEXT(int texture, int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, FloatBuffer pixels, Void ret,
+            MethodCall mc) {
         glTextureImage3DEXT_trace(texture, target, level, internalformat, width, height, depth, border, format, type, pixels, mc);
     }
 
-    public static void glTextureImage3DEXT(int texture, int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, DoubleBuffer pixels,
-            Void ret, MethodCall mc) {
+    public static void glTextureImage3DEXT(int texture, int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, DoubleBuffer pixels, Void ret,
+            MethodCall mc) {
         glTextureImage3DEXT_trace(texture, target, level, internalformat, width, height, depth, border, format, type, pixels, mc);
     }
 
     public static void glDisableVertexArrayAttribEXT(int vaobj, int index) {
         org.lwjgl.opengl.EXTDirectStateAccess.glDisableVertexArrayAttribEXT(vaobj, index);
-        Context context = CURRENT_CONTEXT.get();
-        context.vaos.get(vaobj).enabledVertexArrays[index] = false;
+        if (Properties.VALIDATE.enabled) {
+            Context context = CURRENT_CONTEXT.get();
+            context.vaos.get(vaobj).enabledVertexArrays[index] = false;
+        }
     }
 
     public static void glEnableVertexArrayAttribEXT(int vaobj, int index) {
         org.lwjgl.opengl.EXTDirectStateAccess.glDisableVertexArrayAttribEXT(vaobj, index);
-        Context context = CURRENT_CONTEXT.get();
-        context.vaos.get(vaobj).enabledVertexArrays[index] = true;
+        if (Properties.VALIDATE.enabled) {
+            Context context = CURRENT_CONTEXT.get();
+            context.vaos.get(vaobj).enabledVertexArrays[index] = true;
+        }
     }
 
 }

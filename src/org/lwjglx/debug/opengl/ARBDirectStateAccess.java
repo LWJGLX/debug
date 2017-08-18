@@ -27,38 +27,47 @@ import static org.lwjglx.debug.Context.*;
 import java.nio.IntBuffer;
 
 import org.lwjglx.debug.Context;
+import org.lwjglx.debug.Properties;
 import org.lwjglx.debug.Context.VAO;
 
 public class ARBDirectStateAccess {
 
     public static void glCreateVertexArrays(IntBuffer arrays) {
         org.lwjgl.opengl.ARBDirectStateAccess.glCreateVertexArrays(arrays);
-        Context context = CURRENT_CONTEXT.get();
-        int position = arrays.position();
-        for (int i = 0; i < arrays.remaining(); i++) {
-            VAO vao = new VAO(context.GL_MAX_VERTEX_ATTRIBS);
-            CURRENT_CONTEXT.get().vaos.put(arrays.get(position + i), vao);
+        if (Properties.VALIDATE.enabled) {
+            Context context = CURRENT_CONTEXT.get();
+            int position = arrays.position();
+            for (int i = 0; i < arrays.remaining(); i++) {
+                VAO vao = new VAO(context.GL_MAX_VERTEX_ATTRIBS);
+                CURRENT_CONTEXT.get().vaos.put(arrays.get(position + i), vao);
+            }
         }
     }
 
     public static int glCreateVertexArrays() {
         int index = org.lwjgl.opengl.ARBDirectStateAccess.glCreateVertexArrays();
-        Context context = CURRENT_CONTEXT.get();
-        VAO vao = new VAO(context.GL_MAX_VERTEX_ATTRIBS);
-        CURRENT_CONTEXT.get().vaos.put(index, vao);
+        if (Properties.VALIDATE.enabled) {
+            Context context = CURRENT_CONTEXT.get();
+            VAO vao = new VAO(context.GL_MAX_VERTEX_ATTRIBS);
+            CURRENT_CONTEXT.get().vaos.put(index, vao);
+        }
         return index;
     }
 
     public static void glDisableVertexArrayAttrib(int vaobj, int index) {
         org.lwjgl.opengl.ARBDirectStateAccess.glDisableVertexArrayAttrib(vaobj, index);
-        Context context = CURRENT_CONTEXT.get();
-        context.vaos.get(vaobj).enabledVertexArrays[index] = false;
+        if (Properties.VALIDATE.enabled) {
+            Context context = CURRENT_CONTEXT.get();
+            context.vaos.get(vaobj).enabledVertexArrays[index] = false;
+        }
     }
 
     public static void glEnableVertexArrayAttrib(int vaobj, int index) {
         org.lwjgl.opengl.ARBDirectStateAccess.glDisableVertexArrayAttrib(vaobj, index);
-        Context context = CURRENT_CONTEXT.get();
-        context.vaos.get(vaobj).enabledVertexArrays[index] = true;
+        if (Properties.VALIDATE.enabled) {
+            Context context = CURRENT_CONTEXT.get();
+            context.vaos.get(vaobj).enabledVertexArrays[index] = true;
+        }
     }
 
 }

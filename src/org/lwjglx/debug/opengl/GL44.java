@@ -16,7 +16,7 @@ public class GL44 {
 
     public static void glBufferStorage(int target, long size, int flags) {
         org.lwjgl.opengl.GL44.glBufferStorage(target, size, flags);
-        if (Properties.PROFILE) {
+        if (Properties.PROFILE.enabled) {
             Context ctx = CURRENT_CONTEXT.get();
             BufferObject bo = ctx.bufferObjectBindings.get(target);
             if (bo != null) {
@@ -27,7 +27,7 @@ public class GL44 {
 
     public static void glBufferStorage(int target, ByteBuffer data, int flags) {
         org.lwjgl.opengl.GL44.glBufferStorage(target, data, flags);
-        if (Properties.PROFILE) {
+        if (Properties.PROFILE.enabled) {
             Context ctx = CURRENT_CONTEXT.get();
             BufferObject bo = ctx.bufferObjectBindings.get(target);
             if (bo != null) {
@@ -38,7 +38,7 @@ public class GL44 {
 
     public static void glBufferStorage(int target, ShortBuffer data, int flags) {
         org.lwjgl.opengl.GL44.glBufferStorage(target, data, flags);
-        if (Properties.PROFILE) {
+        if (Properties.PROFILE.enabled) {
             Context ctx = CURRENT_CONTEXT.get();
             BufferObject bo = ctx.bufferObjectBindings.get(target);
             if (bo != null) {
@@ -49,7 +49,7 @@ public class GL44 {
 
     public static void glBufferStorage(int target, short[] data, int flags) {
         org.lwjgl.opengl.GL44.glBufferStorage(target, data, flags);
-        if (Properties.PROFILE) {
+        if (Properties.PROFILE.enabled) {
             Context ctx = CURRENT_CONTEXT.get();
             BufferObject bo = ctx.bufferObjectBindings.get(target);
             if (bo != null) {
@@ -60,7 +60,7 @@ public class GL44 {
 
     public static void glBufferStorage(int target, IntBuffer data, int flags) {
         org.lwjgl.opengl.GL44.glBufferStorage(target, data, flags);
-        if (Properties.PROFILE) {
+        if (Properties.PROFILE.enabled) {
             Context ctx = CURRENT_CONTEXT.get();
             BufferObject bo = ctx.bufferObjectBindings.get(target);
             if (bo != null) {
@@ -71,7 +71,7 @@ public class GL44 {
 
     public static void glBufferStorage(int target, int[] data, int flags) {
         org.lwjgl.opengl.GL44.glBufferStorage(target, data, flags);
-        if (Properties.PROFILE) {
+        if (Properties.PROFILE.enabled) {
             Context ctx = CURRENT_CONTEXT.get();
             BufferObject bo = ctx.bufferObjectBindings.get(target);
             if (bo != null) {
@@ -82,7 +82,7 @@ public class GL44 {
 
     public static void glBufferStorage(int target, FloatBuffer data, int flags) {
         org.lwjgl.opengl.GL44.glBufferStorage(target, data, flags);
-        if (Properties.PROFILE) {
+        if (Properties.PROFILE.enabled) {
             Context ctx = CURRENT_CONTEXT.get();
             BufferObject bo = ctx.bufferObjectBindings.get(target);
             if (bo != null) {
@@ -93,7 +93,7 @@ public class GL44 {
 
     public static void glBufferStorage(int target, float[] data, int flags) {
         org.lwjgl.opengl.GL44.glBufferStorage(target, data, flags);
-        if (Properties.PROFILE) {
+        if (Properties.PROFILE.enabled) {
             Context ctx = CURRENT_CONTEXT.get();
             BufferObject bo = ctx.bufferObjectBindings.get(target);
             if (bo != null) {
@@ -104,7 +104,7 @@ public class GL44 {
 
     public static void glBufferStorage(int target, DoubleBuffer data, int flags) {
         org.lwjgl.opengl.GL44.glBufferStorage(target, data, flags);
-        if (Properties.PROFILE) {
+        if (Properties.PROFILE.enabled) {
             Context ctx = CURRENT_CONTEXT.get();
             BufferObject bo = ctx.bufferObjectBindings.get(target);
             if (bo != null) {
@@ -115,7 +115,7 @@ public class GL44 {
 
     public static void glBufferStorage(int target, double[] data, int flags) {
         org.lwjgl.opengl.GL44.glBufferStorage(target, data, flags);
-        if (Properties.PROFILE) {
+        if (Properties.PROFILE.enabled) {
             Context ctx = CURRENT_CONTEXT.get();
             BufferObject bo = ctx.bufferObjectBindings.get(target);
             if (bo != null) {

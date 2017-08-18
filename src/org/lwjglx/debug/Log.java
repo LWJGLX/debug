@@ -184,7 +184,7 @@ public class Log {
     }
 
     public static void debug(String message) {
-        if (DEBUG)
+        if (DEBUG.enabled)
             log("debug", message);
     }
 

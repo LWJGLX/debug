@@ -25,12 +25,16 @@ package org.lwjglx.debug.opengl;
 import static org.lwjglx.debug.Context.*;
 
 import org.lwjglx.debug.Context;
+import org.lwjglx.debug.Properties;
 
 public class GL {
 
     public static org.lwjgl.opengl.GLCapabilities createCapabilities() {
         org.lwjgl.opengl.GLCapabilities caps = org.lwjgl.opengl.GL.createCapabilities();
-        org.lwjgl.system.Callback callback = GLUtil.setupDebugMessageCallback();
+        org.lwjgl.system.Callback callback = null;
+        if (Properties.VALIDATE.enabled) {
+            callback = GLUtil.setupDebugMessageCallback();
+        }
         Context context = CURRENT_CONTEXT.get();
         context.caps = caps;
         context.debugCallback = callback;

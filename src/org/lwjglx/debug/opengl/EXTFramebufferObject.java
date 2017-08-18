@@ -36,99 +36,115 @@ public class EXTFramebufferObject {
 
     public static void glGenerateMipmapEXT(int target) {
         org.lwjgl.opengl.EXTFramebufferObject.glGenerateMipmapEXT(target);
-        if (Properties.PROFILE) {
+        if (Properties.PROFILE.enabled) {
             generateMipmap(target);
         }
     }
 
     public static void glGenFramebuffersEXT(IntBuffer framebuffers) {
         org.lwjgl.opengl.EXTFramebufferObject.glGenFramebuffersEXT(framebuffers);
-        Context ctx = CURRENT_CONTEXT.get();
-        int pos = framebuffers.position();
-        for (int i = 0; i < framebuffers.remaining(); i++) {
-            int handle = framebuffers.get(pos + i);
-            FBO fbo = new FBO();
-            ctx.fbos.put(handle, fbo);
+        if (Properties.VALIDATE.enabled) {
+            Context ctx = CURRENT_CONTEXT.get();
+            int pos = framebuffers.position();
+            for (int i = 0; i < framebuffers.remaining(); i++) {
+                int handle = framebuffers.get(pos + i);
+                FBO fbo = new FBO();
+                ctx.fbos.put(handle, fbo);
+            }
         }
     }
 
     public static int glGenFramebuffersEXT() {
         int handle = org.lwjgl.opengl.EXTFramebufferObject.glGenFramebuffersEXT();
-        FBO fbo = new FBO();
-        Context ctx = CURRENT_CONTEXT.get();
-        ctx.fbos.put(handle, fbo);
+        if (Properties.VALIDATE.enabled) {
+            FBO fbo = new FBO();
+            Context ctx = CURRENT_CONTEXT.get();
+            ctx.fbos.put(handle, fbo);
+        }
         return handle;
     }
 
     public static void glGenFramebuffersEXT(int[] framebuffers) {
         org.lwjgl.opengl.EXTFramebufferObject.glGenFramebuffersEXT(framebuffers);
-        Context ctx = CURRENT_CONTEXT.get();
-        for (int i = 0; i < framebuffers.length; i++) {
-            int handle = framebuffers[i];
-            FBO fbo = new FBO();
-            ctx.fbos.put(handle, fbo);
+        if (Properties.VALIDATE.enabled) {
+            Context ctx = CURRENT_CONTEXT.get();
+            for (int i = 0; i < framebuffers.length; i++) {
+                int handle = framebuffers[i];
+                FBO fbo = new FBO();
+                ctx.fbos.put(handle, fbo);
+            }
         }
     }
 
     public static void glBindFramebufferEXT(int target, int framebuffer) {
-        Context ctx = CURRENT_CONTEXT.get();
-        FBO fbo = ctx.fbos.get(framebuffer);
-        if (fbo == null && ctx.shareGroup != null) {
-            for (Context c : ctx.shareGroup.contexts) {
-                if (c.fbos.containsKey(framebuffer)) {
-                    throwISEOrLogError("Trying to bind unknown FBO [" + framebuffer + "] from shared context [" + c.counter + "]");
+        if (Properties.VALIDATE.enabled) {
+            Context ctx = CURRENT_CONTEXT.get();
+            FBO fbo = ctx.fbos.get(framebuffer);
+            if (fbo == null && ctx.shareGroup != null) {
+                for (Context c : ctx.shareGroup.contexts) {
+                    if (c.fbos.containsKey(framebuffer)) {
+                        throwISEOrLogError("Trying to bind unknown FBO [" + framebuffer + "] from shared context [" + c.counter + "]");
+                    }
                 }
             }
+            ctx.currentFbo = fbo;
         }
-        ctx.currentFbo = fbo;
         org.lwjgl.opengl.EXTFramebufferObject.glBindFramebufferEXT(target, framebuffer);
-        /* Check framebuffer status */
-        int status = org.lwjgl.opengl.EXTFramebufferObject.glCheckFramebufferStatusEXT(target);
-        if (status != org.lwjgl.opengl.EXTFramebufferObject.GL_FRAMEBUFFER_COMPLETE_EXT) {
-            error("Framebuffer [" + framebuffer + "] is not complete: " + status);
+        if (Properties.VALIDATE.enabled) {
+            /* Check framebuffer status */
+            int status = org.lwjgl.opengl.EXTFramebufferObject.glCheckFramebufferStatusEXT(target);
+            if (status != org.lwjgl.opengl.EXTFramebufferObject.GL_FRAMEBUFFER_COMPLETE_EXT) {
+                error("Framebuffer [" + framebuffer + "] is not complete: " + status);
+            }
         }
     }
 
     public static void glDeleteFramebuffersEXT(IntBuffer framebuffers) {
         org.lwjgl.opengl.EXTFramebufferObject.glDeleteFramebuffersEXT(framebuffers);
-        Context context = CURRENT_CONTEXT.get();
-        int pos = framebuffers.position();
-        for (int i = 0; i < framebuffers.remaining(); i++) {
-            int framebuffer = framebuffers.get(pos + i);
-            if (framebuffer == 0)
-                continue;
-            FBO fbo = context.fbos.get(framebuffer);
-            if (fbo != null && fbo == context.currentFbo) {
-                context.currentFbo = context.defaultFbo;
+        if (Properties.VALIDATE.enabled) {
+            Context context = CURRENT_CONTEXT.get();
+            int pos = framebuffers.position();
+            for (int i = 0; i < framebuffers.remaining(); i++) {
+                int framebuffer = framebuffers.get(pos + i);
+                if (framebuffer == 0)
+                    continue;
+                FBO fbo = context.fbos.get(framebuffer);
+                if (fbo != null && fbo == context.currentFbo) {
+                    context.currentFbo = context.defaultFbo;
+                }
+                context.fbos.remove(framebuffer);
             }
-            context.fbos.remove(framebuffer);
         }
     }
 
     public static void glDeleteFramebuffersEXT(int framebuffer) {
         org.lwjgl.opengl.EXTFramebufferObject.glDeleteFramebuffersEXT(framebuffer);
-        if (framebuffer == 0)
-            return;
-        Context context = CURRENT_CONTEXT.get();
-        FBO fbo = context.fbos.get(framebuffer);
-        if (fbo != null && fbo == context.currentFbo) {
-            context.currentFbo = context.defaultFbo;
-        }
-        context.fbos.remove(framebuffer);
-    }
-
-    public static void glDeleteFramebuffersEXT(int[] framebuffers) {
-        org.lwjgl.opengl.EXTFramebufferObject.glDeleteFramebuffersEXT(framebuffers);
-        Context context = CURRENT_CONTEXT.get();
-        for (int i = 0; i < framebuffers.length; i++) {
-            int framebuffer = framebuffers[i];
+        if (Properties.VALIDATE.enabled) {
             if (framebuffer == 0)
-                continue;
+                return;
+            Context context = CURRENT_CONTEXT.get();
             FBO fbo = context.fbos.get(framebuffer);
             if (fbo != null && fbo == context.currentFbo) {
                 context.currentFbo = context.defaultFbo;
             }
             context.fbos.remove(framebuffer);
+        }
+    }
+
+    public static void glDeleteFramebuffersEXT(int[] framebuffers) {
+        org.lwjgl.opengl.EXTFramebufferObject.glDeleteFramebuffersEXT(framebuffers);
+        if (Properties.VALIDATE.enabled) {
+            Context context = CURRENT_CONTEXT.get();
+            for (int i = 0; i < framebuffers.length; i++) {
+                int framebuffer = framebuffers[i];
+                if (framebuffer == 0)
+                    continue;
+                FBO fbo = context.fbos.get(framebuffer);
+                if (fbo != null && fbo == context.currentFbo) {
+                    context.currentFbo = context.defaultFbo;
+                }
+                context.fbos.remove(framebuffer);
+            }
         }
     }
 
