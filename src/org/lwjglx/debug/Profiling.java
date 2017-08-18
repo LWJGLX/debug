@@ -1,11 +1,10 @@
 package org.lwjglx.debug;
 
-import static org.lwjgl.system.MemoryStack.*;
-
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.Future;
 
 import javax.servlet.ServletException;
 
@@ -28,6 +27,7 @@ import org.eclipse.jetty.websocket.servlet.WebSocketCreator;
 import org.eclipse.jetty.websocket.servlet.WebSocketServlet;
 import org.eclipse.jetty.websocket.servlet.WebSocketServletFactory;
 import org.lwjgl.system.MemoryStack;
+import org.lwjgl.system.MemoryUtil;
 import org.lwjglx.debug.Context.BufferObject;
 import org.lwjglx.debug.Context.TextureLayer;
 import org.lwjglx.debug.Context.TextureLevel;
@@ -44,6 +44,22 @@ class EchoSocketServlet extends WebSocketServlet {
 class ProfilingConnection implements WebSocketListener {
     public static final List<ProfilingConnection> connections = new ArrayList<>();
     Session outbound;
+    ByteBuffer buffer = ByteBuffer.allocateDirect(40).order(ByteOrder.BIG_ENDIAN);
+    long bufferAddr = MemoryUtil.memAddress0(buffer);
+    Future<Void> lastSend = null;
+
+    public void send(long addr) {
+        if (lastSend != null && !lastSend.isDone()) {
+            /* We have to wait for the last send to complete until we can reuse the buffer */
+            try {
+                lastSend.get();
+            } catch (Exception e) {
+            }
+        }
+        MemoryUtil.memCopy(addr, bufferAddr, 40);
+        buffer.rewind();
+        lastSend = outbound.getRemote().sendBytesByFuture(buffer);
+    }
 
     public void onWebSocketClose(int statusCode, String reason) {
         this.outbound = null;
@@ -119,8 +135,9 @@ class Profiling {
             return;
         }
         lastSent = ctx.frameEndTime;
-        try (MemoryStack stack = stackPush()) {
-            ByteBuffer buf = stack.malloc(40).order(ByteOrder.BIG_ENDIAN);
+        try (MemoryStack stack = MemoryStack.stackPush()) {
+            long addr = stack.nmalloc(40);
+            ByteBuffer buf = MemoryUtil.memByteBuffer(addr, 40).order(ByteOrder.BIG_ENDIAN);
             float frameTimeCpu = (float) (ctx.frameEndTime - ctx.frameStartTime) / 1E6f;
             float drawCallTimeGpu = ctx.drawCallTimeMs;
             buf.putInt(0, ctx.counter);
@@ -149,7 +166,7 @@ class Profiling {
             buf.putDouble(32, toMemory / 1024L);
             synchronized (ProfilingConnection.connections) {
                 for (ProfilingConnection c : ProfilingConnection.connections) {
-                    c.outbound.getRemote().sendBytesByFuture(buf.slice());
+                    c.send(addr);
                 }
             }
         }
