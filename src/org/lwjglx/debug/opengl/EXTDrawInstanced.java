@@ -15,6 +15,9 @@ public class EXTDrawInstanced {
         if (Properties.VALIDATE.enabled) {
             checkVertexAttributes();
         }
+        if (Properties.PROFILE.enabled) {
+            RT.beforeDraw();
+        }
         org.lwjgl.opengl.EXTDrawInstanced.glDrawArraysInstancedEXT(mode, start, count, primcount);
         if (Properties.PROFILE.enabled) {
             RT.draw(count * primcount);
@@ -24,6 +27,9 @@ public class EXTDrawInstanced {
     public static void glDrawElementsInstancedEXT(int mode, int count, int type, long indices, int primcount) {
         if (Properties.VALIDATE.enabled) {
             checkVertexAttributes();
+        }
+        if (Properties.PROFILE.enabled) {
+            RT.beforeDraw();
         }
         org.lwjgl.opengl.EXTDrawInstanced.glDrawElementsInstancedEXT(mode, count, type, indices, primcount);
         if (Properties.PROFILE.enabled) {
@@ -35,6 +41,9 @@ public class EXTDrawInstanced {
         if (Properties.VALIDATE.enabled) {
             checkVertexAttributes();
         }
+        if (Properties.PROFILE.enabled) {
+            RT.beforeDraw();
+        }
         org.lwjgl.opengl.EXTDrawInstanced.glDrawElementsInstancedEXT(mode, type, indices, primcount);
         if (Properties.PROFILE.enabled) {
             RT.draw(indices.remaining() * primcount);
@@ -44,6 +53,9 @@ public class EXTDrawInstanced {
     public static void glDrawElementsInstancedEXT(int mode, ByteBuffer indices, int primcount) {
         if (Properties.VALIDATE.enabled) {
             checkVertexAttributes();
+        }
+        if (Properties.PROFILE.enabled) {
+            RT.beforeDraw();
         }
         org.lwjgl.opengl.EXTDrawInstanced.glDrawElementsInstancedEXT(mode, indices, primcount);
         if (Properties.PROFILE.enabled) {
@@ -55,6 +67,9 @@ public class EXTDrawInstanced {
         if (Properties.VALIDATE.enabled) {
             checkVertexAttributes();
         }
+        if (Properties.PROFILE.enabled) {
+            RT.beforeDraw();
+        }
         org.lwjgl.opengl.EXTDrawInstanced.glDrawElementsInstancedEXT(mode, indices, primcount);
         if (Properties.PROFILE.enabled) {
             RT.draw(indices.remaining() * primcount);
@@ -64,6 +79,9 @@ public class EXTDrawInstanced {
     public static void glDrawElementsInstancedEXT(int mode, IntBuffer indices, int primcount) {
         if (Properties.VALIDATE.enabled) {
             checkVertexAttributes();
+        }
+        if (Properties.PROFILE.enabled) {
+            RT.beforeDraw();
         }
         org.lwjgl.opengl.EXTDrawInstanced.glDrawElementsInstancedEXT(mode, indices, primcount);
         if (Properties.PROFILE.enabled) {

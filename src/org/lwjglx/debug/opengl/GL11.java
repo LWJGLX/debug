@@ -300,6 +300,9 @@ public class GL11 {
         if (Properties.VALIDATE.enabled) {
             checkVertexAttributes();
         }
+        if (Properties.PROFILE.enabled) {
+            RT.beforeDraw();
+        }
         org.lwjgl.opengl.GL11.glDrawArrays(mode, first, count);
         if (Properties.PROFILE.enabled) {
             RT.draw(count);
@@ -314,6 +317,9 @@ public class GL11 {
             }
             checkVertexAttributes();
         }
+        if (Properties.PROFILE.enabled) {
+            RT.beforeDraw();
+        }
         org.lwjgl.opengl.GL11.glDrawElements(mode, count, type, indices);
         if (Properties.PROFILE.enabled) {
             RT.draw(count);
@@ -323,6 +329,9 @@ public class GL11 {
     public static void glDrawElements(int mode, int type, ByteBuffer indices) {
         if (Properties.VALIDATE.enabled) {
             checkVertexAttributes();
+        }
+        if (Properties.PROFILE.enabled) {
+            RT.beforeDraw();
         }
         org.lwjgl.opengl.GL11.glDrawElements(mode, type, indices);
         if (Properties.PROFILE.enabled) {
@@ -334,6 +343,9 @@ public class GL11 {
         if (Properties.VALIDATE.enabled) {
             checkVertexAttributes();
         }
+        if (Properties.PROFILE.enabled) {
+            RT.beforeDraw();
+        }
         org.lwjgl.opengl.GL11.glDrawElements(mode, indices);
         if (Properties.PROFILE.enabled) {
             RT.draw(indices.remaining());
@@ -344,6 +356,9 @@ public class GL11 {
         if (Properties.VALIDATE.enabled) {
             checkVertexAttributes();
         }
+        if (Properties.PROFILE.enabled) {
+            RT.beforeDraw();
+        }
         org.lwjgl.opengl.GL11.glDrawElements(mode, indices);
         if (Properties.PROFILE.enabled) {
             RT.draw(indices.remaining());
@@ -353,6 +368,9 @@ public class GL11 {
     public static void glDrawElements(int mode, IntBuffer indices) {
         if (Properties.VALIDATE.enabled) {
             checkVertexAttributes();
+        }
+        if (Properties.PROFILE.enabled) {
+            RT.beforeDraw();
         }
         org.lwjgl.opengl.GL11.glDrawElements(mode, indices);
         if (Properties.PROFILE.enabled) {
@@ -663,17 +681,13 @@ public class GL11 {
     }
 
     public static void glBegin(int mode) {
+        RT.beginImmediate();
         org.lwjgl.opengl.GL11.glBegin(mode);
-        if (Properties.VALIDATE.enabled) {
-            RT.beginImmediate();
-        }
     }
 
     public static void glEnd() {
         org.lwjgl.opengl.GL11.glEnd();
-        if (Properties.VALIDATE.enabled) {
-            RT.endImmediate();
-        }
+        RT.endImmediate();
     }
 
 }

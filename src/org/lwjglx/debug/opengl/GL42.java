@@ -38,6 +38,9 @@ public class GL42 {
         if (Properties.VALIDATE.enabled) {
             checkVertexAttributes();
         }
+        if (Properties.PROFILE.enabled) {
+            RT.beforeDraw();
+        }
         org.lwjgl.opengl.GL42.glDrawArraysInstancedBaseInstance(mode, first, count, primcount, baseinstance);
         if (Properties.PROFILE.enabled) {
             RT.draw(count * primcount);
@@ -52,6 +55,9 @@ public class GL42 {
             }
             checkVertexAttributes();
         }
+        if (Properties.PROFILE.enabled) {
+            RT.beforeDraw();
+        }
         org.lwjgl.opengl.GL42.glDrawElementsInstancedBaseInstance(mode, count, type, indices, primcount, baseinstance);
         if (Properties.PROFILE.enabled) {
             RT.draw(count * primcount);
@@ -61,6 +67,9 @@ public class GL42 {
     public static void glDrawElementsInstancedBaseInstance(int mode, int type, ByteBuffer indices, int primcount, int baseinstance) {
         if (Properties.VALIDATE.enabled) {
             checkVertexAttributes();
+        }
+        if (Properties.PROFILE.enabled) {
+            RT.beforeDraw();
         }
         org.lwjgl.opengl.GL42.glDrawElementsInstancedBaseInstance(mode, type, indices, primcount, baseinstance);
         if (Properties.PROFILE.enabled) {
@@ -72,6 +81,9 @@ public class GL42 {
         if (Properties.VALIDATE.enabled) {
             checkVertexAttributes();
         }
+        if (Properties.PROFILE.enabled) {
+            RT.beforeDraw();
+        }
         org.lwjgl.opengl.GL42.glDrawElementsInstancedBaseInstance(mode, indices, primcount, baseinstance);
         if (Properties.PROFILE.enabled) {
             RT.draw(indices.remaining() * primcount);
@@ -82,6 +94,9 @@ public class GL42 {
         if (Properties.VALIDATE.enabled) {
             checkVertexAttributes();
         }
+        if (Properties.PROFILE.enabled) {
+            RT.beforeDraw();
+        }
         org.lwjgl.opengl.GL42.glDrawElementsInstancedBaseInstance(mode, indices, primcount, baseinstance);
         if (Properties.PROFILE.enabled) {
             RT.draw(indices.remaining() * primcount);
@@ -91,6 +106,9 @@ public class GL42 {
     public static void glDrawElementsInstancedBaseInstance(int mode, IntBuffer indices, int primcount, int baseinstance) {
         if (Properties.VALIDATE.enabled) {
             checkVertexAttributes();
+        }
+        if (Properties.PROFILE.enabled) {
+            RT.beforeDraw();
         }
         org.lwjgl.opengl.GL42.glDrawElementsInstancedBaseInstance(mode, indices, primcount, baseinstance);
         if (Properties.PROFILE.enabled) {
@@ -106,6 +124,9 @@ public class GL42 {
             }
             checkVertexAttributes();
         }
+        if (Properties.PROFILE.enabled) {
+            RT.beforeDraw();
+        }
         org.lwjgl.opengl.GL42.glDrawElementsInstancedBaseVertexBaseInstance(mode, count, type, indices, primcount, basevertex, baseinstance);
         if (Properties.PROFILE.enabled) {
             RT.draw(count * primcount);
@@ -115,6 +136,9 @@ public class GL42 {
     public static void glDrawElementsInstancedBaseVertexBaseInstance(int mode, int type, ByteBuffer indices, int primcount, int basevertex, int baseinstance) {
         if (Properties.VALIDATE.enabled) {
             checkVertexAttributes();
+        }
+        if (Properties.PROFILE.enabled) {
+            RT.beforeDraw();
         }
         org.lwjgl.opengl.GL42.glDrawElementsInstancedBaseVertexBaseInstance(mode, type, indices, primcount, basevertex, baseinstance);
         if (Properties.PROFILE.enabled) {
@@ -126,6 +150,9 @@ public class GL42 {
         if (Properties.VALIDATE.enabled) {
             checkVertexAttributes();
         }
+        if (Properties.PROFILE.enabled) {
+            RT.beforeDraw();
+        }
         org.lwjgl.opengl.GL42.glDrawElementsInstancedBaseVertexBaseInstance(mode, indices, primcount, basevertex, baseinstance);
         if (Properties.PROFILE.enabled) {
             RT.draw(indices.remaining() * primcount);
@@ -136,6 +163,9 @@ public class GL42 {
         if (Properties.VALIDATE.enabled) {
             checkVertexAttributes();
         }
+        if (Properties.PROFILE.enabled) {
+            RT.beforeDraw();
+        }
         org.lwjgl.opengl.GL42.glDrawElementsInstancedBaseVertexBaseInstance(mode, indices, primcount, basevertex, baseinstance);
         if (Properties.PROFILE.enabled) {
             RT.draw(indices.remaining() * primcount);
@@ -145,6 +175,9 @@ public class GL42 {
     public static void glDrawElementsInstancedBaseVertexBaseInstance(int mode, IntBuffer indices, int primcount, int basevertex, int baseinstance) {
         if (Properties.VALIDATE.enabled) {
             checkVertexAttributes();
+        }
+        if (Properties.PROFILE.enabled) {
+            RT.beforeDraw();
         }
         org.lwjgl.opengl.GL42.glDrawElementsInstancedBaseVertexBaseInstance(mode, indices, primcount, basevertex, baseinstance);
         if (Properties.PROFILE.enabled) {

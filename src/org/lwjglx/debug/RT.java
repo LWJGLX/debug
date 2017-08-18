@@ -42,6 +42,9 @@ import java.util.List;
 import java.util.Map;
 
 import org.lwjgl.PointerBuffer;
+import org.lwjgl.opengl.ARBOcclusionQuery;
+import org.lwjgl.opengl.ARBTimerQuery;
+import org.lwjglx.debug.Context.TimingQuery;
 import org.lwjglx.debug.Context.TextureLayer;
 import org.lwjglx.debug.Context.TextureLevel;
 import org.lwjglx.debug.Context.TextureObject;
@@ -838,14 +841,30 @@ public class RT {
         }
     }
 
+    public static void beforeDraw() {
+        Context ctx = CURRENT_CONTEXT.get();
+        if (ctx.caps.GL_ARB_timer_query) {
+            TimingQuery q = ctx.nextTimerQuery();
+            ARBTimerQuery.glQueryCounter(q.before, ARBTimerQuery.GL_TIMESTAMP);
+            ctx.currentTimingQuery = q;
+        }
+    }
+
     public static void draw(int verticesCount) {
         Context ctx = CURRENT_CONTEXT.get();
         ctx.verticesCount += verticesCount;
+        if (ctx.caps.GL_ARB_timer_query) {
+            TimingQuery q = ctx.currentTimingQuery;
+            ARBTimerQuery.glQueryCounter(q.after, ARBTimerQuery.GL_TIMESTAMP);
+        }
     }
 
     public static void beginImmediate() {
         Context ctx = CURRENT_CONTEXT.get();
         ctx.inImmediateMode = true;
+        if (Properties.PROFILE.enabled) {
+            RT.beforeDraw();
+        }
     }
 
     public static void endImmediate() {
@@ -865,6 +884,24 @@ public class RT {
     public static void frame() {
         Context ctx = CURRENT_CONTEXT.get();
         ctx.frameEndTime = System.nanoTime();
+        float drawTime = 0.0f;
+        if (ctx.caps.GL_ARB_timer_query) {
+            /* Wait for all active query counters */
+            for (int i = 0; i < ctx.timingQueries.size(); i++) {
+                TimingQuery q = ctx.timingQueries.get(i);
+                if (!q.used)
+                    continue;
+                while (ARBOcclusionQuery.glGetQueryObjectiARB(q.before, ARBOcclusionQuery.GL_QUERY_RESULT_AVAILABLE_ARB) == 0)
+                    ;
+                while (ARBOcclusionQuery.glGetQueryObjectiARB(q.after, ARBOcclusionQuery.GL_QUERY_RESULT_AVAILABLE_ARB) == 0)
+                    ;
+                long time0 = ARBTimerQuery.glGetQueryObjectui64(q.before, ARBOcclusionQuery.GL_QUERY_RESULT_ARB);
+                long time1 = ARBTimerQuery.glGetQueryObjectui64(q.after, ARBOcclusionQuery.GL_QUERY_RESULT_ARB);
+                drawTime += (time1 - time0) / 1E6f; // <- in ms.
+                q.used = false;
+            }
+        }
+        ctx.drawCallTimeMs = drawTime;
         Profiling.frame(ctx);
         /* Reset counters for next frame */
         ctx.verticesCount = 0;

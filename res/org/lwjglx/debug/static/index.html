@@ -4,7 +4,7 @@
 </head>
 <body>
   <div style="width:75%;">
-    <canvas id="frametime"></canvas>
+    <canvas id="graph"></canvas>
   </div>
   <script>
     var chart;
@@ -16,11 +16,12 @@
       var view = new DataView(event.data);
       var glcontext = view.getInt32(0);
       var frame = view.getInt32(4);
-      var time = view.getFloat32(8);
-      var glCalls = view.getInt32(12);
-      var vertices = view.getInt32(16);
-      var bufferObjectSize = view.getFloat64(20);
-      var textureObjectSize = view.getFloat64(28);
+      var frameTimeCpuMs = view.getFloat32(8);
+      var drawCallTimeGpuMs = view.getFloat32(12);
+      var glCalls = view.getInt32(16);
+      var vertices = view.getInt32(20);
+      var bufferObjectSize = view.getFloat64(24);
+      var textureObjectSize = view.getFloat64(32);
       numSamples++;
       if (numSamples > MAX_NUM_SAMPLES) {
         config.data.labels.shift();
@@ -29,13 +30,15 @@
         config.data.datasets[2].data.shift();
         config.data.datasets[3].data.shift();
         config.data.datasets[4].data.shift();
+        config.data.datasets[5].data.shift();
       }
       config.data.labels.push(frame);
-      config.data.datasets[0].data.push(time);
-      config.data.datasets[1].data.push(glCalls);
-      config.data.datasets[2].data.push(vertices);
-      config.data.datasets[3].data.push(bufferObjectSize);
-      config.data.datasets[4].data.push(textureObjectSize);
+      config.data.datasets[0].data.push(frameTimeCpuMs);
+      config.data.datasets[1].data.push(drawCallTimeGpuMs);
+      config.data.datasets[2].data.push(glCalls);
+      config.data.datasets[3].data.push(vertices);
+      config.data.datasets[4].data.push(bufferObjectSize);
+      config.data.datasets[5].data.push(textureObjectSize);
       chart.update();
     }
     var config = {
@@ -44,10 +47,17 @@
         ],
         datasets: [{
           type: 'line',
-          label: "Frametime (ms.)",
+          label: "Frame CPU (ms.)",
           fill: false,
           borderColor: "rgba(220,0,0,0.8)",
-          yAxisID: "frametime",
+          yAxisID: "time",
+          data: []
+        }, {
+          type: 'line',
+          label: "Draw GPU (ms.)",
+          fill: false,
+          borderColor: "rgba(190,120,40,0.8)",
+          yAxisID: "time",
           data: []
         }, {
           type: 'line',
@@ -92,7 +102,7 @@
           }],
           yAxes: [{
             position: "left",
-            id: "frametime",
+            id: "time",
             ticks: {
               fontColor: "#A22",
               beginAtZero: true
@@ -142,7 +152,7 @@
       }
     };
     window.onload = function () {
-      var ctx = document.getElementById("frametime").getContext("2d");
+      var ctx = document.getElementById("graph").getContext("2d");
       chart = new Chart(ctx, config);
     };
   </script>

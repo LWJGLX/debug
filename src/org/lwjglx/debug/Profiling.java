@@ -120,18 +120,20 @@ class Profiling {
         }
         lastSent = ctx.frameEndTime;
         try (MemoryStack stack = stackPush()) {
-            ByteBuffer buf = stack.malloc(36).order(ByteOrder.BIG_ENDIAN);
-            float ms = (float) (ctx.frameEndTime - ctx.frameStartTime) / 1E6f;
+            ByteBuffer buf = stack.malloc(40).order(ByteOrder.BIG_ENDIAN);
+            float frameTimeCpu = (float) (ctx.frameEndTime - ctx.frameStartTime) / 1E6f;
+            float drawCallTimeGpu = ctx.drawCallTimeMs;
             buf.putInt(0, ctx.counter);
             buf.putInt(4, ctx.frame);
-            buf.putFloat(8, ms);
-            buf.putInt(12, ctx.glCallCount);
-            buf.putInt(16, ctx.verticesCount);
+            buf.putFloat(8, frameTimeCpu);
+            buf.putFloat(12, drawCallTimeGpu);
+            buf.putInt(16, ctx.glCallCount);
+            buf.putInt(20, ctx.verticesCount);
             long boMemory = 0L;
             for (BufferObject bo : ctx.bufferObjects.values()) {
                 boMemory += bo.size;
             }
-            buf.putDouble(20, boMemory / 1024);
+            buf.putDouble(24, boMemory / 1024);
             long toMemory = 0L;
             for (TextureObject to : ctx.textureObjects.values()) {
                 if (to.layers != null) {
@@ -144,7 +146,7 @@ class Profiling {
                     }
                 }
             }
-            buf.putDouble(28, toMemory / 1024L);
+            buf.putDouble(32, toMemory / 1024L);
             synchronized (ProfilingConnection.connections) {
                 for (ProfilingConnection c : ProfilingConnection.connections) {
                     c.outbound.getRemote().sendBytesByFuture(buf.slice());

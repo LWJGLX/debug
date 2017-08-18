@@ -27,12 +27,16 @@ import static org.lwjglx.debug.Log.*;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.nio.IntBuffer;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentSkipListSet;
 import java.util.concurrent.atomic.AtomicInteger;
+
+import org.lwjgl.opengl.ARBOcclusionQuery;
 
 public class Context implements Comparable<Context> {
     public static class ShareGroup {
@@ -87,6 +91,12 @@ public class Context implements Comparable<Context> {
         public TextureLayer[] layers;
     }
 
+    public static class TimingQuery {
+        public int before;
+        public int after;
+        public boolean used;
+    }
+
     public static final ThreadLocal<Context> CURRENT_CONTEXT = new ThreadLocal<Context>();
     public static final Map<Long, Context> CONTEXTS = new ConcurrentHashMap<Long, Context>();
     public static final Map<Long, ShareGroup> SHARE_GROUPS = new ConcurrentHashMap<Long, ShareGroup>();
@@ -118,9 +128,12 @@ public class Context implements Comparable<Context> {
     public int verticesCount;
     public long frameStartTime;
     public long frameEndTime;
+    public float drawCallTimeMs;
     public int glCallCount;
     public int immediateModeVertices;
     public int frame;
+    public List<TimingQuery> timingQueries = new ArrayList<TimingQuery>(32);
+    public TimingQuery currentTimingQuery;
 
     public static void create(long window, long share) {
         Context ctx = new Context();
@@ -240,6 +253,24 @@ public class Context implements Comparable<Context> {
         else if (this.window > o.window)
             return +1;
         return 0;
+    }
+
+    public TimingQuery nextTimerQuery() {
+        for (int i = 0; i < timingQueries.size(); i++) {
+            TimingQuery qo = timingQueries.get(i);
+            if (!qo.used) {
+                qo.used = true;
+                return qo;
+            }
+        }
+        int before = ARBOcclusionQuery.glGenQueriesARB();
+        int after = ARBOcclusionQuery.glGenQueriesARB();
+        TimingQuery q = new TimingQuery();
+        q.before = before;
+        q.after = after;
+        q.used = true;
+        timingQueries.add(q);
+        return q;
     }
 
     public static void deleteVertexArray(int index) {
