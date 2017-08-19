@@ -4,6 +4,7 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Future;
 
 import javax.servlet.ServletException;
@@ -73,6 +74,7 @@ class ProfilingConnection implements WebSocketListener {
         synchronized (connections) {
             connections.add(this);
         }
+        Profiling.frontendConnected.countDown();
     }
 
     public void onWebSocketError(Throwable cause) {
@@ -97,6 +99,7 @@ class Profiling {
 
     public static Server server;
     public static long lastSent;
+    public static final CountDownLatch frontendConnected = new CountDownLatch(1);
 
     public static void startServer() throws ServletException {
         QueuedThreadPool threadPool = new QueuedThreadPool(10);
@@ -130,6 +133,11 @@ class Profiling {
     }
 
     public static void frame(Context ctx) {
+        if (!ctx.firstFrameSeen) {
+            /* Do not count the first frame end, since we have no idea when the frame actually started. */
+            ctx.firstFrameSeen = true;
+            return;
+        }
         ctx.frame++;
         if ((ctx.frameEndTime - lastSent) / 1E6 < sendIntervalMs) {
             return;

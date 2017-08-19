@@ -279,7 +279,7 @@ public class Agent implements ClassFileTransformer, Opcodes {
             OptionSpec<String> path = parser.accepts("exclude").withRequiredArg().ofType(String.class).withValuesSeparatedBy(",");
             parser.accepts("debug");
             parser.accepts("trace");
-            parser.accepts("profile");
+            OptionSpec<String> profile = parser.accepts("profile").withOptionalArg().ofType(String.class);
             parser.accepts("nothrow");
             parser.accepts("validate");
             OptionSpec<Long> sleep = parser.accepts("sleep").withRequiredArg().ofType(Long.class);
@@ -298,6 +298,22 @@ public class Agent implements ClassFileTransformer, Opcodes {
             if (options.has("profile")) {
                 Properties.PROFILE.enable();
                 Properties.VALIDATE.disableIfByDefault();
+                /* Parse sub-properties of "profile" */
+                String profileArgsString = options.valueOf(profile);
+                if (profileArgsString != null) {
+                    String[] profileArgsStrings = profileArgsString.split(";");
+                    for (int i = 0; i < args.length; i++) {
+                        if (!profileArgsStrings[i].startsWith("-")) {
+                            profileArgsStrings[i] = "-" + profileArgsStrings[i];
+                        }
+                    }
+                    OptionParser profileArgParser = new OptionParser();
+                    profileArgParser.accepts("suspend");
+                    OptionSet profileArgs = profileArgParser.parse(profileArgsStrings);
+                    if (profileArgs.has("suspend")) {
+                        Properties.PROFILE_SUSPEND.enable();
+                    }
+                }
             }
             if (options.has("validate"))
                 Properties.VALIDATE.enable();
@@ -319,6 +335,16 @@ public class Agent implements ClassFileTransformer, Opcodes {
         Agent t = new Agent(excludes);
         instrumentation.addTransformer(t);
         RT.mainThread = Thread.currentThread();
+
+        if (Properties.PROFILE_SUSPEND.enabled) {
+            /* Suspend execution until profile frontend connected */
+            try {
+                info("Waiting for first profile frontend to connect...");
+                Profiling.frontendConnected.await();
+                info("Profile frontend connected. Resuming application startup.");
+            } catch (InterruptedException e) {
+            }
+        }
     }
 
 }

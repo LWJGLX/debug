@@ -134,6 +134,7 @@ public class Context implements Comparable<Context> {
     public int frame;
     public List<TimingQuery> timingQueries = new ArrayList<TimingQuery>(32);
     public TimingQuery currentTimingQuery;
+    public boolean firstFrameSeen;
 
     public static void create(long window, long share) {
         Context ctx = new Context();
