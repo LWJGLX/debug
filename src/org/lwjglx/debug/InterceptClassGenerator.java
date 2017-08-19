@@ -28,6 +28,7 @@ import static org.lwjglx.debug.Properties.*;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Map;
@@ -155,6 +156,19 @@ class InterceptClassGenerator implements Opcodes {
         }
     }
 
+    private static boolean isMainThreadMethod(InterceptedCall call) {
+        if (call.receiverInternalName.equals("org/lwjgl/glfw/GLFW")) {
+            return Arrays
+                    .asList("glfwCreateWindow", "glfwDefaultWindowHints", "glfwDestroyWindow", "glfwFocusWindow", "glfwGetFramebufferSize", "glfwGetWindowAttrib", "glfwGetWindowFrameSize",
+                            "glfwGetWindowMonitor", "glfwGetWindowPos", "glfwGetWindowSize", "glfwHideWindow", "glfwIconifyWindow", "glfwMaximizeWindow", "glfwPollEvents", "glfwRestoreWindow",
+                            "glfwSetFramebufferSizeCallback", "glfwSetWindowAspectRatio", "glfwSetWindowCloseCallback", "glfwSetWindowFocusCallback", "glfwSetWindowIcon",
+                            "glfwSetWindowIconifyCallback", "glfwSetWindowMonitor", "glfwSetWindowPos", "glfwSetWindowPosCallback", "glfwSetWindowRefreshCallback", "glfwSetWindowSize",
+                            "glfwSetWindowSizeCallback", "glfwSetWindowSizeLimits", "glfwSetWindowTitle", "glfwShowWindow", "glfwWaitEvents", "glfwWaitEventsTimeout", "glfwWindowHint")
+                    .contains(call.name);
+        }
+        return false;
+    }
+
     private static void checkFunctionSupported(MethodVisitor mv, String name) {
         mv.visitFieldInsn(GETFIELD, "org/lwjgl/opengl/GLCapabilities", name, "J");
         mv.visitLdcInsn(name);
@@ -215,6 +229,12 @@ class InterceptClassGenerator implements Opcodes {
             MethodVisitor mv = cw.visitMethod(ACC_PUBLIC | ACC_STATIC | ACC_SYNTHETIC, call.generatedMethodName, effectiveDesc, null, null);
             mv.visitCode();
             {
+                /* Check if the method may only be called from the main thread */
+                if (VALIDATE.enabled) {
+                    if (isMainThreadMethod(call)) {
+                        mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, "checkMainThread", "()V", false);
+                    }
+                }
                 /* Validate buffer arguments and also load all arguments onto stack */
                 Type[] paramTypes = Type.getArgumentTypes(call.desc);
                 Type retType = Type.getReturnType(call.desc);
@@ -285,7 +305,7 @@ class InterceptClassGenerator implements Opcodes {
                         ClassMetadata classMetadata = ClassMetadata.create(call.receiverInternalName, classLoader);
                         MethodInfo minfo = classMetadata.methods.get(call.name + call.desc);
                         /* Generate trace prolog */
-                        generateDefaultTraceBefore(classLoader, minfo, mv, paramTypes, call);
+                        generateDefaultTraceBefore(call, mv, paramTypes, minfo);
                         /* Call a user-provided intercept method or the target method */
                         callUserMethodOrDirect(classLoader, call, mv);
                         /* Generate default trace epilog */
@@ -400,7 +420,7 @@ class InterceptClassGenerator implements Opcodes {
         mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, helperMethod, "(I" + MethodCall_Desc + "Lorg/lwjglx/debug/Command;)I", false);
     }
 
-    private static void generateDefaultTraceBefore(ClassLoader cl, MethodInfo minfo, MethodVisitor mv, Type[] paramTypes, InterceptedCall call) {
+    private static void generateDefaultTraceBefore(InterceptedCall call, MethodVisitor mv, Type[] paramTypes, MethodInfo minfo) {
         int var = 0;
         int glEnumIndex = 0;
         for (int i = 0; i < paramTypes.length; i++) {

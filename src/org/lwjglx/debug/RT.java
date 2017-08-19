@@ -79,6 +79,8 @@ public class RT {
     private static final Map<Buffer, ByteOrder> bufferEndiannessWritten = Collections.synchronizedMap(new WeakIdentityHashMap<>());
     private static final Map<Buffer, Buffer> bufferViews = Collections.synchronizedMap(new WeakIdentityHashMap<>());
 
+    public static Thread mainThread;
+
     private static void throwIfNotNativeEndianness(ByteOrder order) {
         if (order != null && order != ByteOrder.nativeOrder()) {
             throwIAEOrLogError("buffer contains values written using non-native endianness.");
@@ -1097,6 +1099,13 @@ public class RT {
                     setTextureLayerSize(layerTarget, level, level0.internalformat, width, height, to);
                 }
             }
+        }
+    }
+
+    public static void checkMainThread() {
+        Thread currentThread = Thread.currentThread();
+        if (currentThread != mainThread) {
+            throwISEOrLogError("Method was called in thread [" + currentThread + "] which is not the main thread.");
         }
     }
 

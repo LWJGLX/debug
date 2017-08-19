@@ -318,6 +318,7 @@ public class Agent implements ClassFileTransformer, Opcodes {
         LWJGLInit.init();
         Agent t = new Agent(excludes);
         instrumentation.addTransformer(t);
+        RT.mainThread = Thread.currentThread();
     }
 
 }
