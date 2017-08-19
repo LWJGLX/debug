@@ -117,6 +117,21 @@ public class Agent implements ClassFileTransformer, Opcodes {
                         lastLineNumber = line;
                     }
 
+                    public void visitFieldInsn(int opcode, String owner, String name, String desc) {
+                        /* Intercept certain GLCapabilities field reads when profiling */
+                        if (PROFILE.enabled && opcode == GETFIELD && owner.equals("org/lwjgl/opengl/GLCapabilities") && desc.equals("Z")) {
+                            if (name.equals("GL_GREMEDY_string_marker") || name.equals("GL_GREMEDY_frame_terminator")) {
+                                mv.visitInsn(POP); // <- pop off GLCapabilities
+                                mv.visitInsn(ICONST_1); // <- true
+                                modified.value = true;
+                            } else {
+                                super.visitFieldInsn(opcode, owner, name, desc);
+                            }
+                        } else {
+                            super.visitFieldInsn(opcode, owner, name, desc);
+                        }
+                    }
+
                     public void visitMethodInsn(int opcode, String owner, String name, String desc, boolean itf) {
                         if (opcode == INVOKESTATIC && owner.startsWith("org/lwjgl/") && !excluded(owner, name)) {
                             String key = owner + "." + name + desc;

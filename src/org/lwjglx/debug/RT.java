@@ -1109,4 +1109,12 @@ public class RT {
         }
     }
 
+    public static void stringMarker(String string) {
+        // TODO: Measure GPU and CPU time here and associate it with the given name
+    }
+
+    public static void frameTerminator() {
+        // TODO: Actually end the frame right here (instead of glfwSwapBuffers)
+    }
+
 }

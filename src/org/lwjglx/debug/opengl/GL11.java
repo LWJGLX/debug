@@ -44,6 +44,21 @@ import org.lwjglx.debug.RT;
 
 public class GL11 {
 
+    public static String glGetString(int name) {
+        String res = org.lwjgl.opengl.GL11.glGetString(name);
+        if (name == org.lwjgl.opengl.GL11.GL_EXTENSIONS && Properties.PROFILE.enabled) {
+            /* Also advertize GL_GREMEDY_string_marker and GL_GREMEDY_frame_terminator */
+            if (res != null) {
+                if (!res.endsWith(" "))
+                    res += " ";
+            } else {
+                res = "";
+            }
+            res += "GL_GREMEDY_string_marker GL_GREMEDY_frame_terminator ";
+        }
+        return res;
+    }
+
     public static void glVertex2f(float x, float y) {
         org.lwjgl.opengl.GL11.glVertex2f(x, y);
         if (Properties.PROFILE.enabled) {
