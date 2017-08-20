@@ -123,29 +123,6 @@
 		</resources>
 		<plugins>
 			<plugin>
-				<artifactId>maven-resources-plugin</artifactId>
-				<version>3.0.2</version>
-				<executions>
-					<execution>
-						<id>copy-resources</id>
-						<phase>validate</phase>
-						<goals>
-							<goal>copy-resources</goal>
-						</goals>
-						<configuration>
-							<outputDirectory>${project.build.outputDirectory}/META-INF</outputDirectory>
-							<resources>
-								<resource>
-									<directory>${basedir}</directory>
-									<filtering>false</filtering>
-									<include>LICENSE</include>
-								</resource>
-							</resources>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
 				<artifactId>maven-antrun-plugin</artifactId>
 				<version>1.8</version>
 				<dependencies>
@@ -203,6 +180,14 @@
 										<Premain-Class>org.lwjglx.debug.Agent</Premain-Class>
 									</manifestEntries>
 								</transformer>
+								<transformer
+									implementation="org.apache.maven.plugins.shade.resource.ApacheLicenseResourceTransformer">
+								</transformer>
+								<transformer
+									implementation="org.apache.maven.plugins.shade.resource.IncludeResourceTransformer">
+									<resource>META-INF/LICENSE</resource>
+									<file>LICENSE</file>
+								</transformer>
 							</transformers>
 							<relocations>
 								<relocation>
@@ -228,6 +213,7 @@
 									<excludes>
 										<exclude>about.html</exclude>
 										<exclude>jetty-dir.css</exclude>
+										<exclude>META-INF/services/*</exclude>
 									</excludes>
 								</filter>
 							</filters>

@@ -124,12 +124,10 @@ public class Agent implements ClassFileTransformer, Opcodes {
                                 mv.visitInsn(POP); // <- pop off GLCapabilities
                                 mv.visitInsn(ICONST_1); // <- true
                                 modified.value = true;
-                            } else {
-                                super.visitFieldInsn(opcode, owner, name, desc);
+                                return;
                             }
-                        } else {
-                            super.visitFieldInsn(opcode, owner, name, desc);
                         }
+                        super.visitFieldInsn(opcode, owner, name, desc);
                     }
 
                     public void visitMethodInsn(int opcode, String owner, String name, String desc, boolean itf) {

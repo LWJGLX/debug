@@ -1135,8 +1135,8 @@ public class RT {
         /* End timing of current section */
         if (ctx.lastCodeSectionQuery != null) {
             ARBTimerQuery.glQueryCounter(ctx.lastCodeSectionQuery.after, ARBTimerQuery.GL_TIMESTAMP);
+            ctx.lastCodeSectionQuery = null;
         }
-        ctx.lastCodeSectionQuery = null;
         if (string.equals("end")) {
             /* Special marker string to end a current code section */
             return;
