@@ -847,6 +847,7 @@ public class RT {
         Context ctx = CURRENT_CONTEXT.get();
         if (ctx.caps.GL_ARB_timer_query) {
             TimingQuery q = ctx.nextTimerQuery();
+            q.drawTime = true;
             ARBTimerQuery.glQueryCounter(q.before, ARBTimerQuery.GL_TIMESTAMP);
             ctx.currentTimingQuery = q;
         }
@@ -888,6 +889,11 @@ public class RT {
         ctx.frameEndTime = System.nanoTime();
         float drawTime = 0.0f;
         if (ctx.caps.GL_ARB_timer_query) {
+            /* End current code section (if not already ended) */
+            if (ctx.lastCodeSection != null) {
+                ARBTimerQuery.glQueryCounter(ctx.lastCodeSection.after, ARBTimerQuery.GL_TIMESTAMP);
+                ctx.lastCodeSection = null;
+            }
             /* Wait for all active query counters */
             for (int i = 0; i < ctx.timingQueries.size(); i++) {
                 TimingQuery q = ctx.timingQueries.get(i);
@@ -899,7 +905,11 @@ public class RT {
                     ;
                 long time0 = ARBTimerQuery.glGetQueryObjectui64(q.before, ARBOcclusionQuery.GL_QUERY_RESULT_ARB);
                 long time1 = ARBTimerQuery.glGetQueryObjectui64(q.after, ARBOcclusionQuery.GL_QUERY_RESULT_ARB);
-                drawTime += (time1 - time0) / 1E6f; // <- in ms.
+                q.time0 = time0;
+                q.time1 = time1;
+                if (q.drawTime) {
+                    drawTime += (time1 - time0) / 1E6f; // <- in ms.
+                }
                 q.used = false;
             }
         }
@@ -909,6 +919,10 @@ public class RT {
         ctx.verticesCount = 0;
         ctx.glCallCount = 0;
         ctx.frameStartTime = ctx.frameEndTime;
+        /* Clear all code section timings */
+        for (List<TimingQuery> list : ctx.codeSectionTimes.values()) {
+            list.clear();
+        }
     }
 
     public static void glCall() {
@@ -1102,15 +1116,38 @@ public class RT {
         }
     }
 
-    public static void checkMainThread() {
+    public static void checkMainThread(String methodName) {
         Thread currentThread = Thread.currentThread();
         if (currentThread != mainThread) {
-            throwISEOrLogError("Method was called in thread [" + currentThread + "] which is not the main thread.");
+            throwISEOrLogError("Method " + methodName + " was called in thread [" + currentThread + "] which is not the main thread.");
         }
     }
 
     public static void stringMarker(String string) {
-        // TODO: Measure GPU and CPU time here and associate it with the given name
+        Context ctx = CURRENT_CONTEXT.get();
+        if (!ctx.caps.GL_ARB_timer_query) {
+            /* No timer query support in this context */
+            return;
+        }
+        /* End timing of current section */
+        if (ctx.lastCodeSection != null) {
+            ARBTimerQuery.glQueryCounter(ctx.lastCodeSection.after, ARBTimerQuery.GL_TIMESTAMP);
+        }
+        ctx.lastCodeSection = null;
+        if (string.equals("end")) {
+            /* Special marker string to end a current code section */
+            return;
+        }
+        List<TimingQuery> qs = ctx.codeSectionTimes.get(string);
+        if (qs == null) {
+            qs = new ArrayList<TimingQuery>();
+            ctx.codeSectionTimes.put(string, qs);
+        }
+        /* Create new timer for current section */
+        TimingQuery q = ctx.nextTimerQuery();
+        qs.add(q);
+        ARBTimerQuery.glQueryCounter(q.before, ARBTimerQuery.GL_TIMESTAMP);
+        ctx.lastCodeSection = q;
     }
 
     public static void frameTerminator() {

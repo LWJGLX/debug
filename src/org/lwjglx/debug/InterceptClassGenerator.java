@@ -232,6 +232,7 @@ class InterceptClassGenerator implements Opcodes {
                 /* Check if the method may only be called from the main thread */
                 if (VALIDATE.enabled) {
                     if (isMainThreadMethod(call)) {
+                        mv.visitLdcInsn(call.name);
                         mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, "checkMainThread", "()V", false);
                     }
                 }

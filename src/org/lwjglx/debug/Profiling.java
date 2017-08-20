@@ -4,6 +4,7 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Future;
 
@@ -27,12 +28,12 @@ import org.eclipse.jetty.websocket.servlet.ServletUpgradeResponse;
 import org.eclipse.jetty.websocket.servlet.WebSocketCreator;
 import org.eclipse.jetty.websocket.servlet.WebSocketServlet;
 import org.eclipse.jetty.websocket.servlet.WebSocketServletFactory;
-import org.lwjgl.system.MemoryStack;
 import org.lwjgl.system.MemoryUtil;
 import org.lwjglx.debug.Context.BufferObject;
 import org.lwjglx.debug.Context.TextureLayer;
 import org.lwjglx.debug.Context.TextureLevel;
 import org.lwjglx.debug.Context.TextureObject;
+import org.lwjglx.debug.Context.TimingQuery;
 
 @SuppressWarnings("serial")
 class EchoSocketServlet extends WebSocketServlet {
@@ -45,11 +46,11 @@ class EchoSocketServlet extends WebSocketServlet {
 class ProfilingConnection implements WebSocketListener {
     public static final List<ProfilingConnection> connections = new ArrayList<>();
     Session outbound;
-    ByteBuffer buffer = ByteBuffer.allocateDirect(40).order(ByteOrder.BIG_ENDIAN);
+    ByteBuffer buffer = ByteBuffer.allocateDirect(1024).order(ByteOrder.BIG_ENDIAN);
     long bufferAddr = MemoryUtil.memAddress0(buffer);
     Future<Void> lastSend = null;
 
-    public void send(long addr) {
+    public void send(long addr, int size) {
         if (lastSend != null && !lastSend.isDone()) {
             /* We have to wait for the last send to complete until we can reuse the buffer */
             try {
@@ -57,8 +58,9 @@ class ProfilingConnection implements WebSocketListener {
             } catch (Exception e) {
             }
         }
-        MemoryUtil.memCopy(addr, bufferAddr, 40);
+        MemoryUtil.memCopy(addr, bufferAddr, size);
         buffer.rewind();
+        buffer.limit(size);
         lastSend = outbound.getRemote().sendBytesByFuture(buffer);
     }
 
@@ -143,41 +145,58 @@ class Profiling {
             return;
         }
         lastSent = ctx.frameEndTime;
-        try (MemoryStack stack = MemoryStack.stackPush()) {
-            long addr = stack.nmalloc(40);
-            ByteBuffer buf = MemoryUtil.memByteBuffer(addr, 40).order(ByteOrder.BIG_ENDIAN);
-            float frameTimeCpu = (float) (ctx.frameEndTime - ctx.frameStartTime) / 1E6f;
-            float drawCallTimeGpu = ctx.drawCallTimeMs;
-            buf.putInt(0, ctx.counter);
-            buf.putInt(4, ctx.frame);
-            buf.putFloat(8, frameTimeCpu);
-            buf.putFloat(12, drawCallTimeGpu);
-            buf.putInt(16, ctx.glCallCount);
-            buf.putInt(20, ctx.verticesCount);
-            long boMemory = 0L;
-            for (BufferObject bo : ctx.bufferObjects.values()) {
-                boMemory += bo.size;
-            }
-            buf.putDouble(24, boMemory / 1024);
-            long toMemory = 0L;
-            for (TextureObject to : ctx.textureObjects.values()) {
-                if (to.layers != null) {
-                    for (TextureLayer layer : to.layers) {
-                        if (layer.levels != null) {
-                            for (TextureLevel level : layer.levels) {
-                                toMemory += level.size;
-                            }
+        ByteBuffer buf = MemoryUtil.memAlloc(1024).order(ByteOrder.BIG_ENDIAN);
+        long addr = MemoryUtil.memAddress0(buf);
+        float frameTimeCpu = (float) (ctx.frameEndTime - ctx.frameStartTime) / 1E6f;
+        float drawCallTimeGpu = ctx.drawCallTimeMs;
+        buf.putInt(ctx.counter);
+        buf.putInt(ctx.frame);
+        buf.putFloat(frameTimeCpu);
+        buf.putFloat(drawCallTimeGpu);
+        buf.putInt(ctx.glCallCount);
+        buf.putInt(ctx.verticesCount);
+        long boMemory = 0L;
+        for (BufferObject bo : ctx.bufferObjects.values()) {
+            boMemory += bo.size;
+        }
+        buf.putDouble(boMemory / 1024);
+        long toMemory = 0L;
+        for (TextureObject to : ctx.textureObjects.values()) {
+            if (to.layers != null) {
+                for (TextureLayer layer : to.layers) {
+                    if (layer.levels != null) {
+                        for (TextureLevel level : layer.levels) {
+                            toMemory += level.size;
                         }
                     }
                 }
             }
-            buf.putDouble(32, toMemory / 1024L);
-            synchronized (ProfilingConnection.connections) {
-                for (ProfilingConnection c : ProfilingConnection.connections) {
-                    c.send(addr);
-                }
+        }
+        buf.putDouble(toMemory / 1024L);
+
+        /* Write code section timings */
+        buf.putShort((short) ctx.codeSectionTimes.size());
+        for (Map.Entry<String, List<TimingQuery>> e : ctx.codeSectionTimes.entrySet()) {
+            String name = e.getKey();
+            byte[] nameBytes = name.getBytes();
+            buf.putShort((short) nameBytes.length);
+            for (int i = 0; i < nameBytes.length; i++) {
+                buf.put(nameBytes[i]);
+            }
+            float totalTime = 0.0f; // <- ms
+            for (TimingQuery q : e.getValue()) {
+                totalTime += (q.time1 - q.time0) / 1E6f;
+            }
+            buf.putFloat(totalTime);
+        }
+
+        synchronized (ProfilingConnection.connections) {
+            for (ProfilingConnection c : ProfilingConnection.connections) {
+                c.send(addr, buf.position());
             }
         }
+
+        MemoryUtil.memFree(buf);
     }
 
 }

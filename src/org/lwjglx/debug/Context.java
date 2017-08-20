@@ -29,6 +29,7 @@ import java.lang.reflect.Modifier;
 import java.nio.IntBuffer;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -94,7 +95,10 @@ public class Context implements Comparable<Context> {
     public static class TimingQuery {
         public int before;
         public int after;
+        public long time0;
+        public long time1;
         public boolean used;
+        public boolean drawTime;
     }
 
     public static final ThreadLocal<Context> CURRENT_CONTEXT = new ThreadLocal<Context>();
@@ -135,6 +139,8 @@ public class Context implements Comparable<Context> {
     public List<TimingQuery> timingQueries = new ArrayList<TimingQuery>(32);
     public TimingQuery currentTimingQuery;
     public boolean firstFrameSeen;
+    public TimingQuery lastCodeSection;
+    public Map<String, List<TimingQuery>> codeSectionTimes = new LinkedHashMap<>();
 
     public static void create(long window, long share) {
         Context ctx = new Context();
@@ -261,6 +267,7 @@ public class Context implements Comparable<Context> {
             TimingQuery qo = timingQueries.get(i);
             if (!qo.used) {
                 qo.used = true;
+                qo.drawTime = false;
                 return qo;
             }
         }
