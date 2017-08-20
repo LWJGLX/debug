@@ -1165,8 +1165,4 @@ public class RT {
         ctx.currentCodeSectionIndex++;
     }
 
-    public static void frameTerminator() {
-        // TODO: Actually end the frame right here (instead of glfwSwapBuffers)
-    }
-
 }
