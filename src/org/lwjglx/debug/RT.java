@@ -48,6 +48,7 @@ import org.lwjglx.debug.Context.TimingQuery;
 import org.lwjglx.debug.Context.TextureLayer;
 import org.lwjglx.debug.Context.TextureLevel;
 import org.lwjglx.debug.Context.TextureObject;
+import org.lwjglx.debug.Context.TimedCodeSection;
 
 class Command {
     final List<Param> params;
@@ -890,10 +891,12 @@ public class RT {
         float drawTime = 0.0f;
         if (ctx.caps.GL_ARB_timer_query) {
             /* End current code section (if not already ended) */
-            if (ctx.lastCodeSection != null) {
-                ARBTimerQuery.glQueryCounter(ctx.lastCodeSection.after, ARBTimerQuery.GL_TIMESTAMP);
-                ctx.lastCodeSection = null;
+            if (ctx.lastCodeSectionQuery != null) {
+                ARBTimerQuery.glQueryCounter(ctx.lastCodeSectionQuery.after, ARBTimerQuery.GL_TIMESTAMP);
+                ctx.lastCodeSectionQuery = null;
             }
+            /* Reset current code section counter */
+            ctx.currentCodeSectionIndex = 0;
             /* Wait for all active query counters */
             for (int i = 0; i < ctx.timingQueries.size(); i++) {
                 TimingQuery q = ctx.timingQueries.get(i);
@@ -920,8 +923,8 @@ public class RT {
         ctx.glCallCount = 0;
         ctx.frameStartTime = ctx.frameEndTime;
         /* Clear all code section timings */
-        for (List<TimingQuery> list : ctx.codeSectionTimes.values()) {
-            list.clear();
+        for (TimedCodeSection section : ctx.codeSectionTimes) {
+            section.queries.clear();
         }
     }
 
@@ -1130,24 +1133,36 @@ public class RT {
             return;
         }
         /* End timing of current section */
-        if (ctx.lastCodeSection != null) {
-            ARBTimerQuery.glQueryCounter(ctx.lastCodeSection.after, ARBTimerQuery.GL_TIMESTAMP);
+        if (ctx.lastCodeSectionQuery != null) {
+            ARBTimerQuery.glQueryCounter(ctx.lastCodeSectionQuery.after, ARBTimerQuery.GL_TIMESTAMP);
         }
-        ctx.lastCodeSection = null;
+        ctx.lastCodeSectionQuery = null;
         if (string.equals("end")) {
             /* Special marker string to end a current code section */
             return;
         }
-        List<TimingQuery> qs = ctx.codeSectionTimes.get(string);
-        if (qs == null) {
-            qs = new ArrayList<TimingQuery>();
-            ctx.codeSectionTimes.put(string, qs);
+        TimedCodeSection section;
+        if (ctx.codeSectionTimes.size() <= ctx.currentCodeSectionIndex) {
+            section = new TimedCodeSection();
+            section.name = string;
+            ctx.codeSectionTimes.add(section);
+        } else {
+            section = ctx.codeSectionTimes.get(ctx.currentCodeSectionIndex);
+            if (section == null || !section.name.equals(string)) {
+                for (int i = ctx.currentCodeSectionIndex + 1; i < ctx.codeSectionTimes.size(); i++) {
+                    ctx.codeSectionTimes.set(i, null);
+                }
+                section = new TimedCodeSection();
+                section.name = string;
+                ctx.codeSectionTimes.set(ctx.currentCodeSectionIndex, section);
+            }
         }
         /* Create new timer for current section */
         TimingQuery q = ctx.nextTimerQuery();
-        qs.add(q);
+        section.queries.add(q);
         ARBTimerQuery.glQueryCounter(q.before, ARBTimerQuery.GL_TIMESTAMP);
-        ctx.lastCodeSection = q;
+        ctx.lastCodeSectionQuery = q;
+        ctx.currentCodeSectionIndex++;
     }
 
     public static void frameTerminator() {

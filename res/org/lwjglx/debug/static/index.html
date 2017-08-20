@@ -11,7 +11,6 @@
   </div>
   <script>
     var chart, codeSectionsChart;
-    var numSamples = 0;
     var MAX_NUM_SAMPLES = 120; // <- 1 minute
     var ws = new WebSocket('ws://' + location.host + '/ws');
     ws.binaryType = "arraybuffer";
@@ -26,8 +25,7 @@
       var vertices = view.getInt32(off); off += 4;
       var bufferObjectSize = view.getFloat64(off); off += 8;
       var textureObjectSize = view.getFloat64(off); off += 8;
-      numSamples++;
-      if (numSamples > MAX_NUM_SAMPLES) {
+      if (config.data.labels.length > MAX_NUM_SAMPLES) {
         config.data.labels.shift();
         config.data.datasets[0].data.shift();
         config.data.datasets[1].data.shift();
@@ -167,20 +165,48 @@
         animation: false,
         scales: {
           xAxes: [{ stacked: true }],
-          yAxes: [{ stacked: true }]
+          yAxes: [{ stacked: true, ticks: { beginAtZero: true } }]
         }
       }
     };
-    var colors = ['#001f3f','#0074D9','#7FDBFF','#39CCCC','#3D9970','#2ECC40','#01FF70','#FFDC00','#FF851B','#FF4136','#85144b'];
-    function addDataSet(name) {
-      var index = codeSectionsGraphConfig.data.datasets.length;
-      var ds = {
-        stack: '1',
-        label: name,
-        backgroundColor: colors[index],
-        data: []
-      };
-      codeSectionsGraphConfig.data.datasets.push(ds);
+    var colors = ['#001f3f','#FF851B','#0074D9','#FF4136','#7FDBFF','#85144b','#39CCCC','#F012BE','#3D9970','#B10DC9','#2ECC40','#01FF70','#FFDC00','#111111','#AAAAAA','#DDDDDD'];
+    function datasetsConsistent(labels) {
+      if (labels.length !== codeSectionsGraphConfig.data.datasets.length) {
+        return false;
+      }
+      for (var i = 0; i < labels.length; i++) {
+        if (labels[i] !== codeSectionsGraphConfig.data.datasets[i].label) {
+          return false;
+        }
+      }
+      return true;
+    }
+    function recreateDatasets(labels) {
+      codeSectionsGraphConfig.data.datasets.length = 0;
+      for (var i = 0; i < labels.length; i++) {
+        var ds = {
+          stack: '1',
+          label: labels[i],
+          backgroundColor: colors[i % colors.length],
+          data: []
+        };
+        codeSectionsGraphConfig.data.datasets.push(ds);
+      }
+    }
+    function addData(labels, values, frame) {
+      if (!datasetsConsistent(labels)) {
+        recreateDatasets(labels);
+      }
+      if (codeSectionsGraphConfig.data.labels.length > MAX_NUM_SAMPLES) {
+        codeSectionsGraphConfig.data.labels.shift();
+        for (var d = 0; d < codeSectionsGraphConfig.data.datasets.length; d++) {
+          codeSectionsGraphConfig.data.datasets[d].data.shift();
+        }
+      }
+      codeSectionsGraphConfig.data.labels.push(frame);
+      for (var d = 0; d < values.length; d++) {
+        codeSectionsGraphConfig.data.datasets[d].data.push(values[d]);
+      }
     }
     function readCodeSectionTimes(dv, off, frame) {
       var num = dv.getInt16(off); off += 2;
@@ -197,21 +223,7 @@
         labels.push(label);
         values.push(value);
       }
-      if (codeSectionsGraphConfig.data.datasets.length === 0) {
-        for (var i = 0; i < labels.length; i++) {
-          addDataSet(labels[i]);
-        }
-      }
-      if (numSamples > MAX_NUM_SAMPLES) {
-        codeSectionsGraphConfig.data.labels.shift();
-        for (var d = 0; d < codeSectionsGraphConfig.data.datasets.length; d++) {
-          codeSectionsGraphConfig.data.datasets[d].data.shift();
-        }
-      }
-      codeSectionsGraphConfig.data.labels.push(frame);
-      for (var d = 0; d < values.length; d++) {
-        codeSectionsGraphConfig.data.datasets[d].data.push(values[d]);
-      }
+      addData(labels, values, frame);
     }
     window.onload = function () {
       var ctx = document.getElementById("graph").getContext("2d");

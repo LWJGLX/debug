@@ -233,7 +233,7 @@ class InterceptClassGenerator implements Opcodes {
                 if (VALIDATE.enabled) {
                     if (isMainThreadMethod(call)) {
                         mv.visitLdcInsn(call.name);
-                        mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, "checkMainThread", "()V", false);
+                        mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, "checkMainThread", "(Ljava/lang/String;)V", false);
                     }
                 }
                 /* Validate buffer arguments and also load all arguments onto stack */

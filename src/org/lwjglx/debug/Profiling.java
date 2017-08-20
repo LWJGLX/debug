@@ -4,7 +4,6 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Future;
 
@@ -33,6 +32,7 @@ import org.lwjglx.debug.Context.BufferObject;
 import org.lwjglx.debug.Context.TextureLayer;
 import org.lwjglx.debug.Context.TextureLevel;
 import org.lwjglx.debug.Context.TextureObject;
+import org.lwjglx.debug.Context.TimedCodeSection;
 import org.lwjglx.debug.Context.TimingQuery;
 
 @SuppressWarnings("serial")
@@ -176,15 +176,15 @@ class Profiling {
 
         /* Write code section timings */
         buf.putShort((short) ctx.codeSectionTimes.size());
-        for (Map.Entry<String, List<TimingQuery>> e : ctx.codeSectionTimes.entrySet()) {
-            String name = e.getKey();
+        for (TimedCodeSection section : ctx.codeSectionTimes) {
+            String name = section.name;
             byte[] nameBytes = name.getBytes();
             buf.putShort((short) nameBytes.length);
             for (int i = 0; i < nameBytes.length; i++) {
                 buf.put(nameBytes[i]);
             }
             float totalTime = 0.0f; // <- ms
-            for (TimingQuery q : e.getValue()) {
+            for (TimingQuery q : section.queries) {
                 totalTime += (q.time1 - q.time0) / 1E6f;
             }
             buf.putFloat(totalTime);
