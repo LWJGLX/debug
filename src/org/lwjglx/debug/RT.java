@@ -81,6 +81,7 @@ public class RT {
     private static final Map<Buffer, Buffer> bufferViews = Collections.synchronizedMap(new WeakIdentityHashMap<>());
 
     public static Thread mainThread;
+    public static boolean glfwInitialized;
 
     private static void throwIfNotNativeEndianness(ByteOrder order) {
         if (order != null && order != ByteOrder.nativeOrder()) {
@@ -1123,6 +1124,12 @@ public class RT {
         Thread currentThread = Thread.currentThread();
         if (currentThread != mainThread) {
             throwISEOrLogError("Method " + methodName + " was called in thread [" + currentThread + "] which is not the main thread.");
+        }
+    }
+
+    public static void checkGlfwInitialized(String methodName) {
+        if (!glfwInitialized) {
+            throwISEOrLogError("Method " + methodName + " was called before initializing GLFW via glfwInit().");
         }
     }
 

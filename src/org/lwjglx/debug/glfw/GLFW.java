@@ -72,6 +72,7 @@ public class GLFW {
         } else {
             ret = org.lwjgl.glfw.GLFW.glfwInit();
         }
+        RT.glfwInitialized = ret;
         return ret;
     }
 
@@ -87,6 +88,7 @@ public class GLFW {
             if (errorCallback != null)
                 errorCallback.free();
         }
+        RT.glfwInitialized = false;
     }
 
     private static void printBoolean(MethodCall mc, int value) {

@@ -169,6 +169,13 @@ class InterceptClassGenerator implements Opcodes {
         return false;
     }
 
+    private static boolean requiresGlfwInit(InterceptedCall call) {
+        if (call.receiverInternalName.equals("org/lwjgl/glfw/GLFW")) {
+            return call.name.startsWith("glfw") && !call.name.equals("glfwSetErrorCallback") && !call.name.equals("glfwInit");
+        }
+        return false;
+    }
+
     private static void checkFunctionSupported(MethodVisitor mv, String name) {
         mv.visitFieldInsn(GETFIELD, "org/lwjgl/opengl/GLCapabilities", name, "J");
         mv.visitLdcInsn(name);
@@ -234,6 +241,10 @@ class InterceptClassGenerator implements Opcodes {
                     if (isMainThreadMethod(call)) {
                         mv.visitLdcInsn(call.name);
                         mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, "checkMainThread", "(Ljava/lang/String;)V", false);
+                    }
+                    if (requiresGlfwInit(call)) {
+                        mv.visitLdcInsn(call.name);
+                        mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, "checkGlfwInitialized", "(Ljava/lang/String;)V", false);
                     }
                 }
                 /* Validate buffer arguments and also load all arguments onto stack */
