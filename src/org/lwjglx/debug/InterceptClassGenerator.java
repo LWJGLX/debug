@@ -159,9 +159,9 @@ class InterceptClassGenerator implements Opcodes {
     private static boolean isMainThreadMethod(InterceptedCall call) {
         if (call.receiverInternalName.equals("org/lwjgl/glfw/GLFW")) {
             return Arrays
-                    .asList("glfwCreateWindow", "glfwDefaultWindowHints", "glfwDestroyWindow", "glfwFocusWindow", "glfwGetFramebufferSize", "glfwGetWindowAttrib", "glfwGetWindowFrameSize",
-                            "glfwGetWindowMonitor", "glfwGetWindowPos", "glfwGetWindowSize", "glfwHideWindow", "glfwIconifyWindow", "glfwMaximizeWindow", "glfwPollEvents", "glfwRestoreWindow",
-                            "glfwSetFramebufferSizeCallback", "glfwSetWindowAspectRatio", "glfwSetWindowCloseCallback", "glfwSetWindowFocusCallback", "glfwSetWindowIcon",
+                    .asList("glfwInit", "glfwTerminate", "glfwCreateWindow", "glfwDefaultWindowHints", "glfwDestroyWindow", "glfwFocusWindow", "glfwGetFramebufferSize", "glfwGetWindowAttrib",
+                            "glfwGetWindowFrameSize", "glfwGetWindowMonitor", "glfwGetWindowPos", "glfwGetWindowSize", "glfwHideWindow", "glfwIconifyWindow", "glfwMaximizeWindow", "glfwPollEvents",
+                            "glfwRestoreWindow", "glfwSetFramebufferSizeCallback", "glfwSetWindowAspectRatio", "glfwSetWindowCloseCallback", "glfwSetWindowFocusCallback", "glfwSetWindowIcon",
                             "glfwSetWindowIconifyCallback", "glfwSetWindowMonitor", "glfwSetWindowPos", "glfwSetWindowPosCallback", "glfwSetWindowRefreshCallback", "glfwSetWindowSize",
                             "glfwSetWindowSizeCallback", "glfwSetWindowSizeLimits", "glfwSetWindowTitle", "glfwShowWindow", "glfwWaitEvents", "glfwWaitEventsTimeout", "glfwWindowHint")
                     .contains(call.name);
