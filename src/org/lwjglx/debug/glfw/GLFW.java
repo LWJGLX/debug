@@ -362,6 +362,8 @@ public class GLFW {
 
     public static long glfwCreateWindow(int width, int height, ByteBuffer title, long monitor, long share) {
         if (Properties.VALIDATE.enabled) {
+            RT.checkGlfwMonitor(monitor);
+            RT.checkGlfwWindow(share);
             org.lwjgl.glfw.GLFW.glfwWindowHint(org.lwjgl.glfw.GLFW.GLFW_OPENGL_DEBUG_CONTEXT, org.lwjgl.glfw.GLFW.GLFW_TRUE);
         }
         long window = org.lwjgl.glfw.GLFW.glfwCreateWindow(width, height, title, monitor, share);
@@ -371,6 +373,8 @@ public class GLFW {
 
     public static long glfwCreateWindow(int width, int height, CharSequence title, long monitor, long share) {
         if (Properties.VALIDATE.enabled) {
+            RT.checkGlfwMonitor(monitor);
+            RT.checkGlfwWindow(share);
             org.lwjgl.glfw.GLFW.glfwWindowHint(org.lwjgl.glfw.GLFW.GLFW_OPENGL_DEBUG_CONTEXT, org.lwjgl.glfw.GLFW.GLFW_TRUE);
         }
         long window = org.lwjgl.glfw.GLFW.glfwCreateWindow(width, height, title, monitor, share);

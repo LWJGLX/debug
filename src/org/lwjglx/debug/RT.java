@@ -1172,4 +1172,25 @@ public class RT {
         ctx.currentCodeSectionIndex++;
     }
 
+    public static void checkGlfwMonitor(long monitor) {
+        if (monitor == 0L)
+            return;
+        PointerBuffer pb = org.lwjgl.glfw.GLFW.glfwGetMonitors();
+        for (int i = 0; i < pb.remaining(); i++) {
+            if (pb.get(i) == monitor)
+                return;
+        }
+        throwIAEOrLogError("Provided 'monitor' argument is not a valid GLFW monitor handle: " + monitor);
+    }
+
+    public static void checkGlfwWindow(long share) {
+        if (share == 0L)
+            return;
+        for (Context ctx : CONTEXTS.values()) {
+            if (ctx.window == share)
+                return;
+        }
+        throwIAEOrLogError("Provided 'share' argument is not a valid GLFW window handle: " + share);
+    }
+
 }

@@ -53,6 +53,32 @@ public class DebugIT {
     }
 
     @Test
+    public void testWrongMonitorArgument() {
+        try {
+            window = glfwCreateWindow(800, 600, "", 1L, 0L);
+            fail("glfwCreateWindow should have thrown");
+        } catch (IllegalArgumentException e) {
+            // expected!
+        }
+    }
+
+    @Test
+    public void testWrongShareArgument() {
+        try {
+            window = glfwCreateWindow(800, 600, "", 0L, 1L);
+            fail("glfwCreateWindow should have thrown");
+        } catch (IllegalArgumentException e) {
+            // expected!
+        }
+    }
+
+    @Test
+    public void testCorrectShareArgument() {
+        window = glfwCreateWindow(800, 600, "", 0L, 0L);
+        window2 = glfwCreateWindow(800, 600, "", 0L, window); // <- MUST NOT THROW
+    }
+
+    @Test
     public void testNoGLCapabilities() {
         window = glfwCreateWindow(800, 600, "", 0L, 0L);
         glfwMakeContextCurrent(window);
