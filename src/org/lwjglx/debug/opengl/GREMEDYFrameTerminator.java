@@ -6,9 +6,11 @@ import org.lwjglx.debug.RT;
 public class GREMEDYFrameTerminator {
 
     public static void glFrameTerminatorGREMEDY() {
-        if (Properties.PROFILE.enabled) {
-            RT.frame();
+        if (!Properties.PROFILE.enabled) {
+            org.lwjgl.opengl.GREMEDYFrameTerminator.glFrameTerminatorGREMEDY();
+            return;
         }
+        RT.frame();
     }
 
 }
