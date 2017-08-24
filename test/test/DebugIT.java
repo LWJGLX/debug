@@ -27,6 +27,25 @@ public class DebugIT {
     private long window;
     private long window2;
 
+    /*
+     * "Polyfill" for JUnit 5's assertThrows.
+     */
+    public static void assertThrows(Class<? extends RuntimeException> exceptionClass, Runnable r) {
+        assertThrows(exceptionClass, r, null);
+    }
+
+    public static void assertThrows(Class<? extends RuntimeException> exceptionClass, Runnable r, String message) {
+        try {
+            r.run();
+            fail("Expected exception [" + exceptionClass + "] but none was thrown");
+        } catch (RuntimeException e) {
+            if (e.getClass() != exceptionClass)
+                fail("Expected exception [" + exceptionClass + "] but got [" + e.getClass() + "]");
+            if (message != null)
+                assertEquals(message, e.getMessage());
+        }
+    }
+
     @BeforeClass
     public static void before() {
         glfwInit();
@@ -54,22 +73,12 @@ public class DebugIT {
 
     @Test
     public void testWrongMonitorArgument() {
-        try {
-            window = glfwCreateWindow(800, 600, "", 1L, 0L);
-            fail("glfwCreateWindow should have thrown");
-        } catch (IllegalArgumentException e) {
-            // expected!
-        }
+        assertThrows(IllegalArgumentException.class, () -> window = glfwCreateWindow(800, 600, "", 1L, 0L));
     }
 
     @Test
     public void testWrongShareArgument() {
-        try {
-            window = glfwCreateWindow(800, 600, "", 0L, 1L);
-            fail("glfwCreateWindow should have thrown");
-        } catch (IllegalArgumentException e) {
-            // expected!
-        }
+        assertThrows(IllegalArgumentException.class, () -> window = glfwCreateWindow(800, 600, "", 0L, 1L));
     }
 
     @Test
@@ -82,24 +91,14 @@ public class DebugIT {
     public void testNoGLCapabilities() {
         window = glfwCreateWindow(800, 600, "", 0L, 0L);
         glfwMakeContextCurrent(window);
-        try {
-            glEnable(GL_DEPTH_TEST); // <- should throw
-            fail("glEnable should have thrown");
-        } catch (IllegalStateException e) {
-            // expected!
-        }
+        assertThrows(IllegalStateException.class, () -> glEnable(GL_DEPTH_TEST));
     }
 
     @Test
     public void testUnsafeMethod() {
         window = glfwCreateWindow(800, 600, "", 0L, 0L);
         glfwMakeContextCurrent(window);
-        try {
-            nglBufferData(GL_ARRAY_BUFFER, 0L, 0L, GL_STATIC_DRAW); // <- should throw
-            fail("glEnable should have thrown");
-        } catch (IllegalStateException e) {
-            // expected!
-        }
+        assertThrows(IllegalStateException.class, () -> nglBufferData(GL_ARRAY_BUFFER, 0L, 0L, GL_STATIC_DRAW));
     }
 
     @Test
@@ -110,12 +109,7 @@ public class DebugIT {
         window = glfwCreateWindow(800, 600, "", 0L, 0L);
         glfwMakeContextCurrent(window);
         createCapabilities();
-        try {
-            glVertexPointer(2, GL_FLOAT, 0, 0L);
-            fail("glVertexPointer should have thrown");
-        } catch (IllegalStateException e) {
-            assertEquals("glVertexPointer is not supported in the current profile", e.getMessage());
-        }
+        assertThrows(IllegalStateException.class, () -> glVertexPointer(2, GL_FLOAT, 0, 0L), "glVertexPointer is not supported in the current profile");
     }
 
     @Test
@@ -123,12 +117,7 @@ public class DebugIT {
         window = glfwCreateWindow(800, 600, "", 0L, 0L);
         glfwMakeContextCurrent(window);
         createCapabilities();
-        try {
-            glEnable(GL_VERTEX_ARRAY_POINTER);
-            fail("glEnable should have thrown");
-        } catch (IllegalStateException e) {
-            assertEquals("OpenGL function call raised an error (see stderr output)", e.getMessage());
-        }
+        assertThrows(IllegalStateException.class, () -> glEnable(GL_VERTEX_ARRAY_POINTER), "OpenGL function call raised an error (see stderr output)");
     }
 
     @Test
@@ -136,14 +125,8 @@ public class DebugIT {
         window = glfwCreateWindow(800, 600, "", 0L, 0L);
         glfwMakeContextCurrent(window);
         createCapabilities();
-        try {
-            glEnableVertexAttribArray(0);
-            // glVertexAttribPointer(0, 2, GL_FLOAT, false, 0, fb); // <--- FORGOT THIS!
-            glDrawArrays(GL_POINTS, 0, 1);
-            fail("glDrawArrays should have thrown");
-        } catch (IllegalStateException e) {
-            assertEquals("Vertex array [0] enabled but not initialized", e.getMessage());
-        }
+        glEnableVertexAttribArray(0);
+        assertThrows(IllegalStateException.class, () -> glDrawArrays(GL_POINTS, 0, 1), "Vertex array [0] enabled but not initialized");
     }
 
     @Test
@@ -151,16 +134,10 @@ public class DebugIT {
         window = glfwCreateWindow(800, 600, "", 0L, 0L);
         glfwMakeContextCurrent(window);
         createCapabilities();
-        try {
-            int vao = glGenVertexArrays();
-            glBindVertexArray(vao);
-            glEnableVertexAttribArray(3);
-            // glVertexAttribPointer(3, 2, GL_FLOAT, false, 0, fb); // <--- FORGOT THIS!
-            glDrawArrays(GL_POINTS, 0, 1);
-            fail("glDrawArrays should have thrown");
-        } catch (IllegalStateException e) {
-            assertEquals("Vertex array [3] enabled but not initialized", e.getMessage());
-        }
+        int vao = glGenVertexArrays();
+        glBindVertexArray(vao);
+        glEnableVertexAttribArray(3);
+        assertThrows(IllegalStateException.class, () -> glDrawArrays(GL_POINTS, 0, 1), "Vertex array [3] enabled but not initialized");
     }
 
     @Test
@@ -168,16 +145,10 @@ public class DebugIT {
         window = glfwCreateWindow(800, 600, "", 0L, 0L);
         glfwMakeContextCurrent(window);
         createCapabilities();
-        try {
-            int vao = glGenVertexArrays();
-            glBindVertexArray(vao);
-            glEnableVertexAttribArray(3);
-            // glVertexAttribPointer(3, 2, GL_FLOAT, false, 0, fb); // <--- FORGOT THIS!
-            glDrawElements(GL_POINTS, BufferUtils.createIntBuffer(4));
-            fail("glDrawElements should have thrown");
-        } catch (IllegalStateException e) {
-            assertEquals("Vertex array [3] enabled but not initialized", e.getMessage());
-        }
+        int vao = glGenVertexArrays();
+        glBindVertexArray(vao);
+        glEnableVertexAttribArray(3);
+        assertThrows(IllegalStateException.class, () -> glDrawElements(GL_POINTS, BufferUtils.createIntBuffer(4)), "Vertex array [3] enabled but not initialized");
     }
 
     @Test
@@ -233,12 +204,7 @@ public class DebugIT {
         window = glfwCreateWindow(800, 600, "", 0L, 0L);
         glfwMakeContextCurrent(window);
         createCapabilities();
-        try {
-            glDrawElements(GL_POINTS, 1, GL_UNSIGNED_INT, 0L);
-            fail("glDrawElements should have thrown");
-        } catch (IllegalStateException e) {
-            assertEquals("glDrawElements called with index offset but no ELEMENT_ARRAY_BUFFER bound", e.getMessage());
-        }
+        assertThrows(IllegalStateException.class, () -> glDrawElements(GL_POINTS, 1, GL_UNSIGNED_INT, 0L), "glDrawElements called with index offset but no ELEMENT_ARRAY_BUFFER bound");
     }
 
     @Test
@@ -246,14 +212,10 @@ public class DebugIT {
         window = glfwCreateWindow(800, 600, "", 0L, 0L);
         glfwMakeContextCurrent(window);
         createCapabilities();
-        try {
-            int vbo = glGenBuffers();
-            glBindBuffer(GL_ARRAY_BUFFER, vbo);
-            glBufferData(GL_ARRAY_BUFFER, ByteBuffer.wrap(new byte[] { 1, 2, 3, 4 }), GL_STATIC_DRAW);
-            fail("glBufferData should have thrown");
-        } catch (IllegalArgumentException e) {
-            assertEquals("buffer is not direct. Buffers created via ByteBuffer.allocate() or ByteBuffer.wrap() are not supported. Use BufferUtils.createByteBuffer() instead.", e.getMessage());
-        }
+        int vbo = glGenBuffers();
+        glBindBuffer(GL_ARRAY_BUFFER, vbo);
+        assertThrows(IllegalArgumentException.class, () -> glBufferData(GL_ARRAY_BUFFER, ByteBuffer.wrap(new byte[] { 1, 2, 3, 4 }), GL_STATIC_DRAW),
+                "buffer is not direct. Buffers created via ByteBuffer.allocate() or ByteBuffer.wrap() are not supported. Use BufferUtils.createByteBuffer() instead.");
     }
 
     @Test
@@ -261,12 +223,8 @@ public class DebugIT {
         window = glfwCreateWindow(800, 600, "", 0L, 0L);
         glfwMakeContextCurrent(window);
         createCapabilities();
-        try {
-            glUniformMatrix4fv(0, false, ByteBuffer.allocate(16 * 4).asFloatBuffer());
-            fail("glUniformMatrix4fv should have thrown");
-        } catch (IllegalArgumentException e) {
-            assertEquals("buffer is not direct. Buffers created via FloatBuffer.allocate() or FloatBuffer.wrap() are not supported. Use BufferUtils.createFloatBuffer() instead.", e.getMessage());
-        }
+        assertThrows(IllegalArgumentException.class, () -> glUniformMatrix4fv(0, false, ByteBuffer.allocate(16 * 4).asFloatBuffer()),
+                "buffer is not direct. Buffers created via FloatBuffer.allocate() or FloatBuffer.wrap() are not supported. Use BufferUtils.createFloatBuffer() instead.");
     }
 
     @Test
@@ -276,12 +234,7 @@ public class DebugIT {
         createCapabilities();
         FloatBuffer bb = ByteBuffer.allocateDirect(16 * 4).asFloatBuffer();
         bb.put(0, 1.0f);
-        try {
-            glLoadMatrixf(bb);
-            fail("glLoadMatrixf should have thrown");
-        } catch (IllegalArgumentException e) {
-            assertEquals("buffer contains values written using non-native endianness.", e.getMessage());
-        }
+        assertThrows(IllegalArgumentException.class, () -> glLoadMatrixf(bb), "buffer contains values written using non-native endianness.");
     }
 
     @Test
@@ -292,12 +245,7 @@ public class DebugIT {
         ByteBuffer bb = ByteBuffer.allocateDirect(16 * 4);
         bb.putFloat(0, 1.0f);
         FloatBuffer fb = bb.asFloatBuffer();
-        try {
-            glLoadMatrixf(fb);
-            fail("glLoadMatrixf should have thrown");
-        } catch (IllegalArgumentException e) {
-            assertEquals("buffer contains values written using non-native endianness.", e.getMessage());
-        }
+        assertThrows(IllegalArgumentException.class, () -> glLoadMatrixf(fb), "buffer contains values written using non-native endianness.");
     }
 
     @Test
@@ -308,12 +256,7 @@ public class DebugIT {
         ByteBuffer bb = ByteBuffer.allocateDirect(16 * 4);
         bb.putFloat(0, 1.0f);
         FloatBuffer fb = bb.slice().asFloatBuffer();
-        try {
-            glLoadMatrixf(fb);
-            fail("glLoadMatrixf should have thrown");
-        } catch (IllegalArgumentException e) {
-            assertEquals("buffer contains values written using non-native endianness.", e.getMessage());
-        }
+        assertThrows(IllegalArgumentException.class, () -> glLoadMatrixf(fb), "buffer contains values written using non-native endianness.");
     }
 
     @Test
@@ -324,12 +267,7 @@ public class DebugIT {
         ByteBuffer bb = ByteBuffer.allocateDirect(16 * 4);
         FloatBuffer fb = bb.asFloatBuffer().slice();
         fb.put(0, 1.0f);
-        try {
-            glLoadMatrixf(fb);
-            fail("glLoadMatrixf should have thrown");
-        } catch (IllegalArgumentException e) {
-            assertEquals("buffer contains values written using non-native endianness.", e.getMessage());
-        }
+        assertThrows(IllegalArgumentException.class, () -> glLoadMatrixf(fb), "buffer contains values written using non-native endianness.");
     }
 
     @Test
@@ -358,16 +296,11 @@ public class DebugIT {
         window = glfwCreateWindow(800, 600, "", 0L, 0L);
         glfwMakeContextCurrent(window);
         createCapabilities();
-        try {
-            FloatBuffer fb = BufferUtils.createFloatBuffer(16);
-            for (int i = 0; i < 16; i++) {
-                fb.put(i);
-            }
-            glUniformMatrix4fv(0, false, fb);
-            fail("glUniformMatrix4fv should have thrown");
-        } catch (IllegalArgumentException e) {
-            assertEquals("buffer has no remaining elements. Did you forget to flip()/rewind() it?", e.getMessage());
+        FloatBuffer fb = BufferUtils.createFloatBuffer(16);
+        for (int i = 0; i < 16; i++) {
+            fb.put(i);
         }
+        assertThrows(IllegalArgumentException.class, () -> glUniformMatrix4fv(0, false, fb), "buffer has no remaining elements. Did you forget to flip()/rewind() it?");
     }
 
     @Test
@@ -387,14 +320,10 @@ public class DebugIT {
         window2 = glfwCreateWindow(800, 600, "", 0L, window);
         glfwMakeContextCurrent(window);
         createCapabilities();
-        try {
-            int vao = glGenVertexArrays();
-            glfwMakeContextCurrent(window2);
-            glBindVertexArray(vao); // <--- VAOs are NOT shared!
-            fail("glBindVertexArray should have thrown");
-        } catch (IllegalStateException e) {
-            assertEquals("Trying to bind unknown VAO [1] from shared context [" + (Context.CURRENT_CONTEXT.get().counter - 1) + "]", e.getMessage());
-        }
+        int vao = glGenVertexArrays();
+        glfwMakeContextCurrent(window2);
+        assertThrows(IllegalStateException.class, () -> glBindVertexArray(vao), // <--- VAOs are NOT shared!,
+                "Trying to bind unknown VAO [1] from shared context [" + (Context.CURRENT_CONTEXT.get().counter - 1) + "]");
     }
 
     @Test
@@ -403,14 +332,10 @@ public class DebugIT {
         window2 = glfwCreateWindow(800, 600, "", 0L, window);
         glfwMakeContextCurrent(window);
         createCapabilities();
-        try {
-            int fbo = glGenFramebuffers();
-            glfwMakeContextCurrent(window2);
-            glBindFramebuffer(GL_FRAMEBUFFER, fbo); // <--- VAOs are NOT shared!
-            fail("glBindFramebuffer should have thrown");
-        } catch (IllegalStateException e) {
-            assertEquals("Trying to bind unknown FBO [1] from shared context [" + (Context.CURRENT_CONTEXT.get().counter - 1) + "]", e.getMessage());
-        }
+        int fbo = glGenFramebuffers();
+        glfwMakeContextCurrent(window2);
+        assertThrows(IllegalStateException.class, () -> glBindFramebuffer(GL_FRAMEBUFFER, fbo), // <--- VAOs are NOT shared!
+                "Trying to bind unknown FBO [1] from shared context [" + (Context.CURRENT_CONTEXT.get().counter - 1) + "]");
     }
 
     @Test
@@ -418,12 +343,7 @@ public class DebugIT {
         window = glfwCreateWindow(800, 600, "", 0L, 0L);
         glfwMakeContextCurrent(window);
         createCapabilities();
-        try {
-            glUniform1f(1, 1.0f);
-            fail("glUniform1f should have thrown");
-        } catch (IllegalStateException e) {
-            assertEquals("OpenGL function call raised an error (see stderr output)", e.getMessage());
-        }
+        assertThrows(IllegalStateException.class, () -> glUniform1f(1, 1.0f), "OpenGL function call raised an error (see stderr output)");
     }
 
 }
