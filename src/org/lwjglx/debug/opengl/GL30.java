@@ -36,6 +36,20 @@ import org.lwjglx.debug.Context.VAO;
 
 public class GL30 {
 
+    public static String glGetStringi(int name, int index) {
+        if (Properties.PROFILE.enabled && name == org.lwjgl.opengl.GL11.GL_EXTENSIONS) {
+            int numExtensions = org.lwjgl.opengl.GL11.glGetInteger(org.lwjgl.opengl.GL30.GL_NUM_EXTENSIONS);
+            int GREMEDY_string_marker_index = numExtensions;
+            int GREMEDY_frame_terminator_index = numExtensions + 1;
+            if (index == GREMEDY_string_marker_index) {
+                return "GREMEDY_string_marker";
+            } else if (index == GREMEDY_frame_terminator_index) {
+                return "GREMEDY_frame_terminator";
+            }
+        }
+        return org.lwjgl.opengl.GL30.glGetStringi(name, index);
+    }
+
     public static void glGenerateMipmap(int target) {
         org.lwjgl.opengl.GL30.glGenerateMipmap(target);
         if (Properties.PROFILE.enabled) {

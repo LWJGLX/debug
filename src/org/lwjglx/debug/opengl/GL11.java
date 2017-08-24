@@ -44,6 +44,32 @@ import org.lwjglx.debug.RT;
 
 public class GL11 {
 
+    public static int glGetInteger(int pname) {
+        if (Properties.PROFILE.enabled && pname == org.lwjgl.opengl.GL30.GL_NUM_EXTENSIONS) {
+            int numExtensions = org.lwjgl.opengl.GL11.glGetInteger(pname);
+            return numExtensions + 2; // <- for GREMEDY_string_marker and GREMEDY_frame_terminator
+        }
+        return org.lwjgl.opengl.GL11.glGetInteger(pname);
+    }
+
+    public static void glGetIntegerv(int pname, IntBuffer params) {
+        if (Properties.PROFILE.enabled && pname == org.lwjgl.opengl.GL30.GL_NUM_EXTENSIONS) {
+            int numExtensions = org.lwjgl.opengl.GL11.glGetInteger(pname);
+            params.put(params.position(), numExtensions + 2); // <- for GREMEDY_string_marker and GREMEDY_frame_terminator
+            return;
+        }
+        org.lwjgl.opengl.GL11.glGetIntegerv(pname, params);
+    }
+
+    public static void glGetIntegerv(int pname, int[] params) {
+        if (Properties.PROFILE.enabled && pname == org.lwjgl.opengl.GL30.GL_NUM_EXTENSIONS) {
+            int numExtensions = org.lwjgl.opengl.GL11.glGetInteger(pname);
+            params[0] = numExtensions + 2; // <- for GREMEDY_string_marker and GREMEDY_frame_terminator
+            return;
+        }
+        org.lwjgl.opengl.GL11.glGetIntegerv(pname, params);
+    }
+
     public static String glGetString(int name) {
         String res = org.lwjgl.opengl.GL11.glGetString(name);
         if (name == org.lwjgl.opengl.GL11.GL_EXTENSIONS && Properties.PROFILE.enabled) {
