@@ -31,6 +31,7 @@ import java.util.Map;
 import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.glfw.GLFWVidMode;
 import org.lwjgl.system.APIUtil;
+import org.lwjgl.system.Platform;
 import org.lwjglx.debug.Context;
 import org.lwjglx.debug.MethodCall;
 import org.lwjglx.debug.Properties;
@@ -365,6 +366,12 @@ public class GLFW {
             RT.checkGlfwMonitor(monitor);
             RT.checkGlfwWindow(share);
             org.lwjgl.glfw.GLFW.glfwWindowHint(org.lwjgl.glfw.GLFW.GLFW_OPENGL_DEBUG_CONTEXT, org.lwjgl.glfw.GLFW.GLFW_TRUE);
+            if (Platform.get() == Platform.WINDOWS || Properties.STRICT.enabled) {
+                Context ctx = CONTEXTS.get(share);
+                if (ctx != null && ctx.currentInThread != null && ctx.currentInThread != Thread.currentThread()) {
+                    RT.throwISEOrLogError("Context of share window[" + ctx.counter + "] is current in another thread [" + ctx.currentInThread + "]");
+                }
+            }
         }
         long window = org.lwjgl.glfw.GLFW.glfwCreateWindow(width, height, title, monitor, share);
         createWindow(window, share);
@@ -376,6 +383,12 @@ public class GLFW {
             RT.checkGlfwMonitor(monitor);
             RT.checkGlfwWindow(share);
             org.lwjgl.glfw.GLFW.glfwWindowHint(org.lwjgl.glfw.GLFW.GLFW_OPENGL_DEBUG_CONTEXT, org.lwjgl.glfw.GLFW.GLFW_TRUE);
+            if (Platform.get() == Platform.WINDOWS || Properties.STRICT.enabled) {
+                Context ctx = CONTEXTS.get(share);
+                if (ctx != null && ctx.currentInThread != null && ctx.currentInThread != Thread.currentThread()) {
+                    RT.throwISEOrLogError("Context of share window[" + ctx.counter + "] is current in another thread [" + ctx.currentInThread + "]");
+                }
+            }
         }
         long window = org.lwjgl.glfw.GLFW.glfwCreateWindow(width, height, title, monitor, share);
         createWindow(window, share);
@@ -383,11 +396,23 @@ public class GLFW {
     }
 
     public static void glfwMakeContextCurrent(long window) {
+        if (window != 0L && Properties.VALIDATE.enabled) {
+            Context ctx = CONTEXTS.get(window);
+            if (ctx != null && ctx.currentInThread != null && ctx.currentInThread != Thread.currentThread()) {
+                RT.throwISEOrLogError("Context of window[" + ctx.counter + "] is current in another thread [" + Thread.currentThread() + "]");
+            }
+        }
         org.lwjgl.glfw.GLFW.glfwMakeContextCurrent(window);
         if (window == 0L) {
+            Context ctx = CURRENT_CONTEXT.get();
             CURRENT_CONTEXT.remove();
+            if (ctx != null)
+                ctx.currentInThread = null;
         } else {
-            CURRENT_CONTEXT.set(CONTEXTS.get(window));
+            Context ctx = CONTEXTS.get(window);
+            CURRENT_CONTEXT.set(ctx);
+            if (ctx != null)
+                ctx.currentInThread = Thread.currentThread();
         }
     }
 

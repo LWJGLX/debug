@@ -294,7 +294,7 @@ public class Agent implements ClassFileTransformer, Opcodes {
             parser.accepts("trace");
             OptionSpec<String> profile = parser.accepts("profile").withOptionalArg().ofType(String.class);
             parser.accepts("nothrow");
-            parser.accepts("validate");
+            OptionSpec<String> validate = parser.accepts("validate").withOptionalArg().ofType(String.class);
             OptionSpec<Long> sleep = parser.accepts("sleep").withRequiredArg().ofType(Long.class);
             OptionSpec<String> output = parser.accepts("output").withRequiredArg().ofType(String.class);
             OptionSet options = parser.parse(args);
@@ -328,8 +328,13 @@ public class Agent implements ClassFileTransformer, Opcodes {
                     }
                 }
             }
-            if (options.has("validate"))
+            if (options.has("validate")) {
                 Properties.VALIDATE.enable();
+                String validateArgsString = options.valueOf(validate);
+                if ("s".equals(validateArgsString)) {
+                    Properties.STRICT.enable();
+                }
+            }
             if (options.has("nothrow"))
                 Properties.NO_THROW_ON_ERROR.enable();
             if (options.has("sleep"))

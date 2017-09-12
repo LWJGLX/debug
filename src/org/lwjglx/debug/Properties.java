@@ -42,6 +42,7 @@ public class Properties {
     }
 
     public static final BooleanProperty VALIDATE = getBooleanProperty("org.lwjglx.VALIDATE", true);
+    public static final BooleanProperty STRICT = getBooleanProperty("org.lwjglx.STRICT", false);
     public static final BooleanProperty DEBUG = getBooleanProperty("org.lwjglx.DEBUG", false);
     public static final BooleanProperty TRACE = getBooleanProperty("org.lwjglx.TRACE", false);
     public static final BooleanProperty PROFILE = getBooleanProperty("org.lwjglx.PROFILE", false);

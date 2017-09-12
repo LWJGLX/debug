@@ -11,6 +11,8 @@ import static org.lwjgl.opengl.GL30.*;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
+import java.util.concurrent.CountDownLatch;
+import java.util.regex.Pattern;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -21,11 +23,19 @@ import org.lwjgl.BufferUtils;
 import org.lwjgl.opengl.ARBVertexArrayObject;
 import org.lwjgl.opengl.ARBVertexShader;
 import org.lwjglx.debug.Context;
+import org.lwjglx.debug.Properties;
 
 public class DebugIT {
 
     private long window;
     private long window2;
+
+    static {
+        /*
+         * Also perform validations that are OS-dependent.
+         */
+        Properties.STRICT.enable();
+    }
 
     /*
      * "Polyfill" for JUnit 5's assertThrows.
@@ -34,15 +44,19 @@ public class DebugIT {
         assertThrows(exceptionClass, r, null);
     }
 
-    public static void assertThrows(Class<? extends RuntimeException> exceptionClass, Runnable r, String message) {
+    public static void assertThrows(Class<? extends RuntimeException> exceptionClass, Runnable r, Object message) {
         try {
             r.run();
             fail("Expected exception [" + exceptionClass + "] but none was thrown");
         } catch (RuntimeException e) {
             if (e.getClass() != exceptionClass)
                 fail("Expected exception [" + exceptionClass + "] but got [" + e.getClass() + "]");
-            if (message != null)
-                assertEquals(message, e.getMessage());
+            if (message != null) {
+                if (message instanceof String)
+                    assertEquals((String) message, e.getMessage());
+                else if (message instanceof Pattern)
+                    assertTrue("Expect Regex [" + message.toString() + "] to match [" + e.getMessage() + "]", ((Pattern)message).matcher(e.getMessage()).matches());
+            }
         }
     }
 
@@ -92,6 +106,52 @@ public class DebugIT {
         window = glfwCreateWindow(800, 600, "", 0L, 0L);
         glfwMakeContextCurrent(window);
         assertThrows(IllegalStateException.class, () -> glEnable(GL_DEPTH_TEST));
+    }
+
+    @Test
+    public void testShareCurrentInAnotherThread() throws Exception {
+        CountDownLatch l1 = new CountDownLatch(1);
+        CountDownLatch l2 = new CountDownLatch(1);
+        window = glfwCreateWindow(800, 600, "", 0L, 0L);
+        Thread t = new Thread() {
+            public void run() {
+                glfwMakeContextCurrent(window);
+                l1.countDown();
+                try {
+                    l2.await();
+                } catch (InterruptedException e) {
+                }
+            }
+        };
+        t.start();
+        l1.await();
+        assertThrows(IllegalStateException.class, () -> window2 = glfwCreateWindow(800, 600, "", 0L, window), 
+                Pattern.compile("Context of share window\\[\\d+\\] is current in another thread \\[.*\\]"));
+        l2.countDown();
+        t.join();
+    }
+
+    @Test
+    public void testCurrentInAnotherThread() throws Exception {
+        CountDownLatch l1 = new CountDownLatch(1);
+        CountDownLatch l2 = new CountDownLatch(1);
+        window = glfwCreateWindow(800, 600, "", 0L, 0L);
+        Thread t = new Thread() {
+            public void run() {
+                glfwMakeContextCurrent(window);
+                l1.countDown();
+                try {
+                    l2.await();
+                } catch (InterruptedException e) {
+                }
+            }
+        };
+        t.start();
+        l1.await();
+        assertThrows(IllegalStateException.class, () -> glfwMakeContextCurrent(window), 
+                Pattern.compile("Context of window\\[\\d+\\] is current in another thread \\[.*\\]"));
+        l2.countDown();
+        t.join();
     }
 
     @Test

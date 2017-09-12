@@ -131,6 +131,7 @@ public class Context implements Comparable<Context> {
     public Map<Integer, ProgramPipeline> programPipelines = new HashMap<>();
     public ShareGroup shareGroup;
     public boolean inImmediateMode;
+    public Thread currentInThread;
 
     /* Profiling (per frame info) */
     public int verticesCount;
@@ -371,7 +372,7 @@ public class Context implements Comparable<Context> {
         VAO vao = context.currentVao;
         for (int i = 0; i < vao.enabledVertexArrays.length; i++) {
             if (vao.enabledVertexArrays[i] && !vao.initializedVertexArrays[i]) {
-                throw new IllegalStateException("Vertex array [" + i + "] enabled but not initialized");
+                RT.throwISEOrLogError("Vertex array [" + i + "] enabled but not initialized");
             }
         }
     }
