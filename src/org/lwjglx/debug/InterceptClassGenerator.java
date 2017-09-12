@@ -129,7 +129,10 @@ class InterceptClassGenerator implements Opcodes {
     private static final Map<ClassKey, HashSet<Method>> declaredMethods = new ConcurrentHashMap<>();
 
     private static boolean isGLcall(InterceptedCall call) {
-        return (call.name.startsWith("gl") || call.name.startsWith("ngl")) && call.receiverInternalName.startsWith("org/lwjgl/opengl/");
+        return (call.name.startsWith("gl") || call.name.startsWith("ngl")) && call.receiverInternalName.startsWith("org/lwjgl/opengl/")
+                && (!Properties.PROFILE.enabled || 
+                        (!call.receiverInternalName.equals("org/lwjgl/opengl/GREMEDYStringMarker") &&
+                         !call.receiverInternalName.equals("org/lwjgl/opengl/GREMEDYFrameTerminator")));
     }
 
     private static String glCall(InterceptedCall call) {
