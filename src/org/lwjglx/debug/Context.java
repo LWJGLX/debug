@@ -46,6 +46,14 @@ public class Context implements Comparable<Context> {
     public static class VAO {
         public boolean[] enabledVertexArrays;
         public boolean[] initializedVertexArrays;
+        public boolean vertexArrayEnabled;
+        public boolean vertexArrayInitialized;
+        public boolean normalArrayEnabled;
+        public boolean normalArrayInitialized;
+        public boolean colorArrayEnabled;
+        public boolean colorArrayInitialized;
+        public boolean texCoordArrayEnabled;
+        public boolean texCoordArrayInitialized;
 
         public VAO(int GL_MAX_VERTEX_ATTRIBS) {
             this.enabledVertexArrays = new boolean[GL_MAX_VERTEX_ATTRIBS];
@@ -374,6 +382,18 @@ public class Context implements Comparable<Context> {
             if (vao.enabledVertexArrays[i] && !vao.initializedVertexArrays[i]) {
                 RT.throwISEOrLogError("Vertex array [" + i + "] enabled but not initialized");
             }
+        }
+        if (vao.vertexArrayEnabled && !vao.vertexArrayInitialized) {
+            RT.throwISEOrLogError("GL_VERTEX_ARRAY enabled but not initialized");
+        }
+        if (vao.normalArrayEnabled && !vao.normalArrayInitialized) {
+            RT.throwISEOrLogError("GL_NORMAL_ARRAY enabled but not initialized");
+        }
+        if (vao.colorArrayEnabled && !vao.colorArrayInitialized) {
+            RT.throwISEOrLogError("GL_COLOR_ARRAY enabled but not initialized");
+        }
+        if (vao.texCoordArrayEnabled && !vao.texCoordArrayInitialized) {
+            RT.throwISEOrLogError("GL_TEXTURE_COORD_ARRAY enabled but not initialized");
         }
     }
 

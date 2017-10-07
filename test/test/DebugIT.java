@@ -212,6 +212,59 @@ public class DebugIT {
     }
 
     @Test
+    public void testVertexArrayEnabledAndInitializedDefaultVAO() {
+        window = glfwCreateWindow(800, 600, "", 0L, 0L);
+        glfwMakeContextCurrent(window);
+        createCapabilities();
+        glEnableClientState(GL_VERTEX_ARRAY);
+        int vbo = glGenBuffers();
+        glBindBuffer(GL_ARRAY_BUFFER, vbo);
+        glBufferData(GL_ARRAY_BUFFER, 2 * 4, GL_STATIC_DRAW);
+        glVertexPointer(2, GL_FLOAT, 0, 0L);
+        glDrawArrays(GL_POINTS, 0, 1);
+    }
+
+    @Test
+    public void testVertexArrayEnabledButNotInitializedDefaultVAO() {
+        window = glfwCreateWindow(800, 600, "", 0L, 0L);
+        glfwMakeContextCurrent(window);
+        createCapabilities();
+        glEnableClientState(GL_VERTEX_ARRAY);
+        assertThrows(IllegalStateException.class, () -> glDrawArrays(GL_POINTS, 0, 1), "GL_VERTEX_ARRAY enabled but not initialized");
+    }
+
+    @Test
+    public void testNormalArrayEnabledButNotInitializedDefaultVAO() {
+        window = glfwCreateWindow(800, 600, "", 0L, 0L);
+        glfwMakeContextCurrent(window);
+        createCapabilities();
+        glEnableClientState(GL_NORMAL_ARRAY);
+        assertThrows(IllegalStateException.class, () -> glDrawArrays(GL_POINTS, 0, 1), "GL_NORMAL_ARRAY enabled but not initialized");
+    }
+
+    @Test
+    public void testTexCoordArrayEnabledAndInitializedDefaultVAO() {
+        window = glfwCreateWindow(800, 600, "", 0L, 0L);
+        glfwMakeContextCurrent(window);
+        createCapabilities();
+        glEnableClientState(GL_TEXTURE_COORD_ARRAY);
+        int vbo = glGenBuffers();
+        glBindBuffer(GL_ARRAY_BUFFER, vbo);
+        glBufferData(GL_ARRAY_BUFFER, 2 * 4, GL_STATIC_DRAW);
+        glTexCoordPointer(2, GL_FLOAT, 0, 0L);
+        glDrawArrays(GL_POINTS, 0, 1);
+    }
+
+    @Test
+    public void testTexCoordArrayEnabledButNotInitializedDefaultVAO() {
+        window = glfwCreateWindow(800, 600, "", 0L, 0L);
+        glfwMakeContextCurrent(window);
+        createCapabilities();
+        glEnableClientState(GL_TEXTURE_COORD_ARRAY);
+        assertThrows(IllegalStateException.class, () -> glDrawArrays(GL_POINTS, 0, 1), "GL_TEXTURE_COORD_ARRAY enabled but not initialized");
+    }
+
+    @Test
     public void testCorrectVertexAttribPointerViaVBO() {
         window = glfwCreateWindow(800, 600, "", 0L, 0L);
         glfwMakeContextCurrent(window);

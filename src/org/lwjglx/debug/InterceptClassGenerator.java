@@ -239,12 +239,13 @@ class InterceptClassGenerator implements Opcodes {
             MethodVisitor mv = cw.visitMethod(ACC_PUBLIC | ACC_STATIC | ACC_SYNTHETIC, call.generatedMethodName, effectiveDesc, null, null);
             mv.visitCode();
             {
-                /* Check if the method may only be called from the main thread */
                 if (VALIDATE.enabled) {
+                    /* Check if the method may only be called from the main thread */
                     if (isMainThreadMethod(call)) {
                         mv.visitLdcInsn(call.name);
                         mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, "checkMainThread", "(Ljava/lang/String;)V", false);
                     }
+                    /* and whether it was a GLFW method that requires glfwInit() to have been called */
                     if (requiresGlfwInit(call)) {
                         mv.visitLdcInsn(call.name);
                         mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, "checkGlfwInitialized", "(Ljava/lang/String;)V", false);
