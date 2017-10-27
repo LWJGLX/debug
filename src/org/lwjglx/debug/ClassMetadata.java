@@ -58,7 +58,7 @@ class ClassMetadata implements Opcodes {
         } catch (IOException e) {
             return null;
         }
-        cr.accept(new ClassVisitor(ASM5) {
+        cr.accept(new ClassVisitor(ASM6) {
             public MethodVisitor visitMethod(int access, String name, String desc, String signature, String[] exceptions) {
                 boolean isPublic = (access & ACC_PUBLIC) != 0;
                 boolean isStatic = (access & ACC_STATIC) != 0;
@@ -68,11 +68,11 @@ class ClassMetadata implements Opcodes {
                 int numParameters = Type.getArgumentTypes(desc).length;
                 minfo.parameterNativeTypes = new String[numParameters];
                 m.methods.put(name + desc, minfo);
-                return new MethodVisitor(ASM5) {
+                return new MethodVisitor(ASM6) {
                     public AnnotationVisitor visitParameterAnnotation(int parameter, String desc, boolean visible) {
                         if (!desc.equals(NativeType_Desc))
                             return null;
-                        return new AnnotationVisitor(ASM5) {
+                        return new AnnotationVisitor(ASM6) {
                             public void visit(String name, Object value) {
                                 if (!"value".equals(name) || !(value instanceof String))
                                     return;
@@ -84,7 +84,7 @@ class ClassMetadata implements Opcodes {
                     public AnnotationVisitor visitAnnotation(String desc, boolean visible) {
                         if (!desc.equals(NativeType_Desc))
                             return null;
-                        return new AnnotationVisitor(ASM5) {
+                        return new AnnotationVisitor(ASM6) {
                             public void visit(String name, Object value) {
                                 if (!"value".equals(name) || !(value instanceof String))
                                     return;
