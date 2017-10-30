@@ -202,6 +202,18 @@ public class MethodCall {
         return val;
     }
 
+    public float returnValue(float val) {
+        this.returnValue = Float.toString(val) + "f";
+        hasReturnValue = true;
+        return val;
+    }
+
+    public double returnValue(double val) {
+        this.returnValue = Double.toString(val);
+        hasReturnValue = true;
+        return val;
+    }
+
     public short returnValue(short val) {
         this.returnValue = Short.toString(val);
         hasReturnValue = true;

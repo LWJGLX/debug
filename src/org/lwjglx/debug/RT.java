@@ -601,6 +601,14 @@ public class RT {
         return mc.returnValue(val);
     }
 
+    public static float returnValue(float val, MethodCall mc) {
+        return mc.returnValue(val);
+    }
+
+    public static double returnValue(double val, MethodCall mc) {
+        return mc.returnValue(val);
+    }
+
     public static Object returnValue(Object val, MethodCall mc) {
         return mc.returnValue(val);
     }
