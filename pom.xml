@@ -199,8 +199,8 @@
 									<shadedPattern>org.lwjglx.debug.org.eclipse.jetty</shadedPattern>
 								</relocation>
 								<relocation>
-									<pattern>javax</pattern>
-									<shadedPattern>org.lwjglx.debug.javax</shadedPattern>
+									<pattern>javax.servlet</pattern>
+									<shadedPattern>org.lwjglx.debug.javax.servlet</shadedPattern>
 								</relocation>
 								<relocation>
 									<pattern>joptsimple</pattern>

@@ -22,6 +22,7 @@ import org.junit.Test;
 import org.lwjgl.BufferUtils;
 import org.lwjgl.opengl.ARBVertexArrayObject;
 import org.lwjgl.opengl.ARBVertexShader;
+import org.lwjgl.opengl.GL;
 import org.lwjglx.debug.Context;
 import org.lwjglx.debug.Properties;
 
@@ -457,6 +458,17 @@ public class DebugIT {
         glfwMakeContextCurrent(window);
         createCapabilities();
         assertThrows(IllegalStateException.class, () -> glUniform1f(1, 1.0f), "OpenGL function call raised an error (see stderr output)");
+    }
+
+    @Test
+    public void testNullInNonNullParameter() {
+        assertThrows(IllegalArgumentException.class, () -> glfwCreateWindow(800, 600, (String) null, 0L, 0L),
+                "Argument for 3. parameter 'title' must not be null");
+    }
+
+    @Test
+    public void testNullInNullableParameter() {
+        GL.setCapabilities(null);
     }
 
 }

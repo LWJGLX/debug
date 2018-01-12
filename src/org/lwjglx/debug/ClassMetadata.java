@@ -30,6 +30,7 @@ import java.util.Map;
 import org.objectweb.asm.AnnotationVisitor;
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.ClassVisitor;
+import org.objectweb.asm.Label;
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.Type;
@@ -37,17 +38,28 @@ import org.objectweb.asm.Type;
 class ClassMetadata implements Opcodes {
 
     private static final String NativeType_Desc = "Lorg/lwjgl/system/NativeType;";
+    private static final String jsr305_Nullable_Desc = "Ljavax/annotation/Nullable;";
 
     static class MethodInfo {
         public String[] parameterNativeTypes;
+        public String[] parameterNames;
+        public boolean[] nullable;
         public String returnNativeType;
     }
 
     static final Map<String, ClassMetadata> meta = new HashMap<>();
+    static boolean nullableSupportChecked;
+    static boolean hasNullables;
 
     final Map<String, MethodInfo> methods = new HashMap<>();
 
     static ClassMetadata create(String internalName, ClassLoader cl) {
+        /* Has Nullable support be checked already? */
+        if (!nullableSupportChecked) {
+            nullableSupportChecked = true;
+            /* If not, scan a class which we know has Nullable annotations first */
+            create("org/lwjgl/system/MemoryUtil", cl);
+        }
         if (meta.containsKey(internalName))
             return meta.get(internalName);
         final ClassMetadata m = new ClassMetadata();
@@ -65,20 +77,41 @@ class ClassMetadata implements Opcodes {
                 if (!isPublic || !isStatic)
                     return null;
                 final MethodInfo minfo = new MethodInfo();
-                int numParameters = Type.getArgumentTypes(desc).length;
+                Type[] argumentTypes = Type.getArgumentTypes(desc);
+                int numParamLocals = 0;
+                for (Type t : argumentTypes)
+                    numParamLocals += t.getSize();
+                int[] localToParamIndex = new int[numParamLocals];
+                for (int param = 0, paramLocal = 0; param < argumentTypes.length; paramLocal += argumentTypes[param].getSize(), param++)
+                    localToParamIndex[paramLocal] = param;
+                int numParameters = argumentTypes.length;
                 minfo.parameterNativeTypes = new String[numParameters];
+                minfo.nullable = new boolean[numParameters];
+                minfo.parameterNames = new String[numParameters];
                 m.methods.put(name + desc, minfo);
                 return new MethodVisitor(ASM6) {
-                    public AnnotationVisitor visitParameterAnnotation(int parameter, String desc, boolean visible) {
-                        if (!desc.equals(NativeType_Desc))
-                            return null;
-                        return new AnnotationVisitor(ASM6) {
-                            public void visit(String name, Object value) {
-                                if (!"value".equals(name) || !(value instanceof String))
-                                    return;
-                                minfo.parameterNativeTypes[parameter] = (String) value;
-                            }
-                        };
+                    public void visitLocalVariable(String name, String desc, String signature, Label start, Label end,
+                            int index) {
+                        if (index >= localToParamIndex.length)
+                            return;
+                        int param = localToParamIndex[index];
+                        minfo.parameterNames[param] = name;
+                    }
+
+                    public AnnotationVisitor visitParameterAnnotation(int parameter, String annotDesc, boolean visible) {
+                        if (jsr305_Nullable_Desc.equals(annotDesc)) {
+                            minfo.nullable[parameter] = true;
+                            hasNullables = true;
+                        } else if (NativeType_Desc.equals(annotDesc)) {
+                            return new AnnotationVisitor(ASM6) {
+                                public void visit(String name, Object value) {
+                                    if (!"value".equals(name) || !(value instanceof String))
+                                        return;
+                                    minfo.parameterNativeTypes[parameter] = (String) value;
+                                }
+                            };
+                        }
+                        return null;
                     }
 
                     public AnnotationVisitor visitAnnotation(String desc, boolean visible) {
@@ -94,7 +127,7 @@ class ClassMetadata implements Opcodes {
                     }
                 };
             }
-        }, ClassReader.SKIP_FRAMES | ClassReader.SKIP_CODE | ClassReader.SKIP_DEBUG);
+        }, ClassReader.SKIP_FRAMES);
         meta.put(internalName, m);
         try {
             is.close();

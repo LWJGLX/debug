@@ -346,10 +346,6 @@ public class GLFW {
             mc.paramEnum("GLFW_COCOA_RETINA_FRAMEBUFFER");
             printBoolean(mc, value);
             break;
-        case org.lwjgl.glfw.GLFW.GLFW_COCOA_FRAME_AUTOSAVE:
-            mc.paramEnum("GLFW_COCOA_FRAME_AUTOSAVE");
-            printBoolean(mc, value);
-            break;
         case org.lwjgl.glfw.GLFW.GLFW_COCOA_GRAPHICS_SWITCHING:
             mc.paramEnum("GLFW_COCOA_GRAPHICS_SWITCHING");
             printBoolean(mc, value);

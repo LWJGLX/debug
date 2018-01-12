@@ -254,7 +254,9 @@ class InterceptClassGenerator implements Opcodes {
                 /* Validate buffer arguments and also load all arguments onto stack */
                 Type[] paramTypes = Type.getArgumentTypes(call.desc);
                 Type retType = Type.getReturnType(call.desc);
-                int var = loadArgumentsAndValidateBuffers(mv, paramTypes);
+                ClassMetadata classMetadata = ClassMetadata.create(call.receiverInternalName, classLoader);
+                MethodInfo minfo = classMetadata.methods.get(call.name + call.desc);
+                int var = loadArgumentsAndValidateArguments(mv, paramTypes, classMetadata, minfo);
                 /* Allocate locals for the source/line parameters (only available when TRACE) */
                 int lineVar = var++;
                 /* check if GL call */
@@ -315,11 +317,9 @@ class InterceptClassGenerator implements Opcodes {
                             mv.visitVarInsn(retType.getOpcode(ILOAD), retVar);
                         }
                     } else {
+                        /* No user-provided trace method -> generate default trace prolog */
                         mv.visitInsn(DUP); // <- duplicate MethodCall to be reused in generateDefaultTraceBefore()
                         mv.visitVarInsn(ASTORE, methodCallVar); // <- store in local
-                        /* No user-provided trace method -> generate default trace prolog */
-                        ClassMetadata classMetadata = ClassMetadata.create(call.receiverInternalName, classLoader);
-                        MethodInfo minfo = classMetadata.methods.get(call.name + call.desc);
                         /* Generate trace prolog */
                         generateDefaultTraceBefore(call, mv, paramTypes, minfo);
                         /* Call a user-provided intercept method or the target method */
@@ -367,7 +367,7 @@ class InterceptClassGenerator implements Opcodes {
         }
     }
 
-    private static int loadArgumentsAndValidateBuffers(MethodVisitor mv, Type[] paramTypes) {
+    private static int loadArgumentsAndValidateArguments(MethodVisitor mv, Type[] paramTypes, ClassMetadata classMetadata, MethodInfo minfo) {
         int var = 0; // <- counts the used local variables
         for (int i = 0; i < paramTypes.length; i++) {
             Type paramType = paramTypes[i];
@@ -376,6 +376,15 @@ class InterceptClassGenerator implements Opcodes {
                 if (paramType.getSort() == Type.OBJECT && Util.isBuffer(paramType.getInternalName())) {
                     mv.visitInsn(DUP);
                     mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, "checkBuffer", "(" + paramType.getDescriptor() + ")V", false);
+                }
+                if (ClassMetadata.hasNullables && (paramType.getSort() == Type.OBJECT || paramType.getSort() == Type.ARRAY) && !minfo.nullable[i]) {
+                    mv.visitInsn(DUP);
+                    mv.visitLdcInsn(i);
+                    if (minfo.parameterNames[i] != null)
+                        mv.visitLdcInsn(minfo.parameterNames[i]);
+                    else
+                        mv.visitInsn(ACONST_NULL);
+                    mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, "checkNotNull", "(Ljava/lang/Object;ILjava/lang/String;)V", false);
                 }
             }
             var += paramType.getSize();

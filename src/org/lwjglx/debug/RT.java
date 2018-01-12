@@ -765,6 +765,15 @@ public class RT {
         checkNativeByteOrder(buffer);
     }
 
+    public static void checkNotNull(Object paramValue, int paramIndex, String paramName) {
+        if (paramValue == null)
+            if (paramName != null)
+                throw new IllegalArgumentException(
+                        "Argument for " + (paramIndex + 1) + ". parameter '" + paramName + "' must not be null");
+            else
+                throw new IllegalArgumentException("Argument for " + (paramIndex + 1) + ". parameter must not be null");
+    }
+
     public static String glEnumFor(int value, Map<Integer, String> initialGroup) {
         String glEnum = null;
         if (glEnum == null) {
