@@ -44,6 +44,13 @@ import org.lwjglx.debug.RT;
 
 public class GL11 {
 
+    public static void glClear(int mask) {
+        if (Properties.VALIDATE.enabled) {
+            checkFramebufferCompleteness();
+        }
+        org.lwjgl.opengl.GL11.glClear(mask);
+    }
+
     public static void glEnableClientState(int cap) {
         if (Properties.VALIDATE.enabled) {
             switch (cap) {
@@ -531,7 +538,7 @@ public class GL11 {
 
     public static void glDrawArrays(int mode, int first, int count) {
         if (Properties.VALIDATE.enabled) {
-            checkVertexAttributes();
+            checkBeforeDrawCall();
         }
         if (Properties.PROFILE.enabled) {
             RT.beforeDraw();
@@ -548,7 +555,7 @@ public class GL11 {
             if (ibo == 0) {
                 throwISEOrLogError("glDrawElements called with index offset but no ELEMENT_ARRAY_BUFFER bound");
             }
-            checkVertexAttributes();
+            checkBeforeDrawCall();
         }
         if (Properties.PROFILE.enabled) {
             RT.beforeDraw();
@@ -561,7 +568,7 @@ public class GL11 {
 
     public static void glDrawElements(int mode, int type, ByteBuffer indices) {
         if (Properties.VALIDATE.enabled) {
-            checkVertexAttributes();
+            checkBeforeDrawCall();
         }
         if (Properties.PROFILE.enabled) {
             RT.beforeDraw();
@@ -574,7 +581,7 @@ public class GL11 {
 
     public static void glDrawElements(int mode, ByteBuffer indices) {
         if (Properties.VALIDATE.enabled) {
-            checkVertexAttributes();
+            checkBeforeDrawCall();
         }
         if (Properties.PROFILE.enabled) {
             RT.beforeDraw();
@@ -587,7 +594,7 @@ public class GL11 {
 
     public static void glDrawElements(int mode, ShortBuffer indices) {
         if (Properties.VALIDATE.enabled) {
-            checkVertexAttributes();
+            checkBeforeDrawCall();
         }
         if (Properties.PROFILE.enabled) {
             RT.beforeDraw();
@@ -600,7 +607,7 @@ public class GL11 {
 
     public static void glDrawElements(int mode, IntBuffer indices) {
         if (Properties.VALIDATE.enabled) {
-            checkVertexAttributes();
+            checkBeforeDrawCall();
         }
         if (Properties.PROFILE.enabled) {
             RT.beforeDraw();

@@ -24,6 +24,7 @@ package org.lwjglx.debug;
 
 import static org.lwjglx.debug.Context.CONTEXTS;
 import static org.lwjglx.debug.Context.CURRENT_CONTEXT;
+import static org.lwjglx.debug.Context.checkFramebufferCompleteness;
 import static org.lwjglx.debug.Log.error;
 import static org.lwjglx.debug.Log.trace;
 
@@ -863,6 +864,9 @@ public class RT {
     }
 
     public static void beforeDraw() {
+        if (Properties.VALIDATE.enabled) {
+            checkFramebufferCompleteness();
+        }
         Context ctx = CURRENT_CONTEXT.get();
         if (ctx.caps.GL_ARB_timer_query) {
             TimingQuery q = ctx.nextTimerQuery();
@@ -882,6 +886,9 @@ public class RT {
     }
 
     public static void beginImmediate() {
+        if (Properties.VALIDATE.enabled) {
+            checkFramebufferCompleteness();
+        }
         Context ctx = CURRENT_CONTEXT.get();
         ctx.inImmediateMode = true;
         if (Properties.PROFILE.enabled) {

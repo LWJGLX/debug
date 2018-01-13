@@ -45,35 +45,35 @@ public class GL12 {
             if (ibo == 0) {
                 throwISEOrLogError("glDrawRangeElements called with index offset but no ELEMENT_ARRAY_BUFFER bound");
             }
-            checkVertexAttributes();
+            checkBeforeDrawCall();
         }
         org.lwjgl.opengl.GL12.glDrawRangeElements(mode, start, end, count, type, indices);
     }
 
     public static void glDrawRangeElements(int mode, int start, int end, int type, ByteBuffer indices) {
         if (Properties.VALIDATE.enabled) {
-            checkVertexAttributes();
+            checkBeforeDrawCall();
         }
         org.lwjgl.opengl.GL12.glDrawRangeElements(mode, start, end, type, indices);
     }
 
     public static void glDrawRangeElements(int mode, int start, int end, ByteBuffer indices) {
         if (Properties.VALIDATE.enabled) {
-            checkVertexAttributes();
+            checkBeforeDrawCall();
         }
         org.lwjgl.opengl.GL12.glDrawRangeElements(mode, start, end, indices);
     }
 
     public static void glDrawRangeElements(int mode, int start, int end, ShortBuffer indices) {
         if (Properties.VALIDATE.enabled) {
-            checkVertexAttributes();
+            checkBeforeDrawCall();
         }
         org.lwjgl.opengl.GL12.glDrawRangeElements(mode, start, end, indices);
     }
 
     public static void glDrawRangeElements(int mode, int start, int end, IntBuffer indices) {
         if (Properties.VALIDATE.enabled) {
-            checkVertexAttributes();
+            checkBeforeDrawCall();
         }
         org.lwjgl.opengl.GL12.glDrawRangeElements(mode, start, end, indices);
     }

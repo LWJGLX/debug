@@ -40,7 +40,7 @@ public class GL32 {
             if (ibo == 0) {
                 throwISEOrLogError("glDrawElementsBaseVertex called with index offset but no ELEMENT_ARRAY_BUFFER bound");
             }
-            checkVertexAttributes();
+            checkBeforeDrawCall();
         }
         if (Properties.PROFILE.enabled) {
             RT.beforeDraw();
@@ -53,7 +53,7 @@ public class GL32 {
 
     public static void glDrawElementsBaseVertex(int mode, int type, ByteBuffer indices, int basevertex) {
         if (Properties.VALIDATE.enabled) {
-            checkVertexAttributes();
+            checkBeforeDrawCall();
         }
         if (Properties.PROFILE.enabled) {
             RT.beforeDraw();
@@ -66,7 +66,7 @@ public class GL32 {
 
     public static void glDrawElementsBaseVertex(int mode, ByteBuffer indices, int basevertex) {
         if (Properties.VALIDATE.enabled) {
-            checkVertexAttributes();
+            checkBeforeDrawCall();
         }
         if (Properties.PROFILE.enabled) {
             RT.beforeDraw();
@@ -79,7 +79,7 @@ public class GL32 {
 
     public static void glDrawElementsBaseVertex(int mode, ShortBuffer indices, int basevertex) {
         if (Properties.VALIDATE.enabled) {
-            checkVertexAttributes();
+            checkBeforeDrawCall();
         }
         if (Properties.PROFILE.enabled) {
             RT.beforeDraw();
@@ -92,7 +92,7 @@ public class GL32 {
 
     public static void glDrawElementsBaseVertex(int mode, IntBuffer indices, int basevertex) {
         if (Properties.VALIDATE.enabled) {
-            checkVertexAttributes();
+            checkBeforeDrawCall();
         }
         if (Properties.PROFILE.enabled) {
             RT.beforeDraw();
@@ -109,7 +109,7 @@ public class GL32 {
             if (ibo == 0) {
                 throwISEOrLogError("glDrawRangeElementsBaseVertex called with index offset but no ELEMENT_ARRAY_BUFFER bound");
             }
-            checkVertexAttributes();
+            checkBeforeDrawCall();
         }
         if (Properties.PROFILE.enabled) {
             RT.beforeDraw();
@@ -122,7 +122,7 @@ public class GL32 {
 
     public static void glDrawRangeElementsBaseVertex(int mode, int start, int end, int type, ByteBuffer indices, int basevertex) {
         if (Properties.VALIDATE.enabled) {
-            checkVertexAttributes();
+            checkBeforeDrawCall();
         }
         if (Properties.PROFILE.enabled) {
             RT.beforeDraw();
@@ -135,7 +135,7 @@ public class GL32 {
 
     public static void glDrawRangeElementsBaseVertex(int mode, int start, int end, ByteBuffer indices, int basevertex) {
         if (Properties.VALIDATE.enabled) {
-            checkVertexAttributes();
+            checkBeforeDrawCall();
         }
         if (Properties.PROFILE.enabled) {
             RT.beforeDraw();
@@ -148,7 +148,7 @@ public class GL32 {
 
     public static void glDrawRangeElementsBaseVertex(int mode, int start, int end, ShortBuffer indices, int basevertex) {
         if (Properties.VALIDATE.enabled) {
-            checkVertexAttributes();
+            checkBeforeDrawCall();
         }
         if (Properties.PROFILE.enabled) {
             RT.beforeDraw();
@@ -161,7 +161,7 @@ public class GL32 {
 
     public static void glDrawRangeElementsBaseVertex(int mode, int start, int end, IntBuffer indices, int basevertex) {
         if (Properties.VALIDATE.enabled) {
-            checkVertexAttributes();
+            checkBeforeDrawCall();
         }
         if (Properties.PROFILE.enabled) {
             RT.beforeDraw();
@@ -178,7 +178,7 @@ public class GL32 {
             if (ibo == 0) {
                 throwISEOrLogError("glDrawElementsInstancedBaseVertex called with index offset but no ELEMENT_ARRAY_BUFFER bound");
             }
-            checkVertexAttributes();
+            checkBeforeDrawCall();
         }
         if (Properties.PROFILE.enabled) {
             RT.beforeDraw();
@@ -191,7 +191,7 @@ public class GL32 {
 
     public static void glDrawElementsInstancedBaseVertex(int mode, int type, ByteBuffer indices, int primcount, int basevertex) {
         if (Properties.VALIDATE.enabled) {
-            checkVertexAttributes();
+            checkBeforeDrawCall();
         }
         if (Properties.PROFILE.enabled) {
             RT.beforeDraw();
@@ -204,7 +204,7 @@ public class GL32 {
 
     public static void glDrawElementsInstancedBaseVertex(int mode, ByteBuffer indices, int primcount, int basevertex) {
         if (Properties.VALIDATE.enabled) {
-            checkVertexAttributes();
+            checkBeforeDrawCall();
         }
         if (Properties.PROFILE.enabled) {
             RT.beforeDraw();
@@ -217,7 +217,7 @@ public class GL32 {
 
     public static void glDrawElementsInstancedBaseVertex(int mode, ShortBuffer indices, int primcount, int basevertex) {
         if (Properties.VALIDATE.enabled) {
-            checkVertexAttributes();
+            checkBeforeDrawCall();
         }
         if (Properties.PROFILE.enabled) {
             RT.beforeDraw();
@@ -230,7 +230,7 @@ public class GL32 {
 
     public static void glDrawElementsInstancedBaseVertex(int mode, IntBuffer indices, int primcount, int basevertex) {
         if (Properties.VALIDATE.enabled) {
-            checkVertexAttributes();
+            checkBeforeDrawCall();
         }
         if (Properties.PROFILE.enabled) {
             RT.beforeDraw();

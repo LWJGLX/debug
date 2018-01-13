@@ -62,6 +62,10 @@ public class Context implements Comparable<Context> {
     }
 
     public static class FBO {
+        public int handle;
+        public FBO(int handle) {
+            this.handle = handle;
+        }
     }
 
     public static class ProgramPipeline {
@@ -219,7 +223,7 @@ public class Context implements Comparable<Context> {
         this.defaultVao = new VAO(GL_MAX_VERTEX_ATTRIBS);
         this.currentVao = defaultVao;
         this.vaos.put(0, defaultVao);
-        this.defaultFbo = new FBO();
+        this.defaultFbo = new FBO(0);
         this.currentFbo = defaultFbo;
         this.fbos.put(0, defaultFbo);
         this.defaultProgramPipeline = new ProgramPipeline();
@@ -375,6 +379,11 @@ public class Context implements Comparable<Context> {
         }
     }
 
+    public static void checkBeforeDrawCall() {
+        checkFramebufferCompleteness();
+        checkVertexAttributes();
+    }
+
     public static void checkVertexAttributes() {
         Context context = CURRENT_CONTEXT.get();
         VAO vao = context.currentVao;
@@ -394,6 +403,19 @@ public class Context implements Comparable<Context> {
         }
         if (vao.texCoordArrayEnabled && !vao.texCoordArrayInitialized) {
             RT.throwISEOrLogError("GL_TEXTURE_COORD_ARRAY enabled but not initialized");
+        }
+    }
+
+    public static void checkFramebufferCompleteness() {
+        if (Properties.VALIDATE.enabled) {
+            Context context = CURRENT_CONTEXT.get();
+            if (context.currentFbo != null) {
+                /* Check framebuffer status */
+                int status = org.lwjgl.opengl.GL30.glCheckFramebufferStatus(org.lwjgl.opengl.GL30.GL_FRAMEBUFFER);
+                if (status != org.lwjgl.opengl.GL30.GL_FRAMEBUFFER_COMPLETE) {
+                    RT.throwISEOrLogError("Framebuffer [" + context.currentFbo.handle + "] is not complete: " + status);
+                }
+            }
         }
     }
 

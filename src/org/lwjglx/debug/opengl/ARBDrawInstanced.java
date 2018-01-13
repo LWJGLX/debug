@@ -36,7 +36,7 @@ public class ARBDrawInstanced {
 
     public static void glDrawArraysInstancedARB(int mode, int first, int count, int primcount) {
         if (Properties.VALIDATE.enabled) {
-            checkVertexAttributes();
+            checkBeforeDrawCall();
         }
         if (Properties.PROFILE.enabled) {
             RT.beforeDraw();
@@ -53,7 +53,7 @@ public class ARBDrawInstanced {
             if (ibo == 0) {
                 throwISEOrLogError("glDrawElementsInstancedARB called with index offset but no ELEMENT_ARRAY_BUFFER bound");
             }
-            checkVertexAttributes();
+            checkBeforeDrawCall();
         }
         if (Properties.PROFILE.enabled) {
             RT.beforeDraw();
@@ -66,7 +66,7 @@ public class ARBDrawInstanced {
 
     public static void glDrawElementsInstancedARB(int mode, int type, ByteBuffer indices, int primcount) {
         if (Properties.VALIDATE.enabled) {
-            checkVertexAttributes();
+            checkBeforeDrawCall();
         }
         if (Properties.PROFILE.enabled) {
             RT.beforeDraw();
@@ -79,7 +79,7 @@ public class ARBDrawInstanced {
 
     public static void glDrawElementsInstancedARB(int mode, ByteBuffer indices, int primcount) {
         if (Properties.VALIDATE.enabled) {
-            checkVertexAttributes();
+            checkBeforeDrawCall();
         }
         if (Properties.PROFILE.enabled) {
             RT.beforeDraw();
@@ -92,7 +92,7 @@ public class ARBDrawInstanced {
 
     public static void glDrawElementsInstancedARB(int mode, ShortBuffer indices, int primcount) {
         if (Properties.VALIDATE.enabled) {
-            checkVertexAttributes();
+            checkBeforeDrawCall();
         }
         if (Properties.PROFILE.enabled) {
             RT.beforeDraw();
@@ -105,7 +105,7 @@ public class ARBDrawInstanced {
 
     public static void glDrawElementsInstancedARB(int mode, IntBuffer indices, int primcount) {
         if (Properties.VALIDATE.enabled) {
-            checkVertexAttributes();
+            checkBeforeDrawCall();
         }
         if (Properties.PROFILE.enabled) {
             RT.beforeDraw();

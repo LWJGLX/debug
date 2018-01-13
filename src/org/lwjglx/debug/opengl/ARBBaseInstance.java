@@ -36,7 +36,7 @@ public class ARBBaseInstance {
 
     public static void glDrawArraysInstancedBaseInstance(int mode, int first, int count, int primcount, int baseinstance) {
         if (Properties.VALIDATE.enabled) {
-            checkVertexAttributes();
+            checkBeforeDrawCall();
         }
         if (Properties.PROFILE.enabled) {
             RT.beforeDraw();
@@ -53,7 +53,7 @@ public class ARBBaseInstance {
             if (ibo == 0) {
                 throwISEOrLogError("glDrawElementsInstancedBaseInstance called with index offset but no ELEMENT_ARRAY_BUFFER bound");
             }
-            checkVertexAttributes();
+            checkBeforeDrawCall();
         }
         if (Properties.PROFILE.enabled) {
             RT.beforeDraw();
@@ -66,7 +66,7 @@ public class ARBBaseInstance {
 
     public static void glDrawElementsInstancedBaseInstance(int mode, int type, ByteBuffer indices, int primcount, int baseinstance) {
         if (Properties.VALIDATE.enabled) {
-            checkVertexAttributes();
+            checkBeforeDrawCall();
         }
         if (Properties.PROFILE.enabled) {
             RT.beforeDraw();
@@ -79,7 +79,7 @@ public class ARBBaseInstance {
 
     public static void glDrawElementsInstancedBaseInstance(int mode, ByteBuffer indices, int primcount, int baseinstance) {
         if (Properties.VALIDATE.enabled) {
-            checkVertexAttributes();
+            checkBeforeDrawCall();
         }
         if (Properties.PROFILE.enabled) {
             RT.beforeDraw();
@@ -92,7 +92,7 @@ public class ARBBaseInstance {
 
     public static void glDrawElementsInstancedBaseInstance(int mode, ShortBuffer indices, int primcount, int baseinstance) {
         if (Properties.VALIDATE.enabled) {
-            checkVertexAttributes();
+            checkBeforeDrawCall();
         }
         if (Properties.PROFILE.enabled) {
             RT.beforeDraw();
@@ -105,7 +105,7 @@ public class ARBBaseInstance {
 
     public static void glDrawElementsInstancedBaseInstance(int mode, IntBuffer indices, int primcount, int baseinstance) {
         if (Properties.VALIDATE.enabled) {
-            checkVertexAttributes();
+            checkBeforeDrawCall();
         }
         if (Properties.PROFILE.enabled) {
             RT.beforeDraw();
@@ -122,7 +122,7 @@ public class ARBBaseInstance {
             if (ibo == 0) {
                 throwISEOrLogError("glDrawElementsInstancedBaseVertexBaseInstance called with index offset but no ELEMENT_ARRAY_BUFFER bound");
             }
-            checkVertexAttributes();
+            checkBeforeDrawCall();
         }
         if (Properties.PROFILE.enabled) {
             RT.beforeDraw();
@@ -135,7 +135,7 @@ public class ARBBaseInstance {
 
     public static void glDrawElementsInstancedBaseVertexBaseInstance(int mode, int type, ByteBuffer indices, int primcount, int basevertex, int baseinstance) {
         if (Properties.VALIDATE.enabled) {
-            checkVertexAttributes();
+            checkBeforeDrawCall();
         }
         if (Properties.PROFILE.enabled) {
             RT.beforeDraw();
@@ -148,7 +148,7 @@ public class ARBBaseInstance {
 
     public static void glDrawElementsInstancedBaseVertexBaseInstance(int mode, ByteBuffer indices, int primcount, int basevertex, int baseinstance) {
         if (Properties.VALIDATE.enabled) {
-            checkVertexAttributes();
+            checkBeforeDrawCall();
         }
         if (Properties.PROFILE.enabled) {
             RT.beforeDraw();
@@ -161,7 +161,7 @@ public class ARBBaseInstance {
 
     public static void glDrawElementsInstancedBaseVertexBaseInstance(int mode, ShortBuffer indices, int primcount, int basevertex, int baseinstance) {
         if (Properties.VALIDATE.enabled) {
-            checkVertexAttributes();
+            checkBeforeDrawCall();
         }
         if (Properties.PROFILE.enabled) {
             RT.beforeDraw();
@@ -174,7 +174,7 @@ public class ARBBaseInstance {
 
     public static void glDrawElementsInstancedBaseVertexBaseInstance(int mode, IntBuffer indices, int primcount, int basevertex, int baseinstance) {
         if (Properties.VALIDATE.enabled) {
-            checkVertexAttributes();
+            checkBeforeDrawCall();
         }
         if (Properties.PROFILE.enabled) {
             RT.beforeDraw();

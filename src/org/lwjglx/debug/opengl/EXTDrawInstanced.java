@@ -13,7 +13,7 @@ public class EXTDrawInstanced {
 
     public static void glDrawArraysInstancedEXT(int mode, int start, int count, int primcount) {
         if (Properties.VALIDATE.enabled) {
-            checkVertexAttributes();
+            checkBeforeDrawCall();
         }
         if (Properties.PROFILE.enabled) {
             RT.beforeDraw();
@@ -26,7 +26,7 @@ public class EXTDrawInstanced {
 
     public static void glDrawElementsInstancedEXT(int mode, int count, int type, long indices, int primcount) {
         if (Properties.VALIDATE.enabled) {
-            checkVertexAttributes();
+            checkBeforeDrawCall();
         }
         if (Properties.PROFILE.enabled) {
             RT.beforeDraw();
@@ -39,7 +39,7 @@ public class EXTDrawInstanced {
 
     public static void glDrawElementsInstancedEXT(int mode, int type, ByteBuffer indices, int primcount) {
         if (Properties.VALIDATE.enabled) {
-            checkVertexAttributes();
+            checkBeforeDrawCall();
         }
         if (Properties.PROFILE.enabled) {
             RT.beforeDraw();
@@ -52,7 +52,7 @@ public class EXTDrawInstanced {
 
     public static void glDrawElementsInstancedEXT(int mode, ByteBuffer indices, int primcount) {
         if (Properties.VALIDATE.enabled) {
-            checkVertexAttributes();
+            checkBeforeDrawCall();
         }
         if (Properties.PROFILE.enabled) {
             RT.beforeDraw();
@@ -65,7 +65,7 @@ public class EXTDrawInstanced {
 
     public static void glDrawElementsInstancedEXT(int mode, ShortBuffer indices, int primcount) {
         if (Properties.VALIDATE.enabled) {
-            checkVertexAttributes();
+            checkBeforeDrawCall();
         }
         if (Properties.PROFILE.enabled) {
             RT.beforeDraw();
@@ -78,7 +78,7 @@ public class EXTDrawInstanced {
 
     public static void glDrawElementsInstancedEXT(int mode, IntBuffer indices, int primcount) {
         if (Properties.VALIDATE.enabled) {
-            checkVertexAttributes();
+            checkBeforeDrawCall();
         }
         if (Properties.PROFILE.enabled) {
             RT.beforeDraw();

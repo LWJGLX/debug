@@ -23,7 +23,6 @@
 package org.lwjglx.debug.opengl;
 
 import static org.lwjglx.debug.Context.*;
-import static org.lwjglx.debug.Log.*;
 import static org.lwjglx.debug.RT.*;
 
 import java.nio.IntBuffer;
@@ -48,7 +47,7 @@ public class ARBFramebufferObject {
             int pos = framebuffers.position();
             for (int i = 0; i < framebuffers.remaining(); i++) {
                 int handle = framebuffers.get(pos + i);
-                FBO fbo = new FBO();
+                FBO fbo = new FBO(handle);
                 ctx.fbos.put(handle, fbo);
             }
         }
@@ -57,7 +56,7 @@ public class ARBFramebufferObject {
     public static int glGenFramebuffers() {
         int handle = org.lwjgl.opengl.ARBFramebufferObject.glGenFramebuffers();
         if (Properties.VALIDATE.enabled) {
-            FBO fbo = new FBO();
+            FBO fbo = new FBO(handle);
             Context ctx = CURRENT_CONTEXT.get();
             ctx.fbos.put(handle, fbo);
         }
@@ -70,7 +69,7 @@ public class ARBFramebufferObject {
             Context ctx = CURRENT_CONTEXT.get();
             for (int i = 0; i < framebuffers.length; i++) {
                 int handle = framebuffers[i];
-                FBO fbo = new FBO();
+                FBO fbo = new FBO(handle);
                 ctx.fbos.put(handle, fbo);
             }
         }
@@ -90,13 +89,6 @@ public class ARBFramebufferObject {
             ctx.currentFbo = fbo;
         }
         org.lwjgl.opengl.ARBFramebufferObject.glBindFramebuffer(target, framebuffer);
-        if (Properties.VALIDATE.enabled) {
-            /* Check framebuffer status */
-            int status = org.lwjgl.opengl.ARBFramebufferObject.glCheckFramebufferStatus(target);
-            if (status != org.lwjgl.opengl.ARBFramebufferObject.GL_FRAMEBUFFER_COMPLETE) {
-                error("Framebuffer [" + framebuffer + "] is not complete: " + status);
-            }
-        }
     }
 
     public static void glDeleteFramebuffers(IntBuffer framebuffers) {

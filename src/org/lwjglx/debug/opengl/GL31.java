@@ -36,7 +36,7 @@ public class GL31 {
 
     public static void glDrawArraysInstanced(int mode, int first, int count, int primcount) {
         if (Properties.VALIDATE.enabled) {
-            checkVertexAttributes();
+            checkBeforeDrawCall();
         }
         if (Properties.PROFILE.enabled) {
             RT.beforeDraw();
@@ -53,7 +53,7 @@ public class GL31 {
             if (ibo == 0) {
                 throwISEOrLogError("glDrawElementsInstanced called with index offset but no ELEMENT_ARRAY_BUFFER bound");
             }
-            checkVertexAttributes();
+            checkBeforeDrawCall();
         }
         if (Properties.PROFILE.enabled) {
             RT.beforeDraw();
@@ -66,7 +66,7 @@ public class GL31 {
 
     public static void glDrawElementsInstanced(int mode, int type, ByteBuffer indices, int primcount) {
         if (Properties.VALIDATE.enabled) {
-            checkVertexAttributes();
+            checkBeforeDrawCall();
         }
         if (Properties.PROFILE.enabled) {
             RT.beforeDraw();
@@ -79,7 +79,7 @@ public class GL31 {
 
     public static void glDrawElementsInstanced(int mode, ByteBuffer indices, int primcount) {
         if (Properties.VALIDATE.enabled) {
-            checkVertexAttributes();
+            checkBeforeDrawCall();
         }
         if (Properties.PROFILE.enabled) {
             RT.beforeDraw();
@@ -92,7 +92,7 @@ public class GL31 {
 
     public static void glDrawElementsInstanced(int mode, ShortBuffer indices, int primcount) {
         if (Properties.VALIDATE.enabled) {
-            checkVertexAttributes();
+            checkBeforeDrawCall();
         }
         if (Properties.PROFILE.enabled) {
             RT.beforeDraw();
@@ -105,7 +105,7 @@ public class GL31 {
 
     public static void glDrawElementsInstanced(int mode, IntBuffer indices, int primcount) {
         if (Properties.VALIDATE.enabled) {
-            checkVertexAttributes();
+            checkBeforeDrawCall();
         }
         if (Properties.PROFILE.enabled) {
             RT.beforeDraw();
