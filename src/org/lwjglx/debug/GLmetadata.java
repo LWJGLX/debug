@@ -8393,6 +8393,7 @@ public class GLmetadata {
   private static Map<Integer, String> BlendingFactor;
   private static void BlendingFactor0() {
     BlendingFactor.put(GL_SRC_COLOR, "GL_SRC_COLOR");
+    BlendingFactor.put(GL_ONE_MINUS_SRC1_COLOR, "GL_ONE_MINUS_SRC1_COLOR");
     BlendingFactor.put(GL_SRC1_ALPHA, "GL_SRC1_ALPHA");
     BlendingFactor.put(GL_CONSTANT_COLOR, "GL_CONSTANT_COLOR");
     BlendingFactor.put(GL_ONE_MINUS_SRC_COLOR, "GL_ONE_MINUS_SRC_COLOR");
@@ -8404,6 +8405,7 @@ public class GLmetadata {
     BlendingFactor.put(GL_CONSTANT_ALPHA, "GL_CONSTANT_ALPHA");
     BlendingFactor.put(GL_DST_ALPHA, "GL_DST_ALPHA");
     BlendingFactor.put(GL_SRC1_COLOR, "GL_SRC1_COLOR");
+    BlendingFactor.put(GL_ONE_MINUS_SRC1_ALPHA, "GL_ONE_MINUS_SRC1_ALPHA");
     BlendingFactor.put(GL_ONE_MINUS_DST_ALPHA, "GL_ONE_MINUS_DST_ALPHA");
     BlendingFactor.put(GL_ONE_MINUS_CONSTANT_ALPHA, "GL_ONE_MINUS_CONSTANT_ALPHA");
     BlendingFactor.put(GL_DST_COLOR, "GL_DST_COLOR");
@@ -8413,7 +8415,7 @@ public class GLmetadata {
   public static Map<Integer, String> BlendingFactor() {
     if (BlendingFactor != null)
       return BlendingFactor;
-    BlendingFactor = new HashMap<Integer, String>(17);
+    BlendingFactor = new HashMap<Integer, String>(19);
     BlendingFactor0();
     return BlendingFactor;
   }
@@ -10451,9 +10453,9 @@ public class GLmetadata {
     GetPName.put(GL_SCISSOR_BOX, "GL_SCISSOR_BOX");
     GetPName.put(GL_VERTEX_PRECLIP_SGIX, "GL_VERTEX_PRECLIP_SGIX");
     GetPName.put(GL_SMOOTH_LINE_WIDTH_RANGE, "GL_SMOOTH_LINE_WIDTH_RANGE");
+    GetPName.put(GL_PACK_ALIGNMENT, "GL_PACK_ALIGNMENT");
   }
   private static void GetPName1() {
-    GetPName.put(GL_PACK_ALIGNMENT, "GL_PACK_ALIGNMENT");
     GetPName.put(GL_SAMPLE_MASK_SGIS, "GL_SAMPLE_MASK_SGIS");
     GetPName.put(GL_FRAGMENT_LIGHT_MODEL_LOCAL_VIEWER_SGIX, "GL_FRAGMENT_LIGHT_MODEL_LOCAL_VIEWER_SGIX");
     GetPName.put(GL_CONVOLUTION_HINT_SGIX, "GL_CONVOLUTION_HINT_SGIX");
@@ -10545,9 +10547,9 @@ public class GLmetadata {
     GetPName.put(GL_SPRITE_AXIS_SGIX, "GL_SPRITE_AXIS_SGIX");
     GetPName.put(GL_ALIASED_POINT_SIZE_RANGE, "GL_ALIASED_POINT_SIZE_RANGE");
     GetPName.put(GL_PIXEL_TILE_BEST_ALIGNMENT_SGIX, "GL_PIXEL_TILE_BEST_ALIGNMENT_SGIX");
+    GetPName.put(GL_LINE_WIDTH_RANGE, "GL_LINE_WIDTH_RANGE");
   }
   private static void GetPName2() {
-    GetPName.put(GL_LINE_WIDTH_RANGE, "GL_LINE_WIDTH_RANGE");
     GetPName.put(GL_GREEN_BITS, "GL_GREEN_BITS");
     GetPName.put(GL_SAMPLE_PATTERN_SGIS, "GL_SAMPLE_PATTERN_SGIS");
     GetPName.put(GL_DOUBLEBUFFER, "GL_DOUBLEBUFFER");
@@ -10631,9 +10633,9 @@ public class GLmetadata {
     GetPName.put(GL_INDEX_BITS, "GL_INDEX_BITS");
     GetPName.put(GL_POINT_SIZE, "GL_POINT_SIZE");
     GetPName.put(GL_PACK_SKIP_VOLUMES_SGIS, "GL_PACK_SKIP_VOLUMES_SGIS");
+    GetPName.put(GL_FOG_FUNC_POINTS_SGIS, "GL_FOG_FUNC_POINTS_SGIS");
   }
   private static void GetPName3() {
-    GetPName.put(GL_FOG_FUNC_POINTS_SGIS, "GL_FOG_FUNC_POINTS_SGIS");
     GetPName.put(GL_POINT_FADE_THRESHOLD_SIZE_SGIS, "GL_POINT_FADE_THRESHOLD_SIZE_SGIS");
     GetPName.put(GL_STENCIL_CLEAR_VALUE, "GL_STENCIL_CLEAR_VALUE");
     GetPName.put(GL_DRAW_BUFFER, "GL_DRAW_BUFFER");
