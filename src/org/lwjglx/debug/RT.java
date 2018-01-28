@@ -731,6 +731,8 @@ public class RT {
         }
         if (!buffer.isDirect()) {
             throwIAEOrLogError("buffer is not direct. Buffers created via " + type + ".allocate() or " + type + ".wrap() are not supported. " + "Use BufferUtils.create" + type + "() instead.");
+        } else if (buffer.capacity() == 0) {
+            throwIAEOrLogError("buffer has zero capacity. If you want to clear the OpenGL buffer object, use GL15.glBufferData(target, size=0, usage) instead.");
         } else if (buffer.remaining() == 0) {
             throwIAEOrLogError("buffer has no remaining elements. Did you forget to flip()/rewind() it?");
         }

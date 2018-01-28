@@ -418,6 +418,16 @@ public class DebugIT {
     }
 
     @Test
+    public void testBufferZeroCapacity() {
+        window = glfwCreateWindow(800, 600, "", 0L, 0L);
+        glfwMakeContextCurrent(window);
+        createCapabilities();
+        FloatBuffer fb = BufferUtils.createFloatBuffer(0);
+        assertThrows(IllegalArgumentException.class, () -> glUniformMatrix4fv(0, false, fb), 
+        		"buffer has zero capacity. If you want to clear the OpenGL buffer object, use GL15.glBufferData(target, size=0, usage) instead.");
+    }
+
+    @Test
     public void testPopClientAttrib() {
         window = glfwCreateWindow(800, 600, "", 0L, 0L);
         glfwMakeContextCurrent(window);
