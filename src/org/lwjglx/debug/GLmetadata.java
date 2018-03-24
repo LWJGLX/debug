@@ -1781,6 +1781,7 @@ public class GLmetadata {
   private static final int GL_PERFQUERY_DONOT_FLUSH_INTEL = 33785;
   private static final int GL_PERFQUERY_FLUSH_INTEL = 33786;
   private static final int GL_PERFQUERY_WAIT_INTEL = 33787;
+  private static final int GL_BLACKHOLE_RENDER_INTEL = 33788;
   private static final int GL_CONSERVATIVE_RASTERIZATION_INTEL = 33790;
   private static final int GL_TEXTURE_MEMORY_LAYOUT_INTEL = 33791;
   private static final int GL_FRAGMENT_LIGHTING_SGIX = 33792;
@@ -7701,6 +7702,7 @@ public class GLmetadata {
     _null_.put(GL_STENCIL_TEST, "GL_STENCIL_TEST");
     _null_.put(GL_TEXTURE_WIDTH_QCOM, "GL_TEXTURE_WIDTH_QCOM");
     _null_.put(GL_DUAL_ALPHA16_SGIS, "GL_DUAL_ALPHA16_SGIS");
+    _null_.put(GL_BLACKHOLE_RENDER_INTEL, "GL_BLACKHOLE_RENDER_INTEL");
     _null_.put(GL_PACK_COMPRESSED_BLOCK_WIDTH, "GL_PACK_COMPRESSED_BLOCK_WIDTH");
     _null_.put(GL_RGB16, "GL_RGB16");
     _null_.put(GL_SHADER_IMAGE_LOAD, "GL_SHADER_IMAGE_LOAD");
@@ -7775,9 +7777,9 @@ public class GLmetadata {
     _null_.put(GL_TEXTURE_BINDING_3D, "GL_TEXTURE_BINDING_3D");
     _null_.put(GL_BLEND_DST_RGB, "GL_BLEND_DST_RGB");
     _null_.put(GL_FRAMEBUFFER_BINDING_ANGLE, "GL_FRAMEBUFFER_BINDING_ANGLE");
-    _null_.put(GL_DUAL_ALPHA8_SGIS, "GL_DUAL_ALPHA8_SGIS");
   }
   private static void _null_54() {
+    _null_.put(GL_DUAL_ALPHA8_SGIS, "GL_DUAL_ALPHA8_SGIS");
     _null_.put(GL_REFLECTION_MAP, "GL_REFLECTION_MAP");
     _null_.put(GL_PERFQUERY_GPA_EXTENDED_COUNTERS_INTEL, "GL_PERFQUERY_GPA_EXTENDED_COUNTERS_INTEL");
     _null_.put(GL_BLEND, "GL_BLEND");
@@ -7826,9 +7828,9 @@ public class GLmetadata {
     _null_.put(GL_OCCLUSION_TEST_RESULT_HP, "GL_OCCLUSION_TEST_RESULT_HP");
     _null_.put(GL_PERFQUERY_COUNTER_DATA_DOUBLE_INTEL, "GL_PERFQUERY_COUNTER_DATA_DOUBLE_INTEL");
     _null_.put(GL_DEBUG_OUTPUT_SYNCHRONOUS_KHR, "GL_DEBUG_OUTPUT_SYNCHRONOUS_KHR");
-    _null_.put(GL_TEXTURE_SAMPLES_IMG, "GL_TEXTURE_SAMPLES_IMG");
   }
   private static void _null_55() {
+    _null_.put(GL_TEXTURE_SAMPLES_IMG, "GL_TEXTURE_SAMPLES_IMG");
     _null_.put(GL_GREATER, "GL_GREATER");
     _null_.put(GL_VIRTUAL_PAGE_SIZE_Z_AMD, "GL_VIRTUAL_PAGE_SIZE_Z_AMD");
     _null_.put(GL_TEXTURE_COMPRESSED_BLOCK_WIDTH, "GL_TEXTURE_COMPRESSED_BLOCK_WIDTH");
@@ -7973,7 +7975,7 @@ public class GLmetadata {
   public static Map<Integer, String> _null_() {
     if (_null_ != null)
       return _null_;
-    _null_ = new HashMap<Integer, String>(2820);
+    _null_ = new HashMap<Integer, String>(2821);
     _null_0();
     _null_1();
     _null_2();
@@ -30534,6 +30536,16 @@ public class GLmetadata {
     cmd.addParam("mode", MatrixMode());
     cmd.extension = GL_EXT_direct_state_access();
     glMatrixPushEXT = cmd;
+    return cmd;
+  }
+  private static Command glEGLImageTargetTexStorageEXT;
+  public static Command glEGLImageTargetTexStorageEXT() {
+    if (glEGLImageTargetTexStorageEXT != null)
+      return glEGLImageTargetTexStorageEXT;
+    Command cmd = new Command(1);
+    cmd.returnGroup = _null_();
+    cmd.addParam("target", _null_());
+    glEGLImageTargetTexStorageEXT = cmd;
     return cmd;
   }
   private static Command glGetNamedStringivARB;
