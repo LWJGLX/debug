@@ -725,46 +725,56 @@ public class RT {
         }
     }
 
-    private static void checkBufferDirect(Buffer buffer, String type) {
+    private static void checkBufferDirect(Buffer buffer, String type, String methodName) {
         if (buffer == null) {
             return;
         }
         if (!buffer.isDirect()) {
             throwIAEOrLogError("buffer is not direct. Buffers created via " + type + ".allocate() or " + type + ".wrap() are not supported. " + "Use BufferUtils.create" + type + "() instead.");
         } else if (buffer.capacity() == 0) {
-            throwIAEOrLogError("buffer has zero capacity. If you want to clear the OpenGL buffer object, use GL15.glBufferData(target, size=0, usage) instead.");
+            String message = "buffer has zero capacity.";
+            if ("glBufferData".equals(methodName)) {
+                message += " If you want to clear an OpenGL buffer object, use GL15.glBufferData(target, size=0, usage) instead.";
+            }
+            throwIAEOrLogError(message);
         } else if (buffer.remaining() == 0) {
             throwIAEOrLogError("buffer has no remaining elements. Did you forget to flip()/rewind() it?");
         }
     }
 
-    public static void checkBuffer(ByteBuffer buffer) {
-        checkBufferDirect(buffer, "ByteBuffer");
+    public static void checkFlipBufferAtPosition0(Buffer buffer) {
+        if (buffer.position() == 0) {
+            throwISEOrLogError("calling flip() on buffer with position = 0. Check if you called method that actually modified the buffer position.");
+        }
+    }
+
+    public static void checkBuffer(ByteBuffer buffer, String methodName) {
+        checkBufferDirect(buffer, "ByteBuffer", methodName);
         checkNativeByteOrder(buffer);
     }
 
-    public static void checkBuffer(ShortBuffer buffer) {
-        checkBufferDirect(buffer, "ShortBuffer");
+    public static void checkBuffer(ShortBuffer buffer, String methodName) {
+        checkBufferDirect(buffer, "ShortBuffer", methodName);
         checkNativeByteOrder(buffer);
     }
 
-    public static void checkBuffer(FloatBuffer buffer) {
-        checkBufferDirect(buffer, "FloatBuffer");
+    public static void checkBuffer(FloatBuffer buffer, String methodName) {
+        checkBufferDirect(buffer, "FloatBuffer", methodName);
         checkNativeByteOrder(buffer);
     }
 
-    public static void checkBuffer(IntBuffer buffer) {
-        checkBufferDirect(buffer, "IntBuffer");
+    public static void checkBuffer(IntBuffer buffer, String methodName) {
+        checkBufferDirect(buffer, "IntBuffer", methodName);
         checkNativeByteOrder(buffer);
     }
 
-    public static void checkBuffer(DoubleBuffer buffer) {
-        checkBufferDirect(buffer, "DoubleBuffer");
+    public static void checkBuffer(DoubleBuffer buffer, String methodName) {
+        checkBufferDirect(buffer, "DoubleBuffer", methodName);
         checkNativeByteOrder(buffer);
     }
 
-    public static void checkBuffer(LongBuffer buffer) {
-        checkBufferDirect(buffer, "LongBuffer");
+    public static void checkBuffer(LongBuffer buffer, String methodName) {
+        checkBufferDirect(buffer, "LongBuffer", methodName);
         checkNativeByteOrder(buffer);
     }
 

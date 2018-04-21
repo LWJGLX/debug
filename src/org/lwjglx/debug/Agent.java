@@ -162,6 +162,11 @@ public class Agent implements ClassFileTransformer, Opcodes {
                         } else if (opcode == INVOKEVIRTUAL && Util.isBuffer(owner) && name.equals("slice")) {
                             mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, name, "(L" + owner + ";" + desc.substring(1), itf);
                             modified.value = true;
+                        } else if (opcode == INVOKEVIRTUAL && Util.isBuffer(owner) && name.equals("flip")) {
+                            mv.visitInsn(DUP);
+                            mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, "checkFlipBufferAtPosition0", "(Ljava/nio/Buffer;)V", false);
+                            super.visitMethodInsn(opcode, owner, name, desc, itf);
+                            modified.value = true;
                         } else {
                             super.visitMethodInsn(opcode, owner, name, desc, itf);
                         }

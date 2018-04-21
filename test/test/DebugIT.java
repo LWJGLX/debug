@@ -20,9 +20,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.lwjgl.BufferUtils;
-import org.lwjgl.opengl.ARBVertexArrayObject;
-import org.lwjgl.opengl.ARBVertexShader;
-import org.lwjgl.opengl.GL;
+import org.lwjgl.opengl.*;
 import org.lwjglx.debug.Context;
 import org.lwjglx.debug.Properties;
 
@@ -423,8 +421,8 @@ public class DebugIT {
         glfwMakeContextCurrent(window);
         createCapabilities();
         FloatBuffer fb = BufferUtils.createFloatBuffer(0);
-        assertThrows(IllegalArgumentException.class, () -> glUniformMatrix4fv(0, false, fb), 
-        		"buffer has zero capacity. If you want to clear the OpenGL buffer object, use GL15.glBufferData(target, size=0, usage) instead.");
+        assertThrows(IllegalArgumentException.class, () -> glBufferData(GL_VERTEX_ARRAY, fb, GL_STATIC_DRAW), 
+                "buffer has zero capacity. If you want to clear an OpenGL buffer object, use GL15.glBufferData(target, size=0, usage) instead.");
     }
 
     @Test
@@ -479,6 +477,12 @@ public class DebugIT {
     @Test
     public void testNullInNullableParameter() {
         GL.setCapabilities(null);
+    }
+
+    @Test
+    public void testFlipOnBufferPosition0() {
+        ByteBuffer bb = ByteBuffer.allocateDirect(16 * 4);
+        assertThrows(IllegalStateException.class, () -> bb.flip());
     }
 
 }

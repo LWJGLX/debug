@@ -375,7 +375,8 @@ class InterceptClassGenerator implements Opcodes {
             if (VALIDATE.enabled) {
                 if (paramType.getSort() == Type.OBJECT && Util.isBuffer(paramType.getInternalName())) {
                     mv.visitInsn(DUP);
-                    mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, "checkBuffer", "(" + paramType.getDescriptor() + ")V", false);
+                    mv.visitLdcInsn(minfo.name);
+                    mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, "checkBuffer", "(" + paramType.getDescriptor() + "Ljava/lang/String;)V", false);
                 }
                 if (ClassMetadata.hasNullables && (paramType.getSort() == Type.OBJECT || paramType.getSort() == Type.ARRAY) && !minfo.nullable[i]) {
                     mv.visitInsn(DUP);

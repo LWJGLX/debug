@@ -45,6 +45,7 @@ class ClassMetadata implements Opcodes {
         public String[] parameterNames;
         public boolean[] nullable;
         public String returnNativeType;
+        public String name;
     }
 
     static final Map<String, ClassMetadata> meta = new HashMap<>();
@@ -88,6 +89,7 @@ class ClassMetadata implements Opcodes {
                 minfo.parameterNativeTypes = new String[numParameters];
                 minfo.nullable = new boolean[numParameters];
                 minfo.parameterNames = new String[numParameters];
+                minfo.name = name;
                 m.methods.put(name + desc, minfo);
                 return new MethodVisitor(ASM6) {
                     public void visitLocalVariable(String name, String desc, String signature, Label start, Label end,
