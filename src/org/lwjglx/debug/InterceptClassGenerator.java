@@ -345,7 +345,7 @@ class InterceptClassGenerator implements Opcodes {
             ClassReader tcr = new ClassReader(arr);
             tcr.accept(tcv, 0);
         }
-        Class<?> generatedClass = ClassUtils.defineClass(classLoader, proxyInternalName, arr);
+        Class<?> generatedClass = ClassUtils.defineClass(classLoader, RT.class, proxyInternalName, arr);
         return generatedClass;
     }
 

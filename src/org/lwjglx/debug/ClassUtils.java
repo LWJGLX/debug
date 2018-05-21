@@ -29,18 +29,42 @@ import java.lang.reflect.Method;
 class ClassUtils {
 
     private static final MethodHandle defineClass;
+    private static final MethodHandle lookupDefineClass;
 
     static {
+        MethodHandle lookupDefineClassMH = null;
         try {
-            Method defineClassMethod = ClassLoader.class.getDeclaredMethod("defineClass", new Class[] { String.class, byte[].class, int.class, int.class });
-            defineClassMethod.setAccessible(true);
-            defineClass = MethodHandles.lookup().unreflect(defineClassMethod);
-        } catch (Exception e) {
-            throw new AssertionError("Could not find method: ClassLoader.defineClass");
+            Method lookupDefineClassMethod = MethodHandles.Lookup.class.getDeclaredMethod("defineClass",
+                    new Class[] { byte[].class });
+            lookupDefineClassMH = MethodHandles.lookup().unreflect(lookupDefineClassMethod);
+        } catch (NoSuchMethodException e) {
+            /* No Lookup.defineClass() */
+        } catch (IllegalAccessException e) {
+            /* No Lookup.defineClass() */
+        }
+        lookupDefineClass = lookupDefineClassMH;
+        if (lookupDefineClassMH == null) {
+            try {
+                Method defineClassMethod = ClassLoader.class.getDeclaredMethod("defineClass",
+                        new Class[] { String.class, byte[].class, int.class, int.class });
+                defineClassMethod.setAccessible(true);
+                defineClass = MethodHandles.lookup().unreflect(defineClassMethod);
+            } catch (Exception e) {
+                throw new AssertionError("Could not find method: ClassLoader.defineClass");
+            }
+        } else {
+            defineClass = null;
         }
     }
 
-    static <T> Class<T> defineClass(ClassLoader cl, String name, byte[] definition) {
+    static <T> Class<T> defineClass(ClassLoader cl, Class<?> hostClass, String name, byte[] definition) {
+        if (lookupDefineClass != null) {
+            try {
+                return (Class<T>) lookupDefineClass.invokeExact(MethodHandles.lookup().in(hostClass), definition);
+            } catch (Throwable e) {
+                throw new AssertionError("Could not define class", e);
+            }
+        }
         String apiName = name.replace('/', '.');
         try {
             return (Class<T>) defineClass.invokeExact(cl, apiName, definition, 0, definition.length);
