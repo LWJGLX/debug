@@ -39,14 +39,14 @@ import org.lwjglx.debug.Context.ProgramPipeline;
 public class GL41 {
 
     public static void glVertexAttribLPointer(int index, int size, int type, int stride, ByteBuffer pointer) {
-        if (Properties.VALIDATE.enabled) {
+        if (Properties.VALIDATE.enabled && index > -1) {
             CURRENT_CONTEXT.get().currentVao.initializedVertexArrays[index] = pointer != null;
         }
         org.lwjgl.opengl.GL41.glVertexAttribLPointer(index, size, type, stride, pointer);
     }
 
     public static void glVertexAttribLPointer(int index, int size, int type, int stride, long pointer) {
-        if (Properties.VALIDATE.enabled) {
+        if (Properties.VALIDATE.enabled && index > -1) {
             int vbo = org.lwjgl.opengl.GL11.glGetInteger(org.lwjgl.opengl.GL15.GL_ARRAY_BUFFER_BINDING);
             if (vbo != 0) {
                 CURRENT_CONTEXT.get().currentVao.initializedVertexArrays[index] = true;
@@ -56,7 +56,7 @@ public class GL41 {
     }
 
     public static void glVertexAttribLPointer(int index, int size, int stride, DoubleBuffer pointer) {
-        if (Properties.VALIDATE.enabled) {
+        if (Properties.VALIDATE.enabled && index > -1) {
             CURRENT_CONTEXT.get().currentVao.initializedVertexArrays[index] = pointer != null;
         }
         org.lwjgl.opengl.GL41.glVertexAttribLPointer(index, size, stride, pointer);

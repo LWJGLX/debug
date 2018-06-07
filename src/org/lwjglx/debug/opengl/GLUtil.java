@@ -45,16 +45,10 @@ public class GLUtil {
         /* We can not just use a fixed stacktrace element offset, because
          * some methods are intercepted and some are not. So, check the package name.
          */
-        StackTraceElement[] elems = filterStackTrace(new Throwable()).getStackTrace();
+        StackTraceElement[] elems = filterStackTrace(new Throwable(), 4).getStackTrace();
         for (int i = 0; i < elems.length; i++) {
             StackTraceElement ste = elems[i];
-            if (!ste.getClassName().startsWith("org.lwjgl.") && !ste.getClassName().startsWith("org.lwjglx.debug.")) {
-                for (int j = i; j < elems.length; j++) {
-                    ste = elems[j];
-                    output.accept(ste.toString());
-                }
-                return;
-            }
+            output.accept(ste.toString());
         }
     }
 
@@ -98,7 +92,7 @@ public class GLUtil {
                 printDetail(stream, "Message", GLDebugMessageCallback.getMessage(length, message));
                 printTrace(stream);
                 if (type == GL_DEBUG_TYPE_ERROR) {
-                    throwISEOrLogError(EXCEPTION_MESSAGE, false);
+                    throwISEOrLogError(EXCEPTION_MESSAGE, false, 3);
                 }
             });
             glDebugMessageCallback(proc, NULL);
@@ -133,7 +127,7 @@ public class GLUtil {
                 printDetail(stream, "Message", GLDebugMessageCallback.getMessage(length, message));
                 printTrace(stream);
                 if (type == KHRDebug.GL_DEBUG_TYPE_ERROR) {
-                    throwISEOrLogError(EXCEPTION_MESSAGE, false);
+                    throwISEOrLogError(EXCEPTION_MESSAGE, false, 3);
                 }
             });
             KHRDebug.glDebugMessageCallback(proc, NULL);
@@ -168,7 +162,7 @@ public class GLUtil {
                 printDetail(stream, "Message", GLDebugMessageARBCallback.getMessage(length, message));
                 printTrace(stream);
                 if (type == ARBDebugOutput.GL_DEBUG_TYPE_ERROR_ARB) {
-                    throwISEOrLogError(EXCEPTION_MESSAGE, false);
+                    throwISEOrLogError(EXCEPTION_MESSAGE, false, 3);
                 }
             });
             glDebugMessageCallbackARB(proc, NULL);
@@ -198,7 +192,7 @@ public class GLUtil {
                 printDetail(stream, "Message", GLDebugMessageAMDCallback.getMessage(length, message));
                 printTrace(stream);
                 if (severity == AMDDebugOutput.GL_DEBUG_SEVERITY_HIGH_AMD) {
-                    throwISEOrLogError(EXCEPTION_MESSAGE, false);
+                    throwISEOrLogError(EXCEPTION_MESSAGE, false, 3);
                 }
             });
             glDebugMessageCallbackAMD(proc, NULL);

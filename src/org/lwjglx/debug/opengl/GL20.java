@@ -38,49 +38,49 @@ import org.lwjglx.debug.Properties;
 public class GL20 {
 
     public static void glEnableVertexAttribArray(int index) {
-        if (Properties.VALIDATE.enabled) {
+        if (Properties.VALIDATE.enabled && index > -1) {
             CURRENT_CONTEXT.get().currentVao.enabledVertexArrays[index] = true;
         }
         org.lwjgl.opengl.GL20.glEnableVertexAttribArray(index);
     }
 
     public static void glDisableVertexAttribArray(int index) {
-        if (Properties.VALIDATE.enabled) {
+        if (Properties.VALIDATE.enabled && index > -1) {
             CURRENT_CONTEXT.get().currentVao.enabledVertexArrays[index] = false;
         }
         org.lwjgl.opengl.GL20.glDisableVertexAttribArray(index);
     }
 
     public static void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, FloatBuffer pointer) {
-        if (Properties.VALIDATE.enabled) {
+        if (Properties.VALIDATE.enabled && index > -1) {
             CURRENT_CONTEXT.get().currentVao.initializedVertexArrays[index] = pointer != null;
         }
         org.lwjgl.opengl.GL20.glVertexAttribPointer(index, size, type, normalized, stride, pointer);
     }
 
     public static void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, ByteBuffer pointer) {
-        if (Properties.VALIDATE.enabled) {
+        if (Properties.VALIDATE.enabled && index > -1) {
             CURRENT_CONTEXT.get().currentVao.initializedVertexArrays[index] = pointer != null;
         }
         org.lwjgl.opengl.GL20.glVertexAttribPointer(index, size, type, normalized, stride, pointer);
     }
 
     public static void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, IntBuffer pointer) {
-        if (Properties.VALIDATE.enabled) {
+        if (Properties.VALIDATE.enabled && index > -1) {
             CURRENT_CONTEXT.get().currentVao.initializedVertexArrays[index] = pointer != null;
         }
         org.lwjgl.opengl.GL20.glVertexAttribPointer(index, size, type, normalized, stride, pointer);
     }
 
     public static void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, ShortBuffer pointer) {
-        if (Properties.VALIDATE.enabled) {
+        if (Properties.VALIDATE.enabled && index > -1) {
             CURRENT_CONTEXT.get().currentVao.initializedVertexArrays[index] = pointer != null;
         }
         org.lwjgl.opengl.GL20.glVertexAttribPointer(index, size, type, normalized, stride, pointer);
     }
 
     public static void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, long pointer) {
-        if (Properties.VALIDATE.enabled) {
+        if (Properties.VALIDATE.enabled && index > -1) {
             int vbo = org.lwjgl.opengl.GL11.glGetInteger(org.lwjgl.opengl.GL15.GL_ARRAY_BUFFER_BINDING);
             if (vbo != 0) {
                 CURRENT_CONTEXT.get().currentVao.initializedVertexArrays[index] = true;

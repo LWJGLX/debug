@@ -678,33 +678,33 @@ public class RT {
         }
     }
 
-    public static <T extends Throwable> T filterStackTrace(T t) {
+    public static <T extends Throwable> T filterStackTrace(T t, int offset) {
         StackTraceElement[] elems = t.getStackTrace();
-        int i = 0;
-        for (; i < elems.length; i++) {
+        StackTraceElement[] filtered = new StackTraceElement[elems.length];
+        int j = 0;
+        for (int i = offset; i < elems.length; i++) {
             String className = elems[i].getClassName();
             if (className == null) {
                 className = "";
             }
-            if (className.startsWith("org.lwjglx.") || className.startsWith("org.lwjgl.")) {
+            if (className.startsWith("org.lwjglx.") && !className.startsWith("org.lwjglx.debug.opengl")
+                    && !className.startsWith("org.lwjglx.debug.glfw")) {
                 continue;
             }
-            break;
+            filtered[j++] = elems[i];
         }
-        if (i > 0) {
-            StackTraceElement[] newElems = new StackTraceElement[elems.length - i];
-            System.arraycopy(elems, i, newElems, 0, elems.length - i);
-            t.setStackTrace(newElems);
-        }
+        StackTraceElement[] newElems = new StackTraceElement[j];
+        System.arraycopy(filtered, 0, newElems, 0, j);
+        t.setStackTrace(newElems);
         return t;
     }
 
     public static void throwISEOrLogError(String message) {
-        throwISEOrLogError(message, true);
+        throwISEOrLogError(message, true, 2);
     }
 
-    public static void throwISEOrLogError(String message, boolean stacktrace) {
-        IllegalStateException e = filterStackTrace(new IllegalStateException(message));
+    public static void throwISEOrLogError(String message, boolean stacktrace, int offset) {
+        IllegalStateException e = filterStackTrace(new IllegalStateException(message), offset);
         if (!Properties.NO_THROW_ON_ERROR.enabled) {
             throw e;
         } else {
@@ -717,7 +717,7 @@ public class RT {
     }
 
     public static void throwIAEOrLogError(String message, boolean stacktrace) {
-        IllegalArgumentException e = filterStackTrace(new IllegalArgumentException(message));
+        IllegalArgumentException e = filterStackTrace(new IllegalArgumentException(message), 2);
         if (!Properties.NO_THROW_ON_ERROR.enabled) {
             throw e;
         } else {

@@ -33,14 +33,14 @@ import org.lwjglx.debug.Properties;
 public class EXTGPUShader4 {
 
     public static void glVertexAttribIPointerEXT(int index, int size, int type, int stride, ByteBuffer pointer) {
-        if (Properties.VALIDATE.enabled) {
+        if (Properties.VALIDATE.enabled && index > -1) {
             CURRENT_CONTEXT.get().currentVao.initializedVertexArrays[index] = pointer != null;
         }
         org.lwjgl.opengl.EXTGPUShader4.glVertexAttribIPointerEXT(index, size, type, stride, pointer);
     }
 
     public static void glVertexAttribIPointerEXT(int index, int size, int type, int stride, long pointer) {
-        if (Properties.VALIDATE.enabled) {
+        if (Properties.VALIDATE.enabled && index > -1) {
             int vbo = org.lwjgl.opengl.GL11.glGetInteger(org.lwjgl.opengl.GL15.GL_ARRAY_BUFFER_BINDING);
             if (vbo != 0) {
                 CURRENT_CONTEXT.get().currentVao.initializedVertexArrays[index] = true;
@@ -50,14 +50,14 @@ public class EXTGPUShader4 {
     }
 
     public static void glVertexAttribIPointerEXT(int index, int size, int type, int stride, ShortBuffer pointer) {
-        if (Properties.VALIDATE.enabled) {
+        if (Properties.VALIDATE.enabled && index > -1) {
             CURRENT_CONTEXT.get().currentVao.initializedVertexArrays[index] = pointer != null;
         }
         org.lwjgl.opengl.EXTGPUShader4.glVertexAttribIPointerEXT(index, size, type, stride, pointer);
     }
 
     public static void glVertexAttribIPointerEXT(int index, int size, int type, int stride, IntBuffer pointer) {
-        if (Properties.VALIDATE.enabled) {
+        if (Properties.VALIDATE.enabled && index > -1) {
             CURRENT_CONTEXT.get().currentVao.initializedVertexArrays[index] = pointer != null;
         }
         org.lwjgl.opengl.EXTGPUShader4.glVertexAttribIPointerEXT(index, size, type, stride, pointer);

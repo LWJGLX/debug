@@ -137,11 +137,7 @@ public class Agent implements ClassFileTransformer, Opcodes {
                             if (call == null) {
                                 call = new InterceptedCall(owner, name, desc);
                                 String methodName;
-                                if (DEBUG.enabled) {
-                                    methodName = name + call.index;
-                                } else {
-                                    methodName = Integer.toString(call.index);
-                                }
+                                methodName = name + call.index;
                                 call.generatedMethodName = methodName;
                                 calls.put(key, call);
                             }
