@@ -49,14 +49,16 @@ class InterceptedCall {
 
     int index;
     String receiverInternalName;
+    String resolvedReceiverInternalName;
     String name;
     String glName;
     String desc;
     String generatedMethodName;
 
-    InterceptedCall(String receiverInternalName, String name, String desc) {
+    InterceptedCall(String receiverInternalName, String resolvedReceiverInternalName, String name, String desc) {
         this.index = counter.incrementAndGet();
         this.receiverInternalName = receiverInternalName;
+        this.resolvedReceiverInternalName = resolvedReceiverInternalName;
         this.name = name;
         this.desc = desc;
     }
@@ -129,10 +131,10 @@ class InterceptClassGenerator implements Opcodes {
     private static final Map<ClassKey, HashSet<Method>> declaredMethods = new ConcurrentHashMap<>();
 
     private static boolean isGLcall(InterceptedCall call) {
-        return (call.name.startsWith("gl") || call.name.startsWith("ngl")) && call.receiverInternalName.startsWith("org/lwjgl/opengl/")
+        return (call.name.startsWith("gl") || call.name.startsWith("ngl")) && call.resolvedReceiverInternalName.startsWith("org/lwjgl/opengl/")
                 && (!Properties.PROFILE.enabled || 
-                        (!call.receiverInternalName.equals("org/lwjgl/opengl/GREMEDYStringMarker") &&
-                         !call.receiverInternalName.equals("org/lwjgl/opengl/GREMEDYFrameTerminator")));
+                        (!call.resolvedReceiverInternalName.equals("org/lwjgl/opengl/GREMEDYStringMarker") &&
+                         !call.resolvedReceiverInternalName.equals("org/lwjgl/opengl/GREMEDYFrameTerminator")));
     }
 
     private static String glCall(InterceptedCall call) {
@@ -160,7 +162,7 @@ class InterceptClassGenerator implements Opcodes {
     }
 
     private static boolean isMainThreadMethod(InterceptedCall call) {
-        if (call.receiverInternalName.equals("org/lwjgl/glfw/GLFW")) {
+        if (call.resolvedReceiverInternalName.equals("org/lwjgl/glfw/GLFW")) {
             return Arrays
                     .asList("glfwInit", "glfwTerminate", "glfwCreateWindow", "glfwDefaultWindowHints", "glfwDestroyWindow", "glfwFocusWindow", "glfwGetFramebufferSize", "glfwGetWindowAttrib",
                             "glfwGetWindowFrameSize", "glfwGetWindowMonitor", "glfwGetWindowPos", "glfwGetWindowSize", "glfwHideWindow", "glfwIconifyWindow", "glfwMaximizeWindow", "glfwPollEvents",
@@ -173,7 +175,7 @@ class InterceptClassGenerator implements Opcodes {
     }
 
     private static boolean requiresGlfwInit(InterceptedCall call) {
-        if (call.receiverInternalName.equals("org/lwjgl/glfw/GLFW")) {
+        if (call.resolvedReceiverInternalName.equals("org/lwjgl/glfw/GLFW")) {
             return call.name.startsWith("glfw") && !call.name.equals("glfwSetErrorCallback") && !call.name.equals("glfwInit");
         }
         return false;
@@ -186,7 +188,7 @@ class InterceptClassGenerator implements Opcodes {
     }
 
     private static String getClassForMethod(ClassLoader cl, String desc, InterceptedCall call) {
-        String className = call.receiverInternalName.replace("org/lwjgl/", "org/lwjglx/debug/");
+        String className = call.resolvedReceiverInternalName.replace("org/lwjgl/", "org/lwjglx/debug/");
         ClassKey key = new ClassKey(cl, className);
         HashSet<Method> dmethods = declaredMethods.get(key);
         if (dmethods == null) {
@@ -254,7 +256,7 @@ class InterceptClassGenerator implements Opcodes {
                 /* Validate buffer arguments and also load all arguments onto stack */
                 Type[] paramTypes = Type.getArgumentTypes(call.desc);
                 Type retType = Type.getReturnType(call.desc);
-                ClassMetadata classMetadata = ClassMetadata.create(call.receiverInternalName, classLoader);
+                ClassMetadata classMetadata = ClassMetadata.create(call.resolvedReceiverInternalName, classLoader);
                 MethodInfo minfo = classMetadata.methods.get(call.name + call.desc);
                 int var = loadArgumentsAndValidateArguments(mv, paramTypes, classMetadata, minfo);
                 /* Allocate locals for the source/line parameters (only available when TRACE) */
@@ -410,7 +412,7 @@ class InterceptClassGenerator implements Opcodes {
             mv.visitMethodInsn(INVOKESTATIC, validationMethodOwnerName, call.name, call.desc, false);
         } else {
             /* we don't have a user-defined validation method yet, so just call the target method directly */
-            mv.visitMethodInsn(INVOKESTATIC, call.receiverInternalName, call.name, call.desc, false);
+            mv.visitMethodInsn(INVOKESTATIC, call.resolvedReceiverInternalName, call.name, call.desc, false);
         }
         /* Check GL error if it was a GL call */
         if (VALIDATE.enabled && call.glName != null && !call.glName.equals("glGetError")) {

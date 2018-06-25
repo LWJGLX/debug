@@ -25,6 +25,7 @@ package org.lwjglx.debug;
 import static org.lwjglx.debug.Log.*;
 import static org.lwjglx.debug.Properties.*;
 
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.lang.instrument.ClassFileTransformer;
 import java.lang.instrument.IllegalClassFormatException;
@@ -82,6 +83,35 @@ public class Agent implements ClassFileTransformer, Opcodes {
         return false;
     }
 
+    private String resolveOwner(String methodOwner, String methodName, String methodDesc) {
+        StringBuilder resolvedOwner = new StringBuilder(); // <- just a container for a String
+        try {
+            ClassReader cr;
+            String nextOwner = methodOwner;
+            do {
+                cr = new ClassReader(nextOwner.replace('/', '.'));
+                if (cr.getSuperName() == null || cr.getSuperName().equals("java/lang/Object")) {
+                    resolvedOwner.append(nextOwner);
+                    break;
+                }
+                final ClassReader fcr = cr;
+                cr.accept(new ClassVisitor(ASM6) {
+                    public MethodVisitor visitMethod(int access, String name, String descriptor, String signature,
+                            String[] exceptions) {
+                        if ((access & ACC_STATIC) != 0 && name.equals(methodName) && descriptor.equals(methodDesc)) {
+                            resolvedOwner.append(fcr.getClassName());
+                        }
+                        return null;
+                    }
+                }, ClassReader.SKIP_CODE | ClassReader.SKIP_DEBUG | ClassReader.SKIP_FRAMES);
+                nextOwner = cr.getSuperName();
+            } while (resolvedOwner.length() == 0);
+        } catch (IOException e) {
+            throw new AssertionError("Could not load class " + methodOwner);
+        }
+        return resolvedOwner.length() == 0 ? null : resolvedOwner.toString();
+    }
+
     private byte[] transform_(ClassLoader loader, String className, Class<?> classBeingRedefined, ProtectionDomain protectionDomain, byte[] classfileBuffer) throws IllegalClassFormatException {
         if (className == null || className.startsWith("java/") || className.startsWith("com/sun/") || className.startsWith("sun/") || className.startsWith("jdk/internal/")
                 || className.startsWith("org/lwjgl/") || className.startsWith("org/joml/") || className.startsWith("org/lwjglx/debug/")) {
@@ -135,7 +165,9 @@ public class Agent implements ClassFileTransformer, Opcodes {
                             String key = owner + "." + name + desc;
                             InterceptedCall call = calls.get(key);
                             if (call == null) {
-                                call = new InterceptedCall(owner, name, desc);
+                                /* Resolve declaring class */
+                                String resolvedOwner = resolveOwner(owner, name, desc);
+                                call = new InterceptedCall(owner, resolvedOwner, name, desc);
                                 String methodName;
                                 methodName = name + call.index;
                                 call.generatedMethodName = methodName;
