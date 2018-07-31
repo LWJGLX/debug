@@ -907,6 +907,7 @@ public class RT {
         }
         Context ctx = CURRENT_CONTEXT.get();
         ctx.inImmediateMode = true;
+        ctx.drawCallSeen = true;
         if (Properties.PROFILE.enabled) {
             RT.beforeDraw();
         }
