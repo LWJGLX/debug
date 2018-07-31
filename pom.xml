@@ -34,7 +34,7 @@
 		</developer>
 	</developers>
 	<properties>
-		<lwjgl.version>3.1.7-SNAPSHOT</lwjgl.version>
+		<lwjgl.version>3.2.0</lwjgl.version>
 		<asm.version>6.2</asm.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -212,7 +212,7 @@
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.7.0</version>
+				<version>3.8.0</version>
 			</plugin>
 			<plugin>
 				<artifactId>maven-shade-plugin</artifactId>

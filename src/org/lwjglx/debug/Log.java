@@ -196,6 +196,11 @@ public class Log {
         log("error", message, t);
     }
 
+    public static void warn(String message, Throwable t, int offset) {
+        t = RT.filterStackTrace(t, offset);
+        log("warn", message, t);
+    }
+
     public static void trace(String message) {
         log("trace", message);
     }

@@ -42,9 +42,7 @@ public class ARBDrawInstanced {
             RT.beforeDraw();
         }
         org.lwjgl.opengl.ARBDrawInstanced.glDrawArraysInstancedARB(mode, first, count, primcount);
-        if (Properties.PROFILE.enabled) {
-            RT.draw(count * primcount);
-        }
+        RT.draw(count * primcount);
     }
 
     public static void glDrawElementsInstancedARB(int mode, int count, int type, long indices, int primcount) {
@@ -59,9 +57,7 @@ public class ARBDrawInstanced {
             RT.beforeDraw();
         }
         org.lwjgl.opengl.ARBDrawInstanced.glDrawElementsInstancedARB(mode, count, type, indices, primcount);
-        if (Properties.PROFILE.enabled) {
-            RT.draw(count * primcount);
-        }
+        RT.draw(count * primcount);
     }
 
     public static void glDrawElementsInstancedARB(int mode, int type, ByteBuffer indices, int primcount) {
@@ -72,9 +68,7 @@ public class ARBDrawInstanced {
             RT.beforeDraw();
         }
         org.lwjgl.opengl.ARBDrawInstanced.glDrawElementsInstancedARB(mode, type, indices, primcount);
-        if (Properties.PROFILE.enabled) {
-            RT.draw(indices.remaining() * primcount);
-        }
+        RT.draw(indices.remaining() * primcount);
     }
 
     public static void glDrawElementsInstancedARB(int mode, ByteBuffer indices, int primcount) {
@@ -85,9 +79,7 @@ public class ARBDrawInstanced {
             RT.beforeDraw();
         }
         org.lwjgl.opengl.ARBDrawInstanced.glDrawElementsInstancedARB(mode, indices, primcount);
-        if (Properties.PROFILE.enabled) {
-            RT.draw(indices.remaining() * primcount);
-        }
+        RT.draw(indices.remaining() * primcount);
     }
 
     public static void glDrawElementsInstancedARB(int mode, ShortBuffer indices, int primcount) {
@@ -98,9 +90,7 @@ public class ARBDrawInstanced {
             RT.beforeDraw();
         }
         org.lwjgl.opengl.ARBDrawInstanced.glDrawElementsInstancedARB(mode, indices, primcount);
-        if (Properties.PROFILE.enabled) {
-            RT.draw(indices.remaining() * primcount);
-        }
+        RT.draw(indices.remaining() * primcount);
     }
 
     public static void glDrawElementsInstancedARB(int mode, IntBuffer indices, int primcount) {
@@ -111,9 +101,7 @@ public class ARBDrawInstanced {
             RT.beforeDraw();
         }
         org.lwjgl.opengl.ARBDrawInstanced.glDrawElementsInstancedARB(mode, indices, primcount);
-        if (Properties.PROFILE.enabled) {
-            RT.draw(indices.remaining() * primcount);
-        }
+        RT.draw(indices.remaining() * primcount);
     }
 
 }

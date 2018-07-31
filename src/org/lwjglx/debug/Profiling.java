@@ -140,7 +140,6 @@ class Profiling {
             ctx.firstFrameSeen = true;
             return;
         }
-        ctx.frame++;
         if ((ctx.frameEndTime - lastSent) / 1E6 < sendIntervalMs) {
             return;
         }

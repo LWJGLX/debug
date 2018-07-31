@@ -544,9 +544,7 @@ public class GL11 {
             RT.beforeDraw();
         }
         org.lwjgl.opengl.GL11.glDrawArrays(mode, first, count);
-        if (Properties.PROFILE.enabled) {
-            RT.draw(count);
-        }
+        RT.draw(count);
     }
 
     public static void glDrawElements(int mode, int count, int type, long indices) {
@@ -561,9 +559,7 @@ public class GL11 {
             RT.beforeDraw();
         }
         org.lwjgl.opengl.GL11.glDrawElements(mode, count, type, indices);
-        if (Properties.PROFILE.enabled) {
-            RT.draw(count);
-        }
+        RT.draw(count);
     }
 
     public static void glDrawElements(int mode, int type, ByteBuffer indices) {
@@ -574,9 +570,7 @@ public class GL11 {
             RT.beforeDraw();
         }
         org.lwjgl.opengl.GL11.glDrawElements(mode, type, indices);
-        if (Properties.PROFILE.enabled) {
-            RT.draw(indices.remaining());
-        }
+        RT.draw(indices.remaining());
     }
 
     public static void glDrawElements(int mode, ByteBuffer indices) {
@@ -587,9 +581,7 @@ public class GL11 {
             RT.beforeDraw();
         }
         org.lwjgl.opengl.GL11.glDrawElements(mode, indices);
-        if (Properties.PROFILE.enabled) {
-            RT.draw(indices.remaining());
-        }
+        RT.draw(indices.remaining());
     }
 
     public static void glDrawElements(int mode, ShortBuffer indices) {
@@ -600,9 +592,7 @@ public class GL11 {
             RT.beforeDraw();
         }
         org.lwjgl.opengl.GL11.glDrawElements(mode, indices);
-        if (Properties.PROFILE.enabled) {
-            RT.draw(indices.remaining());
-        }
+        RT.draw(indices.remaining());
     }
 
     public static void glDrawElements(int mode, IntBuffer indices) {
@@ -613,9 +603,7 @@ public class GL11 {
             RT.beforeDraw();
         }
         org.lwjgl.opengl.GL11.glDrawElements(mode, indices);
-        if (Properties.PROFILE.enabled) {
-            RT.draw(indices.remaining());
-        }
+        RT.draw(indices.remaining());
     }
 
     public static void glPopClientAttrib() {

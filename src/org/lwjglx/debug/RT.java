@@ -889,9 +889,13 @@ public class RT {
     }
 
     public static void draw(int verticesCount) {
+        if (Properties.VALIDATE.enabled && verticesCount == 0) {
+            Log.warn("Draw call with 0 vertices", new Throwable(), 3);
+        }
         Context ctx = CURRENT_CONTEXT.get();
         ctx.verticesCount += verticesCount;
-        if (ctx.caps.GL_ARB_timer_query) {
+        ctx.drawCallSeen = true;
+        if (Properties.PROFILE.enabled && ctx.caps.GL_ARB_timer_query) {
             TimingQuery q = ctx.currentTimingQuery;
             ARBTimerQuery.glQueryCounter(q.after, ARBTimerQuery.GL_TIMESTAMP);
         }
@@ -926,7 +930,13 @@ public class RT {
         Context ctx = CURRENT_CONTEXT.get();
         ctx.frameEndTime = System.nanoTime();
         float drawTime = 0.0f;
-        if (ctx.caps.GL_ARB_timer_query) {
+        ctx.frame++;
+        if (Properties.VALIDATE.enabled) {
+            if (!ctx.drawCallSeen) {
+                Log.info("No draw call seen in frame [" + ctx.frame + "]");
+            }
+        }
+        if (Properties.PROFILE.enabled && ctx.caps.GL_ARB_timer_query) {
             /* End current code section (if not already ended) */
             if (ctx.lastCodeSectionQuery != null) {
                 ARBTimerQuery.glQueryCounter(ctx.lastCodeSectionQuery.after, ARBTimerQuery.GL_TIMESTAMP);
@@ -952,17 +962,18 @@ public class RT {
                 }
                 q.used = false;
             }
+            ctx.drawCallTimeMs = drawTime;
+            Profiling.frame(ctx);
+            /* Clear all code section timings */
+            for (TimedCodeSection section : ctx.codeSectionTimes) {
+            	section.queries.clear();
+            }
         }
-        ctx.drawCallTimeMs = drawTime;
-        Profiling.frame(ctx);
         /* Reset counters for next frame */
         ctx.verticesCount = 0;
+        ctx.drawCallSeen = false;
         ctx.glCallCount = 0;
         ctx.frameStartTime = ctx.frameEndTime;
-        /* Clear all code section timings */
-        for (TimedCodeSection section : ctx.codeSectionTimes) {
-            section.queries.clear();
-        }
     }
 
     public static void glCall() {

@@ -451,9 +451,7 @@ public class GLFW {
 
     public static void glfwSwapBuffers(long window) {
         org.lwjgl.glfw.GLFW.glfwSwapBuffers(window);
-        if (Properties.PROFILE.enabled) {
-            RT.frame();
-        }
+        RT.frame();
     }
 
 }

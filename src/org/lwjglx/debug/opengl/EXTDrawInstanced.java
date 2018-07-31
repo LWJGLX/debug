@@ -19,9 +19,7 @@ public class EXTDrawInstanced {
             RT.beforeDraw();
         }
         org.lwjgl.opengl.EXTDrawInstanced.glDrawArraysInstancedEXT(mode, start, count, primcount);
-        if (Properties.PROFILE.enabled) {
-            RT.draw(count * primcount);
-        }
+        RT.draw(count * primcount);
     }
 
     public static void glDrawElementsInstancedEXT(int mode, int count, int type, long indices, int primcount) {
@@ -32,9 +30,7 @@ public class EXTDrawInstanced {
             RT.beforeDraw();
         }
         org.lwjgl.opengl.EXTDrawInstanced.glDrawElementsInstancedEXT(mode, count, type, indices, primcount);
-        if (Properties.PROFILE.enabled) {
-            RT.draw(count * primcount);
-        }
+        RT.draw(count * primcount);
     }
 
     public static void glDrawElementsInstancedEXT(int mode, int type, ByteBuffer indices, int primcount) {
@@ -45,9 +41,7 @@ public class EXTDrawInstanced {
             RT.beforeDraw();
         }
         org.lwjgl.opengl.EXTDrawInstanced.glDrawElementsInstancedEXT(mode, type, indices, primcount);
-        if (Properties.PROFILE.enabled) {
-            RT.draw(indices.remaining() * primcount);
-        }
+        RT.draw(indices.remaining() * primcount);
     }
 
     public static void glDrawElementsInstancedEXT(int mode, ByteBuffer indices, int primcount) {
@@ -58,9 +52,7 @@ public class EXTDrawInstanced {
             RT.beforeDraw();
         }
         org.lwjgl.opengl.EXTDrawInstanced.glDrawElementsInstancedEXT(mode, indices, primcount);
-        if (Properties.PROFILE.enabled) {
-            RT.draw(indices.remaining() * primcount);
-        }
+        RT.draw(indices.remaining() * primcount);
     }
 
     public static void glDrawElementsInstancedEXT(int mode, ShortBuffer indices, int primcount) {
@@ -71,9 +63,7 @@ public class EXTDrawInstanced {
             RT.beforeDraw();
         }
         org.lwjgl.opengl.EXTDrawInstanced.glDrawElementsInstancedEXT(mode, indices, primcount);
-        if (Properties.PROFILE.enabled) {
-            RT.draw(indices.remaining() * primcount);
-        }
+        RT.draw(indices.remaining() * primcount);
     }
 
     public static void glDrawElementsInstancedEXT(int mode, IntBuffer indices, int primcount) {
@@ -84,9 +74,7 @@ public class EXTDrawInstanced {
             RT.beforeDraw();
         }
         org.lwjgl.opengl.EXTDrawInstanced.glDrawElementsInstancedEXT(mode, indices, primcount);
-        if (Properties.PROFILE.enabled) {
-            RT.draw(indices.remaining() * primcount);
-        }
+        RT.draw(indices.remaining() * primcount);
     }
 
 }
