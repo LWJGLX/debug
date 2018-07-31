@@ -9,7 +9,6 @@ import static org.lwjglx.debug.RT.*;
 
 import org.lwjgl.opengl.AMDDebugOutput;
 import org.lwjgl.opengl.ARBDebugOutput;
-import org.lwjgl.opengl.GL;
 import org.lwjgl.opengl.GLCapabilities;
 import org.lwjgl.opengl.GLDebugMessageAMDCallback;
 import org.lwjgl.opengl.GLDebugMessageARBCallback;
@@ -23,9 +22,6 @@ import java.util.function.Consumer;
 
 import static org.lwjgl.opengl.AMDDebugOutput.*;
 import static org.lwjgl.opengl.ARBDebugOutput.*;
-import static org.lwjgl.opengl.GL11.*;
-import static org.lwjgl.opengl.GL30.*;
-import static org.lwjgl.opengl.GL43.*;
 import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
@@ -67,16 +63,16 @@ public class GLUtil {
     }
 
     public static Callback setupDebugMessageCallback(PrintStream stream) {
-        GLCapabilities caps = GL.getCapabilities();
+        GLCapabilities caps = org.lwjgl.opengl.GL.getCapabilities();
 
         if (caps.OpenGL43) {
             apiLog("[GL] Using OpenGL 4.3 for error logging.");
             GLDebugMessageCallback proc = GLDebugMessageCallback.create((source, type, id, severity, length, message, userParam) -> {
                 Context context = CURRENT_CONTEXT.get();
                 String level;
-                if (severity == GL_DEBUG_SEVERITY_NOTIFICATION || severity == GL_DEBUG_SEVERITY_LOW)
+                if (severity == org.lwjgl.opengl.GL43.GL_DEBUG_SEVERITY_NOTIFICATION || severity == org.lwjgl.opengl.GL43.GL_DEBUG_SEVERITY_LOW)
                     level = "info ";
-                else if (severity == GL_DEBUG_SEVERITY_MEDIUM)
+                else if (severity == org.lwjgl.opengl.GL43.GL_DEBUG_SEVERITY_MEDIUM)
                     level = "warn ";
                 else
                     level = "error";
@@ -91,16 +87,16 @@ public class GLUtil {
                 printDetail(stream, "Severity", getDebugSeverity(severity));
                 printDetail(stream, "Message", GLDebugMessageCallback.getMessage(length, message));
                 printTrace(stream);
-                if (type == GL_DEBUG_TYPE_ERROR) {
+                if (type == org.lwjgl.opengl.GL43.GL_DEBUG_TYPE_ERROR) {
                     throwISEOrLogError(EXCEPTION_MESSAGE, false, 3);
                 }
             });
-            glDebugMessageCallback(proc, NULL);
-            if ((glGetInteger(GL_CONTEXT_FLAGS) & GL_CONTEXT_FLAG_DEBUG_BIT) == 0) {
+            org.lwjgl.opengl.GL43.glDebugMessageCallback(proc, NULL);
+            if ((org.lwjgl.opengl.GL11.glGetInteger(org.lwjgl.opengl.GL43.GL_CONTEXT_FLAGS) & org.lwjgl.opengl.GL43.GL_CONTEXT_FLAG_DEBUG_BIT) == 0) {
                 apiLog("[GL] Warning: A non-debug context may not produce any debug output.");
-                glEnable(GL_DEBUG_OUTPUT);
+                org.lwjgl.opengl.GL11.glEnable(org.lwjgl.opengl.GL43.GL_DEBUG_OUTPUT);
             }
-            glEnable(GL_DEBUG_OUTPUT_SYNCHRONOUS);
+            org.lwjgl.opengl.GL11.glEnable(org.lwjgl.opengl.GL43.GL_DEBUG_OUTPUT_SYNCHRONOUS);
             return proc;
         }
 
@@ -109,9 +105,9 @@ public class GLUtil {
             GLDebugMessageCallback proc = GLDebugMessageCallback.create((source, type, id, severity, length, message, userParam) -> {
                 Context context = CURRENT_CONTEXT.get();
                 String level;
-                if (severity == GL_DEBUG_SEVERITY_NOTIFICATION || severity == GL_DEBUG_SEVERITY_LOW)
+                if (severity == org.lwjgl.opengl.GL43.GL_DEBUG_SEVERITY_NOTIFICATION || severity == org.lwjgl.opengl.GL43.GL_DEBUG_SEVERITY_LOW)
                     level = "info ";
-                else if (severity == GL_DEBUG_SEVERITY_MEDIUM)
+                else if (severity == org.lwjgl.opengl.GL43.GL_DEBUG_SEVERITY_MEDIUM)
                     level = "warn ";
                 else
                     level = "error";
@@ -131,11 +127,11 @@ public class GLUtil {
                 }
             });
             KHRDebug.glDebugMessageCallback(proc, NULL);
-            if (caps.OpenGL30 && (glGetInteger(GL_CONTEXT_FLAGS) & GL_CONTEXT_FLAG_DEBUG_BIT) == 0) {
+            if (caps.OpenGL30 && (org.lwjgl.opengl.GL11.glGetInteger(org.lwjgl.opengl.GL43.GL_CONTEXT_FLAGS) & org.lwjgl.opengl.GL43.GL_CONTEXT_FLAG_DEBUG_BIT) == 0) {
                 apiLog("[GL] Warning: A non-debug context may not produce any debug output.");
-                glEnable(GL_DEBUG_OUTPUT);
+                org.lwjgl.opengl.GL11.glEnable(org.lwjgl.opengl.GL43.GL_DEBUG_OUTPUT);
             }
-            glEnable(KHRDebug.GL_DEBUG_OUTPUT_SYNCHRONOUS);
+            org.lwjgl.opengl.GL11.glEnable(KHRDebug.GL_DEBUG_OUTPUT_SYNCHRONOUS);
             return proc;
         }
 
@@ -166,7 +162,7 @@ public class GLUtil {
                 }
             });
             glDebugMessageCallbackARB(proc, NULL);
-            glEnable(ARBDebugOutput.GL_DEBUG_OUTPUT_SYNCHRONOUS_ARB);
+            org.lwjgl.opengl.GL11.glEnable(ARBDebugOutput.GL_DEBUG_OUTPUT_SYNCHRONOUS_ARB);
             return proc;
         }
 
@@ -217,17 +213,17 @@ public class GLUtil {
 
     private static String getDebugSource(int source) {
         switch (source) {
-        case GL_DEBUG_SOURCE_API:
+        case org.lwjgl.opengl.GL43.GL_DEBUG_SOURCE_API:
             return "API";
-        case GL_DEBUG_SOURCE_WINDOW_SYSTEM:
+        case org.lwjgl.opengl.GL43.GL_DEBUG_SOURCE_WINDOW_SYSTEM:
             return "WINDOW SYSTEM";
-        case GL_DEBUG_SOURCE_SHADER_COMPILER:
+        case org.lwjgl.opengl.GL43.GL_DEBUG_SOURCE_SHADER_COMPILER:
             return "SHADER COMPILER";
-        case GL_DEBUG_SOURCE_THIRD_PARTY:
+        case org.lwjgl.opengl.GL43.GL_DEBUG_SOURCE_THIRD_PARTY:
             return "THIRD PARTY";
-        case GL_DEBUG_SOURCE_APPLICATION:
+        case org.lwjgl.opengl.GL43.GL_DEBUG_SOURCE_APPLICATION:
             return "APPLICATION";
-        case GL_DEBUG_SOURCE_OTHER:
+        case org.lwjgl.opengl.GL43.GL_DEBUG_SOURCE_OTHER:
             return "OTHER";
         default:
             return apiUnknownToken(source);
@@ -236,19 +232,19 @@ public class GLUtil {
 
     private static String getDebugType(int type) {
         switch (type) {
-        case GL_DEBUG_TYPE_ERROR:
+        case org.lwjgl.opengl.GL43.GL_DEBUG_TYPE_ERROR:
             return "ERROR";
-        case GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR:
+        case org.lwjgl.opengl.GL43.GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR:
             return "DEPRECATED BEHAVIOR";
-        case GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR:
+        case org.lwjgl.opengl.GL43.GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR:
             return "UNDEFINED BEHAVIOR";
-        case GL_DEBUG_TYPE_PORTABILITY:
+        case org.lwjgl.opengl.GL43.GL_DEBUG_TYPE_PORTABILITY:
             return "PORTABILITY";
-        case GL_DEBUG_TYPE_PERFORMANCE:
+        case org.lwjgl.opengl.GL43.GL_DEBUG_TYPE_PERFORMANCE:
             return "PERFORMANCE";
-        case GL_DEBUG_TYPE_OTHER:
+        case org.lwjgl.opengl.GL43.GL_DEBUG_TYPE_OTHER:
             return "OTHER";
-        case GL_DEBUG_TYPE_MARKER:
+        case org.lwjgl.opengl.GL43.GL_DEBUG_TYPE_MARKER:
             return "MARKER";
         default:
             return apiUnknownToken(type);
@@ -257,13 +253,13 @@ public class GLUtil {
 
     private static String getDebugSeverity(int severity) {
         switch (severity) {
-        case GL_DEBUG_SEVERITY_HIGH:
+        case org.lwjgl.opengl.GL43.GL_DEBUG_SEVERITY_HIGH:
             return "HIGH";
-        case GL_DEBUG_SEVERITY_MEDIUM:
+        case org.lwjgl.opengl.GL43.GL_DEBUG_SEVERITY_MEDIUM:
             return "MEDIUM";
-        case GL_DEBUG_SEVERITY_LOW:
+        case org.lwjgl.opengl.GL43.GL_DEBUG_SEVERITY_LOW:
             return "LOW";
-        case GL_DEBUG_SEVERITY_NOTIFICATION:
+        case org.lwjgl.opengl.GL43.GL_DEBUG_SEVERITY_NOTIFICATION:
             return "NOTIFICATION";
         default:
             return apiUnknownToken(severity);
