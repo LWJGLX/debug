@@ -744,7 +744,7 @@ public class RT {
 
     public static void checkFlipBufferAtPosition0(Buffer buffer) {
         if (buffer.position() == 0) {
-            throwISEOrLogError("calling flip() on buffer with position = 0. Check if you called method that actually modified the buffer position.");
+            throwISEOrLogError("calling flip() on a buffer with position = 0. Check if you called a method that actually modifies the buffer position.");
         }
     }
 
