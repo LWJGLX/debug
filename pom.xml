@@ -34,7 +34,7 @@
 		</developer>
 	</developers>
 	<properties>
-		<lwjgl.version>3.2.0</lwjgl.version>
+		<lwjgl.version>3.2.1-SNAPSHOT</lwjgl.version>
 		<asm.version>6.2.1</asm.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
