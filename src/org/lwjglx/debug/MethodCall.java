@@ -141,7 +141,7 @@ public class MethodCall {
     }
 
     private String printBuffer(PointerBuffer buffer) {
-        long address = MemoryUtil.memAddress0(buffer);
+        long address = MemoryUtil.memAddress(buffer);
         int pos = buffer.position();
         int lim = buffer.limit();
         int cap = buffer.capacity();
