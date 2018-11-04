@@ -167,6 +167,10 @@ public class Agent implements ClassFileTransformer, Opcodes {
                             if (call == null) {
                                 /* Resolve declaring class */
                                 String resolvedOwner = resolveOwner(owner, name, desc);
+                                /* Rewrite a GLnnC call to GLnn to be able to intercept the call */
+                                if (resolvedOwner.matches(".*/GL(\\d\\d)C$")) {
+                                    resolvedOwner = resolvedOwner.substring(0, resolvedOwner.length() - 1);
+                                }
                                 call = new InterceptedCall(owner, resolvedOwner, name, desc);
                                 String methodName;
                                 methodName = name + call.index;

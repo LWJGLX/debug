@@ -189,6 +189,15 @@ public class DebugIT {
     }
 
     @Test
+    public void testNoVertexAttribPointerDefaultVAOwithGL11C() {
+        window = glfwCreateWindow(800, 600, "", 0L, 0L);
+        glfwMakeContextCurrent(window);
+        createCapabilities();
+        glEnableVertexAttribArray(0);
+        assertThrows(IllegalStateException.class, () -> GL11C.glDrawArrays(GL_POINTS, 0, 1), "Vertex array [0] enabled but not initialized");
+    }
+
+    @Test
     public void testNoVertexAttribPointerInCustomVAO() {
         window = glfwCreateWindow(800, 600, "", 0L, 0L);
         glfwMakeContextCurrent(window);
