@@ -205,7 +205,7 @@ class InterceptClassGenerator implements Opcodes {
                 return null;
             }
             final HashSet<Method> methods = dmethods;
-            cr.accept(new ClassVisitor(ASM6) {
+            cr.accept(new ClassVisitor(ASM7) {
                 public MethodVisitor visitMethod(int access, String name, String desc, String signature, String[] exceptions) {
                     boolean isStatic = (access & ACC_STATIC) != 0;
                     boolean isPublic = (access & ACC_PUBLIC) != 0;

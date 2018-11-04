@@ -95,7 +95,7 @@ public class Agent implements ClassFileTransformer, Opcodes {
                     break;
                 }
                 final ClassReader fcr = cr;
-                cr.accept(new ClassVisitor(ASM6) {
+                cr.accept(new ClassVisitor(ASM7) {
                     public MethodVisitor visitMethod(int access, String name, String descriptor, String signature,
                             String[] exceptions) {
                         if ((access & ACC_STATIC) != 0 && name.equals(methodName) && descriptor.equals(methodDesc)) {
@@ -130,7 +130,7 @@ public class Agent implements ClassFileTransformer, Opcodes {
         String callerName = className.replace('.', '/');
         String proxyName = "org/lwjglx/debug/$Proxy$" + counter.incrementAndGet();
         StringHolder sourceFile = new StringHolder();
-        ClassVisitor cv = new ClassVisitor(ASM6, cw) {
+        ClassVisitor cv = new ClassVisitor(ASM7, cw) {
             public void visitSource(String source, String debug) {
                 super.visitSource(source, debug);
                 sourceFile.value = source;
@@ -139,7 +139,7 @@ public class Agent implements ClassFileTransformer, Opcodes {
 
             public MethodVisitor visitMethod(int access, String name, String desc, String signature, String[] exceptions) {
                 MethodVisitor mv = super.visitMethod(access, name, desc, signature, exceptions);
-                return new MethodVisitor(ASM6, mv) {
+                return new MethodVisitor(ASM7, mv) {
                     private int lastLineNumber = -1;
 
                     public void visitLineNumber(int line, Label start) {
