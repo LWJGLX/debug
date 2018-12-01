@@ -48,6 +48,25 @@ public class GL {
         return caps;
     }
 
+    public static org.lwjgl.opengl.GLCapabilities createCapabilities(boolean forwardCompatible) {
+        org.lwjgl.opengl.GLCapabilities caps = org.lwjgl.opengl.GL.createCapabilities(forwardCompatible);
+        org.lwjgl.system.Callback callback = null;
+        if (Properties.VALIDATE.enabled) {
+            callback = GLUtil.setupDebugMessageCallback();
+        }
+        Context context = CURRENT_CONTEXT.get();
+        context.caps = caps;
+        context.debugCallback = callback;
+        int GL_MAX_VERTEX_ATTRIBS = 16;
+        if (caps.OpenGL20) {
+            GL_MAX_VERTEX_ATTRIBS = org.lwjgl.opengl.GL11.glGetInteger(org.lwjgl.opengl.GL20.GL_MAX_VERTEX_ATTRIBS);
+        } else if (caps.GL_ARB_vertex_shader) {
+            GL_MAX_VERTEX_ATTRIBS = org.lwjgl.opengl.GL11.glGetInteger(org.lwjgl.opengl.ARBVertexShader.GL_MAX_VERTEX_ATTRIBS_ARB);
+        }
+        context.init(GL_MAX_VERTEX_ATTRIBS);
+        return caps;
+    }
+
     public static void setCapabilities(org.lwjgl.opengl.GLCapabilities caps) {
         org.lwjgl.opengl.GL.setCapabilities(caps);
         Context context = CURRENT_CONTEXT.get();
