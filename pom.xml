@@ -196,6 +196,15 @@
 							</execution>
 						</executions>
 					</plugin>
+					<plugin>
+						<artifactId>maven-javadoc-plugin</artifactId>
+						<version>3.0.1</version>
+						<configuration>
+							<additionalOptions>
+								<additionalOption>-html5</additionalOption>
+							</additionalOptions>
+						</configuration>
+					</plugin>
 				</plugins>
 			</build>
 		</profile>
