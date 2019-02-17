@@ -315,8 +315,6 @@ public class Agent implements ClassFileTransformer, Opcodes {
 
     public static void premain(String agentArguments, Instrumentation instrumentation) {
         Set<Pattern> excludes = new HashSet<Pattern>();
-        /* Add standard excludes */
-        excludes.add(Pattern.compile(convertGlobToRegEx("org/lwjgl/system/*")));
         if (agentArguments != null) {
             /* Parse command line arguments */
             String[] args = agentArguments.split(";");

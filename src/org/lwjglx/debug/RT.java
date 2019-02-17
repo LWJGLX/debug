@@ -748,6 +748,11 @@ public class RT {
         }
     }
 
+    public static void checkBuffer(Buffer buffer, String methodName) {
+        checkBufferDirect(buffer, "Buffer", methodName);
+        checkNativeByteOrder(buffer);
+    }
+
     public static void checkBuffer(ByteBuffer buffer, String methodName) {
         checkBufferDirect(buffer, "ByteBuffer", methodName);
         checkNativeByteOrder(buffer);
