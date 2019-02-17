@@ -356,7 +356,7 @@ public class Agent implements ClassFileTransformer, Opcodes {
                 String profileArgsString = options.valueOf(profile);
                 if (profileArgsString != null) {
                     String[] profileArgsStrings = profileArgsString.split(";");
-                    for (int i = 0; i < args.length; i++) {
+                    for (int i = 0; i < profileArgsStrings.length; i++) {
                         if (!profileArgsStrings[i].startsWith("-")) {
                             profileArgsStrings[i] = "-" + profileArgsStrings[i];
                         }
