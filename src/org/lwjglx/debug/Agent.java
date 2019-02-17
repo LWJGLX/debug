@@ -315,6 +315,12 @@ public class Agent implements ClassFileTransformer, Opcodes {
 
     public static void premain(String agentArguments, Instrumentation instrumentation) {
         Set<Pattern> excludes = new HashSet<Pattern>();
+        /*
+         * Exclude MemoryStack.stackPush/stackPop to avoid getting "Asymmetric pop detected" messages from the DebugMemoryStack
+         * due to the method calling stackPush() being the generated proxy class method and the method calling AutoClosable.close()
+         * being the user method.
+         */
+        excludes.add(Pattern.compile("org/lwjgl/system/MemoryStack\\.stack(Push|Pop)"));
         if (agentArguments != null) {
             /* Parse command line arguments */
             String[] args = agentArguments.split(";");
