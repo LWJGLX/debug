@@ -13,6 +13,12 @@ branches:
   only:
   - master
 
+git:
+  depth: 1
+cache:
+  directories:
+  - "$HOME/.m2"
+
 script:
 - ./mvnw clean package -Dmaven.javadoc.skip=false -Dmaven.test.skip=true
 - cd target
