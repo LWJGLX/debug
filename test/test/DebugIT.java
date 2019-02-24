@@ -21,6 +21,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.lwjgl.BufferUtils;
 import org.lwjgl.opengl.*;
+import org.lwjgl.system.*;
 import org.lwjglx.debug.Context;
 import org.lwjglx.debug.Properties;
 
@@ -492,6 +493,21 @@ public class DebugIT {
     public void testFlipOnBufferPosition0() {
         ByteBuffer bb = ByteBuffer.allocateDirect(16 * 4);
         assertThrows(IllegalStateException.class, () -> bb.flip());
+    }
+
+    @Test
+    public void testMemReallocAllowedOnNoRemainingBuffer() {
+        ByteBuffer bb = MemoryUtil.memAlloc(1);
+        bb.put((byte) 0);
+        bb = MemoryUtil.memRealloc(bb, 2);
+        MemoryUtil.memFree(bb);
+    }
+
+    @Test
+    public void testMemFreeAllowedOnNoRemainingBuffer() {
+        ByteBuffer bb = MemoryUtil.memAlloc(1);
+        bb.put((byte) 0);
+        MemoryUtil.memFree(bb);
     }
 
 }

@@ -258,7 +258,7 @@ class InterceptClassGenerator implements Opcodes {
                 Type retType = Type.getReturnType(call.desc);
                 ClassMetadata classMetadata = ClassMetadata.create(call.resolvedReceiverInternalName, classLoader);
                 MethodInfo minfo = classMetadata.methods.get(call.name + call.desc);
-                int var = loadArgumentsAndValidateArguments(mv, paramTypes, classMetadata, minfo);
+                int var = loadArgumentsAndValidateArguments(mv, paramTypes, classMetadata, minfo, call);
                 /* Allocate locals for the source/line parameters (only available when TRACE) */
                 int lineVar = var++;
                 /* check if GL call */
@@ -369,7 +369,7 @@ class InterceptClassGenerator implements Opcodes {
         }
     }
 
-    private static int loadArgumentsAndValidateArguments(MethodVisitor mv, Type[] paramTypes, ClassMetadata classMetadata, MethodInfo minfo) {
+    private static int loadArgumentsAndValidateArguments(MethodVisitor mv, Type[] paramTypes, ClassMetadata classMetadata, MethodInfo minfo, InterceptedCall call) {
         int var = 0; // <- counts the used local variables
         for (int i = 0; i < paramTypes.length; i++) {
             Type paramType = paramTypes[i];
@@ -377,8 +377,9 @@ class InterceptClassGenerator implements Opcodes {
             if (VALIDATE.enabled) {
                 if (paramType.getSort() == Type.OBJECT && Util.isBuffer(paramType.getInternalName())) {
                     mv.visitInsn(DUP);
+                    mv.visitLdcInsn(call.resolvedReceiverInternalName);
                     mv.visitLdcInsn(minfo.name);
-                    mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, "checkBuffer", "(" + paramType.getDescriptor() + "Ljava/lang/String;)V", false);
+                    mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, "checkBuffer", "(" + paramType.getDescriptor() + "Ljava/lang/String;Ljava/lang/String;)V", false);
                 }
                 if (ClassMetadata.hasNullables && (paramType.getSort() == Type.OBJECT || paramType.getSort() == Type.ARRAY) && !minfo.nullable[i]) {
                     mv.visitInsn(DUP);
