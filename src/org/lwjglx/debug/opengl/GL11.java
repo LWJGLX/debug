@@ -628,7 +628,7 @@ public class GL11 {
         int pos = textures.position();
         for (int i = 0; i < textures.remaining(); i++) {
             int texture = textures.get(pos + i);
-            ctx.textureObjects.put(texture, new TextureObject());
+            ctx.shareGroup.textureObjects.put(texture, new TextureObject());
         }
     }
 
@@ -637,14 +637,14 @@ public class GL11 {
         Context ctx = CURRENT_CONTEXT.get();
         for (int i = 0; i < textures.length; i++) {
             int texture = textures[i];
-            ctx.textureObjects.put(texture, new TextureObject());
+            ctx.shareGroup.textureObjects.put(texture, new TextureObject());
         }
     }
 
     public static int glGenTextures() {
         int tex = org.lwjgl.opengl.GL11.glGenTextures();
         Context ctx = CURRENT_CONTEXT.get();
-        ctx.textureObjects.put(tex, new TextureObject());
+        ctx.shareGroup.textureObjects.put(tex, new TextureObject());
         return tex;
     }
 
@@ -669,7 +669,7 @@ public class GL11 {
         if (Properties.PROFILE.enabled) {
             Context ctx = CURRENT_CONTEXT.get();
             if (texture != 0) {
-                TextureObject to = ctx.textureObjects.get(texture);
+                TextureObject to = ctx.shareGroup.textureObjects.get(texture);
                 assignLayers(target, to);
                 ctx.textureObjectBindings.put(target, to);
             } else {
@@ -685,7 +685,7 @@ public class GL11 {
             int pos = textures.position();
             for (int i = 0; i < textures.remaining(); i++) {
                 int buffer = textures.get(pos + i);
-                TextureObject to = ctx.textureObjects.remove(buffer);
+                TextureObject to = ctx.shareGroup.textureObjects.remove(buffer);
                 Iterator<Map.Entry<Integer, TextureObject>> it = ctx.textureObjectBindings.entrySet().iterator();
                 while (it.hasNext()) {
                     if (it.next().getValue() == to) {
@@ -702,7 +702,7 @@ public class GL11 {
             Context ctx = CURRENT_CONTEXT.get();
             for (int i = 0; i < textures.length; i++) {
                 int buffer = textures[i];
-                TextureObject to = ctx.textureObjects.remove(buffer);
+                TextureObject to = ctx.shareGroup.textureObjects.remove(buffer);
                 Iterator<Map.Entry<Integer, TextureObject>> it = ctx.textureObjectBindings.entrySet().iterator();
                 while (it.hasNext()) {
                     if (it.next().getValue() == to) {
@@ -717,7 +717,7 @@ public class GL11 {
         org.lwjgl.opengl.GL11.glDeleteTextures(texture);
         if (Properties.PROFILE.enabled) {
             Context ctx = CURRENT_CONTEXT.get();
-            TextureObject to = ctx.textureObjects.remove(texture);
+            TextureObject to = ctx.shareGroup.textureObjects.remove(texture);
             Iterator<Map.Entry<Integer, TextureObject>> it = ctx.textureObjectBindings.entrySet().iterator();
             while (it.hasNext()) {
                 if (it.next().getValue() == to) {

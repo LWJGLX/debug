@@ -155,12 +155,12 @@ class Profiling {
         buf.putInt(ctx.glCallCount);
         buf.putInt(ctx.verticesCount);
         long boMemory = 0L;
-        for (BufferObject bo : ctx.bufferObjects.values()) {
+        for (BufferObject bo : ctx.shareGroup.bufferObjects.values()) {
             boMemory += bo.size;
         }
         buf.putDouble(boMemory / 1024);
         long toMemory = 0L;
-        for (TextureObject to : ctx.textureObjects.values()) {
+        for (TextureObject to : ctx.shareGroup.textureObjects.values()) {
             if (to.layers != null) {
                 for (TextureLayer layer : to.layers) {
                     if (layer.levels != null) {

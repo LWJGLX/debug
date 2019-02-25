@@ -23,7 +23,7 @@ public class GL15 {
             int pos = buffers.position();
             for (int i = 0; i < buffers.remaining(); i++) {
                 int buffer = buffers.get(pos + i);
-                ctx.bufferObjects.put(buffer, new BufferObject());
+                ctx.shareGroup.bufferObjects.put(buffer, new BufferObject());
             }
         }
     }
@@ -34,7 +34,7 @@ public class GL15 {
             Context ctx = CURRENT_CONTEXT.get();
             for (int i = 0; i < buffers.length; i++) {
                 int buffer = buffers[i];
-                ctx.bufferObjects.put(buffer, new BufferObject());
+                ctx.shareGroup.bufferObjects.put(buffer, new BufferObject());
             }
         }
     }
@@ -43,7 +43,7 @@ public class GL15 {
         int ret = org.lwjgl.opengl.GL15.glGenBuffers();
         if (Properties.PROFILE.enabled) {
             Context ctx = CURRENT_CONTEXT.get();
-            ctx.bufferObjects.put(ret, new BufferObject());
+            ctx.shareGroup.bufferObjects.put(ret, new BufferObject());
         }
         return ret;
     }
@@ -53,7 +53,7 @@ public class GL15 {
         if (Properties.PROFILE.enabled) {
             Context ctx = CURRENT_CONTEXT.get();
             if (buffer != 0) {
-                BufferObject bo = ctx.bufferObjects.get(buffer);
+                BufferObject bo = ctx.shareGroup.bufferObjects.get(buffer);
                 ctx.bufferObjectBindings.put(target, bo);
             } else {
                 ctx.bufferObjectBindings.remove(target);
@@ -68,7 +68,7 @@ public class GL15 {
             int pos = buffers.position();
             for (int i = 0; i < buffers.remaining(); i++) {
                 int buffer = buffers.get(pos + i);
-                BufferObject bo = ctx.bufferObjects.remove(buffer);
+                BufferObject bo = ctx.shareGroup.bufferObjects.remove(buffer);
                 Iterator<Map.Entry<Integer, BufferObject>> it = ctx.bufferObjectBindings.entrySet().iterator();
                 while (it.hasNext()) {
                     if (it.next().getValue() == bo) {
@@ -85,7 +85,7 @@ public class GL15 {
             Context ctx = CURRENT_CONTEXT.get();
             for (int i = 0; i < buffers.length; i++) {
                 int buffer = buffers[i];
-                BufferObject bo = ctx.bufferObjects.remove(buffer);
+                BufferObject bo = ctx.shareGroup.bufferObjects.remove(buffer);
                 Iterator<Map.Entry<Integer, BufferObject>> it = ctx.bufferObjectBindings.entrySet().iterator();
                 while (it.hasNext()) {
                     if (it.next().getValue() == bo) {
@@ -100,7 +100,7 @@ public class GL15 {
         org.lwjgl.opengl.GL15.glDeleteBuffers(buffer);
         if (Properties.PROFILE.enabled) {
             Context ctx = CURRENT_CONTEXT.get();
-            BufferObject bo = ctx.bufferObjects.remove(buffer);
+            BufferObject bo = ctx.shareGroup.bufferObjects.remove(buffer);
             Iterator<Map.Entry<Integer, BufferObject>> it = ctx.bufferObjectBindings.entrySet().iterator();
             while (it.hasNext()) {
                 if (it.next().getValue() == bo) {

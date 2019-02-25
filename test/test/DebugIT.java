@@ -447,6 +447,33 @@ public class DebugIT {
     }
 
     @Test
+    public void testBindTextureFromSharedContext() {
+        window = glfwCreateWindow(800, 600, "", 0L, 0L);
+        window2 = glfwCreateWindow(800, 600, "", 0L, window);
+        glfwMakeContextCurrent(window);
+        createCapabilities();
+        int tex = glGenTextures();
+        glfwMakeContextCurrent(window2);
+        glBindTexture(GL_TEXTURE_2D, tex);
+    }
+
+    @Test
+    public void testBindProgramFromSharedContext() {
+        window = glfwCreateWindow(800, 600, "", 0L, 0L);
+        window2 = glfwCreateWindow(800, 600, "", 0L, window);
+        glfwMakeContextCurrent(window);
+        createCapabilities();
+        int prog = glCreateProgram();
+        int vs = glCreateShader(GL_VERTEX_SHADER);
+        glShaderSource(vs, "#version 110\nvoid main(void) {gl_Position=vec4(1.0);}");
+        glCompileShader(vs);
+        glAttachShader(prog, vs);
+        glLinkProgram(prog);
+        glfwMakeContextCurrent(window2);
+        glUseProgram(prog);
+    }
+
+    @Test
     public void testBindVAOFromSharedContext() {
         window = glfwCreateWindow(800, 600, "", 0L, 0L);
         window2 = glfwCreateWindow(800, 600, "", 0L, window);
@@ -466,8 +493,8 @@ public class DebugIT {
         createCapabilities();
         int fbo = glGenFramebuffers();
         glfwMakeContextCurrent(window2);
-        assertThrows(IllegalStateException.class, () -> glBindFramebuffer(GL_FRAMEBUFFER, fbo), // <--- VAOs are NOT shared!
-                "Trying to bind unknown FBO [1] from shared context [" + (Context.CURRENT_CONTEXT.get().counter - 1) + "]");
+        assertThrows(IllegalStateException.class, () -> glBindFramebuffer(GL_FRAMEBUFFER, fbo), // <--- FBOs are NOT shared!
+                        "Trying to bind unknown FBO [1] from shared context [" + (Context.CURRENT_CONTEXT.get().counter - 1) + "]");
     }
 
     @Test

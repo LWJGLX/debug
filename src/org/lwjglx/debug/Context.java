@@ -40,6 +40,8 @@ import org.lwjgl.opengl.ARBOcclusionQuery;
 
 public class Context implements Comparable<Context> {
     public static class ShareGroup {
+        public Map<Integer, BufferObject> bufferObjects = new HashMap<>();
+        public Map<Integer, TextureObject> textureObjects = new HashMap<>();
         public Set<Context> contexts = new ConcurrentSkipListSet<Context>();
     }
 
@@ -136,9 +138,7 @@ public class Context implements Comparable<Context> {
     public ProgramPipeline currentProgramPipeline;
     public Map<Integer, VAO> vaos = new HashMap<Integer, VAO>();
     public Map<Integer, FBO> fbos = new HashMap<Integer, FBO>();
-    public Map<Integer, BufferObject> bufferObjects = new HashMap<>();
     public Map<Integer, BufferObject> bufferObjectBindings = new HashMap<>();
-    public Map<Integer, TextureObject> textureObjects = new HashMap<>();
     public Map<Integer, TextureObject> textureObjectBindings = new HashMap<>();
     public Map<Integer, ProgramPipeline> programPipelines = new HashMap<>();
     public ShareGroup shareGroup;
@@ -178,6 +178,10 @@ public class Context implements Comparable<Context> {
             ctx.shareGroup = shareGroup;
             SHARE_GROUPS.put(window, shareGroup);
             shareGroup.contexts.add(ctx);
+        } else {
+            ctx.shareGroup = new ShareGroup();
+            SHARE_GROUPS.put(window, ctx.shareGroup);
+            ctx.shareGroup.contexts.add(ctx);
         }
         CONTEXTS.put(window, ctx);
     }
