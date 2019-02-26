@@ -776,7 +776,7 @@ public class GL11 {
         if (to != null) {
             setTextureLayerSize(target, level, internalformat, width, height, to);
             /* See whether mipmap levels should be automatically generated */
-            boolean generateMipmaps = ctx.caps.OpenGL14 && org.lwjgl.opengl.GL11.glGetTexParameteri(boundTarget, org.lwjgl.opengl.GL14.GL_GENERATE_MIPMAP) == 1;
+            boolean generateMipmaps = ctx.caps.OpenGL14 && to.generateMipmap;
             if (generateMipmaps) {
                 /* Determine maximum mipmap level */
                 int maxLevel = ctx.caps.OpenGL12 ? org.lwjgl.opengl.GL11.glGetTexParameteri(boundTarget, org.lwjgl.opengl.GL12.GL_TEXTURE_MAX_LEVEL) : 1000;
@@ -899,6 +899,17 @@ public class GL11 {
         default:
             mc.param(param);
             break;
+        }
+    }
+
+    public static void glTexParameteri(int target, int pname, int param) {
+        org.lwjgl.opengl.GL11.glTexParameteri(target, pname, param);
+        if (Properties.PROFILE.enabled) {
+            Context ctx = CURRENT_CONTEXT.get();
+            TextureObject to = ctx.textureObjectBindings.get(target);
+            if (to != null && pname == org.lwjgl.opengl.GL14.GL_GENERATE_MIPMAP) {
+                to.generateMipmap = param == 1;
+            }
         }
     }
 

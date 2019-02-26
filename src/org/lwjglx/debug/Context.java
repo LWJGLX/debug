@@ -103,6 +103,7 @@ public class Context implements Comparable<Context> {
 
     public static class TextureObject {
         public TextureLayer[] layers;
+        public boolean generateMipmap;
     }
 
     public static class TimingQuery {
