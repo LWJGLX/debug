@@ -8980,27 +8980,6 @@ public class GLmetadata {
     PathFillMode0();
     return PathFillMode;
   }
-  private static Map<Integer, String> MapBufferUsageMask;
-  private static void MapBufferUsageMask0() {
-    MapBufferUsageMask.put(GL_MAP_FLUSH_EXPLICIT_BIT, "GL_MAP_FLUSH_EXPLICIT_BIT");
-    MapBufferUsageMask.put(GL_MAP_WRITE_BIT, "GL_MAP_WRITE_BIT");
-    MapBufferUsageMask.put(GL_MAP_READ_BIT, "GL_MAP_READ_BIT");
-    MapBufferUsageMask.put(GL_MAP_COHERENT_BIT, "GL_MAP_COHERENT_BIT");
-    MapBufferUsageMask.put(GL_CLIENT_STORAGE_BIT, "GL_CLIENT_STORAGE_BIT");
-    MapBufferUsageMask.put(GL_DYNAMIC_STORAGE_BIT, "GL_DYNAMIC_STORAGE_BIT");
-    MapBufferUsageMask.put(GL_MAP_UNSYNCHRONIZED_BIT, "GL_MAP_UNSYNCHRONIZED_BIT");
-    MapBufferUsageMask.put(GL_MAP_PERSISTENT_BIT, "GL_MAP_PERSISTENT_BIT");
-    MapBufferUsageMask.put(GL_LGPU_SEPARATE_STORAGE_BIT_NVX, "GL_LGPU_SEPARATE_STORAGE_BIT_NVX");
-    MapBufferUsageMask.put(GL_MAP_INVALIDATE_RANGE_BIT, "GL_MAP_INVALIDATE_RANGE_BIT");
-    MapBufferUsageMask.put(GL_MAP_INVALIDATE_BUFFER_BIT, "GL_MAP_INVALIDATE_BUFFER_BIT");
-  }
-  public static Map<Integer, String> MapBufferUsageMask() {
-    if (MapBufferUsageMask != null)
-      return MapBufferUsageMask;
-    MapBufferUsageMask = new HashMap<Integer, String>(11);
-    MapBufferUsageMask0();
-    return MapBufferUsageMask;
-  }
   private static Map<Integer, String> BindTransformFeedbackTarget;
   private static void BindTransformFeedbackTarget0() {
     BindTransformFeedbackTarget.put(GL_TRANSFORM_FEEDBACK, "GL_TRANSFORM_FEEDBACK");
@@ -9548,6 +9527,24 @@ public class GLmetadata {
     QueryParameterName = new HashMap<Integer, String>(2);
     QueryParameterName0();
     return QueryParameterName;
+  }
+  private static Map<Integer, String> MapBufferAccessMask;
+  private static void MapBufferAccessMask0() {
+    MapBufferAccessMask.put(GL_MAP_FLUSH_EXPLICIT_BIT, "GL_MAP_FLUSH_EXPLICIT_BIT");
+    MapBufferAccessMask.put(GL_MAP_WRITE_BIT, "GL_MAP_WRITE_BIT");
+    MapBufferAccessMask.put(GL_MAP_READ_BIT, "GL_MAP_READ_BIT");
+    MapBufferAccessMask.put(GL_MAP_COHERENT_BIT, "GL_MAP_COHERENT_BIT");
+    MapBufferAccessMask.put(GL_MAP_UNSYNCHRONIZED_BIT, "GL_MAP_UNSYNCHRONIZED_BIT");
+    MapBufferAccessMask.put(GL_MAP_PERSISTENT_BIT, "GL_MAP_PERSISTENT_BIT");
+    MapBufferAccessMask.put(GL_MAP_INVALIDATE_RANGE_BIT, "GL_MAP_INVALIDATE_RANGE_BIT");
+    MapBufferAccessMask.put(GL_MAP_INVALIDATE_BUFFER_BIT, "GL_MAP_INVALIDATE_BUFFER_BIT");
+  }
+  public static Map<Integer, String> MapBufferAccessMask() {
+    if (MapBufferAccessMask != null)
+      return MapBufferAccessMask;
+    MapBufferAccessMask = new HashMap<Integer, String>(8);
+    MapBufferAccessMask0();
+    return MapBufferAccessMask;
   }
   private static Map<Integer, String> EnableCap;
   private static void EnableCap0() {
@@ -11715,6 +11712,23 @@ public class GLmetadata {
     MatrixMode0();
     return MatrixMode;
   }
+  private static Map<Integer, String> BufferStorageMask;
+  private static void BufferStorageMask0() {
+    BufferStorageMask.put(GL_MAP_WRITE_BIT, "GL_MAP_WRITE_BIT");
+    BufferStorageMask.put(GL_MAP_READ_BIT, "GL_MAP_READ_BIT");
+    BufferStorageMask.put(GL_MAP_COHERENT_BIT, "GL_MAP_COHERENT_BIT");
+    BufferStorageMask.put(GL_CLIENT_STORAGE_BIT, "GL_CLIENT_STORAGE_BIT");
+    BufferStorageMask.put(GL_DYNAMIC_STORAGE_BIT, "GL_DYNAMIC_STORAGE_BIT");
+    BufferStorageMask.put(GL_MAP_PERSISTENT_BIT, "GL_MAP_PERSISTENT_BIT");
+    BufferStorageMask.put(GL_LGPU_SEPARATE_STORAGE_BIT_NVX, "GL_LGPU_SEPARATE_STORAGE_BIT_NVX");
+  }
+  public static Map<Integer, String> BufferStorageMask() {
+    if (BufferStorageMask != null)
+      return BufferStorageMask;
+    BufferStorageMask = new HashMap<Integer, String>(7);
+    BufferStorageMask0();
+    return BufferStorageMask;
+  }
   private static Map<Integer, String> HintTarget;
   private static void HintTarget0() {
     HintTarget.put(GL_NATIVE_GRAPHICS_BEGIN_HINT_PGI, "GL_NATIVE_GRAPHICS_BEGIN_HINT_PGI");
@@ -12173,24 +12187,6 @@ public class GLmetadata {
     PixelStoreSubsampleRate = new HashMap<Integer, String>(3);
     PixelStoreSubsampleRate0();
     return PixelStoreSubsampleRate;
-  }
-  private static Map<Integer, String> BufferAccessMask;
-  private static void BufferAccessMask0() {
-    BufferAccessMask.put(GL_MAP_FLUSH_EXPLICIT_BIT, "GL_MAP_FLUSH_EXPLICIT_BIT");
-    BufferAccessMask.put(GL_MAP_WRITE_BIT, "GL_MAP_WRITE_BIT");
-    BufferAccessMask.put(GL_MAP_READ_BIT, "GL_MAP_READ_BIT");
-    BufferAccessMask.put(GL_MAP_COHERENT_BIT, "GL_MAP_COHERENT_BIT");
-    BufferAccessMask.put(GL_MAP_UNSYNCHRONIZED_BIT, "GL_MAP_UNSYNCHRONIZED_BIT");
-    BufferAccessMask.put(GL_MAP_PERSISTENT_BIT, "GL_MAP_PERSISTENT_BIT");
-    BufferAccessMask.put(GL_MAP_INVALIDATE_RANGE_BIT, "GL_MAP_INVALIDATE_RANGE_BIT");
-    BufferAccessMask.put(GL_MAP_INVALIDATE_BUFFER_BIT, "GL_MAP_INVALIDATE_BUFFER_BIT");
-  }
-  public static Map<Integer, String> BufferAccessMask() {
-    if (BufferAccessMask != null)
-      return BufferAccessMask;
-    BufferAccessMask = new HashMap<Integer, String>(8);
-    BufferAccessMask0();
-    return BufferAccessMask;
   }
   private static Map<Integer, String> FfdMaskSGIX;
   private static void FfdMaskSGIX0() {
@@ -18873,7 +18869,7 @@ public class GLmetadata {
     Command cmd = new Command(2);
     cmd.returnGroup = _null_();
     cmd.addParam("target", BufferStorageTarget());
-    cmd.addParam("flags", MapBufferUsageMask());
+    cmd.addParam("flags", BufferStorageMask());
     cmd.extension = GL_EXT_buffer_storage();
     glBufferStorageEXT = cmd;
     return cmd;
@@ -19912,7 +19908,7 @@ public class GLmetadata {
     Command cmd = new Command(2);
     cmd.returnGroup = _null_();
     cmd.addParam("mode", PrimitiveType());
-    cmd.addParam("type", PrimitiveType());
+    cmd.addParam("type", DrawElementsType());
     glDrawElementsInstancedBaseVertexBaseInstanceEXT = cmd;
     return cmd;
   }
@@ -21338,7 +21334,7 @@ public class GLmetadata {
       return glNamedBufferStorageExternalEXT;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("flags", MapBufferUsageMask());
+    cmd.addParam("flags", BufferStorageMask());
     glNamedBufferStorageExternalEXT = cmd;
     return cmd;
   }
@@ -22938,7 +22934,7 @@ public class GLmetadata {
       return glNamedBufferStorageEXT;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("flags", MapBufferUsageMask());
+    cmd.addParam("flags", BufferStorageMask());
     cmd.extension = GL_EXT_direct_state_access();
     glNamedBufferStorageEXT = cmd;
     return cmd;
@@ -27788,7 +27784,7 @@ public class GLmetadata {
       return glMapNamedBufferRange;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("access", BufferAccessMask());
+    cmd.addParam("access", MapBufferAccessMask());
     cmd.extension = GL_ARB_direct_state_access();
     glMapNamedBufferRange = cmd;
     return cmd;
@@ -28048,7 +28044,7 @@ public class GLmetadata {
     Command cmd = new Command(2);
     cmd.returnGroup = _null_();
     cmd.addParam("target", BufferTargetARB());
-    cmd.addParam("access", BufferAccessMask());
+    cmd.addParam("access", MapBufferAccessMask());
     cmd.extension = GL_ARB_map_buffer_range();
     glMapBufferRange = cmd;
     return cmd;
@@ -29743,7 +29739,7 @@ public class GLmetadata {
     Command cmd = new Command(2);
     cmd.returnGroup = _null_();
     cmd.addParam("target", BufferTargetARB());
-    cmd.addParam("access", BufferAccessMask());
+    cmd.addParam("access", MapBufferAccessMask());
     cmd.extension = GL_EXT_map_buffer_range();
     glMapBufferRangeEXT = cmd;
     return cmd;
@@ -30062,7 +30058,7 @@ public class GLmetadata {
     Command cmd = new Command(2);
     cmd.returnGroup = _null_();
     cmd.addParam("target", BufferStorageTarget());
-    cmd.addParam("flags", MapBufferUsageMask());
+    cmd.addParam("flags", BufferStorageMask());
     cmd.extension = GL_ARB_buffer_storage();
     glBufferStorage = cmd;
     return cmd;
@@ -33053,7 +33049,7 @@ public class GLmetadata {
       return glNamedBufferStorage;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("flags", MapBufferUsageMask());
+    cmd.addParam("flags", BufferStorageMask());
     cmd.extension = GL_ARB_direct_state_access();
     glNamedBufferStorage = cmd;
     return cmd;
@@ -33318,7 +33314,7 @@ public class GLmetadata {
     Command cmd = new Command(2);
     cmd.returnGroup = _null_();
     cmd.addParam("target", _null_());
-    cmd.addParam("flags", MapBufferUsageMask());
+    cmd.addParam("flags", BufferStorageMask());
     glBufferStorageExternalEXT = cmd;
     return cmd;
   }
@@ -35146,7 +35142,7 @@ public class GLmetadata {
       return glMapNamedBufferRangeEXT;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("access", BufferAccessMask());
+    cmd.addParam("access", MapBufferAccessMask());
     cmd.extension = GL_EXT_direct_state_access();
     glMapNamedBufferRangeEXT = cmd;
     return cmd;
@@ -38356,7 +38352,7 @@ public class GLmetadata {
     Command cmd = new Command(2);
     cmd.returnGroup = _null_();
     cmd.addParam("mode", PrimitiveType());
-    cmd.addParam("type", PrimitiveType());
+    cmd.addParam("type", DrawElementsType());
     glDrawElementsInstancedBaseVertexBaseInstance = cmd;
     return cmd;
   }
