@@ -35,7 +35,7 @@
 	</developers>
 	<properties>
 		<lwjgl.version>3.2.2-SNAPSHOT</lwjgl.version>
-		<asm.version>7.0</asm.version>
+		<asm.version>7.1</asm.version>
 		<jopt-simple.version>5.0.4</jopt-simple.version>
 		<junit.version>4.12</junit.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
