@@ -9825,20 +9825,6 @@ public class GLmetadata {
     SamplePatternSGIS0();
     return SamplePatternSGIS;
   }
-  private static Map<Integer, String> TypeEnum;
-  private static void TypeEnum0() {
-    TypeEnum.put(GL_QUERY_NO_WAIT, "GL_QUERY_NO_WAIT");
-    TypeEnum.put(GL_QUERY_BY_REGION_WAIT, "GL_QUERY_BY_REGION_WAIT");
-    TypeEnum.put(GL_QUERY_BY_REGION_NO_WAIT, "GL_QUERY_BY_REGION_NO_WAIT");
-    TypeEnum.put(GL_QUERY_WAIT, "GL_QUERY_WAIT");
-  }
-  public static Map<Integer, String> TypeEnum() {
-    if (TypeEnum != null)
-      return TypeEnum;
-    TypeEnum = new HashMap<Integer, String>(4);
-    TypeEnum0();
-    return TypeEnum;
-  }
   private static Map<Integer, String> StencilOp;
   private static void StencilOp0() {
     StencilOp.put(GL_DECR_WRAP, "GL_DECR_WRAP");
@@ -10447,6 +10433,24 @@ public class GLmetadata {
     ShadingModel = new HashMap<Integer, String>(2);
     ShadingModel0();
     return ShadingModel;
+  }
+  private static Map<Integer, String> ConditionalRenderMode;
+  private static void ConditionalRenderMode0() {
+    ConditionalRenderMode.put(GL_QUERY_NO_WAIT, "GL_QUERY_NO_WAIT");
+    ConditionalRenderMode.put(GL_QUERY_BY_REGION_WAIT_INVERTED, "GL_QUERY_BY_REGION_WAIT_INVERTED");
+    ConditionalRenderMode.put(GL_QUERY_BY_REGION_WAIT, "GL_QUERY_BY_REGION_WAIT");
+    ConditionalRenderMode.put(GL_QUERY_BY_REGION_NO_WAIT, "GL_QUERY_BY_REGION_NO_WAIT");
+    ConditionalRenderMode.put(GL_QUERY_WAIT_INVERTED, "GL_QUERY_WAIT_INVERTED");
+    ConditionalRenderMode.put(GL_QUERY_BY_REGION_NO_WAIT_INVERTED, "GL_QUERY_BY_REGION_NO_WAIT_INVERTED");
+    ConditionalRenderMode.put(GL_QUERY_WAIT, "GL_QUERY_WAIT");
+    ConditionalRenderMode.put(GL_QUERY_NO_WAIT_INVERTED, "GL_QUERY_NO_WAIT_INVERTED");
+  }
+  public static Map<Integer, String> ConditionalRenderMode() {
+    if (ConditionalRenderMode != null)
+      return ConditionalRenderMode;
+    ConditionalRenderMode = new HashMap<Integer, String>(8);
+    ConditionalRenderMode0();
+    return ConditionalRenderMode;
   }
   private static Map<Integer, String> GraphicsResetStatus;
   private static void GraphicsResetStatus0() {
@@ -18989,7 +18993,7 @@ public class GLmetadata {
       return glGetFloati_v;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("target", TypeEnum());
+    cmd.addParam("target", _null_());
     cmd.extension = GL_ARB_viewport_array();
     glGetFloati_v = cmd;
     return cmd;
@@ -20427,7 +20431,7 @@ public class GLmetadata {
       return glGetPixelTransformParameterivEXT;
     Command cmd = new Command(2);
     cmd.returnGroup = _null_();
-    cmd.addParam("target", TypeEnum());
+    cmd.addParam("target", _null_());
     cmd.addParam("pname", _null_());
     cmd.extension = GL_EXT_pixel_transform();
     glGetPixelTransformParameterivEXT = cmd;
@@ -20604,7 +20608,7 @@ public class GLmetadata {
       return glBeginConditionalRenderNV;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("mode", TypeEnum());
+    cmd.addParam("mode", ConditionalRenderMode());
     cmd.extension = GL_NV_conditional_render();
     glBeginConditionalRenderNV = cmd;
     return cmd;
@@ -21033,7 +21037,7 @@ public class GLmetadata {
       return glGetPointerIndexedvEXT;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("target", TypeEnum());
+    cmd.addParam("target", _null_());
     cmd.extension = GL_EXT_direct_state_access();
     glGetPointerIndexedvEXT = cmd;
     return cmd;
@@ -23268,7 +23272,7 @@ public class GLmetadata {
       return glGetIntegeri_v;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("target", TypeEnum());
+    cmd.addParam("target", _null_());
     cmd.extension = GL_ARB_uniform_buffer_object();
     glGetIntegeri_v = cmd;
     return cmd;
@@ -23451,7 +23455,7 @@ public class GLmetadata {
       return glGetDoublei_v;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("target", TypeEnum());
+    cmd.addParam("target", _null_());
     cmd.extension = GL_ARB_viewport_array();
     glGetDoublei_v = cmd;
     return cmd;
@@ -26552,7 +26556,7 @@ public class GLmetadata {
       return glGetDoubleIndexedvEXT;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("target", TypeEnum());
+    cmd.addParam("target", _null_());
     cmd.extension = GL_EXT_direct_state_access();
     glGetDoubleIndexedvEXT = cmd;
     return cmd;
@@ -26942,7 +26946,7 @@ public class GLmetadata {
       return glBeginConditionalRender;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("mode", TypeEnum());
+    cmd.addParam("mode", ConditionalRenderMode());
     glBeginConditionalRender = cmd;
     return cmd;
   }
@@ -28418,7 +28422,7 @@ public class GLmetadata {
       return glGetIntegeri_vEXT;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("target", TypeEnum());
+    cmd.addParam("target", _null_());
     cmd.extension = GL_EXT_multiview_draw_buffers();
     glGetIntegeri_vEXT = cmd;
     return cmd;
@@ -30769,7 +30773,7 @@ public class GLmetadata {
       return glGetDoublei_vEXT;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("pname", TypeEnum());
+    cmd.addParam("pname", _null_());
     cmd.extension = GL_EXT_direct_state_access();
     glGetDoublei_vEXT = cmd;
     return cmd;
@@ -31190,7 +31194,7 @@ public class GLmetadata {
       return glGetFloati_vNV;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("target", TypeEnum());
+    cmd.addParam("target", _null_());
     cmd.extension = GL_NV_viewport_array();
     glGetFloati_vNV = cmd;
     return cmd;
@@ -31481,7 +31485,7 @@ public class GLmetadata {
       return glGetFloatIndexedvEXT;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("target", TypeEnum());
+    cmd.addParam("target", _null_());
     cmd.extension = GL_EXT_direct_state_access();
     glGetFloatIndexedvEXT = cmd;
     return cmd;
@@ -33156,7 +33160,7 @@ public class GLmetadata {
       return glGetPointeri_vEXT;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("pname", TypeEnum());
+    cmd.addParam("pname", _null_());
     cmd.extension = GL_EXT_direct_state_access();
     glGetPointeri_vEXT = cmd;
     return cmd;
@@ -34661,7 +34665,7 @@ public class GLmetadata {
       return glGetPixelTransformParameterfvEXT;
     Command cmd = new Command(2);
     cmd.returnGroup = _null_();
-    cmd.addParam("target", TypeEnum());
+    cmd.addParam("target", _null_());
     cmd.addParam("pname", _null_());
     cmd.extension = GL_EXT_pixel_transform();
     glGetPixelTransformParameterfvEXT = cmd;
@@ -36572,7 +36576,7 @@ public class GLmetadata {
     cmd.returnGroup = _null_();
     cmd.addParam("texunit", TextureUnit());
     cmd.addParam("target", TextureTarget());
-    cmd.addParam("internalformat", TypeEnum());
+    cmd.addParam("internalformat", _null_());
     cmd.extension = GL_EXT_direct_state_access();
     glMultiTexBufferEXT = cmd;
     return cmd;
@@ -36966,7 +36970,7 @@ public class GLmetadata {
       return glGetFloati_vEXT;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("pname", TypeEnum());
+    cmd.addParam("pname", _null_());
     cmd.extension = GL_EXT_direct_state_access();
     glGetFloati_vEXT = cmd;
     return cmd;
@@ -38128,7 +38132,7 @@ public class GLmetadata {
       return glGetFloati_vOES;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("target", TypeEnum());
+    cmd.addParam("target", _null_());
     cmd.extension = GL_OES_viewport_array();
     glGetFloati_vOES = cmd;
     return cmd;
@@ -38448,7 +38452,7 @@ public class GLmetadata {
       return glGetInteger64i_v;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("target", TypeEnum());
+    cmd.addParam("target", _null_());
     glGetInteger64i_v = cmd;
     return cmd;
   }
