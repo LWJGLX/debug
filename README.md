@@ -10,11 +10,11 @@ Because some errors in user programs can cause the JVM to crash without a meanin
 
 # How
 
-1. Build this Maven project via the instructions in the 'Build' section below or download the lwjglx-debug-1.0.0-SNAPSHOT.jar from [https://www.lwjgl.org/download](https://www.lwjgl.org/download)
-2. Copy the lwjglx-debug-1.0.0-SNAPSHOT.jar to any directory (henceforth called `<cwd>`).
-3. Start your LWJGL3 application with `-javaagent:<cwd>/lwjglx-debug-1.0.0-SNAPSHOT.jar`
-    1. when using the command line, it should look like: `java -javaagent:<cwd>/lwjglx-debug-1.0.0-SNAPSHOT.jar -cp all/the/jars your.main.Class`
-    2. when using Eclipse, right-click your class with the `main()` method, goto 'Run As > Run Configurations...' and on the 'Arguments' tab inside the 'VM Arguments:' field enter `-javaagent:<cwd>/lwjglx-debug-1.0.0-SNAPSHOT.jar`
+1. Download the `lwjglx-debug-1.0.0.jar` file from [https://www.lwjgl.org/browse/addons/lwjglx-debug](https://www.lwjgl.org/browse/addons/lwjglx-debug) or build this Maven project via the instructions in the 'Build' section below
+2. Copy the `lwjglx-debug-1.0.0.jar` to any directory (henceforth called `<cwd>`)
+3. Start your LWJGL3 application with `-javaagent:<cwd>/lwjglx-debug-1.0.0.jar`
+    1. when using the command line, it should look like: `java -javaagent:<cwd>/lwjglx-debug-1.0.0.jar -cp all/the/jars your.main.Class`
+    2. when using Eclipse, right-click your class with the `main()` method, goto 'Run As > Run Configurations...' and on the 'Arguments' tab inside the 'VM Arguments:' field enter `-javaagent:<cwd>/lwjglx-debug-1.0.0.jar`
 
 # Configuration
 
@@ -30,16 +30,16 @@ The following configuration properties are available to configure the library:
 
 Examples:
 
-* `java -javaagent:lwjglx-debug-1.0.0-SNAPSHOT.jar=t ...` (generate a trace on stderr)
-* `java -javaagent:lwjglx-debug-1.0.0-SNAPSHOT.jar=t;o=trace.log` (generate a trace written to file `trace.log`)
-* `java -javaagent:lwjglx-debug-1.0.0-SNAPSHOT.jar=t;o=trace.log.zip` (generate a zip archive containing a single `trace.log` file)
-* `java -javaagent:lwjglx-debug-1.0.0-SNAPSHOT.jar=tn;o=trace.log` (generate a trace written to file `trace.log` and do not throw on GL errors)
-* `java -javaagent:lwjglx-debug-1.0.0-SNAPSHOT.jar=t;e=*GL20*,*GL11.glVertex3f` (generate a trace on stderr and exclude all methods from any class having `GL20` in its name, as well as exclude `glVertex3f` from any class ending with `GL11`)
-* `java -javaagent:lwjglx-debug-1.0.0-SNAPSHOT.jar=p ...` (profile the application and disable the default validation)
-* `java -javaagent:lwjglx-debug-1.0.0-SNAPSHOT.jar=p;v ...` (profile the application with validations enabled)
-* `java -javaagent:lwjglx-debug-1.0.0-SNAPSHOT.jar=p=s;v ...` (profile the application with validations enabled and suspend app start until the browser was opened on http://localhost:2992)
+* `java -javaagent:lwjglx-debug-1.0.0.jar=t ...` (generate a trace on stderr)
+* `java -javaagent:lwjglx-debug-1.0.0.jar=t;o=trace.log` (generate a trace written to file `trace.log`)
+* `java -javaagent:lwjglx-debug-1.0.0.jar=t;o=trace.log.zip` (generate a zip archive containing a single `trace.log` file)
+* `java -javaagent:lwjglx-debug-1.0.0.jar=tn;o=trace.log` (generate a trace written to file `trace.log` and do not throw on GL errors)
+* `java -javaagent:lwjglx-debug-1.0.0.jar=t;e=*GL20*,*GL11.glVertex3f` (generate a trace on stderr and exclude all methods from any class having `GL20` in its name, as well as exclude `glVertex3f` from any class ending with `GL11`)
+* `java -javaagent:lwjglx-debug-1.0.0.jar=p ...` (profile the application and disable the default validation)
+* `java -javaagent:lwjglx-debug-1.0.0.jar=p;v ...` (profile the application with validations enabled)
+* `java -javaagent:lwjglx-debug-1.0.0.jar=p=s;v ...` (profile the application with validations enabled and suspend app start until the browser was opened on http://localhost:2992)
 
 # Build
 
 1. `./mvnw package`
-2. see target/lwjglx-debug-1.0.0-SNAPSHOT.jar
+2. see target/lwjglx-debug-1.0.0.jar
