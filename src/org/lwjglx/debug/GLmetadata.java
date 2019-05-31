@@ -8186,6 +8186,16 @@ public class GLmetadata {
     AtomicCounterBufferPName0();
     return AtomicCounterBufferPName;
   }
+  private static Map<Integer, String> SwizzleOpATI;
+  private static void SwizzleOpATI0() {
+  }
+  public static Map<Integer, String> SwizzleOpATI() {
+    if (SwizzleOpATI != null)
+      return SwizzleOpATI;
+    SwizzleOpATI = new HashMap<Integer, String>(0);
+    SwizzleOpATI0();
+    return SwizzleOpATI;
+  }
   private static Map<Integer, String> GetPointervPName;
   private static void GetPointervPName0() {
     GetPointervPName.put(GL_DEBUG_CALLBACK_FUNCTION, "GL_DEBUG_CALLBACK_FUNCTION");
@@ -8221,6 +8231,26 @@ public class GLmetadata {
     TransformFeedbackPName = new HashMap<Integer, String>(5);
     TransformFeedbackPName0();
     return TransformFeedbackPName;
+  }
+  private static Map<Integer, String> GetTexBumpParameterATI;
+  private static void GetTexBumpParameterATI0() {
+  }
+  public static Map<Integer, String> GetTexBumpParameterATI() {
+    if (GetTexBumpParameterATI != null)
+      return GetTexBumpParameterATI;
+    GetTexBumpParameterATI = new HashMap<Integer, String>(0);
+    GetTexBumpParameterATI0();
+    return GetTexBumpParameterATI;
+  }
+  private static Map<Integer, String> HintTargetPGI;
+  private static void HintTargetPGI0() {
+  }
+  public static Map<Integer, String> HintTargetPGI() {
+    if (HintTargetPGI != null)
+      return HintTargetPGI;
+    HintTargetPGI = new HashMap<Integer, String>(0);
+    HintTargetPGI0();
+    return HintTargetPGI;
   }
   private static Map<Integer, String> ExternalHandleType;
   private static void ExternalHandleType0() {
@@ -8274,6 +8304,16 @@ public class GLmetadata {
     VertexBufferObjectParameter = new HashMap<Integer, String>(9);
     VertexBufferObjectParameter0();
     return VertexBufferObjectParameter;
+  }
+  private static Map<Integer, String> BufferPointerNameARB;
+  private static void BufferPointerNameARB0() {
+  }
+  public static Map<Integer, String> BufferPointerNameARB() {
+    if (BufferPointerNameARB != null)
+      return BufferPointerNameARB;
+    BufferPointerNameARB = new HashMap<Integer, String>(0);
+    BufferPointerNameARB0();
+    return BufferPointerNameARB;
   }
   private static Map<Integer, String> PrimitiveType;
   private static void PrimitiveType0() {
@@ -8409,6 +8449,16 @@ public class GLmetadata {
     MemoryBarrierMask0();
     return MemoryBarrierMask;
   }
+  private static Map<Integer, String> VertexShaderParameterEXT;
+  private static void VertexShaderParameterEXT0() {
+  }
+  public static Map<Integer, String> VertexShaderParameterEXT() {
+    if (VertexShaderParameterEXT != null)
+      return VertexShaderParameterEXT;
+    VertexShaderParameterEXT = new HashMap<Integer, String>(0);
+    VertexShaderParameterEXT0();
+    return VertexShaderParameterEXT;
+  }
   private static Map<Integer, String> VertexAttribEnum;
   private static void VertexAttribEnum0() {
     VertexAttribEnum.put(GL_VERTEX_ATTRIB_ARRAY_ENABLED, "GL_VERTEX_ATTRIB_ARRAY_ENABLED");
@@ -8524,6 +8574,16 @@ public class GLmetadata {
     TextureLayout0();
     return TextureLayout;
   }
+  private static Map<Integer, String> PNTrianglesPNameATI;
+  private static void PNTrianglesPNameATI0() {
+  }
+  public static Map<Integer, String> PNTrianglesPNameATI() {
+    if (PNTrianglesPNameATI != null)
+      return PNTrianglesPNameATI;
+    PNTrianglesPNameATI = new HashMap<Integer, String>(0);
+    PNTrianglesPNameATI0();
+    return PNTrianglesPNameATI;
+  }
   private static Map<Integer, String> LightEnvModeSGIX;
   private static void LightEnvModeSGIX0() {
     LightEnvModeSGIX.put(GL_MODULATE, "GL_MODULATE");
@@ -8609,6 +8669,26 @@ public class GLmetadata {
     TextureGenParameter0();
     return TextureGenParameter;
   }
+  private static Map<Integer, String> CombinerRegisterNV;
+  private static void CombinerRegisterNV0() {
+  }
+  public static Map<Integer, String> CombinerRegisterNV() {
+    if (CombinerRegisterNV != null)
+      return CombinerRegisterNV;
+    CombinerRegisterNV = new HashMap<Integer, String>(0);
+    CombinerRegisterNV0();
+    return CombinerRegisterNV;
+  }
+  private static Map<Integer, String> ClampColorTargetARB;
+  private static void ClampColorTargetARB0() {
+  }
+  public static Map<Integer, String> ClampColorTargetARB() {
+    if (ClampColorTargetARB != null)
+      return ClampColorTargetARB;
+    ClampColorTargetARB = new HashMap<Integer, String>(0);
+    ClampColorTargetARB0();
+    return ClampColorTargetARB;
+  }
   private static Map<Integer, String> DebugSource;
   private static void DebugSource0() {
     DebugSource.put(GL_DEBUG_SOURCE_API, "GL_DEBUG_SOURCE_API");
@@ -8625,6 +8705,16 @@ public class GLmetadata {
     DebugSource = new HashMap<Integer, String>(7);
     DebugSource0();
     return DebugSource;
+  }
+  private static Map<Integer, String> PathCoordType;
+  private static void PathCoordType0() {
+  }
+  public static Map<Integer, String> PathCoordType() {
+    if (PathCoordType != null)
+      return PathCoordType;
+    PathCoordType = new HashMap<Integer, String>(0);
+    PathCoordType0();
+    return PathCoordType;
   }
   private static Map<Integer, String> FramebufferAttachmentParameterName;
   private static void FramebufferAttachmentParameterName0() {
@@ -8669,6 +8759,26 @@ public class GLmetadata {
     PixelMap0();
     return PixelMap;
   }
+  private static Map<Integer, String> TextureFilterSGIS;
+  private static void TextureFilterSGIS0() {
+  }
+  public static Map<Integer, String> TextureFilterSGIS() {
+    if (TextureFilterSGIS != null)
+      return TextureFilterSGIS;
+    TextureFilterSGIS = new HashMap<Integer, String>(0);
+    TextureFilterSGIS0();
+    return TextureFilterSGIS;
+  }
+  private static Map<Integer, String> MapParameterNV;
+  private static void MapParameterNV0() {
+  }
+  public static Map<Integer, String> MapParameterNV() {
+    if (MapParameterNV != null)
+      return MapParameterNV;
+    MapParameterNV = new HashMap<Integer, String>(0);
+    MapParameterNV0();
+    return MapParameterNV;
+  }
   private static Map<Integer, String> PrecisionType;
   private static void PrecisionType0() {
     PrecisionType.put(GL_MEDIUM_FLOAT, "GL_MEDIUM_FLOAT");
@@ -8694,6 +8804,16 @@ public class GLmetadata {
     PathParameter = new HashMap<Integer, String>(0);
     PathParameter0();
     return PathParameter;
+  }
+  private static Map<Integer, String> FenceParameterNameNV;
+  private static void FenceParameterNameNV0() {
+  }
+  public static Map<Integer, String> FenceParameterNameNV() {
+    if (FenceParameterNameNV != null)
+      return FenceParameterNameNV;
+    FenceParameterNameNV = new HashMap<Integer, String>(0);
+    FenceParameterNameNV0();
+    return FenceParameterNameNV;
   }
   private static Map<Integer, String> FramebufferStatus;
   private static void FramebufferStatus0() {
@@ -8784,6 +8904,36 @@ public class GLmetadata {
     GetTextureParameter = new HashMap<Integer, String>(51);
     GetTextureParameter0();
     return GetTextureParameter;
+  }
+  private static Map<Integer, String> CombinerVariableNV;
+  private static void CombinerVariableNV0() {
+  }
+  public static Map<Integer, String> CombinerVariableNV() {
+    if (CombinerVariableNV != null)
+      return CombinerVariableNV;
+    CombinerVariableNV = new HashMap<Integer, String>(0);
+    CombinerVariableNV0();
+    return CombinerVariableNV;
+  }
+  private static Map<Integer, String> IglooFunctionSelectSGIX;
+  private static void IglooFunctionSelectSGIX0() {
+  }
+  public static Map<Integer, String> IglooFunctionSelectSGIX() {
+    if (IglooFunctionSelectSGIX != null)
+      return IglooFunctionSelectSGIX;
+    IglooFunctionSelectSGIX = new HashMap<Integer, String>(0);
+    IglooFunctionSelectSGIX0();
+    return IglooFunctionSelectSGIX;
+  }
+  private static Map<Integer, String> TexBumpParameterATI;
+  private static void TexBumpParameterATI0() {
+  }
+  public static Map<Integer, String> TexBumpParameterATI() {
+    if (TexBumpParameterATI != null)
+      return TexBumpParameterATI;
+    TexBumpParameterATI = new HashMap<Integer, String>(0);
+    TexBumpParameterATI0();
+    return TexBumpParameterATI;
   }
   private static Map<Integer, String> ObjectIdentifier;
   private static void ObjectIdentifier0() {
@@ -8926,6 +9076,16 @@ public class GLmetadata {
     FogCoordinatePointerType = new HashMap<Integer, String>(2);
     FogCoordinatePointerType0();
     return FogCoordinatePointerType;
+  }
+  private static Map<Integer, String> VertexAttribEnumNV;
+  private static void VertexAttribEnumNV0() {
+  }
+  public static Map<Integer, String> VertexAttribEnumNV() {
+    if (VertexAttribEnumNV != null)
+      return VertexAttribEnumNV;
+    VertexAttribEnumNV = new HashMap<Integer, String>(0);
+    VertexAttribEnumNV0();
+    return VertexAttribEnumNV;
   }
   private static Map<Integer, String> TextureUnit;
   private static void TextureUnit0() {
@@ -9329,6 +9489,26 @@ public class GLmetadata {
     PathTransformType0();
     return PathTransformType;
   }
+  private static Map<Integer, String> ProgramStringPropertyARB;
+  private static void ProgramStringPropertyARB0() {
+  }
+  public static Map<Integer, String> ProgramStringPropertyARB() {
+    if (ProgramStringPropertyARB != null)
+      return ProgramStringPropertyARB;
+    ProgramStringPropertyARB = new HashMap<Integer, String>(0);
+    ProgramStringPropertyARB0();
+    return ProgramStringPropertyARB;
+  }
+  private static Map<Integer, String> ArrayObjectPNameATI;
+  private static void ArrayObjectPNameATI0() {
+  }
+  public static Map<Integer, String> ArrayObjectPNameATI() {
+    if (ArrayObjectPNameATI != null)
+      return ArrayObjectPNameATI;
+    ArrayObjectPNameATI = new HashMap<Integer, String>(0);
+    ArrayObjectPNameATI0();
+    return ArrayObjectPNameATI;
+  }
   private static Map<Integer, String> QueryTarget;
   private static void QueryTarget0() {
     QueryTarget.put(GL_ANY_SAMPLES_PASSED, "GL_ANY_SAMPLES_PASSED");
@@ -9344,6 +9524,16 @@ public class GLmetadata {
     QueryTarget = new HashMap<Integer, String>(6);
     QueryTarget0();
     return QueryTarget;
+  }
+  private static Map<Integer, String> GetMultisamplePNameNV;
+  private static void GetMultisamplePNameNV0() {
+  }
+  public static Map<Integer, String> GetMultisamplePNameNV() {
+    if (GetMultisamplePNameNV != null)
+      return GetMultisamplePNameNV;
+    GetMultisamplePNameNV = new HashMap<Integer, String>(0);
+    GetMultisamplePNameNV0();
+    return GetMultisamplePNameNV;
   }
   private static Map<Integer, String> IndexPointerType;
   private static void IndexPointerType0() {
@@ -9396,6 +9586,26 @@ public class GLmetadata {
     CheckFramebufferStatusTarget = new HashMap<Integer, String>(3);
     CheckFramebufferStatusTarget0();
     return CheckFramebufferStatusTarget;
+  }
+  private static Map<Integer, String> PixelDataRangeTargetNV;
+  private static void PixelDataRangeTargetNV0() {
+  }
+  public static Map<Integer, String> PixelDataRangeTargetNV() {
+    if (PixelDataRangeTargetNV != null)
+      return PixelDataRangeTargetNV;
+    PixelDataRangeTargetNV = new HashMap<Integer, String>(0);
+    PixelDataRangeTargetNV0();
+    return PixelDataRangeTargetNV;
+  }
+  private static Map<Integer, String> FenceConditionNV;
+  private static void FenceConditionNV0() {
+  }
+  public static Map<Integer, String> FenceConditionNV() {
+    if (FenceConditionNV != null)
+      return FenceConditionNV;
+    FenceConditionNV = new HashMap<Integer, String>(0);
+    FenceConditionNV0();
+    return FenceConditionNV;
   }
   private static Map<Integer, String> UniformPName;
   private static void UniformPName0() {
@@ -9477,6 +9687,16 @@ public class GLmetadata {
     ProgramParameterPName0();
     return ProgramParameterPName;
   }
+  private static Map<Integer, String> DrawBufferModeATI;
+  private static void DrawBufferModeATI0() {
+  }
+  public static Map<Integer, String> DrawBufferModeATI() {
+    if (DrawBufferModeATI != null)
+      return DrawBufferModeATI;
+    DrawBufferModeATI = new HashMap<Integer, String>(0);
+    DrawBufferModeATI0();
+    return DrawBufferModeATI;
+  }
   private static Map<Integer, String> DrawBufferMode;
   private static void DrawBufferMode0() {
     DrawBufferMode.put(GL_AUX0, "GL_AUX0");
@@ -9527,6 +9747,36 @@ public class GLmetadata {
     QueryParameterName = new HashMap<Integer, String>(2);
     QueryParameterName0();
     return QueryParameterName;
+  }
+  private static Map<Integer, String> VertexShaderCoordOutEXT;
+  private static void VertexShaderCoordOutEXT0() {
+  }
+  public static Map<Integer, String> VertexShaderCoordOutEXT() {
+    if (VertexShaderCoordOutEXT != null)
+      return VertexShaderCoordOutEXT;
+    VertexShaderCoordOutEXT = new HashMap<Integer, String>(0);
+    VertexShaderCoordOutEXT0();
+    return VertexShaderCoordOutEXT;
+  }
+  private static Map<Integer, String> ImageTransformPNameHP;
+  private static void ImageTransformPNameHP0() {
+  }
+  public static Map<Integer, String> ImageTransformPNameHP() {
+    if (ImageTransformPNameHP != null)
+      return ImageTransformPNameHP;
+    ImageTransformPNameHP = new HashMap<Integer, String>(0);
+    ImageTransformPNameHP0();
+    return ImageTransformPNameHP;
+  }
+  private static Map<Integer, String> CombinerParameterNV;
+  private static void CombinerParameterNV0() {
+  }
+  public static Map<Integer, String> CombinerParameterNV() {
+    if (CombinerParameterNV != null)
+      return CombinerParameterNV;
+    CombinerParameterNV = new HashMap<Integer, String>(0);
+    CombinerParameterNV0();
+    return CombinerParameterNV;
   }
   private static Map<Integer, String> MapBufferAccessMask;
   private static void MapBufferAccessMask0() {
@@ -9671,6 +9921,16 @@ public class GLmetadata {
     EnableCap0();
     EnableCap1();
     return EnableCap;
+  }
+  private static Map<Integer, String> CombinerMappingNV;
+  private static void CombinerMappingNV0() {
+  }
+  public static Map<Integer, String> CombinerMappingNV() {
+    if (CombinerMappingNV != null)
+      return CombinerMappingNV;
+    CombinerMappingNV = new HashMap<Integer, String>(0);
+    CombinerMappingNV0();
+    return CombinerMappingNV;
   }
   private static Map<Integer, String> LightName;
   private static void LightName0() {
@@ -9825,6 +10085,16 @@ public class GLmetadata {
     SamplePatternSGIS0();
     return SamplePatternSGIS;
   }
+  private static Map<Integer, String> ObjectTypeAPPLE;
+  private static void ObjectTypeAPPLE0() {
+  }
+  public static Map<Integer, String> ObjectTypeAPPLE() {
+    if (ObjectTypeAPPLE != null)
+      return ObjectTypeAPPLE;
+    ObjectTypeAPPLE = new HashMap<Integer, String>(0);
+    ObjectTypeAPPLE0();
+    return ObjectTypeAPPLE;
+  }
   private static Map<Integer, String> StencilOp;
   private static void StencilOp0() {
     StencilOp.put(GL_DECR_WRAP, "GL_DECR_WRAP");
@@ -9861,6 +10131,26 @@ public class GLmetadata {
     ErrorCode = new HashMap<Integer, String>(9);
     ErrorCode0();
     return ErrorCode;
+  }
+  private static Map<Integer, String> LightTexturePNameEXT;
+  private static void LightTexturePNameEXT0() {
+  }
+  public static Map<Integer, String> LightTexturePNameEXT() {
+    if (LightTexturePNameEXT != null)
+      return LightTexturePNameEXT;
+    LightTexturePNameEXT = new HashMap<Integer, String>(0);
+    LightTexturePNameEXT0();
+    return LightTexturePNameEXT;
+  }
+  private static Map<Integer, String> CombinerScaleNV;
+  private static void CombinerScaleNV0() {
+  }
+  public static Map<Integer, String> CombinerScaleNV() {
+    if (CombinerScaleNV != null)
+      return CombinerScaleNV;
+    CombinerScaleNV = new HashMap<Integer, String>(0);
+    CombinerScaleNV0();
+    return CombinerScaleNV;
   }
   private static Map<Integer, String> SeparableTargetEXT;
   private static void SeparableTargetEXT0() {
@@ -9975,6 +10265,16 @@ public class GLmetadata {
     TextureEnvMode0();
     return TextureEnvMode;
   }
+  private static Map<Integer, String> ImageTransformTargetHP;
+  private static void ImageTransformTargetHP0() {
+  }
+  public static Map<Integer, String> ImageTransformTargetHP() {
+    if (ImageTransformTargetHP != null)
+      return ImageTransformTargetHP;
+    ImageTransformTargetHP = new HashMap<Integer, String>(0);
+    ImageTransformTargetHP0();
+    return ImageTransformTargetHP;
+  }
   private static Map<Integer, String> RenderingMode;
   private static void RenderingMode0() {
     RenderingMode.put(GL_SELECT, "GL_SELECT");
@@ -9987,6 +10287,16 @@ public class GLmetadata {
     RenderingMode = new HashMap<Integer, String>(3);
     RenderingMode0();
     return RenderingMode;
+  }
+  private static Map<Integer, String> BufferPNameARB;
+  private static void BufferPNameARB0() {
+  }
+  public static Map<Integer, String> BufferPNameARB() {
+    if (BufferPNameARB != null)
+      return BufferPNameARB;
+    BufferPNameARB = new HashMap<Integer, String>(0);
+    BufferPNameARB0();
+    return BufferPNameARB;
   }
   private static Map<Integer, String> ConvolutionTargetEXT;
   private static void ConvolutionTargetEXT0() {
@@ -10088,6 +10398,16 @@ public class GLmetadata {
     TextureParameterName = new HashMap<Integer, String>(66);
     TextureParameterName0();
     return TextureParameterName;
+  }
+  private static Map<Integer, String> ArrayObjectUsageATI;
+  private static void ArrayObjectUsageATI0() {
+  }
+  public static Map<Integer, String> ArrayObjectUsageATI() {
+    if (ArrayObjectUsageATI != null)
+      return ArrayObjectUsageATI;
+    ArrayObjectUsageATI = new HashMap<Integer, String>(0);
+    ArrayObjectUsageATI0();
+    return ArrayObjectUsageATI;
   }
   private static Map<Integer, String> TextureFilterFuncSGIS;
   private static void TextureFilterFuncSGIS0() {
@@ -10433,6 +10753,16 @@ public class GLmetadata {
     ShadingModel = new HashMap<Integer, String>(2);
     ShadingModel0();
     return ShadingModel;
+  }
+  private static Map<Integer, String> PixelTexGenModeSGIX;
+  private static void PixelTexGenModeSGIX0() {
+  }
+  public static Map<Integer, String> PixelTexGenModeSGIX() {
+    if (PixelTexGenModeSGIX != null)
+      return PixelTexGenModeSGIX;
+    PixelTexGenModeSGIX = new HashMap<Integer, String>(0);
+    PixelTexGenModeSGIX0();
+    return PixelTexGenModeSGIX;
   }
   private static Map<Integer, String> ConditionalRenderMode;
   private static void ConditionalRenderMode0() {
@@ -11084,6 +11414,16 @@ public class GLmetadata {
     FramebufferTarget0();
     return FramebufferTarget;
   }
+  private static Map<Integer, String> VertexShaderStorageTypeEXT;
+  private static void VertexShaderStorageTypeEXT0() {
+  }
+  public static Map<Integer, String> VertexShaderStorageTypeEXT() {
+    if (VertexShaderStorageTypeEXT != null)
+      return VertexShaderStorageTypeEXT;
+    VertexShaderStorageTypeEXT = new HashMap<Integer, String>(0);
+    VertexShaderStorageTypeEXT0();
+    return VertexShaderStorageTypeEXT;
+  }
   private static Map<Integer, String> TextureMagFilter;
   private static void TextureMagFilter0() {
     TextureMagFilter.put(GL_FILTER4_SGIS, "GL_FILTER4_SGIS");
@@ -11170,6 +11510,16 @@ public class GLmetadata {
     StringName = new HashMap<Integer, String>(5);
     StringName0();
     return StringName;
+  }
+  private static Map<Integer, String> VertexAttribPropertyARB;
+  private static void VertexAttribPropertyARB0() {
+  }
+  public static Map<Integer, String> VertexAttribPropertyARB() {
+    if (VertexAttribPropertyARB != null)
+      return VertexAttribPropertyARB;
+    VertexAttribPropertyARB = new HashMap<Integer, String>(0);
+    VertexAttribPropertyARB0();
+    return VertexAttribPropertyARB;
   }
   private static Map<Integer, String> PixelCopyType;
   private static void PixelCopyType0() {
@@ -11281,6 +11631,16 @@ public class GLmetadata {
     SemaphoreParameterName0();
     return SemaphoreParameterName;
   }
+  private static Map<Integer, String> MapAttribParameterNV;
+  private static void MapAttribParameterNV0() {
+  }
+  public static Map<Integer, String> MapAttribParameterNV() {
+    if (MapAttribParameterNV != null)
+      return MapAttribParameterNV;
+    MapAttribParameterNV = new HashMap<Integer, String>(0);
+    MapAttribParameterNV0();
+    return MapAttribParameterNV;
+  }
   private static Map<Integer, String> MapTarget;
   private static void MapTarget0() {
     MapTarget.put(GL_MAP2_INDEX, "GL_MAP2_INDEX");
@@ -11351,6 +11711,26 @@ public class GLmetadata {
     ContextProfileMask0();
     return ContextProfileMask;
   }
+  private static Map<Integer, String> LightTextureModeEXT;
+  private static void LightTextureModeEXT0() {
+  }
+  public static Map<Integer, String> LightTextureModeEXT() {
+    if (LightTextureModeEXT != null)
+      return LightTextureModeEXT;
+    LightTextureModeEXT = new HashMap<Integer, String>(0);
+    LightTextureModeEXT0();
+    return LightTextureModeEXT;
+  }
+  private static Map<Integer, String> EvalTargetNV;
+  private static void EvalTargetNV0() {
+  }
+  public static Map<Integer, String> EvalTargetNV() {
+    if (EvalTargetNV != null)
+      return EvalTargetNV;
+    EvalTargetNV = new HashMap<Integer, String>(0);
+    EvalTargetNV0();
+    return EvalTargetNV;
+  }
   private static Map<Integer, String> AccumOp;
   private static void AccumOp0() {
     AccumOp.put(GL_ACCUM, "GL_ACCUM");
@@ -11409,6 +11789,16 @@ public class GLmetadata {
     GetColorTableParameterPNameSGI0();
     return GetColorTableParameterPNameSGI;
   }
+  private static Map<Integer, String> ProgramFormatARB;
+  private static void ProgramFormatARB0() {
+  }
+  public static Map<Integer, String> ProgramFormatARB() {
+    if (ProgramFormatARB != null)
+      return ProgramFormatARB;
+    ProgramFormatARB = new HashMap<Integer, String>(0);
+    ProgramFormatARB0();
+    return ProgramFormatARB;
+  }
   private static Map<Integer, String> LightParameter;
   private static void LightParameter0() {
     LightParameter.put(GL_CONSTANT_ATTENUATION, "GL_CONSTANT_ATTENUATION");
@@ -11439,6 +11829,16 @@ public class GLmetadata {
     PathColor = new HashMap<Integer, String>(1);
     PathColor0();
     return PathColor;
+  }
+  private static Map<Integer, String> SpriteParameterNameSGIX;
+  private static void SpriteParameterNameSGIX0() {
+  }
+  public static Map<Integer, String> SpriteParameterNameSGIX() {
+    if (SpriteParameterNameSGIX != null)
+      return SpriteParameterNameSGIX;
+    SpriteParameterNameSGIX = new HashMap<Integer, String>(0);
+    SpriteParameterNameSGIX0();
+    return SpriteParameterNameSGIX;
   }
   private static Map<Integer, String> VertexArrayPName;
   private static void VertexArrayPName0() {
@@ -11472,6 +11872,16 @@ public class GLmetadata {
     TexCoordPointerType = new HashMap<Integer, String>(4);
     TexCoordPointerType0();
     return TexCoordPointerType;
+  }
+  private static Map<Integer, String> PointParameterNameARB;
+  private static void PointParameterNameARB0() {
+  }
+  public static Map<Integer, String> PointParameterNameARB() {
+    if (PointParameterNameARB != null)
+      return PointParameterNameARB;
+    PointParameterNameARB = new HashMap<Integer, String>(0);
+    PointParameterNameARB0();
+    return PointParameterNameARB;
   }
   private static Map<Integer, String> HistogramTargetEXT;
   private static void HistogramTargetEXT0() {
@@ -11633,6 +12043,16 @@ public class GLmetadata {
     ColorBuffer0();
     return ColorBuffer;
   }
+  private static Map<Integer, String> PreserveModeATI;
+  private static void PreserveModeATI0() {
+  }
+  public static Map<Integer, String> PreserveModeATI() {
+    if (PreserveModeATI != null)
+      return PreserveModeATI;
+    PreserveModeATI = new HashMap<Integer, String>(0);
+    PreserveModeATI0();
+    return PreserveModeATI;
+  }
   private static Map<Integer, String> PixelFormat;
   private static void PixelFormat0() {
     PixelFormat.put(GL_RG, "GL_RG");
@@ -11702,6 +12122,16 @@ public class GLmetadata {
     ProgramInterfacePName = new HashMap<Integer, String>(4);
     ProgramInterfacePName0();
     return ProgramInterfacePName;
+  }
+  private static Map<Integer, String> VertexShaderOpEXT;
+  private static void VertexShaderOpEXT0() {
+  }
+  public static Map<Integer, String> VertexShaderOpEXT() {
+    if (VertexShaderOpEXT != null)
+      return VertexShaderOpEXT;
+    VertexShaderOpEXT = new HashMap<Integer, String>(0);
+    VertexShaderOpEXT0();
+    return VertexShaderOpEXT;
   }
   private static Map<Integer, String> MatrixMode;
   private static void MatrixMode0() {
@@ -11980,6 +12410,16 @@ public class GLmetadata {
     DebugType0();
     return DebugType;
   }
+  private static Map<Integer, String> SamplePatternEXT;
+  private static void SamplePatternEXT0() {
+  }
+  public static Map<Integer, String> SamplePatternEXT() {
+    if (SamplePatternEXT != null)
+      return SamplePatternEXT;
+    SamplePatternEXT = new HashMap<Integer, String>(0);
+    SamplePatternEXT0();
+    return SamplePatternEXT;
+  }
   private static Map<Integer, String> StencilFaceDirection;
   private static void StencilFaceDirection0() {
     StencilFaceDirection.put(GL_FRONT, "GL_FRONT");
@@ -11992,6 +12432,16 @@ public class GLmetadata {
     StencilFaceDirection = new HashMap<Integer, String>(3);
     StencilFaceDirection0();
     return StencilFaceDirection;
+  }
+  private static Map<Integer, String> TextureNormalModeEXT;
+  private static void TextureNormalModeEXT0() {
+  }
+  public static Map<Integer, String> TextureNormalModeEXT() {
+    if (TextureNormalModeEXT != null)
+      return TextureNormalModeEXT;
+    TextureNormalModeEXT = new HashMap<Integer, String>(0);
+    TextureNormalModeEXT0();
+    return TextureNormalModeEXT;
   }
   private static Map<Integer, String> TextureTarget;
   private static void TextureTarget0() {
@@ -12123,6 +12573,16 @@ public class GLmetadata {
     TextureStorageMaskAMD0();
     return TextureStorageMaskAMD;
   }
+  private static Map<Integer, String> VertexStreamATI;
+  private static void VertexStreamATI0() {
+  }
+  public static Map<Integer, String> VertexStreamATI() {
+    if (VertexStreamATI != null)
+      return VertexStreamATI;
+    VertexStreamATI = new HashMap<Integer, String>(0);
+    VertexStreamATI0();
+    return VertexStreamATI;
+  }
   private static Map<Integer, String> SyncParameterName;
   private static void SyncParameterName0() {
     SyncParameterName.put(GL_SYNC_STATUS, "GL_SYNC_STATUS");
@@ -12191,6 +12651,26 @@ public class GLmetadata {
     PixelStoreSubsampleRate = new HashMap<Integer, String>(3);
     PixelStoreSubsampleRate0();
     return PixelStoreSubsampleRate;
+  }
+  private static Map<Integer, String> CombinerBiasNV;
+  private static void CombinerBiasNV0() {
+  }
+  public static Map<Integer, String> CombinerBiasNV() {
+    if (CombinerBiasNV != null)
+      return CombinerBiasNV;
+    CombinerBiasNV = new HashMap<Integer, String>(0);
+    CombinerBiasNV0();
+    return CombinerBiasNV;
+  }
+  private static Map<Integer, String> ClampColorModeARB;
+  private static void ClampColorModeARB0() {
+  }
+  public static Map<Integer, String> ClampColorModeARB() {
+    if (ClampColorModeARB != null)
+      return ClampColorModeARB;
+    ClampColorModeARB = new HashMap<Integer, String>(0);
+    ClampColorModeARB0();
+    return ClampColorModeARB;
   }
   private static Map<Integer, String> FfdMaskSGIX;
   private static void FfdMaskSGIX0() {
@@ -12263,6 +12743,16 @@ public class GLmetadata {
     TextureEnvTarget = new HashMap<Integer, String>(1);
     TextureEnvTarget0();
     return TextureEnvTarget;
+  }
+  private static Map<Integer, String> VertexArrayPNameAPPLE;
+  private static void VertexArrayPNameAPPLE0() {
+  }
+  public static Map<Integer, String> VertexArrayPNameAPPLE() {
+    if (VertexArrayPNameAPPLE != null)
+      return VertexArrayPNameAPPLE;
+    VertexArrayPNameAPPLE = new HashMap<Integer, String>(0);
+    VertexArrayPNameAPPLE0();
+    return VertexArrayPNameAPPLE;
   }
   private static Map<Integer, String> PixelType;
   private static void PixelType0() {
@@ -12401,6 +12891,16 @@ public class GLmetadata {
     RenderbufferTarget0();
     return RenderbufferTarget;
   }
+  private static Map<Integer, String> VertexAttribPointerPropertyARB;
+  private static void VertexAttribPointerPropertyARB0() {
+  }
+  public static Map<Integer, String> VertexAttribPointerPropertyARB() {
+    if (VertexAttribPointerPropertyARB != null)
+      return VertexAttribPointerPropertyARB;
+    VertexAttribPointerPropertyARB = new HashMap<Integer, String>(0);
+    VertexAttribPointerPropertyARB0();
+    return VertexAttribPointerPropertyARB;
+  }
   private static Map<Integer, String> MaterialFace;
   private static void MaterialFace0() {
     MaterialFace.put(GL_BACK, "GL_BACK");
@@ -12423,6 +12923,26 @@ public class GLmetadata {
     FragmentOpATI = new HashMap<Integer, String>(0);
     FragmentOpATI0();
     return FragmentOpATI;
+  }
+  private static Map<Integer, String> OcclusionQueryParameterNameNV;
+  private static void OcclusionQueryParameterNameNV0() {
+  }
+  public static Map<Integer, String> OcclusionQueryParameterNameNV() {
+    if (OcclusionQueryParameterNameNV != null)
+      return OcclusionQueryParameterNameNV;
+    OcclusionQueryParameterNameNV = new HashMap<Integer, String>(0);
+    OcclusionQueryParameterNameNV0();
+    return OcclusionQueryParameterNameNV;
+  }
+  private static Map<Integer, String> ProgramTargetARB;
+  private static void ProgramTargetARB0() {
+  }
+  public static Map<Integer, String> ProgramTargetARB() {
+    if (ProgramTargetARB != null)
+      return ProgramTargetARB;
+    ProgramTargetARB = new HashMap<Integer, String>(0);
+    ProgramTargetARB0();
+    return ProgramTargetARB;
   }
   private static Map<Integer, String> BufferAccessARB;
   private static void BufferAccessARB0() {
@@ -18417,8 +18937,8 @@ public class GLmetadata {
       return glGetImageTransformParameterivHP;
     Command cmd = new Command(2);
     cmd.returnGroup = _null_();
-    cmd.addParam("target", _null_());
-    cmd.addParam("pname", _null_());
+    cmd.addParam("target", ImageTransformTargetHP());
+    cmd.addParam("pname", ImageTransformPNameHP());
     cmd.extension = GL_HP_image_transform();
     glGetImageTransformParameterivHP = cmd;
     return cmd;
@@ -18451,7 +18971,7 @@ public class GLmetadata {
       return glVertexStream1svATI;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("stream", _null_());
+    cmd.addParam("stream", VertexStreamATI());
     cmd.extension = GL_ATI_vertex_streams();
     glVertexStream1svATI = cmd;
     return cmd;
@@ -18589,8 +19109,8 @@ public class GLmetadata {
       return glGetMapParameterivNV;
     Command cmd = new Command(2);
     cmd.returnGroup = _null_();
-    cmd.addParam("target", _null_());
-    cmd.addParam("pname", _null_());
+    cmd.addParam("target", EvalTargetNV());
+    cmd.addParam("pname", MapParameterNV());
     cmd.extension = GL_NV_evaluators();
     glGetMapParameterivNV = cmd;
     return cmd;
@@ -18702,7 +19222,7 @@ public class GLmetadata {
       return glGetObjectBufferivATI;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("pname", _null_());
+    cmd.addParam("pname", ArrayObjectPNameATI());
     cmd.extension = GL_ATI_vertex_array_object();
     glGetObjectBufferivATI = cmd;
     return cmd;
@@ -18929,7 +19449,7 @@ public class GLmetadata {
       return glProgramParameter4fvNV;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("target", _null_());
+    cmd.addParam("target", VertexAttribEnumNV());
     cmd.extension = GL_NV_vertex_program();
     glProgramParameter4fvNV = cmd;
     return cmd;
@@ -19037,7 +19557,7 @@ public class GLmetadata {
       return glPointParameterxvOES;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("pname", _null_());
+    cmd.addParam("pname", PointParameterNameARB());
     cmd.extension = GL_OES_fixed_point();
     glPointParameterxvOES = cmd;
     return cmd;
@@ -19059,7 +19579,7 @@ public class GLmetadata {
       return glPathCoordsNV;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("coordType", _null_());
+    cmd.addParam("coordType", PathCoordType());
     cmd.extension = GL_NV_path_rendering();
     glPathCoordsNV = cmd;
     return cmd;
@@ -19469,7 +19989,7 @@ public class GLmetadata {
       return glFlushPixelDataRangeNV;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("target", _null_());
+    cmd.addParam("target", PixelDataRangeTargetNV());
     cmd.extension = GL_NV_pixel_data_range();
     glFlushPixelDataRangeNV = cmd;
     return cmd;
@@ -19752,7 +20272,7 @@ public class GLmetadata {
     cmd.returnGroup = _null_();
     cmd.addParam("stage", _null_());
     cmd.addParam("portion", _null_());
-    cmd.addParam("pname", _null_());
+    cmd.addParam("pname", CombinerParameterNV());
     cmd.extension = GL_NV_register_combiners();
     glGetCombinerOutputParameterfvNV = cmd;
     return cmd;
@@ -19799,7 +20319,7 @@ public class GLmetadata {
       return glVertexStream3sATI;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("stream", _null_());
+    cmd.addParam("stream", VertexStreamATI());
     cmd.extension = GL_ATI_vertex_streams();
     glVertexStream3sATI = cmd;
     return cmd;
@@ -19844,7 +20364,7 @@ public class GLmetadata {
     Command cmd = new Command(2);
     cmd.returnGroup = _null_();
     cmd.addParam("target", TextureTarget());
-    cmd.addParam("filter", _null_());
+    cmd.addParam("filter", TextureFilterSGIS());
     cmd.extension = GL_SGIS_texture_filter4();
     glGetTexFilterFuncSGIS = cmd;
     return cmd;
@@ -19855,7 +20375,7 @@ public class GLmetadata {
       return glProgramLocalParameter4fvARB;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("target", _null_());
+    cmd.addParam("target", ProgramTargetARB());
     cmd.extension = GL_ARB_fragment_program();
     glProgramLocalParameter4fvARB = cmd;
     return cmd;
@@ -19878,7 +20398,7 @@ public class GLmetadata {
       return glTestObjectAPPLE;
     Command cmd = new Command(1);
     cmd.returnGroup = Boolean();
-    cmd.addParam("object", _null_());
+    cmd.addParam("object", ObjectTypeAPPLE());
     cmd.extension = GL_APPLE_fence();
     glTestObjectAPPLE = cmd;
     return cmd;
@@ -19900,7 +20420,7 @@ public class GLmetadata {
       return glVertexStream2fATI;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("stream", _null_());
+    cmd.addParam("stream", VertexStreamATI());
     cmd.extension = GL_ATI_vertex_streams();
     glVertexStream2fATI = cmd;
     return cmd;
@@ -19923,7 +20443,7 @@ public class GLmetadata {
     Command cmd = new Command(2);
     cmd.returnGroup = _null_();
     cmd.addParam("array", EnableCap());
-    cmd.addParam("pname", _null_());
+    cmd.addParam("pname", ArrayObjectPNameATI());
     cmd.extension = GL_ATI_vertex_array_object();
     glGetArrayObjectfvATI = cmd;
     return cmd;
@@ -19945,7 +20465,7 @@ public class GLmetadata {
       return glProgramParameters4fvNV;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("target", _null_());
+    cmd.addParam("target", VertexAttribEnumNV());
     cmd.extension = GL_NV_vertex_program();
     glProgramParameters4fvNV = cmd;
     return cmd;
@@ -19956,7 +20476,7 @@ public class GLmetadata {
       return glVertexStream1dATI;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("stream", _null_());
+    cmd.addParam("stream", VertexStreamATI());
     cmd.extension = GL_ATI_vertex_streams();
     glVertexStream1dATI = cmd;
     return cmd;
@@ -20035,7 +20555,7 @@ public class GLmetadata {
     Command cmd = new Command(2);
     cmd.returnGroup = _null_();
     cmd.addParam("target", BufferTargetARB());
-    cmd.addParam("pname", _null_());
+    cmd.addParam("pname", BufferPointerNameARB());
     cmd.extension = GL_ARB_vertex_buffer_object();
     glGetBufferPointervARB = cmd;
     return cmd;
@@ -20082,7 +20602,7 @@ public class GLmetadata {
       return glGetTexBumpParameterivATI;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("pname", _null_());
+    cmd.addParam("pname", GetTexBumpParameterATI());
     cmd.extension = GL_ATI_envmap_bumpmap();
     glGetTexBumpParameterivATI = cmd;
     return cmd;
@@ -20272,7 +20792,7 @@ public class GLmetadata {
     Command cmd = new Command(2);
     cmd.returnGroup = _null_();
     cmd.addParam("target", BufferTargetARB());
-    cmd.addParam("pname", _null_());
+    cmd.addParam("pname", BufferPointerNameARB());
     glGetBufferPointerv = cmd;
     return cmd;
   }
@@ -20282,7 +20802,7 @@ public class GLmetadata {
       return glProgramLocalParameter4dARB;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("target", _null_());
+    cmd.addParam("target", ProgramTargetARB());
     cmd.extension = GL_ARB_fragment_program();
     glProgramLocalParameter4dARB = cmd;
     return cmd;
@@ -20387,7 +20907,7 @@ public class GLmetadata {
       return glCombinerParameterfvNV;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("pname", _null_());
+    cmd.addParam("pname", CombinerParameterNV());
     cmd.extension = GL_NV_register_combiners();
     glCombinerParameterfvNV = cmd;
     return cmd;
@@ -20398,7 +20918,7 @@ public class GLmetadata {
       return glPathSubCoordsNV;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("coordType", _null_());
+    cmd.addParam("coordType", PathCoordType());
     cmd.extension = GL_NV_path_rendering();
     glPathSubCoordsNV = cmd;
     return cmd;
@@ -20409,7 +20929,7 @@ public class GLmetadata {
       return glVertexStream3fvATI;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("stream", _null_());
+    cmd.addParam("stream", VertexStreamATI());
     cmd.extension = GL_ATI_vertex_streams();
     glVertexStream3fvATI = cmd;
     return cmd;
@@ -20536,7 +21056,7 @@ public class GLmetadata {
     Command cmd = new Command(2);
     cmd.returnGroup = _null_();
     cmd.addParam("target", BufferTargetARB());
-    cmd.addParam("pname", _null_());
+    cmd.addParam("pname", BufferPNameARB());
     glGetBufferParameteri64v = cmd;
     return cmd;
   }
@@ -20686,7 +21206,7 @@ public class GLmetadata {
       return glEvalMapsNV;
     Command cmd = new Command(2);
     cmd.returnGroup = _null_();
-    cmd.addParam("target", _null_());
+    cmd.addParam("target", EvalTargetNV());
     cmd.addParam("mode", _null_());
     cmd.extension = GL_NV_evaluators();
     glEvalMapsNV = cmd;
@@ -20943,7 +21463,7 @@ public class GLmetadata {
       return glGetProgramivNV;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("pname", _null_());
+    cmd.addParam("pname", VertexAttribEnumNV());
     cmd.extension = GL_NV_vertex_program();
     glGetProgramivNV = cmd;
     return cmd;
@@ -21013,7 +21533,7 @@ public class GLmetadata {
       return glGetMapControlPointsNV;
     Command cmd = new Command(3);
     cmd.returnGroup = _null_();
-    cmd.addParam("target", _null_());
+    cmd.addParam("target", EvalTargetNV());
     cmd.addParam("type", _null_());
     cmd.addParam("packed", Boolean());
     cmd.extension = GL_NV_evaluators();
@@ -21048,7 +21568,7 @@ public class GLmetadata {
       return glGetVertexAttribivNV;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("pname", _null_());
+    cmd.addParam("pname", VertexAttribEnumNV());
     cmd.extension = GL_NV_vertex_program();
     glGetVertexAttribivNV = cmd;
     return cmd;
@@ -21416,7 +21936,7 @@ public class GLmetadata {
       return glPointParameteriNV;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("pname", _null_());
+    cmd.addParam("pname", PointParameterNameARB());
     cmd.extension = GL_NV_point_sprite();
     glPointParameteriNV = cmd;
     return cmd;
@@ -21654,7 +22174,7 @@ public class GLmetadata {
       return glShaderOp3EXT;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("op", _null_());
+    cmd.addParam("op", VertexShaderOpEXT());
     cmd.extension = GL_EXT_vertex_shader();
     glShaderOp3EXT = cmd;
     return cmd;
@@ -21759,7 +22279,7 @@ public class GLmetadata {
     cmd.returnGroup = _null_();
     cmd.addParam("stage", _null_());
     cmd.addParam("portion", _null_());
-    cmd.addParam("pname", _null_());
+    cmd.addParam("pname", CombinerParameterNV());
     cmd.extension = GL_NV_register_combiners();
     glGetCombinerOutputParameterivNV = cmd;
     return cmd;
@@ -21792,7 +22312,7 @@ public class GLmetadata {
       return glVertexStream3ivATI;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("stream", _null_());
+    cmd.addParam("stream", VertexStreamATI());
     cmd.extension = GL_ATI_vertex_streams();
     glVertexStream3ivATI = cmd;
     return cmd;
@@ -21996,7 +22516,7 @@ public class GLmetadata {
     Command cmd = new Command(3);
     cmd.returnGroup = _null_();
     cmd.addParam("datatype", _null_());
-    cmd.addParam("storagetype", _null_());
+    cmd.addParam("storagetype", VertexShaderStorageTypeEXT());
     cmd.addParam("range", _null_());
     cmd.extension = GL_EXT_vertex_shader();
     glGenSymbolsEXT = cmd;
@@ -22031,7 +22551,7 @@ public class GLmetadata {
       return glGetTexBumpParameterfvATI;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("pname", _null_());
+    cmd.addParam("pname", GetTexBumpParameterATI());
     cmd.extension = GL_ATI_envmap_bumpmap();
     glGetTexBumpParameterfvATI = cmd;
     return cmd;
@@ -22087,7 +22607,7 @@ public class GLmetadata {
       return glVertexStream2iATI;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("stream", _null_());
+    cmd.addParam("stream", VertexStreamATI());
     cmd.extension = GL_ATI_vertex_streams();
     glVertexStream2iATI = cmd;
     return cmd;
@@ -22217,7 +22737,7 @@ public class GLmetadata {
       return glNormalStream3fvATI;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("stream", _null_());
+    cmd.addParam("stream", VertexStreamATI());
     cmd.extension = GL_ATI_vertex_streams();
     glNormalStream3fvATI = cmd;
     return cmd;
@@ -22260,7 +22780,7 @@ public class GLmetadata {
       return glVertexStream2fvATI;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("stream", _null_());
+    cmd.addParam("stream", VertexStreamATI());
     cmd.extension = GL_ATI_vertex_streams();
     glVertexStream2fvATI = cmd;
     return cmd;
@@ -22381,7 +22901,7 @@ public class GLmetadata {
       return glGetVertexAttribdvARB;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("pname", _null_());
+    cmd.addParam("pname", VertexAttribPropertyARB());
     cmd.extension = GL_ARB_vertex_program();
     glGetVertexAttribdvARB = cmd;
     return cmd;
@@ -22459,7 +22979,7 @@ public class GLmetadata {
       return glVertexArrayParameteriAPPLE;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("pname", _null_());
+    cmd.addParam("pname", VertexArrayPNameAPPLE());
     cmd.extension = GL_APPLE_vertex_array_range();
     glVertexArrayParameteriAPPLE = cmd;
     return cmd;
@@ -22545,7 +23065,7 @@ public class GLmetadata {
       return glApplyTextureEXT;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("mode", _null_());
+    cmd.addParam("mode", LightTextureModeEXT());
     cmd.extension = GL_EXT_light_texture();
     glApplyTextureEXT = cmd;
     return cmd;
@@ -22801,7 +23321,7 @@ public class GLmetadata {
       return glUpdateObjectBufferATI;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("preserve", _null_());
+    cmd.addParam("preserve", PreserveModeATI());
     cmd.extension = GL_ATI_vertex_array_object();
     glUpdateObjectBufferATI = cmd;
     return cmd;
@@ -22883,7 +23403,7 @@ public class GLmetadata {
       return glNormalStream3bATI;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("stream", _null_());
+    cmd.addParam("stream", VertexStreamATI());
     cmd.extension = GL_ATI_vertex_streams();
     glNormalStream3bATI = cmd;
     return cmd;
@@ -23027,7 +23547,7 @@ public class GLmetadata {
       return glGetVariantArrayObjectivATI;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("pname", _null_());
+    cmd.addParam("pname", ArrayObjectPNameATI());
     cmd.extension = GL_ATI_vertex_array_object();
     glGetVariantArrayObjectivATI = cmd;
     return cmd;
@@ -23150,7 +23670,7 @@ public class GLmetadata {
       return glExecuteProgramNV;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("target", _null_());
+    cmd.addParam("target", VertexAttribEnumNV());
     cmd.extension = GL_NV_vertex_program();
     glExecuteProgramNV = cmd;
     return cmd;
@@ -23343,7 +23863,7 @@ public class GLmetadata {
     Command cmd = new Command(2);
     cmd.returnGroup = _null_();
     cmd.addParam("target", BufferTargetARB());
-    cmd.addParam("pname", _null_());
+    cmd.addParam("pname", BufferPNameARB());
     glGetBufferParameteriv = cmd;
     return cmd;
   }
@@ -23353,7 +23873,7 @@ public class GLmetadata {
       return glDrawBuffers;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("bufs", _null_());
+    cmd.addParam("bufs", DrawBufferModeATI());
     glDrawBuffers = cmd;
     return cmd;
   }
@@ -23510,7 +24030,7 @@ public class GLmetadata {
       return glGetVertexAttribfvNV;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("pname", _null_());
+    cmd.addParam("pname", VertexAttribEnumNV());
     cmd.extension = GL_NV_vertex_program();
     glGetVertexAttribfvNV = cmd;
     return cmd;
@@ -23726,8 +24246,8 @@ public class GLmetadata {
       return glClampColor;
     Command cmd = new Command(2);
     cmd.returnGroup = _null_();
-    cmd.addParam("target", _null_());
-    cmd.addParam("clamp", _null_());
+    cmd.addParam("target", ClampColorTargetARB());
+    cmd.addParam("clamp", ClampColorModeARB());
     glClampColor = cmd;
     return cmd;
   }
@@ -23749,8 +24269,8 @@ public class GLmetadata {
       return glGetProgramStringARB;
     Command cmd = new Command(2);
     cmd.returnGroup = _null_();
-    cmd.addParam("target", _null_());
-    cmd.addParam("pname", _null_());
+    cmd.addParam("target", ProgramTargetARB());
+    cmd.addParam("pname", ProgramStringPropertyARB());
     cmd.extension = GL_ARB_fragment_program();
     glGetProgramStringARB = cmd;
     return cmd;
@@ -23772,8 +24292,8 @@ public class GLmetadata {
       return glImageTransformParameteriHP;
     Command cmd = new Command(2);
     cmd.returnGroup = _null_();
-    cmd.addParam("target", _null_());
-    cmd.addParam("pname", _null_());
+    cmd.addParam("target", ImageTransformTargetHP());
+    cmd.addParam("pname", ImageTransformPNameHP());
     cmd.extension = GL_HP_image_transform();
     glImageTransformParameteriHP = cmd;
     return cmd;
@@ -24077,7 +24597,7 @@ public class GLmetadata {
     Command cmd = new Command(2);
     cmd.returnGroup = _null_();
     cmd.addParam("target", BufferTargetARB());
-    cmd.addParam("pname", _null_());
+    cmd.addParam("pname", BufferPNameARB());
     cmd.extension = GL_ARB_vertex_buffer_object();
     glGetBufferParameterivARB = cmd;
     return cmd;
@@ -24278,8 +24798,8 @@ public class GLmetadata {
       return glGetProgramParameterdvNV;
     Command cmd = new Command(2);
     cmd.returnGroup = _null_();
-    cmd.addParam("target", _null_());
-    cmd.addParam("pname", _null_());
+    cmd.addParam("target", VertexAttribEnumNV());
+    cmd.addParam("pname", VertexAttribEnumNV());
     cmd.extension = GL_NV_vertex_program();
     glGetProgramParameterdvNV = cmd;
     return cmd;
@@ -24382,7 +24902,7 @@ public class GLmetadata {
       return glDrawBuffersARB;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("bufs", _null_());
+    cmd.addParam("bufs", DrawBufferModeATI());
     cmd.extension = GL_ARB_draw_buffers();
     glDrawBuffersARB = cmd;
     return cmd;
@@ -24493,8 +25013,8 @@ public class GLmetadata {
       return glImageTransformParameterivHP;
     Command cmd = new Command(2);
     cmd.returnGroup = _null_();
-    cmd.addParam("target", _null_());
-    cmd.addParam("pname", _null_());
+    cmd.addParam("target", ImageTransformTargetHP());
+    cmd.addParam("pname", ImageTransformPNameHP());
     cmd.extension = GL_HP_image_transform();
     glImageTransformParameterivHP = cmd;
     return cmd;
@@ -24856,7 +25376,7 @@ public class GLmetadata {
       return glVertexStream2sATI;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("stream", _null_());
+    cmd.addParam("stream", VertexStreamATI());
     cmd.extension = GL_ATI_vertex_streams();
     glVertexStream2sATI = cmd;
     return cmd;
@@ -25068,7 +25588,7 @@ public class GLmetadata {
       return glProgramParameter4dvNV;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("target", _null_());
+    cmd.addParam("target", VertexAttribEnumNV());
     cmd.extension = GL_NV_vertex_program();
     glProgramParameter4dvNV = cmd;
     return cmd;
@@ -25115,7 +25635,7 @@ public class GLmetadata {
       return glVertexStream1fATI;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("stream", _null_());
+    cmd.addParam("stream", VertexStreamATI());
     cmd.extension = GL_ATI_vertex_streams();
     glVertexStream1fATI = cmd;
     return cmd;
@@ -25270,7 +25790,7 @@ public class GLmetadata {
       return glDrawBuffersATI;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("bufs", _null_());
+    cmd.addParam("bufs", DrawBufferModeATI());
     cmd.extension = GL_ATI_draw_buffers();
     glDrawBuffersATI = cmd;
     return cmd;
@@ -25383,7 +25903,7 @@ public class GLmetadata {
       return glNormalStream3dvATI;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("stream", _null_());
+    cmd.addParam("stream", VertexStreamATI());
     cmd.extension = GL_ATI_vertex_streams();
     glNormalStream3dvATI = cmd;
     return cmd;
@@ -25509,7 +26029,7 @@ public class GLmetadata {
     Command cmd = new Command(2);
     cmd.returnGroup = _null_();
     cmd.addParam("array", EnableCap());
-    cmd.addParam("pname", _null_());
+    cmd.addParam("pname", ArrayObjectPNameATI());
     cmd.extension = GL_ATI_vertex_array_object();
     glGetArrayObjectivATI = cmd;
     return cmd;
@@ -25520,7 +26040,7 @@ public class GLmetadata {
       return glNormalStream3svATI;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("stream", _null_());
+    cmd.addParam("stream", VertexStreamATI());
     cmd.extension = GL_ATI_vertex_streams();
     glNormalStream3svATI = cmd;
     return cmd;
@@ -25705,7 +26225,7 @@ public class GLmetadata {
       return glProgramParameters4dvNV;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("target", _null_());
+    cmd.addParam("target", VertexAttribEnumNV());
     cmd.extension = GL_NV_vertex_program();
     glProgramParameters4dvNV = cmd;
     return cmd;
@@ -25770,7 +26290,7 @@ public class GLmetadata {
       return glProgramEnvParameter4dvARB;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("target", _null_());
+    cmd.addParam("target", ProgramTargetARB());
     cmd.extension = GL_ARB_fragment_program();
     glProgramEnvParameter4dvARB = cmd;
     return cmd;
@@ -26101,8 +26621,8 @@ public class GLmetadata {
       return glGetFinalCombinerInputParameterfvNV;
     Command cmd = new Command(2);
     cmd.returnGroup = _null_();
-    cmd.addParam("variable", _null_());
-    cmd.addParam("pname", _null_());
+    cmd.addParam("variable", CombinerVariableNV());
+    cmd.addParam("pname", CombinerParameterNV());
     cmd.extension = GL_NV_register_combiners();
     glGetFinalCombinerInputParameterfvNV = cmd;
     return cmd;
@@ -26200,7 +26720,7 @@ public class GLmetadata {
       return glCombinerParameterivNV;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("pname", _null_());
+    cmd.addParam("pname", CombinerParameterNV());
     cmd.extension = GL_NV_register_combiners();
     glCombinerParameterivNV = cmd;
     return cmd;
@@ -26310,7 +26830,7 @@ public class GLmetadata {
       return glNormalStream3sATI;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("stream", _null_());
+    cmd.addParam("stream", VertexStreamATI());
     cmd.extension = GL_ATI_vertex_streams();
     glNormalStream3sATI = cmd;
     return cmd;
@@ -26345,7 +26865,7 @@ public class GLmetadata {
       return glPointParameterfvSGIS;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("pname", _null_());
+    cmd.addParam("pname", PointParameterNameARB());
     cmd.extension = GL_SGIS_point_parameters();
     glPointParameterfvSGIS = cmd;
     return cmd;
@@ -26376,7 +26896,7 @@ public class GLmetadata {
       return glVertexStream4dATI;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("stream", _null_());
+    cmd.addParam("stream", VertexStreamATI());
     cmd.extension = GL_ATI_vertex_streams();
     glVertexStream4dATI = cmd;
     return cmd;
@@ -26387,7 +26907,7 @@ public class GLmetadata {
       return glSpriteParameterfvSGIX;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("pname", _null_());
+    cmd.addParam("pname", SpriteParameterNameSGIX());
     cmd.extension = GL_SGIX_sprite();
     glSpriteParameterfvSGIX = cmd;
     return cmd;
@@ -26442,7 +26962,7 @@ public class GLmetadata {
       return glGetMultisamplefv;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("pname", _null_());
+    cmd.addParam("pname", GetMultisamplePNameNV());
     cmd.extension = GL_ARB_texture_multisample();
     glGetMultisamplefv = cmd;
     return cmd;
@@ -26601,7 +27121,7 @@ public class GLmetadata {
       return glGetVariantArrayObjectfvATI;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("pname", _null_());
+    cmd.addParam("pname", ArrayObjectPNameATI());
     cmd.extension = GL_ATI_vertex_array_object();
     glGetVariantArrayObjectfvATI = cmd;
     return cmd;
@@ -26703,7 +27223,7 @@ public class GLmetadata {
       return glVertexStream4dvATI;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("stream", _null_());
+    cmd.addParam("stream", VertexStreamATI());
     cmd.extension = GL_ATI_vertex_streams();
     glVertexStream4dvATI = cmd;
     return cmd;
@@ -27001,7 +27521,7 @@ public class GLmetadata {
       return glVertexStream1iATI;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("stream", _null_());
+    cmd.addParam("stream", VertexStreamATI());
     cmd.extension = GL_ATI_vertex_streams();
     glVertexStream1iATI = cmd;
     return cmd;
@@ -27123,7 +27643,7 @@ public class GLmetadata {
       return glGetProgramLocalParameterfvARB;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("target", _null_());
+    cmd.addParam("target", ProgramTargetARB());
     cmd.extension = GL_ARB_fragment_program();
     glGetProgramLocalParameterfvARB = cmd;
     return cmd;
@@ -27134,7 +27654,7 @@ public class GLmetadata {
       return glGetVertexAttribivARB;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("pname", _null_());
+    cmd.addParam("pname", VertexAttribPropertyARB());
     cmd.extension = GL_ARB_vertex_program();
     glGetVertexAttribivARB = cmd;
     return cmd;
@@ -27252,7 +27772,7 @@ public class GLmetadata {
       return glProgramLocalParameter4fARB;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("target", _null_());
+    cmd.addParam("target", ProgramTargetARB());
     cmd.extension = GL_ARB_fragment_program();
     glProgramLocalParameter4fARB = cmd;
     return cmd;
@@ -27274,8 +27794,8 @@ public class GLmetadata {
       return glMapParameterfvNV;
     Command cmd = new Command(2);
     cmd.returnGroup = _null_();
-    cmd.addParam("target", _null_());
-    cmd.addParam("pname", _null_());
+    cmd.addParam("target", EvalTargetNV());
+    cmd.addParam("pname", MapParameterNV());
     cmd.extension = GL_NV_evaluators();
     glMapParameterfvNV = cmd;
     return cmd;
@@ -27342,8 +27862,8 @@ public class GLmetadata {
       return glGetTrackMatrixivNV;
     Command cmd = new Command(2);
     cmd.returnGroup = _null_();
-    cmd.addParam("target", _null_());
-    cmd.addParam("pname", _null_());
+    cmd.addParam("target", VertexAttribEnumNV());
+    cmd.addParam("pname", VertexAttribEnumNV());
     cmd.extension = GL_NV_vertex_program();
     glGetTrackMatrixivNV = cmd;
     return cmd;
@@ -27490,7 +28010,7 @@ public class GLmetadata {
       return glPointParameterfvEXT;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("pname", _null_());
+    cmd.addParam("pname", PointParameterNameARB());
     cmd.extension = GL_EXT_point_parameters();
     glPointParameterfvEXT = cmd;
     return cmd;
@@ -27569,7 +28089,7 @@ public class GLmetadata {
       return glGetProgramStringNV;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("pname", _null_());
+    cmd.addParam("pname", VertexAttribEnumNV());
     cmd.extension = GL_NV_vertex_program();
     glGetProgramStringNV = cmd;
     return cmd;
@@ -27602,7 +28122,7 @@ public class GLmetadata {
       return glGetVertexAttribdv;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("pname", _null_());
+    cmd.addParam("pname", VertexAttribPropertyARB());
     glGetVertexAttribdv = cmd;
     return cmd;
   }
@@ -27833,7 +28353,7 @@ public class GLmetadata {
       return glCombinerParameterfNV;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("pname", _null_());
+    cmd.addParam("pname", CombinerParameterNV());
     cmd.extension = GL_NV_register_combiners();
     glCombinerParameterfNV = cmd;
     return cmd;
@@ -27844,7 +28364,7 @@ public class GLmetadata {
       return glGetVertexAttribfv;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("pname", _null_());
+    cmd.addParam("pname", VertexAttribPropertyARB());
     glGetVertexAttribfv = cmd;
     return cmd;
   }
@@ -27854,7 +28374,7 @@ public class GLmetadata {
       return glPointParameterx;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("pname", _null_());
+    cmd.addParam("pname", PointParameterNameARB());
     glPointParameterx = cmd;
     return cmd;
   }
@@ -27909,8 +28429,8 @@ public class GLmetadata {
       return glGetFinalCombinerInputParameterivNV;
     Command cmd = new Command(2);
     cmd.returnGroup = _null_();
-    cmd.addParam("variable", _null_());
-    cmd.addParam("pname", _null_());
+    cmd.addParam("variable", CombinerVariableNV());
+    cmd.addParam("pname", CombinerParameterNV());
     cmd.extension = GL_NV_register_combiners();
     glGetFinalCombinerInputParameterivNV = cmd;
     return cmd;
@@ -27921,7 +28441,7 @@ public class GLmetadata {
       return glPointParameteri;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("pname", _null_());
+    cmd.addParam("pname", PointParameterNameARB());
     glPointParameteri = cmd;
     return cmd;
   }
@@ -27931,7 +28451,7 @@ public class GLmetadata {
       return glPointParameterf;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("pname", _null_());
+    cmd.addParam("pname", PointParameterNameARB());
     glPointParameterf = cmd;
     return cmd;
   }
@@ -28069,7 +28589,7 @@ public class GLmetadata {
       return glGetVertexAttribArrayObjectfvATI;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("pname", _null_());
+    cmd.addParam("pname", ArrayObjectPNameATI());
     glGetVertexAttribArrayObjectfvATI = cmd;
     return cmd;
   }
@@ -28079,7 +28599,7 @@ public class GLmetadata {
       return glGetVertexAttribiv;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("pname", _null_());
+    cmd.addParam("pname", VertexAttribPropertyARB());
     glGetVertexAttribiv = cmd;
     return cmd;
   }
@@ -28213,7 +28733,7 @@ public class GLmetadata {
       return glPointParameterfEXT;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("pname", _null_());
+    cmd.addParam("pname", PointParameterNameARB());
     cmd.extension = GL_EXT_point_parameters();
     glPointParameterfEXT = cmd;
     return cmd;
@@ -28257,7 +28777,7 @@ public class GLmetadata {
       return glVertexStream1fvATI;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("stream", _null_());
+    cmd.addParam("stream", VertexStreamATI());
     cmd.extension = GL_ATI_vertex_streams();
     glVertexStream1fvATI = cmd;
     return cmd;
@@ -28301,8 +28821,8 @@ public class GLmetadata {
       return glGetImageTransformParameterfvHP;
     Command cmd = new Command(2);
     cmd.returnGroup = _null_();
-    cmd.addParam("target", _null_());
-    cmd.addParam("pname", _null_());
+    cmd.addParam("target", ImageTransformTargetHP());
+    cmd.addParam("pname", ImageTransformPNameHP());
     cmd.extension = GL_HP_image_transform();
     glGetImageTransformParameterfvHP = cmd;
     return cmd;
@@ -28377,7 +28897,7 @@ public class GLmetadata {
       return glVertexStream4svATI;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("stream", _null_());
+    cmd.addParam("stream", VertexStreamATI());
     cmd.extension = GL_ATI_vertex_streams();
     glVertexStream4svATI = cmd;
     return cmd;
@@ -28470,9 +28990,9 @@ public class GLmetadata {
     cmd.returnGroup = _null_();
     cmd.addParam("stage", _null_());
     cmd.addParam("portion", _null_());
-    cmd.addParam("variable", _null_());
-    cmd.addParam("input", _null_());
-    cmd.addParam("mapping", _null_());
+    cmd.addParam("variable", CombinerVariableNV());
+    cmd.addParam("input", CombinerRegisterNV());
+    cmd.addParam("mapping", CombinerMappingNV());
     cmd.addParam("componentUsage", _null_());
     cmd.extension = GL_NV_register_combiners();
     glCombinerInputNV = cmd;
@@ -28551,7 +29071,7 @@ public class GLmetadata {
       return glVertexStream2ivATI;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("stream", _null_());
+    cmd.addParam("stream", VertexStreamATI());
     cmd.extension = GL_ATI_vertex_streams();
     glVertexStream2ivATI = cmd;
     return cmd;
@@ -28584,7 +29104,7 @@ public class GLmetadata {
       return glNewObjectBufferATI;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("usage", _null_());
+    cmd.addParam("usage", ArrayObjectUsageATI());
     cmd.extension = GL_ATI_vertex_array_object();
     glNewObjectBufferATI = cmd;
     return cmd;
@@ -28619,7 +29139,7 @@ public class GLmetadata {
       return glGetProgramEnvParameterfvARB;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("target", _null_());
+    cmd.addParam("target", ProgramTargetARB());
     cmd.extension = GL_ARB_fragment_program();
     glGetProgramEnvParameterfvARB = cmd;
     return cmd;
@@ -28815,7 +29335,7 @@ public class GLmetadata {
       return glHintPGI;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("target", _null_());
+    cmd.addParam("target", HintTargetPGI());
     cmd.extension = GL_PGI_misc_hints();
     glHintPGI = cmd;
     return cmd;
@@ -29114,8 +29634,8 @@ public class GLmetadata {
       return glMapParameterivNV;
     Command cmd = new Command(2);
     cmd.returnGroup = _null_();
-    cmd.addParam("target", _null_());
-    cmd.addParam("pname", _null_());
+    cmd.addParam("target", EvalTargetNV());
+    cmd.addParam("pname", MapParameterNV());
     cmd.extension = GL_NV_evaluators();
     glMapParameterivNV = cmd;
     return cmd;
@@ -29183,7 +29703,7 @@ public class GLmetadata {
     Command cmd = new Command(2);
     cmd.returnGroup = _null_();
     cmd.addParam("target", TextureTarget());
-    cmd.addParam("filter", _null_());
+    cmd.addParam("filter", TextureFilterSGIS());
     cmd.extension = GL_SGIS_texture_filter4();
     glTexFilterFuncSGIS = cmd;
     return cmd;
@@ -29283,8 +29803,8 @@ public class GLmetadata {
       return glGetProgramParameterfvNV;
     Command cmd = new Command(2);
     cmd.returnGroup = _null_();
-    cmd.addParam("target", _null_());
-    cmd.addParam("pname", _null_());
+    cmd.addParam("target", VertexAttribEnumNV());
+    cmd.addParam("pname", VertexAttribEnumNV());
     cmd.extension = GL_NV_vertex_program();
     glGetProgramParameterfvNV = cmd;
     return cmd;
@@ -29340,11 +29860,11 @@ public class GLmetadata {
     cmd.returnGroup = _null_();
     cmd.addParam("stage", _null_());
     cmd.addParam("portion", _null_());
-    cmd.addParam("abOutput", _null_());
-    cmd.addParam("cdOutput", _null_());
-    cmd.addParam("sumOutput", _null_());
-    cmd.addParam("scale", _null_());
-    cmd.addParam("bias", _null_());
+    cmd.addParam("abOutput", CombinerRegisterNV());
+    cmd.addParam("cdOutput", CombinerRegisterNV());
+    cmd.addParam("sumOutput", CombinerRegisterNV());
+    cmd.addParam("scale", CombinerScaleNV());
+    cmd.addParam("bias", CombinerBiasNV());
     cmd.addParam("abDotProduct", Boolean());
     cmd.addParam("cdDotProduct", Boolean());
     cmd.addParam("muxSum", Boolean());
@@ -29524,7 +30044,7 @@ public class GLmetadata {
       return glVertexStream1sATI;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("stream", _null_());
+    cmd.addParam("stream", VertexStreamATI());
     cmd.extension = GL_ATI_vertex_streams();
     glVertexStream1sATI = cmd;
     return cmd;
@@ -29899,7 +30419,7 @@ public class GLmetadata {
       return glVertexStream3dvATI;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("stream", _null_());
+    cmd.addParam("stream", VertexStreamATI());
     cmd.extension = GL_ATI_vertex_streams();
     glVertexStream3dvATI = cmd;
     return cmd;
@@ -30038,7 +30558,7 @@ public class GLmetadata {
       return glTextureNormalEXT;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("mode", _null_());
+    cmd.addParam("mode", TextureNormalModeEXT());
     cmd.extension = GL_EXT_texture_perturb_normal();
     glTextureNormalEXT = cmd;
     return cmd;
@@ -30073,7 +30593,7 @@ public class GLmetadata {
       return glPointParameterfSGIS;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("pname", _null_());
+    cmd.addParam("pname", PointParameterNameARB());
     cmd.extension = GL_SGIS_point_parameters();
     glPointParameterfSGIS = cmd;
     return cmd;
@@ -30084,7 +30604,7 @@ public class GLmetadata {
       return glShaderOp1EXT;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("op", _null_());
+    cmd.addParam("op", VertexShaderOpEXT());
     cmd.extension = GL_EXT_vertex_shader();
     glShaderOp1EXT = cmd;
     return cmd;
@@ -30188,7 +30708,7 @@ public class GLmetadata {
       return glPathCommandsNV;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("coordType", _null_());
+    cmd.addParam("coordType", PathCoordType());
     cmd.extension = GL_NV_path_rendering();
     glPathCommandsNV = cmd;
     return cmd;
@@ -30447,7 +30967,7 @@ public class GLmetadata {
       return glGetFenceivNV;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("pname", _null_());
+    cmd.addParam("pname", FenceParameterNameNV());
     cmd.extension = GL_NV_fence();
     glGetFenceivNV = cmd;
     return cmd;
@@ -30471,7 +30991,7 @@ public class GLmetadata {
       return glPixelTexGenSGIX;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("mode", _null_());
+    cmd.addParam("mode", PixelTexGenModeSGIX());
     cmd.extension = GL_SGIX_pixel_texture();
     glPixelTexGenSGIX = cmd;
     return cmd;
@@ -30629,7 +31149,7 @@ public class GLmetadata {
       return glProgramLocalParameter4dvARB;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("target", _null_());
+    cmd.addParam("target", ProgramTargetARB());
     cmd.extension = GL_ARB_fragment_program();
     glProgramLocalParameter4dvARB = cmd;
     return cmd;
@@ -30640,7 +31160,7 @@ public class GLmetadata {
       return glVertexStream4fATI;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("stream", _null_());
+    cmd.addParam("stream", VertexStreamATI());
     cmd.extension = GL_ATI_vertex_streams();
     glVertexStream4fATI = cmd;
     return cmd;
@@ -30687,7 +31207,7 @@ public class GLmetadata {
       return glVertexStream3dATI;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("stream", _null_());
+    cmd.addParam("stream", VertexStreamATI());
     cmd.extension = GL_ATI_vertex_streams();
     glVertexStream3dATI = cmd;
     return cmd;
@@ -30720,7 +31240,7 @@ public class GLmetadata {
       return glSampleMapATI;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("swizzle", _null_());
+    cmd.addParam("swizzle", SwizzleOpATI());
     cmd.extension = GL_ATI_fragment_shader();
     glSampleMapATI = cmd;
     return cmd;
@@ -30806,7 +31326,7 @@ public class GLmetadata {
       return glSamplePatternEXT;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("pattern", _null_());
+    cmd.addParam("pattern", SamplePatternEXT());
     cmd.extension = GL_EXT_multisample();
     glSamplePatternEXT = cmd;
     return cmd;
@@ -30840,7 +31360,7 @@ public class GLmetadata {
       return glBindProgramARB;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("target", _null_());
+    cmd.addParam("target", ProgramTargetARB());
     cmd.extension = GL_ARB_fragment_program();
     glBindProgramARB = cmd;
     return cmd;
@@ -31146,8 +31666,8 @@ public class GLmetadata {
       return glImageTransformParameterfvHP;
     Command cmd = new Command(2);
     cmd.returnGroup = _null_();
-    cmd.addParam("target", _null_());
-    cmd.addParam("pname", _null_());
+    cmd.addParam("target", ImageTransformTargetHP());
+    cmd.addParam("pname", ImageTransformPNameHP());
     cmd.extension = GL_HP_image_transform();
     glImageTransformParameterfvHP = cmd;
     return cmd;
@@ -31216,10 +31736,10 @@ public class GLmetadata {
       return glSwizzleEXT;
     Command cmd = new Command(4);
     cmd.returnGroup = _null_();
-    cmd.addParam("outX", _null_());
-    cmd.addParam("outY", _null_());
-    cmd.addParam("outZ", _null_());
-    cmd.addParam("outW", _null_());
+    cmd.addParam("outX", VertexShaderCoordOutEXT());
+    cmd.addParam("outY", VertexShaderCoordOutEXT());
+    cmd.addParam("outZ", VertexShaderCoordOutEXT());
+    cmd.addParam("outW", VertexShaderCoordOutEXT());
     cmd.extension = GL_EXT_vertex_shader();
     glSwizzleEXT = cmd;
     return cmd;
@@ -31365,7 +31885,7 @@ public class GLmetadata {
       return glPassTexCoordATI;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("swizzle", _null_());
+    cmd.addParam("swizzle", SwizzleOpATI());
     cmd.extension = GL_ATI_fragment_shader();
     glPassTexCoordATI = cmd;
     return cmd;
@@ -31398,7 +31918,7 @@ public class GLmetadata {
       return glGetVertexAttribPointervNV;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("pname", _null_());
+    cmd.addParam("pname", VertexAttribEnumNV());
     cmd.extension = GL_NV_vertex_program();
     glGetVertexAttribPointervNV = cmd;
     return cmd;
@@ -31725,7 +32245,7 @@ public class GLmetadata {
       return glVertexStream1ivATI;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("stream", _null_());
+    cmd.addParam("stream", VertexStreamATI());
     cmd.extension = GL_ATI_vertex_streams();
     glVertexStream1ivATI = cmd;
     return cmd;
@@ -31747,7 +32267,7 @@ public class GLmetadata {
       return glGetVertexAttribArrayObjectivATI;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("pname", _null_());
+    cmd.addParam("pname", ArrayObjectPNameATI());
     glGetVertexAttribArrayObjectivATI = cmd;
     return cmd;
   }
@@ -31893,7 +32413,7 @@ public class GLmetadata {
       return glVertexStream3svATI;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("stream", _null_());
+    cmd.addParam("stream", VertexStreamATI());
     cmd.extension = GL_ATI_vertex_streams();
     glVertexStream3svATI = cmd;
     return cmd;
@@ -32051,7 +32571,7 @@ public class GLmetadata {
       return glProgramEnvParameter4dARB;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("target", _null_());
+    cmd.addParam("target", ProgramTargetARB());
     cmd.extension = GL_ARB_fragment_program();
     glProgramEnvParameter4dARB = cmd;
     return cmd;
@@ -32268,8 +32788,8 @@ public class GLmetadata {
       return glGetMapAttribParameterfvNV;
     Command cmd = new Command(2);
     cmd.returnGroup = _null_();
-    cmd.addParam("target", _null_());
-    cmd.addParam("pname", _null_());
+    cmd.addParam("target", EvalTargetNV());
+    cmd.addParam("pname", MapAttribParameterNV());
     cmd.extension = GL_NV_evaluators();
     glGetMapAttribParameterfvNV = cmd;
     return cmd;
@@ -32409,7 +32929,7 @@ public class GLmetadata {
       return glVertexStream4iATI;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("stream", _null_());
+    cmd.addParam("stream", VertexStreamATI());
     cmd.extension = GL_ATI_vertex_streams();
     glVertexStream4iATI = cmd;
     return cmd;
@@ -32466,7 +32986,7 @@ public class GLmetadata {
       return glGetOcclusionQueryivNV;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("pname", _null_());
+    cmd.addParam("pname", OcclusionQueryParameterNameNV());
     cmd.extension = GL_NV_occlusion_query();
     glGetOcclusionQueryivNV = cmd;
     return cmd;
@@ -32523,7 +33043,7 @@ public class GLmetadata {
       return glVertexBlendEnviATI;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("pname", _null_());
+    cmd.addParam("pname", VertexStreamATI());
     cmd.extension = GL_ATI_vertex_streams();
     glVertexBlendEnviATI = cmd;
     return cmd;
@@ -32534,8 +33054,8 @@ public class GLmetadata {
       return glClampColorARB;
     Command cmd = new Command(2);
     cmd.returnGroup = _null_();
-    cmd.addParam("target", _null_());
-    cmd.addParam("clamp", _null_());
+    cmd.addParam("target", ClampColorTargetARB());
+    cmd.addParam("clamp", ClampColorModeARB());
     cmd.extension = GL_ARB_color_buffer_float();
     glClampColorARB = cmd;
     return cmd;
@@ -32583,8 +33103,8 @@ public class GLmetadata {
       return glGetMapAttribParameterivNV;
     Command cmd = new Command(2);
     cmd.returnGroup = _null_();
-    cmd.addParam("target", _null_());
-    cmd.addParam("pname", _null_());
+    cmd.addParam("target", EvalTargetNV());
+    cmd.addParam("pname", MapAttribParameterNV());
     cmd.extension = GL_NV_evaluators();
     glGetMapAttribParameterivNV = cmd;
     return cmd;
@@ -32804,7 +33324,7 @@ public class GLmetadata {
       return glGetVertexAttribfvARB;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("pname", _null_());
+    cmd.addParam("pname", VertexAttribPropertyARB());
     cmd.extension = GL_ARB_vertex_program();
     glGetVertexAttribfvARB = cmd;
     return cmd;
@@ -32970,9 +33490,9 @@ public class GLmetadata {
       return glFinalCombinerInputNV;
     Command cmd = new Command(4);
     cmd.returnGroup = _null_();
-    cmd.addParam("variable", _null_());
-    cmd.addParam("input", _null_());
-    cmd.addParam("mapping", _null_());
+    cmd.addParam("variable", CombinerVariableNV());
+    cmd.addParam("input", CombinerRegisterNV());
+    cmd.addParam("mapping", CombinerMappingNV());
     cmd.addParam("componentUsage", _null_());
     cmd.extension = GL_NV_register_combiners();
     glFinalCombinerInputNV = cmd;
@@ -33031,7 +33551,7 @@ public class GLmetadata {
       return glNormalStream3fATI;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("stream", _null_());
+    cmd.addParam("stream", VertexStreamATI());
     cmd.extension = GL_ATI_vertex_streams();
     glNormalStream3fATI = cmd;
     return cmd;
@@ -33123,7 +33643,7 @@ public class GLmetadata {
       return glMapControlPointsNV;
     Command cmd = new Command(3);
     cmd.returnGroup = _null_();
-    cmd.addParam("target", _null_());
+    cmd.addParam("target", EvalTargetNV());
     cmd.addParam("type", _null_());
     cmd.addParam("packed", Boolean());
     cmd.extension = GL_NV_evaluators();
@@ -33329,7 +33849,7 @@ public class GLmetadata {
     Command cmd = new Command(2);
     cmd.returnGroup = _null_();
     cmd.addParam("target", BufferTargetARB());
-    cmd.addParam("pname", _null_());
+    cmd.addParam("pname", BufferPointerNameARB());
     cmd.extension = GL_OES_mapbuffer();
     glGetBufferPointervOES = cmd;
     return cmd;
@@ -33397,7 +33917,7 @@ public class GLmetadata {
       return glPathSubCommandsNV;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("coordType", _null_());
+    cmd.addParam("coordType", PathCoordType());
     cmd.extension = GL_NV_path_rendering();
     glPathSubCommandsNV = cmd;
     return cmd;
@@ -33467,7 +33987,7 @@ public class GLmetadata {
       return glPointParameteriv;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("pname", _null_());
+    cmd.addParam("pname", PointParameterNameARB());
     glPointParameteriv = cmd;
     return cmd;
   }
@@ -33512,7 +34032,7 @@ public class GLmetadata {
       return glNormalStream3iATI;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("stream", _null_());
+    cmd.addParam("stream", VertexStreamATI());
     cmd.extension = GL_ATI_vertex_streams();
     glNormalStream3iATI = cmd;
     return cmd;
@@ -33770,7 +34290,7 @@ public class GLmetadata {
       return glPointParameterfv;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("pname", _null_());
+    cmd.addParam("pname", PointParameterNameARB());
     glPointParameterfv = cmd;
     return cmd;
   }
@@ -34021,7 +34541,7 @@ public class GLmetadata {
       return glPNTrianglesiATI;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("pname", _null_());
+    cmd.addParam("pname", PNTrianglesPNameATI());
     cmd.extension = GL_ATI_pn_triangles();
     glPNTrianglesiATI = cmd;
     return cmd;
@@ -34066,7 +34586,7 @@ public class GLmetadata {
       return glTextureLightEXT;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("pname", _null_());
+    cmd.addParam("pname", LightTexturePNameEXT());
     cmd.extension = GL_EXT_light_texture();
     glTextureLightEXT = cmd;
     return cmd;
@@ -34431,7 +34951,7 @@ public class GLmetadata {
       return glVertexStream2dvATI;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("stream", _null_());
+    cmd.addParam("stream", VertexStreamATI());
     cmd.extension = GL_ATI_vertex_streams();
     glVertexStream2dvATI = cmd;
     return cmd;
@@ -34595,7 +35115,7 @@ public class GLmetadata {
       return glFinishObjectAPPLE;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("object", _null_());
+    cmd.addParam("object", ObjectTypeAPPLE());
     cmd.extension = GL_APPLE_fence();
     glFinishObjectAPPLE = cmd;
     return cmd;
@@ -34688,7 +35208,7 @@ public class GLmetadata {
       return glProgramLocalParameters4fvEXT;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("target", _null_());
+    cmd.addParam("target", ProgramTargetARB());
     glProgramLocalParameters4fvEXT = cmd;
     return cmd;
   }
@@ -34733,7 +35253,7 @@ public class GLmetadata {
       return glGetVertexAttribPointerv;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("pname", _null_());
+    cmd.addParam("pname", VertexAttribPointerPropertyARB());
     glGetVertexAttribPointerv = cmd;
     return cmd;
   }
@@ -34754,7 +35274,7 @@ public class GLmetadata {
       return glTexBumpParameterivATI;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("pname", _null_());
+    cmd.addParam("pname", TexBumpParameterATI());
     cmd.extension = GL_ATI_envmap_bumpmap();
     glTexBumpParameterivATI = cmd;
     return cmd;
@@ -34890,8 +35410,8 @@ public class GLmetadata {
       return glProgramStringARB;
     Command cmd = new Command(2);
     cmd.returnGroup = _null_();
-    cmd.addParam("target", _null_());
-    cmd.addParam("format", _null_());
+    cmd.addParam("target", ProgramTargetARB());
+    cmd.addParam("format", ProgramFormatARB());
     cmd.extension = GL_ARB_fragment_program();
     glProgramStringARB = cmd;
     return cmd;
@@ -35111,7 +35631,7 @@ public class GLmetadata {
       return glVertexStream4ivATI;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("stream", _null_());
+    cmd.addParam("stream", VertexStreamATI());
     cmd.extension = GL_ATI_vertex_streams();
     glVertexStream4ivATI = cmd;
     return cmd;
@@ -35157,7 +35677,7 @@ public class GLmetadata {
       return glProgramEnvParameter4fvARB;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("target", _null_());
+    cmd.addParam("target", ProgramTargetARB());
     cmd.extension = GL_ARB_fragment_program();
     glProgramEnvParameter4fvARB = cmd;
     return cmd;
@@ -35179,7 +35699,7 @@ public class GLmetadata {
       return glPointParameterxv;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("pname", _null_());
+    cmd.addParam("pname", PointParameterNameARB());
     glPointParameterxv = cmd;
     return cmd;
   }
@@ -35233,7 +35753,7 @@ public class GLmetadata {
       return glGetObjectBufferfvATI;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("pname", _null_());
+    cmd.addParam("pname", ArrayObjectPNameATI());
     cmd.extension = GL_ATI_vertex_array_object();
     glGetObjectBufferfvATI = cmd;
     return cmd;
@@ -35479,7 +35999,7 @@ public class GLmetadata {
       return glVertexAttribPointerNV;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("type", _null_());
+    cmd.addParam("type", VertexAttribEnumNV());
     cmd.extension = GL_NV_vertex_program();
     glVertexAttribPointerNV = cmd;
     return cmd;
@@ -35490,7 +36010,7 @@ public class GLmetadata {
       return glVertexStream4sATI;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("stream", _null_());
+    cmd.addParam("stream", VertexStreamATI());
     cmd.extension = GL_ATI_vertex_streams();
     glVertexStream4sATI = cmd;
     return cmd;
@@ -35602,7 +36122,7 @@ public class GLmetadata {
       return glVertexStream3fATI;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("stream", _null_());
+    cmd.addParam("stream", VertexStreamATI());
     cmd.extension = GL_ATI_vertex_streams();
     glVertexStream3fATI = cmd;
     return cmd;
@@ -35613,7 +36133,7 @@ public class GLmetadata {
       return glCombinerParameteriNV;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("pname", _null_());
+    cmd.addParam("pname", CombinerParameterNV());
     cmd.extension = GL_NV_register_combiners();
     glCombinerParameteriNV = cmd;
     return cmd;
@@ -35645,7 +36165,7 @@ public class GLmetadata {
       return glPointParameterivNV;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("pname", _null_());
+    cmd.addParam("pname", PointParameterNameARB());
     cmd.extension = GL_NV_point_sprite();
     glPointParameterivNV = cmd;
     return cmd;
@@ -35721,7 +36241,7 @@ public class GLmetadata {
       return glVertexStream2svATI;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("stream", _null_());
+    cmd.addParam("stream", VertexStreamATI());
     cmd.extension = GL_ATI_vertex_streams();
     glVertexStream2svATI = cmd;
     return cmd;
@@ -35778,7 +36298,7 @@ public class GLmetadata {
       return glVertexStream2dATI;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("stream", _null_());
+    cmd.addParam("stream", VertexStreamATI());
     cmd.extension = GL_ATI_vertex_streams();
     glVertexStream2dATI = cmd;
     return cmd;
@@ -35996,7 +36516,7 @@ public class GLmetadata {
       return glNormalStream3bvATI;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("stream", _null_());
+    cmd.addParam("stream", VertexStreamATI());
     cmd.extension = GL_ATI_vertex_streams();
     glNormalStream3bvATI = cmd;
     return cmd;
@@ -36087,7 +36607,7 @@ public class GLmetadata {
       return glVertexBlendEnvfATI;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("pname", _null_());
+    cmd.addParam("pname", VertexStreamATI());
     cmd.extension = GL_ATI_vertex_streams();
     glVertexBlendEnvfATI = cmd;
     return cmd;
@@ -36098,7 +36618,7 @@ public class GLmetadata {
       return glProgramParameter4dNV;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("target", _null_());
+    cmd.addParam("target", VertexAttribEnumNV());
     cmd.extension = GL_NV_vertex_program();
     glProgramParameter4dNV = cmd;
     return cmd;
@@ -36120,7 +36640,7 @@ public class GLmetadata {
       return glGetMultisamplefvNV;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("pname", _null_());
+    cmd.addParam("pname", GetMultisamplePNameNV());
     cmd.extension = GL_NV_explicit_multisample();
     glGetMultisamplefvNV = cmd;
     return cmd;
@@ -36176,7 +36696,7 @@ public class GLmetadata {
       return glSpriteParameteriSGIX;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("pname", _null_());
+    cmd.addParam("pname", SpriteParameterNameSGIX());
     cmd.extension = GL_SGIX_sprite();
     glSpriteParameteriSGIX = cmd;
     return cmd;
@@ -36315,7 +36835,7 @@ public class GLmetadata {
       return glGetOcclusionQueryuivNV;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("pname", _null_());
+    cmd.addParam("pname", OcclusionQueryParameterNameNV());
     cmd.extension = GL_NV_occlusion_query();
     glGetOcclusionQueryuivNV = cmd;
     return cmd;
@@ -36370,9 +36890,9 @@ public class GLmetadata {
       return glTrackMatrixNV;
     Command cmd = new Command(3);
     cmd.returnGroup = _null_();
-    cmd.addParam("target", _null_());
-    cmd.addParam("matrix", _null_());
-    cmd.addParam("transform", _null_());
+    cmd.addParam("target", VertexAttribEnumNV());
+    cmd.addParam("matrix", VertexAttribEnumNV());
+    cmd.addParam("transform", VertexAttribEnumNV());
     cmd.extension = GL_NV_vertex_program();
     glTrackMatrixNV = cmd;
     return cmd;
@@ -36408,8 +36928,8 @@ public class GLmetadata {
     cmd.returnGroup = _null_();
     cmd.addParam("stage", _null_());
     cmd.addParam("portion", _null_());
-    cmd.addParam("variable", _null_());
-    cmd.addParam("pname", _null_());
+    cmd.addParam("variable", CombinerVariableNV());
+    cmd.addParam("pname", CombinerParameterNV());
     cmd.extension = GL_NV_register_combiners();
     glGetCombinerInputParameterfvNV = cmd;
     return cmd;
@@ -36431,7 +36951,7 @@ public class GLmetadata {
       return glSpriteParameterfSGIX;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("pname", _null_());
+    cmd.addParam("pname", SpriteParameterNameSGIX());
     cmd.extension = GL_SGIX_sprite();
     glSpriteParameterfSGIX = cmd;
     return cmd;
@@ -36486,7 +37006,7 @@ public class GLmetadata {
       return glProgramParameter4fNV;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("target", _null_());
+    cmd.addParam("target", VertexAttribEnumNV());
     cmd.extension = GL_NV_vertex_program();
     glProgramParameter4fNV = cmd;
     return cmd;
@@ -36643,7 +37163,7 @@ public class GLmetadata {
       return glGetVertexAttribPointervARB;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("pname", _null_());
+    cmd.addParam("pname", VertexAttribPointerPropertyARB());
     cmd.extension = GL_ARB_vertex_program();
     glGetVertexAttribPointervARB = cmd;
     return cmd;
@@ -36688,7 +37208,7 @@ public class GLmetadata {
       return glClientActiveVertexStreamATI;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("stream", _null_());
+    cmd.addParam("stream", VertexStreamATI());
     cmd.extension = GL_ATI_vertex_streams();
     glClientActiveVertexStreamATI = cmd;
     return cmd;
@@ -36766,7 +37286,7 @@ public class GLmetadata {
       return glTexBumpParameterfvATI;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("pname", _null_());
+    cmd.addParam("pname", TexBumpParameterATI());
     cmd.extension = GL_ATI_envmap_bumpmap();
     glTexBumpParameterfvATI = cmd;
     return cmd;
@@ -36834,7 +37354,7 @@ public class GLmetadata {
       return glPointParameterxOES;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("pname", _null_());
+    cmd.addParam("pname", PointParameterNameARB());
     cmd.extension = GL_OES_fixed_point();
     glPointParameterxOES = cmd;
     return cmd;
@@ -37162,7 +37682,7 @@ public class GLmetadata {
       return glBindProgramNV;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("target", _null_());
+    cmd.addParam("target", VertexAttribEnumNV());
     cmd.extension = GL_NV_vertex_program();
     glBindProgramNV = cmd;
     return cmd;
@@ -37218,8 +37738,8 @@ public class GLmetadata {
       return glImageTransformParameterfHP;
     Command cmd = new Command(2);
     cmd.returnGroup = _null_();
-    cmd.addParam("target", _null_());
-    cmd.addParam("pname", _null_());
+    cmd.addParam("target", ImageTransformTargetHP());
+    cmd.addParam("pname", ImageTransformPNameHP());
     cmd.extension = GL_HP_image_transform();
     glImageTransformParameterfHP = cmd;
     return cmd;
@@ -37242,7 +37762,7 @@ public class GLmetadata {
       return glPixelDataRangeNV;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("target", _null_());
+    cmd.addParam("target", PixelDataRangeTargetNV());
     cmd.extension = GL_NV_pixel_data_range();
     glPixelDataRangeNV = cmd;
     return cmd;
@@ -37253,7 +37773,7 @@ public class GLmetadata {
       return glPointParameterfvARB;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("pname", _null_());
+    cmd.addParam("pname", PointParameterNameARB());
     cmd.extension = GL_ARB_point_parameters();
     glPointParameterfvARB = cmd;
     return cmd;
@@ -37275,8 +37795,8 @@ public class GLmetadata {
       return glGetMapParameterfvNV;
     Command cmd = new Command(2);
     cmd.returnGroup = _null_();
-    cmd.addParam("target", _null_());
-    cmd.addParam("pname", _null_());
+    cmd.addParam("target", EvalTargetNV());
+    cmd.addParam("pname", MapParameterNV());
     cmd.extension = GL_NV_evaluators();
     glGetMapParameterfvNV = cmd;
     return cmd;
@@ -37333,7 +37853,7 @@ public class GLmetadata {
       return glVertexStream4fvATI;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("stream", _null_());
+    cmd.addParam("stream", VertexStreamATI());
     cmd.extension = GL_ATI_vertex_streams();
     glVertexStream4fvATI = cmd;
     return cmd;
@@ -37344,7 +37864,7 @@ public class GLmetadata {
       return glProgramEnvParameter4fARB;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("target", _null_());
+    cmd.addParam("target", ProgramTargetARB());
     cmd.extension = GL_ARB_fragment_program();
     glProgramEnvParameter4fARB = cmd;
     return cmd;
@@ -37582,7 +38102,7 @@ public class GLmetadata {
       return glVertexStream3iATI;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("stream", _null_());
+    cmd.addParam("stream", VertexStreamATI());
     cmd.extension = GL_ATI_vertex_streams();
     glVertexStream3iATI = cmd;
     return cmd;
@@ -37593,7 +38113,7 @@ public class GLmetadata {
       return glBindParameterEXT;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("value", _null_());
+    cmd.addParam("value", VertexShaderParameterEXT());
     cmd.extension = GL_EXT_vertex_shader();
     glBindParameterEXT = cmd;
     return cmd;
@@ -37638,7 +38158,7 @@ public class GLmetadata {
       return glNormalStream3dATI;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("stream", _null_());
+    cmd.addParam("stream", VertexStreamATI());
     cmd.extension = GL_ATI_vertex_streams();
     glNormalStream3dATI = cmd;
     return cmd;
@@ -37649,7 +38169,7 @@ public class GLmetadata {
       return glGetVertexAttribdvNV;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("pname", _null_());
+    cmd.addParam("pname", VertexAttribEnumNV());
     cmd.extension = GL_NV_vertex_program();
     glGetVertexAttribdvNV = cmd;
     return cmd;
@@ -37660,7 +38180,7 @@ public class GLmetadata {
       return glGetProgramLocalParameterdvARB;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("target", _null_());
+    cmd.addParam("target", ProgramTargetARB());
     cmd.extension = GL_ARB_fragment_program();
     glGetProgramLocalParameterdvARB = cmd;
     return cmd;
@@ -37931,7 +38451,7 @@ public class GLmetadata {
       return glPointParameterfARB;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("pname", _null_());
+    cmd.addParam("pname", PointParameterNameARB());
     cmd.extension = GL_ARB_point_parameters();
     glPointParameterfARB = cmd;
     return cmd;
@@ -37973,7 +38493,7 @@ public class GLmetadata {
       return glNormalStream3ivATI;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("stream", _null_());
+    cmd.addParam("stream", VertexStreamATI());
     cmd.extension = GL_ATI_vertex_streams();
     glNormalStream3ivATI = cmd;
     return cmd;
@@ -37995,7 +38515,7 @@ public class GLmetadata {
       return glShaderOp2EXT;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("op", _null_());
+    cmd.addParam("op", VertexShaderOpEXT());
     cmd.extension = GL_EXT_vertex_shader();
     glShaderOp2EXT = cmd;
     return cmd;
@@ -38168,7 +38688,7 @@ public class GLmetadata {
       return glSetFenceNV;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("condition", _null_());
+    cmd.addParam("condition", FenceConditionNV());
     cmd.extension = GL_NV_fence();
     glSetFenceNV = cmd;
     return cmd;
@@ -38201,7 +38721,7 @@ public class GLmetadata {
       return glLoadProgramNV;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("target", _null_());
+    cmd.addParam("target", VertexAttribEnumNV());
     cmd.extension = GL_NV_vertex_program();
     glLoadProgramNV = cmd;
     return cmd;
@@ -38322,7 +38842,7 @@ public class GLmetadata {
       return glIglooInterfaceSGIX;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("pname", _null_());
+    cmd.addParam("pname", IglooFunctionSelectSGIX());
     glIglooInterfaceSGIX = cmd;
     return cmd;
   }
@@ -38344,7 +38864,7 @@ public class GLmetadata {
     Command cmd = new Command(2);
     cmd.returnGroup = _null_();
     cmd.addParam("stage", _null_());
-    cmd.addParam("pname", _null_());
+    cmd.addParam("pname", CombinerParameterNV());
     cmd.extension = GL_NV_register_combiners2();
     glGetCombinerStageParameterfvNV = cmd;
     return cmd;
@@ -38420,7 +38940,7 @@ public class GLmetadata {
       return glGetProgramEnvParameterdvARB;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("target", _null_());
+    cmd.addParam("target", ProgramTargetARB());
     cmd.extension = GL_ARB_fragment_program();
     glGetProgramEnvParameterdvARB = cmd;
     return cmd;
@@ -38563,7 +39083,7 @@ public class GLmetadata {
       return glSpriteParameterivSGIX;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("pname", _null_());
+    cmd.addParam("pname", SpriteParameterNameSGIX());
     cmd.extension = GL_SGIX_sprite();
     glSpriteParameterivSGIX = cmd;
     return cmd;
@@ -38576,8 +39096,8 @@ public class GLmetadata {
     cmd.returnGroup = _null_();
     cmd.addParam("stage", _null_());
     cmd.addParam("portion", _null_());
-    cmd.addParam("variable", _null_());
-    cmd.addParam("pname", _null_());
+    cmd.addParam("variable", CombinerVariableNV());
+    cmd.addParam("pname", CombinerParameterNV());
     cmd.extension = GL_NV_register_combiners();
     glGetCombinerInputParameterivNV = cmd;
     return cmd;
@@ -38644,7 +39164,7 @@ public class GLmetadata {
       return glGetProgramivARB;
     Command cmd = new Command(2);
     cmd.returnGroup = _null_();
-    cmd.addParam("target", _null_());
+    cmd.addParam("target", ProgramTargetARB());
     cmd.addParam("pname", ProgramPropertyARB());
     cmd.extension = GL_ARB_fragment_program();
     glGetProgramivARB = cmd;
@@ -38790,7 +39310,7 @@ public class GLmetadata {
       return glPNTrianglesfATI;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("pname", _null_());
+    cmd.addParam("pname", PNTrianglesPNameATI());
     cmd.extension = GL_ATI_pn_triangles();
     glPNTrianglesfATI = cmd;
     return cmd;
@@ -38812,7 +39332,7 @@ public class GLmetadata {
       return glProgramEnvParameters4fvEXT;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("target", _null_());
+    cmd.addParam("target", ProgramTargetARB());
     glProgramEnvParameters4fvEXT = cmd;
     return cmd;
   }
@@ -38989,7 +39509,7 @@ public class GLmetadata {
       return glVertexStream1dvATI;
     Command cmd = new Command(1);
     cmd.returnGroup = _null_();
-    cmd.addParam("stream", _null_());
+    cmd.addParam("stream", VertexStreamATI());
     cmd.extension = GL_ATI_vertex_streams();
     glVertexStream1dvATI = cmd;
     return cmd;
@@ -39014,7 +39534,7 @@ public class GLmetadata {
     Command cmd = new Command(2);
     cmd.returnGroup = _null_();
     cmd.addParam("stage", _null_());
-    cmd.addParam("pname", _null_());
+    cmd.addParam("pname", CombinerParameterNV());
     cmd.extension = GL_NV_register_combiners2();
     glCombinerStageParameterfvNV = cmd;
     return cmd;
