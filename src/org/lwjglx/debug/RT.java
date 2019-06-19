@@ -1248,4 +1248,14 @@ public class RT {
         throwIAEOrLogError("Provided 'share' argument is not a valid GLFW window handle: " + share);
     }
 
+    public static void checkMainMethod(String[] args) {
+        if (args == null)
+            return;
+        for (String arg : args) {
+            if ("-XstartOnFirstThread".equals(arg))
+                throwISEOrLogError("'-XstartOnFirstThread' was provided as command line argument instead of JVM parameter."
+                                + " Make sure to specify '-XstartOnFirstThread' before any '-jar' argument");
+        }
+    }
+
 }

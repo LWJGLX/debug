@@ -537,4 +537,26 @@ public class DebugIT {
         MemoryUtil.memFree(bb);
     }
 
+    @Test
+    public void testJvmArgumentAsCommandLineArgument() {
+        assertThrows(IllegalStateException.class, () -> main(new String[] {"-XstartOnFirstThread"}),
+                        "'-XstartOnFirstThread' was provided as command line argument instead of JVM parameter. "
+                        + "Make sure to specify '-XstartOnFirstThread' before any '-jar' argument");
+    }
+
+    @Test
+    public void testGlErrorInMainMethod() {
+        assertThrows(IllegalStateException.class, () -> main(new String[0]), "OpenGL function call raised an error (see stderr output)");
+    }
+
+    public static void main(String[] args) {
+        // Will be instrumented for checking JVM argument as command line argument
+
+        // Also check some GL errors
+        long window = glfwCreateWindow(800, 600, "", 0L, 0L);
+        glfwMakeContextCurrent(window);
+        createCapabilities();
+        glEnable(GL_VERTEX_ARRAY_POINTER);
+    }
+
 }

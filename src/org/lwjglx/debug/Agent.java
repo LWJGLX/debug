@@ -119,21 +119,19 @@ public class Agent implements ClassFileTransformer, Opcodes {
         }
         ClassReader cr = new ClassReader(classfileBuffer);
         ClassWriter cw = new ClassWriter(ClassWriter.COMPUTE_MAXS);
-        class BooleanHolder {
-            boolean value;
+        class Modifications {
+            boolean modified;
+            boolean needsProxyClass;
+            String sourceFile;
         }
-        class StringHolder {
-            String value;
-        }
-        BooleanHolder modified = new BooleanHolder();
+        final Modifications modifications = new Modifications();
         Map<String, InterceptedCall> calls = new LinkedHashMap<String, InterceptedCall>();
         String callerName = className.replace('.', '/');
         String proxyName = "org/lwjglx/debug/$Proxy$" + counter.incrementAndGet();
-        StringHolder sourceFile = new StringHolder();
         ClassVisitor cv = new ClassVisitor(ASM7, cw) {
             public void visitSource(String source, String debug) {
                 super.visitSource(source, debug);
-                sourceFile.value = source;
+                modifications.sourceFile = source;
                 Log.maxSourceLength = Math.max(Log.maxSourceLength, source.length());
             }
 
@@ -141,6 +139,16 @@ public class Agent implements ClassFileTransformer, Opcodes {
                 MethodVisitor mv = super.visitMethod(access, name, desc, signature, exceptions);
                 return new MethodVisitor(ASM7, mv) {
                     private int lastLineNumber = -1;
+
+                    public void visitCode() {
+                        // Check main method
+                        if ((access & (ACC_PUBLIC | ACC_STATIC)) == access && "main".equals(name) && "([Ljava/lang/String;)V".equals(desc)) {
+                            mv.visitVarInsn(ALOAD, 0);
+                            mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, "checkMainMethod", "([Ljava/lang/String;)V", false);
+                            modifications.modified = true;
+                        }
+                        super.visitCode();
+                    }
 
                     public void visitLineNumber(int line, Label start) {
                         super.visitLineNumber(line, start);
@@ -153,7 +161,7 @@ public class Agent implements ClassFileTransformer, Opcodes {
                             if (name.equals("GL_GREMEDY_string_marker") || name.equals("GL_GREMEDY_frame_terminator")) {
                                 mv.visitInsn(POP); // <- pop off GLCapabilities
                                 mv.visitInsn(ICONST_1); // <- true
-                                modified.value = true;
+                                modifications.modified = true;
                                 return;
                             }
                         }
@@ -184,21 +192,21 @@ public class Agent implements ClassFileTransformer, Opcodes {
                                 proxyDesc = call.desc.substring(0, call.desc.lastIndexOf(')')) + "I" + call.desc.substring(call.desc.lastIndexOf(')'));
                             }
                             mv.visitMethodInsn(INVOKESTATIC, proxyName, call.generatedMethodName, proxyDesc, itf);
-                            modified.value = true;
+                            modifications.needsProxyClass = true;
                         } else if (opcode == INVOKEVIRTUAL && Util.isBuffer(owner) && Util.isMultiByteWrite(owner, name)) {
                             mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, name, "(L" + owner + ";" + desc.substring(1), itf);
-                            modified.value = true;
+                            modifications.needsProxyClass = true;
                         } else if (opcode == INVOKEVIRTUAL && owner.equals("java/nio/ByteBuffer") && Util.isTypedViewMethod(name)) {
                             mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, name, "(L" + owner + ";" + desc.substring(1), itf);
-                            modified.value = true;
+                            modifications.needsProxyClass = true;
                         } else if (opcode == INVOKEVIRTUAL && Util.isBuffer(owner) && name.equals("slice")) {
                             mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, name, "(L" + owner + ";" + desc.substring(1), itf);
-                            modified.value = true;
+                            modifications.needsProxyClass = true;
                         } else if (opcode == INVOKEVIRTUAL && Util.isBuffer(owner) && name.equals("flip")) {
                             mv.visitInsn(DUP);
                             mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, "checkFlipBufferAtPosition0", "(Ljava/nio/Buffer;)V", false);
                             super.visitMethodInsn(opcode, owner, name, desc, itf);
-                            modified.value = true;
+                            modifications.needsProxyClass = true;
                         } else {
                             super.visitMethodInsn(opcode, owner, name, desc, itf);
                         }
@@ -207,7 +215,7 @@ public class Agent implements ClassFileTransformer, Opcodes {
             }
         };
         cr.accept(cv, 0);
-        if (!modified.value) {
+        if (!modifications.needsProxyClass && !modifications.modified) {
             if (DEBUG.enabled)
                 debug("Did not modify: " + className);
             return null;
@@ -215,8 +223,10 @@ public class Agent implements ClassFileTransformer, Opcodes {
         if (DEBUG.enabled) {
             debug("Modified [" + className + "] (" + calls.size() + " calls into LWJGL)");
         }
-        /* Generate proxy class */
-        InterceptClassGenerator.generate(loader, proxyName, callerName, calls.values(), sourceFile.value);
+        if (modifications.needsProxyClass) {
+            /* Generate proxy class */
+            InterceptClassGenerator.generate(loader, proxyName, callerName, calls.values(), modifications.sourceFile);
+        }
         byte[] arr = cw.toByteArray();
         if (DEBUG.enabled) {
             TraceClassVisitor tcv = new TraceClassVisitor(new PrintWriter(System.err));
