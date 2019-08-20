@@ -31,6 +31,8 @@ import java.lang.instrument.ClassFileTransformer;
 import java.lang.instrument.IllegalClassFormatException;
 import java.lang.instrument.Instrumentation;
 import java.security.ProtectionDomain;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -112,11 +114,18 @@ public class Agent implements ClassFileTransformer, Opcodes {
         return resolvedOwner.length() == 0 ? null : resolvedOwner.toString();
     }
 
+    private static final Map<String, Set<String>> mustInstrumentMethods = new HashMap<>();
+    {
+        mustInstrumentMethods.put("org/lwjgl/glfw/GLFWErrorCallback", Collections.singleton("set()Lorg/lwjgl/glfw/GLFWErrorCallback;"));
+    }
+
     private byte[] transform_(ClassLoader loader, String className, Class<?> classBeingRedefined, ProtectionDomain protectionDomain, byte[] classfileBuffer) throws IllegalClassFormatException {
-        if (className == null || className.startsWith("java/") || className.startsWith("com/sun/") || className.startsWith("sun/") || className.startsWith("jdk/internal/")
-                || className.startsWith("org/lwjgl/") || className.startsWith("org/joml/") || className.startsWith("org/lwjglx/debug/")) {
+        if ((className == null || className.startsWith("java/") || className.startsWith("com/sun/") || className.startsWith("sun/") || className.startsWith("jdk/internal/")
+                || className.startsWith("org/lwjgl/") || className.startsWith("org/joml/") || className.startsWith("org/lwjglx/debug/")) && !mustInstrumentMethods.containsKey(className)) {
             return null;
         }
+        boolean forcedInstrumentation = mustInstrumentMethods.containsKey(className);
+        Set<String> forceInstrumentationMethods = forcedInstrumentation ? mustInstrumentMethods.get(className) : null;
         ClassReader cr = new ClassReader(classfileBuffer);
         ClassWriter cw = new ClassWriter(ClassWriter.COMPUTE_MAXS);
         class Modifications {
@@ -137,6 +146,8 @@ public class Agent implements ClassFileTransformer, Opcodes {
 
             public MethodVisitor visitMethod(int access, String name, String desc, String signature, String[] exceptions) {
                 MethodVisitor mv = super.visitMethod(access, name, desc, signature, exceptions);
+                if (forcedInstrumentation && !forceInstrumentationMethods.contains(name + desc))
+                    return mv;
                 return new MethodVisitor(ASM7, mv) {
                     private int lastLineNumber = -1;
 

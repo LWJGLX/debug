@@ -29,8 +29,10 @@ import java.nio.ByteBuffer;
 import java.util.Map;
 
 import org.lwjgl.glfw.GLFWErrorCallback;
+import org.lwjgl.glfw.GLFWErrorCallbackI;
 import org.lwjgl.glfw.GLFWVidMode;
 import org.lwjgl.system.APIUtil;
+import org.lwjgl.system.Callback;
 import org.lwjgl.system.Platform;
 import org.lwjglx.debug.Context;
 import org.lwjglx.debug.MethodCall;
@@ -39,33 +41,82 @@ import org.lwjglx.debug.RT;
 
 public class GLFW {
 
-    private static GLFWErrorCallback userCallback;
+    private static GLFWErrorCallbackI userCallback;
     private static GLFWErrorCallback errorCallback;
+
+    private static void ensureErrorCallback() {
+        if (errorCallback != null)
+            return;
+        errorCallback = new GLFWErrorCallback() {
+            public void invoke(int error, long description) {
+                invokeErrorCallback(error, description);
+                if (userCallback != null) {
+                    userCallback.invoke(error, description);
+                }
+            }
+        };
+    }
+
+    public static GLFWErrorCallback glfwSetErrorCallback(GLFWErrorCallbackI callback) {
+        if (!Properties.VALIDATE.enabled || callback == null && errorCallback == null) {
+            GLFWErrorCallback ret = org.lwjgl.glfw.GLFW.glfwSetErrorCallback(callback);
+            return ret;
+        }
+        ensureErrorCallback();
+        GLFWErrorCallback previous = org.lwjgl.glfw.GLFW.glfwSetErrorCallback(errorCallback);
+        final GLFWErrorCallbackI prevUserCallback = userCallback;
+        userCallback = callback;
+        if (previous == null)
+            return null;
+        if (previous.address() == errorCallback.address()) {
+            if (prevUserCallback == null)
+                return null;
+            return new GLFWErrorCallback() {
+                public void invoke(int error, long description) {
+                    if (prevUserCallback != null)
+                        prevUserCallback.invoke(error, description);
+                }
+                public void free() {
+                    super.free();
+                    if (prevUserCallback != null && prevUserCallback instanceof Callback) {
+                        ((Callback) prevUserCallback).free();
+                    }
+                    if (callback == null && errorCallback != null) {
+                        org.lwjgl.glfw.GLFW.glfwSetErrorCallback(null);
+                        errorCallback.free();
+                        errorCallback = null;
+                    }
+                }
+            };
+        }
+        throw new IllegalStateException("Should not reach here!");
+    }
+
+    private static final Map<Integer, String> ERROR_CODES = APIUtil.apiClassTokens(
+                    (field, value) -> 0x10000 < value && value < 0x20000, null, org.lwjgl.glfw.GLFW.class);
+
+    private static void invokeErrorCallback(int error, long description) {
+        String msg = GLFWErrorCallback.getDescription(description);
+        System.err.printf("[LWJGL] %s error\n", ERROR_CODES.get(error));
+        System.err.println("\tDescription : " + msg);
+        System.err.println("\tStacktrace  :");
+        StackTraceElement[] stack = Thread.currentThread().getStackTrace();
+        for (int i = 4; i < stack.length; i++) {
+            System.err.print("\t\t");
+            System.err.println(stack[i].toString());
+        }
+    }
 
     public static boolean glfwInit() {
         boolean ret;
         if (Properties.VALIDATE.enabled) {
             debug("Registering GLFWErrorCallback");
             /* Set a GLFW error callback first and remember any possibly current callback to delegate to */
-            errorCallback = new GLFWErrorCallback() {
-                private final Map<Integer, String> ERROR_CODES = APIUtil.apiClassTokens((field, value) -> 0x10000 < value && value < 0x20000, null, org.lwjgl.glfw.GLFW.class);
-
-                public void invoke(int error, long description) {
-                    String msg = getDescription(description);
-                    System.err.printf("[LWJGL] %s error\n", ERROR_CODES.get(error));
-                    System.err.println("\tDescription : " + msg);
-                    System.err.println("\tStacktrace  :");
-                    StackTraceElement[] stack = Thread.currentThread().getStackTrace();
-                    for (int i = 4; i < stack.length; i++) {
-                        System.err.print("\t\t");
-                        System.err.println(stack[i].toString());
-                    }
-                    if (userCallback != null) {
-                        userCallback.invoke(error, description);
-                    }
-                }
-            };
-            userCallback = org.lwjgl.glfw.GLFW.glfwSetErrorCallback(errorCallback);
+            ensureErrorCallback();
+            GLFWErrorCallback callback = org.lwjgl.glfw.GLFW.glfwSetErrorCallback(errorCallback);
+            if (callback != null && callback.address() != errorCallback.address()) {
+                userCallback = callback;
+            }
             ret = org.lwjgl.glfw.GLFW.glfwInit();
             if (!ret) {
                 error("glfwInit returned false");
@@ -78,16 +129,14 @@ public class GLFW {
     }
 
     public static void glfwTerminate() {
-        if (Properties.VALIDATE.enabled) {
-            // Reinstate any user-defined error callback
-            // because the user might call glfwSetErrorCallback(null).free()
-            org.lwjgl.glfw.GLFW.glfwSetErrorCallback(userCallback);
-        }
         org.lwjgl.glfw.GLFW.glfwTerminate();
         if (Properties.VALIDATE.enabled) {
             debug("Freeing GLFWErrorCallback");
-            if (errorCallback != null)
+            if (errorCallback != null && userCallback == null) {
+                org.lwjgl.glfw.GLFW.glfwSetErrorCallback(null);
                 errorCallback.free();
+                errorCallback = null;
+            }
         }
         RT.glfwInitialized = false;
     }
@@ -361,11 +410,13 @@ public class GLFW {
         if (Properties.VALIDATE.enabled) {
             RT.checkGlfwMonitor(monitor);
             RT.checkGlfwWindow(share);
-            org.lwjgl.glfw.GLFW.glfwWindowHint(org.lwjgl.glfw.GLFW.GLFW_OPENGL_DEBUG_CONTEXT, org.lwjgl.glfw.GLFW.GLFW_TRUE);
+            org.lwjgl.glfw.GLFW.glfwWindowHint(org.lwjgl.glfw.GLFW.GLFW_OPENGL_DEBUG_CONTEXT,
+                            org.lwjgl.glfw.GLFW.GLFW_TRUE);
             if (Platform.get() == Platform.WINDOWS || Properties.STRICT.enabled) {
                 Context ctx = CONTEXTS.get(share);
                 if (ctx != null && ctx.currentInThread != null && ctx.currentInThread != Thread.currentThread()) {
-                    RT.throwISEOrLogError("Context of share window[" + ctx.counter + "] is current in another thread [" + ctx.currentInThread + "]");
+                    RT.throwISEOrLogError("Context of share window[" + ctx.counter + "] is current in another thread ["
+                                    + ctx.currentInThread + "]");
                 }
             }
         }
@@ -378,11 +429,13 @@ public class GLFW {
         if (Properties.VALIDATE.enabled) {
             RT.checkGlfwMonitor(monitor);
             RT.checkGlfwWindow(share);
-            org.lwjgl.glfw.GLFW.glfwWindowHint(org.lwjgl.glfw.GLFW.GLFW_OPENGL_DEBUG_CONTEXT, org.lwjgl.glfw.GLFW.GLFW_TRUE);
+            org.lwjgl.glfw.GLFW.glfwWindowHint(org.lwjgl.glfw.GLFW.GLFW_OPENGL_DEBUG_CONTEXT,
+                            org.lwjgl.glfw.GLFW.GLFW_TRUE);
             if (Platform.get() == Platform.WINDOWS || Properties.STRICT.enabled) {
                 Context ctx = CONTEXTS.get(share);
                 if (ctx != null && ctx.currentInThread != null && ctx.currentInThread != Thread.currentThread()) {
-                    RT.throwISEOrLogError("Context of share window[" + ctx.counter + "] is current in another thread [" + ctx.currentInThread + "]");
+                    RT.throwISEOrLogError("Context of share window[" + ctx.counter + "] is current in another thread ["
+                                    + ctx.currentInThread + "]");
                 }
             }
         }
@@ -395,7 +448,8 @@ public class GLFW {
         if (window != 0L && Properties.VALIDATE.enabled) {
             Context ctx = CONTEXTS.get(window);
             if (ctx != null && ctx.currentInThread != null && ctx.currentInThread != Thread.currentThread()) {
-                RT.throwISEOrLogError("Context of window[" + ctx.counter + "] is current in another thread [" + Thread.currentThread() + "]");
+                RT.throwISEOrLogError("Context of window[" + ctx.counter + "] is current in another thread ["
+                                + Thread.currentThread() + "]");
             }
         }
         org.lwjgl.glfw.GLFW.glfwMakeContextCurrent(window);

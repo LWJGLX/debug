@@ -15,11 +15,10 @@ import java.util.concurrent.CountDownLatch;
 import java.util.regex.Pattern;
 
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import org.lwjgl.BufferUtils;
+import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.opengl.*;
 import org.lwjgl.system.*;
 import org.lwjglx.debug.Context;
@@ -60,18 +59,11 @@ public class DebugIT {
         }
     }
 
-    @BeforeClass
-    public static void before() {
-        glfwInit();
-    }
-
-    @AfterClass
-    public static void after() {
-        glfwTerminate();
-    }
+    private boolean alreadyTerminated;
 
     @Before
     public void beforeEach() {
+        glfwInit();
         glfwDefaultWindowHints();
         glfwWindowHint(GLFW_VISIBLE, GLFW_FALSE);
     }
@@ -83,6 +75,34 @@ public class DebugIT {
         if (window2 != 0L)
             glfwDestroyWindow(window2);
         setCapabilities(null);
+        GLFWErrorCallback callback = glfwSetErrorCallback(null);
+        if (callback != null)
+            callback.free();
+        if (!alreadyTerminated)
+            glfwTerminate();
+    }
+
+    @Test
+    public void freeErrorCallbackAndTerminate() {
+        assertNull(glfwSetErrorCallback(null));
+        GLFWErrorCallback callback = GLFWErrorCallback.createPrint(System.err).set();
+        assertNotNull(glfwSetErrorCallback(callback));
+        glfwSetErrorCallback(null).free();
+        alreadyTerminated = true;
+        glfwTerminate();
+        assertNull(glfwSetErrorCallback(null));
+    }
+
+    @Test
+    public void terminateAndFreeErrorCallback() {
+        assertNull(glfwSetErrorCallback(null));
+        GLFWErrorCallback callback = GLFWErrorCallback.createPrint(System.err).set();
+        assertNotNull(glfwSetErrorCallback(callback));
+        alreadyTerminated = true;
+        glfwTerminate();
+        assertNotNull(glfwSetErrorCallback(callback));
+        glfwSetErrorCallback(null).free();
+        assertNull(glfwSetErrorCallback(null));
     }
 
     @Test
