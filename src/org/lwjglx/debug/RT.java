@@ -1212,7 +1212,10 @@ public class RT {
             section = ctx.codeSectionTimes.get(ctx.currentCodeSectionIndex);
             if (section == null || !section.name.equals(string)) {
                 for (int i = ctx.currentCodeSectionIndex + 1; i < ctx.codeSectionTimes.size(); i++) {
-                    ctx.codeSectionTimes.set(i, null);
+//                    If the number of codeSectionTimes gets smaller, this will lead to a NP exception later on.
+//                    Use Case: Profile 5 codeSections at frame n. Profile only 4 code sections in frame n+1.
+//                    ctx.codeSectionTimes.set(i, null);
+                    ctx.codeSectionTimes.remove(i);
                 }
                 section = new TimedCodeSection();
                 section.name = string;
