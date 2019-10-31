@@ -562,6 +562,9 @@ public class DebugIT {
         assertThrows(IllegalStateException.class, () -> main(new String[] {"-XstartOnFirstThread"}),
                         "'-XstartOnFirstThread' was provided as command line argument instead of JVM parameter. "
                         + "Make sure to specify '-XstartOnFirstThread' before any '-jar' argument");
+        assertThrows(IllegalStateException.class, () -> main(new String[] {"-Djava.library.path=./some/path"}),
+                        "'-Djava.library.path=./some/path' was provided as command line argument instead of JVM parameter. "
+                        + "Make sure to specify '-Djava.library.path=./some/path' before any '-jar' argument");
     }
 
     @Test

@@ -1258,6 +1258,9 @@ public class RT {
             if ("-XstartOnFirstThread".equals(arg))
                 throwISEOrLogError("'-XstartOnFirstThread' was provided as command line argument instead of JVM parameter."
                                 + " Make sure to specify '-XstartOnFirstThread' before any '-jar' argument");
+            else if (arg != null && arg.startsWith("-Djava.library.path"))
+                throwISEOrLogError("'" + arg + "' was provided as command line argument instead of JVM parameter."
+                                + " Make sure to specify '" + arg + "' before any '-jar' argument");
         }
     }
 
