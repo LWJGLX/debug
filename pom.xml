@@ -35,15 +35,15 @@
 	</developers>
 	<properties>
 		<lwjgl.version>3.2.4-SNAPSHOT</lwjgl.version>
-		<asm.version>7.2</asm.version>
+		<asm.version>7.3.1</asm.version>
 		<jopt-simple.version>5.0.4</jopt-simple.version>
-		<junit.version>4.12</junit.version>
+		<junit.version>4.13</junit.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<maven-source-plugin.version>3.1.0</maven-source-plugin.version>
+		<maven-source-plugin.version>3.2.0</maven-source-plugin.version>
 		<maven-javadoc-plugin.version>3.1.1</maven-javadoc-plugin.version>
 		<maven-antrun-plugin.version>1.8</maven-antrun-plugin.version>
-		<maven-failsafe-plugin.version>3.0.0-M3</maven-failsafe-plugin.version>
+		<maven-failsafe-plugin.version>3.0.0-M4</maven-failsafe-plugin.version>
 		<maven-shade-plugin.version>3.2.1</maven-shade-plugin.version>
 		<maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
 		<maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
@@ -422,7 +422,7 @@
 		<dependency>
 			<groupId>org.eclipse.jetty.websocket</groupId>
 			<artifactId>websocket-server</artifactId>
-			<version>9.4.14.v20181114</version>
+			<version>9.4.25.v20191220</version>
 		</dependency>
 	</dependencies>
 </project>
