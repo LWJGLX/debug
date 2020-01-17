@@ -178,9 +178,27 @@ public class RT {
         }
         return buffer;
     }
+    public static ByteBuffer slice(ByteBuffer buf, int index, int length) {
+        ByteBuffer buffer = buf.slice(index, length);
+        Buffer viewedBuffer = bufferViews.get(buf);
+        if (viewedBuffer != null) {
+            bufferViews.put(buffer, viewedBuffer);
+        } else {
+            bufferViews.put(buffer, buf);
+        }
+        return buffer;
+    }
 
     public static CharBuffer slice(CharBuffer buf) {
         CharBuffer buffer = buf.slice();
+        Buffer viewedBuffer = bufferViews.get(buf);
+        if (viewedBuffer != null) {
+            bufferViews.put(buffer, viewedBuffer);
+        }
+        return buffer;
+    }
+    public static CharBuffer slice(CharBuffer buf, int index, int length) {
+        CharBuffer buffer = buf.slice(index, length);
         Buffer viewedBuffer = bufferViews.get(buf);
         if (viewedBuffer != null) {
             bufferViews.put(buffer, viewedBuffer);
@@ -196,9 +214,25 @@ public class RT {
         }
         return buffer;
     }
+    public static ShortBuffer slice(ShortBuffer buf, int index, int length) {
+        ShortBuffer buffer = buf.slice(index, length);
+        Buffer viewedBuffer = bufferViews.get(buf);
+        if (viewedBuffer != null) {
+            bufferViews.put(buffer, viewedBuffer);
+        }
+        return buffer;
+    }
 
     public static IntBuffer slice(IntBuffer buf) {
         IntBuffer buffer = buf.slice();
+        Buffer viewedBuffer = bufferViews.get(buf);
+        if (viewedBuffer != null) {
+            bufferViews.put(buffer, viewedBuffer);
+        }
+        return buffer;
+    }
+    public static IntBuffer slice(IntBuffer buf, int index, int length) {
+        IntBuffer buffer = buf.slice(index, length);
         Buffer viewedBuffer = bufferViews.get(buf);
         if (viewedBuffer != null) {
             bufferViews.put(buffer, viewedBuffer);
@@ -214,6 +248,14 @@ public class RT {
         }
         return buffer;
     }
+    public static LongBuffer slice(LongBuffer buf, int index, int length) {
+        LongBuffer buffer = buf.slice(index, length);
+        Buffer viewedBuffer = bufferViews.get(buf);
+        if (viewedBuffer != null) {
+            bufferViews.put(buffer, viewedBuffer);
+        }
+        return buffer;
+    }
 
     public static FloatBuffer slice(FloatBuffer buf) {
         FloatBuffer buffer = buf.slice();
@@ -223,9 +265,25 @@ public class RT {
         }
         return buffer;
     }
+    public static FloatBuffer slice(FloatBuffer buf, int index, int length) {
+        FloatBuffer buffer = buf.slice(index, length);
+        Buffer viewedBuffer = bufferViews.get(buf);
+        if (viewedBuffer != null) {
+            bufferViews.put(buffer, viewedBuffer);
+        }
+        return buffer;
+    }
 
     public static DoubleBuffer slice(DoubleBuffer buf) {
         DoubleBuffer buffer = buf.slice();
+        Buffer viewedBuffer = bufferViews.get(buf);
+        if (viewedBuffer != null) {
+            bufferViews.put(buffer, viewedBuffer);
+        }
+        return buffer;
+    }
+    public static DoubleBuffer slice(DoubleBuffer buf, int index, int length) {
+        DoubleBuffer buffer = buf.slice(index, length);
         Buffer viewedBuffer = bufferViews.get(buf);
         if (viewedBuffer != null) {
             bufferViews.put(buffer, viewedBuffer);

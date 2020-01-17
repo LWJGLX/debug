@@ -4,21 +4,18 @@ env:
   - secure: mCW3aeKJfT9twMQLFaFOcHX5angWY117ZL61QVWRu2Me5skYK4c/VJW6lfFhH3rMY+fP4QNgQAtpAUEUvr4zzrAH5uIX1grVvTWJo6LFGew1KeNoS/vGNEWAP7UYiG7birWitbjoxcLaSvLfrZWNslhRB/KlanHmC4Bgt9YBRQPtjLmlX7Ou2LHhQ2h2XoPoPGv082dDKsqGYhLFW0DLWCVek9Ne8dQsOq8f3ClVVE3mRXp1SxLyWnbJc3p1xlk7jPv7VvJjZEIA0831oZDyOIN790cXRdmgWEJZH3z5epnEM8mZQqk/5dFJBWjPIx2W02lhhvVemLNmLLVboAPFM2hfh0n3UsZbUcniEkV7lqCaajXg034PXjHMee02XEEMRLLD8TgO9ewFZbGf+7/TwQseMm14OuFQBiDJqZt5Dr8YFggyx0LO0lAmHX/Hpq1bO+gkuxy83nrbUb6pJ1PO9qR9qsNZ360ibqQr01YUJ8g07fkV5jzlm4wxKeA6RtX8MmKwXfBwx9SAwyLUYRTsQy8qhzipUVrzSIzLtY9ONr+wZ2CcOOBhJefZXGhWlvmQJefHdKa2tSSw7BhHSKuwQMyb6AuIDbD7DKfJJsnJVZanj/bbhmVxuXp9aY+nC3s2vVMIf4acusDEp1MVTDLgAaASIu7CTf0x2AsSDQYJz8s=
   - secure: gxl606ytEKa0wlrZYoPwQHvdqTG5vwimWRfsvvU1YYEQy2yanw9MzTrIC8QEvLAZzYrC90tex7xSyyTpFgtItaf4at2uEUCnr3JexFmzJhLoiMUbCix4Q9Qr+yZUnqpV2Tkfx4IdEZQRNnX5K/dlbepkXt7G80fnXkdhdwi25Qksle/DjrMsvFUiYqh0uQEwIF2MktyxYIxnfksD2Arf7GqOlLtUW/eA4VOfQN+Ye+7tZ3dGc2wS6sQ+9Y/fTMFH3X44O7Umk32ensRCI93WjIpcrxkslclB9Kl533P4FYqaanRo3STrs7QKMZdjJPvLpI+nlUlKSP7nHaEwc3X+oyLQgOOIti6RUgyM+qqvdwdBz04NxyfKM1YHp6olRz1bG5YCdGN/KKA7RCDDVCP8VxGdc218i5/6Qic+9SJD81b42zTcbpACzbGyMKi5a78gmITxuaAtO/3Q+8g5Bx7cKv/CNH5oDeF7W96xwFg4djXisL2e/7NYfSnmegMLxEbj18BU7gwj8Z6h1S9+kjDdxTAFGQCKWa/ZaLgcoqhH8i+nw+mQCnVa36osEuSpl3CWNZPn0j4JPPwH/37N1HJXYARv5j4OszJfxrhVKfAO6dIXgKkCCLEbT/UnFTvD1TnvAHuIQzp7g6PHrFgkIhnURR5ZZLWlz42IKEC6juxzYb8=
 language: java
-
+jdk: openjdk13
 before_install:
 - pip install --user awscli
 - export PATH=$PATH:$HOME/.local/bin
-
 branches:
   only:
   - master
-
 git:
   depth: 1
 cache:
   directories:
   - "$HOME/.m2"
-
 script:
 - ./mvnw clean package -Dmaven.javadoc.skip=false -Dmaven.test.skip=true
 - test $TRAVIS_BRANCH = "master" && test $TRAVIS_PULL_REQUEST = "false" && cd target &&
