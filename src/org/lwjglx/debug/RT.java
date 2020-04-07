@@ -1322,4 +1322,8 @@ public class RT {
         }
     }
 
+    public static boolean isInvalidPointer(long pointer) {
+    	return pointer >= 0L && pointer < 1024L;
+    }
+
 }

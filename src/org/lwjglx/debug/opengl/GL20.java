@@ -25,6 +25,7 @@ package org.lwjglx.debug.opengl;
 import static org.lwjglx.debug.Context.*;
 import static org.lwjglx.debug.Log.*;
 import static org.lwjglx.debug.Properties.*;
+import static org.lwjglx.debug.RT.*;
 
 import java.nio.ByteBuffer;
 import java.nio.FloatBuffer;
@@ -79,11 +80,27 @@ public class GL20 {
         org.lwjgl.opengl.GL20.glVertexAttribPointer(index, size, type, normalized, stride, pointer);
     }
 
+    public static void nglVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, long pointer) {
+        if (Properties.VALIDATE.enabled && index > -1) {
+            int vbo = org.lwjgl.opengl.GL11.glGetInteger(org.lwjgl.opengl.GL15.GL_ARRAY_BUFFER_BINDING);
+            if (vbo != 0) {
+                CURRENT_CONTEXT.get().currentVao.initializedVertexArrays[index] = true;
+            } else if (isInvalidPointer(pointer)) {
+        		throwIAEOrLogError("There is no GL_ARRAY_BUFFER bound and pointer argument [" + pointer + "] is invalid. "
+        				+ "This will likely lead to a JVM crash in a draw call");
+            }
+        }
+        org.lwjgl.opengl.GL20.nglVertexAttribPointer(index, size, type, normalized, stride, pointer);
+    }
+
     public static void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, long pointer) {
         if (Properties.VALIDATE.enabled && index > -1) {
             int vbo = org.lwjgl.opengl.GL11.glGetInteger(org.lwjgl.opengl.GL15.GL_ARRAY_BUFFER_BINDING);
             if (vbo != 0) {
                 CURRENT_CONTEXT.get().currentVao.initializedVertexArrays[index] = true;
+            } else if (isInvalidPointer(pointer)) {
+        		throwIAEOrLogError("There is no GL_ARRAY_BUFFER bound and pointer argument [" + pointer + "] is invalid. "
+        				+ "This will likely lead to a JVM crash in a draw call");
             }
         }
         org.lwjgl.opengl.GL20.glVertexAttribPointer(index, size, type, normalized, stride, pointer);

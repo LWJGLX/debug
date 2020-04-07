@@ -308,6 +308,24 @@ public class DebugIT {
     }
 
     @Test
+    public void testVertexAttribPointerWithoutBuffer() {
+        window = glfwCreateWindow(800, 600, "", 0L, 0L);
+        glfwMakeContextCurrent(window);
+        createCapabilities();
+        assertThrows(IllegalArgumentException.class, () -> glVertexAttribPointer(0, 2, GL_FLOAT, false, 0, 0L), 
+        		"There is no GL_ARRAY_BUFFER bound and pointer argument [0] is invalid. This will likely lead to a JVM crash in a draw call");
+    }
+
+    @Test
+    public void testUnsafeVertexAttribPointerWithoutBuffer() {
+        window = glfwCreateWindow(800, 600, "", 0L, 0L);
+        glfwMakeContextCurrent(window);
+        createCapabilities();
+        assertThrows(IllegalArgumentException.class, () -> nglVertexAttribPointer(0, 2, GL_FLOAT, false, 0, 0L), 
+        		"There is no GL_ARRAY_BUFFER bound and pointer argument [0] is invalid. This will likely lead to a JVM crash in a draw call");
+    }
+
+    @Test
     public void testNoVertexAttribPointerInOtherVAO() {
         window = glfwCreateWindow(800, 600, "", 0L, 0L);
         glfwMakeContextCurrent(window);
@@ -346,7 +364,7 @@ public class DebugIT {
         window = glfwCreateWindow(800, 600, "", 0L, 0L);
         glfwMakeContextCurrent(window);
         createCapabilities();
-        assertThrows(IllegalStateException.class, () -> glDrawElements(GL_POINTS, 1, GL_UNSIGNED_INT, 0L), "glDrawElements called with index offset but no ELEMENT_ARRAY_BUFFER bound");
+        assertThrows(IllegalStateException.class, () -> glDrawElements(GL_POINTS, 1, GL_UNSIGNED_INT, 0L), "glDrawElements called with invalid pointer or index index offset but no ELEMENT_ARRAY_BUFFER bound");
     }
 
     @Test

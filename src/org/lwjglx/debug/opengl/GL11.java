@@ -550,8 +550,8 @@ public class GL11 {
     public static void glDrawElements(int mode, int count, int type, long indices) {
         if (Properties.VALIDATE.enabled) {
             int ibo = org.lwjgl.opengl.GL11.glGetInteger(org.lwjgl.opengl.GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING);
-            if (ibo == 0) {
-                throwISEOrLogError("glDrawElements called with index offset but no ELEMENT_ARRAY_BUFFER bound");
+            if (ibo == 0 && isInvalidPointer(indices)) {
+                throwISEOrLogError("glDrawElements called with invalid pointer or index index offset but no ELEMENT_ARRAY_BUFFER bound");
             }
             checkBeforeDrawCall();
         }
