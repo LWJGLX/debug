@@ -39,7 +39,7 @@ public class GL45 {
     }
 
     public static void glEnableVertexArrayAttrib(int vaobj, int index) {
-        org.lwjgl.opengl.GL45.glDisableVertexArrayAttrib(vaobj, index);
+        org.lwjgl.opengl.GL45.glEnableVertexArrayAttrib(vaobj, index);
         if (Properties.VALIDATE.enabled) {
             Context context = CURRENT_CONTEXT.get();
             context.vaos.get(vaobj).enabledVertexArrays[index] = true;
