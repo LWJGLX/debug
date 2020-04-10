@@ -71,7 +71,7 @@ class ClassMetadata implements Opcodes {
         } catch (IOException e) {
             return null;
         }
-        cr.accept(new ClassVisitor(ASM7) {
+        cr.accept(new ClassVisitor(ASM8) {
             public MethodVisitor visitMethod(int access, String name, String desc, String signature, String[] exceptions) {
                 boolean isPublic = (access & ACC_PUBLIC) != 0;
                 boolean isStatic = (access & ACC_STATIC) != 0;
@@ -91,7 +91,7 @@ class ClassMetadata implements Opcodes {
                 minfo.parameterNames = new String[numParameters];
                 minfo.name = name;
                 m.methods.put(name + desc, minfo);
-                return new MethodVisitor(ASM7) {
+                return new MethodVisitor(ASM8) {
                     public void visitLocalVariable(String name, String desc, String signature, Label start, Label end,
                             int index) {
                         if (index >= localToParamIndex.length)
@@ -105,7 +105,7 @@ class ClassMetadata implements Opcodes {
                             minfo.nullable[parameter] = true;
                             hasNullables = true;
                         } else if (NativeType_Desc.equals(annotDesc)) {
-                            return new AnnotationVisitor(ASM7) {
+                            return new AnnotationVisitor(ASM8) {
                                 public void visit(String name, Object value) {
                                     if (!"value".equals(name) || !(value instanceof String))
                                         return;
@@ -119,7 +119,7 @@ class ClassMetadata implements Opcodes {
                     public AnnotationVisitor visitAnnotation(String desc, boolean visible) {
                         if (!desc.equals(NativeType_Desc))
                             return null;
-                        return new AnnotationVisitor(ASM7) {
+                        return new AnnotationVisitor(ASM8) {
                             public void visit(String name, Object value) {
                                 if (!"value".equals(name) || !(value instanceof String))
                                     return;
