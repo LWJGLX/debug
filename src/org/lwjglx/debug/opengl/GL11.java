@@ -547,7 +547,7 @@ public class GL11 {
         RT.draw(count);
     }
 
-    public static void glDrawElements(int mode, int count, int type, long indices) {
+    public static void nglDrawElements(int mode, int count, int type, long indices) {
         if (Properties.VALIDATE.enabled) {
             int ibo = org.lwjgl.opengl.GL11.glGetInteger(org.lwjgl.opengl.GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING);
             if (ibo == 0 && isInvalidPointer(indices)) {
@@ -558,8 +558,12 @@ public class GL11 {
         if (Properties.PROFILE.enabled) {
             RT.beforeDraw();
         }
-        org.lwjgl.opengl.GL11.glDrawElements(mode, count, type, indices);
+        org.lwjgl.opengl.GL11.nglDrawElements(mode, count, type, indices);
         RT.draw(count);
+    }
+
+    public static void glDrawElements(int mode, int count, int type, long indices) {
+		nglDrawElements(mode, count, type, indices);
     }
 
     public static void glDrawElements(int mode, int type, ByteBuffer indices) {

@@ -368,6 +368,14 @@ public class DebugIT {
     }
 
     @Test
+    public void testUnsafeDrawElementsWithOffsetWithoutBuffer() {
+        window = glfwCreateWindow(800, 600, "", 0L, 0L);
+        glfwMakeContextCurrent(window);
+        createCapabilities();
+        assertThrows(IllegalStateException.class, () -> nglDrawElements(GL_POINTS, 1, GL_UNSIGNED_INT, 0L), "glDrawElements called with invalid pointer or index index offset but no ELEMENT_ARRAY_BUFFER bound");
+    }
+
+    @Test
     public void testBufferDataWithNoDirectBuffer() {
         window = glfwCreateWindow(800, 600, "", 0L, 0L);
         glfwMakeContextCurrent(window);
