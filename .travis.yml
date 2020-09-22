@@ -10,7 +10,7 @@ before_install:
 - export PATH=$PATH:$HOME/.local/bin
 branches:
   only:
-  - master
+  - main
 git:
   depth: 1
 cache:
@@ -18,7 +18,7 @@ cache:
   - "$HOME/.m2"
 script:
 - ./mvnw clean package -Dmaven.javadoc.skip=false -Dmaven.test.skip=true
-- test $TRAVIS_BRANCH = "master" && test $TRAVIS_PULL_REQUEST = "false" && cd target &&
+- test $TRAVIS_BRANCH = "main" && test $TRAVIS_PULL_REQUEST = "false" && cd target &&
   aws s3 cp lwjglx-debug-1.0.0.jar s3://build.lwjgl.org/addons/lwjglx-debug/lwjglx-debug-1.0.0.jar --acl public-read --storage-class REDUCED_REDUNDANCY --cache-control 'public, must-revalidate, proxy-revalidate, max-age=0' &&
   aws s3 cp lwjglx-debug-1.0.0-sources.jar s3://build.lwjgl.org/addons/lwjglx-debug/lwjglx-debug-1.0.0-sources.jar --acl public-read --storage-class REDUCED_REDUNDANCY --cache-control 'public, must-revalidate, proxy-revalidate, max-age=0' &&
   aws s3 cp lwjglx-debug-1.0.0-javadoc.jar s3://build.lwjgl.org/addons/lwjglx-debug/lwjglx-debug-1.0.0-javadoc.jar --acl public-read --storage-class REDUCED_REDUNDANCY --cache-control 'public, must-revalidate, proxy-revalidate, max-age=0'
