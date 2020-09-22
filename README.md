@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/LWJGLX/debug.svg?branch=master)](https://travis-ci.org/LWJGLX/debug)
+[![Build Status](https://travis-ci.org/LWJGLX/debug.svg?branch=main)](https://travis-ci.org/LWJGLX/debug)
 
 # What
 
