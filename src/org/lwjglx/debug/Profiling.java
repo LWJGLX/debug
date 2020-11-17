@@ -1,5 +1,6 @@
 package org.lwjglx.debug;
 
+import java.nio.Buffer;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.ArrayList;
@@ -46,7 +47,7 @@ class EchoSocketServlet extends WebSocketServlet {
 class ProfilingConnection implements WebSocketListener {
     public static final List<ProfilingConnection> connections = new ArrayList<>();
     Session outbound;
-    ByteBuffer buffer = ByteBuffer.allocateDirect(1024).order(ByteOrder.BIG_ENDIAN);
+    Buffer buffer = ByteBuffer.allocateDirect(1024).order(ByteOrder.BIG_ENDIAN);
     long bufferAddr = MemoryUtil.memAddress0(buffer);
     Future<Void> lastSend = null;
 
@@ -61,7 +62,7 @@ class ProfilingConnection implements WebSocketListener {
         MemoryUtil.memCopy(addr, bufferAddr, size);
         buffer.rewind();
         buffer.limit(size);
-        lastSend = outbound.getRemote().sendBytesByFuture(buffer);
+        lastSend = outbound.getRemote().sendBytesByFuture((ByteBuffer) buffer);
     }
 
     public void onWebSocketClose(int statusCode, String reason) {
