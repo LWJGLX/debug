@@ -120,7 +120,7 @@ class Profiling {
         context.setWelcomeFiles(new String[] { "index.html" });
         server.setHandler(context);
 
-        WebSocketUpgradeFilter wsfilter = WebSocketUpgradeFilter.configureContext(context);
+        WebSocketUpgradeFilter wsfilter = WebSocketUpgradeFilter.configure(context);
         // wsfilter.getFactory().getPolicy().setIdleTimeout(5000);
         wsfilter.addMapping(new ServletPathSpec("/ws"), new ProfilingConnectionCreator());
 
