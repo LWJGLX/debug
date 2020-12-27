@@ -91,7 +91,7 @@ public class Agent implements ClassFileTransformer, Opcodes {
                     break;
                 }
                 final ClassReader fcr = cr;
-                cr.accept(new ClassVisitor(ASM8) {
+                cr.accept(new ClassVisitor(ASM9) {
                     public MethodVisitor visitMethod(int access, String name, String descriptor, String signature,
                             String[] exceptions) {
                         if ((access & ACC_STATIC) != 0 && name.equals(methodName) && descriptor.equals(methodDesc)) {
@@ -150,7 +150,7 @@ public class Agent implements ClassFileTransformer, Opcodes {
         Map<String, InterceptedCall> calls = new LinkedHashMap<String, InterceptedCall>();
         String callerName = className.replace('.', '/');
         String proxyName = "org/lwjglx/debug/$Proxy$" + counter.incrementAndGet();
-        ClassVisitor cv = new ClassVisitor(ASM8, cw) {
+        ClassVisitor cv = new ClassVisitor(ASM9, cw) {
             public void visitSource(String source, String debug) {
                 super.visitSource(source, debug);
                 modifications.sourceFile = source;
@@ -161,7 +161,7 @@ public class Agent implements ClassFileTransformer, Opcodes {
                 MethodVisitor mv = super.visitMethod(access, name, desc, signature, exceptions);
                 if (forcedInstrumentation && !forceInstrumentationMethods.contains(name + desc))
                     return mv;
-                return new MethodVisitor(ASM8, mv) {
+                return new MethodVisitor(ASM9, mv) {
                     private int lastLineNumber = -1;
 
                     public void visitCode() {
