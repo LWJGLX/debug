@@ -41,10 +41,10 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<maven-source-plugin.version>3.2.0</maven-source-plugin.version>
-		<maven-javadoc-plugin.version>3.1.1</maven-javadoc-plugin.version>
-		<maven-antrun-plugin.version>1.8</maven-antrun-plugin.version>
-		<maven-failsafe-plugin.version>3.0.0-M4</maven-failsafe-plugin.version>
-		<maven-shade-plugin.version>3.2.1</maven-shade-plugin.version>
+		<maven-javadoc-plugin.version>3.2.0</maven-javadoc-plugin.version>
+		<maven-antrun-plugin.version>3.0.0</maven-antrun-plugin.version>
+		<maven-failsafe-plugin.version>3.0.0-M5</maven-failsafe-plugin.version>
+		<maven-shade-plugin.version>3.2.4</maven-shade-plugin.version>
 		<maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
 		<maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
 		<maven.compiler.source>1.8</maven.compiler.source>
