@@ -40,7 +40,7 @@ public class ARBSeparateShaderObjects {
         org.lwjgl.opengl.ARBSeparateShaderObjects.glGenProgramPipelines(pipelines);
         if (Properties.VALIDATE.enabled) {
             int position = pipelines.position();
-            Context context = CURRENT_CONTEXT.get();
+            Context context = Context.currentContext();
             for (int i = 0; i < pipelines.remaining(); i++) {
                 ProgramPipeline pp = new ProgramPipeline();
                 context.programPipelines.put(pipelines.get(position + i), pp);
@@ -51,7 +51,7 @@ public class ARBSeparateShaderObjects {
     public static int glGenProgramPipelines() {
         int index = org.lwjgl.opengl.ARBSeparateShaderObjects.glGenProgramPipelines();
         if (Properties.VALIDATE.enabled) {
-            Context context = CURRENT_CONTEXT.get();
+            Context context = Context.currentContext();
             ProgramPipeline pp = new ProgramPipeline();
             context.programPipelines.put(index, pp);
         }
@@ -61,7 +61,7 @@ public class ARBSeparateShaderObjects {
     public static void glGenProgramPipelines(int[] pipelines) {
         org.lwjgl.opengl.ARBSeparateShaderObjects.glGenProgramPipelines(pipelines);
         if (Properties.VALIDATE.enabled) {
-            Context context = CURRENT_CONTEXT.get();
+            Context context = Context.currentContext();
             for (int i = 0; i < pipelines.length; i++) {
                 ProgramPipeline pp = new ProgramPipeline();
                 context.programPipelines.put(pipelines[i], pp);
@@ -71,7 +71,7 @@ public class ARBSeparateShaderObjects {
 
     public static void glBindProgramPipeline(int pipeline) {
         if (Properties.VALIDATE.enabled) {
-            Context ctx = CURRENT_CONTEXT.get();
+            Context ctx = Context.currentContext();
             ProgramPipeline pp = ctx.programPipelines.get(pipeline);
             if (pp == null && ctx.shareGroup != null) {
                 for (Context c : ctx.shareGroup.contexts) {

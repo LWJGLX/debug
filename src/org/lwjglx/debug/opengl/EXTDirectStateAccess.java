@@ -22,8 +22,6 @@
  */
 package org.lwjglx.debug.opengl;
 
-import static org.lwjglx.debug.Context.*;
-
 import java.nio.Buffer;
 import java.nio.ByteBuffer;
 import java.nio.DoubleBuffer;
@@ -278,7 +276,7 @@ public class EXTDirectStateAccess {
     public static void glDisableVertexArrayAttribEXT(int vaobj, int index) {
         org.lwjgl.opengl.EXTDirectStateAccess.glDisableVertexArrayAttribEXT(vaobj, index);
         if (Properties.VALIDATE.enabled) {
-            Context context = CURRENT_CONTEXT.get();
+            Context context = Context.currentContext();
             context.vaos.get(vaobj).enabledVertexArrays[index] = false;
         }
     }
@@ -286,7 +284,7 @@ public class EXTDirectStateAccess {
     public static void glEnableVertexArrayAttribEXT(int vaobj, int index) {
         org.lwjgl.opengl.EXTDirectStateAccess.glDisableVertexArrayAttribEXT(vaobj, index);
         if (Properties.VALIDATE.enabled) {
-            Context context = CURRENT_CONTEXT.get();
+            Context context = Context.currentContext();
             context.vaos.get(vaobj).enabledVertexArrays[index] = true;
         }
     }

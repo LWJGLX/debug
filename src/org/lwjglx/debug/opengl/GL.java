@@ -35,7 +35,7 @@ public class GL {
         if (Properties.VALIDATE.enabled) {
             callback = GLUtil.setupDebugMessageCallback();
         }
-        Context context = CURRENT_CONTEXT.get();
+        Context context = Context.currentContext();
         context.caps = caps;
         context.debugCallback = callback;
         int GL_MAX_VERTEX_ATTRIBS = 16;
@@ -54,7 +54,7 @@ public class GL {
         if (Properties.VALIDATE.enabled) {
             callback = GLUtil.setupDebugMessageCallback();
         }
-        Context context = CURRENT_CONTEXT.get();
+        Context context = Context.currentContext();
         context.caps = caps;
         context.debugCallback = callback;
         int GL_MAX_VERTEX_ATTRIBS = 16;

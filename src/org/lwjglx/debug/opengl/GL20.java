@@ -22,7 +22,6 @@
  */
 package org.lwjglx.debug.opengl;
 
-import static org.lwjglx.debug.Context.*;
 import static org.lwjglx.debug.Log.*;
 import static org.lwjglx.debug.Properties.*;
 import static org.lwjglx.debug.RT.*;
@@ -32,50 +31,48 @@ import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 import java.nio.ShortBuffer;
 
-import org.lwjglx.debug.GLmetadata;
-import org.lwjglx.debug.MethodCall;
-import org.lwjglx.debug.Properties;
+import org.lwjglx.debug.*;
 
 public class GL20 {
 
     public static void glEnableVertexAttribArray(int index) {
         if (Properties.VALIDATE.enabled && index > -1) {
-            CURRENT_CONTEXT.get().currentVao.enabledVertexArrays[index] = true;
+            Context.currentContext().currentVao.enabledVertexArrays[index] = true;
         }
         org.lwjgl.opengl.GL20.glEnableVertexAttribArray(index);
     }
 
     public static void glDisableVertexAttribArray(int index) {
         if (Properties.VALIDATE.enabled && index > -1) {
-            CURRENT_CONTEXT.get().currentVao.enabledVertexArrays[index] = false;
+            Context.currentContext().currentVao.enabledVertexArrays[index] = false;
         }
         org.lwjgl.opengl.GL20.glDisableVertexAttribArray(index);
     }
 
     public static void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, FloatBuffer pointer) {
         if (Properties.VALIDATE.enabled && index > -1) {
-            CURRENT_CONTEXT.get().currentVao.initializedVertexArrays[index] = pointer != null;
+            Context.currentContext().currentVao.initializedVertexArrays[index] = pointer != null;
         }
         org.lwjgl.opengl.GL20.glVertexAttribPointer(index, size, type, normalized, stride, pointer);
     }
 
     public static void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, ByteBuffer pointer) {
         if (Properties.VALIDATE.enabled && index > -1) {
-            CURRENT_CONTEXT.get().currentVao.initializedVertexArrays[index] = pointer != null;
+            Context.currentContext().currentVao.initializedVertexArrays[index] = pointer != null;
         }
         org.lwjgl.opengl.GL20.glVertexAttribPointer(index, size, type, normalized, stride, pointer);
     }
 
     public static void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, IntBuffer pointer) {
         if (Properties.VALIDATE.enabled && index > -1) {
-            CURRENT_CONTEXT.get().currentVao.initializedVertexArrays[index] = pointer != null;
+            Context.currentContext().currentVao.initializedVertexArrays[index] = pointer != null;
         }
         org.lwjgl.opengl.GL20.glVertexAttribPointer(index, size, type, normalized, stride, pointer);
     }
 
     public static void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, ShortBuffer pointer) {
         if (Properties.VALIDATE.enabled && index > -1) {
-            CURRENT_CONTEXT.get().currentVao.initializedVertexArrays[index] = pointer != null;
+            Context.currentContext().currentVao.initializedVertexArrays[index] = pointer != null;
         }
         org.lwjgl.opengl.GL20.glVertexAttribPointer(index, size, type, normalized, stride, pointer);
     }
@@ -84,7 +81,7 @@ public class GL20 {
         if (Properties.VALIDATE.enabled && index > -1) {
             int vbo = org.lwjgl.opengl.GL11.glGetInteger(org.lwjgl.opengl.GL15.GL_ARRAY_BUFFER_BINDING);
             if (vbo != 0) {
-                CURRENT_CONTEXT.get().currentVao.initializedVertexArrays[index] = true;
+                Context.currentContext().currentVao.initializedVertexArrays[index] = true;
             } else if (isInvalidPointer(pointer)) {
         		throwIAEOrLogError("There is no GL_ARRAY_BUFFER bound and pointer argument [" + pointer + "] is invalid. "
         				+ "This will likely lead to a JVM crash in a draw call");
@@ -97,7 +94,7 @@ public class GL20 {
         if (Properties.VALIDATE.enabled && index > -1) {
             int vbo = org.lwjgl.opengl.GL11.glGetInteger(org.lwjgl.opengl.GL15.GL_ARRAY_BUFFER_BINDING);
             if (vbo != 0) {
-                CURRENT_CONTEXT.get().currentVao.initializedVertexArrays[index] = true;
+                Context.currentContext().currentVao.initializedVertexArrays[index] = true;
             } else if (isInvalidPointer(pointer)) {
         		throwIAEOrLogError("There is no GL_ARRAY_BUFFER bound and pointer argument [" + pointer + "] is invalid. "
         				+ "This will likely lead to a JVM crash in a draw call");

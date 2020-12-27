@@ -11,11 +11,11 @@ public class GL45 {
     public static void glCreateVertexArrays(IntBuffer arrays) {
         org.lwjgl.opengl.GL45.glCreateVertexArrays(arrays);
         if (Properties.VALIDATE.enabled) {
-            Context context = CURRENT_CONTEXT.get();
+            Context context = Context.currentContext();
             int position = arrays.position();
             for (int i = 0; i < arrays.remaining(); i++) {
                 VAO vao = new VAO(context.GL_MAX_VERTEX_ATTRIBS);
-                CURRENT_CONTEXT.get().vaos.put(arrays.get(position + i), vao);
+                context.vaos.put(arrays.get(position + i), vao);
             }
         }
     }
@@ -23,9 +23,9 @@ public class GL45 {
     public static int glCreateVertexArrays() {
         int index = org.lwjgl.opengl.GL45.glCreateVertexArrays();
         if (Properties.VALIDATE.enabled) {
-            Context context = CURRENT_CONTEXT.get();
+            Context context = Context.currentContext();
             VAO vao = new VAO(context.GL_MAX_VERTEX_ATTRIBS);
-            CURRENT_CONTEXT.get().vaos.put(index, vao);
+            context.vaos.put(index, vao);
         }
         return index;
     }
@@ -33,7 +33,7 @@ public class GL45 {
     public static void glDisableVertexArrayAttrib(int vaobj, int index) {
         org.lwjgl.opengl.GL45.glDisableVertexArrayAttrib(vaobj, index);
         if (Properties.VALIDATE.enabled) {
-            Context context = CURRENT_CONTEXT.get();
+            Context context = Context.currentContext();
             context.vaos.get(vaobj).enabledVertexArrays[index] = false;
         }
     }
@@ -41,7 +41,7 @@ public class GL45 {
     public static void glEnableVertexArrayAttrib(int vaobj, int index) {
         org.lwjgl.opengl.GL45.glEnableVertexArrayAttrib(vaobj, index);
         if (Properties.VALIDATE.enabled) {
-            Context context = CURRENT_CONTEXT.get();
+            Context context = Context.currentContext();
             context.vaos.get(vaobj).enabledVertexArrays[index] = true;
         }
     }
@@ -50,7 +50,7 @@ public class GL45 {
         int handle = org.lwjgl.opengl.GL45.glCreateFramebuffers();
         if (Properties.VALIDATE.enabled) {
             FBO fbo = new FBO(handle);
-            Context ctx = CURRENT_CONTEXT.get();
+            Context ctx = Context.currentContext();
             ctx.fbos.put(handle, fbo);
         }
         return handle;
@@ -59,7 +59,7 @@ public class GL45 {
     public static void glCreateFramebuffers(int[] framebuffers) {
         org.lwjgl.opengl.GL45.glCreateFramebuffers(framebuffers);
         if (Properties.VALIDATE.enabled) {
-            Context ctx = CURRENT_CONTEXT.get();
+            Context ctx = Context.currentContext();
             for (int i = 0; i < framebuffers.length; i++) {
                 int handle = framebuffers[i];
                 FBO fbo = new FBO(handle);
@@ -71,7 +71,7 @@ public class GL45 {
     public static void glCreateFramebuffers(IntBuffer framebuffers) {
         org.lwjgl.opengl.GL45.glCreateFramebuffers(framebuffers);
         if (Properties.VALIDATE.enabled) {
-            Context ctx = CURRENT_CONTEXT.get();
+            Context ctx = Context.currentContext();
             int pos = framebuffers.position();
             for (int i = 0; i < framebuffers.remaining(); i++) {
                 int handle = framebuffers.get(pos + i);

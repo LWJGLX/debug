@@ -944,7 +944,7 @@ public class RT {
         if (Properties.VALIDATE.enabled) {
             checkFramebufferCompleteness();
         }
-        Context ctx = CURRENT_CONTEXT.get();
+        Context ctx = Context.currentContext();
         if (ctx.caps.GL_ARB_timer_query) {
             TimingQuery q = ctx.nextTimerQuery();
             q.drawTime = true;
@@ -957,7 +957,7 @@ public class RT {
         if (Properties.VALIDATE.enabled && verticesCount == 0) {
             Log.warn("Draw call with 0 vertices", new Throwable(), 3);
         }
-        Context ctx = CURRENT_CONTEXT.get();
+        Context ctx = Context.currentContext();
         ctx.verticesCount += verticesCount;
         ctx.drawCallSeen = true;
         if (Properties.PROFILE.enabled && ctx.caps.GL_ARB_timer_query) {
@@ -970,7 +970,7 @@ public class RT {
         if (Properties.VALIDATE.enabled) {
             checkFramebufferCompleteness();
         }
-        Context ctx = CURRENT_CONTEXT.get();
+        Context ctx = Context.currentContext();
         ctx.inImmediateMode = true;
         ctx.drawCallSeen = true;
         if (Properties.PROFILE.enabled) {
@@ -979,7 +979,7 @@ public class RT {
     }
 
     public static void endImmediate() {
-        Context ctx = CURRENT_CONTEXT.get();
+        Context ctx = Context.currentContext();
         ctx.inImmediateMode = false;
         if (Properties.PROFILE.enabled) {
             draw(ctx.immediateModeVertices);
@@ -988,12 +988,12 @@ public class RT {
     }
 
     public static void vertex() {
-        Context ctx = CURRENT_CONTEXT.get();
+        Context ctx = Context.currentContext();
         ctx.immediateModeVertices++;
     }
 
     public static void frame() {
-        Context ctx = CURRENT_CONTEXT.get();
+        Context ctx = Context.currentContext();
         ctx.frameEndTime = System.nanoTime();
         float drawTime = 0.0f;
         ctx.frame++;
@@ -1043,7 +1043,7 @@ public class RT {
     }
 
     public static void glCall() {
-        Context ctx = CURRENT_CONTEXT.get();
+        Context ctx = Context.currentContext();
         ctx.glCallCount++;
     }
 
@@ -1207,7 +1207,7 @@ public class RT {
     }
 
     public static void generateMipmap(int target) {
-        Context ctx = CURRENT_CONTEXT.get();
+        Context ctx = Context.currentContext();
         TextureObject to = ctx.textureObjectBindings.get(target);
         if (to != null && to.layers != null) {
             int maxLevel = ctx.caps.OpenGL12 ? org.lwjgl.opengl.GL11.glGetTexParameteri(target, org.lwjgl.opengl.GL12.GL_TEXTURE_MAX_LEVEL) : 1000;
@@ -1247,7 +1247,7 @@ public class RT {
     }
 
     public static void stringMarker(String string) {
-        Context ctx = CURRENT_CONTEXT.get();
+        Context ctx = Context.currentContext();
         if (!ctx.caps.GL_ARB_timer_query) {
             /* No timer query support in this context */
             return;

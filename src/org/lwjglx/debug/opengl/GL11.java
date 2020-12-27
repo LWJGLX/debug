@@ -55,16 +55,16 @@ public class GL11 {
         if (Properties.VALIDATE.enabled) {
             switch (cap) {
             case org.lwjgl.opengl.GL11.GL_VERTEX_ARRAY:
-                CURRENT_CONTEXT.get().currentVao.vertexArrayEnabled = true;
+                Context.currentContext().currentVao.vertexArrayEnabled = true;
                 break;
             case org.lwjgl.opengl.GL11.GL_NORMAL_ARRAY:
-                CURRENT_CONTEXT.get().currentVao.normalArrayEnabled = true;
+                Context.currentContext().currentVao.normalArrayEnabled = true;
                 break;
             case org.lwjgl.opengl.GL11.GL_COLOR_ARRAY:
-                CURRENT_CONTEXT.get().currentVao.colorArrayEnabled = true;
+                Context.currentContext().currentVao.colorArrayEnabled = true;
                 break;
             case org.lwjgl.opengl.GL11.GL_TEXTURE_COORD_ARRAY:
-                CURRENT_CONTEXT.get().currentVao.texCoordArrayEnabled = true;
+                Context.currentContext().currentVao.texCoordArrayEnabled = true;
                 break;
             }
         }
@@ -75,16 +75,16 @@ public class GL11 {
         if (Properties.VALIDATE.enabled) {
             switch (cap) {
             case org.lwjgl.opengl.GL11.GL_VERTEX_ARRAY:
-                CURRENT_CONTEXT.get().currentVao.vertexArrayEnabled = false;
+                Context.currentContext().currentVao.vertexArrayEnabled = false;
                 break;
             case org.lwjgl.opengl.GL11.GL_NORMAL_ARRAY:
-                CURRENT_CONTEXT.get().currentVao.normalArrayEnabled = false;
+                Context.currentContext().currentVao.normalArrayEnabled = false;
                 break;
             case org.lwjgl.opengl.GL11.GL_COLOR_ARRAY:
-                CURRENT_CONTEXT.get().currentVao.colorArrayEnabled = false;
+                Context.currentContext().currentVao.colorArrayEnabled = false;
                 break;
             case org.lwjgl.opengl.GL11.GL_TEXTURE_COORD_ARRAY:
-                CURRENT_CONTEXT.get().currentVao.texCoordArrayEnabled = false;
+                Context.currentContext().currentVao.texCoordArrayEnabled = false;
                 break;
             }
         }
@@ -93,7 +93,7 @@ public class GL11 {
 
     public static void glVertexPointer(int size, int type, int stride, ByteBuffer pointer) {
         if (Properties.VALIDATE.enabled) {
-            CURRENT_CONTEXT.get().currentVao.vertexArrayInitialized = pointer != null;
+            Context.currentContext().currentVao.vertexArrayInitialized = pointer != null;
         }
         org.lwjgl.opengl.GL11.glVertexPointer(size, type, stride, pointer);
     }
@@ -102,7 +102,7 @@ public class GL11 {
         if (Properties.VALIDATE.enabled) {
             int vbo = org.lwjgl.opengl.GL11.glGetInteger(org.lwjgl.opengl.GL15.GL_ARRAY_BUFFER_BINDING);
             if (vbo != 0) {
-                CURRENT_CONTEXT.get().currentVao.vertexArrayInitialized = true;
+                Context.currentContext().currentVao.vertexArrayInitialized = true;
             }
         }
         org.lwjgl.opengl.GL11.glVertexPointer(size, type, stride, pointer);
@@ -110,28 +110,28 @@ public class GL11 {
 
     public static void glVertexPointer(int size, int type, int stride, ShortBuffer pointer) {
         if (Properties.VALIDATE.enabled) {
-            CURRENT_CONTEXT.get().currentVao.vertexArrayInitialized = pointer != null;
+            Context.currentContext().currentVao.vertexArrayInitialized = pointer != null;
         }
         org.lwjgl.opengl.GL11.glVertexPointer(size, type, stride, pointer);
     }
 
     public static void glVertexPointer(int size, int type, int stride, IntBuffer pointer) {
         if (Properties.VALIDATE.enabled) {
-            CURRENT_CONTEXT.get().currentVao.vertexArrayInitialized = pointer != null;
+            Context.currentContext().currentVao.vertexArrayInitialized = pointer != null;
         }
         org.lwjgl.opengl.GL11.glVertexPointer(size, type, stride, pointer);
     }
 
     public static void glVertexPointer(int size, int type, int stride, FloatBuffer pointer) {
         if (Properties.VALIDATE.enabled) {
-            CURRENT_CONTEXT.get().currentVao.vertexArrayInitialized = pointer != null;
+            Context.currentContext().currentVao.vertexArrayInitialized = pointer != null;
         }
         org.lwjgl.opengl.GL11.glVertexPointer(size, type, stride, pointer);
     }
 
     public static void glNormalPointer(int type, int stride, ByteBuffer pointer) {
         if (Properties.VALIDATE.enabled) {
-            CURRENT_CONTEXT.get().currentVao.vertexArrayInitialized = pointer != null;
+            Context.currentContext().currentVao.vertexArrayInitialized = pointer != null;
         }
         org.lwjgl.opengl.GL11.glNormalPointer(type, stride, pointer);
     }
@@ -140,7 +140,7 @@ public class GL11 {
         if (Properties.VALIDATE.enabled) {
             int vbo = org.lwjgl.opengl.GL11.glGetInteger(org.lwjgl.opengl.GL15.GL_ARRAY_BUFFER_BINDING);
             if (vbo != 0) {
-                CURRENT_CONTEXT.get().currentVao.normalArrayInitialized = true;
+                Context.currentContext().currentVao.normalArrayInitialized = true;
             }
         }
         org.lwjgl.opengl.GL11.glNormalPointer(type, stride, pointer);
@@ -148,28 +148,28 @@ public class GL11 {
 
     public static void glNormalPointer(int type, int stride, ShortBuffer pointer) {
         if (Properties.VALIDATE.enabled) {
-            CURRENT_CONTEXT.get().currentVao.normalArrayInitialized = pointer != null;
+            Context.currentContext().currentVao.normalArrayInitialized = pointer != null;
         }
         org.lwjgl.opengl.GL11.glNormalPointer(type, stride, pointer);
     }
 
     public static void glNormalPointer(int type, int stride, IntBuffer pointer) {
         if (Properties.VALIDATE.enabled) {
-            CURRENT_CONTEXT.get().currentVao.normalArrayInitialized = pointer != null;
+            Context.currentContext().currentVao.normalArrayInitialized = pointer != null;
         }
         org.lwjgl.opengl.GL11.glNormalPointer(type, stride, pointer);
     }
 
     public static void glNormalPointer(int type, int stride, FloatBuffer pointer) {
         if (Properties.VALIDATE.enabled) {
-            CURRENT_CONTEXT.get().currentVao.normalArrayInitialized = pointer != null;
+            Context.currentContext().currentVao.normalArrayInitialized = pointer != null;
         }
         org.lwjgl.opengl.GL11.glNormalPointer(type, stride, pointer);
     }
 
     public static void glColorPointer(int size, int type, int stride, ByteBuffer pointer) {
         if (Properties.VALIDATE.enabled) {
-            CURRENT_CONTEXT.get().currentVao.normalArrayInitialized = pointer != null;
+            Context.currentContext().currentVao.normalArrayInitialized = pointer != null;
         }
         org.lwjgl.opengl.GL11.glColorPointer(size, type, stride, pointer);
     }
@@ -178,7 +178,7 @@ public class GL11 {
         if (Properties.VALIDATE.enabled) {
             int vbo = org.lwjgl.opengl.GL11.glGetInteger(org.lwjgl.opengl.GL15.GL_ARRAY_BUFFER_BINDING);
             if (vbo != 0) {
-                CURRENT_CONTEXT.get().currentVao.colorArrayInitialized = true;
+                Context.currentContext().currentVao.colorArrayInitialized = true;
             }
         }
         org.lwjgl.opengl.GL11.glColorPointer(size, type, stride, pointer);
@@ -186,28 +186,28 @@ public class GL11 {
 
     public static void glColorPointer(int size, int type, int stride, ShortBuffer pointer) {
         if (Properties.VALIDATE.enabled) {
-            CURRENT_CONTEXT.get().currentVao.colorArrayInitialized = pointer != null;
+            Context.currentContext().currentVao.colorArrayInitialized = pointer != null;
         }
         org.lwjgl.opengl.GL11.glColorPointer(size, type, stride, pointer);
     }
 
     public static void glColorPointer(int size, int type, int stride, IntBuffer pointer) {
         if (Properties.VALIDATE.enabled) {
-            CURRENT_CONTEXT.get().currentVao.colorArrayInitialized = pointer != null;
+            Context.currentContext().currentVao.colorArrayInitialized = pointer != null;
         }
         org.lwjgl.opengl.GL11.glColorPointer(size, type, stride, pointer);
     }
 
     public static void glColorPointer(int size, int type, int stride, FloatBuffer pointer) {
         if (Properties.VALIDATE.enabled) {
-            CURRENT_CONTEXT.get().currentVao.colorArrayInitialized = pointer != null;
+            Context.currentContext().currentVao.colorArrayInitialized = pointer != null;
         }
         org.lwjgl.opengl.GL11.glColorPointer(size, type, stride, pointer);
     }
 
     public static void glTexCoordPointer(int size, int type, int stride, ByteBuffer pointer) {
         if (Properties.VALIDATE.enabled) {
-            CURRENT_CONTEXT.get().currentVao.texCoordArrayInitialized = pointer != null;
+            Context.currentContext().currentVao.texCoordArrayInitialized = pointer != null;
         }
         org.lwjgl.opengl.GL11.glTexCoordPointer(size, type, stride, pointer);
     }
@@ -216,7 +216,7 @@ public class GL11 {
         if (Properties.VALIDATE.enabled) {
             int vbo = org.lwjgl.opengl.GL11.glGetInteger(org.lwjgl.opengl.GL15.GL_ARRAY_BUFFER_BINDING);
             if (vbo != 0) {
-                CURRENT_CONTEXT.get().currentVao.texCoordArrayInitialized = true;
+                Context.currentContext().currentVao.texCoordArrayInitialized = true;
             }
         }
         org.lwjgl.opengl.GL11.glTexCoordPointer(size, type, stride, pointer);
@@ -224,21 +224,21 @@ public class GL11 {
 
     public static void glTexCoordPointer(int size, int type, int stride, ShortBuffer pointer) {
         if (Properties.VALIDATE.enabled) {
-            CURRENT_CONTEXT.get().currentVao.texCoordArrayInitialized = pointer != null;
+            Context.currentContext().currentVao.texCoordArrayInitialized = pointer != null;
         }
         org.lwjgl.opengl.GL11.glTexCoordPointer(size, type, stride, pointer);
     }
 
     public static void glTexCoordPointer(int size, int type, int stride, IntBuffer pointer) {
         if (Properties.VALIDATE.enabled) {
-            CURRENT_CONTEXT.get().currentVao.texCoordArrayInitialized = pointer != null;
+            Context.currentContext().currentVao.texCoordArrayInitialized = pointer != null;
         }
         org.lwjgl.opengl.GL11.glTexCoordPointer(size, type, stride, pointer);
     }
 
     public static void glTexCoordPointer(int size, int type, int stride, FloatBuffer pointer) {
         if (Properties.VALIDATE.enabled) {
-            CURRENT_CONTEXT.get().currentVao.texCoordArrayInitialized = pointer != null;
+            Context.currentContext().currentVao.texCoordArrayInitialized = pointer != null;
         }
         org.lwjgl.opengl.GL11.glTexCoordPointer(size, type, stride, pointer);
     }
@@ -613,7 +613,7 @@ public class GL11 {
     public static void glPopClientAttrib() {
         org.lwjgl.opengl.GL11.glPopClientAttrib();
         /* Refresh vertex array state */
-        Context context = CURRENT_CONTEXT.get();
+        Context context = Context.currentContext();
         for (int i = 0; i < context.GL_MAX_VERTEX_ATTRIBS; i++) {
             /* Read enable state and buffer bindings */
             if (context.caps.OpenGL20) {
@@ -628,7 +628,7 @@ public class GL11 {
 
     public static void glGenTextures(IntBuffer textures) {
         org.lwjgl.opengl.GL11.glGenTextures(textures);
-        Context ctx = CURRENT_CONTEXT.get();
+        Context ctx = Context.currentContext();
         int pos = textures.position();
         for (int i = 0; i < textures.remaining(); i++) {
             int texture = textures.get(pos + i);
@@ -638,7 +638,7 @@ public class GL11 {
 
     public static void glGenTextures(int[] textures) {
         org.lwjgl.opengl.GL11.glGenTextures(textures);
-        Context ctx = CURRENT_CONTEXT.get();
+        Context ctx = Context.currentContext();
         for (int i = 0; i < textures.length; i++) {
             int texture = textures[i];
             ctx.shareGroup.textureObjects.put(texture, new TextureObject());
@@ -647,7 +647,7 @@ public class GL11 {
 
     public static int glGenTextures() {
         int tex = org.lwjgl.opengl.GL11.glGenTextures();
-        Context ctx = CURRENT_CONTEXT.get();
+        Context ctx = Context.currentContext();
         ctx.shareGroup.textureObjects.put(tex, new TextureObject());
         return tex;
     }
@@ -671,7 +671,7 @@ public class GL11 {
     public static void glBindTexture(int target, int texture) {
         org.lwjgl.opengl.GL11.glBindTexture(target, texture);
         if (Properties.PROFILE.enabled) {
-            Context ctx = CURRENT_CONTEXT.get();
+            Context ctx = Context.currentContext();
             if (texture != 0) {
                 TextureObject to = ctx.shareGroup.textureObjects.get(texture);
                 assignLayers(target, to);
@@ -685,7 +685,7 @@ public class GL11 {
     public static void glDeleteTextures(IntBuffer textures) {
         org.lwjgl.opengl.GL11.glDeleteTextures(textures);
         if (Properties.PROFILE.enabled) {
-            Context ctx = CURRENT_CONTEXT.get();
+            Context ctx = Context.currentContext();
             int pos = textures.position();
             for (int i = 0; i < textures.remaining(); i++) {
                 int buffer = textures.get(pos + i);
@@ -703,7 +703,7 @@ public class GL11 {
     public static void glDeleteTextures(int[] textures) {
         org.lwjgl.opengl.GL11.glDeleteTextures(textures);
         if (Properties.PROFILE.enabled) {
-            Context ctx = CURRENT_CONTEXT.get();
+            Context ctx = Context.currentContext();
             for (int i = 0; i < textures.length; i++) {
                 int buffer = textures[i];
                 TextureObject to = ctx.shareGroup.textureObjects.remove(buffer);
@@ -720,7 +720,7 @@ public class GL11 {
     public static void glDeleteTextures(int texture) {
         org.lwjgl.opengl.GL11.glDeleteTextures(texture);
         if (Properties.PROFILE.enabled) {
-            Context ctx = CURRENT_CONTEXT.get();
+            Context ctx = Context.currentContext();
             TextureObject to = ctx.shareGroup.textureObjects.remove(texture);
             Iterator<Map.Entry<Integer, TextureObject>> it = ctx.textureObjectBindings.entrySet().iterator();
             while (it.hasNext()) {
@@ -771,7 +771,7 @@ public class GL11 {
     }
 
     private static void profileTexture2D(int target, int level, int internalformat, int width, int height) {
-        Context ctx = CURRENT_CONTEXT.get();
+        Context ctx = Context.currentContext();
         int boundTarget = target;
         if (target >= org.lwjgl.opengl.GL13.GL_TEXTURE_CUBE_MAP_POSITIVE_X && target <= org.lwjgl.opengl.GL13.GL_TEXTURE_CUBE_MAP_NEGATIVE_Z) {
             boundTarget = org.lwjgl.opengl.GL13.GL_TEXTURE_CUBE_MAP;
@@ -909,7 +909,7 @@ public class GL11 {
     public static void glTexParameteri(int target, int pname, int param) {
         org.lwjgl.opengl.GL11.glTexParameteri(target, pname, param);
         if (Properties.PROFILE.enabled) {
-            Context ctx = CURRENT_CONTEXT.get();
+            Context ctx = Context.currentContext();
             TextureObject to = ctx.textureObjectBindings.get(target);
             if (to != null && pname == org.lwjgl.opengl.GL14.GL_GENERATE_MIPMAP) {
                 to.generateMipmap = param == 1;

@@ -58,7 +58,7 @@ public class GL30 {
 
     public static void glVertexAttribIPointer(int index, int size, int type, int stride, ByteBuffer pointer) {
         if (Properties.VALIDATE.enabled && index > -1) {
-            CURRENT_CONTEXT.get().currentVao.initializedVertexArrays[index] = pointer != null;
+            Context.currentContext().currentVao.initializedVertexArrays[index] = pointer != null;
         }
         org.lwjgl.opengl.GL30.glVertexAttribIPointer(index, size, type, stride, pointer);
     }
@@ -67,7 +67,7 @@ public class GL30 {
         if (Properties.VALIDATE.enabled && index > -1) {
             int vbo = org.lwjgl.opengl.GL11.glGetInteger(org.lwjgl.opengl.GL15.GL_ARRAY_BUFFER_BINDING);
             if (vbo != 0) {
-                CURRENT_CONTEXT.get().currentVao.initializedVertexArrays[index] = true;
+                Context.currentContext().currentVao.initializedVertexArrays[index] = true;
             }
         }
         org.lwjgl.opengl.GL30.glVertexAttribIPointer(index, size, type, stride, pointer);
@@ -75,14 +75,14 @@ public class GL30 {
 
     public static void glVertexAttribIPointer(int index, int size, int type, int stride, ShortBuffer pointer) {
         if (Properties.VALIDATE.enabled && index > -1) {
-            CURRENT_CONTEXT.get().currentVao.initializedVertexArrays[index] = pointer != null;
+            Context.currentContext().currentVao.initializedVertexArrays[index] = pointer != null;
         }
         org.lwjgl.opengl.GL30.glVertexAttribIPointer(index, size, type, stride, pointer);
     }
 
     public static void glVertexAttribIPointer(int index, int size, int type, int stride, IntBuffer pointer) {
         if (Properties.VALIDATE.enabled && index > -1) {
-            CURRENT_CONTEXT.get().currentVao.initializedVertexArrays[index] = pointer != null;
+            Context.currentContext().currentVao.initializedVertexArrays[index] = pointer != null;
         }
         org.lwjgl.opengl.GL30.glVertexAttribIPointer(index, size, type, stride, pointer);
     }
@@ -90,7 +90,7 @@ public class GL30 {
     public static void glGenVertexArrays(IntBuffer arrays) {
         org.lwjgl.opengl.GL30.glGenVertexArrays(arrays);
         if (Properties.VALIDATE.enabled) {
-            Context context = CURRENT_CONTEXT.get();
+            Context context = Context.currentContext();
             int position = arrays.position();
             for (int i = 0; i < arrays.remaining(); i++) {
                 VAO vao = new VAO(context.GL_MAX_VERTEX_ATTRIBS);
@@ -102,7 +102,7 @@ public class GL30 {
     public static int glGenVertexArrays() {
         int index = org.lwjgl.opengl.GL30.glGenVertexArrays();
         if (Properties.VALIDATE.enabled) {
-            Context context = CURRENT_CONTEXT.get();
+            Context context = Context.currentContext();
             VAO vao = new VAO(context.GL_MAX_VERTEX_ATTRIBS);
             context.vaos.put(index, vao);
         }
@@ -112,7 +112,7 @@ public class GL30 {
     public static void glGenVertexArrays(int[] arrays) {
         org.lwjgl.opengl.GL30.glGenVertexArrays(arrays);
         if (Properties.VALIDATE.enabled) {
-            Context context = CURRENT_CONTEXT.get();
+            Context context = Context.currentContext();
             for (int i = 0; i < arrays.length; i++) {
                 VAO vao = new VAO(context.GL_MAX_VERTEX_ATTRIBS);
                 context.vaos.put(arrays[i], vao);
@@ -122,7 +122,7 @@ public class GL30 {
 
     public static void glBindVertexArray(int index) {
         if (Properties.VALIDATE.enabled) {
-            Context ctx = CURRENT_CONTEXT.get();
+            Context ctx = Context.currentContext();
             VAO vao = ctx.vaos.get(index);
             if (vao == null && ctx.shareGroup != null) {
                 for (Context c : ctx.shareGroup.contexts) {
@@ -160,7 +160,7 @@ public class GL30 {
     public static void glGenFramebuffers(IntBuffer framebuffers) {
         org.lwjgl.opengl.GL30.glGenFramebuffers(framebuffers);
         if (Properties.VALIDATE.enabled) {
-            Context ctx = CURRENT_CONTEXT.get();
+            Context ctx = Context.currentContext();
             int pos = framebuffers.position();
             for (int i = 0; i < framebuffers.remaining(); i++) {
                 int handle = framebuffers.get(pos + i);
@@ -174,7 +174,7 @@ public class GL30 {
         int handle = org.lwjgl.opengl.GL30.glGenFramebuffers();
         if (Properties.VALIDATE.enabled) {
             FBO fbo = new FBO(handle);
-            Context ctx = CURRENT_CONTEXT.get();
+            Context ctx = Context.currentContext();
             ctx.fbos.put(handle, fbo);
         }
         return handle;
@@ -183,7 +183,7 @@ public class GL30 {
     public static void glGenFramebuffers(int[] framebuffers) {
         org.lwjgl.opengl.GL30.glGenFramebuffers(framebuffers);
         if (Properties.VALIDATE.enabled) {
-            Context ctx = CURRENT_CONTEXT.get();
+            Context ctx = Context.currentContext();
             for (int i = 0; i < framebuffers.length; i++) {
                 int handle = framebuffers[i];
                 FBO fbo = new FBO(handle);
@@ -194,7 +194,7 @@ public class GL30 {
 
     public static void glBindFramebuffer(int target, int framebuffer) {
         if (Properties.VALIDATE.enabled) {
-            Context ctx = CURRENT_CONTEXT.get();
+            Context ctx = Context.currentContext();
             FBO fbo = ctx.fbos.get(framebuffer);
             if (fbo == null && ctx.shareGroup != null) {
                 for (Context c : ctx.shareGroup.contexts) {
@@ -211,7 +211,7 @@ public class GL30 {
     public static void glDeleteFramebuffers(IntBuffer framebuffers) {
         org.lwjgl.opengl.GL30.glDeleteFramebuffers(framebuffers);
         if (Properties.VALIDATE.enabled) {
-            Context context = CURRENT_CONTEXT.get();
+            Context context = Context.currentContext();
             int pos = framebuffers.position();
             for (int i = 0; i < framebuffers.remaining(); i++) {
                 int framebuffer = framebuffers.get(pos + i);
@@ -231,7 +231,7 @@ public class GL30 {
         if (Properties.VALIDATE.enabled) {
             if (framebuffer == 0)
                 return;
-            Context context = CURRENT_CONTEXT.get();
+            Context context = Context.currentContext();
             FBO fbo = context.fbos.get(framebuffer);
             if (fbo != null && fbo == context.currentFbo) {
                 context.currentFbo = context.defaultFbo;
@@ -243,7 +243,7 @@ public class GL30 {
     public static void glDeleteFramebuffers(int[] framebuffers) {
         org.lwjgl.opengl.GL30.glDeleteFramebuffers(framebuffers);
         if (Properties.VALIDATE.enabled) {
-            Context context = CURRENT_CONTEXT.get();
+            Context context = Context.currentContext();
             for (int i = 0; i < framebuffers.length; i++) {
                 int framebuffer = framebuffers[i];
                 if (framebuffer == 0)

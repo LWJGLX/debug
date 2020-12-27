@@ -36,7 +36,7 @@ public class ARBVertexArrayObject {
     public static void glGenVertexArrays(IntBuffer arrays) {
         org.lwjgl.opengl.ARBVertexArrayObject.glGenVertexArrays(arrays);
         if (Properties.VALIDATE.enabled) {
-            Context context = CURRENT_CONTEXT.get();
+            Context context = Context.currentContext();
             int position = arrays.position();
             for (int i = 0; i < arrays.remaining(); i++) {
                 VAO vao = new VAO(context.GL_MAX_VERTEX_ATTRIBS);
@@ -48,7 +48,7 @@ public class ARBVertexArrayObject {
     public static int glGenVertexArrays() {
         int index = org.lwjgl.opengl.ARBVertexArrayObject.glGenVertexArrays();
         if (Properties.VALIDATE.enabled) {
-            Context context = CURRENT_CONTEXT.get();
+            Context context = Context.currentContext();
             VAO vao = new VAO(context.GL_MAX_VERTEX_ATTRIBS);
             context.vaos.put(index, vao);
         }
@@ -58,7 +58,7 @@ public class ARBVertexArrayObject {
     public static void glGenVertexArrays(int[] arrays) {
         org.lwjgl.opengl.ARBVertexArrayObject.glGenVertexArrays(arrays);
         if (Properties.VALIDATE.enabled) {
-            Context context = CURRENT_CONTEXT.get();
+            Context context = Context.currentContext();
             for (int i = 0; i < arrays.length; i++) {
                 VAO vao = new VAO(context.GL_MAX_VERTEX_ATTRIBS);
                 context.vaos.put(arrays[i], vao);
@@ -68,7 +68,7 @@ public class ARBVertexArrayObject {
 
     public static void glBindVertexArray(int index) {
         if (Properties.VALIDATE.enabled) {
-            Context ctx = CURRENT_CONTEXT.get();
+            Context ctx = Context.currentContext();
             VAO vao = ctx.vaos.get(index);
             if (vao == null && ctx.shareGroup != null) {
                 for (Context c : ctx.shareGroup.contexts) {

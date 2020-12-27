@@ -40,7 +40,7 @@ public class GL41 {
 
     public static void glVertexAttribLPointer(int index, int size, int type, int stride, ByteBuffer pointer) {
         if (Properties.VALIDATE.enabled && index > -1) {
-            CURRENT_CONTEXT.get().currentVao.initializedVertexArrays[index] = pointer != null;
+            Context.currentContext().currentVao.initializedVertexArrays[index] = pointer != null;
         }
         org.lwjgl.opengl.GL41.glVertexAttribLPointer(index, size, type, stride, pointer);
     }
@@ -49,7 +49,7 @@ public class GL41 {
         if (Properties.VALIDATE.enabled && index > -1) {
             int vbo = org.lwjgl.opengl.GL11.glGetInteger(org.lwjgl.opengl.GL15.GL_ARRAY_BUFFER_BINDING);
             if (vbo != 0) {
-                CURRENT_CONTEXT.get().currentVao.initializedVertexArrays[index] = true;
+                Context.currentContext().currentVao.initializedVertexArrays[index] = true;
             }
         }
         org.lwjgl.opengl.GL41.glVertexAttribLPointer(index, size, type, stride, pointer);
@@ -57,7 +57,7 @@ public class GL41 {
 
     public static void glVertexAttribLPointer(int index, int size, int stride, DoubleBuffer pointer) {
         if (Properties.VALIDATE.enabled && index > -1) {
-            CURRENT_CONTEXT.get().currentVao.initializedVertexArrays[index] = pointer != null;
+            Context.currentContext().currentVao.initializedVertexArrays[index] = pointer != null;
         }
         org.lwjgl.opengl.GL41.glVertexAttribLPointer(index, size, stride, pointer);
     }
@@ -66,7 +66,7 @@ public class GL41 {
         org.lwjgl.opengl.GL41.glGenProgramPipelines(pipelines);
         if (Properties.VALIDATE.enabled) {
             int position = pipelines.position();
-            Context context = CURRENT_CONTEXT.get();
+            Context context = Context.currentContext();
             for (int i = 0; i < pipelines.remaining(); i++) {
                 ProgramPipeline pp = new ProgramPipeline();
                 context.programPipelines.put(pipelines.get(position + i), pp);
@@ -77,7 +77,7 @@ public class GL41 {
     public static int glGenProgramPipelines() {
         int index = org.lwjgl.opengl.GL41.glGenProgramPipelines();
         if (Properties.VALIDATE.enabled) {
-            Context context = CURRENT_CONTEXT.get();
+            Context context = Context.currentContext();
             ProgramPipeline pp = new ProgramPipeline();
             context.programPipelines.put(index, pp);
         }
@@ -87,7 +87,7 @@ public class GL41 {
     public static void glGenProgramPipelines(int[] pipelines) {
         org.lwjgl.opengl.GL41.glGenProgramPipelines(pipelines);
         if (Properties.VALIDATE.enabled) {
-            Context context = CURRENT_CONTEXT.get();
+            Context context = Context.currentContext();
             for (int i = 0; i < pipelines.length; i++) {
                 ProgramPipeline pp = new ProgramPipeline();
                 context.programPipelines.put(pipelines[i], pp);
@@ -97,7 +97,7 @@ public class GL41 {
 
     public static void glBindProgramPipeline(int pipeline) {
         if (Properties.VALIDATE.enabled) {
-            Context ctx = CURRENT_CONTEXT.get();
+            Context ctx = Context.currentContext();
             ProgramPipeline pp = ctx.programPipelines.get(pipeline);
             if (pp == null && ctx.shareGroup != null) {
                 for (Context c : ctx.shareGroup.contexts) {

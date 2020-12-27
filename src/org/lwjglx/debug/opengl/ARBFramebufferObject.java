@@ -22,7 +22,6 @@
  */
 package org.lwjglx.debug.opengl;
 
-import static org.lwjglx.debug.Context.*;
 import static org.lwjglx.debug.RT.*;
 
 import java.nio.IntBuffer;
@@ -43,7 +42,7 @@ public class ARBFramebufferObject {
     public static void glGenFramebuffers(IntBuffer framebuffers) {
         org.lwjgl.opengl.ARBFramebufferObject.glGenFramebuffers(framebuffers);
         if (Properties.VALIDATE.enabled) {
-            Context ctx = CURRENT_CONTEXT.get();
+            Context ctx = Context.currentContext();
             int pos = framebuffers.position();
             for (int i = 0; i < framebuffers.remaining(); i++) {
                 int handle = framebuffers.get(pos + i);
@@ -57,7 +56,7 @@ public class ARBFramebufferObject {
         int handle = org.lwjgl.opengl.ARBFramebufferObject.glGenFramebuffers();
         if (Properties.VALIDATE.enabled) {
             FBO fbo = new FBO(handle);
-            Context ctx = CURRENT_CONTEXT.get();
+            Context ctx = Context.currentContext();
             ctx.fbos.put(handle, fbo);
         }
         return handle;
@@ -66,7 +65,7 @@ public class ARBFramebufferObject {
     public static void glGenFramebuffers(int[] framebuffers) {
         org.lwjgl.opengl.ARBFramebufferObject.glGenFramebuffers(framebuffers);
         if (Properties.VALIDATE.enabled) {
-            Context ctx = CURRENT_CONTEXT.get();
+            Context ctx = Context.currentContext();
             for (int i = 0; i < framebuffers.length; i++) {
                 int handle = framebuffers[i];
                 FBO fbo = new FBO(handle);
@@ -77,7 +76,7 @@ public class ARBFramebufferObject {
 
     public static void glBindFramebuffer(int target, int framebuffer) {
         if (Properties.VALIDATE.enabled) {
-            Context ctx = CURRENT_CONTEXT.get();
+            Context ctx = Context.currentContext();
             FBO fbo = ctx.fbos.get(framebuffer);
             if (fbo == null && ctx.shareGroup != null) {
                 for (Context c : ctx.shareGroup.contexts) {
@@ -94,7 +93,7 @@ public class ARBFramebufferObject {
     public static void glDeleteFramebuffers(IntBuffer framebuffers) {
         org.lwjgl.opengl.ARBFramebufferObject.glDeleteFramebuffers(framebuffers);
         if (Properties.VALIDATE.enabled) {
-            Context context = CURRENT_CONTEXT.get();
+            Context context = Context.currentContext();
             int pos = framebuffers.position();
             for (int i = 0; i < framebuffers.remaining(); i++) {
                 int framebuffer = framebuffers.get(pos + i);
@@ -114,7 +113,7 @@ public class ARBFramebufferObject {
         if (Properties.VALIDATE.enabled) {
             if (framebuffer == 0)
                 return;
-            Context context = CURRENT_CONTEXT.get();
+            Context context = Context.currentContext();
             FBO fbo = context.fbos.get(framebuffer);
             if (fbo != null && fbo == context.currentFbo) {
                 context.currentFbo = context.defaultFbo;
@@ -126,7 +125,7 @@ public class ARBFramebufferObject {
     public static void glDeleteFramebuffers(int[] framebuffers) {
         org.lwjgl.opengl.ARBFramebufferObject.glDeleteFramebuffers(framebuffers);
         if (Properties.VALIDATE.enabled) {
-            Context context = CURRENT_CONTEXT.get();
+            Context context = Context.currentContext();
             for (int i = 0; i < framebuffers.length; i++) {
                 int framebuffer = framebuffers[i];
                 if (framebuffer == 0)

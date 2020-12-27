@@ -163,6 +163,14 @@ public class Context implements Comparable<Context> {
     public int currentCodeSectionIndex = 0;
     public List<TimedCodeSection> codeSectionTimes = new ArrayList<>();
 
+    public static Context currentContext() {
+    	Context ctx = CURRENT_CONTEXT.get();
+    	if (ctx == null) {
+    		RT.throwISEOrLogError("No OpenGL context has been made current through recognized API methods (glfwMakeContextCurrent).");
+    	}
+    	return ctx;
+    }
+
     public static void create(long window, long share) {
         Context ctx = new Context();
         ctx.window = window;
@@ -309,7 +317,7 @@ public class Context implements Comparable<Context> {
     public static void deleteVertexArray(int index) {
         if (index == 0)
             return;
-        Context context = CURRENT_CONTEXT.get();
+        Context context = currentContext();
         VAO vao = context.vaos.get(index);
         if (vao != null && vao == context.currentVao) {
             context.currentVao = context.defaultVao;
@@ -318,7 +326,7 @@ public class Context implements Comparable<Context> {
     }
 
     public static void deleteVertexArrays(IntBuffer indices) {
-        Context context = CURRENT_CONTEXT.get();
+        Context context = currentContext();
         int pos = indices.position();
         for (int i = 0; i < indices.remaining(); i++) {
             int index = indices.get(pos + i);
@@ -335,7 +343,7 @@ public class Context implements Comparable<Context> {
     public static void deletePipeline(int index) {
         if (index == 0)
             return;
-        Context context = CURRENT_CONTEXT.get();
+        Context context = currentContext();
         ProgramPipeline pp = context.programPipelines.get(index);
         if (pp != null && pp == context.currentProgramPipeline) {
             context.currentProgramPipeline = context.defaultProgramPipeline;
@@ -344,7 +352,7 @@ public class Context implements Comparable<Context> {
     }
 
     public static void deletePipelines(IntBuffer pipelines) {
-        Context context = CURRENT_CONTEXT.get();
+        Context context = currentContext();
         int pos = pipelines.position();
         for (int i = 0; i < pipelines.remaining(); i++) {
             int index = pipelines.get(pos + i);
@@ -359,7 +367,7 @@ public class Context implements Comparable<Context> {
     }
 
     public static void deletePipelines(int[] pipelines) {
-        Context context = CURRENT_CONTEXT.get();
+        Context context = currentContext();
         for (int i = 0; i < pipelines.length; i++) {
             int index = pipelines[i];
             if (index == 0)
@@ -373,7 +381,7 @@ public class Context implements Comparable<Context> {
     }
 
     public static void deleteVertexArrays(int[] indices) {
-        Context context = CURRENT_CONTEXT.get();
+        Context context = currentContext();
         for (int i = 0; i < indices.length; i++) {
             int index = indices[i];
             if (index == 0)
@@ -392,7 +400,7 @@ public class Context implements Comparable<Context> {
     }
 
     public static void checkVertexAttributes() {
-        Context context = CURRENT_CONTEXT.get();
+        Context context = currentContext();
         VAO vao = context.currentVao;
         for (int i = 0; i < vao.enabledVertexArrays.length; i++) {
             if (vao.enabledVertexArrays[i] && !vao.initializedVertexArrays[i]) {
@@ -415,7 +423,7 @@ public class Context implements Comparable<Context> {
 
     public static void checkFramebufferCompleteness() {
         if (Properties.VALIDATE.enabled) {
-            Context context = CURRENT_CONTEXT.get();
+            Context context = currentContext();
             if (context.currentFbo != null) {
                 /* Check framebuffer status */
                 int status = org.lwjgl.opengl.GL30.glCheckFramebufferStatus(org.lwjgl.opengl.GL30.GL_FRAMEBUFFER);
