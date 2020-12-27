@@ -31,13 +31,7 @@ import java.lang.instrument.ClassFileTransformer;
 import java.lang.instrument.IllegalClassFormatException;
 import java.lang.instrument.Instrumentation;
 import java.security.ProtectionDomain;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.regex.Pattern;
 
@@ -119,9 +113,28 @@ public class Agent implements ClassFileTransformer, Opcodes {
         mustInstrumentMethods.put("org/lwjgl/glfw/GLFWErrorCallback", Collections.singleton("set()Lorg/lwjgl/glfw/GLFWErrorCallback;"));
     }
 
+    private static final List<String> excludedPackagePrefixes = Arrays.asList(
+    		"com.ecwid.consul/",
+    		"com/sun/",
+    		"io/netty/",
+    		"java/",
+    		"javax/",
+    		"jdk/internal/",
+    		"org/apache/",
+    		"org/hibernate/",
+    		"org/joml/",
+    		"org/lwjgl/",
+    		"org/lwjglx/debug/",
+    		"org/springframework/",
+    		"sun/"
+	);
+
+    private static boolean isPackageOfClassExcluded(String className) {
+    	return excludedPackagePrefixes.stream().anyMatch(packagePrefix -> className.startsWith(packagePrefix));
+    }
+
     private byte[] transform_(ClassLoader loader, String className, Class<?> classBeingRedefined, ProtectionDomain protectionDomain, byte[] classfileBuffer) throws IllegalClassFormatException {
-        if ((className == null || className.startsWith("java/") || className.startsWith("com/sun/") || className.startsWith("sun/") || className.startsWith("jdk/internal/")
-                || className.startsWith("org/lwjgl/") || className.startsWith("org/joml/") || className.startsWith("org/lwjglx/debug/")) && !mustInstrumentMethods.containsKey(className)) {
+        if ((className == null || isPackageOfClassExcluded(className)) && !mustInstrumentMethods.containsKey(className)) {
             return null;
         }
         boolean forcedInstrumentation = mustInstrumentMethods.containsKey(className);
