@@ -185,7 +185,7 @@ class InterceptClassGenerator implements Opcodes {
     }
 
     private static String getClassForMethod(ClassLoader cl, String desc, InterceptedCall call) {
-        String className = call.resolvedReceiverInternalName.replace("org/lwjgl/", "org/lwjglx/debug/");
+        String className = "org/lwjglx/debug/" + call.resolvedReceiverInternalName;
         ClassKey key = new ClassKey(cl, className);
         HashSet<Method> dmethods = declaredMethods.get(key);
         if (dmethods == null) {

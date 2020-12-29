@@ -5,6 +5,10 @@ import org.objectweb.asm.Opcodes;
 
 class Util {
 
+    static boolean isPointerBuffer(String internalName) {
+        return internalName.equals("org/lwjgl/PointerBuffer");
+    }
+
     static boolean isBuffer(String internalName) {
         return internalName.equals("java/nio/Buffer") || internalName.equals("java/nio/ByteBuffer") || internalName.equals("java/nio/CharBuffer") || internalName.equals("java/nio/ShortBuffer")
                 || internalName.equals("java/nio/IntBuffer") || internalName.equals("java/nio/LongBuffer") || internalName.equals("java/nio/FloatBuffer")

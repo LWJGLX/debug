@@ -178,7 +178,27 @@ public class Agent implements ClassFileTransformer, Opcodes {
                     }
 
                     public void visitMethodInsn(int opcode, String owner, String name, String desc, boolean itf) {
-                        if (opcode == INVOKESTATIC && owner.startsWith("org/lwjgl/") && !excluded(owner, name)) {
+                        if (opcode == INVOKEVIRTUAL && Util.isBuffer(owner) && Util.isMultiByteWrite(owner, name)) {
+                            mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, name, "(L" + owner + ";" + desc.substring(1), itf);
+                            modifications.modified = true;
+                        } else if (opcode == INVOKEVIRTUAL && owner.equals("java/nio/ByteBuffer") && Util.isTypedViewMethod(name)) {
+                            mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, name, "(L" + owner + ";" + desc.substring(1), itf);
+                            modifications.modified = true;
+                        } else if (opcode == INVOKEVIRTUAL && Util.isBuffer(owner) && name.equals("slice")) {
+                            mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, name, "(L" + owner + ";" + desc.substring(1), itf);
+                            modifications.modified = true;
+                        } else if (opcode == INVOKESTATIC && Util.isPointerBuffer(owner) && name.equals("allocateDirect")) {
+                            mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, "allocateDirectPointerBuffer", "(" + desc.substring(1), false);
+                            modifications.modified = true;
+                        } else if (opcode == INVOKEVIRTUAL && Util.isPointerBuffer(owner) && name.equals("free")) {
+                            mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, name, "(L" + owner + ";" + desc.substring(1), itf);
+                            modifications.modified = true;
+                        } else if (opcode == INVOKEVIRTUAL && Util.isBuffer(owner) && name.equals("flip")) {
+                            mv.visitInsn(DUP);
+                            mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, "checkFlipBufferAtPosition0", "(Ljava/nio/Buffer;)V", false);
+                            super.visitMethodInsn(opcode, owner, name, desc, itf);
+                            modifications.modified = true;
+                        } else if (opcode == INVOKESTATIC && owner.startsWith("org/lwjgl/") && !excluded(owner, name)) {
                             String key = owner + "." + name + desc;
                             InterceptedCall call = calls.get(key);
                             if (call == null) {
@@ -201,20 +221,6 @@ public class Agent implements ClassFileTransformer, Opcodes {
                                 proxyDesc = call.desc.substring(0, call.desc.lastIndexOf(')')) + "I" + call.desc.substring(call.desc.lastIndexOf(')'));
                             }
                             mv.visitMethodInsn(INVOKESTATIC, proxyName, call.generatedMethodName, proxyDesc, itf);
-                            modifications.needsProxyClass = true;
-                        } else if (opcode == INVOKEVIRTUAL && Util.isBuffer(owner) && Util.isMultiByteWrite(owner, name)) {
-                            mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, name, "(L" + owner + ";" + desc.substring(1), itf);
-                            modifications.needsProxyClass = true;
-                        } else if (opcode == INVOKEVIRTUAL && owner.equals("java/nio/ByteBuffer") && Util.isTypedViewMethod(name)) {
-                            mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, name, "(L" + owner + ";" + desc.substring(1), itf);
-                            modifications.needsProxyClass = true;
-                        } else if (opcode == INVOKEVIRTUAL && Util.isBuffer(owner) && name.equals("slice")) {
-                            mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, name, "(L" + owner + ";" + desc.substring(1), itf);
-                            modifications.needsProxyClass = true;
-                        } else if (opcode == INVOKEVIRTUAL && Util.isBuffer(owner) && name.equals("flip")) {
-                            mv.visitInsn(DUP);
-                            mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, "checkFlipBufferAtPosition0", "(Ljava/nio/Buffer;)V", false);
-                            super.visitMethodInsn(opcode, owner, name, desc, itf);
                             modifications.needsProxyClass = true;
                         } else {
                             super.visitMethodInsn(opcode, owner, name, desc, itf);
@@ -352,7 +358,6 @@ public class Agent implements ClassFileTransformer, Opcodes {
             OptionSpec<String> path = parser.accepts("exclude").withRequiredArg().ofType(String.class).withValuesSeparatedBy(",");
             parser.accepts("debug");
             parser.accepts("trace");
-            OptionSpec<String> profile = parser.accepts("profile").withOptionalArg().ofType(String.class);
             parser.accepts("nothrow");
             OptionSpec<String> validate = parser.accepts("validate").withOptionalArg().ofType(String.class);
             OptionSpec<Long> sleep = parser.accepts("sleep").withRequiredArg().ofType(Long.class);

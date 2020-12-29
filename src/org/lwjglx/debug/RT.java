@@ -24,7 +24,7 @@ package org.lwjglx.debug;
 
 import static org.lwjglx.debug.Log.error;
 import static org.lwjglx.debug.Log.trace;
-import static org.lwjglx.debug.opengl.Context.*;
+import static org.lwjglx.debug.org.lwjgl.opengl.Context.*;
 
 import java.nio.Buffer;
 import java.nio.ByteBuffer;
@@ -41,8 +41,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.lwjgl.PointerBuffer;
-import org.lwjgl.opengl.ARBTimerQuery;
-import org.lwjglx.debug.opengl.Context;
+import org.lwjglx.debug.org.lwjgl.opengl.Context;
 
 class Command {
     final List<Param> params;
@@ -73,6 +72,7 @@ public class RT {
 
     private static final Map<Buffer, ByteOrder> bufferEndiannessWritten = Collections.synchronizedMap(new WeakIdentityHashMap<>());
     private static final Map<Buffer, Buffer> bufferViews = Collections.synchronizedMap(new WeakIdentityHashMap<>());
+    private static final Map<Object, Boolean> freeableBuffers = Collections.synchronizedMap(new WeakIdentityHashMap<>());
 
     public static Thread mainThread;
     public static boolean glfwInitialized;
@@ -95,7 +95,21 @@ public class RT {
         return true;
     }
 
-    private static void writeByteBuffer(ByteBuffer buf) {
+    public static PointerBuffer allocateDirectPointerBuffer(int capacity) {
+    	PointerBuffer pb = PointerBuffer.allocateDirect(capacity);
+    	freeableBuffers.put(pb, false);
+    	return pb;
+    }
+
+    public static void free(PointerBuffer pb) {
+    	Boolean freeable = freeableBuffers.get(pb);
+    	if (freeable != null && !freeable.booleanValue()) {
+    		RT.throwIAEOrLogError("Trying to free() a buffer whose native memory is managed by the JVM");
+    	}
+    	pb.free();
+    }
+
+    public static void writeByteBuffer(ByteBuffer buf) {
         ByteOrder order = bufferEndiannessWritten.get(buf);
         if (order == null) {
             Buffer viewedBuffer = bufferViews.get(buf);
@@ -933,19 +947,6 @@ public class RT {
         }
     }
 
-    public static void beforeDraw() {
-        if (Properties.VALIDATE.enabled) {
-            checkFramebufferCompleteness();
-        }
-        Context ctx = Context.currentContext();
-        if (ctx.caps.GL_ARB_timer_query) {
-            TimingQuery q = ctx.nextTimerQuery();
-            q.drawTime = true;
-            ARBTimerQuery.glQueryCounter(q.before, ARBTimerQuery.GL_TIMESTAMP);
-            ctx.currentTimingQuery = q;
-        }
-    }
-
     public static void draw(int verticesCount) {
         if (Properties.VALIDATE.enabled && verticesCount == 0) {
             Log.warn("Draw call with 0 vertices", new Throwable(), 3);
@@ -968,30 +969,15 @@ public class RT {
         ctx.inImmediateMode = false;
     }
 
-    public static void vertex() {
-        Context ctx = Context.currentContext();
-        ctx.immediateModeVertices++;
-    }
-
     public static void frame() {
         Context ctx = Context.currentContext();
-        ctx.frameEndTime = System.nanoTime();
-        float drawTime = 0.0f;
-        ctx.frame++;
         if (Properties.VALIDATE.enabled) {
             if (!ctx.drawCallSeen) {
-                Log.info("No draw call seen in frame [" + ctx.frame + "]");
+                Log.info("No draw call seen in frame");
             }
         }
         /* Reset counters for next frame */
         ctx.drawCallSeen = false;
-        ctx.glCallCount = 0;
-        ctx.frameStartTime = ctx.frameEndTime;
-    }
-
-    public static void glCall() {
-        Context ctx = Context.currentContext();
-        ctx.glCallCount++;
     }
 
     private static int textureSize(int internalFormat, int width, int height) {
@@ -1191,48 +1177,6 @@ public class RT {
         if (!glfwInitialized) {
             throwISEOrLogError("Method " + methodName + " was called before initializing GLFW via glfwInit().");
         }
-    }
-
-    public static void stringMarker(String string) {
-        Context ctx = Context.currentContext();
-        if (!ctx.caps.GL_ARB_timer_query) {
-            /* No timer query support in this context */
-            return;
-        }
-        /* End timing of current section */
-        if (ctx.lastCodeSectionQuery != null) {
-            ARBTimerQuery.glQueryCounter(ctx.lastCodeSectionQuery.after, ARBTimerQuery.GL_TIMESTAMP);
-            ctx.lastCodeSectionQuery = null;
-        }
-        if (string.equals("end")) {
-            /* Special marker string to end a current code section */
-            return;
-        }
-        TimedCodeSection section;
-        if (ctx.codeSectionTimes.size() <= ctx.currentCodeSectionIndex) {
-            section = new TimedCodeSection();
-            section.name = string;
-            ctx.codeSectionTimes.add(section);
-        } else {
-            section = ctx.codeSectionTimes.get(ctx.currentCodeSectionIndex);
-            if (section == null || !section.name.equals(string)) {
-                for (int i = ctx.currentCodeSectionIndex + 1; i < ctx.codeSectionTimes.size(); i++) {
-//                    If the number of codeSectionTimes gets smaller, this will lead to a NP exception later on.
-//                    Use Case: Profile 5 codeSections at frame n. Profile only 4 code sections in frame n+1.
-//                    ctx.codeSectionTimes.set(i, null);
-                    ctx.codeSectionTimes.remove(i);
-                }
-                section = new TimedCodeSection();
-                section.name = string;
-                ctx.codeSectionTimes.set(ctx.currentCodeSectionIndex, section);
-            }
-        }
-        /* Create new timer for current section */
-        TimingQuery q = ctx.nextTimerQuery();
-        section.queries.add(q);
-        ARBTimerQuery.glQueryCounter(q.before, ARBTimerQuery.GL_TIMESTAMP);
-        ctx.lastCodeSectionQuery = q;
-        ctx.currentCodeSectionIndex++;
     }
 
     public static void checkGlfwMonitor(long monitor) {

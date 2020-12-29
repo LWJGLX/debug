@@ -17,12 +17,12 @@ import java.util.regex.Pattern;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.lwjgl.BufferUtils;
+import org.lwjgl.*;
 import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.opengl.*;
 import org.lwjgl.system.*;
 import org.lwjglx.debug.Properties;
-import org.lwjglx.debug.opengl.Context;
+import org.lwjglx.debug.org.lwjgl.opengl.Context;
 
 public class DebugIT {
 
@@ -103,6 +103,13 @@ public class DebugIT {
         assertNotNull(glfwSetErrorCallback(callback));
         glfwSetErrorCallback(null).free();
         assertNull(glfwSetErrorCallback(null));
+    }
+
+    @Test
+    public void testFreeNonFreeablePointerBuffer() {
+    	PointerBuffer pb = PointerBuffer.allocateDirect(1);
+        assertThrows(IllegalArgumentException.class, () -> pb.free(), 
+        		Pattern.compile("Trying to free\\(\\) a buffer whose native memory is managed by the JVM"));
     }
 
     @Test

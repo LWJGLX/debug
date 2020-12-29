@@ -23,7 +23,7 @@
 package org.lwjglx.debug;
 
 import static org.lwjglx.debug.Properties.*;
-import static org.lwjglx.debug.opengl.Context.*;
+import static org.lwjglx.debug.org.lwjgl.opengl.Context.*;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -35,7 +35,7 @@ import java.util.zip.GZIPOutputStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
-import org.lwjglx.debug.opengl.Context;
+import org.lwjglx.debug.org.lwjgl.opengl.Context;
 
 public class Log {
 
