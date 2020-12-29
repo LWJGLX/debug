@@ -22,11 +22,9 @@
  */
 package org.lwjglx.debug;
 
-import static org.lwjglx.debug.Context.CONTEXTS;
-import static org.lwjglx.debug.Context.CURRENT_CONTEXT;
-import static org.lwjglx.debug.Context.checkFramebufferCompleteness;
 import static org.lwjglx.debug.Log.error;
 import static org.lwjglx.debug.Log.trace;
+import static org.lwjglx.debug.opengl.Context.*;
 
 import java.nio.Buffer;
 import java.nio.ByteBuffer;
@@ -43,13 +41,8 @@ import java.util.List;
 import java.util.Map;
 
 import org.lwjgl.PointerBuffer;
-import org.lwjgl.opengl.ARBOcclusionQuery;
 import org.lwjgl.opengl.ARBTimerQuery;
-import org.lwjglx.debug.Context.TimingQuery;
-import org.lwjglx.debug.Context.TextureLayer;
-import org.lwjglx.debug.Context.TextureLevel;
-import org.lwjglx.debug.Context.TextureObject;
-import org.lwjglx.debug.Context.TimedCodeSection;
+import org.lwjglx.debug.opengl.Context;
 
 class Command {
     final List<Param> params;
@@ -958,12 +951,7 @@ public class RT {
             Log.warn("Draw call with 0 vertices", new Throwable(), 3);
         }
         Context ctx = Context.currentContext();
-        ctx.verticesCount += verticesCount;
         ctx.drawCallSeen = true;
-        if (Properties.PROFILE.enabled && ctx.caps.GL_ARB_timer_query) {
-            TimingQuery q = ctx.currentTimingQuery;
-            ARBTimerQuery.glQueryCounter(q.after, ARBTimerQuery.GL_TIMESTAMP);
-        }
     }
 
     public static void beginImmediate() {
@@ -973,18 +961,11 @@ public class RT {
         Context ctx = Context.currentContext();
         ctx.inImmediateMode = true;
         ctx.drawCallSeen = true;
-        if (Properties.PROFILE.enabled) {
-            RT.beforeDraw();
-        }
     }
 
     public static void endImmediate() {
         Context ctx = Context.currentContext();
         ctx.inImmediateMode = false;
-        if (Properties.PROFILE.enabled) {
-            draw(ctx.immediateModeVertices);
-            ctx.immediateModeVertices = 0;
-        }
     }
 
     public static void vertex() {
@@ -1002,41 +983,7 @@ public class RT {
                 Log.info("No draw call seen in frame [" + ctx.frame + "]");
             }
         }
-        if (Properties.PROFILE.enabled && ctx.caps.GL_ARB_timer_query) {
-            /* End current code section (if not already ended) */
-            if (ctx.lastCodeSectionQuery != null) {
-                ARBTimerQuery.glQueryCounter(ctx.lastCodeSectionQuery.after, ARBTimerQuery.GL_TIMESTAMP);
-                ctx.lastCodeSectionQuery = null;
-            }
-            /* Reset current code section counter */
-            ctx.currentCodeSectionIndex = 0;
-            /* Wait for all active query counters */
-            for (int i = 0; i < ctx.timingQueries.size(); i++) {
-                TimingQuery q = ctx.timingQueries.get(i);
-                if (!q.used)
-                    continue;
-                while (ARBOcclusionQuery.glGetQueryObjectiARB(q.before, ARBOcclusionQuery.GL_QUERY_RESULT_AVAILABLE_ARB) == 0)
-                    ;
-                while (ARBOcclusionQuery.glGetQueryObjectiARB(q.after, ARBOcclusionQuery.GL_QUERY_RESULT_AVAILABLE_ARB) == 0)
-                    ;
-                long time0 = ARBTimerQuery.glGetQueryObjectui64(q.before, ARBOcclusionQuery.GL_QUERY_RESULT_ARB);
-                long time1 = ARBTimerQuery.glGetQueryObjectui64(q.after, ARBOcclusionQuery.GL_QUERY_RESULT_ARB);
-                q.time0 = time0;
-                q.time1 = time1;
-                if (q.drawTime) {
-                    drawTime += (time1 - time0) / 1E6f; // <- in ms.
-                }
-                q.used = false;
-            }
-            ctx.drawCallTimeMs = drawTime;
-            Profiling.frame(ctx);
-            /* Clear all code section timings */
-            for (TimedCodeSection section : ctx.codeSectionTimes) {
-            	section.queries.clear();
-            }
-        }
         /* Reset counters for next frame */
-        ctx.verticesCount = 0;
         ctx.drawCallSeen = false;
         ctx.glCallCount = 0;
         ctx.frameStartTime = ctx.frameEndTime;

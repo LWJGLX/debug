@@ -45,8 +45,6 @@ public class Properties {
     public static final BooleanProperty STRICT = getBooleanProperty("org.lwjglx.STRICT", false);
     public static final BooleanProperty DEBUG = getBooleanProperty("org.lwjglx.DEBUG", false);
     public static final BooleanProperty TRACE = getBooleanProperty("org.lwjglx.TRACE", false);
-    public static final BooleanProperty PROFILE = getBooleanProperty("org.lwjglx.PROFILE", false);
-    public static final BooleanProperty PROFILE_SUSPEND = new BooleanProperty();
     public static final BooleanProperty NO_THROW_ON_ERROR = getBooleanProperty("org.lwjglx.NO_THROW", false);
     public static String OUTPUT = System.getProperty("org.lwjglx.OUTPUT", null);
     public static long SLEEP = getLongProperty("org.lwjglx.SLEEP", 0L);

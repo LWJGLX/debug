@@ -22,8 +22,8 @@
  */
 package org.lwjglx.debug.opengl;
 
-import static org.lwjglx.debug.Context.*;
 import static org.lwjglx.debug.RT.*;
+import static org.lwjglx.debug.opengl.Context.*;
 
 import java.nio.Buffer;
 import java.nio.ByteBuffer;
@@ -31,16 +31,8 @@ import java.nio.DoubleBuffer;
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 import java.nio.ShortBuffer;
-import java.util.Iterator;
-import java.util.Map;
 
-import org.lwjglx.debug.Context;
-import org.lwjglx.debug.Context.TextureLayer;
-import org.lwjglx.debug.Context.TextureObject;
-import org.lwjglx.debug.GLmetadata;
-import org.lwjglx.debug.MethodCall;
-import org.lwjglx.debug.Properties;
-import org.lwjglx.debug.RT;
+import org.lwjglx.debug.*;
 
 public class GL11 {
 
@@ -243,305 +235,9 @@ public class GL11 {
         org.lwjgl.opengl.GL11.glTexCoordPointer(size, type, stride, pointer);
     }
 
-    public static int glGetInteger(int pname) {
-        if (Properties.PROFILE.enabled && pname == org.lwjgl.opengl.GL30.GL_NUM_EXTENSIONS) {
-            int numExtensions = org.lwjgl.opengl.GL11.glGetInteger(pname);
-            return numExtensions + 2; // <- for GREMEDY_string_marker and GREMEDY_frame_terminator
-        }
-        return org.lwjgl.opengl.GL11.glGetInteger(pname);
-    }
-
-    public static void glGetIntegerv(int pname, IntBuffer params) {
-        if (Properties.PROFILE.enabled && pname == org.lwjgl.opengl.GL30.GL_NUM_EXTENSIONS) {
-            int numExtensions = org.lwjgl.opengl.GL11.glGetInteger(pname);
-            params.put(params.position(), numExtensions + 2); // <- for GREMEDY_string_marker and GREMEDY_frame_terminator
-            return;
-        }
-        org.lwjgl.opengl.GL11.glGetIntegerv(pname, params);
-    }
-
-    public static void glGetIntegerv(int pname, int[] params) {
-        if (Properties.PROFILE.enabled && pname == org.lwjgl.opengl.GL30.GL_NUM_EXTENSIONS) {
-            int numExtensions = org.lwjgl.opengl.GL11.glGetInteger(pname);
-            params[0] = numExtensions + 2; // <- for GREMEDY_string_marker and GREMEDY_frame_terminator
-            return;
-        }
-        org.lwjgl.opengl.GL11.glGetIntegerv(pname, params);
-    }
-
-    public static String glGetString(int name) {
-        String res = org.lwjgl.opengl.GL11.glGetString(name);
-        if (name == org.lwjgl.opengl.GL11.GL_EXTENSIONS && Properties.PROFILE.enabled) {
-            /* Also advertize GL_GREMEDY_string_marker and GL_GREMEDY_frame_terminator */
-            if (res != null) {
-                if (!res.endsWith(" "))
-                    res += " ";
-            } else {
-                res = "";
-            }
-            res += "GL_GREMEDY_string_marker GL_GREMEDY_frame_terminator ";
-        }
-        return res;
-    }
-
-    public static void glVertex2f(float x, float y) {
-        org.lwjgl.opengl.GL11.glVertex2f(x, y);
-        if (Properties.PROFILE.enabled) {
-            RT.vertex();
-        }
-    }
-
-    public static void glVertex2s(short x, short y) {
-        org.lwjgl.opengl.GL11.glVertex2s(x, y);
-        if (Properties.PROFILE.enabled) {
-            RT.vertex();
-        }
-    }
-
-    public static void glVertex2i(int x, int y) {
-        org.lwjgl.opengl.GL11.glVertex2i(x, y);
-        if (Properties.PROFILE.enabled) {
-            RT.vertex();
-        }
-    }
-
-    public static void glVertex2d(double x, double y) {
-        org.lwjgl.opengl.GL11.glVertex2d(x, y);
-        if (Properties.PROFILE.enabled) {
-            RT.vertex();
-        }
-    }
-
-    public static void glVertex2fv(FloatBuffer coords) {
-        org.lwjgl.opengl.GL11.glVertex2fv(coords);
-        if (Properties.PROFILE.enabled) {
-            RT.vertex();
-        }
-    }
-
-    public static void glVertex2fv(float[] coords) {
-        org.lwjgl.opengl.GL11.glVertex2fv(coords);
-        if (Properties.PROFILE.enabled) {
-            RT.vertex();
-        }
-    }
-
-    public static void glVertex2fs(ShortBuffer coords) {
-        org.lwjgl.opengl.GL11.glVertex2sv(coords);
-        if (Properties.PROFILE.enabled) {
-            RT.vertex();
-        }
-    }
-
-    public static void glVertex2fs(short[] coords) {
-        org.lwjgl.opengl.GL11.glVertex2sv(coords);
-        if (Properties.PROFILE.enabled) {
-            RT.vertex();
-        }
-    }
-
-    public static void glVertex2fi(IntBuffer coords) {
-        org.lwjgl.opengl.GL11.glVertex2iv(coords);
-        if (Properties.PROFILE.enabled) {
-            RT.vertex();
-        }
-    }
-
-    public static void glVertex2fi(int[] coords) {
-        org.lwjgl.opengl.GL11.glVertex2iv(coords);
-        if (Properties.PROFILE.enabled) {
-            RT.vertex();
-        }
-    }
-
-    public static void glVertex2fd(DoubleBuffer coords) {
-        org.lwjgl.opengl.GL11.glVertex2dv(coords);
-        if (Properties.PROFILE.enabled) {
-            RT.vertex();
-        }
-    }
-
-    public static void glVertex2fd(double[] coords) {
-        org.lwjgl.opengl.GL11.glVertex2dv(coords);
-        if (Properties.PROFILE.enabled) {
-            RT.vertex();
-        }
-    }
-
-    public static void glVertex3f(float x, float y, float z) {
-        org.lwjgl.opengl.GL11.glVertex3f(x, y, z);
-        if (Properties.PROFILE.enabled) {
-            RT.vertex();
-        }
-    }
-
-    public static void glVertex3s(short x, short y, short z) {
-        org.lwjgl.opengl.GL11.glVertex3s(x, y, z);
-        if (Properties.PROFILE.enabled) {
-            RT.vertex();
-        }
-    }
-
-    public static void glVertex3i(int x, int y, int z) {
-        org.lwjgl.opengl.GL11.glVertex3i(x, y, z);
-        if (Properties.PROFILE.enabled) {
-            RT.vertex();
-        }
-    }
-
-    public static void glVertex3d(double x, double y, double z) {
-        org.lwjgl.opengl.GL11.glVertex3d(x, y, z);
-        if (Properties.PROFILE.enabled) {
-            RT.vertex();
-        }
-    }
-
-    public static void glVertex3fv(FloatBuffer coords) {
-        org.lwjgl.opengl.GL11.glVertex3fv(coords);
-        if (Properties.PROFILE.enabled) {
-            RT.vertex();
-        }
-    }
-
-    public static void glVertex3fv(float[] coords) {
-        org.lwjgl.opengl.GL11.glVertex3fv(coords);
-        if (Properties.PROFILE.enabled) {
-            RT.vertex();
-        }
-    }
-
-    public static void glVertex3fs(ShortBuffer coords) {
-        org.lwjgl.opengl.GL11.glVertex3sv(coords);
-        if (Properties.PROFILE.enabled) {
-            RT.vertex();
-        }
-    }
-
-    public static void glVertex3fs(short[] coords) {
-        org.lwjgl.opengl.GL11.glVertex3sv(coords);
-        if (Properties.PROFILE.enabled) {
-            RT.vertex();
-        }
-    }
-
-    public static void glVertex3fi(IntBuffer coords) {
-        org.lwjgl.opengl.GL11.glVertex3iv(coords);
-        if (Properties.PROFILE.enabled) {
-            RT.vertex();
-        }
-    }
-
-    public static void glVertex3fi(int[] coords) {
-        org.lwjgl.opengl.GL11.glVertex3iv(coords);
-        if (Properties.PROFILE.enabled) {
-            RT.vertex();
-        }
-    }
-
-    public static void glVertex3fd(DoubleBuffer coords) {
-        org.lwjgl.opengl.GL11.glVertex3dv(coords);
-        if (Properties.PROFILE.enabled) {
-            RT.vertex();
-        }
-    }
-
-    public static void glVertex3fd(double[] coords) {
-        org.lwjgl.opengl.GL11.glVertex3dv(coords);
-        if (Properties.PROFILE.enabled) {
-            RT.vertex();
-        }
-    }
-
-    public static void glVertex4f(float x, float y, float z, float w) {
-        org.lwjgl.opengl.GL11.glVertex4f(x, y, z, w);
-        if (Properties.PROFILE.enabled) {
-            RT.vertex();
-        }
-    }
-
-    public static void glVertex4f(short x, short y, short z, short w) {
-        org.lwjgl.opengl.GL11.glVertex4s(x, y, z, w);
-        if (Properties.PROFILE.enabled) {
-            RT.vertex();
-        }
-    }
-
-    public static void glVertex4f(int x, int y, int z, int w) {
-        org.lwjgl.opengl.GL11.glVertex4i(x, y, z, w);
-        if (Properties.PROFILE.enabled) {
-            RT.vertex();
-        }
-    }
-
-    public static void glVertex4f(double x, double y, double z, double w) {
-        org.lwjgl.opengl.GL11.glVertex4d(x, y, z, w);
-        if (Properties.PROFILE.enabled) {
-            RT.vertex();
-        }
-    }
-
-    public static void glVertex4fv(FloatBuffer coords) {
-        org.lwjgl.opengl.GL11.glVertex4fv(coords);
-        if (Properties.PROFILE.enabled) {
-            RT.vertex();
-        }
-    }
-
-    public static void glVertex4fv(float[] coords) {
-        org.lwjgl.opengl.GL11.glVertex4fv(coords);
-        if (Properties.PROFILE.enabled) {
-            RT.vertex();
-        }
-    }
-
-    public static void glVertex4fs(ShortBuffer coords) {
-        org.lwjgl.opengl.GL11.glVertex4sv(coords);
-        if (Properties.PROFILE.enabled) {
-            RT.vertex();
-        }
-    }
-
-    public static void glVertex4fs(short[] coords) {
-        org.lwjgl.opengl.GL11.glVertex4sv(coords);
-        if (Properties.PROFILE.enabled) {
-            RT.vertex();
-        }
-    }
-
-    public static void glVertex4fi(IntBuffer coords) {
-        org.lwjgl.opengl.GL11.glVertex4iv(coords);
-        if (Properties.PROFILE.enabled) {
-            RT.vertex();
-        }
-    }
-
-    public static void glVertex4fi(int[] coords) {
-        org.lwjgl.opengl.GL11.glVertex4iv(coords);
-        if (Properties.PROFILE.enabled) {
-            RT.vertex();
-        }
-    }
-
-    public static void glVertex4fd(DoubleBuffer coords) {
-        org.lwjgl.opengl.GL11.glVertex4dv(coords);
-        if (Properties.PROFILE.enabled) {
-            RT.vertex();
-        }
-    }
-
-    public static void glVertex4fd(double[] coords) {
-        org.lwjgl.opengl.GL11.glVertex4dv(coords);
-        if (Properties.PROFILE.enabled) {
-            RT.vertex();
-        }
-    }
-
     public static void glDrawArrays(int mode, int first, int count) {
         if (Properties.VALIDATE.enabled) {
             checkBeforeDrawCall();
-        }
-        if (Properties.PROFILE.enabled) {
-            RT.beforeDraw();
         }
         org.lwjgl.opengl.GL11.glDrawArrays(mode, first, count);
         RT.draw(count);
@@ -555,9 +251,6 @@ public class GL11 {
             }
             checkBeforeDrawCall();
         }
-        if (Properties.PROFILE.enabled) {
-            RT.beforeDraw();
-        }
         org.lwjgl.opengl.GL11.nglDrawElements(mode, count, type, indices);
         RT.draw(count);
     }
@@ -570,9 +263,6 @@ public class GL11 {
         if (Properties.VALIDATE.enabled) {
             checkBeforeDrawCall();
         }
-        if (Properties.PROFILE.enabled) {
-            RT.beforeDraw();
-        }
         org.lwjgl.opengl.GL11.glDrawElements(mode, type, indices);
         RT.draw(indices.remaining());
     }
@@ -580,9 +270,6 @@ public class GL11 {
     public static void glDrawElements(int mode, ByteBuffer indices) {
         if (Properties.VALIDATE.enabled) {
             checkBeforeDrawCall();
-        }
-        if (Properties.PROFILE.enabled) {
-            RT.beforeDraw();
         }
         org.lwjgl.opengl.GL11.glDrawElements(mode, indices);
         RT.draw(indices.remaining());
@@ -592,9 +279,6 @@ public class GL11 {
         if (Properties.VALIDATE.enabled) {
             checkBeforeDrawCall();
         }
-        if (Properties.PROFILE.enabled) {
-            RT.beforeDraw();
-        }
         org.lwjgl.opengl.GL11.glDrawElements(mode, indices);
         RT.draw(indices.remaining());
     }
@@ -602,9 +286,6 @@ public class GL11 {
     public static void glDrawElements(int mode, IntBuffer indices) {
         if (Properties.VALIDATE.enabled) {
             checkBeforeDrawCall();
-        }
-        if (Properties.PROFILE.enabled) {
-            RT.beforeDraw();
         }
         org.lwjgl.opengl.GL11.glDrawElements(mode, indices);
         RT.draw(indices.remaining());
@@ -652,85 +333,6 @@ public class GL11 {
         return tex;
     }
 
-    private static void assignLayers(int target, TextureObject to) {
-        if (to.layers == null) {
-            switch (target) {
-            case org.lwjgl.opengl.GL13.GL_TEXTURE_CUBE_MAP:
-                to.layers = new TextureLayer[6];
-                break;
-            default:
-                to.layers = new TextureLayer[1];
-                break;
-            }
-            for (int i = 0; i < to.layers.length; i++) {
-                to.layers[i] = new TextureLayer();
-            }
-        }
-    }
-
-    public static void glBindTexture(int target, int texture) {
-        org.lwjgl.opengl.GL11.glBindTexture(target, texture);
-        if (Properties.PROFILE.enabled) {
-            Context ctx = Context.currentContext();
-            if (texture != 0) {
-                TextureObject to = ctx.shareGroup.textureObjects.get(texture);
-                assignLayers(target, to);
-                ctx.textureObjectBindings.put(target, to);
-            } else {
-                ctx.textureObjectBindings.remove(target);
-            }
-        }
-    }
-
-    public static void glDeleteTextures(IntBuffer textures) {
-        org.lwjgl.opengl.GL11.glDeleteTextures(textures);
-        if (Properties.PROFILE.enabled) {
-            Context ctx = Context.currentContext();
-            int pos = textures.position();
-            for (int i = 0; i < textures.remaining(); i++) {
-                int buffer = textures.get(pos + i);
-                TextureObject to = ctx.shareGroup.textureObjects.remove(buffer);
-                Iterator<Map.Entry<Integer, TextureObject>> it = ctx.textureObjectBindings.entrySet().iterator();
-                while (it.hasNext()) {
-                    if (it.next().getValue() == to) {
-                        it.remove();
-                    }
-                }
-            }
-        }
-    }
-
-    public static void glDeleteTextures(int[] textures) {
-        org.lwjgl.opengl.GL11.glDeleteTextures(textures);
-        if (Properties.PROFILE.enabled) {
-            Context ctx = Context.currentContext();
-            for (int i = 0; i < textures.length; i++) {
-                int buffer = textures[i];
-                TextureObject to = ctx.shareGroup.textureObjects.remove(buffer);
-                Iterator<Map.Entry<Integer, TextureObject>> it = ctx.textureObjectBindings.entrySet().iterator();
-                while (it.hasNext()) {
-                    if (it.next().getValue() == to) {
-                        it.remove();
-                    }
-                }
-            }
-        }
-    }
-
-    public static void glDeleteTextures(int texture) {
-        org.lwjgl.opengl.GL11.glDeleteTextures(texture);
-        if (Properties.PROFILE.enabled) {
-            Context ctx = Context.currentContext();
-            TextureObject to = ctx.shareGroup.textureObjects.remove(texture);
-            Iterator<Map.Entry<Integer, TextureObject>> it = ctx.textureObjectBindings.entrySet().iterator();
-            while (it.hasNext()) {
-                if (it.next().getValue() == to) {
-                    it.remove();
-                }
-            }
-        }
-    }
-
     private static void glTexImage2D_trace(int target, int level, int internalformat, int width, int height, int border, int format, int type, Object pixelsOrSize, MethodCall mc) {
         mc.paramEnum(GLmetadata.TextureTarget().get(target));
         mc.param(level);
@@ -768,73 +370,6 @@ public class GL11 {
 
     public static void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, DoubleBuffer pixels, Void ret, MethodCall mc) {
         glTexImage2D_trace(target, level, internalformat, width, height, border, format, type, pixels, mc);
-    }
-
-    private static void profileTexture2D(int target, int level, int internalformat, int width, int height) {
-        Context ctx = Context.currentContext();
-        int boundTarget = target;
-        if (target >= org.lwjgl.opengl.GL13.GL_TEXTURE_CUBE_MAP_POSITIVE_X && target <= org.lwjgl.opengl.GL13.GL_TEXTURE_CUBE_MAP_NEGATIVE_Z) {
-            boundTarget = org.lwjgl.opengl.GL13.GL_TEXTURE_CUBE_MAP;
-        }
-        TextureObject to = ctx.textureObjectBindings.get(boundTarget);
-        if (to != null) {
-            setTextureLayerSize(target, level, internalformat, width, height, to);
-            /* See whether mipmap levels should be automatically generated */
-            boolean generateMipmaps = ctx.caps.OpenGL14 && to.generateMipmap;
-            if (generateMipmaps) {
-                /* Determine maximum mipmap level */
-                int maxLevel = ctx.caps.OpenGL12 ? org.lwjgl.opengl.GL11.glGetTexParameteri(boundTarget, org.lwjgl.opengl.GL12.GL_TEXTURE_MAX_LEVEL) : 1000;
-                /* Set the size of all mipmap levels */
-                while (width > 1 || height > 1 && level < maxLevel) {
-                    width >>>= 1;
-                    height >>>= 1;
-                    level++;
-                    setTextureLayerSize(target, level, internalformat, width, height, to);
-                }
-            }
-        }
-    }
-
-    public static void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, long size) {
-        org.lwjgl.opengl.GL11.glTexImage2D(target, level, internalformat, width, height, border, format, type, size);
-        if (Properties.PROFILE.enabled) {
-            profileTexture2D(target, level, internalformat, width, height);
-        }
-    }
-
-    public static void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, ByteBuffer pixels) {
-        org.lwjgl.opengl.GL11.glTexImage2D(target, level, internalformat, width, height, border, format, type, pixels);
-        if (Properties.PROFILE.enabled) {
-            profileTexture2D(target, level, internalformat, width, height);
-        }
-    }
-
-    public static void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, ShortBuffer pixels) {
-        org.lwjgl.opengl.GL11.glTexImage2D(target, level, internalformat, width, height, border, format, type, pixels);
-        if (Properties.PROFILE.enabled) {
-            profileTexture2D(target, level, internalformat, width, height);
-        }
-    }
-
-    public static void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, IntBuffer pixels) {
-        org.lwjgl.opengl.GL11.glTexImage2D(target, level, internalformat, width, height, border, format, type, pixels);
-        if (Properties.PROFILE.enabled) {
-            profileTexture2D(target, level, internalformat, width, height);
-        }
-    }
-
-    public static void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, FloatBuffer pixels) {
-        org.lwjgl.opengl.GL11.glTexImage2D(target, level, internalformat, width, height, border, format, type, pixels);
-        if (Properties.PROFILE.enabled) {
-            profileTexture2D(target, level, internalformat, width, height);
-        }
-    }
-
-    public static void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, DoubleBuffer pixels) {
-        org.lwjgl.opengl.GL11.glTexImage2D(target, level, internalformat, width, height, border, format, type, pixels);
-        if (Properties.PROFILE.enabled) {
-            profileTexture2D(target, level, internalformat, width, height);
-        }
     }
 
     private static void glTexImage1D_trace(int target, int level, int internalformat, int width, int border, int format, int type, Buffer pixels, MethodCall mc) {
@@ -903,17 +438,6 @@ public class GL11 {
         default:
             mc.param(param);
             break;
-        }
-    }
-
-    public static void glTexParameteri(int target, int pname, int param) {
-        org.lwjgl.opengl.GL11.glTexParameteri(target, pname, param);
-        if (Properties.PROFILE.enabled) {
-            Context ctx = Context.currentContext();
-            TextureObject to = ctx.textureObjectBindings.get(target);
-            if (to != null && pname == org.lwjgl.opengl.GL14.GL_GENERATE_MIPMAP) {
-                to.generateMipmap = param == 1;
-            }
         }
     }
 

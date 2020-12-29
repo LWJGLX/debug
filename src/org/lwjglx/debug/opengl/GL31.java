@@ -22,8 +22,8 @@
  */
 package org.lwjglx.debug.opengl;
 
-import static org.lwjglx.debug.Context.*;
 import static org.lwjglx.debug.RT.*;
+import static org.lwjglx.debug.opengl.Context.*;
 
 import java.nio.ByteBuffer;
 import java.nio.IntBuffer;
@@ -38,9 +38,6 @@ public class GL31 {
         if (Properties.VALIDATE.enabled) {
             checkBeforeDrawCall();
         }
-        if (Properties.PROFILE.enabled) {
-            RT.beforeDraw();
-        }
         org.lwjgl.opengl.GL31.glDrawArraysInstanced(mode, first, count, primcount);
         RT.draw(count * primcount);
     }
@@ -53,9 +50,6 @@ public class GL31 {
             }
             checkBeforeDrawCall();
         }
-        if (Properties.PROFILE.enabled) {
-            RT.beforeDraw();
-        }
         org.lwjgl.opengl.GL31.glDrawElementsInstanced(mode, count, type, indices, primcount);
         RT.draw(count * primcount);
     }
@@ -63,9 +57,6 @@ public class GL31 {
     public static void glDrawElementsInstanced(int mode, int type, ByteBuffer indices, int primcount) {
         if (Properties.VALIDATE.enabled) {
             checkBeforeDrawCall();
-        }
-        if (Properties.PROFILE.enabled) {
-            RT.beforeDraw();
         }
         org.lwjgl.opengl.GL31.glDrawElementsInstanced(mode, type, indices, primcount);
         RT.draw(indices.remaining() * primcount);
@@ -75,9 +66,6 @@ public class GL31 {
         if (Properties.VALIDATE.enabled) {
             checkBeforeDrawCall();
         }
-        if (Properties.PROFILE.enabled) {
-            RT.beforeDraw();
-        }
         org.lwjgl.opengl.GL31.glDrawElementsInstanced(mode, indices, primcount);
         RT.draw(indices.remaining() * primcount);
     }
@@ -86,9 +74,6 @@ public class GL31 {
         if (Properties.VALIDATE.enabled) {
             checkBeforeDrawCall();
         }
-        if (Properties.PROFILE.enabled) {
-            RT.beforeDraw();
-        }
         org.lwjgl.opengl.GL31.glDrawElementsInstanced(mode, indices, primcount);
         RT.draw(indices.remaining() * primcount);
     }
@@ -96,9 +81,6 @@ public class GL31 {
     public static void glDrawElementsInstanced(int mode, IntBuffer indices, int primcount) {
         if (Properties.VALIDATE.enabled) {
             checkBeforeDrawCall();
-        }
-        if (Properties.PROFILE.enabled) {
-            RT.beforeDraw();
         }
         org.lwjgl.opengl.GL31.glDrawElementsInstanced(mode, indices, primcount);
         RT.draw(indices.remaining() * primcount);

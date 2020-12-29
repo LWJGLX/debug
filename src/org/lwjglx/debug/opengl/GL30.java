@@ -22,39 +22,17 @@
  */
 package org.lwjglx.debug.opengl;
 
-import static org.lwjglx.debug.Context.*;
 import static org.lwjglx.debug.RT.*;
+import static org.lwjglx.debug.opengl.Context.*;
 
 import java.nio.ByteBuffer;
 import java.nio.IntBuffer;
 import java.nio.ShortBuffer;
 
-import org.lwjglx.debug.Context;
 import org.lwjglx.debug.Properties;
-import org.lwjglx.debug.Context.VAO;
+import org.lwjglx.debug.opengl.Context.VAO;
 
 public class GL30 {
-
-    public static String glGetStringi(int name, int index) {
-        if (Properties.PROFILE.enabled && name == org.lwjgl.opengl.GL11.GL_EXTENSIONS) {
-            int numExtensions = org.lwjgl.opengl.GL11.glGetInteger(org.lwjgl.opengl.GL30.GL_NUM_EXTENSIONS);
-            int GREMEDY_string_marker_index = numExtensions;
-            int GREMEDY_frame_terminator_index = numExtensions + 1;
-            if (index == GREMEDY_string_marker_index) {
-                return "GREMEDY_string_marker";
-            } else if (index == GREMEDY_frame_terminator_index) {
-                return "GREMEDY_frame_terminator";
-            }
-        }
-        return org.lwjgl.opengl.GL30.glGetStringi(name, index);
-    }
-
-    public static void glGenerateMipmap(int target) {
-        org.lwjgl.opengl.GL30.glGenerateMipmap(target);
-        if (Properties.PROFILE.enabled) {
-            generateMipmap(target);
-        }
-    }
 
     public static void glVertexAttribIPointer(int index, int size, int type, int stride, ByteBuffer pointer) {
         if (Properties.VALIDATE.enabled && index > -1) {

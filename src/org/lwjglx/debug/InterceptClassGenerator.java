@@ -131,10 +131,7 @@ class InterceptClassGenerator implements Opcodes {
     private static final Map<ClassKey, HashSet<Method>> declaredMethods = new ConcurrentHashMap<>();
 
     private static boolean isGLcall(InterceptedCall call) {
-        return (call.name.startsWith("gl") || call.name.startsWith("ngl")) && call.resolvedReceiverInternalName.startsWith("org/lwjgl/opengl/")
-                && (!Properties.PROFILE.enabled || 
-                        (!call.resolvedReceiverInternalName.equals("org/lwjgl/opengl/GREMEDYStringMarker") &&
-                         !call.resolvedReceiverInternalName.equals("org/lwjgl/opengl/GREMEDYFrameTerminator")));
+        return (call.name.startsWith("gl") || call.name.startsWith("ngl")) && call.resolvedReceiverInternalName.startsWith("org/lwjgl/opengl/");
     }
 
     private static String glCall(InterceptedCall call) {
@@ -269,10 +266,6 @@ class InterceptClassGenerator implements Opcodes {
                         mv.visitMethodInsn(INVOKESTATIC, "org/lwjgl/opengl/GL", "getCapabilities", "()Lorg/lwjgl/opengl/GLCapabilities;", false);
                         /* and whether the function is supported */
                         checkFunctionSupported(mv, call.glName);
-                    }
-                    /* also increment GL call profiling counter */
-                    if (PROFILE.enabled) {
-                        mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, "glCall", "()V", false);
                     }
                 }
                 /* Optionally delay the call */

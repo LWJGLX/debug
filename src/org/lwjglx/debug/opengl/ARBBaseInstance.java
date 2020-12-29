@@ -22,8 +22,8 @@
  */
 package org.lwjglx.debug.opengl;
 
-import static org.lwjglx.debug.Context.*;
 import static org.lwjglx.debug.RT.*;
+import static org.lwjglx.debug.opengl.Context.*;
 
 import java.nio.ByteBuffer;
 import java.nio.IntBuffer;
@@ -38,9 +38,6 @@ public class ARBBaseInstance {
         if (Properties.VALIDATE.enabled) {
             checkBeforeDrawCall();
         }
-        if (Properties.PROFILE.enabled) {
-            RT.beforeDraw();
-        }
         org.lwjgl.opengl.ARBBaseInstance.glDrawArraysInstancedBaseInstance(mode, first, count, primcount, baseinstance);
         RT.draw(count * primcount);
     }
@@ -53,9 +50,6 @@ public class ARBBaseInstance {
             }
             checkBeforeDrawCall();
         }
-        if (Properties.PROFILE.enabled) {
-            RT.beforeDraw();
-        }
         org.lwjgl.opengl.ARBBaseInstance.glDrawElementsInstancedBaseInstance(mode, count, type, indices, primcount, baseinstance);
         RT.draw(count * primcount);
     }
@@ -63,9 +57,6 @@ public class ARBBaseInstance {
     public static void glDrawElementsInstancedBaseInstance(int mode, int type, ByteBuffer indices, int primcount, int baseinstance) {
         if (Properties.VALIDATE.enabled) {
             checkBeforeDrawCall();
-        }
-        if (Properties.PROFILE.enabled) {
-            RT.beforeDraw();
         }
         org.lwjgl.opengl.ARBBaseInstance.glDrawElementsInstancedBaseInstance(mode, type, indices, primcount, baseinstance);
         RT.draw(indices.remaining() * primcount);
@@ -75,9 +66,6 @@ public class ARBBaseInstance {
         if (Properties.VALIDATE.enabled) {
             checkBeforeDrawCall();
         }
-        if (Properties.PROFILE.enabled) {
-            RT.beforeDraw();
-        }
         org.lwjgl.opengl.ARBBaseInstance.glDrawElementsInstancedBaseInstance(mode, indices, primcount, baseinstance);
         RT.draw(indices.remaining() * primcount);
     }
@@ -86,9 +74,6 @@ public class ARBBaseInstance {
         if (Properties.VALIDATE.enabled) {
             checkBeforeDrawCall();
         }
-        if (Properties.PROFILE.enabled) {
-            RT.beforeDraw();
-        }
         org.lwjgl.opengl.ARBBaseInstance.glDrawElementsInstancedBaseInstance(mode, indices, primcount, baseinstance);
         RT.draw(indices.remaining() * primcount);
     }
@@ -96,9 +81,6 @@ public class ARBBaseInstance {
     public static void glDrawElementsInstancedBaseInstance(int mode, IntBuffer indices, int primcount, int baseinstance) {
         if (Properties.VALIDATE.enabled) {
             checkBeforeDrawCall();
-        }
-        if (Properties.PROFILE.enabled) {
-            RT.beforeDraw();
         }
         org.lwjgl.opengl.ARBBaseInstance.glDrawElementsInstancedBaseInstance(mode, indices, primcount, baseinstance);
         RT.draw(indices.remaining() * primcount);
@@ -112,9 +94,6 @@ public class ARBBaseInstance {
             }
             checkBeforeDrawCall();
         }
-        if (Properties.PROFILE.enabled) {
-            RT.beforeDraw();
-        }
         org.lwjgl.opengl.ARBBaseInstance.glDrawElementsInstancedBaseVertexBaseInstance(mode, count, type, indices, primcount, basevertex, baseinstance);
         RT.draw(count * primcount);
     }
@@ -122,9 +101,6 @@ public class ARBBaseInstance {
     public static void glDrawElementsInstancedBaseVertexBaseInstance(int mode, int type, ByteBuffer indices, int primcount, int basevertex, int baseinstance) {
         if (Properties.VALIDATE.enabled) {
             checkBeforeDrawCall();
-        }
-        if (Properties.PROFILE.enabled) {
-            RT.beforeDraw();
         }
         org.lwjgl.opengl.ARBBaseInstance.glDrawElementsInstancedBaseVertexBaseInstance(mode, type, indices, primcount, basevertex, baseinstance);
         RT.draw(indices.remaining() * primcount);
@@ -134,9 +110,6 @@ public class ARBBaseInstance {
         if (Properties.VALIDATE.enabled) {
             checkBeforeDrawCall();
         }
-        if (Properties.PROFILE.enabled) {
-            RT.beforeDraw();
-        }
         org.lwjgl.opengl.ARBBaseInstance.glDrawElementsInstancedBaseVertexBaseInstance(mode, indices, primcount, basevertex, baseinstance);
         RT.draw(indices.remaining() * primcount);
     }
@@ -145,9 +118,6 @@ public class ARBBaseInstance {
         if (Properties.VALIDATE.enabled) {
             checkBeforeDrawCall();
         }
-        if (Properties.PROFILE.enabled) {
-            RT.beforeDraw();
-        }
         org.lwjgl.opengl.ARBBaseInstance.glDrawElementsInstancedBaseVertexBaseInstance(mode, indices, primcount, basevertex, baseinstance);
         RT.draw(indices.remaining() * primcount);
     }
@@ -155,9 +125,6 @@ public class ARBBaseInstance {
     public static void glDrawElementsInstancedBaseVertexBaseInstance(int mode, IntBuffer indices, int primcount, int basevertex, int baseinstance) {
         if (Properties.VALIDATE.enabled) {
             checkBeforeDrawCall();
-        }
-        if (Properties.PROFILE.enabled) {
-            RT.beforeDraw();
         }
         org.lwjgl.opengl.ARBBaseInstance.glDrawElementsInstancedBaseVertexBaseInstance(mode, indices, primcount, basevertex, baseinstance);
         RT.draw(indices.remaining() * primcount);

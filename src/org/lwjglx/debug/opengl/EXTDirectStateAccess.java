@@ -29,10 +29,7 @@ import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 import java.nio.ShortBuffer;
 
-import org.lwjglx.debug.Context;
-import org.lwjglx.debug.GLmetadata;
-import org.lwjglx.debug.MethodCall;
-import org.lwjglx.debug.Properties;
+import org.lwjglx.debug.*;
 
 public class EXTDirectStateAccess {
 

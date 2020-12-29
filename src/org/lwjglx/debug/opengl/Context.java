@@ -20,7 +20,7 @@
  THE SOFTWARE.
 
  */
-package org.lwjglx.debug;
+package org.lwjglx.debug.opengl;
 
 import static org.lwjglx.debug.Log.*;
 
@@ -37,6 +37,7 @@ import java.util.concurrent.ConcurrentSkipListSet;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import org.lwjgl.opengl.ARBOcclusionQuery;
+import org.lwjglx.debug.*;
 
 public class Context implements Comparable<Context> {
     public static class ShareGroup {
@@ -146,7 +147,6 @@ public class Context implements Comparable<Context> {
     public boolean inImmediateMode;
     public Thread currentInThread;
     /* per frame info */
-    public int verticesCount;
     public boolean drawCallSeen;
 
     /* Profiling (per frame info) */

@@ -21,8 +21,8 @@ import org.lwjgl.BufferUtils;
 import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.opengl.*;
 import org.lwjgl.system.*;
-import org.lwjglx.debug.Context;
 import org.lwjglx.debug.Properties;
+import org.lwjglx.debug.opengl.Context;
 
 public class DebugIT {
 

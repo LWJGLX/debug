@@ -22,8 +22,8 @@
  */
 package org.lwjglx.debug.glfw;
 
-import static org.lwjglx.debug.Context.*;
 import static org.lwjglx.debug.Log.*;
+import static org.lwjglx.debug.opengl.Context.*;
 
 import java.nio.ByteBuffer;
 import java.util.Map;
@@ -34,10 +34,8 @@ import org.lwjgl.glfw.GLFWVidMode;
 import org.lwjgl.system.APIUtil;
 import org.lwjgl.system.Callback;
 import org.lwjgl.system.Platform;
-import org.lwjglx.debug.Context;
-import org.lwjglx.debug.MethodCall;
-import org.lwjglx.debug.Properties;
-import org.lwjglx.debug.RT;
+import org.lwjglx.debug.*;
+import org.lwjglx.debug.opengl.Context;
 
 public class GLFW {
 

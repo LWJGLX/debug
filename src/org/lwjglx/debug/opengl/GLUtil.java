@@ -4,8 +4,8 @@
  */
 package org.lwjglx.debug.opengl;
 
-import static org.lwjglx.debug.Context.*;
 import static org.lwjglx.debug.RT.*;
+import static org.lwjglx.debug.opengl.Context.*;
 
 import org.lwjgl.opengl.AMDDebugOutput;
 import org.lwjgl.opengl.ARBDebugOutput;
@@ -15,7 +15,6 @@ import org.lwjgl.opengl.GLDebugMessageARBCallback;
 import org.lwjgl.opengl.GLDebugMessageCallback;
 import org.lwjgl.opengl.KHRDebug;
 import org.lwjgl.system.*;
-import org.lwjglx.debug.Context;
 
 import java.io.*;
 import java.util.function.Consumer;

@@ -35,8 +35,6 @@ import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.regex.Pattern;
 
-import javax.servlet.ServletException;
-
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.ClassVisitor;
 import org.objectweb.asm.ClassWriter;
@@ -177,19 +175,6 @@ public class Agent implements ClassFileTransformer, Opcodes {
                     public void visitLineNumber(int line, Label start) {
                         super.visitLineNumber(line, start);
                         lastLineNumber = line;
-                    }
-
-                    public void visitFieldInsn(int opcode, String owner, String name, String desc) {
-                        /* Intercept certain GLCapabilities field reads when profiling */
-                        if (PROFILE.enabled && opcode == GETFIELD && owner.equals("org/lwjgl/opengl/GLCapabilities") && desc.equals("Z")) {
-                            if (name.equals("GL_GREMEDY_string_marker") || name.equals("GL_GREMEDY_frame_terminator")) {
-                                mv.visitInsn(POP); // <- pop off GLCapabilities
-                                mv.visitInsn(ICONST_1); // <- true
-                                modifications.modified = true;
-                                return;
-                            }
-                        }
-                        super.visitFieldInsn(opcode, owner, name, desc);
                     }
 
                     public void visitMethodInsn(int opcode, String owner, String name, String desc, boolean itf) {
@@ -383,26 +368,6 @@ public class Agent implements ClassFileTransformer, Opcodes {
                 Properties.DEBUG.enable();
             if (options.has("trace"))
                 Properties.TRACE.enable();
-            if (options.has("profile")) {
-                Properties.PROFILE.enable();
-                Properties.VALIDATE.disableIfByDefault();
-                /* Parse sub-properties of "profile" */
-                String profileArgsString = options.valueOf(profile);
-                if (profileArgsString != null) {
-                    String[] profileArgsStrings = profileArgsString.split(";");
-                    for (int i = 0; i < profileArgsStrings.length; i++) {
-                        if (!profileArgsStrings[i].startsWith("-")) {
-                            profileArgsStrings[i] = "-" + profileArgsStrings[i];
-                        }
-                    }
-                    OptionParser profileArgParser = new OptionParser();
-                    profileArgParser.accepts("suspend");
-                    OptionSet profileArgs = profileArgParser.parse(profileArgsStrings);
-                    if (profileArgs.has("suspend")) {
-                        Properties.PROFILE_SUSPEND.enable();
-                    }
-                }
-            }
             if (options.has("validate")) {
                 Properties.VALIDATE.enable();
                 String validateArgsString = options.valueOf(validate);
@@ -417,27 +382,10 @@ public class Agent implements ClassFileTransformer, Opcodes {
             if (options.has("output"))
                 Properties.OUTPUT = options.valueOf(output);
         }
-        if (Properties.PROFILE.enabled) {
-            try {
-                Profiling.startServer();
-            } catch (ServletException e) {
-                throw new AssertionError("Could not start profiling server", e);
-            }
-        }
         LWJGLInit.init();
         Agent t = new Agent(excludes);
         instrumentation.addTransformer(t);
         RT.mainThread = Thread.currentThread();
-
-        if (Properties.PROFILE_SUSPEND.enabled) {
-            /* Suspend execution until profile frontend connected */
-            try {
-                info("Waiting for first profile frontend to connect...");
-                Profiling.frontendConnected.await();
-                info("Profile frontend connected. Resuming application startup.");
-            } catch (InterruptedException e) {
-            }
-        }
     }
 
 }

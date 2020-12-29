@@ -22,9 +22,8 @@
  */
 package org.lwjglx.debug.opengl;
 
-import static org.lwjglx.debug.Context.*;
+import static org.lwjglx.debug.opengl.Context.*;
 
-import org.lwjglx.debug.Context;
 import org.lwjglx.debug.Properties;
 
 public class GL {

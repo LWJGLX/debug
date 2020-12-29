@@ -22,19 +22,18 @@
  */
 package org.lwjglx.debug.opengl;
 
-import static org.lwjglx.debug.Context.*;
 import static org.lwjglx.debug.Log.*;
 import static org.lwjglx.debug.Properties.*;
 import static org.lwjglx.debug.RT.*;
+import static org.lwjglx.debug.opengl.Context.*;
 
 import java.nio.ByteBuffer;
 import java.nio.DoubleBuffer;
 import java.nio.IntBuffer;
 
 import org.lwjgl.PointerBuffer;
-import org.lwjglx.debug.Context;
 import org.lwjglx.debug.Properties;
-import org.lwjglx.debug.Context.ProgramPipeline;
+import org.lwjglx.debug.opengl.Context.ProgramPipeline;
 
 public class GL41 {
 

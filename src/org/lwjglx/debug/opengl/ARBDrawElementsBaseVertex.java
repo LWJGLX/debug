@@ -22,8 +22,8 @@
  */
 package org.lwjglx.debug.opengl;
 
-import static org.lwjglx.debug.Context.*;
 import static org.lwjglx.debug.RT.*;
+import static org.lwjglx.debug.opengl.Context.*;
 
 import java.nio.ByteBuffer;
 import java.nio.IntBuffer;
@@ -42,9 +42,6 @@ public class ARBDrawElementsBaseVertex {
             }
             checkBeforeDrawCall();
         }
-        if (Properties.PROFILE.enabled) {
-            RT.beforeDraw();
-        }
         org.lwjgl.opengl.ARBDrawElementsBaseVertex.glDrawElementsBaseVertex(mode, count, type, indices, basevertex);
         RT.draw(count);
     }
@@ -52,9 +49,6 @@ public class ARBDrawElementsBaseVertex {
     public static void glDrawElementsBaseVertex(int mode, int type, ByteBuffer indices, int basevertex) {
         if (Properties.VALIDATE.enabled) {
             checkBeforeDrawCall();
-        }
-        if (Properties.PROFILE.enabled) {
-            RT.beforeDraw();
         }
         org.lwjgl.opengl.ARBDrawElementsBaseVertex.glDrawElementsBaseVertex(mode, type, indices, basevertex);
         RT.draw(indices.remaining());
@@ -64,9 +58,6 @@ public class ARBDrawElementsBaseVertex {
         if (Properties.VALIDATE.enabled) {
             checkBeforeDrawCall();
         }
-        if (Properties.PROFILE.enabled) {
-            RT.beforeDraw();
-        }
         org.lwjgl.opengl.ARBDrawElementsBaseVertex.glDrawElementsBaseVertex(mode, indices, basevertex);
         RT.draw(indices.remaining());
     }
@@ -75,9 +66,6 @@ public class ARBDrawElementsBaseVertex {
         if (Properties.VALIDATE.enabled) {
             checkBeforeDrawCall();
         }
-        if (Properties.PROFILE.enabled) {
-            RT.beforeDraw();
-        }
         org.lwjgl.opengl.ARBDrawElementsBaseVertex.glDrawElementsBaseVertex(mode, indices, basevertex);
         RT.draw(indices.remaining());
     }
@@ -85,9 +73,6 @@ public class ARBDrawElementsBaseVertex {
     public static void glDrawElementsBaseVertex(int mode, IntBuffer indices, int basevertex) {
         if (Properties.VALIDATE.enabled) {
             checkBeforeDrawCall();
-        }
-        if (Properties.PROFILE.enabled) {
-            RT.beforeDraw();
         }
         org.lwjgl.opengl.ARBDrawElementsBaseVertex.glDrawElementsBaseVertex(mode, indices, basevertex);
         RT.draw(indices.remaining());
@@ -101,9 +86,6 @@ public class ARBDrawElementsBaseVertex {
             }
             checkBeforeDrawCall();
         }
-        if (Properties.PROFILE.enabled) {
-            RT.beforeDraw();
-        }
         org.lwjgl.opengl.ARBDrawElementsBaseVertex.glDrawRangeElementsBaseVertex(mode, start, end, count, type, indices, basevertex);
         RT.draw(count);
     }
@@ -111,9 +93,6 @@ public class ARBDrawElementsBaseVertex {
     public static void glDrawRangeElementsBaseVertex(int mode, int start, int end, int type, ByteBuffer indices, int basevertex) {
         if (Properties.VALIDATE.enabled) {
             checkBeforeDrawCall();
-        }
-        if (Properties.PROFILE.enabled) {
-            RT.beforeDraw();
         }
         org.lwjgl.opengl.ARBDrawElementsBaseVertex.glDrawRangeElementsBaseVertex(mode, start, end, type, indices, basevertex);
         RT.draw(indices.remaining());
@@ -123,9 +102,6 @@ public class ARBDrawElementsBaseVertex {
         if (Properties.VALIDATE.enabled) {
             checkBeforeDrawCall();
         }
-        if (Properties.PROFILE.enabled) {
-            RT.beforeDraw();
-        }
         org.lwjgl.opengl.ARBDrawElementsBaseVertex.glDrawRangeElementsBaseVertex(mode, start, end, indices, basevertex);
         RT.draw(indices.remaining());
     }
@@ -134,9 +110,6 @@ public class ARBDrawElementsBaseVertex {
         if (Properties.VALIDATE.enabled) {
             checkBeforeDrawCall();
         }
-        if (Properties.PROFILE.enabled) {
-            RT.beforeDraw();
-        }
         org.lwjgl.opengl.ARBDrawElementsBaseVertex.glDrawRangeElementsBaseVertex(mode, start, end, indices, basevertex);
         RT.draw(indices.remaining());
     }
@@ -144,9 +117,6 @@ public class ARBDrawElementsBaseVertex {
     public static void glDrawRangeElementsBaseVertex(int mode, int start, int end, IntBuffer indices, int basevertex) {
         if (Properties.VALIDATE.enabled) {
             checkBeforeDrawCall();
-        }
-        if (Properties.PROFILE.enabled) {
-            RT.beforeDraw();
         }
         org.lwjgl.opengl.ARBDrawElementsBaseVertex.glDrawRangeElementsBaseVertex(mode, start, end, indices, basevertex);
         RT.draw(indices.remaining());
@@ -160,9 +130,6 @@ public class ARBDrawElementsBaseVertex {
             }
             checkBeforeDrawCall();
         }
-        if (Properties.PROFILE.enabled) {
-            RT.beforeDraw();
-        }
         org.lwjgl.opengl.ARBDrawElementsBaseVertex.glDrawElementsInstancedBaseVertex(mode, count, type, indices, primcount, basevertex);
         RT.draw(count * primcount);
     }
@@ -170,9 +137,6 @@ public class ARBDrawElementsBaseVertex {
     public static void glDrawElementsInstancedBaseVertex(int mode, int type, ByteBuffer indices, int primcount, int basevertex) {
         if (Properties.VALIDATE.enabled) {
             checkBeforeDrawCall();
-        }
-        if (Properties.PROFILE.enabled) {
-            RT.beforeDraw();
         }
         org.lwjgl.opengl.ARBDrawElementsBaseVertex.glDrawElementsInstancedBaseVertex(mode, type, indices, primcount, basevertex);
         RT.draw(indices.remaining() * primcount);
@@ -182,9 +146,6 @@ public class ARBDrawElementsBaseVertex {
         if (Properties.VALIDATE.enabled) {
             checkBeforeDrawCall();
         }
-        if (Properties.PROFILE.enabled) {
-            RT.beforeDraw();
-        }
         org.lwjgl.opengl.ARBDrawElementsBaseVertex.glDrawElementsInstancedBaseVertex(mode, indices, primcount, basevertex);
         RT.draw(indices.remaining() * primcount);
     }
@@ -193,9 +154,6 @@ public class ARBDrawElementsBaseVertex {
         if (Properties.VALIDATE.enabled) {
             checkBeforeDrawCall();
         }
-        if (Properties.PROFILE.enabled) {
-            RT.beforeDraw();
-        }
         org.lwjgl.opengl.ARBDrawElementsBaseVertex.glDrawElementsInstancedBaseVertex(mode, indices, primcount, basevertex);
         RT.draw(indices.remaining() * primcount);
     }
@@ -203,9 +161,6 @@ public class ARBDrawElementsBaseVertex {
     public static void glDrawElementsInstancedBaseVertex(int mode, IntBuffer indices, int primcount, int basevertex) {
         if (Properties.VALIDATE.enabled) {
             checkBeforeDrawCall();
-        }
-        if (Properties.PROFILE.enabled) {
-            RT.beforeDraw();
         }
         org.lwjgl.opengl.ARBDrawElementsBaseVertex.glDrawElementsInstancedBaseVertex(mode, indices, primcount, basevertex);
         RT.draw(indices.remaining() * primcount);

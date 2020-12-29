@@ -26,18 +26,10 @@ import static org.lwjglx.debug.RT.*;
 
 import java.nio.IntBuffer;
 
-import org.lwjglx.debug.Context;
 import org.lwjglx.debug.Properties;
-import org.lwjglx.debug.Context.FBO;
+import org.lwjglx.debug.opengl.Context.FBO;
 
 public class EXTFramebufferObject {
-
-    public static void glGenerateMipmapEXT(int target) {
-        org.lwjgl.opengl.EXTFramebufferObject.glGenerateMipmapEXT(target);
-        if (Properties.PROFILE.enabled) {
-            generateMipmap(target);
-        }
-    }
 
     public static void glGenFramebuffersEXT(IntBuffer framebuffers) {
         org.lwjgl.opengl.EXTFramebufferObject.glGenFramebuffersEXT(framebuffers);

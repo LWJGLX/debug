@@ -24,9 +24,8 @@ package org.lwjglx.debug.opengl;
 
 import java.nio.IntBuffer;
 
-import org.lwjglx.debug.Context;
 import org.lwjglx.debug.Properties;
-import org.lwjglx.debug.Context.VAO;
+import org.lwjglx.debug.opengl.Context.VAO;
 
 public class ARBDirectStateAccess {
 
