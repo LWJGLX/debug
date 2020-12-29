@@ -364,6 +364,30 @@ public class RT {
         return buffer;
     }
 
+    public static ByteBuffer put(ByteBuffer buf, byte[] src) {
+        buf.put(src);
+        writeByteBuffer(buf);
+        return buf;
+    }
+
+    public static ByteBuffer put(ByteBuffer buf, int index, byte[] src) {
+        buf.put(index, src);
+        writeByteBuffer(buf);
+        return buf;
+    }
+
+    public static ByteBuffer put(ByteBuffer buf, byte[] src, int offset, int length) {
+        buf.put(src, offset, length);
+        writeByteBuffer(buf);
+        return buf;
+    }
+
+    public static ByteBuffer put(ByteBuffer buf, int index, byte[] src, int offset, int length) {
+        buf.put(index, src, offset, length);
+        writeByteBuffer(buf);
+        return buf;
+    }
+
     public static ByteBuffer putChar(ByteBuffer buf, char value) {
         buf.putChar(value);
         writeByteBuffer(buf);
@@ -460,6 +484,12 @@ public class RT {
         return buf;
     }
 
+    public static CharBuffer put(CharBuffer buf, int index, char[] src, int offset, int length) {
+        buf.put(index, src, offset, length);
+        writeCharBuffer(buf);
+        return buf;
+    }
+
     public static CharBuffer put(CharBuffer buf, char[] src) {
         buf.put(src);
         writeCharBuffer(buf);
@@ -486,6 +516,12 @@ public class RT {
 
     public static ShortBuffer put(ShortBuffer buf, short[] src, int offset, int length) {
         buf.put(src, offset, length);
+        writeShortBuffer(buf);
+        return buf;
+    }
+
+    public static ShortBuffer put(ShortBuffer buf, int index, short[] src, int offset, int length) {
+        buf.put(index, src, offset, length);
         writeShortBuffer(buf);
         return buf;
     }
@@ -520,6 +556,12 @@ public class RT {
         return buf;
     }
 
+    public static IntBuffer put(IntBuffer buf, int index, int[] src, int offset, int length) {
+        buf.put(index, src, offset, length);
+        writeIntBuffer(buf);
+        return buf;
+    }
+
     public static IntBuffer put(IntBuffer buf, int[] src) {
         buf.put(src);
         writeIntBuffer(buf);
@@ -546,6 +588,12 @@ public class RT {
 
     public static LongBuffer put(LongBuffer buf, long[] src, int offset, int length) {
         buf.put(src, offset, length);
+        writeLongBuffer(buf);
+        return buf;
+    }
+
+    public static LongBuffer put(LongBuffer buf, int index, long[] src, int offset, int length) {
+        buf.put(index, src, offset, length);
         writeLongBuffer(buf);
         return buf;
     }
@@ -580,6 +628,12 @@ public class RT {
         return buf;
     }
 
+    public static FloatBuffer put(FloatBuffer buf, int index, float[] src, int offset, int length) {
+        buf.put(index, src, offset, length);
+        writeFloatBuffer(buf);
+        return buf;
+    }
+
     public static FloatBuffer put(FloatBuffer buf, float[] src) {
         buf.put(src);
         writeFloatBuffer(buf);
@@ -606,6 +660,12 @@ public class RT {
 
     public static DoubleBuffer put(DoubleBuffer buf, double[] src, int offset, int length) {
         buf.put(src, offset, length);
+        writeDoubleBuffer(buf);
+        return buf;
+    }
+
+    public static DoubleBuffer put(DoubleBuffer buf, int index, double[] src, int offset, int length) {
+        buf.put(index, src, offset, length);
         writeDoubleBuffer(buf);
         return buf;
     }
