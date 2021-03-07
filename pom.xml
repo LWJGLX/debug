@@ -34,7 +34,7 @@
 		</developer>
 	</developers>
 	<properties>
-		<lwjgl.version>3.2.4-SNAPSHOT</lwjgl.version>
+		<lwjgl.version>3.3.0-SNAPSHOT</lwjgl.version>
 		<asm.version>9.0</asm.version>
 		<jopt-simple.version>5.0.4</jopt-simple.version>
 		<junit.version>4.13.1</junit.version>
