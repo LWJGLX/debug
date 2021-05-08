@@ -371,7 +371,7 @@ public class DebugIT {
         window = glfwCreateWindow(800, 600, "", 0L, 0L);
         glfwMakeContextCurrent(window);
         createCapabilities();
-        assertThrows(IllegalStateException.class, () -> glDrawElements(GL_POINTS, 1, GL_UNSIGNED_INT, 0L), "glDrawElements called with invalid pointer or index index offset but no ELEMENT_ARRAY_BUFFER bound");
+        assertThrows(IllegalStateException.class, () -> glDrawElements(GL_POINTS, 1, GL_UNSIGNED_INT, 0L), "glDrawElements called with invalid client-side pointer address or index offset but no ELEMENT_ARRAY_BUFFER bound");
     }
 
     @Test
@@ -379,7 +379,7 @@ public class DebugIT {
         window = glfwCreateWindow(800, 600, "", 0L, 0L);
         glfwMakeContextCurrent(window);
         createCapabilities();
-        assertThrows(IllegalStateException.class, () -> nglDrawElements(GL_POINTS, 1, GL_UNSIGNED_INT, 0L), "glDrawElements called with invalid pointer or index index offset but no ELEMENT_ARRAY_BUFFER bound");
+        assertThrows(IllegalStateException.class, () -> nglDrawElements(GL_POINTS, 1, GL_UNSIGNED_INT, 0L), "glDrawElements called with invalid client-side pointer address or index offset but no ELEMENT_ARRAY_BUFFER bound");
     }
 
     @Test

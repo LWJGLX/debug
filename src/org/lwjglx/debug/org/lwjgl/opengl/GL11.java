@@ -247,7 +247,7 @@ public class GL11 {
         if (Properties.VALIDATE.enabled) {
             int ibo = org.lwjgl.opengl.GL11.glGetInteger(org.lwjgl.opengl.GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING);
             if (ibo == 0 && isInvalidPointer(indices)) {
-                throwISEOrLogError("glDrawElements called with invalid pointer or index index offset but no ELEMENT_ARRAY_BUFFER bound");
+                throwISEOrLogError("glDrawElements called with invalid client-side pointer address or index offset but no ELEMENT_ARRAY_BUFFER bound");
             }
             checkBeforeDrawCall();
         }
