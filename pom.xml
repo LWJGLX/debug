@@ -35,9 +35,9 @@
 	</developers>
 	<properties>
 		<lwjgl.version>3.3.0-SNAPSHOT</lwjgl.version>
-		<asm.version>9.0</asm.version>
+		<asm.version>9.1</asm.version>
 		<jopt-simple.version>5.0.4</jopt-simple.version>
-		<junit.version>4.13.1</junit.version>
+		<junit.version>4.13.2</junit.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<maven-source-plugin.version>3.2.0</maven-source-plugin.version>
