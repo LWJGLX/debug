@@ -12,7 +12,7 @@ Because some errors in user programs can cause the JVM to crash without a meanin
 
 1. Download the `lwjglx-debug-1.0.0.jar` file from [https://www.lwjgl.org/browse/addons/lwjglx-debug](https://www.lwjgl.org/browse/addons/lwjglx-debug) or build this Maven project via the instructions in the 'Build' section below
 2. Copy the `lwjglx-debug-1.0.0.jar` to any directory (henceforth called `<cwd>`)
-3. Start your LWJGL3 application with `-javaagent:<cwd>/lwjglx-debug-1.0.0.jar`
+3. Start your LWJGL3 application with the **JVM/VM argument** (_not_ program argument) `-javaagent:<cwd>/lwjglx-debug-1.0.0.jar`
     1. when using the command line, it should look like: `java -javaagent:<cwd>/lwjglx-debug-1.0.0.jar -cp all/the/jars your.main.Class`
     2. when using Eclipse, right-click your class with the `main()` method, goto 'Run As > Run Configurations...' and on the 'Arguments' tab inside the 'VM Arguments:' field enter `-javaagent:<cwd>/lwjglx-debug-1.0.0.jar`
 
