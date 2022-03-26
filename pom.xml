@@ -34,8 +34,8 @@
 		</developer>
 	</developers>
 	<properties>
-		<lwjgl.version>3.3.0-SNAPSHOT</lwjgl.version>
-		<asm.version>9.1</asm.version>
+		<lwjgl.version>3.3.1</lwjgl.version>
+		<asm.version>9.2</asm.version>
 		<jopt-simple.version>5.0.4</jopt-simple.version>
 		<junit.version>4.13.2</junit.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
