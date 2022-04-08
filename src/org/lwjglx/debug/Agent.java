@@ -112,6 +112,7 @@ public class Agent implements ClassFileTransformer, Opcodes {
     }
 
     private static final List<String> excludedPackagePrefixes = Arrays.asList(
+    		"apple/laf/JRSUI",
     		"com.ecwid.consul/",
     		"com/sun/",
     		"io/netty/",
