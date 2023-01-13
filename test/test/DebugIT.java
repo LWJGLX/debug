@@ -12,6 +12,7 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
 import java.util.concurrent.CountDownLatch;
+import java.util.function.Supplier;
 import java.util.regex.Pattern;
 
 import org.junit.After;
@@ -223,6 +224,16 @@ public class DebugIT {
         createCapabilities();
         glEnableVertexAttribArray(0);
         assertThrows(IllegalStateException.class, () -> GL11C.glDrawArrays(GL_POINTS, 0, 1), "Vertex array [0] enabled but not initialized");
+    }
+
+    @Test
+    public void testMethodReferences() {
+        window = glfwCreateWindow(800, 600, "", 0L, 0L);
+        glfwMakeContextCurrent(window);
+        createCapabilities();
+        Supplier<Integer> glGenVertexArrays = GL32C::glGenVertexArrays;
+        glBindVertexArray(glGenVertexArrays.get());
+        glEnableVertexAttribArray(3);
     }
 
     @Test

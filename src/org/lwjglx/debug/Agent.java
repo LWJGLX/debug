@@ -38,6 +38,7 @@ import java.util.regex.Pattern;
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.ClassVisitor;
 import org.objectweb.asm.ClassWriter;
+import org.objectweb.asm.Handle;
 import org.objectweb.asm.Label;
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
@@ -155,7 +156,7 @@ public class Agent implements ClassFileTransformer, Opcodes {
                 modifications.sourceFile = source;
                 Log.maxSourceLength = Math.max(Log.maxSourceLength, source.length());
             }
-
+            
             public MethodVisitor visitMethod(int access, String name, String desc, String signature, String[] exceptions) {
                 MethodVisitor mv = super.visitMethod(access, name, desc, signature, exceptions);
                 if (forcedInstrumentation && !forceInstrumentationMethods.contains(name + desc))
@@ -176,6 +177,45 @@ public class Agent implements ClassFileTransformer, Opcodes {
                     public void visitLineNumber(int line, Label start) {
                         super.visitLineNumber(line, start);
                         lastLineNumber = line;
+                    }
+
+                    public void visitInvokeDynamicInsn(String dynamicname, String descriptor, Handle bootstrapMethodHandle,
+                    		Object... bootstrapMethodArguments) {
+                    	// detect an invocation of a method through a method reference
+                    	// those will always look like having 3 bootstrap method arguments, of which the second is the
+                    	// handle to the target method. Once we detect that, we rewrite that handle to point to a generated proxy method
+                    	if (bootstrapMethodArguments != null && bootstrapMethodArguments.length == 3) {
+                    		Object secondArgument = bootstrapMethodArguments[1];
+                    		if (secondArgument instanceof Handle) {
+                    			Handle h = (Handle) secondArgument;
+                    			String owner = h.getOwner();
+                    			String name = h.getName();
+                    			String desc = h.getDesc();
+                    			if (owner.startsWith("org/lwjgl/") && !excluded(owner, name)) {
+                                    String key = owner + "." + name + desc;
+                                    InterceptedCall call = calls.get(key);
+                                    if (call == null) {
+                                        /* Resolve declaring class */
+                                        String resolvedOwner = resolveOwner(owner, name, desc);
+                                        /* Rewrite a GLnnC call to GLnn to be able to intercept the call */
+                                        if (resolvedOwner.matches(".*/GL(\\d\\d)C$")) {
+                                            resolvedOwner = resolvedOwner.substring(0, resolvedOwner.length() - 1);
+                                        }
+                                        call = new InterceptedCall(owner, resolvedOwner, name, desc);
+                                        String methodName;
+                                        methodName = name + call.index;
+                                        call.generatedMethodName = methodName;
+                                        calls.put(key, call);
+                                    }
+                                    Log.maxLineNumberLength = Math.max(Log.maxLineNumberLength, (int) (Math.log10(lastLineNumber) + 1));
+                                    // modify invokedynamic handle
+                                    Handle newHandle = new Handle(H_INVOKESTATIC, proxyName, call.generatedMethodName, call.desc, false);
+                                    bootstrapMethodArguments[1] = newHandle;
+                                    modifications.needsProxyClass = true;
+                                }
+                    		}
+                    	}
+                    	super.visitInvokeDynamicInsn(dynamicname, descriptor, bootstrapMethodHandle, bootstrapMethodArguments);
                     }
 
                     public void visitMethodInsn(int opcode, String owner, String name, String desc, boolean itf) {
