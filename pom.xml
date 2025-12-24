@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.lwjglx</groupId>
 	<artifactId>lwjglx-debug</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.3</version>
 	<name>LWJGLX/debug</name>
 	<description>Debug LWJGL3 OpenGL applications</description>
 	<inceptionYear>2017</inceptionYear>
@@ -34,21 +34,23 @@
 		</developer>
 	</developers>
 	<properties>
-		<lwjgl.version>3.3.3</lwjgl.version>
-		<asm.version>9.5</asm.version>
+		<lwjgl.version>3.4.1</lwjgl.version>
+		<asm.version>9.9.1</asm.version>
 		<jopt-simple.version>5.0.4</jopt-simple.version>
 		<junit.version>4.13.2</junit.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<maven-source-plugin.version>3.2.1</maven-source-plugin.version>
-		<maven-javadoc-plugin.version>3.4.1</maven-javadoc-plugin.version>
-		<maven-antrun-plugin.version>3.1.0</maven-antrun-plugin.version>
-		<maven-failsafe-plugin.version>3.0.0-M8</maven-failsafe-plugin.version>
-		<maven-shade-plugin.version>3.5.1</maven-shade-plugin.version>
-		<maven-compiler-plugin.version>3.10.1</maven-compiler-plugin.version>
-		<maven-gpg-plugin.version>3.0.1</maven-gpg-plugin.version>
+		<maven-source-plugin.version>3.3.1</maven-source-plugin.version>
+		<maven-javadoc-plugin.version>3.12.0</maven-javadoc-plugin.version>
+		<maven-build-helper-plugin.version>3.6.1</maven-build-helper-plugin.version>
+		<maven-antrun-plugin.version>3.2.0</maven-antrun-plugin.version>
+		<maven-failsafe-plugin.version>3.5.4</maven-failsafe-plugin.version>
+		<maven-shade-plugin.version>3.6.1</maven-shade-plugin.version>
+		<maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
+		<maven-gpg-plugin.version>3.2.7</maven-gpg-plugin.version>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
+		<jvm.args></jvm.args>
 	</properties>
 	<distributionManagement>
 		<snapshotRepository>
@@ -90,11 +92,12 @@
 			<activation>
 				<os>
 					<family>mac</family>
-					<arch>x64</arch>
+					<arch>x86_64</arch>
 				</os>
 			</activation>
 			<properties>
 				<platform>macos</platform>
+				<jvm.args>-XstartOnFirstThread</jvm.args>
 			</properties>
 		</profile>
 		<profile>
@@ -107,6 +110,7 @@
 			</activation>
 			<properties>
 				<platform>macos-arm64</platform>
+				<jvm.args>-XstartOnFirstThread</jvm.args>
 			</properties>
 		</profile>
 		<profile>
@@ -155,21 +159,27 @@
 						</dependencies>
 						<executions>
 							<execution>
+								<id>generate-sources-pre-jdk9</id>
 								<phase>generate-sources</phase>
 								<configuration>
 									<target>
 										<mkdir dir="${project.build.directory}/generator" />
 										<javac srcdir="generator"
 											destdir="${project.build.directory}/generator"
-											includeantruntime="false">
+											includeantruntime="false"
+											fork="true">
 											<classpath refid="maven.plugin.classpath" />
 										</javac>
 										<java classname="GLXMLReader"
-											classpathref="maven.plugin.classpath">
+											classpathref="maven.plugin.classpath"
+											fork="true"
+											dir="${basedir}">
 											<classpath>
 												<pathelement
 													location="${project.build.directory}/generator" />
 											</classpath>
+											<arg value="${project.build.directory}/spec/gl.xml"/>
+											<arg value="${project.build.directory}/generated-sources/org/lwjglx/debug/GLmetadata.java"/>
 										</java>
 									</target>
 								</configuration>
@@ -194,21 +204,27 @@
 						<version>${maven-antrun-plugin.version}</version>
 						<executions>
 							<execution>
+								<id>generate-sources-jdk9</id>
 								<phase>generate-sources</phase>
 								<configuration>
 									<target>
 										<mkdir dir="${project.build.directory}/generator" />
 										<javac srcdir="generator"
 											destdir="${project.build.directory}/generator"
-											includeantruntime="false">
+											includeantruntime="false"
+											fork="true">
 											<classpath refid="maven.plugin.classpath" />
 										</javac>
 										<java classname="GLXMLReader"
-											classpathref="maven.plugin.classpath">
+											classpathref="maven.plugin.classpath"
+											fork="true"
+											dir="${basedir}">
 											<classpath>
 												<pathelement
 													location="${project.build.directory}/generator" />
 											</classpath>
+											<arg value="${project.build.directory}/spec/gl.xml"/>
+											<arg value="${project.build.directory}/generated-sources/org/lwjglx/debug/GLmetadata.java"/>
 										</java>
 									</target>
 								</configuration>
@@ -241,6 +257,48 @@
 			</resource>
 		</resources>
 		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<version>${maven-build-helper-plugin.version}</version>
+				<executions>
+					<execution>
+						<id>add-source</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>add-source</goal>
+						</goals>
+						<configuration>
+							<sources>
+								<source>${project.build.directory}/generated-sources</source>
+							</sources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>${maven-antrun-plugin.version}</version>
+				<executions>
+					<execution>
+						<id>download-gl-spec</id>
+						<phase>generate-sources</phase>
+						<configuration>
+							<target>
+								<mkdir dir="${project.build.directory}/spec" />
+								<get src="https://raw.githubusercontent.com/KhronosGroup/OpenGL-Registry/main/xml/gl.xml"
+									dest="${project.build.directory}/spec/gl.xml"
+									verbose="true"
+									ignoreerrors="false"
+									skipexisting="true" />
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>${maven-compiler-plugin.version}</version>
@@ -310,7 +368,7 @@
 				<version>${maven-failsafe-plugin.version}</version>
 				<configuration>
 					<forkCount>1</forkCount>
-					<argLine>-javaagent:"${project.build.directory}/${project.build.finalName}.jar"</argLine>
+					<argLine>-javaagent:"${project.build.directory}/${project.build.finalName}.jar" ${jvm.args}</argLine>
 				</configuration>
 				<executions>
 					<execution>
