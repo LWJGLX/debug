@@ -25,11 +25,14 @@ import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.Stack;
 import java.util.stream.Collectors;
 
@@ -95,12 +98,12 @@ public class GLXMLReader extends DefaultHandler {
     static class Param {
         String name;
         String type;
-        Group group;
+        Set<Group> groups = new HashSet<>();
     }
 
     static class Return {
         String type;
-        Group group;
+        Set<Group> groups = new HashSet<>();
     }
 
     static class Group {
@@ -120,7 +123,7 @@ public class GLXMLReader extends DefaultHandler {
     {
         paths.add("");
     }
-    private Group currentGroup;
+    private List<Group> currentGroups = new ArrayList<>();
     private Map<String, Group> groups = new HashMap<>();
     private Map<String, Command> commands = new HashMap<>();
     private Map<String, Extension> extensions = new HashMap<>();
@@ -128,6 +131,26 @@ public class GLXMLReader extends DefaultHandler {
     private Command currentCommand;
     private Param currentParam;
     private Extension currentExtension;
+    private String outputFile;
+
+    private static final Set<String> ALPHA_FUNCTION_ENUMS = new HashSet<>(Arrays.asList(
+            "GL_NEVER", "GL_LESS", "GL_EQUAL", "GL_LEQUAL", "GL_GREATER", "GL_NOTEQUAL", "GL_GEQUAL", "GL_ALWAYS"
+    ));
+
+    public GLXMLReader(String outputFile) {
+        this.outputFile = outputFile;
+    }
+
+    private Group getOrCreateGroup(String name) {
+        if (name == null) return null;
+        Group g = groups.get(name);
+        if (g == null) {
+            g = new Group();
+            g.name = name;
+            groups.put(name, g);
+        }
+        return g;
+    }
 
     @Override
     public void characters(char[] ch, int start, int length) throws SAXException {
@@ -140,8 +163,9 @@ public class GLXMLReader extends DefaultHandler {
             Return ret = currentCommand.returnType;
             ret.type = ptype;
             // Patch up some GLboolean parameters which have no Boolean group
-            if ("GLboolean".equals(ptype) && (ret.group == null || ret.group.name == null || !ret.group.name.equals("Boolean"))) {
-                ret.group = groups.get("Boolean");
+            if ("GLboolean".equals(ptype)) {
+                ret.groups.clear();
+                ret.groups.add(getOrCreateGroup("Boolean"));
             }
         } else if ("/registry/commands/command/param/name".equals(path)) {
             String name = new String(ch, start, length).trim();
@@ -150,8 +174,9 @@ public class GLXMLReader extends DefaultHandler {
             String ptype = new String(ch, start, length).trim();
             currentParam.type = ptype;
             // Patch up some GLboolean parameters which have no Boolean group
-            if ("GLboolean".equals(ptype) && (currentParam.group == null || currentParam.group.name == null || !currentParam.group.name.equals("Boolean"))) {
-                currentParam.group = groups.get("Boolean");
+            if ("GLboolean".equals(ptype)) {
+                currentParam.groups.clear();
+                currentParam.groups.add(getOrCreateGroup("Boolean"));
             }
         }
     }
@@ -161,9 +186,10 @@ public class GLXMLReader extends DefaultHandler {
         path = paths.peek() + "/" + localName;
         paths.push(path);
         if ("/registry/groups/group".equals(path)) {
-            currentGroup = new Group();
-            currentGroup.name = attributes.getValue("name");
-            groups.put(currentGroup.name, currentGroup);
+            currentGroups.clear();
+            String name = attributes.getValue("name");
+            Group group = getOrCreateGroup(name);
+            currentGroups.add(group);
         } else if ("/registry/groups/group/enum".equals(path)) {
             String enumName = attributes.getValue("name");
             GLenum e = enums.get(enumName);
@@ -172,18 +198,19 @@ public class GLXMLReader extends DefaultHandler {
                 e.name = enumName;
                 enums.put(e.name, e);
             }
-            currentGroup.enums.put(e.name, e);
-        } else if ("/registry/enums".equals(path)) {
-            // Use the null-group for /registry/enums.
-            // Even though those elements have a "group" attribute, that
-            // hardly ever matches any /registry/groups/group
-            // example, see: "ShaderType"
-            Group group = groups.get(null);
-            if (group == null) {
-                group = new Group();
-                groups.put(group.name, group);
+            for (Group g : currentGroups) {
+                g.enums.put(e.name, e);
             }
-            currentGroup = group;
+        } else if ("/registry/enums".equals(path)) {
+            String groupName = attributes.getValue("group");
+            currentGroups.clear();
+            Group g = groups.get(groupName);
+            if (g == null) {
+                g = new Group();
+                g.name = groupName;
+                groups.put(groupName, g);
+            }
+            currentGroups.add(g);
         } else if ("/registry/enums/enum".equals(path)) {
             String hexValue = attributes.getValue("value");
             int value;
@@ -207,9 +234,32 @@ public class GLXMLReader extends DefaultHandler {
             } else if (!e.name.equals(enumName)) {
                 throw new AssertionError("Duplicate enum [" + e.name + "] and [" + enumName + "] = " + value);
             }
-            // currenGroup here is always the null-group
-            currentGroup.enums.put(e.name, e);
-            /* Also add to null group */
+            String groupNameOnEnum = attributes.getValue("group");
+            List<Group> targetGroups = new ArrayList<>();
+            if (groupNameOnEnum != null) {
+                for (String g : groupNameOnEnum.split(",")) {
+                    g = g.trim();
+                    if (!g.isEmpty()) {
+                        targetGroups.add(getOrCreateGroup(g));
+                    }
+                }
+            } else {
+                targetGroups.addAll(currentGroups);
+            }
+            
+            // Force GL_TRUE and GL_FALSE into Boolean group
+            if ("GL_TRUE".equals(enumName) || "GL_FALSE".equals(enumName)) {
+                targetGroups.add(getOrCreateGroup("Boolean"));
+            }
+            
+            // Force AlphaFunction enums
+            if (ALPHA_FUNCTION_ENUMS.contains(enumName)) {
+                targetGroups.add(getOrCreateGroup("AlphaFunction"));
+            }
+            
+            for (Group targetGroup : targetGroups) {
+                targetGroup.enums.put(e.name, e);
+            }
             enums.put(e.name, e);
             e.value = value;
             e.hasValue = true;
@@ -219,7 +269,14 @@ public class GLXMLReader extends DefaultHandler {
             String groupName = attributes.getValue("group");
             Return ret = new Return();
             currentCommand.returnType = ret;
-            ret.group = groups.get(groupName);
+            if (groupName != null) {
+                for (String g : groupName.split(",")) {
+                    g = g.trim();
+                    if (!g.isEmpty()) {
+                        ret.groups.add(getOrCreateGroup(g));
+                    }
+                }
+            }
         } else if ("/registry/commands/command/alias".equals(path)) {
             String aliasName = attributes.getValue("name");
             if (!commands.containsKey(aliasName))
@@ -229,11 +286,18 @@ public class GLXMLReader extends DefaultHandler {
             currentParam = param;
             currentCommand.params.add(param);
             String groupName = attributes.getValue("group");
-            if ("PixelInternalFormat".equals(groupName)) {
-                /* The gl.xml is apparently handcrafted */
-                groupName = "InternalFormat";
+            if (groupName != null) {
+                for (String g : groupName.split(",")) {
+                    g = g.trim();
+                    if ("PixelInternalFormat".equals(g)) {
+                        /* The gl.xml is apparently handcrafted */
+                        g = "InternalFormat";
+                    }
+                    if (!g.isEmpty()) {
+                        param.groups.add(getOrCreateGroup(g));
+                    }
+                }
             }
-            param.group = groups.get(groupName);
         } else if ("/registry/extensions/extension".equals(path)) {
             String name = attributes.getValue("name");
             currentExtension = new Extension();
@@ -280,10 +344,26 @@ public class GLXMLReader extends DefaultHandler {
                   ));
     }
 
+    private static String sanitize(String name) {
+        if (name == null) return null;
+        return name.replaceAll("[^a-zA-Z0-9_]", "_");
+    }
+
+    private boolean containsGroup(Set<Group> groups, String name) {
+        for (Group g : groups) {
+            if (g.name != null && g.name.equals(name)) return true;
+        }
+        return false;
+    }
+
     private void generate() throws Exception {
         StringBuilder sb = new StringBuilder();
         StringBuilder prolog = new StringBuilder();
-        FileOutputStream fos = new FileOutputStream(new File("src/org/lwjglx/debug/GLmetadata.java"));
+        File file = new File(outputFile);
+        if (file.getParentFile() != null) {
+            file.getParentFile().mkdirs();
+        }
+        FileOutputStream fos = new FileOutputStream(file);
         Writer writer = new OutputStreamWriter(fos);
         prolog.append("package org.lwjglx.debug;\n");
         prolog.append("import java.util.Map;\n");
@@ -343,7 +423,7 @@ public class GLXMLReader extends DefaultHandler {
             sb.append("  private static final int ").append(e.name).append(" = ").append(e.value).append(";\n");
         }
         for (Group group : groups.values()) {
-            String gname = group.name;
+            String gname = sanitize(group.name);
             if (gname == null) {
                 gname = "_null_";
             }
@@ -445,6 +525,16 @@ public class GLXMLReader extends DefaultHandler {
             sb.append("    return ").append(ext.name).append(";\n");
             sb.append("  }\n");
         }
+        
+        prolog.append("  @SafeVarargs\n");
+        prolog.append("  private static Map<Integer, String> merge(Map<Integer, String>... maps) {\n");
+        prolog.append("    Map<Integer, String> result = new HashMap<>();\n");
+        prolog.append("    for (Map<Integer, String> map : maps) {\n");
+        prolog.append("      if (map != null) result.putAll(map);\n");
+        prolog.append("    }\n");
+        prolog.append("    return result;\n");
+        prolog.append("  }\n");
+
         for (Command cmd : commands.values()) {
             boolean found = false;
             for (Param param : cmd.params) {
@@ -461,11 +551,7 @@ public class GLXMLReader extends DefaultHandler {
             int numParams = 0;
             for (Param param : cmd.params) {
                 if ("GLboolean".equals(param.type) || "GLenum".equals(param.type) || "GLbitfield".equals(param.type)) {
-                    if (param.group == null || param.group.name == null) {
-                        numParams++;
-                    } else {
-                        numParams++;
-                    }
+                    numParams++;
                 }
             }
             sb.append("  private static Command ").append(cmd.name).append(";\n");
@@ -473,17 +559,47 @@ public class GLXMLReader extends DefaultHandler {
             sb.append("    if (").append(cmd.name).append(" != null)\n");
             sb.append("      return ").append(cmd.name).append(";\n");
             sb.append("    Command cmd = new Command(").append(numParams).append(");\n");
-            if (cmd.returnType.group != null && cmd.returnType.group.name != null) {
-                sb.append("    cmd.returnGroup = ").append(cmd.returnType.group.name).append("();\n");
+            
+            if (!cmd.returnType.groups.isEmpty()) {
+                if (cmd.returnType.groups.size() == 1) {
+                    String gname = sanitize(cmd.returnType.groups.iterator().next().name);
+                    if (gname == null) gname = "_null_";
+                    sb.append("    cmd.returnGroup = ").append(gname).append("();\n");
+                } else {
+                    sb.append("    cmd.returnGroup = merge(");
+                    int i = 0;
+                    for (Group g : cmd.returnType.groups) {
+                        if (i > 0) sb.append(", ");
+                        String gname = sanitize(g.name);
+                        if (gname == null) gname = "_null_";
+                        sb.append(gname).append("()");
+                        i++;
+                    }
+                    sb.append(");\n");
+                }
             } else {
                 sb.append("    cmd.returnGroup = _null_();\n");
             }
+
             for (Param param : cmd.params) {
                 if ("GLboolean".equals(param.type) || "GLenum".equals(param.type) || "GLbitfield".equals(param.type)) {
-                    if (param.group == null || param.group.name == null) {
+                    if (param.groups.isEmpty()) {
                         sb.append("    cmd.addParam(\"").append(param.name).append("\", _null_());\n");
+                    } else if (param.groups.size() == 1) {
+                        String gname = sanitize(param.groups.iterator().next().name);
+                        if (gname == null) gname = "_null_";
+                        sb.append("    cmd.addParam(\"").append(param.name).append("\", ").append(gname).append("());\n");
                     } else {
-                        sb.append("    cmd.addParam(\"").append(param.name).append("\", ").append(param.group.name).append("());\n");
+                        sb.append("    cmd.addParam(\"").append(param.name).append("\", merge(");
+                        int i = 0;
+                        for (Group g : param.groups) {
+                            if (i > 0) sb.append(", ");
+                            String gname = sanitize(g.name);
+                            if (gname == null) gname = "_null_";
+                            sb.append(gname).append("()");
+                            i++;
+                        }
+                        sb.append("));\n");
                     }
                 }
             }
@@ -522,12 +638,18 @@ public class GLXMLReader extends DefaultHandler {
     }
 
     public static void main(String[] args) throws Exception {
+        if (args.length < 2) {
+            throw new IllegalArgumentException("Usage: GLXMLReader <input-xml> <output-java>");
+        }
+        String input = args[0];
+        String output = args[1];
+        
         SAXParserFactory spf = SAXParserFactory.newInstance();
         spf.setNamespaceAware(true);
         SAXParser saxParser = spf.newSAXParser();
         XMLReader xmlReader = saxParser.getXMLReader();
-        xmlReader.setContentHandler(new GLXMLReader());
-        xmlReader.parse(convertToFileURL("spec/gl.xml"));
+        xmlReader.setContentHandler(new GLXMLReader(output));
+        xmlReader.parse(convertToFileURL(input));
     }
 
 }
