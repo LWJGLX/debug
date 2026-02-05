@@ -43,11 +43,12 @@
 		<maven-source-plugin.version>3.3.1</maven-source-plugin.version>
 		<maven-javadoc-plugin.version>3.12.0</maven-javadoc-plugin.version>
 		<maven-build-helper-plugin.version>3.6.1</maven-build-helper-plugin.version>
-		<maven-antrun-plugin.version>3.2.0</maven-antrun-plugin.version>
 		<maven-failsafe-plugin.version>3.5.4</maven-failsafe-plugin.version>
 		<maven-shade-plugin.version>3.6.1</maven-shade-plugin.version>
 		<maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
 		<maven-gpg-plugin.version>3.2.7</maven-gpg-plugin.version>
+		<maven-download-plugin.version>2.1.0</maven-download-plugin.version>
+		<exec-maven-plugin.version>3.6.3</exec-maven-plugin.version>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<jvm.args></jvm.args>
@@ -139,101 +140,12 @@
 			</build>
 		</profile>
 		<profile>
-			<id>preJdk9</id>
-			<activation>
-				<jdk>[1.3,1.8]</jdk>
-			</activation>
-			<build>
-				<plugins>
-					<plugin>
-						<artifactId>maven-antrun-plugin</artifactId>
-						<version>${maven-antrun-plugin.version}</version>
-						<dependencies>
-							<dependency>
-								<groupId>com.sun</groupId>
-								<artifactId>tools</artifactId>
-								<version>1.8.0</version>
-								<scope>system</scope>
-								<systemPath>${java.home}/../lib/tools.jar</systemPath>
-							</dependency>
-						</dependencies>
-						<executions>
-							<execution>
-								<id>generate-sources-pre-jdk9</id>
-								<phase>generate-sources</phase>
-								<configuration>
-									<target>
-										<mkdir dir="${project.build.directory}/generator" />
-										<javac srcdir="generator"
-											destdir="${project.build.directory}/generator"
-											includeantruntime="false"
-											fork="true">
-											<classpath refid="maven.plugin.classpath" />
-										</javac>
-										<java classname="GLXMLReader"
-											classpathref="maven.plugin.classpath"
-											fork="true"
-											dir="${basedir}">
-											<classpath>
-												<pathelement
-													location="${project.build.directory}/generator" />
-											</classpath>
-											<arg value="${project.build.directory}/spec/gl.xml"/>
-											<arg value="${project.build.directory}/generated-sources/org/lwjglx/debug/GLmetadata.java"/>
-										</java>
-									</target>
-								</configuration>
-								<goals>
-									<goal>run</goal>
-								</goals>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-		<profile>
 			<id>jdk9</id>
 			<activation>
 				<jdk>[9,)</jdk>
 			</activation>
 			<build>
 				<plugins>
-					<plugin>
-						<artifactId>maven-antrun-plugin</artifactId>
-						<version>${maven-antrun-plugin.version}</version>
-						<executions>
-							<execution>
-								<id>generate-sources-jdk9</id>
-								<phase>generate-sources</phase>
-								<configuration>
-									<target>
-										<mkdir dir="${project.build.directory}/generator" />
-										<javac srcdir="generator"
-											destdir="${project.build.directory}/generator"
-											includeantruntime="false"
-											fork="true">
-											<classpath refid="maven.plugin.classpath" />
-										</javac>
-										<java classname="GLXMLReader"
-											classpathref="maven.plugin.classpath"
-											fork="true"
-											dir="${basedir}">
-											<classpath>
-												<pathelement
-													location="${project.build.directory}/generator" />
-											</classpath>
-											<arg value="${project.build.directory}/spec/gl.xml"/>
-											<arg value="${project.build.directory}/generated-sources/org/lwjglx/debug/GLmetadata.java"/>
-										</java>
-									</target>
-								</configuration>
-								<goals>
-									<goal>run</goal>
-								</goals>
-							</execution>
-						</executions>
-					</plugin>
 					<plugin>
 						<artifactId>maven-javadoc-plugin</artifactId>
 						<version>${maven-javadoc-plugin.version}</version>
@@ -277,25 +189,60 @@
 				</executions>
 			</plugin>
 			<plugin>
-				<artifactId>maven-antrun-plugin</artifactId>
-				<version>${maven-antrun-plugin.version}</version>
+				<groupId>io.github.download-maven-plugin</groupId>
+				<artifactId>download-maven-plugin</artifactId>
+				<version>${maven-download-plugin.version}</version>
 				<executions>
 					<execution>
 						<id>download-gl-spec</id>
 						<phase>generate-sources</phase>
-						<configuration>
-							<target>
-								<mkdir dir="${project.build.directory}/spec" />
-								<get src="https://raw.githubusercontent.com/KhronosGroup/OpenGL-Registry/main/xml/gl.xml"
-									dest="${project.build.directory}/spec/gl.xml"
-									verbose="true"
-									ignoreerrors="false"
-									skipexisting="true" />
-							</target>
-						</configuration>
 						<goals>
-							<goal>run</goal>
+							<goal>wget</goal>
 						</goals>
+						<configuration>
+							<url>https://raw.githubusercontent.com/KhronosGroup/OpenGL-Registry/main/xml/gl.xml</url>
+							<outputDirectory>${project.build.directory}/generator</outputDirectory>
+							<outputFileName>gl.xml</outputFileName>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>${exec-maven-plugin.version}</version>
+				<executions>
+					<execution>
+						<id>compile-generator</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+						<configuration>
+							<executable>javac</executable>
+							<arguments>
+								<argument>-d</argument>
+								<argument>${project.build.directory}/generator</argument>
+								<argument>${basedir}/generator/GLXMLReader.java</argument>
+							</arguments>
+						</configuration>
+					</execution>
+					<execution>
+						<id>run-generator</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+						<configuration>
+							<executable>java</executable>
+							<arguments>
+								<argument>-cp</argument>
+								<argument>${project.build.directory}/generator</argument>
+								<argument>GLXMLReader</argument>
+								<argument>${project.build.directory}/generator/gl.xml</argument>
+								<argument>${project.build.directory}/generated-sources/org/lwjglx/debug/GLmetadata.java</argument>
+							</arguments>
+						</configuration>
 					</execution>
 				</executions>
 			</plugin>
