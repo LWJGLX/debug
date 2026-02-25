@@ -40,13 +40,13 @@
 		<junit.version>4.13.2</junit.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<maven-source-plugin.version>3.3.1</maven-source-plugin.version>
+		<maven-source-plugin.version>3.4.0</maven-source-plugin.version>
 		<maven-javadoc-plugin.version>3.12.0</maven-javadoc-plugin.version>
 		<maven-build-helper-plugin.version>3.6.1</maven-build-helper-plugin.version>
-		<maven-failsafe-plugin.version>3.5.4</maven-failsafe-plugin.version>
+		<maven-failsafe-plugin.version>3.5.5</maven-failsafe-plugin.version>
 		<maven-shade-plugin.version>3.6.1</maven-shade-plugin.version>
-		<maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
-		<maven-gpg-plugin.version>3.2.7</maven-gpg-plugin.version>
+		<maven-compiler-plugin.version>3.15.0</maven-compiler-plugin.version>
+		<maven-gpg-plugin.version>3.2.8</maven-gpg-plugin.version>
 		<maven-download-plugin.version>2.1.0</maven-download-plugin.version>
 		<exec-maven-plugin.version>3.6.3</exec-maven-plugin.version>
 		<maven.compiler.source>1.8</maven.compiler.source>
