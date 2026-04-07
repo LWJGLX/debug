@@ -122,9 +122,9 @@ maven-mvnd-*bin.*)
   MVN_CMD=mvnd.sh _MVNW_REPO_PATTERN=/maven/mvnd/
   case "${PROCESSOR_ARCHITECTURE-}${PROCESSOR_ARCHITEW6432-}:$(uname -a)" in
   *AMD64:CYGWIN* | *AMD64:MINGW*) distributionPlatform=windows-amd64 ;;
-  *Darwin*x86_64*) distributionPlatform=darwin-amd64 ;;
-  *Darwin*arm64*) distributionPlatform=darwin-aarch64 ;;
-  *Linux*x86_64*) distributionPlatform=linux-amd64 ;;
+  :Darwin*x86_64) distributionPlatform=darwin-amd64 ;;
+  :Darwin*arm64) distributionPlatform=darwin-aarch64 ;;
+  :Linux*x86_64*) distributionPlatform=linux-amd64 ;;
   *)
     echo "Cannot detect native platform for mvnd on $(uname)-$(uname -m), use pure java version" >&2
     distributionPlatform=linux-amd64
