@@ -1,7 +1,7 @@
 package test;
 
-import static org.junit.Assert.*;
-import static org.junit.Assume.*;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assumptions.*;
 import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.opengl.GL.*;
 import static org.lwjgl.opengl.GL11.*;
@@ -19,11 +19,10 @@ import java.util.concurrent.CountDownLatch;
 import java.util.function.Supplier;
 import java.util.regex.Pattern;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.TestName;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInfo;
 import org.lwjgl.*;
 import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.opengl.*;
@@ -33,8 +32,7 @@ import org.lwjglx.debug.org.lwjgl.opengl.Context;
 
 public class DebugIT {
 
-    @Rule
-    public TestName name = new TestName();
+    private String testMethodName;
 
     private long window;
     private long window2;
@@ -55,38 +53,26 @@ public class DebugIT {
         Properties.STRICT.enable();
     }
 
-    /*
-     * "Polyfill" for JUnit 5's assertThrows.
-     */
-    public static void assertThrows(Class<? extends RuntimeException> exceptionClass, Runnable r) {
-        assertThrows(exceptionClass, r, null);
-    }
-
-    public static void assertThrows(Class<? extends RuntimeException> exceptionClass, Runnable r, Object message) {
-        try {
-            r.run();
-            fail("Expected exception [" + exceptionClass + "] but none was thrown");
-        } catch (RuntimeException e) {
-            if (e.getClass() != exceptionClass)
-                fail("Expected exception [" + exceptionClass + "] but got [" + e.getClass() + "]");
-            if (message != null) {
-                if (message instanceof String)
-                    assertEquals((String) message, e.getMessage());
-                else if (message instanceof Pattern)
-                    assertTrue("Expect Regex [" + message.toString() + "] to match [" + e.getMessage() + "]", ((Pattern)message).matcher(e.getMessage()).matches());
-            }
+    public static void assertThrowsWithMessage(Class<? extends RuntimeException> exceptionClass, Runnable r, Object message) {
+        RuntimeException e = assertThrows(exceptionClass, () -> r.run());
+        if (message != null) {
+            if (message instanceof String)
+                assertEquals((String) message, e.getMessage());
+            else if (message instanceof Pattern)
+                assertTrue(((Pattern)message).matcher(e.getMessage()).matches(), "Expect Regex [" + message.toString() + "] to match [" + e.getMessage() + "]");
         }
     }
 
     private boolean alreadyTerminated;
 
-    @Before
-    public void beforeEach() {
+    @BeforeEach
+    public void beforeEach(TestInfo testInfo) {
+        testMethodName = testInfo.getTestMethod().map(m -> m.getName()).orElse("");
         glfwInit();
         glfwDefaultWindowHints();
         glfwWindowHint(GLFW_VISIBLE, GLFW_FALSE);
         isMac = System.getProperty("os.name").toLowerCase().contains("mac");
-        if (isMac && CORE_PROFILE_TESTS.contains(name.getMethodName())) {
+        if (isMac && CORE_PROFILE_TESTS.contains(testMethodName)) {
             glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
             glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 2);
             glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
@@ -94,7 +80,7 @@ public class DebugIT {
         }
     }
 
-    @After
+    @AfterEach
     public void afterEach() {
         if (window != 0L)
             glfwDestroyWindow(window);
@@ -134,7 +120,7 @@ public class DebugIT {
     @Test
     public void testFreeNonFreeablePointerBuffer() {
     	PointerBuffer pb = PointerBuffer.allocateDirect(1);
-        assertThrows(IllegalArgumentException.class, () -> pb.free(), 
+        assertThrowsWithMessage(IllegalArgumentException.class, () -> pb.free(),
         		Pattern.compile("Trying to free\\(\\) a buffer whose native memory is managed by the JVM"));
     }
 
@@ -178,7 +164,7 @@ public class DebugIT {
         };
         t.start();
         l1.await();
-        assertThrows(IllegalStateException.class, () -> window2 = glfwCreateWindow(800, 600, "", 0L, window), 
+        assertThrowsWithMessage(IllegalStateException.class, () -> window2 = glfwCreateWindow(800, 600, "", 0L, window),
                 Pattern.compile("Context of share window\\[\\d+\\] is current in another thread \\[.*\\]"));
         l2.countDown();
         t.join();
@@ -201,7 +187,7 @@ public class DebugIT {
         };
         t.start();
         l1.await();
-        assertThrows(IllegalStateException.class, () -> glfwMakeContextCurrent(window), 
+        assertThrowsWithMessage(IllegalStateException.class, () -> glfwMakeContextCurrent(window),
                 Pattern.compile("Context of window\\[\\d+\\] is current in another thread \\[.*\\]"));
         l2.countDown();
         t.join();
@@ -229,7 +215,7 @@ public class DebugIT {
         window = glfwCreateWindow(800, 600, "", 0L, 0L);
         glfwMakeContextCurrent(window);
         createCapabilities();
-        assertThrows(IllegalStateException.class, () -> glVertexPointer(2, GL_FLOAT, 0, 0L), "glVertexPointer is not supported in the current profile");
+        assertThrowsWithMessage(IllegalStateException.class, () -> glVertexPointer(2, GL_FLOAT, 0, 0L), "glVertexPointer is not supported in the current profile");
     }
 
     @Test
@@ -237,7 +223,7 @@ public class DebugIT {
         window = glfwCreateWindow(800, 600, "", 0L, 0L);
         glfwMakeContextCurrent(window);
         createCapabilities();
-        assertThrows(IllegalStateException.class, () -> glEnable(GL_VERTEX_ARRAY_POINTER), Pattern.compile("glEnable produced error: 1280 \\(GL_INVALID_ENUM\\)"));
+        assertThrowsWithMessage(IllegalStateException.class, () -> glEnable(GL_VERTEX_ARRAY_POINTER), Pattern.compile("glEnable produced error: 1280 \\(GL_INVALID_ENUM\\)"));
     }
 
     @Test
@@ -246,7 +232,7 @@ public class DebugIT {
         glfwMakeContextCurrent(window);
         createCapabilities();
         glEnableVertexAttribArray(0);
-        assertThrows(IllegalStateException.class, () -> glDrawArrays(GL_POINTS, 0, 1), "Vertex array [0] enabled but not initialized");
+        assertThrowsWithMessage(IllegalStateException.class, () -> glDrawArrays(GL_POINTS, 0, 1), "Vertex array [0] enabled but not initialized");
     }
 
     @Test
@@ -255,7 +241,7 @@ public class DebugIT {
         glfwMakeContextCurrent(window);
         createCapabilities();
         glEnableVertexAttribArray(0);
-        assertThrows(IllegalStateException.class, () -> GL11C.glDrawArrays(GL_POINTS, 0, 1), "Vertex array [0] enabled but not initialized");
+        assertThrowsWithMessage(IllegalStateException.class, () -> GL11C.glDrawArrays(GL_POINTS, 0, 1), "Vertex array [0] enabled but not initialized");
     }
 
     @Test
@@ -276,7 +262,7 @@ public class DebugIT {
         int vao = glGenVertexArrays();
         glBindVertexArray(vao);
         glEnableVertexAttribArray(3);
-        assertThrows(IllegalStateException.class, () -> glDrawArrays(GL_POINTS, 0, 1), "Vertex array [3] enabled but not initialized");
+        assertThrowsWithMessage(IllegalStateException.class, () -> glDrawArrays(GL_POINTS, 0, 1), "Vertex array [3] enabled but not initialized");
     }
 
     @Test
@@ -287,7 +273,7 @@ public class DebugIT {
         int vao = glGenVertexArrays();
         glBindVertexArray(vao);
         glEnableVertexAttribArray(3);
-        assertThrows(IllegalStateException.class, () -> glDrawElements(GL_POINTS, BufferUtils.createIntBuffer(4)), "Vertex array [3] enabled but not initialized");
+        assertThrowsWithMessage(IllegalStateException.class, () -> glDrawElements(GL_POINTS, BufferUtils.createIntBuffer(4)), "Vertex array [3] enabled but not initialized");
     }
 
     @Test
@@ -309,7 +295,7 @@ public class DebugIT {
         glfwMakeContextCurrent(window);
         createCapabilities();
         glEnableClientState(GL_VERTEX_ARRAY);
-        assertThrows(IllegalStateException.class, () -> glDrawArrays(GL_POINTS, 0, 1), "GL_VERTEX_ARRAY enabled but not initialized");
+        assertThrowsWithMessage(IllegalStateException.class, () -> glDrawArrays(GL_POINTS, 0, 1), "GL_VERTEX_ARRAY enabled but not initialized");
     }
 
     @Test
@@ -318,7 +304,7 @@ public class DebugIT {
         glfwMakeContextCurrent(window);
         createCapabilities();
         glEnableClientState(GL_NORMAL_ARRAY);
-        assertThrows(IllegalStateException.class, () -> glDrawArrays(GL_POINTS, 0, 1), "GL_NORMAL_ARRAY enabled but not initialized");
+        assertThrowsWithMessage(IllegalStateException.class, () -> glDrawArrays(GL_POINTS, 0, 1), "GL_NORMAL_ARRAY enabled but not initialized");
     }
 
     @Test
@@ -340,7 +326,7 @@ public class DebugIT {
         glfwMakeContextCurrent(window);
         createCapabilities();
         glEnableClientState(GL_TEXTURE_COORD_ARRAY);
-        assertThrows(IllegalStateException.class, () -> glDrawArrays(GL_POINTS, 0, 1), "GL_TEXTURE_COORD_ARRAY enabled but not initialized");
+        assertThrowsWithMessage(IllegalStateException.class, () -> glDrawArrays(GL_POINTS, 0, 1), "GL_TEXTURE_COORD_ARRAY enabled but not initialized");
     }
 
     @Test
@@ -362,7 +348,7 @@ public class DebugIT {
         window = glfwCreateWindow(800, 600, "", 0L, 0L);
         glfwMakeContextCurrent(window);
         createCapabilities();
-        assertThrows(IllegalArgumentException.class, () -> glVertexAttribPointer(0, 2, GL_FLOAT, false, 0, 0L), 
+        assertThrowsWithMessage(IllegalArgumentException.class, () -> glVertexAttribPointer(0, 2, GL_FLOAT, false, 0, 0L),
         		"There is no GL_ARRAY_BUFFER bound and pointer argument [0] is invalid. This will likely lead to a JVM crash in a draw call");
     }
 
@@ -371,7 +357,7 @@ public class DebugIT {
         window = glfwCreateWindow(800, 600, "", 0L, 0L);
         glfwMakeContextCurrent(window);
         createCapabilities();
-        assertThrows(IllegalArgumentException.class, () -> nglVertexAttribPointer(0, 2, GL_FLOAT, false, 0, 0L), 
+        assertThrowsWithMessage(IllegalArgumentException.class, () -> nglVertexAttribPointer(0, 2, GL_FLOAT, false, 0, 0L),
         		"There is no GL_ARRAY_BUFFER bound and pointer argument [0] is invalid. This will likely lead to a JVM crash in a draw call");
     }
 
@@ -416,7 +402,7 @@ public class DebugIT {
         window = glfwCreateWindow(800, 600, "", 0L, 0L);
         glfwMakeContextCurrent(window);
         createCapabilities();
-        assertThrows(IllegalStateException.class, () -> glDrawElements(GL_POINTS, 1, GL_UNSIGNED_INT, 0L), "glDrawElements called with invalid client-side pointer address or index offset but no ELEMENT_ARRAY_BUFFER bound");
+        assertThrowsWithMessage(IllegalStateException.class, () -> glDrawElements(GL_POINTS, 1, GL_UNSIGNED_INT, 0L), "glDrawElements called with invalid client-side pointer address or index offset but no ELEMENT_ARRAY_BUFFER bound");
     }
 
     @Test
@@ -424,7 +410,7 @@ public class DebugIT {
         window = glfwCreateWindow(800, 600, "", 0L, 0L);
         glfwMakeContextCurrent(window);
         createCapabilities();
-        assertThrows(IllegalStateException.class, () -> nglDrawElements(GL_POINTS, 1, GL_UNSIGNED_INT, 0L), "glDrawElements called with invalid client-side pointer address or index offset but no ELEMENT_ARRAY_BUFFER bound");
+        assertThrowsWithMessage(IllegalStateException.class, () -> nglDrawElements(GL_POINTS, 1, GL_UNSIGNED_INT, 0L), "glDrawElements called with invalid client-side pointer address or index offset but no ELEMENT_ARRAY_BUFFER bound");
     }
 
     @Test
@@ -434,7 +420,7 @@ public class DebugIT {
         createCapabilities();
         int vbo = glGenBuffers();
         glBindBuffer(GL_ARRAY_BUFFER, vbo);
-        assertThrows(IllegalArgumentException.class, () -> glBufferData(GL_ARRAY_BUFFER, ByteBuffer.wrap(new byte[] { 1, 2, 3, 4 }), GL_STATIC_DRAW),
+        assertThrowsWithMessage(IllegalArgumentException.class, () -> glBufferData(GL_ARRAY_BUFFER, ByteBuffer.wrap(new byte[] { 1, 2, 3, 4 }), GL_STATIC_DRAW),
                 "buffer is not direct. Buffers created via ByteBuffer.allocate() or ByteBuffer.wrap() are not supported. Use BufferUtils.createByteBuffer() instead.");
     }
 
@@ -443,7 +429,7 @@ public class DebugIT {
         window = glfwCreateWindow(800, 600, "", 0L, 0L);
         glfwMakeContextCurrent(window);
         createCapabilities();
-        assertThrows(IllegalArgumentException.class, () -> glUniformMatrix4fv(0, false, ByteBuffer.allocate(16 * 4).asFloatBuffer()),
+        assertThrowsWithMessage(IllegalArgumentException.class, () -> glUniformMatrix4fv(0, false, ByteBuffer.allocate(16 * 4).asFloatBuffer()),
                 "buffer is not direct. Buffers created via FloatBuffer.allocate() or FloatBuffer.wrap() are not supported. Use BufferUtils.createFloatBuffer() instead.");
     }
 
@@ -454,7 +440,7 @@ public class DebugIT {
         createCapabilities();
         FloatBuffer bb = ByteBuffer.allocateDirect(16 * 4).asFloatBuffer();
         bb.put(0, 1.0f);
-        assertThrows(IllegalArgumentException.class, () -> glLoadMatrixf(bb), "buffer contains values written using non-native endianness.");
+        assertThrowsWithMessage(IllegalArgumentException.class, () -> glLoadMatrixf(bb), "buffer contains values written using non-native endianness.");
     }
 
     @Test
@@ -465,7 +451,7 @@ public class DebugIT {
         ByteBuffer bb = ByteBuffer.allocateDirect(16 * 4);
         bb.putFloat(0, 1.0f);
         FloatBuffer fb = bb.asFloatBuffer();
-        assertThrows(IllegalArgumentException.class, () -> glLoadMatrixf(fb), "buffer contains values written using non-native endianness.");
+        assertThrowsWithMessage(IllegalArgumentException.class, () -> glLoadMatrixf(fb), "buffer contains values written using non-native endianness.");
     }
 
     @Test
@@ -476,7 +462,7 @@ public class DebugIT {
         ByteBuffer bb = ByteBuffer.allocateDirect(16 * 4);
         bb.putFloat(0, 1.0f);
         FloatBuffer fb = bb.slice().asFloatBuffer();
-        assertThrows(IllegalArgumentException.class, () -> glLoadMatrixf(fb), "buffer contains values written using non-native endianness.");
+        assertThrowsWithMessage(IllegalArgumentException.class, () -> glLoadMatrixf(fb), "buffer contains values written using non-native endianness.");
     }
 
     @Test
@@ -487,7 +473,7 @@ public class DebugIT {
         ByteBuffer bb = ByteBuffer.allocateDirect(16 * 4);
         FloatBuffer fb = bb.asFloatBuffer().slice();
         fb.put(0, 1.0f);
-        assertThrows(IllegalArgumentException.class, () -> glLoadMatrixf(fb), "buffer contains values written using non-native endianness.");
+        assertThrowsWithMessage(IllegalArgumentException.class, () -> glLoadMatrixf(fb), "buffer contains values written using non-native endianness.");
     }
 
     @Test
@@ -520,7 +506,7 @@ public class DebugIT {
         for (int i = 0; i < 16; i++) {
             fb.put(i);
         }
-        assertThrows(IllegalArgumentException.class, () -> glUniformMatrix4fv(0, false, fb), "buffer has no remaining elements. Did you forget to flip()/rewind() it?");
+        assertThrowsWithMessage(IllegalArgumentException.class, () -> glUniformMatrix4fv(0, false, fb), "buffer has no remaining elements. Did you forget to flip()/rewind() it?");
     }
 
     @Test
@@ -529,7 +515,7 @@ public class DebugIT {
         glfwMakeContextCurrent(window);
         createCapabilities();
         FloatBuffer fb = BufferUtils.createFloatBuffer(0);
-        assertThrows(IllegalArgumentException.class, () -> glBufferData(GL_VERTEX_ARRAY, fb, GL_STATIC_DRAW), 
+        assertThrowsWithMessage(IllegalArgumentException.class, () -> glBufferData(GL_VERTEX_ARRAY, fb, GL_STATIC_DRAW),
                 "buffer has zero capacity. If you want to clear an OpenGL buffer object, use GL15.glBufferData(target, size=0, usage) instead.");
     }
 
@@ -579,7 +565,7 @@ public class DebugIT {
         createCapabilities();
         int vao = glGenVertexArrays();
         glfwMakeContextCurrent(window2);
-        assertThrows(IllegalStateException.class, () -> glBindVertexArray(vao), // <--- VAOs are NOT shared!,
+        assertThrowsWithMessage(IllegalStateException.class, () -> glBindVertexArray(vao), // <--- VAOs are NOT shared!
                 "Trying to bind unknown VAO [1] from shared context [" + (Context.CURRENT_CONTEXT.get().counter - 1) + "]");
     }
 
@@ -591,7 +577,7 @@ public class DebugIT {
         createCapabilities();
         int fbo = glGenFramebuffers();
         glfwMakeContextCurrent(window2);
-        assertThrows(IllegalStateException.class, () -> glBindFramebuffer(GL_FRAMEBUFFER, fbo), // <--- FBOs are NOT shared!
+        assertThrowsWithMessage(IllegalStateException.class, () -> glBindFramebuffer(GL_FRAMEBUFFER, fbo), // <--- FBOs are NOT shared!
                         "Trying to bind unknown FBO [1] from shared context [" + (Context.CURRENT_CONTEXT.get().counter - 1) + "]");
     }
 
@@ -600,7 +586,7 @@ public class DebugIT {
         window = glfwCreateWindow(800, 600, "", 0L, 0L);
         glfwMakeContextCurrent(window);
         createCapabilities();
-        assertThrows(IllegalStateException.class, () -> glUniform1f(1, 1.0f), Pattern.compile("glUniform1f produced error: 1282 \\(GL_INVALID_OPERATION\\)"));
+        assertThrowsWithMessage(IllegalStateException.class, () -> glUniform1f(1, 1.0f), Pattern.compile("glUniform1f produced error: 1282 \\(GL_INVALID_OPERATION\\)"));
     }
 
     @Test
@@ -636,17 +622,17 @@ public class DebugIT {
 
     @Test
     public void testJvmArgumentAsCommandLineArgument() {
-        assertThrows(IllegalStateException.class, () -> main(new String[] {"-XstartOnFirstThread"}),
+        assertThrowsWithMessage(IllegalStateException.class, () -> main(new String[] {"-XstartOnFirstThread"}),
                         "'-XstartOnFirstThread' was provided as command line argument instead of JVM parameter. "
                         + "Make sure to specify '-XstartOnFirstThread' before any '-jar' argument");
-        assertThrows(IllegalStateException.class, () -> main(new String[] {"-Djava.library.path=./some/path"}),
+        assertThrowsWithMessage(IllegalStateException.class, () -> main(new String[] {"-Djava.library.path=./some/path"}),
                         "'-Djava.library.path=./some/path' was provided as command line argument instead of JVM parameter. "
                         + "Make sure to specify '-Djava.library.path=./some/path' before any '-jar' argument");
     }
 
     @Test
     public void testGlErrorInMainMethod() {
-        assertThrows(IllegalStateException.class, () -> main(new String[0]), Pattern.compile("glEnable produced error: 1280 \\(GL_INVALID_ENUM\\)"));
+        assertThrowsWithMessage(IllegalStateException.class, () -> main(new String[0]), Pattern.compile("glEnable produced error: 1280 \\(GL_INVALID_ENUM\\)"));
     }
 
     public static void main(String[] args) {
