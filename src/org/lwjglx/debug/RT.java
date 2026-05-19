@@ -22,9 +22,8 @@
  */
 package org.lwjglx.debug;
 
-import static org.lwjglx.debug.Log.error;
-import static org.lwjglx.debug.Log.trace;
-import static org.lwjglx.debug.org.lwjgl.opengl.Context.*;
+import org.lwjgl.PointerBuffer;
+import org.lwjglx.debug.org.lwjgl.opengl.Context;
 
 import java.nio.Buffer;
 import java.nio.ByteBuffer;
@@ -37,11 +36,19 @@ import java.nio.LongBuffer;
 import java.nio.ShortBuffer;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
 
-import org.lwjgl.PointerBuffer;
-import org.lwjglx.debug.org.lwjgl.opengl.Context;
+import static org.lwjglx.debug.Log.error;
+import static org.lwjglx.debug.Log.trace;
+import static org.lwjglx.debug.org.lwjgl.opengl.Context.CONTEXTS;
+import static org.lwjglx.debug.org.lwjgl.opengl.Context.CURRENT_CONTEXT;
+import static org.lwjglx.debug.org.lwjgl.opengl.Context.TextureLayer;
+import static org.lwjglx.debug.org.lwjgl.opengl.Context.TextureLevel;
+import static org.lwjglx.debug.org.lwjgl.opengl.Context.TextureObject;
+import static org.lwjglx.debug.org.lwjgl.opengl.Context.checkFramebufferCompleteness;
 
 class Command {
     final List<Param> params;
@@ -76,6 +83,7 @@ public class RT {
 
     public static Thread mainThread;
     public static boolean glfwInitialized;
+    public static boolean sdlInitialized;
 
     private static void throwIfNotNativeEndianness(ByteOrder order) {
         if (order != null && order != ByteOrder.nativeOrder()) {
@@ -1258,6 +1266,84 @@ public class RT {
                 return;
         }
         throwIAEOrLogError("Provided 'share' argument is not a valid GLFW window handle: " + share);
+    }
+
+    public static final Map<Long, Integer> SDL_WINDOWS = Collections.synchronizedMap(new HashMap<>());
+    private static final AtomicInteger SDL_WINDOW_COUNTER = new AtomicInteger(1);
+
+    public static long registerSdlWindow(long window) {
+        if (window != 0L) {
+            SDL_WINDOWS.put(window, SDL_WINDOW_COUNTER.getAndIncrement());
+        }
+        return window;
+    }
+
+    public static void destroySdlWindow(long window) {
+        if (window != 0L) {
+            SDL_WINDOWS.remove(window);
+        }
+    }
+
+    public static MethodCall paramSdlWindow(MethodCall mc, long window) {
+        Integer counter = SDL_WINDOWS.get(window);
+        if (counter == null) {
+            mc.param(window);
+        } else {
+            mc.paramEnum("window[" + counter + "]");
+        }
+        return mc;
+    }
+
+    public static long returnValueSdlWindow(long window, MethodCall mc) {
+        Integer counter = SDL_WINDOWS.get(window);
+        if (counter == null) {
+            mc.returnValue(window);
+        } else {
+            mc.returnValueEnum("window[" + counter + "]");
+        }
+        return window;
+    }
+
+    public static MethodCall paramSdlGlContext(MethodCall mc, long context) {
+        Context ctx = CONTEXTS.get(context);
+        if (ctx == null) {
+            mc.param(context);
+        } else {
+            mc.paramEnum("context[" + ctx.counter + "]");
+        }
+        return mc;
+    }
+
+    public static long returnValueSdlGlContext(long context, MethodCall mc) {
+        Context ctx = CONTEXTS.get(context);
+        if (ctx == null) {
+            mc.returnValue(context);
+        } else {
+            mc.returnValueEnum("context[" + ctx.counter + "]");
+        }
+        return context;
+    }
+
+    public static void checkSdlInitialized(String methodName) {
+        if (!sdlInitialized) {
+            throwISEOrLogError("Method " + methodName + " was called before initializing SDL via SDL_Init().");
+        }
+    }
+
+    public static void checkSdlWindow(long window) {
+        if (window == 0L)
+            return;
+        if (!SDL_WINDOWS.containsKey(window)) {
+            throwIAEOrLogError("Provided 'window' argument is not a valid SDL window handle: " + window);
+        }
+    }
+
+    public static void checkSdlGlContext(long context) {
+        if (context == 0L)
+            return;
+        if (!CONTEXTS.containsKey(context)) {
+            throwIAEOrLogError("Provided 'context' argument is not a valid SDL GL context handle: " + context);
+        }
     }
 
     public static void checkMainMethod(String[] args) {

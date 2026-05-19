@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.lwjglx</groupId>
 	<artifactId>lwjglx-debug</artifactId>
-	<version>1.0.3</version>
+	<version>1.0.4</version>
 	<name>LWJGLX/debug</name>
 	<description>Debug LWJGL3 OpenGL applications</description>
 	<inceptionYear>2017</inceptionYear>
@@ -416,6 +416,12 @@
 		</dependency>
 		<dependency>
 			<groupId>org.lwjgl</groupId>
+			<artifactId>lwjgl-sdl</artifactId>
+			<version>${lwjgl.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.lwjgl</groupId>
 			<artifactId>lwjgl</artifactId>
 			<version>${lwjgl.version}</version>
 			<classifier>natives-${platform}</classifier>
@@ -431,6 +437,13 @@
 		<dependency>
 			<groupId>org.lwjgl</groupId>
 			<artifactId>lwjgl-glfw</artifactId>
+			<version>${lwjgl.version}</version>
+			<classifier>natives-${platform}</classifier>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.lwjgl</groupId>
+			<artifactId>lwjgl-sdl</artifactId>
 			<version>${lwjgl.version}</version>
 			<classifier>natives-${platform}</classifier>
 			<scope>provided</scope>
