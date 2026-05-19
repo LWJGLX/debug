@@ -22,19 +22,6 @@
  */
 package org.lwjglx.debug;
 
-import static org.lwjglx.debug.Log.*;
-import static org.lwjglx.debug.Properties.*;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.PrintWriter;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.atomic.AtomicInteger;
-
 import org.lwjglx.debug.ClassMetadata.MethodInfo;
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.ClassVisitor;
@@ -43,6 +30,23 @@ import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.Type;
 import org.objectweb.asm.util.TraceClassVisitor;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.PrintWriter;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicInteger;
+
+import static org.lwjglx.debug.Log.debug;
+import static org.lwjglx.debug.Properties.DEBUG;
+import static org.lwjglx.debug.Properties.TRACE;
+import static org.lwjglx.debug.Properties.VALIDATE;
 
 class InterceptedCall {
     private static final AtomicInteger counter = new AtomicInteger();
@@ -130,6 +134,20 @@ class InterceptClassGenerator implements Opcodes {
 
     private static final Map<ClassKey, HashSet<Method>> declaredMethods = new ConcurrentHashMap<>();
 
+    private static final Set<String> GLFW_MAIN_THREAD_METHODS = Collections.unmodifiableSet(new HashSet<>(Arrays.asList(
+        "glfwInit", "glfwTerminate", "glfwCreateWindow", "glfwDefaultWindowHints", "glfwDestroyWindow", "glfwFocusWindow",
+        "glfwGetFramebufferSize", "glfwGetWindowAttrib", "glfwGetWindowFrameSize", "glfwGetWindowMonitor", "glfwGetWindowPos",
+        "glfwGetWindowSize", "glfwHideWindow", "glfwIconifyWindow", "glfwMaximizeWindow", "glfwPollEvents", "glfwRestoreWindow",
+        "glfwSetFramebufferSizeCallback", "glfwSetWindowAspectRatio", "glfwSetWindowCloseCallback", "glfwSetWindowFocusCallback",
+        "glfwSetWindowIcon", "glfwSetWindowIconifyCallback", "glfwSetWindowMonitor", "glfwSetWindowPos", "glfwSetWindowPosCallback",
+        "glfwSetWindowRefreshCallback", "glfwSetWindowSize", "glfwSetWindowSizeCallback", "glfwSetWindowSizeLimits",
+        "glfwSetWindowTitle", "glfwShowWindow", "glfwWaitEvents", "glfwWaitEventsTimeout", "glfwWindowHint"
+    )));
+
+    private static final Set<String> SDL_THREAD_SAFE_METHODS = Collections.unmodifiableSet(new HashSet<>(Arrays.asList(
+        "SDL_GL_MakeCurrent", "SDL_GL_GetCurrentContext", "SDL_GL_SwapWindow", "SDL_GL_DestroyContext"
+    )));
+
     private static boolean isGLcall(InterceptedCall call) {
         return (call.name.startsWith("gl") || call.name.startsWith("ngl")) && call.resolvedReceiverInternalName.startsWith("org/lwjgl/opengl/");
     }
@@ -160,13 +178,10 @@ class InterceptClassGenerator implements Opcodes {
 
     private static boolean isMainThreadMethod(InterceptedCall call) {
         if (call.resolvedReceiverInternalName.equals("org/lwjgl/glfw/GLFW")) {
-            return Arrays
-                    .asList("glfwInit", "glfwTerminate", "glfwCreateWindow", "glfwDefaultWindowHints", "glfwDestroyWindow", "glfwFocusWindow", "glfwGetFramebufferSize", "glfwGetWindowAttrib",
-                            "glfwGetWindowFrameSize", "glfwGetWindowMonitor", "glfwGetWindowPos", "glfwGetWindowSize", "glfwHideWindow", "glfwIconifyWindow", "glfwMaximizeWindow", "glfwPollEvents",
-                            "glfwRestoreWindow", "glfwSetFramebufferSizeCallback", "glfwSetWindowAspectRatio", "glfwSetWindowCloseCallback", "glfwSetWindowFocusCallback", "glfwSetWindowIcon",
-                            "glfwSetWindowIconifyCallback", "glfwSetWindowMonitor", "glfwSetWindowPos", "glfwSetWindowPosCallback", "glfwSetWindowRefreshCallback", "glfwSetWindowSize",
-                            "glfwSetWindowSizeCallback", "glfwSetWindowSizeLimits", "glfwSetWindowTitle", "glfwShowWindow", "glfwWaitEvents", "glfwWaitEventsTimeout", "glfwWindowHint")
-                    .contains(call.name);
+            return GLFW_MAIN_THREAD_METHODS.contains(call.name);
+        }
+        if (call.resolvedReceiverInternalName.startsWith("org/lwjgl/sdl/")) {
+            return call.name.startsWith("SDL_") && !SDL_THREAD_SAFE_METHODS.contains(call.name);
         }
         return false;
     }
@@ -174,6 +189,13 @@ class InterceptClassGenerator implements Opcodes {
     private static boolean requiresGlfwInit(InterceptedCall call) {
         if (call.resolvedReceiverInternalName.equals("org/lwjgl/glfw/GLFW")) {
             return call.name.startsWith("glfw") && !call.name.equals("glfwSetErrorCallback") && !call.name.equals("glfwInit");
+        }
+        return false;
+    }
+
+    private static boolean requiresSdlInit(InterceptedCall call) {
+        if (call.resolvedReceiverInternalName.startsWith("org/lwjgl/sdl/")) {
+            return call.name.startsWith("SDL_") && !call.name.equals("SDL_Init") && !call.name.equals("SDL_InitSubSystem") && !call.name.equals("SDL_SetMemoryFunctions");
         }
         return false;
     }
@@ -248,6 +270,11 @@ class InterceptClassGenerator implements Opcodes {
                     if (requiresGlfwInit(call)) {
                         mv.visitLdcInsn(call.name);
                         mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, "checkGlfwInitialized", "(Ljava/lang/String;)V", false);
+                    }
+                    /* and whether it was an SDL method that requires SDL_Init() to have been called */
+                    if (requiresSdlInit(call)) {
+                        mv.visitLdcInsn(call.name);
+                        mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, "checkSdlInitialized", "(Ljava/lang/String;)V", false);
                     }
                 }
                 /* Validate buffer arguments and also load all arguments onto stack */
@@ -458,6 +485,12 @@ class InterceptClassGenerator implements Opcodes {
             } else if ("GLFWmonitor *".equals(nativeType)) {
                 mv.visitVarInsn(paramType.getOpcode(ILOAD), var);
                 mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, "paramGlfwMonitor", "(" + MethodCall_Desc + paramType.getDescriptor() + ")" + MethodCall_Desc, false);
+            } else if ("SDL_Window *".equals(nativeType)) {
+                mv.visitVarInsn(paramType.getOpcode(ILOAD), var);
+                mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, "paramSdlWindow", "(" + MethodCall_Desc + paramType.getDescriptor() + ")" + MethodCall_Desc, false);
+            } else if ("SDL_GLContext".equals(nativeType) || "SDL_GLContext *".equals(nativeType)) {
+                mv.visitVarInsn(paramType.getOpcode(ILOAD), var);
+                mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, "paramSdlGlContext", "(" + MethodCall_Desc + paramType.getDescriptor() + ")" + MethodCall_Desc, false);
             } else {
                 mv.visitVarInsn(paramType.getOpcode(ILOAD), var);
                 if (paramType.getSort() == Type.ARRAY || paramType.getSort() == Type.OBJECT) {
@@ -488,6 +521,10 @@ class InterceptClassGenerator implements Opcodes {
                 mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, "returnValueGlfwWindow", "(" + retType.getDescriptor() + MethodCall_Desc + ")" + retType.getDescriptor(), false);
             } else if ("GLFWmonitor *".equals(returnNativeType)) {
                 mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, "returnValueGlfwMonitor", "(" + retType.getDescriptor() + MethodCall_Desc + ")" + retType.getDescriptor(), false);
+            } else if ("SDL_Window *".equals(returnNativeType)) {
+                mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, "returnValueSdlWindow", "(" + retType.getDescriptor() + MethodCall_Desc + ")" + retType.getDescriptor(), false);
+            } else if ("SDL_GLContext".equals(returnNativeType) || "SDL_GLContext *".equals(returnNativeType)) {
+                mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, "returnValueSdlGlContext", "(" + retType.getDescriptor() + MethodCall_Desc + ")" + retType.getDescriptor(), false);
             } else {
                 mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, "returnValue", "(" + retType.getDescriptor() + MethodCall_Desc + ")" + retType.getDescriptor(), false);
             }

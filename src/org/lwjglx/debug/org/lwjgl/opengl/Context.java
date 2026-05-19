@@ -22,7 +22,8 @@
  */
 package org.lwjglx.debug.org.lwjgl.opengl;
 
-import static org.lwjglx.debug.Log.*;
+import org.lwjglx.debug.Properties;
+import org.lwjglx.debug.RT;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
@@ -36,7 +37,8 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentSkipListSet;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import org.lwjglx.debug.*;
+import static org.lwjglx.debug.Log.LineBreakingStringBuilder;
+import static org.lwjglx.debug.Log.info;
 
 public class Context implements Comparable<Context> {
     public static class ShareGroup {
@@ -151,7 +153,7 @@ public class Context implements Comparable<Context> {
     public static Context currentContext() {
     	Context ctx = CURRENT_CONTEXT.get();
     	if (ctx == null) {
-    		RT.throwISEOrLogError("No OpenGL context has been made current through recognized API methods (glfwMakeContextCurrent).");
+    		RT.throwISEOrLogError("No OpenGL context has been made current through recognized API methods (glfwMakeContextCurrent or SDL_GL_MakeCurrent).");
     	}
     	return ctx;
     }
