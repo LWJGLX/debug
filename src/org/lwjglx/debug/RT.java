@@ -23,6 +23,7 @@
 package org.lwjglx.debug;
 
 import org.lwjgl.PointerBuffer;
+import org.lwjgl.glfw.GLFW;
 import org.lwjglx.debug.org.lwjgl.opengl.Context;
 
 import java.nio.Buffer;
@@ -41,6 +42,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import static org.lwjgl.sdl.SDLInit.SDL_WasInit;
 import static org.lwjglx.debug.Log.error;
 import static org.lwjglx.debug.Log.trace;
 import static org.lwjglx.debug.org.lwjgl.opengl.Context.CONTEXTS;
@@ -703,12 +705,14 @@ public class RT {
     }
 
     public static MethodCall paramGlfwMonitor(MethodCall mc, long monitor) {
-        PointerBuffer monitors = org.lwjgl.glfw.GLFW.glfwGetMonitors();
-        for (int i = 0; i < monitors.remaining(); i++) {
-            long m = monitors.get(i);
-            if (m == monitor) {
-                mc.paramEnum("monitor[" + i + "]");
-                return mc;
+        PointerBuffer monitors = GLFW.glfwGetMonitors();
+        if (monitors != null) {
+            for (int i = 0; i < monitors.remaining(); i++) {
+                long m = monitors.get(i);
+                if (m == monitor) {
+                    mc.paramEnum("monitor[" + i + "]");
+                    return mc;
+                }
             }
         }
         mc.param(monitor);
@@ -758,12 +762,14 @@ public class RT {
     }
 
     public static long returnValueGlfwMonitor(long monitor, MethodCall mc) {
-        PointerBuffer monitors = org.lwjgl.glfw.GLFW.glfwGetMonitors();
-        for (int i = 0; i < monitors.remaining(); i++) {
-            long m = monitors.get(i);
-            if (m == monitor) {
-                mc.returnValueEnum("monitor[" + i + "]");
-                return monitor;
+        PointerBuffer monitors = GLFW.glfwGetMonitors();
+        if (monitors != null) {
+            for (int i = 0; i < monitors.remaining(); i++) {
+                long m = monitors.get(i);
+                if (m == monitor) {
+                    mc.returnValueEnum("monitor[" + i + "]");
+                    return monitor;
+                }
             }
         }
         mc.returnValue(monitor);
@@ -1250,10 +1256,12 @@ public class RT {
     public static void checkGlfwMonitor(long monitor) {
         if (monitor == 0L)
             return;
-        PointerBuffer pb = org.lwjgl.glfw.GLFW.glfwGetMonitors();
-        for (int i = 0; i < pb.remaining(); i++) {
-            if (pb.get(i) == monitor)
-                return;
+        PointerBuffer pb = GLFW.glfwGetMonitors();
+        if (pb != null) {
+            for (int i = 0; i < pb.remaining(); i++) {
+                if (pb.get(i) == monitor)
+                    return;
+            }
         }
         throwIAEOrLogError("Provided 'monitor' argument is not a valid GLFW monitor handle: " + monitor);
     }
@@ -1324,9 +1332,24 @@ public class RT {
         return context;
     }
 
-    public static void checkSdlInitialized(String methodName) {
-        if (!sdlInitialized) {
-            throwISEOrLogError("Method " + methodName + " was called before initializing SDL via SDL_Init().");
+    public static void checkSdlInitialized(String methodName, int requiredFlags) {
+        boolean initialized = false;
+        try {
+            if (requiredFlags == 0) {
+                initialized = sdlInitialized || SDL_WasInit(0) != 0;
+            } else {
+                initialized = (SDL_WasInit(requiredFlags) & requiredFlags) == requiredFlags;
+            }
+        } catch (Throwable t) {
+            t.printStackTrace();
+            initialized = sdlInitialized;
+        }
+        if (!initialized) {
+            if (requiredFlags == 0) {
+                throwISEOrLogError("Method " + methodName + " was called before initializing SDL.");
+            } else {
+                throwISEOrLogError("Method " + methodName + " was called before initializing the required SDL subsystem.");
+            }
         }
     }
 

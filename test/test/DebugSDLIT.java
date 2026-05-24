@@ -4,9 +4,15 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInfo;
+import org.lwjgl.sdl.SDLError;
+import org.lwjgl.sdl.SDLHints;
+import org.lwjgl.sdl.SDLInit;
+import org.lwjgl.sdl.SDLStdinc;
+import org.lwjgl.sdl.SDLTimer;
 import org.lwjglx.debug.Properties;
 import org.lwjglx.debug.org.lwjgl.opengl.Context;
 
+import java.nio.ByteBuffer;
 import java.util.concurrent.CountDownLatch;
 import java.util.regex.Pattern;
 
@@ -171,5 +177,55 @@ public class DebugSDLIT {
         assertTrue(SDL_GL_MakeCurrent(window, context));
         createCapabilities();
         assertThrowsWithMessage(IllegalStateException.class, () -> glEnable(GL_VERTEX_ARRAY_POINTER), Pattern.compile("glEnable produced error: 1280 \\(GL_INVALID_ENUM\\)"));
+    }
+
+    @Test
+    public void testPreInitAllowed() {
+        SDL_Quit();
+        alreadyTerminated = true;
+        assertTrue(SDLHints.SDL_SetHint("SDL_VIDEO_DRIVER", "dummy"));
+        assertEquals("dummy", SDLHints.SDL_GetHint("SDL_VIDEO_DRIVER"));
+        SDLError.SDL_GetError();
+        ByteBuffer buf = SDLStdinc.SDL_malloc(16);
+        if (buf != null) {
+            SDLStdinc.SDL_free(buf);
+        }
+        assertTrue(SDL_Init(SDL_INIT_VIDEO));
+        alreadyTerminated = false;
+        window = SDL_CreateWindow("Test PreInit Allowed", 320, 240, SDL_WINDOW_OPENGL | SDL_WINDOW_HIDDEN);
+        assertNotNull(window);
+    }
+
+    @Test
+    public void testSubsystemRefcounting() {
+        SDL_Quit();
+        alreadyTerminated = true;
+        assertTrue(SDL_Init(SDL_INIT_VIDEO));
+        assertTrue(SDL_Init(SDL_INIT_VIDEO));
+        alreadyTerminated = false;
+        window = SDL_CreateWindow("Test Refcount 1", 320, 240, SDL_WINDOW_OPENGL | SDL_WINDOW_HIDDEN);
+        assertNotNull(window);
+        SDLInit.SDL_QuitSubSystem(SDL_INIT_VIDEO);
+        window2 = SDL_CreateWindow("Test Refcount 2", 320, 240, SDL_WINDOW_OPENGL | SDL_WINDOW_HIDDEN);
+        assertNotNull(window2);
+        SDL_DestroyWindow(window);
+        window = 0L;
+        SDL_DestroyWindow(window2);
+        window2 = 0L;
+        SDLInit.SDL_QuitSubSystem(SDL_INIT_VIDEO);
+        alreadyTerminated = true;
+        assertThrows(IllegalStateException.class, () -> SDL_CreateWindow("Should Fail", 320, 240, SDL_WINDOW_OPENGL | SDL_WINDOW_HIDDEN));
+    }
+
+    @Test
+    public void testInitZero() {
+        SDL_Quit();
+        alreadyTerminated = true;
+        assertTrue(SDL_Init(0));
+        // core/timer method should succeed
+        long ticks = SDLTimer.SDL_GetTicks();
+        assertTrue(ticks >= 0L);
+        // video method should throw IllegalStateException because video subsystem is not initialized
+        assertThrows(IllegalStateException.class, () -> SDL_CreateWindow("Should Fail", 320, 240, SDL_WINDOW_OPENGL | SDL_WINDOW_HIDDEN));
     }
 }
