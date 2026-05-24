@@ -29,27 +29,23 @@ import static org.lwjglx.debug.Log.error;
 public class SDLInit {
 
     public static boolean SDL_Init(int flags) {
-        boolean ret = org.lwjgl.sdl.SDLInit.SDL_Init(flags);
-        if (ret) {
+        boolean result = org.lwjgl.sdl.SDLInit.SDL_Init(flags);
+        if (result) {
             RT.sdlInitialized = true;
-        } else {
-            if (Properties.VALIDATE.enabled) {
-                error("SDL_Init returned false");
-            }
+        } else if (Properties.VALIDATE.enabled) {
+            error("SDL_Init returned false");
         }
-        return ret;
+        return result;
     }
 
     public static boolean SDL_InitSubSystem(int flags) {
-        boolean ret = org.lwjgl.sdl.SDLInit.SDL_InitSubSystem(flags);
-        if (ret) {
+        boolean result = org.lwjgl.sdl.SDLInit.SDL_InitSubSystem(flags);
+        if (result) {
             RT.sdlInitialized = true;
-        } else {
-            if (Properties.VALIDATE.enabled) {
-                error("SDL_InitSubSystem returned false");
-            }
+        } else if (Properties.VALIDATE.enabled) {
+            error("SDL_InitSubSystem returned false");
         }
-        return ret;
+        return result;
     }
 
     public static void SDL_Quit() {

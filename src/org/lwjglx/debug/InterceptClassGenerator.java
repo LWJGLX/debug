@@ -39,7 +39,10 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Map;
+import java.util.NavigableSet;
 import java.util.Set;
+import java.util.SortedSet;
+import java.util.TreeSet;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -148,6 +151,23 @@ class InterceptClassGenerator implements Opcodes {
         "SDL_GL_MakeCurrent", "SDL_GL_GetCurrentContext", "SDL_GL_SwapWindow", "SDL_GL_DestroyContext"
     )));
 
+    private static final Set<String> SDL_PRE_INIT_METHODS = Collections.unmodifiableSet(new HashSet<>(Arrays.asList(
+        "SDL_Init", "SDL_InitSubSystem", "SDL_SetMemoryFunctions", "SDL_GetMemoryFunctions",
+        "SDL_malloc", "SDL_calloc", "SDL_realloc", "SDL_free", "SDL_GetVersion", "SDL_GetRevision",
+        "SDL_GetPlatform", "SDL_GetError", "SDL_ClearError", "SDL_SetError", "SDL_SetMainReady",
+        "SDL_RunApp"
+    )));
+
+    private static final NavigableSet<String> SDL_PRE_INIT_PREFIXES =
+            Collections.unmodifiableNavigableSet(new TreeSet<>(Arrays.asList(
+        "SDL_Hint", "SDL_SetHint", "SDL_GetHint", "SDL_ResetHint", "SDL_AddHint", "SDL_RemoveHint",
+        "SDL_Environment", "SDL_SetEnvironment", "SDL_GetEnvironment", "SDL_UnsetEnvironment",
+        "SDL_CreateEnvironment", "SDL_DestroyEnvironment", "SDL_Log", "SDL_CreateProperties",
+        "SDL_DestroyProperties", "SDL_SetProperty", "SDL_GetProperty", "SDL_SetStringProperty",
+        "SDL_GetStringProperty", "SDL_SetNumberProperty", "SDL_GetNumberProperty", "SDL_SetFloatProperty",
+        "SDL_GetFloatProperty", "SDL_SetPointerProperty", "SDL_GetPointerProperty"
+    )));
+
     private static boolean isGLcall(InterceptedCall call) {
         return (call.name.startsWith("gl") || call.name.startsWith("ngl")) && call.resolvedReceiverInternalName.startsWith("org/lwjgl/opengl/");
     }
@@ -195,10 +215,69 @@ class InterceptClassGenerator implements Opcodes {
 
     private static boolean requiresSdlInit(InterceptedCall call) {
         if (call.resolvedReceiverInternalName.startsWith("org/lwjgl/sdl/")) {
-            return call.name.startsWith("SDL_") && !call.name.equals("SDL_Init") && !call.name.equals("SDL_InitSubSystem") && !call.name.equals("SDL_SetMemoryFunctions");
+            switch (call.resolvedReceiverInternalName) {
+                case "org/lwjgl/sdl/SDLStdinc":
+                case "org/lwjgl/sdl/SDLHints":
+                case "org/lwjgl/sdl/SDLError":
+                case "org/lwjgl/sdl/SDLLog":
+                case "org/lwjgl/sdl/SDLProperties":
+                case "org/lwjgl/sdl/SDLVersion":
+                case "org/lwjgl/sdl/SDLInit":
+                    return false;
+            }
+            if (!call.name.startsWith("SDL_")) {
+                return false;
+            }
+            if (SDL_PRE_INIT_METHODS.contains(call.name)) {
+                return false;
+            }
+
+            String prefix = SDL_PRE_INIT_PREFIXES.floor(call.name);
+            return null == prefix || !call.name.startsWith(prefix);
         }
         return false;
     }
+
+    private static int getRequiredSdlSubsystem(String receiver) {
+        switch (receiver) {
+            case "org/lwjgl/sdl/SDLVideo":
+            case "org/lwjgl/sdl/SDLRenderer":
+            case "org/lwjgl/sdl/SDLMessagebox":
+            case "org/lwjgl/sdl/SDLMouse":
+            case "org/lwjgl/sdl/SDLKeyboard":
+            case "org/lwjgl/sdl/SDLTouch":
+            case "org/lwjgl/sdl/SDLPen":
+            case "org/lwjgl/sdl/SDLGPU":
+            case "org/lwjgl/sdl/SDLMetal":
+            case "org/lwjgl/sdl/SDLVulkan":
+            case "org/lwjgl/sdl/SDLSystray":
+                return 0x00000020; // SDL_INIT_VIDEO
+
+            case "org/lwjgl/sdl/SDLAudio":
+                return 0x00000010; // SDL_INIT_AUDIO
+
+            case "org/lwjgl/sdl/SDLJoystick":
+                return 0x00000200; // SDL_INIT_JOYSTICK
+
+            case "org/lwjgl/sdl/SDLGamepad":
+                return 0x00002000; // SDL_INIT_GAMEPAD
+
+            case "org/lwjgl/sdl/SDLEvents":
+                return 0x00004000; // SDL_INIT_EVENTS
+
+            case "org/lwjgl/sdl/SDLSensor":
+                return 0x00008000; // SDL_INIT_SENSOR
+
+            case "org/lwjgl/sdl/SDLCamera":
+                return 0x00010000; // SDL_INIT_CAMERA
+
+            case "org/lwjgl/sdl/SDLHaptic":
+                return 0x00001000; // SDL_INIT_HAPTIC
+
+        }
+        return 0;
+    }
+
 
     private static void checkFunctionSupported(MethodVisitor mv, String name) {
         mv.visitFieldInsn(GETFIELD, "org/lwjgl/opengl/GLCapabilities", name, "J");
@@ -274,7 +353,8 @@ class InterceptClassGenerator implements Opcodes {
                     /* and whether it was an SDL method that requires SDL_Init() to have been called */
                     if (requiresSdlInit(call)) {
                         mv.visitLdcInsn(call.name);
-                        mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, "checkSdlInitialized", "(Ljava/lang/String;)V", false);
+                        mv.visitLdcInsn(getRequiredSdlSubsystem(call.resolvedReceiverInternalName));
+                        mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, "checkSdlInitialized", "(Ljava/lang/String;I)V", false);
                     }
                 }
                 /* Validate buffer arguments and also load all arguments onto stack */
