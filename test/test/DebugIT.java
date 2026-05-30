@@ -347,6 +347,45 @@ public class DebugIT {
     }
 
     @Test
+    public void testFallbackContextCreation() {
+        window = glfwCreateWindow(800, 600, "", 0L, 0L);
+        glfwMakeContextCurrent(window);
+        
+        org.lwjglx.debug.org.lwjgl.opengl.Context.CURRENT_CONTEXT.remove();
+        
+        createCapabilities();
+        
+        assertNotNull(org.lwjglx.debug.org.lwjgl.opengl.Context.CURRENT_CONTEXT.get(), "Fallback context should be created automatically");
+    }
+
+    @Test
+    public void testMacOSCGLContextInterception() {
+        if (!isMac) {
+            return;
+        }
+        try {
+            window = glfwCreateWindow(800, 600, "", 0L, 0L);
+            glfwMakeContextCurrent(window);
+            createCapabilities();
+
+            long cglCtx = org.lwjgl.glfw.GLFWNativeNSGL.glfwGetNSGLContext(window);
+            if (cglCtx == 0L) {
+                return;
+            }
+
+            org.lwjglx.debug.org.lwjgl.opengl.Context.CURRENT_CONTEXT.remove();
+
+            int result = org.lwjgl.opengl.CGL.CGLSetCurrentContext(cglCtx);
+            if (result == org.lwjgl.opengl.CGL.kCGLNoError) {
+                assertNotNull(org.lwjglx.debug.org.lwjgl.opengl.Context.CURRENT_CONTEXT.get());
+                assertEquals(cglCtx, org.lwjglx.debug.org.lwjgl.opengl.Context.CURRENT_CONTEXT.get().window);
+            }
+        } catch (UnsatisfiedLinkError e) {
+            // Ignored if CGL native library is not loaded
+        }
+    }
+
+    @Test
     public void testNoVertexAttribPointerInCustomVAO() {
         window = glfwCreateWindow(800, 600, "", 0L, 0L);
         glfwMakeContextCurrent(window);

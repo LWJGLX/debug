@@ -158,6 +158,16 @@ public class Context implements Comparable<Context> {
     	return ctx;
     }
 
+    public static Context createCurrent() {
+        org.lwjglx.debug.Log.warn("No OpenGL context has been made current through recognized API methods. Created a fallback context.", new Throwable(), 3);
+        Context ctx = new Context();
+        ctx.counter = CONTEXT_COUNTER.getAndIncrement();
+        ctx.shareGroup = new ShareGroup();
+        ctx.shareGroup.contexts.add(ctx);
+        CURRENT_CONTEXT.set(ctx);
+        return ctx;
+    }
+
     public static void create(long window, long share) {
         Context ctx = new Context();
         ctx.window = window;

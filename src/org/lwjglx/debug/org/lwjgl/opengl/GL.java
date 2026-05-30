@@ -34,7 +34,10 @@ public class GL {
         if (Properties.VALIDATE.enabled) {
             callback = GLUtil.setupDebugMessageCallback();
         }
-        Context context = Context.currentContext();
+        Context context = CURRENT_CONTEXT.get();
+        if (context == null) {
+            context = Context.createCurrent();
+        }
         context.caps = caps;
         context.debugCallback = callback;
         int GL_MAX_VERTEX_ATTRIBS = 16;
@@ -53,7 +56,10 @@ public class GL {
         if (Properties.VALIDATE.enabled) {
             callback = GLUtil.setupDebugMessageCallback();
         }
-        Context context = Context.currentContext();
+        Context context = CURRENT_CONTEXT.get();
+        if (context == null) {
+            context = Context.createCurrent();
+        }
         context.caps = caps;
         context.debugCallback = callback;
         int GL_MAX_VERTEX_ATTRIBS = 16;
@@ -69,6 +75,9 @@ public class GL {
     public static void setCapabilities(org.lwjgl.opengl.GLCapabilities caps) {
         org.lwjgl.opengl.GL.setCapabilities(caps);
         Context context = CURRENT_CONTEXT.get();
+        if (context == null && caps != null) {
+            context = Context.createCurrent();
+        }
         if (context != null) {
             /* Can happen when calling setCapabilities(null) after glfwDestroyWindow()/glfwMakeContextCurrent(0L) */
             context.caps = caps;
