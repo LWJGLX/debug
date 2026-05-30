@@ -188,31 +188,33 @@ public class Agent implements ClassFileTransformer, Opcodes {
                     		Object secondArgument = bootstrapMethodArguments[1];
                     		if (secondArgument instanceof Handle) {
                     			Handle h = (Handle) secondArgument;
-                    			String owner = h.getOwner();
-                    			String name = h.getName();
-                    			String desc = h.getDesc();
-                    			if (owner.startsWith("org/lwjgl/") && !excluded(owner, name)) {
-                                    String key = owner + "." + name + desc;
-                                    InterceptedCall call = calls.get(key);
-                                    if (call == null) {
-                                        /* Resolve declaring class */
-                                        String resolvedOwner = resolveOwner(owner, name, desc);
-                                        /* Rewrite a GLnnC call to GLnn to be able to intercept the call */
-                                        if (resolvedOwner.matches(".*/GL(\\d\\d)C$")) {
-                                            resolvedOwner = resolvedOwner.substring(0, resolvedOwner.length() - 1);
+                    			if (h.getTag() == H_INVOKESTATIC) {
+                    				String owner = h.getOwner();
+                    				String name = h.getName();
+                    				String desc = h.getDesc();
+                    				if (owner.startsWith("org/lwjgl/") && !excluded(owner, name)) {
+                                        String key = owner + "." + name + desc;
+                                        InterceptedCall call = calls.get(key);
+                                        if (call == null) {
+                                            /* Resolve declaring class */
+                                            String resolvedOwner = resolveOwner(owner, name, desc);
+                                            /* Rewrite a GLnnC call to GLnn to be able to intercept the call */
+                                            if (resolvedOwner.matches(".*/GL(\\d\\d)C$")) {
+                                                resolvedOwner = resolvedOwner.substring(0, resolvedOwner.length() - 1);
+                                            }
+                                            call = new InterceptedCall(owner, resolvedOwner, name, desc);
+                                            String methodName;
+                                            methodName = name + call.index;
+                                            call.generatedMethodName = methodName;
+                                            calls.put(key, call);
                                         }
-                                        call = new InterceptedCall(owner, resolvedOwner, name, desc);
-                                        String methodName;
-                                        methodName = name + call.index;
-                                        call.generatedMethodName = methodName;
-                                        calls.put(key, call);
+                                        Log.maxLineNumberLength = Math.max(Log.maxLineNumberLength, (int) (Math.log10(lastLineNumber) + 1));
+                                        // modify invokedynamic handle
+                                        Handle newHandle = new Handle(H_INVOKESTATIC, proxyName, call.generatedMethodName, call.desc, false);
+                                        bootstrapMethodArguments[1] = newHandle;
+                                        modifications.needsProxyClass = true;
                                     }
-                                    Log.maxLineNumberLength = Math.max(Log.maxLineNumberLength, (int) (Math.log10(lastLineNumber) + 1));
-                                    // modify invokedynamic handle
-                                    Handle newHandle = new Handle(H_INVOKESTATIC, proxyName, call.generatedMethodName, call.desc, false);
-                                    bootstrapMethodArguments[1] = newHandle;
-                                    modifications.needsProxyClass = true;
-                                }
+                    			}
                     		}
                     	}
                     	super.visitInvokeDynamicInsn(dynamicname, descriptor, bootstrapMethodHandle, bootstrapMethodArguments);

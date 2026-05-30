@@ -29,6 +29,11 @@ import org.lwjgl.opengl.*;
 import org.lwjgl.system.*;
 import org.lwjglx.debug.Properties;
 import org.lwjglx.debug.org.lwjgl.opengl.Context;
+import org.objectweb.asm.ClassWriter;
+import org.objectweb.asm.Handle;
+import org.objectweb.asm.MethodVisitor;
+import org.objectweb.asm.Opcodes;
+import org.objectweb.asm.Type;
 
 public class DebugIT {
 
@@ -40,6 +45,7 @@ public class DebugIT {
 
     private static final Set<String> CORE_PROFILE_TESTS = new HashSet<>(Arrays.asList(
             "testMethodReferences",
+            "testMethodReferencesWithTraceEnabled",
             "testNoVertexAttribPointerInCustomVAO",
             "testNoVertexAttribPointerInCustomVAOWithIndicesBuffer",
             "testBindVAOFromSharedContext",
@@ -252,6 +258,92 @@ public class DebugIT {
         Supplier<Integer> glGenVertexArrays = GL32C::glGenVertexArrays;
         glBindVertexArray(glGenVertexArrays.get());
         glEnableVertexAttribArray(3);
+    }
+
+    private static class CustomClassLoader extends ClassLoader {
+        CustomClassLoader(ClassLoader parent) {
+            super(parent);
+        }
+        public Class<?> define(String name, byte[] b) {
+            return defineClass(name, b, 0, b.length);
+        }
+    }
+
+    @Test
+    public void testMethodReferencesWithTraceEnabled() throws Exception {
+        boolean oldTrace = Properties.TRACE.enabled;
+        Properties.TRACE.enabled = true;
+        try {
+            ClassWriter cw = new ClassWriter(ClassWriter.COMPUTE_MAXS);
+            cw.visit(Opcodes.V1_8, Opcodes.ACC_PUBLIC | Opcodes.ACC_SUPER, "test/DynamicTraceTestClass", null, "java/lang/Object", null);
+            
+            MethodVisitor ctor = cw.visitMethod(Opcodes.ACC_PUBLIC, "<init>", "()V", null, null);
+            ctor.visitCode();
+            ctor.visitVarInsn(Opcodes.ALOAD, 0);
+            ctor.visitMethodInsn(Opcodes.INVOKESPECIAL, "java/lang/Object", "<init>", "()V", false);
+            ctor.visitInsn(Opcodes.RETURN);
+            ctor.visitMaxs(-1, -1);
+            ctor.visitEnd();
+
+            MethodVisitor mv = cw.visitMethod(Opcodes.ACC_PUBLIC | Opcodes.ACC_STATIC, "getSupplier", "()Ljava/util/function/Supplier;", null, null);
+            mv.visitCode();
+            
+            Handle bootstrapMethod = new Handle(
+                Opcodes.H_INVOKESTATIC,
+                "java/lang/invoke/LambdaMetafactory",
+                "metafactory",
+                "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;",
+                false
+            );
+            
+            mv.visitInvokeDynamicInsn(
+                "get",
+                "()Ljava/util/function/Supplier;",
+                bootstrapMethod,
+                Type.getType("()Ljava/lang/Object;"),
+                new Handle(
+                    Opcodes.H_INVOKESTATIC,
+                    "org/lwjgl/opengl/GL32C",
+                    "glGenVertexArrays",
+                    "()I",
+                    false
+                ),
+                Type.getType("()Ljava/lang/Integer;")
+            );
+            mv.visitInsn(Opcodes.ARETURN);
+            mv.visitMaxs(-1, -1);
+            mv.visitEnd();
+            cw.visitEnd();
+            byte[] bytes = cw.toByteArray();
+
+            CustomClassLoader loader = new CustomClassLoader(getClass().getClassLoader());
+            Class<?> clazz = loader.define("test.DynamicTraceTestClass", bytes);
+            java.lang.reflect.Method getSupplier = clazz.getMethod("getSupplier");
+            @SuppressWarnings("unchecked")
+            Supplier<Integer> supplier = (Supplier<Integer>) getSupplier.invoke(null);
+
+            window = glfwCreateWindow(800, 600, "", 0L, 0L);
+            glfwMakeContextCurrent(window);
+            createCapabilities();
+            glBindVertexArray(supplier.get());
+            glEnableVertexAttribArray(3);
+        } finally {
+            Properties.TRACE.enabled = oldTrace;
+        }
+    }
+
+    @Test
+    public void testInstanceMethodReferenceNotIntercepted() {
+        long monitor = glfwGetPrimaryMonitor();
+        if (monitor == 0L) {
+            return;
+        }
+        org.lwjgl.glfw.GLFWVidMode.Buffer modes = glfwGetVideoModes(monitor);
+        if (modes == null) {
+            return;
+        }
+        java.util.function.Function<org.lwjgl.glfw.GLFWVidMode.Buffer, java.util.stream.Stream<org.lwjgl.glfw.GLFWVidMode>> streamFunc = org.lwjgl.glfw.GLFWVidMode.Buffer::stream;
+        assertNotNull(streamFunc.apply(modes));
     }
 
     @Test
