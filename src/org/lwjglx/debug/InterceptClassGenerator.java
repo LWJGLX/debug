@@ -438,6 +438,23 @@ class InterceptClassGenerator implements Opcodes {
             }
             mv.visitMaxs(-1, -1);
             mv.visitEnd();
+
+            if (TRACE.enabled) {
+                MethodVisitor mvOverload = cw.visitMethod(ACC_PUBLIC | ACC_STATIC | ACC_SYNTHETIC, call.generatedMethodName, call.desc, null, null);
+                mvOverload.visitCode();
+                Type[] paramTypes = Type.getArgumentTypes(call.desc);
+                int var = 0;
+                for (Type paramType : paramTypes) {
+                    mvOverload.visitVarInsn(paramType.getOpcode(ILOAD), var);
+                    var += paramType.getSize();
+                }
+                Util.ldcI(mvOverload, -1);
+                mvOverload.visitMethodInsn(INVOKESTATIC, proxyInternalName, call.generatedMethodName, effectiveDesc, false);
+                Type retType = Type.getReturnType(call.desc);
+                mvOverload.visitInsn(retType.getOpcode(IRETURN));
+                mvOverload.visitMaxs(-1, -1);
+                mvOverload.visitEnd();
+            }
         }
         cw.visitEnd();
         byte[] arr = cw.toByteArray();
