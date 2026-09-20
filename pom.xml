@@ -48,7 +48,7 @@
 		<maven-compiler-plugin.version>3.16.0</maven-compiler-plugin.version>
 		<maven-gpg-plugin.version>3.2.8</maven-gpg-plugin.version>
 		<maven-download-plugin.version>2.1.0</maven-download-plugin.version>
-		<exec-maven-plugin.version>3.6.3</exec-maven-plugin.version>
+		<exec-maven-plugin.version>3.6.4</exec-maven-plugin.version>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<jvm.args></jvm.args>
