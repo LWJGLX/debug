@@ -53,13 +53,14 @@ public class ALRT {
 
 	public static ALObjects.Buffer checkBuffer(ALContext ctx, int buffer, String methodName) {
 		if (ctx == null || buffer == 0) return null;
-		ALObjects.Buffer b = ctx.buffers.get(buffer);
+		ALDevice dev = ctx.device;
+		ALObjects.Buffer b = dev != null ? dev.buffers.get(buffer) : null;
 		if (b == null) {
-			ALObjects.Buffer other = findBufferInAnyContext(buffer);
+			ALObjects.Buffer other = findBufferInAnyDevice(buffer);
 			if (other != null) {
-				RT.throwISEOrLogError(methodName + ": buffer " + buffer + " belongs to context 0x"
-						+ Long.toHexString(other.owningContext.handle) + ", not the current context 0x"
-						+ Long.toHexString(ctx.handle) + " (cross-context use)");
+				RT.throwISEOrLogError(methodName + ": buffer " + buffer + " belongs to device 0x"
+						+ Long.toHexString(other.owningDevice.handle) + ", not the current device 0x"
+						+ Long.toHexString(dev != null ? dev.handle : 0) + " (cross-device use)");
 				return null;
 			}
 			RT.throwISEOrLogError(methodName + ": unknown buffer name " + buffer);
@@ -147,9 +148,9 @@ public class ALRT {
 		return null;
 	}
 
-	private static ALObjects.Buffer findBufferInAnyContext(int buffer) {
-		for (ALContext c : ALContext.allContexts()) {
-			ALObjects.Buffer b = c.buffers.get(buffer);
+	private static ALObjects.Buffer findBufferInAnyDevice(int buffer) {
+		for (ALDevice d : ALDevice.allDevices()) {
+			ALObjects.Buffer b = d.buffers.get(buffer);
 			if (b != null) return b;
 		}
 		return null;
@@ -180,6 +181,9 @@ public class ALRT {
 	}
 
 	public static void checkALError(String methodName) {
+		if (!Properties.VALIDATE.enabled) {
+			return;
+		}
 		ALContext ctx = ALContext.currentContext();
 		if (ctx == null || ctx.state == ResourceState.DELETED) {
 			return;
@@ -198,6 +202,9 @@ public class ALRT {
 	}
 
 	public static void checkALCError(long device, String methodName) {
+		if (!Properties.VALIDATE.enabled) {
+			return;
+		}
 		int err = org.lwjgl.openal.ALC10.alcGetError(device);
 		if (err != 0) {
 			RT.throwISEOrLogError(methodName + " produced error: " + ALMetadata.alcErrorName(err));

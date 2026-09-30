@@ -38,7 +38,7 @@ Because some errors in user programs can cause the JVM to crash without a meanin
 The following configuration properties are available to configure the library:
 - `validate` - Perform argument validation and check for errors on each GL/AL call (enabled by default, set via system property `-Dorg.lwjglx.VALIDATE` or via Agent argument `v` / `validate`)
 - `strict` - Strict validation mode; captures allocation and deletion stack traces for all tracked resources to provide detailed diagnostics on use-after-free, double-free, and leak detection (disabled by default, set via system property `-Dorg.lwjglx.STRICT` or via Agent argument `strict` or `validate=s`)
-- `failonleaks` - Fail on leaks; throws an `IllegalStateException` during context teardown if any resources were leaked, instead of only logging warnings (disabled by default, set via system property `-Dorg.lwjglx.FAIL_ON_LEAKS` or via Agent argument `failonleaks`)
+- `failonleaks` - Fail on leaks; throws an `IllegalStateException` during context teardown or device close if any resources were leaked, instead of only logging warnings (disabled by default, set via system property `-Dorg.lwjglx.FAIL_ON_LEAKS` or via Agent argument `failonleaks`)
 - `trace` - Generate a trace log (set via system property `-Dorg.lwjglx.TRACE` or via Agent argument `t`)
 - `exclude` - Exclude trace outputs for called methods matching a given GLOB pattern (set via Agent argument `e`)
 - `nothrow` - Do not throw a Java exception on any detected error but only log the error. Note that this may result in a JVM crash due to illegal arguments or native errors. (set via system property `-Dorg.lwjglx.NO_THROW` or via Agent argument `n`)
@@ -55,7 +55,39 @@ Examples:
 * `java -javaagent:lwjglx-debug-1.1.0.jar=tn;o=trace.log` (generate a trace written to file `trace.log` and do not throw on GL errors)
 * `java -javaagent:lwjglx-debug-1.1.0.jar=t;e=*GL20*,*GL11.glVertex3f` (generate a trace on stderr and exclude all methods from any class having `GL20` in its name, as well as exclude `glVertex3f` from any class ending with `GL11`)
 
+### Dynamic Runtime Adjustment
+
+Properties can also be inspected and adjusted dynamically at runtime in Java code without restarting the JVM by modifying the fields on `org.lwjglx.debug.Properties`:
+
+```java
+import org.lwjglx.debug.Properties;
+
+// Disable validation and synchronous error checking during performance-critical sections/benchmarks
+Properties.VALIDATE.enabled = false;
+try {
+    runAudioOrRenderBenchmark();
+} finally {
+    Properties.VALIDATE.enabled = true;
+}
+
+// Selectively trace a specific subsystem or frame
+Properties.TRACE.enabled = true;
+renderProblematicFrame();
+Properties.TRACE.enabled = false;
+
+// Enforce strict leak failure on teardown for specific integration tests
+Properties.FAIL_ON_LEAKS.enable();
+```
+
+#### Caveats
+
+- **Bytecode Instrumentation vs. Runtime Checks:** Class transformation occurs at class-load time when the Java agent rewrites bytecode to route calls through proxy methods. Toggling flags such as `Properties.VALIDATE.enabled` or `Properties.TRACE.enabled` only toggles whether runtime checks, error queries (such as OpenAL `alGetError()`/`alcGetError()`), or logging are executed; it does not undo bytecode instrumentation or modify class-loading exclusion patterns (`exclude`).
+- **Resource Tracking Continuity:** Disabling `VALIDATE` bypasses lifecycle tracking for objects created or destroyed during that interval. If resources (textures, buffers, sources) are allocated, bound, or deleted while validation is disabled, re-enabling validation later may cause missing-handle or false-positive use-after-free warnings.
+- **Strict Mode Stack Traces:** Toggling `Properties.STRICT.enabled = true` mid-execution only records allocation stack traces for resources created *after* the flag was enabled. Resources created prior will display `(unknown)` for their creation site.
+- **I/O Redirection:** `Properties.OUTPUT` initializes file writers and zip/gz archive streams during agent startup; changing output target files or archive streams mid-execution is not supported.
+
 # Build
 
 1. `./mvnw package`
 2. see target/lwjglx-debug-1.1.0.jar
+

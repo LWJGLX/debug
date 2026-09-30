@@ -13,6 +13,7 @@ public class ALDevice {
 	public final long handle;
 	public volatile ResourceState state = ResourceState.ALIVE;
 	public final Set<ALContext> contexts = ConcurrentHashMap.newKeySet();
+	public final ConcurrentHashMap<Integer, ALObjects.Buffer> buffers = new ConcurrentHashMap<>();
 	public final Throwable creationSite;
 
 	private ALDevice(long handle) {

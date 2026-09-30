@@ -43,6 +43,20 @@ public class ALC10 {
 							+ " while context 0x" + Long.toHexString(ctx.handle) + " is still alive");
 				}
 			}
+			boolean hasLeaks = false;
+			int liveBuffers = 0;
+			for (ALObjects.Buffer b : dev.buffers.values()) {
+				if (b.state == ResourceState.ALIVE) {
+					liveBuffers++;
+				}
+			}
+			if (liveBuffers > 0) {
+				hasLeaks = true;
+				Log.warn("OpenAL device 0x" + Long.toHexString(device) + " closed with " + liveBuffers + " un-deleted buffer(s)");
+			}
+			if (hasLeaks && Properties.FAIL_ON_LEAKS.enabled) {
+				RT.throwISEOrLogError("OpenAL device 0x" + Long.toHexString(device) + " closed with leaked resources");
+			}
 		}
 		boolean res = org.lwjgl.openal.ALC10.alcCloseDevice(device);
 		if (res && dev != null) {
@@ -124,16 +138,6 @@ public class ALC10 {
 
 		try {
 			boolean hasLeaks = false;
-			int liveBuffers = 0;
-			for (ALObjects.Buffer b : ctx.buffers.values()) {
-				if (b.state == ResourceState.ALIVE) {
-					liveBuffers++;
-				}
-			}
-			if (liveBuffers > 0) {
-				hasLeaks = true;
-				Log.warn("OpenAL context 0x" + Long.toHexString(context) + " destroyed with " + liveBuffers + " un-deleted buffer(s)");
-			}
 
 			int liveSources = 0;
 			for (ALObjects.Source s : ctx.sources.values()) {
