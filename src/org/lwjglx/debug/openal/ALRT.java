@@ -4,6 +4,7 @@ import static org.lwjglx.debug.Log.*;
 
 import org.lwjglx.debug.Properties;
 import org.lwjglx.debug.RT;
+import org.lwjglx.debug.ResourceState;
 
 /**
  * OpenAL runtime validation helpers.

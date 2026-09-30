@@ -3,12 +3,14 @@ package org.lwjglx.debug.org.lwjgl.openal;
 import java.nio.ByteBuffer;
 import java.nio.IntBuffer;
 
+import org.lwjglx.debug.Log;
+import org.lwjglx.debug.Properties;
 import org.lwjglx.debug.RT;
 import org.lwjglx.debug.openal.ALContext;
 import org.lwjglx.debug.openal.ALDevice;
 import org.lwjglx.debug.openal.ALObjects;
 import org.lwjglx.debug.openal.ALRT;
-import org.lwjglx.debug.openal.ResourceState;
+import org.lwjglx.debug.ResourceState;
 
 public class ALC10 {
 
@@ -121,7 +123,7 @@ public class ALC10 {
 		}
 
 		try {
-			// Audit leaked resources
+			boolean hasLeaks = false;
 			int liveBuffers = 0;
 			for (ALObjects.Buffer b : ctx.buffers.values()) {
 				if (b.state == ResourceState.ALIVE) {
@@ -129,8 +131,8 @@ public class ALC10 {
 				}
 			}
 			if (liveBuffers > 0) {
-				RT.throwISEOrLogError("alcDestroyContext: leaked " + liveBuffers + " buffer(s) in context 0x"
-						+ Long.toHexString(context));
+				hasLeaks = true;
+				Log.warn("OpenAL context 0x" + Long.toHexString(context) + " destroyed with " + liveBuffers + " un-deleted buffer(s)");
 			}
 
 			int liveSources = 0;
@@ -140,8 +142,8 @@ public class ALC10 {
 				}
 			}
 			if (liveSources > 0) {
-				RT.throwISEOrLogError("alcDestroyContext: leaked " + liveSources + " source(s) in context 0x"
-						+ Long.toHexString(context));
+				hasLeaks = true;
+				Log.warn("OpenAL context 0x" + Long.toHexString(context) + " destroyed with " + liveSources + " un-deleted source(s)");
 			}
 
 			int liveEffects = 0;
@@ -151,8 +153,8 @@ public class ALC10 {
 				}
 			}
 			if (liveEffects > 0) {
-				RT.throwISEOrLogError("alcDestroyContext: leaked " + liveEffects + " effect(s) in context 0x"
-						+ Long.toHexString(context));
+				hasLeaks = true;
+				Log.warn("OpenAL context 0x" + Long.toHexString(context) + " destroyed with " + liveEffects + " un-deleted effect(s)");
 			}
 
 			int liveFilters = 0;
@@ -162,8 +164,8 @@ public class ALC10 {
 				}
 			}
 			if (liveFilters > 0) {
-				RT.throwISEOrLogError("alcDestroyContext: leaked " + liveFilters + " filter(s) in context 0x"
-						+ Long.toHexString(context));
+				hasLeaks = true;
+				Log.warn("OpenAL context 0x" + Long.toHexString(context) + " destroyed with " + liveFilters + " un-deleted filter(s)");
 			}
 
 			int liveAuxSlots = 0;
@@ -173,8 +175,12 @@ public class ALC10 {
 				}
 			}
 			if (liveAuxSlots > 0) {
-				RT.throwISEOrLogError("alcDestroyContext: leaked " + liveAuxSlots + " auxiliary effect slot(s) in context 0x"
-						+ Long.toHexString(context));
+				hasLeaks = true;
+				Log.warn("OpenAL context 0x" + Long.toHexString(context) + " destroyed with " + liveAuxSlots + " un-deleted auxiliary effect slot(s)");
+			}
+
+			if (hasLeaks && Properties.FAIL_ON_LEAKS.enabled) {
+				RT.throwISEOrLogError("OpenAL context 0x" + Long.toHexString(context) + " destroyed with leaked resources");
 			}
 		} finally {
 			org.lwjgl.openal.ALC10.alcDestroyContext(context);

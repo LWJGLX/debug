@@ -77,6 +77,8 @@ public class EXTFramebufferObject {
                     }
                 }
             }
+            ctx.currentDrawFbo = fbo;
+            ctx.currentReadFbo = fbo;
             ctx.currentFbo = fbo;
         }
         org.lwjgl.opengl.EXTFramebufferObject.glBindFramebufferEXT(target, framebuffer);
@@ -92,8 +94,14 @@ public class EXTFramebufferObject {
                 if (framebuffer == 0)
                     continue;
                 FBO fbo = context.fbos.get(framebuffer);
-                if (fbo != null && fbo == context.currentFbo) {
-                    context.currentFbo = context.defaultFbo;
+                if (fbo != null) {
+                    if (fbo == context.currentDrawFbo) {
+                        context.currentDrawFbo = context.defaultFbo;
+                    }
+                    if (fbo == context.currentReadFbo) {
+                        context.currentReadFbo = context.defaultFbo;
+                    }
+                    context.currentFbo = context.currentDrawFbo;
                 }
                 context.fbos.remove(framebuffer);
             }
@@ -107,8 +115,14 @@ public class EXTFramebufferObject {
                 return;
             Context context = Context.currentContext();
             FBO fbo = context.fbos.get(framebuffer);
-            if (fbo != null && fbo == context.currentFbo) {
-                context.currentFbo = context.defaultFbo;
+            if (fbo != null) {
+                if (fbo == context.currentDrawFbo) {
+                    context.currentDrawFbo = context.defaultFbo;
+                }
+                if (fbo == context.currentReadFbo) {
+                    context.currentReadFbo = context.defaultFbo;
+                }
+                context.currentFbo = context.currentDrawFbo;
             }
             context.fbos.remove(framebuffer);
         }
@@ -123,8 +137,14 @@ public class EXTFramebufferObject {
                 if (framebuffer == 0)
                     continue;
                 FBO fbo = context.fbos.get(framebuffer);
-                if (fbo != null && fbo == context.currentFbo) {
-                    context.currentFbo = context.defaultFbo;
+                if (fbo != null) {
+                    if (fbo == context.currentDrawFbo) {
+                        context.currentDrawFbo = context.defaultFbo;
+                    }
+                    if (fbo == context.currentReadFbo) {
+                        context.currentReadFbo = context.defaultFbo;
+                    }
+                    context.currentFbo = context.currentDrawFbo;
                 }
                 context.fbos.remove(framebuffer);
             }

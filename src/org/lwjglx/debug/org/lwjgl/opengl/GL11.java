@@ -31,6 +31,8 @@ import java.nio.DoubleBuffer;
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 import java.nio.ShortBuffer;
+import java.util.Collections;
+import java.util.Set;
 
 import org.lwjglx.debug.*;
 
@@ -309,28 +311,95 @@ public class GL11 {
 
     public static void glGenTextures(IntBuffer textures) {
         org.lwjgl.opengl.GL11.glGenTextures(textures);
-        Context ctx = Context.currentContext();
-        int pos = textures.position();
-        for (int i = 0; i < textures.remaining(); i++) {
-            int texture = textures.get(pos + i);
-            ctx.shareGroup.textureObjects.put(texture, new TextureObject());
+        if (Properties.VALIDATE.enabled) {
+            Context ctx = Context.currentContext();
+            int pos = textures.position();
+            for (int i = 0; i < textures.remaining(); i++) {
+                int texture = textures.get(pos + i);
+                if (texture != 0) {
+                    TextureObject to = new TextureObject();
+                    ctx.shareGroup.textureObjects.create(texture, to);
+                    ctx.textureObjectBindings.put(texture, to);
+                }
+            }
         }
     }
 
     public static void glGenTextures(int[] textures) {
         org.lwjgl.opengl.GL11.glGenTextures(textures);
-        Context ctx = Context.currentContext();
-        for (int i = 0; i < textures.length; i++) {
-            int texture = textures[i];
-            ctx.shareGroup.textureObjects.put(texture, new TextureObject());
+        if (Properties.VALIDATE.enabled) {
+            Context ctx = Context.currentContext();
+            for (int i = 0; i < textures.length; i++) {
+                int texture = textures[i];
+                if (texture != 0) {
+                    TextureObject to = new TextureObject();
+                    ctx.shareGroup.textureObjects.create(texture, to);
+                    ctx.textureObjectBindings.put(texture, to);
+                }
+            }
         }
     }
 
     public static int glGenTextures() {
         int tex = org.lwjgl.opengl.GL11.glGenTextures();
-        Context ctx = Context.currentContext();
-        ctx.shareGroup.textureObjects.put(tex, new TextureObject());
+        if (Properties.VALIDATE.enabled && tex != 0) {
+            Context ctx = Context.currentContext();
+            TextureObject to = new TextureObject();
+            ctx.shareGroup.textureObjects.create(tex, to);
+            ctx.textureObjectBindings.put(tex, to);
+        }
         return tex;
+    }
+
+    private static void deleteTexture(Context ctx, int texture) {
+        if (texture != 0) {
+            ctx.shareGroup.textureObjects.delete(texture, "glDeleteTextures");
+            ctx.textureObjectBindings.remove(texture);
+            Set<Context> contexts = ctx.shareGroup != null ? ctx.shareGroup.contexts : Collections.singleton(ctx);
+            for (Context c : contexts) {
+                for (Context.FBO fbo : c.fbos.values()) {
+                    if (fbo.attachedTextures.values().removeIf(t -> t == texture)) {
+                        Log.warn("Texture [" + texture + "] deleted while still attached to FBO [" + fbo.handle + "]");
+                    }
+                }
+            }
+        }
+    }
+
+    public static void glDeleteTextures(int texture) {
+        if (Properties.VALIDATE.enabled) {
+            deleteTexture(Context.currentContext(), texture);
+        }
+        org.lwjgl.opengl.GL11.glDeleteTextures(texture);
+    }
+
+    public static void glDeleteTextures(IntBuffer textures) {
+        if (Properties.VALIDATE.enabled) {
+            Context ctx = Context.currentContext();
+            int pos = textures.position();
+            for (int i = 0; i < textures.remaining(); i++) {
+                deleteTexture(ctx, textures.get(pos + i));
+            }
+        }
+        org.lwjgl.opengl.GL11.glDeleteTextures(textures);
+    }
+
+    public static void glDeleteTextures(int[] textures) {
+        if (Properties.VALIDATE.enabled) {
+            Context ctx = Context.currentContext();
+            for (int i = 0; i < textures.length; i++) {
+                deleteTexture(ctx, textures[i]);
+            }
+        }
+        org.lwjgl.opengl.GL11.glDeleteTextures(textures);
+    }
+
+    public static void glBindTexture(int target, int texture) {
+        if (Properties.VALIDATE.enabled && texture != 0) {
+            Context ctx = Context.currentContext();
+            ctx.shareGroup.textureObjects.checkAlive(texture, "glBindTexture");
+        }
+        org.lwjgl.opengl.GL11.glBindTexture(target, texture);
     }
 
     private static void glTexImage2D_trace(int target, int level, int internalformat, int width, int height, int border, int format, int type, Object pixelsOrSize, MethodCall mc) {

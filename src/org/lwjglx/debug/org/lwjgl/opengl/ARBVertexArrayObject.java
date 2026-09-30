@@ -38,8 +38,10 @@ public class ARBVertexArrayObject {
             Context context = Context.currentContext();
             int position = arrays.position();
             for (int i = 0; i < arrays.remaining(); i++) {
+                int id = arrays.get(position + i);
                 VAO vao = new VAO(context.GL_MAX_VERTEX_ATTRIBS);
-                context.vaos.put(arrays.get(position + i), vao);
+                context.vaos.put(id, vao);
+                context.vaoTracker.create(id, vao);
             }
         }
     }
@@ -50,6 +52,7 @@ public class ARBVertexArrayObject {
             Context context = Context.currentContext();
             VAO vao = new VAO(context.GL_MAX_VERTEX_ATTRIBS);
             context.vaos.put(index, vao);
+            context.vaoTracker.create(index, vao);
         }
         return index;
     }
@@ -59,8 +62,10 @@ public class ARBVertexArrayObject {
         if (Properties.VALIDATE.enabled) {
             Context context = Context.currentContext();
             for (int i = 0; i < arrays.length; i++) {
+                int id = arrays[i];
                 VAO vao = new VAO(context.GL_MAX_VERTEX_ATTRIBS);
-                context.vaos.put(arrays[i], vao);
+                context.vaos.put(id, vao);
+                context.vaoTracker.create(id, vao);
             }
         }
     }
@@ -75,6 +80,9 @@ public class ARBVertexArrayObject {
                         throwISEOrLogError("Trying to bind unknown VAO [" + index + "] from shared context [" + c.counter + "]");
                     }
                 }
+            }
+            if (index != 0) {
+                ctx.vaoTracker.checkAlive(index, "glBindVertexArray");
             }
             ctx.currentVao = vao;
         }

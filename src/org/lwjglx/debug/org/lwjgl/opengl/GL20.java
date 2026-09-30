@@ -103,7 +103,88 @@ public class GL20 {
         org.lwjgl.opengl.GL20.glVertexAttribPointer(index, size, type, normalized, stride, pointer);
     }
 
+    public static int glCreateShader(int type) {
+        int shader = org.lwjgl.opengl.GL20.glCreateShader(type);
+        if (Properties.VALIDATE.enabled && shader != 0) {
+            Context ctx = Context.currentContext();
+            ctx.shareGroup.shaderObjects.create(shader, new Context.ShaderObject(type));
+        }
+        return shader;
+    }
+
+    public static void glDeleteShader(int shader) {
+        if (Properties.VALIDATE.enabled && shader != 0) {
+            Context ctx = Context.currentContext();
+            ctx.shareGroup.shaderObjects.delete(shader, "glDeleteShader");
+            for (ResourceTracker.Entry<Context.ProgramObject> pe : ctx.shareGroup.programObjects.entries().values()) {
+                if (pe.object != null && pe.object.attachedShaders.remove(shader)) {
+                    Log.warn("Shader [" + shader + "] deleted while still attached to Program [" + pe.handle + "]");
+                }
+            }
+        }
+        org.lwjgl.opengl.GL20.glDeleteShader(shader);
+    }
+
+    public static int glCreateProgram() {
+        int program = org.lwjgl.opengl.GL20.glCreateProgram();
+        if (Properties.VALIDATE.enabled && program != 0) {
+            Context ctx = Context.currentContext();
+            ctx.shareGroup.programObjects.create(program, new Context.ProgramObject());
+        }
+        return program;
+    }
+
+    public static void glDeleteProgram(int program) {
+        if (Properties.VALIDATE.enabled && program != 0) {
+            Context ctx = Context.currentContext();
+            ctx.shareGroup.programObjects.delete(program, "glDeleteProgram");
+            if (ctx.currentProgram == program) {
+                ctx.currentProgram = 0;
+            }
+        }
+        org.lwjgl.opengl.GL20.glDeleteProgram(program);
+    }
+
+    public static void glUseProgram(int program) {
+        if (Properties.VALIDATE.enabled) {
+            Context ctx = Context.currentContext();
+            if (program != 0) {
+                ctx.shareGroup.programObjects.checkAlive(program, "glUseProgram");
+            }
+            ctx.currentProgram = program;
+        }
+        org.lwjgl.opengl.GL20.glUseProgram(program);
+    }
+
+    public static void glAttachShader(int program, int shader) {
+        if (Properties.VALIDATE.enabled) {
+            Context ctx = Context.currentContext();
+            ResourceTracker.Entry<Context.ProgramObject> pe = ctx.shareGroup.programObjects.checkAlive(program, "glAttachShader");
+            ctx.shareGroup.shaderObjects.checkAlive(shader, "glAttachShader");
+            if (pe != null && pe.object != null) {
+                pe.object.attachedShaders.add(shader);
+            }
+        }
+        org.lwjgl.opengl.GL20.glAttachShader(program, shader);
+    }
+
+    public static void glDetachShader(int program, int shader) {
+        if (Properties.VALIDATE.enabled) {
+            Context ctx = Context.currentContext();
+            ResourceTracker.Entry<Context.ProgramObject> pe = ctx.shareGroup.programObjects.checkAlive(program, "glDetachShader");
+            ctx.shareGroup.shaderObjects.checkAlive(shader, "glDetachShader");
+            if (pe != null && pe.object != null) {
+                pe.object.attachedShaders.remove(shader);
+            }
+        }
+        org.lwjgl.opengl.GL20.glDetachShader(program, shader);
+    }
+
     public static void glCompileShader(int shader) {
+        if (Properties.VALIDATE.enabled) {
+            Context ctx = Context.currentContext();
+            ctx.shareGroup.shaderObjects.checkAlive(shader, "glCompileShader");
+        }
         org.lwjgl.opengl.GL20.glCompileShader(shader);
         if (Properties.VALIDATE.enabled) {
             /* Check compile status */
@@ -116,6 +197,10 @@ public class GL20 {
     }
 
     public static void glLinkProgram(int program) {
+        if (Properties.VALIDATE.enabled) {
+            Context ctx = Context.currentContext();
+            ctx.shareGroup.programObjects.checkAlive(program, "glLinkProgram");
+        }
         org.lwjgl.opengl.GL20.glLinkProgram(program);
         if (Properties.VALIDATE.enabled) {
             /* Check link status */
@@ -127,7 +212,50 @@ public class GL20 {
         }
     }
 
+    public static void glValidateProgram(int program) {
+        if (Properties.VALIDATE.enabled) {
+            Context ctx = Context.currentContext();
+            ctx.shareGroup.programObjects.checkAlive(program, "glValidateProgram");
+        }
+        org.lwjgl.opengl.GL20.glValidateProgram(program);
+    }
+
+    public static int glGetUniformLocation(int program, CharSequence name) {
+        if (Properties.VALIDATE.enabled) {
+            Context ctx = Context.currentContext();
+            ctx.shareGroup.programObjects.checkAlive(program, "glGetUniformLocation");
+        }
+        return org.lwjgl.opengl.GL20.glGetUniformLocation(program, name);
+    }
+
+    public static int glGetUniformLocation(int program, ByteBuffer name) {
+        if (Properties.VALIDATE.enabled) {
+            Context ctx = Context.currentContext();
+            ctx.shareGroup.programObjects.checkAlive(program, "glGetUniformLocation");
+        }
+        return org.lwjgl.opengl.GL20.glGetUniformLocation(program, name);
+    }
+
+    public static int glGetAttribLocation(int program, CharSequence name) {
+        if (Properties.VALIDATE.enabled) {
+            Context ctx = Context.currentContext();
+            ctx.shareGroup.programObjects.checkAlive(program, "glGetAttribLocation");
+        }
+        return org.lwjgl.opengl.GL20.glGetAttribLocation(program, name);
+    }
+
+    public static int glGetAttribLocation(int program, ByteBuffer name) {
+        if (Properties.VALIDATE.enabled) {
+            Context ctx = Context.currentContext();
+            ctx.shareGroup.programObjects.checkAlive(program, "glGetAttribLocation");
+        }
+        return org.lwjgl.opengl.GL20.glGetAttribLocation(program, name);
+    }
+
     public static void glShaderSource(int shader, org.lwjgl.PointerBuffer strings, IntBuffer length) {
+        if (Properties.VALIDATE.enabled) {
+            Context.currentContext().shareGroup.shaderObjects.checkAlive(shader, "glShaderSource");
+        }
         org.lwjgl.opengl.GL20.glShaderSource(shader, strings, length);
         if (TRACE.enabled) {
             /* Log the shader source */
@@ -147,6 +275,9 @@ public class GL20 {
     }
 
     public static void glShaderSource(int shader, CharSequence... strings) {
+        if (Properties.VALIDATE.enabled) {
+            Context.currentContext().shareGroup.shaderObjects.checkAlive(shader, "glShaderSource");
+        }
         org.lwjgl.opengl.GL20.glShaderSource(shader, strings);
         if (TRACE.enabled) {
             /* Log the shader source */
@@ -161,6 +292,9 @@ public class GL20 {
     }
 
     public static void glShaderSource(int shader, CharSequence string) {
+        if (Properties.VALIDATE.enabled) {
+            Context.currentContext().shareGroup.shaderObjects.checkAlive(shader, "glShaderSource");
+        }
         org.lwjgl.opengl.GL20.glShaderSource(shader, string);
         if (TRACE.enabled) {
             /* Log the shader source */

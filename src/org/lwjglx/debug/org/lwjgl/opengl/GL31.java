@@ -86,4 +86,12 @@ public class GL31 {
         RT.draw(indices.remaining() * primcount);
     }
 
+    public static void glTexBuffer(int target, int internalformat, int buffer) {
+        if (Properties.VALIDATE.enabled && buffer != 0) {
+            Context ctx = Context.currentContext();
+            ctx.shareGroup.bufferObjects.checkAlive(buffer, "glTexBuffer");
+        }
+        org.lwjgl.opengl.GL31.glTexBuffer(target, internalformat, buffer);
+    }
+
 }

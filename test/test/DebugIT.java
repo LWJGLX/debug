@@ -8,6 +8,7 @@ import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.opengl.GL15.*;
 import static org.lwjgl.opengl.GL20.*;
 import static org.lwjgl.opengl.GL30.*;
+import static org.lwjgl.opengl.GL31.*;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
@@ -49,7 +50,19 @@ public class DebugIT {
             "testNoVertexAttribPointerInCustomVAO",
             "testNoVertexAttribPointerInCustomVAOWithIndicesBuffer",
             "testBindVAOFromSharedContext",
-            "testBindFBOFromSharedContext"
+            "testBindFBOFromSharedContext",
+            "testVAODoubleFree",
+            "testVAOUseAfterFree",
+            "testFBODoubleFree",
+            "testFBOUseAfterFree",
+            "testRenderbufferDoubleFree",
+            "testRenderbufferUseAfterFree",
+            "testFramebufferTextureUseAfterFree",
+            "testFramebufferRenderbufferUseAfterFree",
+            "testFramebufferDetachOnZero",
+            "testSplitFramebufferTargets",
+            "testIndexedBufferBindings",
+            "testTextureBufferValidation"
     ));
 
     static {
@@ -764,6 +777,311 @@ public class DebugIT {
     @Test
     public void testGlErrorInMainMethod() {
         assertThrowsWithMessage(IllegalStateException.class, () -> main(new String[0]), Pattern.compile("glEnable produced error: 1280 \\(GL_INVALID_ENUM\\)"));
+    }
+
+    @Test
+    public void testTextureDoubleFree() {
+        window = glfwCreateWindow(800, 600, "", 0L, 0L);
+        glfwMakeContextCurrent(window);
+        createCapabilities();
+        int tex = glGenTextures();
+        glDeleteTextures(tex);
+        assertThrowsWithMessage(IllegalStateException.class, () -> glDeleteTextures(tex),
+                Pattern.compile("glDeleteTextures: Texture " + tex + " already deleted \\(double-free\\).*", Pattern.DOTALL));
+    }
+
+    @Test
+    public void testTextureUseAfterFree() {
+        window = glfwCreateWindow(800, 600, "", 0L, 0L);
+        glfwMakeContextCurrent(window);
+        createCapabilities();
+        int tex = glGenTextures();
+        glDeleteTextures(tex);
+        assertThrowsWithMessage(IllegalStateException.class, () -> glBindTexture(GL_TEXTURE_2D, tex),
+                Pattern.compile("glBindTexture: Texture " + tex + " has been deleted \\(use-after-free\\).*", Pattern.DOTALL));
+    }
+
+    @Test
+    public void testBufferDoubleFree() {
+        window = glfwCreateWindow(800, 600, "", 0L, 0L);
+        glfwMakeContextCurrent(window);
+        createCapabilities();
+        int buf = glGenBuffers();
+        glDeleteBuffers(buf);
+        assertThrowsWithMessage(IllegalStateException.class, () -> glDeleteBuffers(buf),
+                Pattern.compile("glDeleteBuffers: Buffer " + buf + " already deleted \\(double-free\\).*", Pattern.DOTALL));
+    }
+
+    @Test
+    public void testBufferUseAfterFree() {
+        window = glfwCreateWindow(800, 600, "", 0L, 0L);
+        glfwMakeContextCurrent(window);
+        createCapabilities();
+        int buf = glGenBuffers();
+        glDeleteBuffers(buf);
+        assertThrowsWithMessage(IllegalStateException.class, () -> glBindBuffer(GL_ARRAY_BUFFER, buf),
+                Pattern.compile("glBindBuffer: Buffer " + buf + " has been deleted \\(use-after-free\\).*", Pattern.DOTALL));
+    }
+
+    @Test
+    public void testShaderDoubleFree() {
+        window = glfwCreateWindow(800, 600, "", 0L, 0L);
+        glfwMakeContextCurrent(window);
+        createCapabilities();
+        int shader = glCreateShader(GL_VERTEX_SHADER);
+        glDeleteShader(shader);
+        assertThrowsWithMessage(IllegalStateException.class, () -> glDeleteShader(shader),
+                Pattern.compile("glDeleteShader: Shader " + shader + " already deleted \\(double-free\\).*", Pattern.DOTALL));
+    }
+
+    @Test
+    public void testShaderUseAfterFree() {
+        window = glfwCreateWindow(800, 600, "", 0L, 0L);
+        glfwMakeContextCurrent(window);
+        createCapabilities();
+        int shader = glCreateShader(GL_VERTEX_SHADER);
+        glDeleteShader(shader);
+        assertThrowsWithMessage(IllegalStateException.class, () -> glCompileShader(shader),
+                Pattern.compile("glCompileShader: Shader " + shader + " has been deleted \\(use-after-free\\).*", Pattern.DOTALL));
+    }
+
+    @Test
+    public void testProgramDoubleFree() {
+        window = glfwCreateWindow(800, 600, "", 0L, 0L);
+        glfwMakeContextCurrent(window);
+        createCapabilities();
+        int prog = glCreateProgram();
+        glDeleteProgram(prog);
+        assertThrowsWithMessage(IllegalStateException.class, () -> glDeleteProgram(prog),
+                Pattern.compile("glDeleteProgram: Program " + prog + " already deleted \\(double-free\\).*", Pattern.DOTALL));
+    }
+
+    @Test
+    public void testProgramUseAfterFree() {
+        window = glfwCreateWindow(800, 600, "", 0L, 0L);
+        glfwMakeContextCurrent(window);
+        createCapabilities();
+        int prog = glCreateProgram();
+        glDeleteProgram(prog);
+        assertThrowsWithMessage(IllegalStateException.class, () -> glUseProgram(prog),
+                Pattern.compile("glUseProgram: Program " + prog + " has been deleted \\(use-after-free\\).*", Pattern.DOTALL));
+    }
+
+    @Test
+    public void testVAODoubleFree() {
+        window = glfwCreateWindow(800, 600, "", 0L, 0L);
+        glfwMakeContextCurrent(window);
+        createCapabilities();
+        int vao = glGenVertexArrays();
+        glDeleteVertexArrays(vao);
+        assertThrowsWithMessage(IllegalStateException.class, () -> glDeleteVertexArrays(vao),
+                Pattern.compile("glDeleteVertexArrays: VAO " + vao + " already deleted \\(double-free\\).*", Pattern.DOTALL));
+    }
+
+    @Test
+    public void testVAOUseAfterFree() {
+        window = glfwCreateWindow(800, 600, "", 0L, 0L);
+        glfwMakeContextCurrent(window);
+        createCapabilities();
+        int vao = glGenVertexArrays();
+        glDeleteVertexArrays(vao);
+        assertThrowsWithMessage(IllegalStateException.class, () -> glBindVertexArray(vao),
+                Pattern.compile("glBindVertexArray: VAO " + vao + " has been deleted \\(use-after-free\\).*", Pattern.DOTALL));
+    }
+
+    @Test
+    public void testFBODoubleFree() {
+        window = glfwCreateWindow(800, 600, "", 0L, 0L);
+        glfwMakeContextCurrent(window);
+        createCapabilities();
+        int fbo = glGenFramebuffers();
+        glDeleteFramebuffers(fbo);
+        assertThrowsWithMessage(IllegalStateException.class, () -> glDeleteFramebuffers(fbo),
+                Pattern.compile("glDeleteFramebuffers: FBO " + fbo + " already deleted \\(double-free\\).*", Pattern.DOTALL));
+    }
+
+    @Test
+    public void testFBOUseAfterFree() {
+        window = glfwCreateWindow(800, 600, "", 0L, 0L);
+        glfwMakeContextCurrent(window);
+        createCapabilities();
+        int fbo = glGenFramebuffers();
+        glDeleteFramebuffers(fbo);
+        assertThrowsWithMessage(IllegalStateException.class, () -> glBindFramebuffer(GL_FRAMEBUFFER, fbo),
+                Pattern.compile("glBindFramebuffer: FBO " + fbo + " has been deleted \\(use-after-free\\).*", Pattern.DOTALL));
+    }
+
+    @Test
+    public void testRenderbufferDoubleFree() {
+        window = glfwCreateWindow(800, 600, "", 0L, 0L);
+        glfwMakeContextCurrent(window);
+        createCapabilities();
+        int rb = glGenRenderbuffers();
+        glDeleteRenderbuffers(rb);
+        assertThrowsWithMessage(IllegalStateException.class, () -> glDeleteRenderbuffers(rb),
+                Pattern.compile("glDeleteRenderbuffers: Renderbuffer " + rb + " already deleted \\(double-free\\).*", Pattern.DOTALL));
+    }
+
+    @Test
+    public void testRenderbufferUseAfterFree() {
+        window = glfwCreateWindow(800, 600, "", 0L, 0L);
+        glfwMakeContextCurrent(window);
+        createCapabilities();
+        int rb = glGenRenderbuffers();
+        glDeleteRenderbuffers(rb);
+        assertThrowsWithMessage(IllegalStateException.class, () -> glBindRenderbuffer(GL_RENDERBUFFER, rb),
+                Pattern.compile("glBindRenderbuffer: Renderbuffer " + rb + " has been deleted \\(use-after-free\\).*", Pattern.DOTALL));
+    }
+
+    @Test
+    public void testFramebufferTextureUseAfterFree() {
+        window = glfwCreateWindow(800, 600, "", 0L, 0L);
+        glfwMakeContextCurrent(window);
+        createCapabilities();
+        int fbo = glGenFramebuffers();
+        glBindFramebuffer(GL_FRAMEBUFFER, fbo);
+        int tex = glGenTextures();
+        glDeleteTextures(tex);
+        assertThrowsWithMessage(IllegalStateException.class, () -> glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, tex, 0),
+                Pattern.compile("glFramebufferTexture2D: Texture " + tex + " has been deleted \\(use-after-free\\).*", Pattern.DOTALL));
+    }
+
+    @Test
+    public void testFramebufferRenderbufferUseAfterFree() {
+        window = glfwCreateWindow(800, 600, "", 0L, 0L);
+        glfwMakeContextCurrent(window);
+        createCapabilities();
+        int fbo = glGenFramebuffers();
+        glBindFramebuffer(GL_FRAMEBUFFER, fbo);
+        int rb = glGenRenderbuffers();
+        glDeleteRenderbuffers(rb);
+        assertThrowsWithMessage(IllegalStateException.class, () -> glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, rb),
+                Pattern.compile("glFramebufferRenderbuffer: Renderbuffer " + rb + " has been deleted \\(use-after-free\\).*", Pattern.DOTALL));
+    }
+
+    @Test
+    public void testFramebufferDetachOnZero() {
+        window = glfwCreateWindow(800, 600, "", 0L, 0L);
+        glfwMakeContextCurrent(window);
+        createCapabilities();
+        int fbo = glGenFramebuffers();
+        glBindFramebuffer(GL_FRAMEBUFFER, fbo);
+        int tex = glGenTextures();
+        glBindTexture(GL_TEXTURE_2D, tex);
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, 16, 16, 0, GL_RGBA, GL_UNSIGNED_BYTE, (ByteBuffer) null);
+        glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, tex, 0);
+
+        // Detach with 0
+        glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, 0, 0);
+
+        // Deleting texture now should succeed and not be considered attached
+        glDeleteTextures(tex);
+        glDeleteFramebuffers(fbo);
+    }
+
+    @Test
+    public void testSplitFramebufferTargets() {
+        window = glfwCreateWindow(800, 600, "", 0L, 0L);
+        glfwMakeContextCurrent(window);
+        createCapabilities();
+        int readFbo = glGenFramebuffers();
+        int drawFbo = glGenFramebuffers();
+        glBindFramebuffer(GL_READ_FRAMEBUFFER, readFbo);
+        glBindFramebuffer(GL_DRAW_FRAMEBUFFER, drawFbo);
+
+        Context ctx = Context.currentContext();
+        assertEquals(readFbo, ctx.currentReadFbo.handle);
+        assertEquals(drawFbo, ctx.currentDrawFbo.handle);
+
+        int readTex = glGenTextures();
+        glBindTexture(GL_TEXTURE_2D, readTex);
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, 16, 16, 0, GL_RGBA, GL_UNSIGNED_BYTE, (ByteBuffer) null);
+        glFramebufferTexture2D(GL_READ_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, readTex, 0);
+
+        int drawTex = glGenTextures();
+        glBindTexture(GL_TEXTURE_2D, drawTex);
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, 16, 16, 0, GL_RGBA, GL_UNSIGNED_BYTE, (ByteBuffer) null);
+        glFramebufferTexture2D(GL_DRAW_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, drawTex, 0);
+
+        assertTrue(ctx.currentReadFbo.attachedTextures.containsKey(GL_COLOR_ATTACHMENT0));
+        assertEquals(readTex, ctx.currentReadFbo.attachedTextures.get(GL_COLOR_ATTACHMENT0));
+        assertTrue(ctx.currentDrawFbo.attachedTextures.containsKey(GL_COLOR_ATTACHMENT0));
+        assertEquals(drawTex, ctx.currentDrawFbo.attachedTextures.get(GL_COLOR_ATTACHMENT0));
+
+        glCheckFramebufferStatus(GL_READ_FRAMEBUFFER);
+        glCheckFramebufferStatus(GL_DRAW_FRAMEBUFFER);
+
+        glBlitFramebuffer(0, 0, 16, 16, 0, 0, 16, 16, GL_COLOR_BUFFER_BIT, GL_NEAREST);
+
+        glDeleteTextures(readTex);
+        glDeleteTextures(drawTex);
+        glDeleteFramebuffers(readFbo);
+        glDeleteFramebuffers(drawFbo);
+
+        assertEquals(0, ctx.currentReadFbo.handle);
+        assertEquals(0, ctx.currentDrawFbo.handle);
+    }
+
+    @Test
+    public void testIndexedBufferBindings() {
+        window = glfwCreateWindow(800, 600, "", 0L, 0L);
+        glfwMakeContextCurrent(window);
+        createCapabilities();
+
+        int buf = glGenBuffers();
+        glBindBuffer(GL_UNIFORM_BUFFER, buf);
+        glBufferData(GL_UNIFORM_BUFFER, 64, GL_STATIC_DRAW);
+
+        glBindBufferBase(GL_UNIFORM_BUFFER, 0, buf);
+        glBindBufferRange(GL_UNIFORM_BUFFER, 1, buf, 0, 32);
+
+        glDeleteBuffers(buf);
+
+        assertThrowsWithMessage(IllegalStateException.class,
+                () -> glBindBufferBase(GL_UNIFORM_BUFFER, 0, buf),
+                Pattern.compile("glBindBufferBase: Buffer " + buf + " has been deleted \\(use-after-free\\).*", Pattern.DOTALL));
+
+        assertThrowsWithMessage(IllegalStateException.class,
+                () -> glBindBufferRange(GL_UNIFORM_BUFFER, 1, buf, 0, 32),
+                Pattern.compile("glBindBufferRange: Buffer " + buf + " has been deleted \\(use-after-free\\).*", Pattern.DOTALL));
+    }
+
+    @Test
+    public void testTextureBufferValidation() {
+        window = glfwCreateWindow(800, 600, "", 0L, 0L);
+        glfwMakeContextCurrent(window);
+        createCapabilities();
+
+        int buf = glGenBuffers();
+        glBindBuffer(GL_TEXTURE_BUFFER, buf);
+        glBufferData(GL_TEXTURE_BUFFER, 64, GL_STATIC_DRAW);
+
+        int tex = glGenTextures();
+        glBindTexture(GL_TEXTURE_BUFFER, tex);
+        glTexBuffer(GL_TEXTURE_BUFFER, GL_RGBA32F, buf);
+
+        glDeleteBuffers(buf);
+
+        assertThrowsWithMessage(IllegalStateException.class,
+                () -> glTexBuffer(GL_TEXTURE_BUFFER, GL_RGBA32F, buf),
+                Pattern.compile("glTexBuffer: Buffer " + buf + " has been deleted \\(use-after-free\\).*", Pattern.DOTALL));
+
+        glDeleteTextures(tex);
+    }
+
+    @Test
+    public void testFailOnLeaks() {
+        Properties.FAIL_ON_LEAKS.enable();
+        try {
+            long win = glfwCreateWindow(800, 600, "", 0L, 0L);
+            glfwMakeContextCurrent(win);
+            createCapabilities();
+            glGenTextures();
+            assertThrowsWithMessage(IllegalStateException.class, () -> glfwDestroyWindow(win),
+                    Pattern.compile("ShareGroup destroyed with 1 un-deleted Texture\\(s\\).*", Pattern.DOTALL));
+        } finally {
+            Properties.FAIL_ON_LEAKS.enabled = false;
+        }
     }
 
     public static void main(String[] args) {
