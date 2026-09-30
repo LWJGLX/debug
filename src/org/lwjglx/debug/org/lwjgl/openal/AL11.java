@@ -50,6 +50,14 @@ public class AL11 {
 	public static void alSource3i(int source, int param, int v1, int v2, int v3) {
 		ALContext ctx = ALRT.checkContext("alSource3i");
 		ALRT.checkSource(ctx, source, "alSource3i");
+		if (param == org.lwjgl.openal.EXTEfx.AL_AUXILIARY_SEND_FILTER) {
+			if (v1 != 0) {
+				ALRT.checkAuxSlot(ctx, v1, "alSource3i(AL_AUXILIARY_SEND_FILTER:slot)");
+			}
+			if (v3 != 0) {
+				ALRT.checkFilter(ctx, v3, "alSource3i(AL_AUXILIARY_SEND_FILTER:filter)");
+			}
+		}
 		org.lwjgl.openal.AL11.alSource3i(source, param, v1, v2, v3);
 	}
 
@@ -68,12 +76,32 @@ public class AL11 {
 	public static void alSourceiv(int source, int param, IntBuffer values) {
 		ALContext ctx = ALRT.checkContext("alSourceiv");
 		ALRT.checkSource(ctx, source, "alSourceiv");
+		if (param == org.lwjgl.openal.EXTEfx.AL_AUXILIARY_SEND_FILTER && values != null && values.remaining() >= 3) {
+			int slot = values.get(values.position());
+			int filter = values.get(values.position() + 2);
+			if (slot != 0) {
+				ALRT.checkAuxSlot(ctx, slot, "alSourceiv(AL_AUXILIARY_SEND_FILTER:slot)");
+			}
+			if (filter != 0) {
+				ALRT.checkFilter(ctx, filter, "alSourceiv(AL_AUXILIARY_SEND_FILTER:filter)");
+			}
+		}
 		org.lwjgl.openal.AL11.alSourceiv(source, param, values);
 	}
 
 	public static void alSourceiv(int source, int param, int[] values) {
 		ALContext ctx = ALRT.checkContext("alSourceiv");
 		ALRT.checkSource(ctx, source, "alSourceiv");
+		if (param == org.lwjgl.openal.EXTEfx.AL_AUXILIARY_SEND_FILTER && values != null && values.length >= 3) {
+			int slot = values[0];
+			int filter = values[2];
+			if (slot != 0) {
+				ALRT.checkAuxSlot(ctx, slot, "alSourceiv(AL_AUXILIARY_SEND_FILTER:slot)");
+			}
+			if (filter != 0) {
+				ALRT.checkFilter(ctx, filter, "alSourceiv(AL_AUXILIARY_SEND_FILTER:filter)");
+			}
+		}
 		org.lwjgl.openal.AL11.alSourceiv(source, param, values);
 	}
 

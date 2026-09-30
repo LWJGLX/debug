@@ -20,8 +20,8 @@ public class AL10 {
 	public static int alGenBuffers() {
 		ALContext ctx = ALRT.checkContext("alGenBuffers");
 		int buffer = org.lwjgl.openal.AL10.alGenBuffers();
-		if (ctx != null && buffer != 0) {
-			ctx.buffers.put(buffer, new ALObjects.Buffer(buffer, ctx));
+		if (ctx != null && ctx.device != null && buffer != 0) {
+			ctx.device.buffers.put(buffer, new ALObjects.Buffer(buffer, ctx.device));
 		}
 		return buffer;
 	}
@@ -30,11 +30,11 @@ public class AL10 {
 		ALContext ctx = ALRT.checkContext("alGenBuffers");
 		int pos = buffers.position();
 		org.lwjgl.openal.AL10.alGenBuffers(buffers);
-		if (ctx != null) {
+		if (ctx != null && ctx.device != null) {
 			for (int i = pos; i < buffers.limit(); i++) {
 				int b = buffers.get(i);
 				if (b != 0) {
-					ctx.buffers.put(b, new ALObjects.Buffer(b, ctx));
+					ctx.device.buffers.put(b, new ALObjects.Buffer(b, ctx.device));
 				}
 			}
 		}
@@ -43,10 +43,10 @@ public class AL10 {
 	public static void alGenBuffers(int[] buffers) {
 		ALContext ctx = ALRT.checkContext("alGenBuffers");
 		org.lwjgl.openal.AL10.alGenBuffers(buffers);
-		if (ctx != null) {
+		if (ctx != null && ctx.device != null) {
 			for (int b : buffers) {
 				if (b != 0) {
-					ctx.buffers.put(b, new ALObjects.Buffer(b, ctx));
+					ctx.device.buffers.put(b, new ALObjects.Buffer(b, ctx.device));
 				}
 			}
 		}
@@ -87,7 +87,8 @@ public class AL10 {
 	}
 
 	private static void deleteBufferCheck(ALContext ctx, int buffer) {
-		ALObjects.Buffer b = ctx.buffers.get(buffer);
+		if (ctx.device == null) return;
+		ALObjects.Buffer b = ctx.device.buffers.get(buffer);
 		if (b == null) {
 			RT.throwISEOrLogError("alDeleteBuffers: unknown buffer " + buffer);
 			return;
@@ -284,6 +285,7 @@ public class AL10 {
 			s.attachedBuffer.attachedSources.remove(s);
 			s.attachedBuffer = null;
 		}
+		s.clearQueuedBuffers();
 		s.state = ResourceState.DELETED;
 		if (Properties.STRICT.enabled) {
 			s.deletionSite = new Throwable("Source deleted here");
@@ -305,12 +307,20 @@ public class AL10 {
 					if (s.attachedBuffer != null) {
 						s.attachedBuffer.attachedSources.remove(s);
 					}
+					s.clearQueuedBuffers();
 					s.attachedBuffer = b;
 					b.attachedSources.add(s);
 				}
-			} else if (s != null && s.attachedBuffer != null) {
-				s.attachedBuffer.attachedSources.remove(s);
-				s.attachedBuffer = null;
+			} else if (s != null) {
+				if (s.attachedBuffer != null) {
+					s.attachedBuffer.attachedSources.remove(s);
+					s.attachedBuffer = null;
+				}
+				s.clearQueuedBuffers();
+			}
+		} else if (param == org.lwjgl.openal.EXTEfx.AL_DIRECT_FILTER) {
+			if (value != 0) {
+				ALRT.checkFilter(ctx, value, "alSourcei(AL_DIRECT_FILTER)");
 			}
 		}
 		org.lwjgl.openal.AL10.alSourcei(source, param, value);
@@ -529,7 +539,7 @@ public class AL10 {
 		ALObjects.Source s = ALRT.checkSource(ctx, source, "alSourceQueueBuffers");
 		ALObjects.Buffer b = ALRT.checkBuffer(ctx, buffer, "alSourceQueueBuffers");
 		if (s != null && b != null) {
-			b.attachedSources.add(s);
+			s.queueBuffer(b);
 		}
 		org.lwjgl.openal.AL10.alSourceQueueBuffers(source, buffer);
 	}
@@ -542,7 +552,7 @@ public class AL10 {
 			for (int i = pos; i < buffers.limit(); i++) {
 				ALObjects.Buffer b = ALRT.checkBuffer(ctx, buffers.get(i), "alSourceQueueBuffers");
 				if (b != null) {
-					b.attachedSources.add(s);
+					s.queueBuffer(b);
 				}
 			}
 		}
@@ -556,7 +566,7 @@ public class AL10 {
 			for (int bufId : buffers) {
 				ALObjects.Buffer b = ALRT.checkBuffer(ctx, bufId, "alSourceQueueBuffers");
 				if (b != null) {
-					b.attachedSources.add(s);
+					s.queueBuffer(b);
 				}
 			}
 		}
@@ -567,10 +577,10 @@ public class AL10 {
 		ALContext ctx = ALRT.checkContext("alSourceUnqueueBuffers");
 		ALObjects.Source s = ALRT.checkSource(ctx, source, "alSourceUnqueueBuffers");
 		int buffer = org.lwjgl.openal.AL10.alSourceUnqueueBuffers(source);
-		if (ctx != null && s != null && buffer != 0) {
-			ALObjects.Buffer b = ctx.buffers.get(buffer);
+		if (ctx != null && ctx.device != null && s != null && buffer != 0) {
+			ALObjects.Buffer b = ctx.device.buffers.get(buffer);
 			if (b != null) {
-				b.attachedSources.remove(s);
+				s.unqueueBuffer(b);
 			}
 		}
 		return buffer;
@@ -581,12 +591,12 @@ public class AL10 {
 		ALObjects.Source s = ALRT.checkSource(ctx, source, "alSourceUnqueueBuffers");
 		int pos = buffers.position();
 		org.lwjgl.openal.AL10.alSourceUnqueueBuffers(source, buffers);
-		if (ctx != null && s != null) {
+		if (ctx != null && ctx.device != null && s != null) {
 			for (int i = pos; i < buffers.limit(); i++) {
 				int bufId = buffers.get(i);
-				ALObjects.Buffer b = ctx.buffers.get(bufId);
+				ALObjects.Buffer b = ctx.device.buffers.get(bufId);
 				if (b != null) {
-					b.attachedSources.remove(s);
+					s.unqueueBuffer(b);
 				}
 			}
 		}
@@ -596,11 +606,11 @@ public class AL10 {
 		ALContext ctx = ALRT.checkContext("alSourceUnqueueBuffers");
 		ALObjects.Source s = ALRT.checkSource(ctx, source, "alSourceUnqueueBuffers");
 		org.lwjgl.openal.AL10.alSourceUnqueueBuffers(source, buffers);
-		if (ctx != null && s != null) {
+		if (ctx != null && ctx.device != null && s != null) {
 			for (int bufId : buffers) {
-				ALObjects.Buffer b = ctx.buffers.get(bufId);
+				ALObjects.Buffer b = ctx.device.buffers.get(bufId);
 				if (b != null) {
-					b.attachedSources.remove(s);
+					s.unqueueBuffer(b);
 				}
 			}
 		}

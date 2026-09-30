@@ -3,6 +3,7 @@ package test;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assumptions.*;
 import static org.lwjgl.openal.AL10.*;
+import static org.lwjgl.openal.AL11.*;
 import static org.lwjgl.openal.ALC10.*;
 
 import java.nio.ByteBuffer;
@@ -157,8 +158,7 @@ public class DebugALIT {
 		assertTrue(tempCtx != 0L);
 		alcMakeContextCurrent(tempCtx);
 
-		// Leak a buffer and a source
-		alGenBuffers();
+		// Leak a source
 		alGenSources();
 
 		// Default: warn only
@@ -168,7 +168,7 @@ public class DebugALIT {
 		long tempCtx2 = alcCreateContext(device, (IntBuffer) null);
 		assertTrue(tempCtx2 != 0L);
 		alcMakeContextCurrent(tempCtx2);
-		alGenBuffers();
+		alGenSources();
 
 		Properties.FAIL_ON_LEAKS.enable();
 		try {
@@ -247,24 +247,114 @@ public class DebugALIT {
 		long ctx2 = alcCreateContext(device, (IntBuffer) null);
 		assertTrue(ctx2 != 0L);
 
-		// Create buffer under current context (this.context)
+		int buf = alGenBuffers();
+		assertTrue(buf > 0);
+		int src = alGenSources();
+		assertTrue(src > 0);
+
+		alcMakeContextCurrent(ctx2);
+		ByteBuffer data = BufferUtils.createByteBuffer(16);
+		alBufferData(buf, AL_FORMAT_MONO16, data, 44100);
+
+		IllegalStateException ex = assertThrows(IllegalStateException.class,
+				() -> alSourcei(src, AL_BUFFER, buf));
+		assertTrue(ex.getMessage().contains("cross-context use"));
+
+		long dev2 = alcOpenDevice((ByteBuffer) null);
+		if (dev2 != 0L) {
+			try {
+				long ctx3 = alcCreateContext(dev2, (IntBuffer) null);
+				if (ctx3 != 0L) {
+					try {
+						alcMakeContextCurrent(ctx3);
+						IllegalStateException ex2 = assertThrows(IllegalStateException.class,
+								() -> alBufferData(buf, AL_FORMAT_MONO16, data, 44100));
+						assertTrue(ex2.getMessage().contains("cross-device use"));
+					} finally {
+						alcDestroyContext(ctx3);
+					}
+				}
+			} finally {
+				alcCloseDevice(dev2);
+			}
+		}
+
+		alcMakeContextCurrent(context);
+		alDeleteSources(src);
+		alDeleteBuffers(buf);
+		alcDestroyContext(ctx2);
+	}
+
+	@Test
+	public void testDeviceBufferLeakAudit() {
+		long tempDev = alcOpenDevice((ByteBuffer) null);
+		assumeTrue(tempDev != 0L);
+		long tempCtx = alcCreateContext(tempDev, (IntBuffer) null);
+		assumeTrue(tempCtx != 0L);
+		alcMakeContextCurrent(tempCtx);
+
 		int buf = alGenBuffers();
 		assertTrue(buf > 0);
 
-		// Switch to ctx2
-		alcMakeContextCurrent(ctx2);
+		alcDestroyContext(tempCtx);
 
-		// Try to use buffer from context 1 while context 2 is current
+		Properties.FAIL_ON_LEAKS.enable();
+		try {
+			IllegalStateException ex = assertThrows(IllegalStateException.class, () -> alcCloseDevice(tempDev));
+			assertTrue(ex.getMessage().contains("leaked"));
+		} finally {
+			Properties.FAIL_ON_LEAKS.enabled = false;
+			alcCloseDevice(tempDev);
+			alcMakeContextCurrent(context);
+		}
+	}
+
+	@Test
+	public void testMultiQueuedBuffers() {
+		int src = alGenSources();
+		int buf = alGenBuffers();
 		ByteBuffer data = BufferUtils.createByteBuffer(16);
-		IllegalStateException ex = assertThrows(IllegalStateException.class,
-				() -> alBufferData(buf, AL_FORMAT_MONO16, data, 44100));
-		assertTrue(ex.getMessage().contains("cross-context use"));
+		alBufferData(buf, AL_FORMAT_MONO16, data, 44100);
 
-		// Switch back to context 1, delete buffer, then destroy ctx2
-		alcMakeContextCurrent(context);
+		alSourceQueueBuffers(src, buf);
+		alSourceQueueBuffers(src, buf);
+
+		alSourcePlay(src);
+		alSourceStop(src);
+
+		int unqueued = alSourceUnqueueBuffers(src);
+		assertEquals(buf, unqueued);
+
+		IllegalStateException ex = assertThrows(IllegalStateException.class, () -> alDeleteBuffers(buf));
+		assertTrue(ex.getMessage().contains("still attached"));
+
+		unqueued = alSourceUnqueueBuffers(src);
+		assertEquals(buf, unqueued);
+
 		alDeleteBuffers(buf);
+		alDeleteSources(src);
+	}
 
-		alcDestroyContext(ctx2);
+	@Test
+	public void testEfxFilterValidation() {
+		ALCapabilities caps = AL.getCapabilities();
+		assumeTrue(caps.ALC_EXT_EFX, "ALC_EXT_EFX extension not supported");
+
+		int filter = EXTEfx.alGenFilters();
+		EXTEfx.alDeleteFilters(filter);
+
+		int src = alGenSources();
+		IllegalStateException ex = assertThrows(IllegalStateException.class,
+				() -> alSourcei(src, EXTEfx.AL_DIRECT_FILTER, filter));
+		assertTrue(ex.getMessage().contains("use-after-free"));
+
+		int slot = EXTEfx.alGenAuxiliaryEffectSlots();
+		IllegalStateException ex2 = assertThrows(IllegalStateException.class,
+				() -> alSource3i(src, EXTEfx.AL_AUXILIARY_SEND_FILTER, slot, 0, filter));
+		assertTrue(ex2.getMessage().contains("use-after-free"));
+
+		EXTEfx.alDeleteAuxiliaryEffectSlots(slot);
+		alDeleteSources(src);
 	}
 
 	@Test
@@ -300,5 +390,16 @@ public class DebugALIT {
 		assertEquals("AL_NO_ERROR", org.lwjglx.debug.openal.ALMetadata.alErrorName(0));
 		assertEquals("AL_INVALID_NAME", org.lwjglx.debug.openal.ALMetadata.enumName(0xA001));
 		assertEquals("AL_INVALID_NAME", org.lwjglx.debug.openal.ALMetadata.alErrorName(0xA001));
+	}
+
+	@Test
+	public void testValidateToggleSuppressesAlError() {
+		Properties.VALIDATE.enabled = false;
+		try {
+			org.lwjglx.debug.openal.ALRT.checkALError("testMethod");
+			org.lwjglx.debug.openal.ALRT.checkALCError(device, "testMethod");
+		} finally {
+			Properties.VALIDATE.enabled = true;
+		}
 	}
 }

@@ -8,13 +8,13 @@ import org.lwjglx.debug.ResourceState;
 public class ALContext {
 
 	private static final ConcurrentHashMap<Long, ALContext> CONTEXTS = new ConcurrentHashMap<>();
-	private static volatile ALContext currentContext;
+	private static final ThreadLocal<ALContext> CURRENT_CONTEXT = new ThreadLocal<>();
+	private static volatile ALContext processContext;
 
 	public final long handle;
 	public final ALDevice device;
 	public volatile ResourceState state = ResourceState.ALIVE;
 	public final ConcurrentHashMap<Integer, ALObjects.Source> sources = new ConcurrentHashMap<>();
-	public final ConcurrentHashMap<Integer, ALObjects.Buffer> buffers = new ConcurrentHashMap<>();
 	public final ConcurrentHashMap<Integer, ALObjects.Effect> effects = new ConcurrentHashMap<>();
 	public final ConcurrentHashMap<Integer, ALObjects.Filter> filters = new ConcurrentHashMap<>();
 	public final ConcurrentHashMap<Integer, ALObjects.AuxiliaryEffectSlot> auxSlots = new ConcurrentHashMap<>();
@@ -42,10 +42,17 @@ public class ALContext {
 	}
 
 	public static ALContext currentContext() {
-		return currentContext;
+		ALContext ctx = CURRENT_CONTEXT.get();
+		return ctx != null ? ctx : processContext;
 	}
 
 	public static void makeCurrent(ALContext context) {
-		currentContext = context;
+		if (context == null) {
+			CURRENT_CONTEXT.remove();
+			processContext = null;
+		} else {
+			CURRENT_CONTEXT.set(context);
+			processContext = context;
+		}
 	}
 }

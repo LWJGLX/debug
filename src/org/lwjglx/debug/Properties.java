@@ -25,8 +25,8 @@ package org.lwjglx.debug;
 public class Properties {
 
     public static class BooleanProperty {
-        public boolean enabled;
-        public boolean byDefault = true;
+        public volatile boolean enabled;
+        public volatile boolean byDefault = true;
 
         public void enable() {
             this.enabled = true;
@@ -47,8 +47,8 @@ public class Properties {
     public static final BooleanProperty TRACE = getBooleanProperty("org.lwjglx.TRACE", false);
     public static final BooleanProperty NO_THROW_ON_ERROR = getBooleanProperty("org.lwjglx.NO_THROW", false);
     public static final BooleanProperty FAIL_ON_LEAKS = getBooleanProperty("org.lwjglx.FAIL_ON_LEAKS", false);
-    public static String OUTPUT = System.getProperty("org.lwjglx.OUTPUT", null);
-    public static long SLEEP = getLongProperty("org.lwjglx.SLEEP", 0L);
+    public static volatile String OUTPUT = System.getProperty("org.lwjglx.OUTPUT", null);
+    public static volatile long SLEEP = getLongProperty("org.lwjglx.SLEEP", 0L);
 
     private static BooleanProperty getBooleanProperty(String prop, boolean def) {
         String value = System.getProperty(prop);
