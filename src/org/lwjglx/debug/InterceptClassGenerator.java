@@ -172,6 +172,15 @@ class InterceptClassGenerator implements Opcodes {
         return (call.name.startsWith("gl") || call.name.startsWith("ngl")) && call.resolvedReceiverInternalName.startsWith("org/lwjgl/opengl/");
     }
 
+    private static boolean isALcall(InterceptedCall call) {
+        String name = call.name;
+        boolean isAl = (name.startsWith("al") && !name.startsWith("alc"))
+                || (name.startsWith("nal") && !name.startsWith("nalc"));
+        return isAl && call.resolvedReceiverInternalName.startsWith("org/lwjgl/openal/")
+                && !call.resolvedReceiverInternalName.equals("org/lwjgl/openal/AL")
+                && !name.equals("alGetError");
+    }
+
     private static String glCall(InterceptedCall call) {
         if (!isGLcall(call))
             return null;
@@ -537,6 +546,11 @@ class InterceptClassGenerator implements Opcodes {
             mv.visitLdcInsn(call.name);
             mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, "checkError", "(Ljava/lang/String;)V", false);
         }
+        /* Check AL error if it was an AL call */
+        if (VALIDATE.enabled && isALcall(call)) {
+            mv.visitLdcInsn(call.name);
+            mv.visitMethodInsn(INVOKESTATIC, "org/lwjglx/debug/openal/ALRT", "checkALError", "(Ljava/lang/String;)V", false);
+        }
     }
 
     private static int loadGLenum(String name, String helperMethod, MethodVisitor mv, int var, int glEnumIndex) {
@@ -588,6 +602,15 @@ class InterceptClassGenerator implements Opcodes {
             } else if ("SDL_GLContext".equals(nativeType) || "SDL_GLContext *".equals(nativeType)) {
                 mv.visitVarInsn(paramType.getOpcode(ILOAD), var);
                 mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, "paramSdlGlContext", "(" + MethodCall_Desc + paramType.getDescriptor() + ")" + MethodCall_Desc, false);
+            } else if ("ALenum".equals(nativeType) || "ALCenum".equals(nativeType)) {
+                mv.visitVarInsn(paramType.getOpcode(ILOAD), var);
+                mv.visitMethodInsn(INVOKESTATIC, "org/lwjglx/debug/openal/ALRT", "paramAlEnum", "(" + MethodCall_Desc + "I)" + MethodCall_Desc, false);
+            } else if ("ALCdevice *".equals(nativeType)) {
+                mv.visitVarInsn(paramType.getOpcode(ILOAD), var);
+                mv.visitMethodInsn(INVOKESTATIC, "org/lwjglx/debug/openal/ALRT", "paramAlDevice", "(" + MethodCall_Desc + "J)" + MethodCall_Desc, false);
+            } else if ("ALCcontext *".equals(nativeType)) {
+                mv.visitVarInsn(paramType.getOpcode(ILOAD), var);
+                mv.visitMethodInsn(INVOKESTATIC, "org/lwjglx/debug/openal/ALRT", "paramAlContext", "(" + MethodCall_Desc + "J)" + MethodCall_Desc, false);
             } else {
                 mv.visitVarInsn(paramType.getOpcode(ILOAD), var);
                 if (paramType.getSort() == Type.ARRAY || paramType.getSort() == Type.OBJECT) {
@@ -614,6 +637,8 @@ class InterceptClassGenerator implements Opcodes {
             String returnNativeType = minfo.returnNativeType;
             if ("GLenum".equals(returnNativeType) || "GLboolean".equals(returnNativeType)) {
                 loadGLenumReturn(call.glName, "glEnumReturn", mv);
+            } else if ("ALenum".equals(returnNativeType) || "ALCenum".equals(returnNativeType)) {
+                mv.visitMethodInsn(INVOKESTATIC, "org/lwjglx/debug/openal/ALRT", "returnValueAlEnum", "(I" + MethodCall_Desc + ")I", false);
             } else if ("GLFWwindow *".equals(returnNativeType)) {
                 mv.visitMethodInsn(INVOKESTATIC, RT_InternalName, "returnValueGlfwWindow", "(" + retType.getDescriptor() + MethodCall_Desc + ")" + retType.getDescriptor(), false);
             } else if ("GLFWmonitor *".equals(returnNativeType)) {
