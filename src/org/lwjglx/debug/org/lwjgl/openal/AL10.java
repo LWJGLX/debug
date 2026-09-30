@@ -11,7 +11,7 @@ import org.lwjglx.debug.RT;
 import org.lwjglx.debug.openal.ALContext;
 import org.lwjglx.debug.openal.ALObjects;
 import org.lwjglx.debug.openal.ALRT;
-import org.lwjglx.debug.openal.ResourceState;
+import org.lwjglx.debug.ResourceState;
 
 public class AL10 {
 

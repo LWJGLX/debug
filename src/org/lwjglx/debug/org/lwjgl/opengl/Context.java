@@ -24,12 +24,14 @@ package org.lwjglx.debug.org.lwjgl.opengl;
 
 import org.lwjglx.debug.Properties;
 import org.lwjglx.debug.RT;
+import org.lwjglx.debug.ResourceState;
+import org.lwjglx.debug.ResourceTracker;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.nio.IntBuffer;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -42,9 +44,26 @@ import static org.lwjglx.debug.Log.info;
 
 public class Context implements Comparable<Context> {
     public static class ShareGroup {
-        public Map<Integer, BufferObject> bufferObjects = new HashMap<>();
-        public Map<Integer, TextureObject> textureObjects = new HashMap<>();
-        public Set<Context> contexts = new ConcurrentSkipListSet<Context>();
+        public final ResourceTracker<BufferObject> bufferObjects = new ResourceTracker<>("Buffer");
+        public final ResourceTracker<TextureObject> textureObjects = new ResourceTracker<>("Texture");
+        public final ResourceTracker<RenderbufferObject> renderbufferObjects = new ResourceTracker<>("Renderbuffer");
+        public final ResourceTracker<ShaderObject> shaderObjects = new ResourceTracker<>("Shader");
+        public final ResourceTracker<ProgramObject> programObjects = new ResourceTracker<>("Program");
+        public final Set<Context> contexts = new ConcurrentSkipListSet<Context>();
+    }
+
+    public static class RenderbufferObject {
+    }
+
+    public static class ShaderObject {
+        public final int type;
+        public ShaderObject(int type) {
+            this.type = type;
+        }
+    }
+
+    public static class ProgramObject {
+        public final Set<Integer> attachedShaders = ConcurrentHashMap.newKeySet();
     }
 
     public static class VAO {
@@ -67,8 +86,30 @@ public class Context implements Comparable<Context> {
 
     public static class FBO {
         public int handle;
+        public final Map<Integer, Integer> attachedTextures = new ConcurrentHashMap<Integer, Integer>();
+        public final Map<Integer, Integer> attachedRenderbuffers = new ConcurrentHashMap<Integer, Integer>();
         public FBO(int handle) {
             this.handle = handle;
+        }
+
+        public void attachTexture(int attachment, int texture) {
+            if (texture != 0) {
+                attachedTextures.put(attachment, texture);
+                attachedRenderbuffers.remove(attachment);
+            } else {
+                attachedTextures.remove(attachment);
+                attachedRenderbuffers.remove(attachment);
+            }
+        }
+
+        public void attachRenderbuffer(int attachment, int renderbuffer) {
+            if (renderbuffer != 0) {
+                attachedRenderbuffers.put(attachment, renderbuffer);
+                attachedTextures.remove(attachment);
+            } else {
+                attachedTextures.remove(attachment);
+                attachedRenderbuffers.remove(attachment);
+            }
         }
     }
 
@@ -137,13 +178,19 @@ public class Context implements Comparable<Context> {
     public VAO currentVao;
     public FBO defaultFbo;
     public FBO currentFbo;
+    public FBO currentDrawFbo;
+    public FBO currentReadFbo;
     public ProgramPipeline defaultProgramPipeline;
     public ProgramPipeline currentProgramPipeline;
-    public Map<Integer, VAO> vaos = new HashMap<Integer, VAO>();
-    public Map<Integer, FBO> fbos = new HashMap<Integer, FBO>();
-    public Map<Integer, BufferObject> bufferObjectBindings = new HashMap<>();
-    public Map<Integer, TextureObject> textureObjectBindings = new HashMap<>();
-    public Map<Integer, ProgramPipeline> programPipelines = new HashMap<>();
+    public final ResourceTracker<VAO> vaoTracker = new ResourceTracker<>("VAO");
+    public final ResourceTracker<FBO> fboTracker = new ResourceTracker<>("FBO");
+    public final ResourceTracker<ProgramPipeline> pipelineTracker = new ResourceTracker<>("ProgramPipeline");
+    public int currentProgram;
+    public Map<Integer, VAO> vaos = new ConcurrentHashMap<Integer, VAO>();
+    public Map<Integer, FBO> fbos = new ConcurrentHashMap<Integer, FBO>();
+    public Map<Integer, BufferObject> bufferObjectBindings = new ConcurrentHashMap<>();
+    public Map<Integer, TextureObject> textureObjectBindings = new ConcurrentHashMap<>();
+    public Map<Integer, ProgramPipeline> programPipelines = new ConcurrentHashMap<>();
     public ShareGroup shareGroup;
     public boolean inImmediateMode;
     public Thread currentInThread;
@@ -235,12 +282,17 @@ public class Context implements Comparable<Context> {
         this.defaultVao = new VAO(GL_MAX_VERTEX_ATTRIBS);
         this.currentVao = defaultVao;
         this.vaos.put(0, defaultVao);
+        this.vaoTracker.create(0, defaultVao);
         this.defaultFbo = new FBO(0);
         this.currentFbo = defaultFbo;
+        this.currentDrawFbo = defaultFbo;
+        this.currentReadFbo = defaultFbo;
         this.fbos.put(0, defaultFbo);
+        this.fboTracker.create(0, defaultFbo);
         this.defaultProgramPipeline = new ProgramPipeline();
         this.currentProgramPipeline = defaultProgramPipeline;
         this.programPipelines.put(0, defaultProgramPipeline);
+        this.pipelineTracker.create(0, defaultProgramPipeline);
         StringBuilder sb = new StringBuilder();
         sb.append("Initialized OpenGL context for window[").append(this.counter).append("]\n");
         sb.append("  Effective OpenGL version: ").append(openglVersion()).append("\n");
@@ -272,15 +324,89 @@ public class Context implements Comparable<Context> {
 
     public void destroy() {
         info("Destroying OpenGL context for window[" + this.counter + "]");
-        if (shareGroup != null) {
-            shareGroup.contexts.remove(this);
-            SHARE_GROUPS.remove(window);
-            shareGroup = null;
+        try {
+            auditLeaks();
+        } finally {
+            if (shareGroup != null) {
+                shareGroup.contexts.remove(this);
+                SHARE_GROUPS.remove(window);
+                shareGroup = null;
+            }
+            if (debugCallback != null) {
+                /* Can happen when we never actually called GL.createCapabilities() */
+                debugCallback.free();
+            }
         }
-        if (debugCallback != null) {
-            /* Can happen when we never actually called GL.createCapabilities() */
-            debugCallback.free();
+    }
+
+    private void auditLeaks() {
+        if (!Properties.VALIDATE.enabled) {
+            return;
         }
+        List<String> leakMessages = new ArrayList<>();
+        int liveVaos = vaoTracker.liveCountExcludingDefault();
+        if (liveVaos > 0) {
+            leakMessages.add("OpenGL context for window[" + this.counter + "] destroyed with " + liveVaos + " un-deleted VAO(s)"
+                    + leakDetails(vaoTracker.liveEntriesExcludingDefault()));
+        }
+        int liveFbos = fboTracker.liveCountExcludingDefault();
+        if (liveFbos > 0) {
+            leakMessages.add("OpenGL context for window[" + this.counter + "] destroyed with " + liveFbos + " un-deleted FBO(s)"
+                    + leakDetails(fboTracker.liveEntriesExcludingDefault()));
+        }
+        int livePipelines = pipelineTracker.liveCountExcludingDefault();
+        if (livePipelines > 0) {
+            leakMessages.add("OpenGL context for window[" + this.counter + "] destroyed with " + livePipelines + " un-deleted ProgramPipeline(s)"
+                    + leakDetails(pipelineTracker.liveEntriesExcludingDefault()));
+        }
+        if (shareGroup != null && shareGroup.contexts.size() <= 1) {
+            int liveBuffers = shareGroup.bufferObjects.liveCountExcludingDefault();
+            if (liveBuffers > 0) {
+                leakMessages.add("ShareGroup destroyed with " + liveBuffers + " un-deleted Buffer(s)"
+                        + leakDetails(shareGroup.bufferObjects.liveEntriesExcludingDefault()));
+            }
+            int liveTextures = shareGroup.textureObjects.liveCountExcludingDefault();
+            if (liveTextures > 0) {
+                leakMessages.add("ShareGroup destroyed with " + liveTextures + " un-deleted Texture(s)"
+                        + leakDetails(shareGroup.textureObjects.liveEntriesExcludingDefault()));
+            }
+            int liveRenderbuffers = shareGroup.renderbufferObjects.liveCountExcludingDefault();
+            if (liveRenderbuffers > 0) {
+                leakMessages.add("ShareGroup destroyed with " + liveRenderbuffers + " un-deleted Renderbuffer(s)"
+                        + leakDetails(shareGroup.renderbufferObjects.liveEntriesExcludingDefault()));
+            }
+            int liveShaders = shareGroup.shaderObjects.liveCountExcludingDefault();
+            if (liveShaders > 0) {
+                leakMessages.add("ShareGroup destroyed with " + liveShaders + " un-deleted Shader(s)"
+                        + leakDetails(shareGroup.shaderObjects.liveEntriesExcludingDefault()));
+            }
+            int livePrograms = shareGroup.programObjects.liveCountExcludingDefault();
+            if (livePrograms > 0) {
+                leakMessages.add("ShareGroup destroyed with " + livePrograms + " un-deleted Program(s)"
+                        + leakDetails(shareGroup.programObjects.liveEntriesExcludingDefault()));
+            }
+        }
+        for (String msg : leakMessages) {
+            if (Properties.FAIL_ON_LEAKS.enabled) {
+                RT.throwISEOrLogError(msg);
+            } else {
+                org.lwjglx.debug.Log.warn(msg);
+            }
+        }
+    }
+
+    private static <T> String leakDetails(List<ResourceTracker.Entry<T>> entries) {
+        if (!Properties.STRICT.enabled || entries == null || entries.isEmpty()) {
+            return "";
+        }
+        StringBuilder sb = new StringBuilder();
+        for (ResourceTracker.Entry<T> e : entries) {
+            sb.append("\n  Handle [").append(e.handle).append("]");
+            if (e.creationSite != null) {
+                sb.append(" created at: ").append(ResourceTracker.formatTrace(e.creationSite));
+            }
+        }
+        return sb.toString();
     }
 
     @Override
@@ -296,25 +422,23 @@ public class Context implements Comparable<Context> {
         if (index == 0)
             return;
         Context context = currentContext();
+        context.vaoTracker.delete(index, "glDeleteVertexArrays");
         VAO vao = context.vaos.get(index);
         if (vao != null && vao == context.currentVao) {
             context.currentVao = context.defaultVao;
         }
-        context.vaos.remove(index);
     }
 
     public static void deleteVertexArrays(IntBuffer indices) {
-        Context context = currentContext();
         int pos = indices.position();
         for (int i = 0; i < indices.remaining(); i++) {
-            int index = indices.get(pos + i);
-            if (index == 0)
-                continue;
-            VAO vao = context.vaos.get(index);
-            if (vao != null && vao == context.currentVao) {
-                context.currentVao = context.defaultVao;
-            }
-            context.vaos.remove(index);
+            deleteVertexArray(indices.get(pos + i));
+        }
+    }
+
+    public static void deleteVertexArrays(int[] indices) {
+        for (int i = 0; i < indices.length; i++) {
+            deleteVertexArray(indices[i]);
         }
     }
 
@@ -322,53 +446,83 @@ public class Context implements Comparable<Context> {
         if (index == 0)
             return;
         Context context = currentContext();
+        context.pipelineTracker.delete(index, "glDeleteProgramPipelines");
         ProgramPipeline pp = context.programPipelines.get(index);
         if (pp != null && pp == context.currentProgramPipeline) {
             context.currentProgramPipeline = context.defaultProgramPipeline;
         }
-        context.programPipelines.remove(index);
     }
 
     public static void deletePipelines(IntBuffer pipelines) {
-        Context context = currentContext();
         int pos = pipelines.position();
         for (int i = 0; i < pipelines.remaining(); i++) {
-            int index = pipelines.get(pos + i);
-            if (index == 0)
-                continue;
-            ProgramPipeline pp = context.programPipelines.get(index);
-            if (pp != null && pp == context.currentProgramPipeline) {
-                context.currentProgramPipeline = context.defaultProgramPipeline;
-            }
-            context.programPipelines.remove(index);
+            deletePipeline(pipelines.get(pos + i));
         }
     }
 
     public static void deletePipelines(int[] pipelines) {
-        Context context = currentContext();
         for (int i = 0; i < pipelines.length; i++) {
-            int index = pipelines[i];
-            if (index == 0)
-                continue;
-            ProgramPipeline pp = context.programPipelines.get(index);
-            if (pp != null && pp == context.currentProgramPipeline) {
-                context.currentProgramPipeline = context.defaultProgramPipeline;
-            }
-            context.programPipelines.remove(index);
+            deletePipeline(pipelines[i]);
         }
     }
 
-    public static void deleteVertexArrays(int[] indices) {
+    public static void deleteFramebuffer(int index) {
+        if (index == 0)
+            return;
         Context context = currentContext();
-        for (int i = 0; i < indices.length; i++) {
-            int index = indices[i];
-            if (index == 0)
-                continue;
-            VAO vao = context.vaos.get(index);
-            if (vao != null && vao == context.currentVao) {
-                context.currentVao = context.defaultVao;
+        context.fboTracker.delete(index, "glDeleteFramebuffers");
+        FBO fbo = context.fbos.remove(index);
+        if (fbo != null) {
+            fbo.attachedTextures.clear();
+            fbo.attachedRenderbuffers.clear();
+            if (fbo == context.currentDrawFbo) {
+                context.currentDrawFbo = context.defaultFbo;
             }
-            context.vaos.remove(index);
+            if (fbo == context.currentReadFbo) {
+                context.currentReadFbo = context.defaultFbo;
+            }
+            context.currentFbo = context.currentDrawFbo;
+        }
+    }
+
+    public static void deleteFramebuffers(IntBuffer framebuffers) {
+        int pos = framebuffers.position();
+        for (int i = 0; i < framebuffers.remaining(); i++) {
+            deleteFramebuffer(framebuffers.get(pos + i));
+        }
+    }
+
+    public static void deleteFramebuffers(int[] framebuffers) {
+        for (int i = 0; i < framebuffers.length; i++) {
+            deleteFramebuffer(framebuffers[i]);
+        }
+    }
+
+    public static void deleteRenderbuffer(int index) {
+        if (index == 0)
+            return;
+        Context context = currentContext();
+        context.shareGroup.renderbufferObjects.delete(index, "glDeleteRenderbuffers");
+        Set<Context> contexts = context.shareGroup != null ? context.shareGroup.contexts : Collections.singleton(context);
+        for (Context c : contexts) {
+            for (FBO fbo : c.fbos.values()) {
+                if (fbo.attachedRenderbuffers.values().removeIf(r -> r == index)) {
+                    org.lwjglx.debug.Log.warn("Renderbuffer [" + index + "] deleted while still attached to FBO [" + fbo.handle + "]");
+                }
+            }
+        }
+    }
+
+    public static void deleteRenderbuffers(IntBuffer indices) {
+        int pos = indices.position();
+        for (int i = 0; i < indices.remaining(); i++) {
+            deleteRenderbuffer(indices.get(pos + i));
+        }
+    }
+
+    public static void deleteRenderbuffers(int[] indices) {
+        for (int i = 0; i < indices.length; i++) {
+            deleteRenderbuffer(indices[i]);
         }
     }
 
@@ -402,11 +556,18 @@ public class Context implements Comparable<Context> {
     public static void checkFramebufferCompleteness() {
         if (Properties.VALIDATE.enabled) {
             Context context = currentContext();
-            if (context.currentFbo != null) {
+            FBO fbo = context.currentDrawFbo;
+            if (fbo != null) {
+                for (int tex : fbo.attachedTextures.values()) {
+                    context.shareGroup.textureObjects.checkAlive(tex, "glCheckFramebufferStatus");
+                }
+                for (int rb : fbo.attachedRenderbuffers.values()) {
+                    context.shareGroup.renderbufferObjects.checkAlive(rb, "glCheckFramebufferStatus");
+                }
                 /* Check framebuffer status */
                 int status = org.lwjgl.opengl.GL30.glCheckFramebufferStatus(org.lwjgl.opengl.GL30.GL_FRAMEBUFFER);
                 if (status != org.lwjgl.opengl.GL30.GL_FRAMEBUFFER_COMPLETE) {
-                    RT.throwISEOrLogError("Framebuffer [" + context.currentFbo.handle + "] is not complete: " + status);
+                    RT.throwISEOrLogError("Framebuffer [" + fbo.handle + "] is not complete: " + status);
                 }
             }
         }

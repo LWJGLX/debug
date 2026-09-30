@@ -17,6 +17,7 @@ import org.lwjgl.openal.ALC;
 import org.lwjgl.openal.ALCCapabilities;
 import org.lwjgl.openal.ALCapabilities;
 import org.lwjgl.openal.EXTEfx;
+import org.lwjglx.debug.Properties;
 
 public class DebugALIT {
 
@@ -160,8 +161,22 @@ public class DebugALIT {
 		alGenBuffers();
 		alGenSources();
 
-		IllegalStateException ex = assertThrows(IllegalStateException.class, () -> alcDestroyContext(tempCtx));
-		assertTrue(ex.getMessage().contains("leaked"));
+		// Default: warn only
+		alcDestroyContext(tempCtx);
+
+		// With FAIL_ON_LEAKS: throws IllegalStateException
+		long tempCtx2 = alcCreateContext(device, (IntBuffer) null);
+		assertTrue(tempCtx2 != 0L);
+		alcMakeContextCurrent(tempCtx2);
+		alGenBuffers();
+
+		Properties.FAIL_ON_LEAKS.enable();
+		try {
+			IllegalStateException ex = assertThrows(IllegalStateException.class, () -> alcDestroyContext(tempCtx2));
+			assertTrue(ex.getMessage().contains("leaked"));
+		} finally {
+			Properties.FAIL_ON_LEAKS.enabled = false;
+		}
 	}
 
 	@Test

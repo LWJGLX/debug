@@ -23,7 +23,7 @@ public class ALC {
 
 	public static void destroy() {
 		for (ALDevice dev : ALDevice.allDevices()) {
-			if (dev.state == org.lwjglx.debug.openal.ResourceState.ALIVE) {
+			if (dev.state == org.lwjglx.debug.ResourceState.ALIVE) {
 				org.lwjglx.debug.RT.throwISEOrLogError("ALC.destroy: device 0x" + Long.toHexString(dev.handle) + " was never closed");
 			}
 		}

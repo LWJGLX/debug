@@ -3,6 +3,7 @@ package org.lwjglx.debug.openal;
 import java.util.concurrent.ConcurrentHashMap;
 
 import org.lwjglx.debug.Properties;
+import org.lwjglx.debug.ResourceState;
 
 public class ALContext {
 

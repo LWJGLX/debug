@@ -1,4 +1,4 @@
-package org.lwjglx.debug.openal;
+package org.lwjglx.debug;
 
 public enum ResourceState {
 	ALIVE,

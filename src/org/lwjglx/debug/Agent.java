@@ -402,6 +402,8 @@ public class Agent implements ClassFileTransformer, Opcodes {
             parser.accepts("debug");
             parser.accepts("trace");
             parser.accepts("nothrow");
+            parser.accepts("failonleaks");
+            parser.accepts("strict");
             OptionSpec<String> validate = parser.accepts("validate").withOptionalArg().ofType(String.class);
             OptionSpec<Long> sleep = parser.accepts("sleep").withRequiredArg().ofType(Long.class);
             OptionSpec<String> output = parser.accepts("output").withRequiredArg().ofType(String.class);
@@ -416,6 +418,10 @@ public class Agent implements ClassFileTransformer, Opcodes {
                 Properties.DEBUG.enable();
             if (options.has("trace"))
                 Properties.TRACE.enable();
+            if (options.has("strict"))
+                Properties.STRICT.enable();
+            if (options.has("failonleaks"))
+                Properties.FAIL_ON_LEAKS.enable();
             if (options.has("validate")) {
                 Properties.VALIDATE.enable();
                 String validateArgsString = options.valueOf(validate);

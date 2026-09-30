@@ -7,7 +7,7 @@ import java.nio.ShortBuffer;
 
 import org.lwjglx.debug.openal.ALDevice;
 import org.lwjglx.debug.openal.ALRT;
-import org.lwjglx.debug.openal.ResourceState;
+import org.lwjglx.debug.ResourceState;
 
 public class ALC11 {
 

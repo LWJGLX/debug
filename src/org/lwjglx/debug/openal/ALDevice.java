@@ -4,6 +4,7 @@ import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
 import org.lwjglx.debug.Properties;
+import org.lwjglx.debug.ResourceState;
 
 public class ALDevice {
 
