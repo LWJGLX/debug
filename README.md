@@ -2,40 +2,92 @@
 
 # What
 
-Java Agent for debugging LWJGL3 programs to prevent JVM crashes and resolve OpenGL errors.
+Java Agent for debugging LWJGL3 programs to prevent JVM crashes, resolve OpenGL and OpenAL errors, and detect resource leaks.
 
 # Why
 
 Because some errors in user programs can cause the JVM to crash without a meaningful error message, since LWJGL 3 is tuned for extreme speed at the expense of robustness.
 
+# Capabilities
+
+### OpenGL Validation & Lifecycle Tracking
+- **API Coverage:** OpenGL 1.1 through 4.6 (including Direct State Access / DSA), ARB, and EXT extensions.
+- **Resource Lifecycle Management:** Tracks the lifecycle of Textures, Buffer Objects, Shaders, Programs, Framebuffers (FBOs), Renderbuffers (RBOs), and Vertex Array Objects (VAOs).
+- **Use-After-Free & Double-Free Protection:** Immediate detection and detailed reporting when referencing or re-deleting destroyed resource handles.
+- **Cross-Resource Reference Tracking:** Audits attachments between dependent objects (e.g. shaders attached to programs, textures/renderbuffers attached to framebuffers) and warns if an attached resource is deleted.
+- **Teardown Leak Auditing:** Audits remaining unreleased resources when a context is destroyed. Warns by default, or optionally throws an exception.
+
+### OpenAL Validation & Lifecycle Tracking
+- **API Coverage:** OpenAL 1.0, 1.1, ALC 1.0, 1.1, and EXT_EFX (Effects, Filters, Auxiliary Effect Slots).
+- **Context & Device Validation:** Validates current context and valid device states on every AL and ALC invocation.
+- **Resource Lifecycle Management:** Tracks Sources, Buffers, Effects, Filters, and Auxiliary Effect Slots.
+- **Attachment & Dependency Checking:** Prevents use-after-free and detects dangling dependencies, such as deleting a buffer currently attached to an active source.
+- **Automatic Error Injection:** Automatically invokes `alGetError()` and `alcGetError()` to catch and report errors immediately at the site of failure.
+- **Teardown Leak Auditing:** Audits remaining unreleased resources when an AL context or device is closed.
+
 # How
 
-1. Download the `lwjglx-debug-1.0.0.jar` file from [https://www.lwjgl.org/browse/addons/lwjglx-debug](https://www.lwjgl.org/browse/addons/lwjglx-debug) or build this Maven project via the instructions in the 'Build' section below
-2. Copy the `lwjglx-debug-1.0.0.jar` to any directory (henceforth called `<cwd>`)
-3. Start your LWJGL3 application with the **JVM/VM argument** (_not_ program argument) `-javaagent:<cwd>/lwjglx-debug-1.0.4.jar`
-    1. when using the command line, it should look like: `java -javaagent:<cwd>/lwjglx-debug-1.0.4.jar -cp all/the/jars your.main.Class`
-    2. when using Eclipse, right-click your class with the `main()` method, goto 'Run As > Run Configurations...' and on the 'Arguments' tab inside the 'VM Arguments:' field enter `-javaagent:<cwd>/lwjglx-debug-1.0.0.jar`
+1. Download the `lwjglx-debug-1.1.0.jar` file from [https://www.lwjgl.org/browse/addons/lwjglx-debug](https://www.lwjgl.org/browse/addons/lwjglx-debug) or build this Maven project via the instructions in the 'Build' section below
+2. Copy the `lwjglx-debug-1.1.0.jar` to any directory (henceforth called `<cwd>`)
+3. Start your LWJGL3 application with the **JVM/VM argument** (_not_ program argument) `-javaagent:<cwd>/lwjglx-debug-1.1.0.jar`
+    1. when using the command line, it should look like: `java -javaagent:<cwd>/lwjglx-debug-1.1.0.jar -cp all/the/jars your.main.Class`
+    2. when using Eclipse, right-click your class with the `main()` method, goto 'Run As > Run Configurations...' and on the 'Arguments' tab inside the 'VM Arguments:' field enter `-javaagent:<cwd>/lwjglx-debug-1.1.0.jar`
 
 # Configuration
 
 The following configuration properties are available to configure the library:
-- `validate` - Perform argument validation and check for GL errors on each GL call (enabled by default, set via system property `-Dorg.lwjglx.VALIDATE` or via Agent argument `v`)
+- `validate` - Perform argument validation and check for errors on each GL/AL call (enabled by default, set via system property `-Dorg.lwjglx.VALIDATE` or via Agent argument `v` / `validate`)
+- `strict` - Strict validation mode; captures allocation and deletion stack traces for all tracked resources to provide detailed diagnostics on use-after-free, double-free, and leak detection (disabled by default, set via system property `-Dorg.lwjglx.STRICT` or via Agent argument `strict` or `validate=s`)
+- `failonleaks` - Fail on leaks; throws an `IllegalStateException` during context teardown or device close if any resources were leaked, instead of only logging warnings (disabled by default, set via system property `-Dorg.lwjglx.FAIL_ON_LEAKS` or via Agent argument `failonleaks`)
 - `trace` - Generate a trace log (set via system property `-Dorg.lwjglx.TRACE` or via Agent argument `t`)
 - `exclude` - Exclude trace outputs for called methods matching a given GLOB pattern (set via Agent argument `e`)
-- `nothrow` - Do not throw a Java exception on any detected error but only log the error. Note that this may result in a JVM crash due to illegal arguments or GL errors. (set via system property `-Dorg.lwjglx.NO_THROW` or via Agent argument `n`)
-- `debug` - Log additional information about classfile transformations (this can be used to debug the library itself). (set via system property `org.lwjglx.DEBUG` or via Agent argument `d`)
+- `nothrow` - Do not throw a Java exception on any detected error but only log the error. Note that this may result in a JVM crash due to illegal arguments or native errors. (set via system property `-Dorg.lwjglx.NO_THROW` or via Agent argument `n`)
+- `debug` - Log additional information about classfile transformations (this can be used to debug the library itself). (set via system property `-Dorg.lwjglx.DEBUG` or via Agent argument `d`)
 - `output` - Write LWJGL3 and LWJGLX debug and trace logging messages to a file (when this option is set, no output of LWJGL3 and LWJGLX is printed to stdout or stderr, but instead to the specified file). The file name is the value of this property. When the file name ends with `.zip` or `.gz` then a corresponding compressed archive file will be created to save storage space. In this case, the JVM must exit normally for the archive file to be finalized properly. (set via system property `-Dorg.lwjglx.OUTPUT` or via Agent argument `o`)
 - `sleep` - Thread.sleep() before calling each intercepted method (useful when following a call trace). The number of milliseconds are specified as the value of this property. (set via system property `-Dorg.lwjglx.SLEEP` or via Agent argument `s`)
 
 Examples:
 
-* `java -javaagent:lwjglx-debug-1.0.4.jar=t ...` (generate a trace on stderr)
-* `java -javaagent:lwjglx-debug-1.0.4.jar=t;o=trace.log` (generate a trace written to file `trace.log`)
-* `java -javaagent:lwjglx-debug-1.0.4.jar=t;o=trace.log.zip` (generate a zip archive containing a single `trace.log` file)
-* `java -javaagent:lwjglx-debug-1.0.4.jar=tn;o=trace.log` (generate a trace written to file `trace.log` and do not throw on GL errors)
-* `java -javaagent:lwjglx-debug-1.0.4.jar=t;e=*GL20*,*GL11.glVertex3f` (generate a trace on stderr and exclude all methods from any class having `GL20` in its name, as well as exclude `glVertex3f` from any class ending with `GL11`)
+* `java -javaagent:lwjglx-debug-1.1.0.jar=t ...` (generate a trace on stderr)
+* `java -javaagent:lwjglx-debug-1.1.0.jar=strict;failonleaks ...` (strict mode with allocation stack traces and fail on leaks)
+* `java -javaagent:lwjglx-debug-1.1.0.jar=t;o=trace.log` (generate a trace written to file `trace.log`)
+* `java -javaagent:lwjglx-debug-1.1.0.jar=t;o=trace.log.zip` (generate a zip archive containing a single `trace.log` file)
+* `java -javaagent:lwjglx-debug-1.1.0.jar=tn;o=trace.log` (generate a trace written to file `trace.log` and do not throw on GL errors)
+* `java -javaagent:lwjglx-debug-1.1.0.jar=t;e=*GL20*,*GL11.glVertex3f` (generate a trace on stderr and exclude all methods from any class having `GL20` in its name, as well as exclude `glVertex3f` from any class ending with `GL11`)
+
+### Dynamic Runtime Adjustment
+
+Properties can also be inspected and adjusted dynamically at runtime in Java code without restarting the JVM by modifying the fields on `org.lwjglx.debug.Properties`:
+
+```java
+import org.lwjglx.debug.Properties;
+
+// Disable validation and synchronous error checking during performance-critical sections/benchmarks
+Properties.VALIDATE.enabled = false;
+try {
+    runAudioOrRenderBenchmark();
+} finally {
+    Properties.VALIDATE.enabled = true;
+}
+
+// Selectively trace a specific subsystem or frame
+Properties.TRACE.enabled = true;
+renderProblematicFrame();
+Properties.TRACE.enabled = false;
+
+// Enforce strict leak failure on teardown for specific integration tests
+Properties.FAIL_ON_LEAKS.enable();
+```
+
+#### Caveats
+
+- **Bytecode Instrumentation vs. Runtime Checks:** Class transformation occurs at class-load time when the Java agent rewrites bytecode to route calls through proxy methods. Toggling flags such as `Properties.VALIDATE.enabled` or `Properties.TRACE.enabled` only toggles whether runtime checks, error queries (such as OpenAL `alGetError()`/`alcGetError()`), or logging are executed; it does not undo bytecode instrumentation or modify class-loading exclusion patterns (`exclude`).
+- **Resource Tracking Continuity:** Disabling `VALIDATE` bypasses lifecycle tracking for objects created or destroyed during that interval. If resources (textures, buffers, sources) are allocated, bound, or deleted while validation is disabled, re-enabling validation later may cause missing-handle or false-positive use-after-free warnings.
+- **Strict Mode Stack Traces:** Toggling `Properties.STRICT.enabled = true` mid-execution only records allocation stack traces for resources created *after* the flag was enabled. Resources created prior will display `(unknown)` for their creation site.
+- **I/O Redirection:** `Properties.OUTPUT` initializes file writers and zip/gz archive streams during agent startup; changing output target files or archive streams mid-execution is not supported.
 
 # Build
 
 1. `./mvnw package`
-2. see target/lwjglx-debug-1.0.4.jar
+2. see target/lwjglx-debug-1.1.0.jar
+
